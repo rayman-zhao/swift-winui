@@ -212,6 +212,104 @@ open class ButtonBase : WinUI.ContentControl {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings)
+public final class CalendarViewTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ICalendarViewTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICalendarViewTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.centerx)
+    public var centerX : Double {
+        get { try! _default.get_CenterX() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.centery)
+    public var centerY : Double {
+        get { try! _default.get_CenterY() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.cliprect)
+    public var clipRect : WindowsFoundation.Rect {
+        get { try! _default.get_ClipRect() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.hasmorecontentafter)
+    public var hasMoreContentAfter : Bool {
+        get { try! _default.get_HasMoreContentAfter() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.hasmorecontentbefore)
+    public var hasMoreContentBefore : Bool {
+        get { try! _default.get_HasMoreContentBefore() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.hasmoreviews)
+    public var hasMoreViews : Bool {
+        get { try! _default.get_HasMoreViews() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.headertext)
+    public var headerText : String {
+        get { try! _default.get_HeaderText() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.minviewwidth)
+    public var minViewWidth : Double {
+        get { try! _default.get_MinViewWidth() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.weekday1)
+    public var weekDay1 : String {
+        get { try! _default.get_WeekDay1() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.weekday2)
+    public var weekDay2 : String {
+        get { try! _default.get_WeekDay2() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.weekday3)
+    public var weekDay3 : String {
+        get { try! _default.get_WeekDay3() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.weekday4)
+    public var weekDay4 : String {
+        get { try! _default.get_WeekDay4() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.weekday5)
+    public var weekDay5 : String {
+        get { try! _default.get_WeekDay5() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.weekday6)
+    public var weekDay6 : String {
+        get { try! _default.get_WeekDay6() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings.weekday7)
+    public var weekDay7 : String {
+        get { try! _default.get_WeekDay7() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.comboboxtemplatesettings)
 public final class ComboBoxTemplateSettings : WinUI.DependencyObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IComboBoxTemplateSettings

@@ -332,6 +332,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
         public typealias Composable = IContentControlOverrides
     }
 
+    public enum CalendarViewTemplateSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = CalendarViewTemplateSettings
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICalendarViewTemplateSettings
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICalendarViewTemplateSettings>?) -> CalendarViewTemplateSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum ComboBoxTemplateSettingsBridge: AbiBridge {
         public typealias SwiftProjection = ComboBoxTemplateSettings
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIComboBoxTemplateSettings
@@ -725,6 +734,13 @@ public class ButtonBaseMaker: MakeFromAbi {
     public typealias SwiftType = ButtonBase
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return ButtonBase(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CalendarViewTemplateSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = CalendarViewTemplateSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CalendarViewTemplateSettings(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)

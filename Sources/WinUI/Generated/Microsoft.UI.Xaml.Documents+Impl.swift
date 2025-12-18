@@ -6,6 +6,45 @@ import CWinRT
 
 @_spi(WinRTInternal)
 public enum __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum BlockBridge: ComposableBridge {
+        public typealias SwiftProjection = Block
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock>?) -> Block? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
+            public typealias Class = Block
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBlock
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextElementOverrides
+    }
+
+    public enum BlockCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = BlockCollection
+        public typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CBlock
+        public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CBlock>?) -> BlockCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum BoldBridge: AbiBridge {
+        public typealias SwiftProjection = Bold
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold>?) -> Bold? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum HyperlinkBridge: AbiBridge {
         public typealias SwiftProjection = Hyperlink
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink
@@ -49,6 +88,33 @@ public enum __IMPL_Microsoft_UI_Xaml_Documents {
         public typealias SwiftProjection = InlineCollection
         public typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline
         public static func from(abi: ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline>?) -> InlineCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ItalicBridge: AbiBridge {
+        public typealias SwiftProjection = Italic
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic>?) -> Italic? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum LineBreakBridge: AbiBridge {
+        public typealias SwiftProjection = LineBreak
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak>?) -> LineBreak? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum ParagraphBridge: AbiBridge {
+        public typealias SwiftProjection = Paragraph
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph>?) -> Paragraph? {
             guard let abi = abi else { return nil }
             return .init(fromAbi: WindowsFoundation.IInspectable(abi))
         }
@@ -135,6 +201,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Documents {
         }
     }
 
+    public enum UnderlineBridge: AbiBridge {
+        public typealias SwiftProjection = Underline
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline>?) -> Underline? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
 }
 @_spi(WinRTInternal)
 extension TextRange: WinRTBridgeable {
@@ -147,6 +222,27 @@ extension TextRange: WinRTBridgeable {
     }
 }
 
+@_spi(WinRTInternal)
+public class BlockMaker: MakeFromAbi {
+    public typealias SwiftType = Block
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Block(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BlockCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = BlockCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BlockCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class BoldMaker: MakeFromAbi {
+    public typealias SwiftType = Bold
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Bold(fromAbi: abi)
+    }
+}
 @_spi(WinRTInternal)
 public class HyperlinkMaker: MakeFromAbi {
     public typealias SwiftType = Hyperlink
@@ -173,6 +269,27 @@ public class InlineCollectionMaker: MakeFromAbi {
     public typealias SwiftType = InlineCollection
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return InlineCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ItalicMaker: MakeFromAbi {
+    public typealias SwiftType = Italic
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Italic(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class LineBreakMaker: MakeFromAbi {
+    public typealias SwiftType = LineBreak
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LineBreak(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class ParagraphMaker: MakeFromAbi {
+    public typealias SwiftType = Paragraph
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Paragraph(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
@@ -208,5 +325,12 @@ public class TextPointerMaker: MakeFromAbi {
     public typealias SwiftType = TextPointer
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return TextPointer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class UnderlineMaker: MakeFromAbi {
+    public typealias SwiftType = Underline
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Underline(fromAbi: abi)
     }
 }

@@ -106,6 +106,54 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIButtonStatics: WindowsF
     .init(Data1: 0x57823D25, Data2: 0xB26A, Data3: 0x5E0F, Data4: ( 0x94,0xF6,0xBB,0xAE,0x70,0x68,0x3D,0xC5 ))// 57823D25-B26A-5E0F-94F6-BBAE70683DC5
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker: WindowsFoundation.IID {
+    .init(Data1: 0xE3D9FAA1, Data2: 0x0FD0, Data3: 0x5932, Data4: ( 0xA6,0xDB,0xFF,0x00,0xC0,0x03,0xAC,0x21 ))// E3D9FAA1-0FD0-5932-A6DB-FF00C003AC21
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x57C212D7, Data2: 0xC2F2, Data3: 0x54A0, Data4: ( 0x9D,0x41,0xF2,0x63,0xB1,0xE5,0x10,0x6E ))// 57C212D7-C2F2-54A0-9D41-F263B1E5106E
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerFactory: WindowsFoundation.IID {
+    .init(Data1: 0xB00C7818, Data2: 0x955A, Data3: 0x5524, Data4: ( 0xB4,0x51,0x93,0x86,0x82,0x30,0x89,0x2F ))// B00C7818-955A-5524-B451-93868230892F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics: WindowsFoundation.IID {
+    .init(Data1: 0xE74EB740, Data2: 0x1AEB, Data3: 0x591F, Data4: ( 0xB8,0x4A,0xEF,0x88,0x1C,0x3B,0x52,0x7E ))// E74EB740-1AEB-591F-B84A-EF881C3B527E
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView: WindowsFoundation.IID {
+    .init(Data1: 0xE786081E, Data2: 0xB680, Data3: 0x56AB, Data4: ( 0xBF,0xBB,0x52,0xD5,0xB1,0x7C,0x36,0x5E ))// E786081E-B680-56AB-BFBB-52D5B17C365E
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem: WindowsFoundation.IID {
+    .init(Data1: 0x947D3A07, Data2: 0x6FA4, Data3: 0x553C, Data4: ( 0x9B,0x12,0x57,0xCA,0x1B,0xF7,0x2E,0x9E ))// 947D3A07-6FA4-553C-9B12-57CA1BF72E9E
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xE894FE7F, Data2: 0x12F6, Data3: 0x5B1A, Data4: ( 0x88,0xA2,0xA9,0x67,0x64,0xC1,0x27,0x3F ))// E894FE7F-12F6-5B1A-88A2-A96764C1273F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemFactory: WindowsFoundation.IID {
+    .init(Data1: 0xE6159E51, Data2: 0x1C48, Data3: 0x5A77, Data4: ( 0xA3,0xA1,0xAE,0xF5,0x9D,0x6A,0x8C,0x4E ))// E6159E51-1C48-5A77-A3A1-AEF59D6A8C4E
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemStatics: WindowsFoundation.IID {
+    .init(Data1: 0x2B2C4006, Data2: 0x57FA, Data3: 0x5F0F, Data4: ( 0xB8,0xED,0x26,0xE2,0x1F,0x91,0x0E,0x3A ))// 2B2C4006-57FA-5F0F-B8ED-26E21F910E3A
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewFactory: WindowsFoundation.IID {
+    .init(Data1: 0x2F31D1EB, Data2: 0x8229, Data3: 0x517C, Data4: ( 0xB3,0xA6,0x5A,0x5F,0x28,0x72,0x4E,0x8F ))// 2F31D1EB-8229-517C-B3A6-5A5F28724E8F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x675F688F, Data2: 0xBC30, Data3: 0x59F6, Data4: ( 0x83,0xC4,0x14,0x0B,0xD0,0x53,0xA0,0x9A ))// 675F688F-BC30-59F6-83C4-140BD053A09A
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics: WindowsFoundation.IID {
+    .init(Data1: 0x9553E6FC, Data2: 0xE4DA, Data3: 0x57D4, Data4: ( 0x94,0x72,0x7F,0x8E,0xD5,0xFF,0x72,0x19 ))// 9553E6FC-E4DA-57D4-9472-7F8ED5FF7219
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICandidateWindowBoundsChangedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xB76FAF94, Data2: 0x3172, Data3: 0x5C50, Data4: ( 0x95,0x07,0x26,0xCD,0x87,0x38,0x15,0xA1 ))// B76FAF94-3172-5C50-9507-26CD873815A1
 }
@@ -284,6 +332,26 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelectorFac
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelectorOverrides: WindowsFoundation.IID {
     .init(Data1: 0x980448CC, Data2: 0xC114, Data3: 0x5B89, Data4: ( 0x8E,0x09,0x61,0xB0,0xF2,0x64,0xE5,0x92 ))// 980448CC-C114-5B89-8E09-61B0F264E592
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker: WindowsFoundation.IID {
+    .init(Data1: 0xCA1DC351, Data2: 0x3AE3, Data3: 0x5247, Data4: ( 0x82,0x63,0x16,0xBD,0x51,0x6C,0x6E,0x72 ))// CA1DC351-3AE3-5247-8263-16BD516C6E72
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerFactory: WindowsFoundation.IID {
+    .init(Data1: 0xA16BEA02, Data2: 0xB3E0, Data3: 0x5FDC, Data4: ( 0xB5,0xBB,0x25,0xF7,0x94,0xDC,0x48,0x3B ))// A16BEA02-B3E0-5FDC-B5BB-25F794DC483B
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x305ED436, Data2: 0x370F, Data3: 0x5E82, Data4: ( 0xAC,0xF2,0xF1,0x41,0x3E,0x8F,0x9E,0xC4 ))// 305ED436-370F-5E82-ACF2-F1413E8F9EC4
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics: WindowsFoundation.IID {
+    .init(Data1: 0x4D810253, Data2: 0xAAE7, Data3: 0x5BE1, Data4: ( 0xB7,0xA8,0xAF,0x45,0x1C,0xA4,0x33,0xE1 ))// 4D810253-AAE7-5BE1-B7A8-AF451CA433E1
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xBD4E36CA, Data2: 0xF6AB, Data3: 0x57CF, Data4: ( 0x84,0xF0,0x75,0xD0,0x24,0x08,0x4F,0x20 ))// BD4E36CA-F6AB-57CF-84F0-75D024084F20
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsCompletedEventArgs: WindowsFoundation.IID {
@@ -718,6 +786,14 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsSourceViewFactory:
     .init(Data1: 0xAADC6FDD, Data2: 0xEB00, Data3: 0x5E58, Data4: ( 0xB9,0x5D,0x12,0x0F,0x89,0x1D,0x73,0x3F ))// AADC6FDD-EB00-5E58-B95D-120F891D733F
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel: WindowsFoundation.IID {
+    .init(Data1: 0xF7E52FDF, Data2: 0x4779, Data3: 0x5F63, Data4: ( 0x99,0x99,0x7D,0x67,0x7E,0x3F,0xD2,0xC1 ))// F7E52FDF-4779-5F63-9999-7D677E3FD2C1
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanelStatics: WindowsFoundation.IID {
+    .init(Data1: 0x7CA08D59, Data2: 0xBE10, Data3: 0x5D61, Data4: ( 0xAB,0xE2,0x08,0x9A,0xD4,0x4D,0xB1,0xD6 ))// 7CA08D59-BE10-5D61-ABE2-089AD44DB1D6
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsWrapGrid: WindowsFoundation.IID {
     .init(Data1: 0x29910BC5, Data2: 0xB305, Data3: 0x5529, Data4: ( 0xB8,0x8C,0x77,0x6C,0x66,0xE1,0xB3,0xBA ))// 29910BC5-B305-5529-B88C-776C66E1B3BA
 }
@@ -1046,6 +1122,22 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateS
     .init(Data1: 0xC0C06BE3, Data2: 0x9203, Data3: 0x5EEA, Data4: ( 0x91,0xDC,0x5D,0x81,0x2A,0x97,0x02,0xA6 ))// C0C06BE3-9203-5EEA-91DC-5D812A9702A6
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox: WindowsFoundation.IID {
+    .init(Data1: 0xC18EB0E9, Data2: 0x29FB, Data3: 0x525D, Data4: ( 0xAB,0xBC,0xD6,0xB2,0x11,0x0F,0x54,0x2E ))// C18EB0E9-29FB-525D-ABBC-D6B2110F542E
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxFactory: WindowsFoundation.IID {
+    .init(Data1: 0x6B81F3CB, Data2: 0x45A4, Data3: 0x5D19, Data4: ( 0x9B,0xBB,0xA9,0xFE,0x46,0x56,0xAC,0x4D ))// 6B81F3CB-45A4-5D19-9BBB-A9FE4656AC4D
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics: WindowsFoundation.IID {
+    .init(Data1: 0x251EC05C, Data2: 0xA77C, Data3: 0x5540, Data4: ( 0xBE,0x39,0x60,0x53,0xF7,0x97,0xCD,0xE7 ))// 251EC05C-A77C-5540-BE39-6053F797CDE7
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xC66CF16E, Data2: 0x7C8A, Data3: 0x532E, Data4: ( 0x9D,0x23,0x05,0x8C,0x1C,0x98,0xDD,0x50 ))// C66CF16E-7C8A-532E-9D23-058C1C98DD50
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPage: WindowsFoundation.IID {
     .init(Data1: 0xEB42988E, Data2: 0x6CB5, Data3: 0x5DD6, Data4: ( 0x9E,0x59,0x4C,0x04,0xE5,0xCA,0xEC,0x6D ))// EB42988E-6CB5-5DD6-9E59-4C04E5CAEC6D
 }
@@ -1256,6 +1348,22 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanelFactory: W
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanelStatics: WindowsFoundation.IID {
     .init(Data1: 0xBDD929A2, Data2: 0x76CC, Data3: 0x59C4, Data4: ( 0x82,0xC1,0xF1,0x4B,0x5D,0xA4,0x22,0x1A ))// BDD929A2-76CC-59C4-82C1-F14B5DA4221A
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock: WindowsFoundation.IID {
+    .init(Data1: 0xD766E4DB, Data2: 0xA684, Data3: 0x50B7, Data4: ( 0xA2,0x02,0xC8,0xE9,0x1F,0xA2,0x6F,0xF3 ))// D766E4DB-A684-50B7-A202-C8E91FA26FF3
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow: WindowsFoundation.IID {
+    .init(Data1: 0x015C2522, Data2: 0x0646, Data3: 0x5C71, Data4: ( 0x9F,0x54,0x3C,0x38,0xC7,0x23,0x5A,0x62 ))// 015C2522-0646-5C71-9F54-3C38C7235A62
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflowStatics: WindowsFoundation.IID {
+    .init(Data1: 0x6DB6EE42, Data2: 0xA333, Data3: 0x5E5B, Data4: ( 0x9C,0xE8,0xF5,0xE2,0xF4,0x6F,0x4D,0x66 ))// 6DB6EE42-A333-5E5B-9CE8-F5E2F46F4D66
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics: WindowsFoundation.IID {
+    .init(Data1: 0x65DCA245, Data2: 0xB4FC, Data3: 0x5718, Data4: ( 0xB6,0x28,0xA4,0x95,0x3F,0x61,0xD6,0xA3 ))// 65DCA245-B4FC-5718-B628-A4953F61D6A3
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRowDefinition: WindowsFoundation.IID {
@@ -1474,6 +1582,18 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISwapChainPanelStatics: 
     .init(Data1: 0xD83B0621, Data2: 0xAACA, Data3: 0x534B, Data4: ( 0xAF,0xDE,0x53,0x70,0x16,0x71,0x76,0xB5 ))// D83B0621-AACA-534B-AFDE-5370167176B5
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon: WindowsFoundation.IID {
+    .init(Data1: 0xA4322906, Data2: 0x0DBE, Data3: 0x5EB7, Data4: ( 0x8B,0x64,0x3E,0x83,0x22,0x46,0xEB,0x7F ))// A4322906-0DBE-5EB7-8B64-3E832246EB7F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconFactory: WindowsFoundation.IID {
+    .init(Data1: 0xD4430447, Data2: 0x567C, Data3: 0x5AAD, Data4: ( 0x99,0x6A,0xA5,0x47,0x77,0x4E,0x2C,0x3C ))// D4430447-567C-5AAD-996A-A547774E2C3C
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconStatics: WindowsFoundation.IID {
+    .init(Data1: 0xCCAA0C34, Data2: 0x31F2, Data3: 0x50F1, Data4: ( 0xB3,0x28,0xBE,0x6E,0xDC,0x29,0x1A,0xAA ))// CCAA0C34-31F2-50F1-B328-BE6EDC291AAA
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabView: WindowsFoundation.IID {
     .init(Data1: 0x07B509E1, Data2: 0x1D38, Data3: 0x551B, Data4: ( 0x95,0xF4,0x47,0x32,0xB0,0x49,0xF6,0xA6 ))// 07B509E1-1D38-551B-95F4-4732B049F6A6
 }
@@ -1648,6 +1768,26 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlCuttingToCli
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xFC5E567E, Data2: 0x3AA9, Data3: 0x5C57, Data4: ( 0x88,0xD4,0x83,0x4A,0xD3,0xB6,0x2E,0x9E ))// FC5E567E-3AA9-5C57-88D4-834AD3B62E9E
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker: WindowsFoundation.IID {
+    .init(Data1: 0xED4BAA33, Data2: 0xC240, Data3: 0x5934, Data4: ( 0x92,0x29,0x82,0xD3,0x7B,0x26,0xF8,0x46 ))// ED4BAA33-C240-5934-9229-82D37B26F846
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerFactory: WindowsFoundation.IID {
+    .init(Data1: 0x1584429E, Data2: 0xAAFE, Data3: 0x5C65, Data4: ( 0x89,0xE9,0x8C,0x06,0x6E,0x56,0x90,0xE7 ))// 1584429E-AAFE-5C65-89E9-8C066E5690E7
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x6ED7EDF1, Data2: 0x9B0B, Data3: 0x5E7B, Data4: ( 0x9E,0x10,0xF3,0x56,0x60,0xA2,0x9F,0xD2 ))// 6ED7EDF1-9B0B-5E7B-9E10-F35660A29FD2
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics: WindowsFoundation.IID {
+    .init(Data1: 0x12BEF59E, Data2: 0x4222, Data3: 0x507B, Data4: ( 0x90,0x1E,0xEF,0xFD,0x04,0x62,0x0C,0x4F ))// 12BEF59E-4222-507B-901E-EFFD04620C4F
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x7B98953F, Data2: 0xC24A, Data3: 0x53C6, Data4: ( 0x8A,0x3A,0x52,0x05,0x58,0x50,0x8B,0x08 ))// 7B98953F-C24A-53C6-8A3A-520558508B08
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar: WindowsFoundation.IID {
@@ -1912,6 +2052,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIXamlControlsResources: 
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIXamlControlsResourcesStatics: WindowsFoundation.IID {
     .init(Data1: 0xCB49196C, Data2: 0x1458, Data3: 0x5E92, Data4: ( 0xB7,0x01,0xD0,0x8D,0x3E,0x81,0x6B,0xC5 ))// CB49196C-1458-5E92-B701-D08D3E816BC5
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandler: WindowsFoundation.IID {
+    .init(Data1: 0xAB8075FD, Data2: 0x7A4B, Data3: 0x504E, Data4: ( 0x8A,0x63,0xD7,0xF3,0x55,0x70,0xBD,0x86 ))// AB8075FD-7A4B-504E-8A63-D7F35570BD86
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContextMenuOpeningEventHandler: WindowsFoundation.IID {
@@ -3090,6 +3234,2535 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIButtonStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_FlyoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class ICalendarDatePicker: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker }
+
+        public func get_Date() throws -> WindowsFoundation.DateTime? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Date(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Date(_ value: WindowsFoundation.DateTime?) throws {
+            let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Date(pThis, _value))
+            }
+        }
+
+        public func get_IsCalendarOpen() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCalendarOpen(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsCalendarOpen(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsCalendarOpen(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_DateFormat() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DateFormat(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_DateFormat(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DateFormat(pThis, _value.get()))
+            }
+        }
+
+        public func get_PlaceholderText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_PlaceholderText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaceholderText(pThis, _value.get()))
+            }
+        }
+
+        public func get_Header() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Header(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Header(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Header(pThis, _value))
+            }
+        }
+
+        public func get_HeaderTemplate() throws -> WinUI.DataTemplate? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplate(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: value)
+        }
+
+        public func put_HeaderTemplate(_ value: WinUI.DataTemplate?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HeaderTemplate(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarViewStyle() throws -> WinUI.Style? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarViewStyle(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.StyleBridge.from(abi: value)
+        }
+
+        public func put_CalendarViewStyle(_ value: WinUI.Style?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarViewStyle(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_LightDismissOverlayMode() throws -> WinUI.LightDismissOverlayMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CLightDismissOverlayMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LightDismissOverlayMode(_ value: WinUI.LightDismissOverlayMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LightDismissOverlayMode(pThis, value))
+            }
+        }
+
+        public func get_Description() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Description(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Description(pThis, _value))
+            }
+        }
+
+        public func get_MinDate() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinDate(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MinDate(_ value: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinDate(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_MaxDate() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxDate(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MaxDate(_ value: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxDate(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_IsTodayHighlighted() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTodayHighlighted(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsTodayHighlighted(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsTodayHighlighted(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_DisplayMode() throws -> WinUI.CalendarViewDisplayMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewDisplayMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DisplayMode(_ value: WinUI.CalendarViewDisplayMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DisplayMode(pThis, value))
+            }
+        }
+
+        public func get_FirstDayOfWeek() throws -> UWP.DayOfWeek {
+            var value: __x_ABI_CWindows_CGlobalization_CDayOfWeek = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstDayOfWeek(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FirstDayOfWeek(_ value: UWP.DayOfWeek) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstDayOfWeek(pThis, value))
+            }
+        }
+
+        public func get_DayOfWeekFormat() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayOfWeekFormat(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_DayOfWeekFormat(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayOfWeekFormat(pThis, _value.get()))
+            }
+        }
+
+        public func get_CalendarIdentifier() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifier(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_CalendarIdentifier(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarIdentifier(pThis, _value.get()))
+            }
+        }
+
+        public func get_IsOutOfScopeEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsOutOfScopeEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsOutOfScopeEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsOutOfScopeEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsGroupLabelVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsGroupLabelVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsGroupLabelVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsGroupLabelVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func add_CalendarViewDayItemChanging(_ handler: WinUI.CalendarViewDayItemChangingEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml_Controls.CalendarViewDayItemChangingEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CalendarViewDayItemChanging(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CalendarViewDayItemChanging(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CalendarViewDayItemChanging(pThis, token))
+            }
+        }
+
+        public func add_DateChanged(_ handler: TypedEventHandler<WinUI.CalendarDatePicker?, WinUI.CalendarDatePickerDateChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarDatePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarDatePickerDateChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DateChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DateChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DateChanged(pThis, token))
+            }
+        }
+
+        public func add_Opened(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Opened(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Opened(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Opened(pThis, token))
+            }
+        }
+
+        public func add_Closed(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Closed(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Closed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Closed(pThis, token))
+            }
+        }
+
+        public func SetDisplayDate(_ date: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetDisplayDate(pThis, .from(swift: date)))
+            }
+        }
+
+        public func SetYearDecadeDisplayDimensions(_ columns: Int32, _ rows: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetYearDecadeDisplayDimensions(pThis, columns, rows))
+            }
+        }
+
+    }
+
+    public class ICalendarDatePickerDateChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs }
+
+        public func get_NewDate() throws -> WindowsFoundation.DateTime? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewDate(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_OldDate() throws -> WindowsFoundation.DateTime? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldDate(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    public class ICalendarDatePickerFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CalendarDatePickerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICalendarDatePicker {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ICalendarDatePicker(value!)
+        }
+
+    }
+
+    public class ICalendarDatePickerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics }
+
+        public func get_DateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsCalendarOpenProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCalendarOpenProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DateFormatProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DateFormatProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PlaceholderTextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderTextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarViewStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarViewStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LightDismissOverlayModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DescriptionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DescriptionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MinDateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinDateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxDateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxDateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTodayHighlightedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTodayHighlightedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DisplayModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstDayOfWeekProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstDayOfWeekProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayOfWeekFormatProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayOfWeekFormatProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarIdentifierProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifierProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsOutOfScopeEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsOutOfScopeEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsGroupLabelVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsGroupLabelVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class ICalendarView: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView }
+
+        public func get_CalendarIdentifier() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifier(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_CalendarIdentifier(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarIdentifier(pThis, _value.get()))
+            }
+        }
+
+        public func get_DayOfWeekFormat() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayOfWeekFormat(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_DayOfWeekFormat(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayOfWeekFormat(pThis, _value.get()))
+            }
+        }
+
+        public func get_IsGroupLabelVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsGroupLabelVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsGroupLabelVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsGroupLabelVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_DisplayMode() throws -> WinUI.CalendarViewDisplayMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewDisplayMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DisplayMode(_ value: WinUI.CalendarViewDisplayMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DisplayMode(pThis, value))
+            }
+        }
+
+        public func get_FirstDayOfWeek() throws -> UWP.DayOfWeek {
+            var value: __x_ABI_CWindows_CGlobalization_CDayOfWeek = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstDayOfWeek(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FirstDayOfWeek(_ value: UWP.DayOfWeek) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstDayOfWeek(pThis, value))
+            }
+        }
+
+        public func get_IsOutOfScopeEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsOutOfScopeEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsOutOfScopeEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsOutOfScopeEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsTodayHighlighted() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTodayHighlighted(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsTodayHighlighted(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsTodayHighlighted(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_MaxDate() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxDate(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MaxDate(_ value: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxDate(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_MinDate() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinDate(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MinDate(_ value: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinDate(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_NumberOfWeeksInView() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfWeeksInView(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_NumberOfWeeksInView(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NumberOfWeeksInView(pThis, value))
+            }
+        }
+
+        public func get_SelectedDates() throws -> WindowsFoundation.AnyIVector<WindowsFoundation.DateTime>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedDates(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_SelectionMode() throws -> WinUI.CalendarViewSelectionMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewSelectionMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SelectionMode(_ value: WinUI.CalendarViewSelectionMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionMode(pThis, value))
+            }
+        }
+
+        public func get_TemplateSettings() throws -> WinUI.CalendarViewTemplateSettings? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TemplateSettings(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.CalendarViewTemplateSettingsBridge.from(abi: value)
+        }
+
+        public func get_FocusBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FocusBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_FocusBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FocusBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectedHoverBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedHoverBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_SelectedHoverBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedHoverBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectedPressedBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedPressedBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_SelectedPressedBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedPressedBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectedDisabledBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedDisabledBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_SelectedDisabledBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedDisabledBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectedBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_SelectedBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_HoverBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HoverBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_HoverBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HoverBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_PressedBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PressedBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_PressedBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PressedBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TodaySelectedInnerBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodaySelectedInnerBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_TodaySelectedInnerBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodaySelectedInnerBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_BlackoutStrikethroughBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_BlackoutStrikethroughBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_BlackoutStrikethroughBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_BlackoutStrikethroughBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarItemBorderBrush() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemBorderBrush(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_CalendarItemBorderBrush(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarItemBorderBrush(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_BlackoutBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_BlackoutBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_BlackoutBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_BlackoutBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_OutOfScopeBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutOfScopeBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_OutOfScopeBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OutOfScopeBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarItemBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_CalendarItemBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarItemBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarItemHoverBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemHoverBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_CalendarItemHoverBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarItemHoverBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarItemPressedBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemPressedBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_CalendarItemPressedBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarItemPressedBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarItemDisabledBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemDisabledBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_CalendarItemDisabledBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarItemDisabledBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TodayBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_TodayBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodayBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TodayBlackoutBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayBlackoutBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_TodayBlackoutBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodayBlackoutBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TodayHoverBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayHoverBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_TodayHoverBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodayHoverBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TodayPressedBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayPressedBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_TodayPressedBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodayPressedBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TodayDisabledBackground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayDisabledBackground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_TodayDisabledBackground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodayDisabledBackground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_PressedForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PressedForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_PressedForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PressedForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TodayForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_TodayForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodayForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_BlackoutForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_BlackoutForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_BlackoutForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_BlackoutForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TodayBlackoutForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayBlackoutForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_TodayBlackoutForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodayBlackoutForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectedForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_SelectedForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectedHoverForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedHoverForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_SelectedHoverForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedHoverForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectedPressedForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedPressedForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_SelectedPressedForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedPressedForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectedDisabledForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedDisabledForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_SelectedDisabledForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedDisabledForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_OutOfScopeForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutOfScopeForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_OutOfScopeForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OutOfScopeForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_OutOfScopeHoverForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutOfScopeHoverForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_OutOfScopeHoverForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OutOfScopeHoverForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_OutOfScopePressedForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutOfScopePressedForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_OutOfScopePressedForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OutOfScopePressedForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarItemForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_CalendarItemForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarItemForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_DisabledForeground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisabledForeground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_DisabledForeground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DisabledForeground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_DayItemFontFamily() throws -> WinUI.FontFamily? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemFontFamily(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.FontFamilyBridge.from(abi: value)
+        }
+
+        public func put_DayItemFontFamily(_ value: WinUI.FontFamily?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayItemFontFamily(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_DayItemFontSize() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemFontSize(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DayItemFontSize(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayItemFontSize(pThis, value))
+            }
+        }
+
+        public func get_DayItemFontStyle() throws -> UWP.FontStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemFontStyle(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DayItemFontStyle(_ value: UWP.FontStyle) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayItemFontStyle(pThis, value))
+            }
+        }
+
+        public func get_DayItemFontWeight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemFontWeight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_DayItemFontWeight(_ value: UWP.FontWeight) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayItemFontWeight(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_TodayFontWeight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayFontWeight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_TodayFontWeight(_ value: UWP.FontWeight) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TodayFontWeight(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_FirstOfMonthLabelFontFamily() throws -> WinUI.FontFamily? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelFontFamily(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.FontFamilyBridge.from(abi: value)
+        }
+
+        public func put_FirstOfMonthLabelFontFamily(_ value: WinUI.FontFamily?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfMonthLabelFontFamily(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_FirstOfMonthLabelFontSize() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelFontSize(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FirstOfMonthLabelFontSize(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfMonthLabelFontSize(pThis, value))
+            }
+        }
+
+        public func get_FirstOfMonthLabelFontStyle() throws -> UWP.FontStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelFontStyle(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FirstOfMonthLabelFontStyle(_ value: UWP.FontStyle) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfMonthLabelFontStyle(pThis, value))
+            }
+        }
+
+        public func get_FirstOfMonthLabelFontWeight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelFontWeight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_FirstOfMonthLabelFontWeight(_ value: UWP.FontWeight) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfMonthLabelFontWeight(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_MonthYearItemFontFamily() throws -> WinUI.FontFamily? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemFontFamily(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.FontFamilyBridge.from(abi: value)
+        }
+
+        public func put_MonthYearItemFontFamily(_ value: WinUI.FontFamily?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MonthYearItemFontFamily(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_MonthYearItemFontSize() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemFontSize(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MonthYearItemFontSize(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MonthYearItemFontSize(pThis, value))
+            }
+        }
+
+        public func get_MonthYearItemFontStyle() throws -> UWP.FontStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemFontStyle(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MonthYearItemFontStyle(_ value: UWP.FontStyle) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MonthYearItemFontStyle(pThis, value))
+            }
+        }
+
+        public func get_MonthYearItemFontWeight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemFontWeight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MonthYearItemFontWeight(_ value: UWP.FontWeight) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MonthYearItemFontWeight(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_FirstOfYearDecadeLabelFontFamily() throws -> WinUI.FontFamily? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelFontFamily(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.FontFamilyBridge.from(abi: value)
+        }
+
+        public func put_FirstOfYearDecadeLabelFontFamily(_ value: WinUI.FontFamily?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfYearDecadeLabelFontFamily(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_FirstOfYearDecadeLabelFontSize() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelFontSize(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FirstOfYearDecadeLabelFontSize(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfYearDecadeLabelFontSize(pThis, value))
+            }
+        }
+
+        public func get_FirstOfYearDecadeLabelFontStyle() throws -> UWP.FontStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelFontStyle(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FirstOfYearDecadeLabelFontStyle(_ value: UWP.FontStyle) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfYearDecadeLabelFontStyle(pThis, value))
+            }
+        }
+
+        public func get_FirstOfYearDecadeLabelFontWeight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelFontWeight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_FirstOfYearDecadeLabelFontWeight(_ value: UWP.FontWeight) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfYearDecadeLabelFontWeight(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_DayItemMargin() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemMargin(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_DayItemMargin(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayItemMargin(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_MonthYearItemMargin() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemMargin(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MonthYearItemMargin(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MonthYearItemMargin(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_FirstOfMonthLabelMargin() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelMargin(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_FirstOfMonthLabelMargin(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfMonthLabelMargin(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_FirstOfYearDecadeLabelMargin() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelMargin(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_FirstOfYearDecadeLabelMargin(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FirstOfYearDecadeLabelMargin(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_HorizontalDayItemAlignment() throws -> WinUI.HorizontalAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CHorizontalAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalDayItemAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_HorizontalDayItemAlignment(_ value: WinUI.HorizontalAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalDayItemAlignment(pThis, value))
+            }
+        }
+
+        public func get_VerticalDayItemAlignment() throws -> WinUI.VerticalAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CVerticalAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalDayItemAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_VerticalDayItemAlignment(_ value: WinUI.VerticalAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalDayItemAlignment(pThis, value))
+            }
+        }
+
+        public func get_HorizontalFirstOfMonthLabelAlignment() throws -> WinUI.HorizontalAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CHorizontalAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalFirstOfMonthLabelAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_HorizontalFirstOfMonthLabelAlignment(_ value: WinUI.HorizontalAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalFirstOfMonthLabelAlignment(pThis, value))
+            }
+        }
+
+        public func get_VerticalFirstOfMonthLabelAlignment() throws -> WinUI.VerticalAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CVerticalAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalFirstOfMonthLabelAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_VerticalFirstOfMonthLabelAlignment(_ value: WinUI.VerticalAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalFirstOfMonthLabelAlignment(pThis, value))
+            }
+        }
+
+        public func get_CalendarItemBorderThickness() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemBorderThickness(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_CalendarItemBorderThickness(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarItemBorderThickness(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_CalendarViewDayItemStyle() throws -> WinUI.Style? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarViewDayItemStyle(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.StyleBridge.from(abi: value)
+        }
+
+        public func put_CalendarViewDayItemStyle(_ value: WinUI.Style?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarViewDayItemStyle(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarItemCornerRadius() throws -> WinUI.CornerRadius {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CCornerRadius = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemCornerRadius(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_CalendarItemCornerRadius(_ value: WinUI.CornerRadius) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarItemCornerRadius(pThis, .from(swift: value)))
+            }
+        }
+
+        public func add_CalendarViewDayItemChanging(_ handler: TypedEventHandler<WinUI.CalendarView?, WinUI.CalendarViewDayItemChangingEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewDayItemChangingEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CalendarViewDayItemChanging(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CalendarViewDayItemChanging(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CalendarViewDayItemChanging(pThis, token))
+            }
+        }
+
+        public func add_SelectedDatesChanged(_ handler: TypedEventHandler<WinUI.CalendarView?, WinUI.CalendarViewSelectedDatesChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewSelectedDatesChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectedDatesChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectedDatesChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectedDatesChanged(pThis, token))
+            }
+        }
+
+        public func SetDisplayDate(_ date: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetDisplayDate(pThis, .from(swift: date)))
+            }
+        }
+
+        public func SetYearDecadeDisplayDimensions(_ columns: Int32, _ rows: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetYearDecadeDisplayDimensions(pThis, columns, rows))
+            }
+        }
+
+    }
+
+    public class ICalendarViewDayItem: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem }
+
+        public func get_IsBlackout() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsBlackout(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsBlackout(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsBlackout(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_Date() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Date(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func SetDensityColors(_ colors: WindowsFoundation.AnyIIterable<UWP.Color>?) throws {
+            let colorsWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CWindows__CUI__CColorWrapper(colors)
+            let _colors = try! colorsWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetDensityColors(pThis, _colors))
+            }
+        }
+
+    }
+
+    public class ICalendarViewDayItemChangingEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs }
+
+        public func get_InRecycleQueue() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_InRecycleQueue(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_Item() throws -> WinUI.CalendarViewDayItem? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Item(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemBridge.from(abi: value)
+        }
+
+        public func get_Phase() throws -> UInt32 {
+            var value: UINT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Phase(pThis, &value))
+            }
+            return value
+        }
+
+        public func RegisterUpdateCallback(_ callback: TypedEventHandler<WinUI.CalendarView?, WinUI.CalendarViewDayItemChangingEventArgs?>?) throws {
+            let callbackWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewDayItemChangingEventArgsWrapper(callback)
+            let _callback = try! callbackWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RegisterUpdateCallback(pThis, _callback))
+            }
+        }
+
+        public func RegisterUpdateCallbackWithPhase(_ callbackPhase: UInt32, _ callback: TypedEventHandler<WinUI.CalendarView?, WinUI.CalendarViewDayItemChangingEventArgs?>?) throws {
+            let callbackWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewDayItemChangingEventArgsWrapper(callback)
+            let _callback = try! callbackWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RegisterUpdateCallbackWithPhase(pThis, callbackPhase, _callback))
+            }
+        }
+
+    }
+
+    public class ICalendarViewDayItemFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICalendarViewDayItem {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ICalendarViewDayItem(value!)
+        }
+
+    }
+
+    public class ICalendarViewDayItemStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemStatics }
+
+        public func get_IsBlackoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsBlackoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class ICalendarViewFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICalendarView {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ICalendarView(value!)
+        }
+
+    }
+
+    public class ICalendarViewSelectedDatesChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs }
+
+        public func get_AddedDates() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.DateTime>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AddedDates(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_RemovedDates() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.DateTime>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RemovedDates(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    public class ICalendarViewStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics }
+
+        public func get_CalendarIdentifierProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifierProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayOfWeekFormatProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayOfWeekFormatProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsGroupLabelVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsGroupLabelVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DisplayModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstDayOfWeekProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstDayOfWeekProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsOutOfScopeEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsOutOfScopeEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTodayHighlightedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTodayHighlightedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxDateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxDateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MinDateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinDateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_NumberOfWeeksInViewProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberOfWeeksInViewProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedDatesProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedDatesProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TemplateSettingsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TemplateSettingsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FocusBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FocusBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedHoverBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedHoverBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedPressedBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedPressedBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedDisabledBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedDisabledBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HoverBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HoverBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PressedBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PressedBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodaySelectedInnerBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodaySelectedInnerBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_BlackoutStrikethroughBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_BlackoutStrikethroughBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarItemBorderBrushProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemBorderBrushProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_BlackoutBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_BlackoutBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_OutOfScopeBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutOfScopeBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarItemBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarItemHoverBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemHoverBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarItemPressedBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemPressedBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarItemDisabledBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemDisabledBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodayBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodayBlackoutBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayBlackoutBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodayHoverBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayHoverBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodayPressedBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayPressedBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodayDisabledBackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayDisabledBackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PressedForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PressedForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodayForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_BlackoutForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_BlackoutForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodayBlackoutForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayBlackoutForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedHoverForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedHoverForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedPressedForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedPressedForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedDisabledForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedDisabledForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_OutOfScopeForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutOfScopeForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_OutOfScopeHoverForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutOfScopeHoverForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_OutOfScopePressedForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OutOfScopePressedForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarItemForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DisabledForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisabledForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayItemFontFamilyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemFontFamilyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayItemFontSizeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemFontSizeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayItemFontStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemFontStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayItemFontWeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemFontWeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TodayFontWeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TodayFontWeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfMonthLabelFontFamilyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelFontFamilyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfMonthLabelFontSizeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelFontSizeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfMonthLabelFontStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelFontStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfMonthLabelFontWeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelFontWeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MonthYearItemFontFamilyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemFontFamilyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MonthYearItemFontSizeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemFontSizeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MonthYearItemFontStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemFontStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MonthYearItemFontWeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemFontWeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfYearDecadeLabelFontFamilyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelFontFamilyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfYearDecadeLabelFontSizeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelFontSizeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfYearDecadeLabelFontStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelFontStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfYearDecadeLabelFontWeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelFontWeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayItemMarginProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayItemMarginProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MonthYearItemMarginProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthYearItemMarginProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfMonthLabelMarginProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfMonthLabelMarginProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FirstOfYearDecadeLabelMarginProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstOfYearDecadeLabelMarginProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HorizontalDayItemAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalDayItemAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_VerticalDayItemAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalDayItemAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HorizontalFirstOfMonthLabelAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalFirstOfMonthLabelAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_VerticalFirstOfMonthLabelAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalFirstOfMonthLabelAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarItemBorderThicknessProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemBorderThicknessProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarViewDayItemStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarViewDayItemStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarItemCornerRadiusProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarItemCornerRadiusProperty(pThis, &valueAbi))
                 }
             }
             return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
@@ -6529,6 +9202,466 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
                 }
             }
             return __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: result)
+        }
+
+    }
+
+    public class IDatePicker: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker }
+
+        public func get_Header() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Header(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Header(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Header(pThis, _value))
+            }
+        }
+
+        public func get_HeaderTemplate() throws -> WinUI.DataTemplate? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplate(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: value)
+        }
+
+        public func put_HeaderTemplate(_ value: WinUI.DataTemplate?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HeaderTemplate(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CalendarIdentifier() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifier(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_CalendarIdentifier(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CalendarIdentifier(pThis, _value.get()))
+            }
+        }
+
+        public func get_Date() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Date(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Date(_ value: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Date(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_DayVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_DayVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_MonthVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_MonthVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MonthVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_YearVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_YearVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_YearVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_YearVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_DayFormat() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayFormat(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_DayFormat(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DayFormat(pThis, _value.get()))
+            }
+        }
+
+        public func get_MonthFormat() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthFormat(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_MonthFormat(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MonthFormat(pThis, _value.get()))
+            }
+        }
+
+        public func get_YearFormat() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_YearFormat(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_YearFormat(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_YearFormat(pThis, _value.get()))
+            }
+        }
+
+        public func get_MinYear() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinYear(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MinYear(_ value: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinYear(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_MaxYear() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxYear(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_MaxYear(_ value: WindowsFoundation.DateTime) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxYear(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_Orientation() throws -> WinUI.Orientation {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_COrientation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Orientation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Orientation(_ value: WinUI.Orientation) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Orientation(pThis, value))
+            }
+        }
+
+        public func get_LightDismissOverlayMode() throws -> WinUI.LightDismissOverlayMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CLightDismissOverlayMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LightDismissOverlayMode(_ value: WinUI.LightDismissOverlayMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LightDismissOverlayMode(pThis, value))
+            }
+        }
+
+        public func get_SelectedDate() throws -> WindowsFoundation.DateTime? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedDate(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_SelectedDate(_ value: WindowsFoundation.DateTime?) throws {
+            let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedDate(pThis, _value))
+            }
+        }
+
+        public func add_DateChanged(_ handler: EventHandler<WinUI.DatePickerValueChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePickerValueChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DateChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DateChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DateChanged(pThis, token))
+            }
+        }
+
+        public func add_SelectedDateChanged(_ handler: TypedEventHandler<WinUI.DatePicker?, WinUI.DatePickerSelectedValueChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePickerSelectedValueChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectedDateChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectedDateChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectedDateChanged(pThis, token))
+            }
+        }
+
+    }
+
+    public class IDatePickerFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.DatePickerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDatePicker {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IDatePicker(value!)
+        }
+
+    }
+
+    public class IDatePickerSelectedValueChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs }
+
+        public func get_OldDate() throws -> WindowsFoundation.DateTime? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldDate(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_NewDate() throws -> WindowsFoundation.DateTime? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewDate(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CDateTimeWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    public class IDatePickerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics }
+
+        public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CalendarIdentifierProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifierProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MonthVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_YearVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_YearVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DayFormatProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayFormatProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MonthFormatProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthFormatProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_YearFormatProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_YearFormatProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MinYearProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinYearProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxYearProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxYearProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_OrientationProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OrientationProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LightDismissOverlayModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedDateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedDateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class IDatePickerValueChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs }
+
+        public func get_OldDate() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldDate(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_NewDate() throws -> WindowsFoundation.DateTime {
+            var value: __x_ABI_CWindows_CFoundation_CDateTime = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewDate(pThis, &value))
+            }
+            return .from(abi: value)
         }
 
     }
@@ -10826,6 +13959,185 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
                 innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
             }
             return IItemsSourceView(value!)
+        }
+
+    }
+
+    public class IItemsStackPanel: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel }
+
+        public func get_GroupPadding() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupPadding(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_GroupPadding(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_GroupPadding(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_Orientation() throws -> WinUI.Orientation {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_COrientation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Orientation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Orientation(_ value: WinUI.Orientation) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Orientation(pThis, value))
+            }
+        }
+
+        public func get_FirstCacheIndex() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstCacheIndex(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_FirstVisibleIndex() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FirstVisibleIndex(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastVisibleIndex() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastVisibleIndex(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_LastCacheIndex() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LastCacheIndex(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ScrollingDirection() throws -> WinUI.PanelScrollingDirection {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPanelScrollingDirection = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollingDirection(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_GroupHeaderPlacement() throws -> WinUI.GroupHeaderPlacement {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGroupHeaderPlacement = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupHeaderPlacement(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_GroupHeaderPlacement(_ value: WinUI.GroupHeaderPlacement) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_GroupHeaderPlacement(pThis, value))
+            }
+        }
+
+        public func get_ItemsUpdatingScrollMode() throws -> WinUI.ItemsUpdatingScrollMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsUpdatingScrollMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemsUpdatingScrollMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ItemsUpdatingScrollMode(_ value: WinUI.ItemsUpdatingScrollMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ItemsUpdatingScrollMode(pThis, value))
+            }
+        }
+
+        public func get_CacheLength() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CacheLength(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_CacheLength(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CacheLength(pThis, value))
+            }
+        }
+
+        public func get_AreStickyGroupHeadersEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AreStickyGroupHeadersEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_AreStickyGroupHeadersEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AreStickyGroupHeadersEnabled(pThis, .init(from: value)))
+            }
+        }
+
+    }
+
+    public class IItemsStackPanelStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanelStatics }
+
+        public func get_GroupPaddingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanelStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupPaddingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_OrientationProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanelStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OrientationProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_GroupHeaderPlacementProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanelStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupHeaderPlacementProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CacheLengthProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanelStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CacheLengthProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_AreStickyGroupHeadersEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanelStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AreStickyGroupHeadersEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
@@ -15294,6 +18606,522 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
+    public class INumberBox: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox }
+
+        public func get_Minimum() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Minimum(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Minimum(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Minimum(pThis, value))
+            }
+        }
+
+        public func get_Maximum() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Maximum(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Maximum(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Maximum(pThis, value))
+            }
+        }
+
+        public func get_Value() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Value(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Value(pThis, value))
+            }
+        }
+
+        public func get_SmallChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SmallChange(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SmallChange(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SmallChange(pThis, value))
+            }
+        }
+
+        public func get_LargeChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LargeChange(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LargeChange(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LargeChange(pThis, value))
+            }
+        }
+
+        public func get_Text() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_Text(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Text(pThis, _value.get()))
+            }
+        }
+
+        public func get_Header() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Header(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Header(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Header(pThis, _value))
+            }
+        }
+
+        public func get_HeaderTemplate() throws -> WinUI.DataTemplate? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplate(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: value)
+        }
+
+        public func put_HeaderTemplate(_ value: WinUI.DataTemplate?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HeaderTemplate(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_PlaceholderText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_PlaceholderText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaceholderText(pThis, _value.get()))
+            }
+        }
+
+        public func get_SelectionFlyout() throws -> WinUI.FlyoutBase? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionFlyout(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.from(abi: value)
+        }
+
+        public func put_SelectionFlyout(_ value: WinUI.FlyoutBase?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionFlyout(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_SelectionHighlightColor() throws -> WinUI.SolidColorBrush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColor(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.SolidColorBrushBridge.from(abi: value)
+        }
+
+        public func put_SelectionHighlightColor(_ value: WinUI.SolidColorBrush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionHighlightColor(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TextReadingOrder() throws -> WinUI.TextReadingOrder {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextReadingOrder = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextReadingOrder(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextReadingOrder(_ value: WinUI.TextReadingOrder) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextReadingOrder(pThis, value))
+            }
+        }
+
+        public func get_PreventKeyboardDisplayOnProgrammaticFocus() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreventKeyboardDisplayOnProgrammaticFocus(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_PreventKeyboardDisplayOnProgrammaticFocus(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PreventKeyboardDisplayOnProgrammaticFocus(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_Description() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Description(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Description(pThis, _value))
+            }
+        }
+
+        public func get_ValidationMode() throws -> WinUI.NumberBoxValidationMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxValidationMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValidationMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ValidationMode(_ value: WinUI.NumberBoxValidationMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ValidationMode(pThis, value))
+            }
+        }
+
+        public func get_SpinButtonPlacementMode() throws -> WinUI.NumberBoxSpinButtonPlacementMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpinButtonPlacementMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SpinButtonPlacementMode(_ value: WinUI.NumberBoxSpinButtonPlacementMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SpinButtonPlacementMode(pThis, value))
+            }
+        }
+
+        public func get_IsWrapEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsWrapEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsWrapEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsWrapEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_AcceptsExpression() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptsExpression(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_AcceptsExpression(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AcceptsExpression(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_NumberFormatter() throws -> UWP.AnyINumberFormatter2? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberFormatter(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Windows_Globalization_NumberFormatting.INumberFormatter2Wrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_NumberFormatter(_ value: UWP.AnyINumberFormatter2?) throws {
+            let valueWrapper = __ABI_Windows_Globalization_NumberFormatting.INumberFormatter2Wrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NumberFormatter(pThis, _value))
+            }
+        }
+
+        public func add_ValueChanged(_ handler: TypedEventHandler<WinUI.NumberBox?, WinUI.NumberBoxValueChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ValueChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ValueChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ValueChanged(pThis, token))
+            }
+        }
+
+    }
+
+    public class INumberBoxFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INumberBox {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return INumberBox(value!)
+        }
+
+    }
+
+    public class INumberBoxStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics }
+
+        public func get_MinimumProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinimumProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaximumProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaximumProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ValueProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValueProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SmallChangeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SmallChangeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LargeChangeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LargeChangeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PlaceholderTextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderTextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionFlyoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionFlyoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionHighlightColorProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColorProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextReadingOrderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextReadingOrderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PreventKeyboardDisplayOnProgrammaticFocusProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreventKeyboardDisplayOnProgrammaticFocusProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DescriptionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DescriptionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ValidationModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ValidationModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SpinButtonPlacementModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SpinButtonPlacementModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsWrapEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsWrapEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_AcceptsExpressionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptsExpressionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_NumberFormatterProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NumberFormatterProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class INumberBoxValueChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs }
+
+        public func get_OldValue() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldValue(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NewValue() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewValue(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
     public class IPage: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPage }
 
@@ -18609,6 +22437,981 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanelStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_PaddingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class IRichTextBlock: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock }
+
+        public func get_FontSize() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontSize(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FontSize(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontSize(pThis, value))
+            }
+        }
+
+        public func get_FontFamily() throws -> WinUI.FontFamily? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontFamily(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.FontFamilyBridge.from(abi: value)
+        }
+
+        public func put_FontFamily(_ value: WinUI.FontFamily?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontFamily(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_FontWeight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontWeight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_FontWeight(_ value: UWP.FontWeight) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontWeight(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_FontStyle() throws -> UWP.FontStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStyle(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FontStyle(_ value: UWP.FontStyle) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStyle(pThis, value))
+            }
+        }
+
+        public func get_FontStretch() throws -> UWP.FontStretch {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStretch(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FontStretch(_ value: UWP.FontStretch) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStretch(pThis, value))
+            }
+        }
+
+        public func get_Foreground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Foreground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_Foreground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Foreground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_TextWrapping() throws -> WinUI.TextWrapping {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextWrapping = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextWrapping(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextWrapping(_ value: WinUI.TextWrapping) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextWrapping(pThis, value))
+            }
+        }
+
+        public func get_TextTrimming() throws -> WinUI.TextTrimming {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextTrimming = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextTrimming(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextTrimming(_ value: WinUI.TextTrimming) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextTrimming(pThis, value))
+            }
+        }
+
+        public func get_TextAlignment() throws -> WinUI.TextAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextAlignment(_ value: WinUI.TextAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextAlignment(pThis, value))
+            }
+        }
+
+        public func get_Blocks() throws -> WinUI.BlockCollection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Blocks(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.BlockCollectionBridge.from(abi: value)
+        }
+
+        public func get_Padding() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Padding(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Padding(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Padding(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_LineHeight() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineHeight(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LineHeight(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineHeight(pThis, value))
+            }
+        }
+
+        public func get_LineStackingStrategy() throws -> WinUI.LineStackingStrategy {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CLineStackingStrategy = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineStackingStrategy(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LineStackingStrategy(_ value: WinUI.LineStackingStrategy) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineStackingStrategy(pThis, value))
+            }
+        }
+
+        public func get_CharacterSpacing() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharacterSpacing(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_CharacterSpacing(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CharacterSpacing(pThis, value))
+            }
+        }
+
+        public func get_OverflowContentTarget() throws -> WinUI.RichTextBlockOverflow? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentTarget(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.RichTextBlockOverflowBridge.from(abi: value)
+        }
+
+        public func put_OverflowContentTarget(_ value: WinUI.RichTextBlockOverflow?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OverflowContentTarget(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_IsTextSelectionEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextSelectionEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsTextSelectionEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsTextSelectionEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_HasOverflowContent() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasOverflowContent(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_SelectedText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedText(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_ContentStart() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentStart(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_ContentEnd() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentEnd(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_SelectionStart() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionStart(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_SelectionEnd() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionEnd(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_BaselineOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BaselineOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_MaxLines() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxLines(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MaxLines(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxLines(pThis, value))
+            }
+        }
+
+        public func get_TextLineBounds() throws -> WinUI.TextLineBounds {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextLineBounds = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextLineBounds(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextLineBounds(_ value: WinUI.TextLineBounds) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextLineBounds(pThis, value))
+            }
+        }
+
+        public func get_SelectionHighlightColor() throws -> WinUI.SolidColorBrush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColor(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.SolidColorBrushBridge.from(abi: value)
+        }
+
+        public func put_SelectionHighlightColor(_ value: WinUI.SolidColorBrush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionHighlightColor(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_OpticalMarginAlignment() throws -> WinUI.OpticalMarginAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_COpticalMarginAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpticalMarginAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_OpticalMarginAlignment(_ value: WinUI.OpticalMarginAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OpticalMarginAlignment(pThis, value))
+            }
+        }
+
+        public func get_IsColorFontEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorFontEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsColorFontEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsColorFontEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_TextReadingOrder() throws -> WinUI.TextReadingOrder {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextReadingOrder = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextReadingOrder(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextReadingOrder(_ value: WinUI.TextReadingOrder) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextReadingOrder(pThis, value))
+            }
+        }
+
+        public func get_IsTextScaleFactorEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextScaleFactorEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsTextScaleFactorEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsTextScaleFactorEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_TextDecorations() throws -> UWP.TextDecorations {
+            var value: __x_ABI_CWindows_CUI_CText_CTextDecorations = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextDecorations(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextDecorations(_ value: UWP.TextDecorations) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextDecorations(pThis, value))
+            }
+        }
+
+        public func get_IsTextTrimmed() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextTrimmed(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_HorizontalTextAlignment() throws -> WinUI.TextAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalTextAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_HorizontalTextAlignment(_ value: WinUI.TextAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalTextAlignment(pThis, value))
+            }
+        }
+
+        public func get_TextHighlighters() throws -> WindowsFoundation.AnyIVector<WinUI.TextHighlighter?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextHighlighters(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextHighlighterWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_SelectionFlyout() throws -> WinUI.FlyoutBase? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionFlyout(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.from(abi: value)
+        }
+
+        public func put_SelectionFlyout(_ value: WinUI.FlyoutBase?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionFlyout(pThis, RawPointer(value)))
+            }
+        }
+
+        public func add_SelectionChanged(_ handler: WinUI.RoutedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml.RoutedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectionChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectionChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectionChanged(pThis, token))
+            }
+        }
+
+        public func add_ContextMenuOpening(_ handler: WinUI.ContextMenuOpeningEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml_Controls.ContextMenuOpeningEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ContextMenuOpening(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ContextMenuOpening(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ContextMenuOpening(pThis, token))
+            }
+        }
+
+        public func add_IsTextTrimmedChanged(_ handler: TypedEventHandler<WinUI.RichTextBlock?, WinUI.IsTextTrimmedChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichTextBlock___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_IsTextTrimmedChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_IsTextTrimmedChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_IsTextTrimmedChanged(pThis, token))
+            }
+        }
+
+        public func SelectAll() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SelectAll(pThis))
+            }
+        }
+
+        public func Select(_ start: WinUI.TextPointer?, _ end: WinUI.TextPointer?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Select(pThis, RawPointer(start), RawPointer(end)))
+            }
+        }
+
+        public func GetPositionFromPoint(_ point: WindowsFoundation.Point) throws -> WinUI.TextPointer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPositionFromPoint(pThis, .from(swift: point), &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: result)
+        }
+
+        public func CopySelectionToClipboard() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CopySelectionToClipboard(pThis))
+            }
+        }
+
+        public func get_TextIndent() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextIndent(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextIndent(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextIndent(pThis, value))
+            }
+        }
+
+    }
+
+    public class IRichTextBlockOverflow: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow }
+
+        public func get_OverflowContentTarget() throws -> WinUI.RichTextBlockOverflow? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentTarget(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.RichTextBlockOverflowBridge.from(abi: value)
+        }
+
+        public func put_OverflowContentTarget(_ value: WinUI.RichTextBlockOverflow?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OverflowContentTarget(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Padding() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Padding(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Padding(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Padding(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_ContentSource() throws -> WinUI.RichTextBlock? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentSource(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.RichTextBlockBridge.from(abi: value)
+        }
+
+        public func get_HasOverflowContent() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasOverflowContent(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func get_ContentStart() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentStart(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_ContentEnd() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentEnd(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_BaselineOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_BaselineOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_MaxLines() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxLines(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MaxLines(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxLines(pThis, value))
+            }
+        }
+
+        public func get_IsTextTrimmed() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextTrimmed(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func add_IsTextTrimmedChanged(_ handler: TypedEventHandler<WinUI.RichTextBlockOverflow?, WinUI.IsTextTrimmedChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichTextBlockOverflow___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_IsTextTrimmedChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_IsTextTrimmedChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_IsTextTrimmedChanged(pThis, token))
+            }
+        }
+
+        public func GetPositionFromPoint(_ point: WindowsFoundation.Point) throws -> WinUI.TextPointer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPositionFromPoint(pThis, .from(swift: point), &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: result)
+        }
+
+    }
+
+    public class IRichTextBlockOverflowStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflowStatics }
+
+        public func get_OverflowContentTargetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflowStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentTargetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PaddingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflowStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PaddingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HasOverflowContentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflowStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasOverflowContentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxLinesProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflowStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxLinesProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTextTrimmedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflowStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextTrimmedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class IRichTextBlockStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics }
+
+        public func get_FontSizeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontSizeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FontFamilyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontFamilyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FontWeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontWeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FontStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FontStretchProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStretchProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextWrappingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextWrappingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextTrimmingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextTrimmingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PaddingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PaddingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LineHeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineHeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LineStackingStrategyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineStackingStrategyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CharacterSpacingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharacterSpacingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_OverflowContentTargetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentTargetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTextSelectionEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextSelectionEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HasOverflowContentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasOverflowContentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedTextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedTextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxLinesProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxLinesProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextLineBoundsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextLineBoundsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionHighlightColorProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColorProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_OpticalMarginAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OpticalMarginAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsColorFontEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorFontEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextReadingOrderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextReadingOrderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTextScaleFactorEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextScaleFactorEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextDecorationsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextDecorationsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTextTrimmedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextTrimmedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HorizontalTextAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalTextAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionFlyoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionFlyoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextIndentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextIndentProperty(pThis, &valueAbi))
                 }
             }
             return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
@@ -23004,6 +27807,53 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
+    public class ISymbolIcon: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon }
+
+        public func get_Symbol() throws -> WinUI.Symbol {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Symbol(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Symbol(_ value: WinUI.Symbol) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Symbol(pThis, value))
+            }
+        }
+
+    }
+
+    public class ISymbolIconFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconFactory }
+
+        public func CreateInstanceWithSymbol(_ symbol: WinUI.Symbol) throws -> ISymbolIcon {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithSymbol(pThis, symbol, &valueAbi))
+                }
+            }
+            return ISymbolIcon(value!)
+        }
+
+    }
+
+    public class ISymbolIconStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconStatics }
+
+        public func get_SymbolProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SymbolProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
     public class ITabView: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabView }
 
@@ -26899,6 +31749,279 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_Handled(pThis, .init(from: value)))
             }
+        }
+
+    }
+
+    public class ITimePicker: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker }
+
+        public func get_Header() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Header(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Header(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Header(pThis, _value))
+            }
+        }
+
+        public func get_HeaderTemplate() throws -> WinUI.DataTemplate? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplate(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: value)
+        }
+
+        public func put_HeaderTemplate(_ value: WinUI.DataTemplate?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HeaderTemplate(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_ClockIdentifier() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClockIdentifier(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_ClockIdentifier(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClockIdentifier(pThis, _value.get()))
+            }
+        }
+
+        public func get_MinuteIncrement() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinuteIncrement(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MinuteIncrement(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinuteIncrement(pThis, value))
+            }
+        }
+
+        public func get_Time() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Time(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Time(_ value: WindowsFoundation.TimeSpan) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Time(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_LightDismissOverlayMode() throws -> WinUI.LightDismissOverlayMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CLightDismissOverlayMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LightDismissOverlayMode(_ value: WinUI.LightDismissOverlayMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LightDismissOverlayMode(pThis, value))
+            }
+        }
+
+        public func get_SelectedTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedTime(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_SelectedTime(_ value: WindowsFoundation.TimeSpan?) throws {
+            let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectedTime(pThis, _value))
+            }
+        }
+
+        public func add_TimeChanged(_ handler: EventHandler<WinUI.TimePickerValueChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerValueChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_TimeChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_TimeChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TimeChanged(pThis, token))
+            }
+        }
+
+        public func add_SelectedTimeChanged(_ handler: TypedEventHandler<WinUI.TimePicker?, WinUI.TimePickerSelectedValueChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerSelectedValueChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectedTimeChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectedTimeChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectedTimeChanged(pThis, token))
+            }
+        }
+
+    }
+
+    public class ITimePickerFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TimePickerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITimePicker {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ITimePicker(value!)
+        }
+
+    }
+
+    public class ITimePickerSelectedValueChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs }
+
+        public func get_OldTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldTime(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_NewTime() throws -> WindowsFoundation.TimeSpan? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewTime(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CFoundation__CTimeSpanWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+    public class ITimePickerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics }
+
+        public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ClockIdentifierProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClockIdentifierProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MinuteIncrementProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinuteIncrementProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TimeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TimeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LightDismissOverlayModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LightDismissOverlayModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedTimeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedTimeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class ITimePickerValueChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs }
+
+        public func get_OldTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldTime(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_NewTime() throws -> WindowsFoundation.TimeSpan {
+            var value: __x_ABI_CWindows_CFoundation_CTimeSpan = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewTime(pThis, &value))
+            }
+            return .from(abi: value)
         }
 
     }
@@ -31173,6 +36296,43 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
         return .init(lpVtbl: vtblPtr)
     }
 }
+// MARK - CalendarViewDayItemChangingEventHandler
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    public class CalendarViewDayItemChangingEventHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandler }
+
+        open func Invoke(_ sender: WinUI.CalendarView?, _ e: WinUI.CalendarViewDayItemChangingEventArgs?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(e)))
+            }
+        }
+
+    }
+
+
+    typealias CalendarViewDayItemChangingEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemChangingEventHandlerBridge>
+    internal static var CalendarViewDayItemChangingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandlerVtbl = .init(
+        QueryInterface: { CalendarViewDayItemChangingEventHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { CalendarViewDayItemChangingEventHandlerWrapper.addRef($0) },
+        Release: { CalendarViewDayItemChangingEventHandlerWrapper.release($0) },
+        Invoke: {
+            do {
+                guard let __unwrapped__instance = CalendarViewDayItemChangingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: WinUI.CalendarView? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.from(abi: ComPtr($1))
+                let e: WinUI.CalendarViewDayItemChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemChangingEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Controls.CalendarViewDayItemChangingEventHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
 // MARK - ContextMenuOpeningEventHandler
 extension __ABI_Microsoft_UI_Xaml_Controls {
     public class ContextMenuOpeningEventHandler: WindowsFoundation.IUnknown {

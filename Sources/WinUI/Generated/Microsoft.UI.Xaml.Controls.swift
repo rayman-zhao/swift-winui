@@ -12,6 +12,10 @@ public typealias AppBarClosedDisplayMode = __x_ABI_CMicrosoft_CUI_CXaml_CControl
 public typealias AutoSuggestionBoxTextChangeReason = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CAutoSuggestionBoxTextChangeReason
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.backgroundsizing)
 public typealias BackgroundSizing = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CBackgroundSizing
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdisplaymode)
+public typealias CalendarViewDisplayMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewDisplayMode
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewselectionmode)
+public typealias CalendarViewSelectionMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewSelectionMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.candidatewindowalignment)
 public typealias CandidateWindowAlignment = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCandidateWindowAlignment
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.charactercasing)
@@ -42,6 +46,8 @@ public typealias InfoBarSeverity = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CInfoB
 public typealias ItemCollectionTransitionOperation = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemCollectionTransitionOperation
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitiontriggers)
 public typealias ItemCollectionTransitionTriggers = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemCollectionTransitionTriggers
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsupdatingscrollmode)
+public typealias ItemsUpdatingScrollMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsUpdatingScrollMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.lightdismissoverlaymode)
 public typealias LightDismissOverlayMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CLightDismissOverlayMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewreordermode)
@@ -60,6 +66,10 @@ public typealias NavigationViewPaneDisplayMode = __x_ABI_CMicrosoft_CUI_CXaml_CC
 public typealias NavigationViewSelectionFollowsFocus = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNavigationViewSelectionFollowsFocus
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewshouldernavigationenabled)
 public typealias NavigationViewShoulderNavigationEnabled = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNavigationViewShoulderNavigationEnabled
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxspinbuttonplacementmode)
+public typealias NumberBoxSpinButtonPlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvalidationmode)
+public typealias NumberBoxValidationMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxValidationMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.orientation)
 public typealias Orientation = __x_ABI_CMicrosoft_CUI_CXaml_CControls_COrientation
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.panelscrollingdirection)
@@ -118,6 +128,8 @@ public typealias SplitViewDisplayMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_C
 public typealias SplitViewPanePlacement = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSplitViewPanePlacement
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stretchdirection)
 public typealias StretchDirection = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CStretchDirection
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbol)
+public typealias Symbol = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewclosebuttonoverlaymode)
 public typealias TabViewCloseButtonOverlayMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CTabViewCloseButtonOverlayMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewwidthmode)
@@ -1037,6 +1049,1391 @@ open class Button : WinUI.ButtonBase {
     public var flyout : WinUI.FlyoutBase! {
         get { try! _default.get_Flyout() }
         set { try! _default.put_Flyout(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker)
+open class CalendarDatePicker : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePicker
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ICalendarDatePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarDatePicker")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarDatePickerBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ICalendarDatePickerFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _ICalendarDatePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarDatePicker")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.calendaridentifierproperty)
+    public class var calendarIdentifierProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_CalendarIdentifierProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.calendarviewstyleproperty)
+    public class var calendarViewStyleProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_CalendarViewStyleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.dateformatproperty)
+    public class var dateFormatProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_DateFormatProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.dateproperty)
+    public class var dateProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_DateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.dayofweekformatproperty)
+    public class var dayOfWeekFormatProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_DayOfWeekFormatProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.descriptionproperty)
+    public class var descriptionProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_DescriptionProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.displaymodeproperty)
+    public class var displayModeProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_DisplayModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.firstdayofweekproperty)
+    public class var firstDayOfWeekProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_FirstDayOfWeekProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.headerproperty)
+    public class var headerProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_HeaderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.headertemplateproperty)
+    public class var headerTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_HeaderTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.iscalendaropenproperty)
+    public class var isCalendarOpenProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_IsCalendarOpenProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.isgrouplabelvisibleproperty)
+    public class var isGroupLabelVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_IsGroupLabelVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.isoutofscopeenabledproperty)
+    public class var isOutOfScopeEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_IsOutOfScopeEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.istodayhighlightedproperty)
+    public class var isTodayHighlightedProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_IsTodayHighlightedProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.lightdismissoverlaymodeproperty)
+    public class var lightDismissOverlayModeProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_LightDismissOverlayModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.maxdateproperty)
+    public class var maxDateProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_MaxDateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.mindateproperty)
+    public class var minDateProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_MinDateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.placeholdertextproperty)
+    public class var placeholderTextProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarDatePickerStatics.get_PlaceholderTextProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.setdisplaydate)
+    public func setDisplayDate(_ date: WindowsFoundation.DateTime) throws {
+        try _default.SetDisplayDate(date)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.setyeardecadedisplaydimensions)
+    public func setYearDecadeDisplayDimensions(_ columns: Int32, _ rows: Int32) throws {
+        try _default.SetYearDecadeDisplayDimensions(columns, rows)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.calendaridentifier)
+    public var calendarIdentifier : String {
+        get { try! _default.get_CalendarIdentifier() }
+        set { try! _default.put_CalendarIdentifier(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.calendarviewstyle)
+    public var calendarViewStyle : WinUI.Style! {
+        get { try! _default.get_CalendarViewStyle() }
+        set { try! _default.put_CalendarViewStyle(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.date)
+    public var date : WindowsFoundation.DateTime? {
+        get { try! _default.get_Date() }
+        set { try! _default.put_Date(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.dateformat)
+    public var dateFormat : String {
+        get { try! _default.get_DateFormat() }
+        set { try! _default.put_DateFormat(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.dayofweekformat)
+    public var dayOfWeekFormat : String {
+        get { try! _default.get_DayOfWeekFormat() }
+        set { try! _default.put_DayOfWeekFormat(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.description)
+    public var description : Any! {
+        get { try! _default.get_Description() }
+        set { try! _default.put_Description(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.displaymode)
+    public var displayMode : CalendarViewDisplayMode {
+        get { try! _default.get_DisplayMode() }
+        set { try! _default.put_DisplayMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.firstdayofweek)
+    public var firstDayOfWeek : UWP.DayOfWeek {
+        get { try! _default.get_FirstDayOfWeek() }
+        set { try! _default.put_FirstDayOfWeek(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.header)
+    public var header : Any! {
+        get { try! _default.get_Header() }
+        set { try! _default.put_Header(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.headertemplate)
+    public var headerTemplate : WinUI.DataTemplate! {
+        get { try! _default.get_HeaderTemplate() }
+        set { try! _default.put_HeaderTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.iscalendaropen)
+    public var isCalendarOpen : Bool {
+        get { try! _default.get_IsCalendarOpen() }
+        set { try! _default.put_IsCalendarOpen(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.isgrouplabelvisible)
+    public var isGroupLabelVisible : Bool {
+        get { try! _default.get_IsGroupLabelVisible() }
+        set { try! _default.put_IsGroupLabelVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.isoutofscopeenabled)
+    public var isOutOfScopeEnabled : Bool {
+        get { try! _default.get_IsOutOfScopeEnabled() }
+        set { try! _default.put_IsOutOfScopeEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.istodayhighlighted)
+    public var isTodayHighlighted : Bool {
+        get { try! _default.get_IsTodayHighlighted() }
+        set { try! _default.put_IsTodayHighlighted(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.lightdismissoverlaymode)
+    public var lightDismissOverlayMode : LightDismissOverlayMode {
+        get { try! _default.get_LightDismissOverlayMode() }
+        set { try! _default.put_LightDismissOverlayMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.maxdate)
+    public var maxDate : WindowsFoundation.DateTime {
+        get { try! _default.get_MaxDate() }
+        set { try! _default.put_MaxDate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.mindate)
+    public var minDate : WindowsFoundation.DateTime {
+        get { try! _default.get_MinDate() }
+        set { try! _default.put_MinDate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.placeholdertext)
+    public var placeholderText : String {
+        get { try! _default.get_PlaceholderText() }
+        set { try! _default.put_PlaceholderText(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.calendarviewdayitemchanging)
+    public lazy var calendarViewDayItemChanging : Event<CalendarViewDayItemChangingEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CalendarViewDayItemChanging($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CalendarViewDayItemChanging($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.closed)
+    public lazy var closed : Event<EventHandler<Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_Closed($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_Closed($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.datechanged)
+    public lazy var dateChanged : Event<TypedEventHandler<CalendarDatePicker?, CalendarDatePickerDateChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DateChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DateChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.opened)
+    public lazy var opened : Event<EventHandler<Any?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_Opened($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_Opened($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepickerdatechangedeventargs)
+public final class CalendarDatePickerDateChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerDateChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepickerdatechangedeventargs.newdate)
+    public var newDate : WindowsFoundation.DateTime? {
+        get { try! _default.get_NewDate() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepickerdatechangedeventargs.olddate)
+    public var oldDate : WindowsFoundation.DateTime? {
+        get { try! _default.get_OldDate() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview)
+open class CalendarView : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarView
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ICalendarViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarView")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ICalendarViewFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _ICalendarViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarView")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.blackoutbackgroundproperty)
+    public class var blackoutBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_BlackoutBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.blackoutforegroundproperty)
+    public class var blackoutForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_BlackoutForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.blackoutstrikethroughbrushproperty)
+    public class var blackoutStrikethroughBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_BlackoutStrikethroughBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaridentifierproperty)
+    public class var calendarIdentifierProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarIdentifierProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritembackgroundproperty)
+    public class var calendarItemBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarItemBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemborderbrushproperty)
+    public class var calendarItemBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarItemBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemborderthicknessproperty)
+    public class var calendarItemBorderThicknessProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarItemBorderThicknessProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemcornerradiusproperty)
+    public class var calendarItemCornerRadiusProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarItemCornerRadiusProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemdisabledbackgroundproperty)
+    public class var calendarItemDisabledBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarItemDisabledBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemforegroundproperty)
+    public class var calendarItemForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarItemForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemhoverbackgroundproperty)
+    public class var calendarItemHoverBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarItemHoverBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritempressedbackgroundproperty)
+    public class var calendarItemPressedBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarItemPressedBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendarviewdayitemstyleproperty)
+    public class var calendarViewDayItemStyleProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_CalendarViewDayItemStyleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemfontfamilyproperty)
+    public class var dayItemFontFamilyProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_DayItemFontFamilyProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemfontsizeproperty)
+    public class var dayItemFontSizeProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_DayItemFontSizeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemfontstyleproperty)
+    public class var dayItemFontStyleProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_DayItemFontStyleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemfontweightproperty)
+    public class var dayItemFontWeightProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_DayItemFontWeightProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemmarginproperty)
+    public class var dayItemMarginProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_DayItemMarginProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayofweekformatproperty)
+    public class var dayOfWeekFormatProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_DayOfWeekFormatProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.disabledforegroundproperty)
+    public class var disabledForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_DisabledForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.displaymodeproperty)
+    public class var displayModeProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_DisplayModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstdayofweekproperty)
+    public class var firstDayOfWeekProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstDayOfWeekProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelfontfamilyproperty)
+    public class var firstOfMonthLabelFontFamilyProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfMonthLabelFontFamilyProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelfontsizeproperty)
+    public class var firstOfMonthLabelFontSizeProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfMonthLabelFontSizeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelfontstyleproperty)
+    public class var firstOfMonthLabelFontStyleProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfMonthLabelFontStyleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelfontweightproperty)
+    public class var firstOfMonthLabelFontWeightProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfMonthLabelFontWeightProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelmarginproperty)
+    public class var firstOfMonthLabelMarginProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfMonthLabelMarginProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelfontfamilyproperty)
+    public class var firstOfYearDecadeLabelFontFamilyProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfYearDecadeLabelFontFamilyProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelfontsizeproperty)
+    public class var firstOfYearDecadeLabelFontSizeProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfYearDecadeLabelFontSizeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelfontstyleproperty)
+    public class var firstOfYearDecadeLabelFontStyleProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfYearDecadeLabelFontStyleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelfontweightproperty)
+    public class var firstOfYearDecadeLabelFontWeightProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfYearDecadeLabelFontWeightProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelmarginproperty)
+    public class var firstOfYearDecadeLabelMarginProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FirstOfYearDecadeLabelMarginProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.focusborderbrushproperty)
+    public class var focusBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_FocusBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.horizontaldayitemalignmentproperty)
+    public class var horizontalDayItemAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_HorizontalDayItemAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.horizontalfirstofmonthlabelalignmentproperty)
+    public class var horizontalFirstOfMonthLabelAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_HorizontalFirstOfMonthLabelAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.hoverborderbrushproperty)
+    public class var hoverBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_HoverBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.isgrouplabelvisibleproperty)
+    public class var isGroupLabelVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_IsGroupLabelVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.isoutofscopeenabledproperty)
+    public class var isOutOfScopeEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_IsOutOfScopeEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.istodayhighlightedproperty)
+    public class var isTodayHighlightedProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_IsTodayHighlightedProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.maxdateproperty)
+    public class var maxDateProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_MaxDateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.mindateproperty)
+    public class var minDateProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_MinDateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemfontfamilyproperty)
+    public class var monthYearItemFontFamilyProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_MonthYearItemFontFamilyProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemfontsizeproperty)
+    public class var monthYearItemFontSizeProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_MonthYearItemFontSizeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemfontstyleproperty)
+    public class var monthYearItemFontStyleProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_MonthYearItemFontStyleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemfontweightproperty)
+    public class var monthYearItemFontWeightProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_MonthYearItemFontWeightProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemmarginproperty)
+    public class var monthYearItemMarginProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_MonthYearItemMarginProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.numberofweeksinviewproperty)
+    public class var numberOfWeeksInViewProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_NumberOfWeeksInViewProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.outofscopebackgroundproperty)
+    public class var outOfScopeBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_OutOfScopeBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.outofscopeforegroundproperty)
+    public class var outOfScopeForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_OutOfScopeForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.outofscopehoverforegroundproperty)
+    public class var outOfScopeHoverForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_OutOfScopeHoverForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.outofscopepressedforegroundproperty)
+    public class var outOfScopePressedForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_OutOfScopePressedForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.pressedborderbrushproperty)
+    public class var pressedBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_PressedBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.pressedforegroundproperty)
+    public class var pressedForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_PressedForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedborderbrushproperty)
+    public class var selectedBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selecteddatesproperty)
+    public class var selectedDatesProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedDatesProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selecteddisabledborderbrushproperty)
+    public class var selectedDisabledBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedDisabledBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selecteddisabledforegroundproperty)
+    public class var selectedDisabledForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedDisabledForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedforegroundproperty)
+    public class var selectedForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedhoverborderbrushproperty)
+    public class var selectedHoverBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedHoverBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedhoverforegroundproperty)
+    public class var selectedHoverForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedHoverForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedpressedborderbrushproperty)
+    public class var selectedPressedBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedPressedBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedpressedforegroundproperty)
+    public class var selectedPressedForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectedPressedForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectionmodeproperty)
+    public class var selectionModeProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_SelectionModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.templatesettingsproperty)
+    public class var templateSettingsProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TemplateSettingsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todaybackgroundproperty)
+    public class var todayBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodayBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayblackoutbackgroundproperty)
+    public class var todayBlackoutBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodayBlackoutBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayblackoutforegroundproperty)
+    public class var todayBlackoutForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodayBlackoutForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todaydisabledbackgroundproperty)
+    public class var todayDisabledBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodayDisabledBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayfontweightproperty)
+    public class var todayFontWeightProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodayFontWeightProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayforegroundproperty)
+    public class var todayForegroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodayForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayhoverbackgroundproperty)
+    public class var todayHoverBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodayHoverBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todaypressedbackgroundproperty)
+    public class var todayPressedBackgroundProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodayPressedBackgroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayselectedinnerborderbrushproperty)
+    public class var todaySelectedInnerBorderBrushProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_TodaySelectedInnerBorderBrushProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.verticaldayitemalignmentproperty)
+    public class var verticalDayItemAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_VerticalDayItemAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.verticalfirstofmonthlabelalignmentproperty)
+    public class var verticalFirstOfMonthLabelAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewStatics.get_VerticalFirstOfMonthLabelAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.setdisplaydate)
+    public func setDisplayDate(_ date: WindowsFoundation.DateTime) throws {
+        try _default.SetDisplayDate(date)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.setyeardecadedisplaydimensions)
+    public func setYearDecadeDisplayDimensions(_ columns: Int32, _ rows: Int32) throws {
+        try _default.SetYearDecadeDisplayDimensions(columns, rows)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.blackoutbackground)
+    public var blackoutBackground : WinUI.Brush! {
+        get { try! _default.get_BlackoutBackground() }
+        set { try! _default.put_BlackoutBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.blackoutforeground)
+    public var blackoutForeground : WinUI.Brush! {
+        get { try! _default.get_BlackoutForeground() }
+        set { try! _default.put_BlackoutForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.blackoutstrikethroughbrush)
+    public var blackoutStrikethroughBrush : WinUI.Brush! {
+        get { try! _default.get_BlackoutStrikethroughBrush() }
+        set { try! _default.put_BlackoutStrikethroughBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaridentifier)
+    public var calendarIdentifier : String {
+        get { try! _default.get_CalendarIdentifier() }
+        set { try! _default.put_CalendarIdentifier(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritembackground)
+    public var calendarItemBackground : WinUI.Brush! {
+        get { try! _default.get_CalendarItemBackground() }
+        set { try! _default.put_CalendarItemBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemborderbrush)
+    public var calendarItemBorderBrush : WinUI.Brush! {
+        get { try! _default.get_CalendarItemBorderBrush() }
+        set { try! _default.put_CalendarItemBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemborderthickness)
+    public var calendarItemBorderThickness : WinUI.Thickness {
+        get { try! _default.get_CalendarItemBorderThickness() }
+        set { try! _default.put_CalendarItemBorderThickness(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemcornerradius)
+    public var calendarItemCornerRadius : WinUI.CornerRadius {
+        get { try! _default.get_CalendarItemCornerRadius() }
+        set { try! _default.put_CalendarItemCornerRadius(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemdisabledbackground)
+    public var calendarItemDisabledBackground : WinUI.Brush! {
+        get { try! _default.get_CalendarItemDisabledBackground() }
+        set { try! _default.put_CalendarItemDisabledBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemforeground)
+    public var calendarItemForeground : WinUI.Brush! {
+        get { try! _default.get_CalendarItemForeground() }
+        set { try! _default.put_CalendarItemForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritemhoverbackground)
+    public var calendarItemHoverBackground : WinUI.Brush! {
+        get { try! _default.get_CalendarItemHoverBackground() }
+        set { try! _default.put_CalendarItemHoverBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendaritempressedbackground)
+    public var calendarItemPressedBackground : WinUI.Brush! {
+        get { try! _default.get_CalendarItemPressedBackground() }
+        set { try! _default.put_CalendarItemPressedBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendarviewdayitemstyle)
+    public var calendarViewDayItemStyle : WinUI.Style! {
+        get { try! _default.get_CalendarViewDayItemStyle() }
+        set { try! _default.put_CalendarViewDayItemStyle(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemfontfamily)
+    public var dayItemFontFamily : WinUI.FontFamily! {
+        get { try! _default.get_DayItemFontFamily() }
+        set { try! _default.put_DayItemFontFamily(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemfontsize)
+    public var dayItemFontSize : Double {
+        get { try! _default.get_DayItemFontSize() }
+        set { try! _default.put_DayItemFontSize(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemfontstyle)
+    public var dayItemFontStyle : UWP.FontStyle {
+        get { try! _default.get_DayItemFontStyle() }
+        set { try! _default.put_DayItemFontStyle(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemfontweight)
+    public var dayItemFontWeight : UWP.FontWeight {
+        get { try! _default.get_DayItemFontWeight() }
+        set { try! _default.put_DayItemFontWeight(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayitemmargin)
+    public var dayItemMargin : WinUI.Thickness {
+        get { try! _default.get_DayItemMargin() }
+        set { try! _default.put_DayItemMargin(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.dayofweekformat)
+    public var dayOfWeekFormat : String {
+        get { try! _default.get_DayOfWeekFormat() }
+        set { try! _default.put_DayOfWeekFormat(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.disabledforeground)
+    public var disabledForeground : WinUI.Brush! {
+        get { try! _default.get_DisabledForeground() }
+        set { try! _default.put_DisabledForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.displaymode)
+    public var displayMode : CalendarViewDisplayMode {
+        get { try! _default.get_DisplayMode() }
+        set { try! _default.put_DisplayMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstdayofweek)
+    public var firstDayOfWeek : UWP.DayOfWeek {
+        get { try! _default.get_FirstDayOfWeek() }
+        set { try! _default.put_FirstDayOfWeek(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelfontfamily)
+    public var firstOfMonthLabelFontFamily : WinUI.FontFamily! {
+        get { try! _default.get_FirstOfMonthLabelFontFamily() }
+        set { try! _default.put_FirstOfMonthLabelFontFamily(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelfontsize)
+    public var firstOfMonthLabelFontSize : Double {
+        get { try! _default.get_FirstOfMonthLabelFontSize() }
+        set { try! _default.put_FirstOfMonthLabelFontSize(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelfontstyle)
+    public var firstOfMonthLabelFontStyle : UWP.FontStyle {
+        get { try! _default.get_FirstOfMonthLabelFontStyle() }
+        set { try! _default.put_FirstOfMonthLabelFontStyle(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelfontweight)
+    public var firstOfMonthLabelFontWeight : UWP.FontWeight {
+        get { try! _default.get_FirstOfMonthLabelFontWeight() }
+        set { try! _default.put_FirstOfMonthLabelFontWeight(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofmonthlabelmargin)
+    public var firstOfMonthLabelMargin : WinUI.Thickness {
+        get { try! _default.get_FirstOfMonthLabelMargin() }
+        set { try! _default.put_FirstOfMonthLabelMargin(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelfontfamily)
+    public var firstOfYearDecadeLabelFontFamily : WinUI.FontFamily! {
+        get { try! _default.get_FirstOfYearDecadeLabelFontFamily() }
+        set { try! _default.put_FirstOfYearDecadeLabelFontFamily(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelfontsize)
+    public var firstOfYearDecadeLabelFontSize : Double {
+        get { try! _default.get_FirstOfYearDecadeLabelFontSize() }
+        set { try! _default.put_FirstOfYearDecadeLabelFontSize(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelfontstyle)
+    public var firstOfYearDecadeLabelFontStyle : UWP.FontStyle {
+        get { try! _default.get_FirstOfYearDecadeLabelFontStyle() }
+        set { try! _default.put_FirstOfYearDecadeLabelFontStyle(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelfontweight)
+    public var firstOfYearDecadeLabelFontWeight : UWP.FontWeight {
+        get { try! _default.get_FirstOfYearDecadeLabelFontWeight() }
+        set { try! _default.put_FirstOfYearDecadeLabelFontWeight(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.firstofyeardecadelabelmargin)
+    public var firstOfYearDecadeLabelMargin : WinUI.Thickness {
+        get { try! _default.get_FirstOfYearDecadeLabelMargin() }
+        set { try! _default.put_FirstOfYearDecadeLabelMargin(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.focusborderbrush)
+    public var focusBorderBrush : WinUI.Brush! {
+        get { try! _default.get_FocusBorderBrush() }
+        set { try! _default.put_FocusBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.horizontaldayitemalignment)
+    public var horizontalDayItemAlignment : WinUI.HorizontalAlignment {
+        get { try! _default.get_HorizontalDayItemAlignment() }
+        set { try! _default.put_HorizontalDayItemAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.horizontalfirstofmonthlabelalignment)
+    public var horizontalFirstOfMonthLabelAlignment : WinUI.HorizontalAlignment {
+        get { try! _default.get_HorizontalFirstOfMonthLabelAlignment() }
+        set { try! _default.put_HorizontalFirstOfMonthLabelAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.hoverborderbrush)
+    public var hoverBorderBrush : WinUI.Brush! {
+        get { try! _default.get_HoverBorderBrush() }
+        set { try! _default.put_HoverBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.isgrouplabelvisible)
+    public var isGroupLabelVisible : Bool {
+        get { try! _default.get_IsGroupLabelVisible() }
+        set { try! _default.put_IsGroupLabelVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.isoutofscopeenabled)
+    public var isOutOfScopeEnabled : Bool {
+        get { try! _default.get_IsOutOfScopeEnabled() }
+        set { try! _default.put_IsOutOfScopeEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.istodayhighlighted)
+    public var isTodayHighlighted : Bool {
+        get { try! _default.get_IsTodayHighlighted() }
+        set { try! _default.put_IsTodayHighlighted(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.maxdate)
+    public var maxDate : WindowsFoundation.DateTime {
+        get { try! _default.get_MaxDate() }
+        set { try! _default.put_MaxDate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.mindate)
+    public var minDate : WindowsFoundation.DateTime {
+        get { try! _default.get_MinDate() }
+        set { try! _default.put_MinDate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemfontfamily)
+    public var monthYearItemFontFamily : WinUI.FontFamily! {
+        get { try! _default.get_MonthYearItemFontFamily() }
+        set { try! _default.put_MonthYearItemFontFamily(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemfontsize)
+    public var monthYearItemFontSize : Double {
+        get { try! _default.get_MonthYearItemFontSize() }
+        set { try! _default.put_MonthYearItemFontSize(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemfontstyle)
+    public var monthYearItemFontStyle : UWP.FontStyle {
+        get { try! _default.get_MonthYearItemFontStyle() }
+        set { try! _default.put_MonthYearItemFontStyle(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemfontweight)
+    public var monthYearItemFontWeight : UWP.FontWeight {
+        get { try! _default.get_MonthYearItemFontWeight() }
+        set { try! _default.put_MonthYearItemFontWeight(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.monthyearitemmargin)
+    public var monthYearItemMargin : WinUI.Thickness {
+        get { try! _default.get_MonthYearItemMargin() }
+        set { try! _default.put_MonthYearItemMargin(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.numberofweeksinview)
+    public var numberOfWeeksInView : Int32 {
+        get { try! _default.get_NumberOfWeeksInView() }
+        set { try! _default.put_NumberOfWeeksInView(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.outofscopebackground)
+    public var outOfScopeBackground : WinUI.Brush! {
+        get { try! _default.get_OutOfScopeBackground() }
+        set { try! _default.put_OutOfScopeBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.outofscopeforeground)
+    public var outOfScopeForeground : WinUI.Brush! {
+        get { try! _default.get_OutOfScopeForeground() }
+        set { try! _default.put_OutOfScopeForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.outofscopehoverforeground)
+    public var outOfScopeHoverForeground : WinUI.Brush! {
+        get { try! _default.get_OutOfScopeHoverForeground() }
+        set { try! _default.put_OutOfScopeHoverForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.outofscopepressedforeground)
+    public var outOfScopePressedForeground : WinUI.Brush! {
+        get { try! _default.get_OutOfScopePressedForeground() }
+        set { try! _default.put_OutOfScopePressedForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.pressedborderbrush)
+    public var pressedBorderBrush : WinUI.Brush! {
+        get { try! _default.get_PressedBorderBrush() }
+        set { try! _default.put_PressedBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.pressedforeground)
+    public var pressedForeground : WinUI.Brush! {
+        get { try! _default.get_PressedForeground() }
+        set { try! _default.put_PressedForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedborderbrush)
+    public var selectedBorderBrush : WinUI.Brush! {
+        get { try! _default.get_SelectedBorderBrush() }
+        set { try! _default.put_SelectedBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selecteddates)
+    public var selectedDates : WindowsFoundation.AnyIVector<WindowsFoundation.DateTime>! {
+        get { try! _default.get_SelectedDates() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selecteddisabledborderbrush)
+    public var selectedDisabledBorderBrush : WinUI.Brush! {
+        get { try! _default.get_SelectedDisabledBorderBrush() }
+        set { try! _default.put_SelectedDisabledBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selecteddisabledforeground)
+    public var selectedDisabledForeground : WinUI.Brush! {
+        get { try! _default.get_SelectedDisabledForeground() }
+        set { try! _default.put_SelectedDisabledForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedforeground)
+    public var selectedForeground : WinUI.Brush! {
+        get { try! _default.get_SelectedForeground() }
+        set { try! _default.put_SelectedForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedhoverborderbrush)
+    public var selectedHoverBorderBrush : WinUI.Brush! {
+        get { try! _default.get_SelectedHoverBorderBrush() }
+        set { try! _default.put_SelectedHoverBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedhoverforeground)
+    public var selectedHoverForeground : WinUI.Brush! {
+        get { try! _default.get_SelectedHoverForeground() }
+        set { try! _default.put_SelectedHoverForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedpressedborderbrush)
+    public var selectedPressedBorderBrush : WinUI.Brush! {
+        get { try! _default.get_SelectedPressedBorderBrush() }
+        set { try! _default.put_SelectedPressedBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectedpressedforeground)
+    public var selectedPressedForeground : WinUI.Brush! {
+        get { try! _default.get_SelectedPressedForeground() }
+        set { try! _default.put_SelectedPressedForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selectionmode)
+    public var selectionMode : CalendarViewSelectionMode {
+        get { try! _default.get_SelectionMode() }
+        set { try! _default.put_SelectionMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.templatesettings)
+    public var templateSettings : WinUI.CalendarViewTemplateSettings! {
+        get { try! _default.get_TemplateSettings() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todaybackground)
+    public var todayBackground : WinUI.Brush! {
+        get { try! _default.get_TodayBackground() }
+        set { try! _default.put_TodayBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayblackoutbackground)
+    public var todayBlackoutBackground : WinUI.Brush! {
+        get { try! _default.get_TodayBlackoutBackground() }
+        set { try! _default.put_TodayBlackoutBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayblackoutforeground)
+    public var todayBlackoutForeground : WinUI.Brush! {
+        get { try! _default.get_TodayBlackoutForeground() }
+        set { try! _default.put_TodayBlackoutForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todaydisabledbackground)
+    public var todayDisabledBackground : WinUI.Brush! {
+        get { try! _default.get_TodayDisabledBackground() }
+        set { try! _default.put_TodayDisabledBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayfontweight)
+    public var todayFontWeight : UWP.FontWeight {
+        get { try! _default.get_TodayFontWeight() }
+        set { try! _default.put_TodayFontWeight(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayforeground)
+    public var todayForeground : WinUI.Brush! {
+        get { try! _default.get_TodayForeground() }
+        set { try! _default.put_TodayForeground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayhoverbackground)
+    public var todayHoverBackground : WinUI.Brush! {
+        get { try! _default.get_TodayHoverBackground() }
+        set { try! _default.put_TodayHoverBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todaypressedbackground)
+    public var todayPressedBackground : WinUI.Brush! {
+        get { try! _default.get_TodayPressedBackground() }
+        set { try! _default.put_TodayPressedBackground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.todayselectedinnerborderbrush)
+    public var todaySelectedInnerBorderBrush : WinUI.Brush! {
+        get { try! _default.get_TodaySelectedInnerBorderBrush() }
+        set { try! _default.put_TodaySelectedInnerBorderBrush(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.verticaldayitemalignment)
+    public var verticalDayItemAlignment : WinUI.VerticalAlignment {
+        get { try! _default.get_VerticalDayItemAlignment() }
+        set { try! _default.put_VerticalDayItemAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.verticalfirstofmonthlabelalignment)
+    public var verticalFirstOfMonthLabelAlignment : WinUI.VerticalAlignment {
+        get { try! _default.get_VerticalFirstOfMonthLabelAlignment() }
+        set { try! _default.put_VerticalFirstOfMonthLabelAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendarviewdayitemchanging)
+    public lazy var calendarViewDayItemChanging : Event<TypedEventHandler<CalendarView?, CalendarViewDayItemChangingEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CalendarViewDayItemChanging($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CalendarViewDayItemChanging($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selecteddateschanged)
+    public lazy var selectedDatesChanged : Event<TypedEventHandler<CalendarView?, CalendarViewSelectedDatesChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectedDatesChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectedDatesChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem)
+open class CalendarViewDayItem : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItem
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ICalendarViewDayItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarViewDayItem")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ICalendarViewDayItemFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _ICalendarViewDayItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarViewDayItem")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem.dateproperty)
+    public class var dateProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewDayItemStatics.get_DateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem.isblackoutproperty)
+    public class var isBlackoutProperty : WinUI.DependencyProperty! {
+        get { try! _ICalendarViewDayItemStatics.get_IsBlackoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem.setdensitycolors)
+    public func setDensityColors(_ colors: WindowsFoundation.AnyIIterable<UWP.Color>!) throws {
+        try _default.SetDensityColors(colors)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem.date)
+    public var date : WindowsFoundation.DateTime {
+        get { try! _default.get_Date() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem.isblackout)
+    public var isBlackout : Bool {
+        get { try! _default.get_IsBlackout() }
+        set { try! _default.put_IsBlackout(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitemchangingeventargs)
+public final class CalendarViewDayItemChangingEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemChangingEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitemchangingeventargs.registerupdatecallback)
+    public func registerUpdateCallback(_ callback: TypedEventHandler<CalendarView?, CalendarViewDayItemChangingEventArgs?>!) throws {
+        try _default.RegisterUpdateCallback(callback)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitemchangingeventargs.registerupdatecallback)
+    public func registerUpdateCallback(_ callbackPhase: UInt32, _ callback: TypedEventHandler<CalendarView?, CalendarViewDayItemChangingEventArgs?>!) throws {
+        try _default.RegisterUpdateCallbackWithPhase(callbackPhase, callback)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitemchangingeventargs.inrecyclequeue)
+    public var inRecycleQueue : Bool {
+        get { try! _default.get_InRecycleQueue() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitemchangingeventargs.item)
+    public var item : CalendarViewDayItem! {
+        get { try! _default.get_Item() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitemchangingeventargs.phase)
+    public var phase : UInt32 {
+        get { try! _default.get_Phase() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewselecteddateschangedeventargs)
+public final class CalendarViewSelectedDatesChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewSelectedDatesChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewselecteddateschangedeventargs.addeddates)
+    public var addedDates : WindowsFoundation.AnyIVectorView<WindowsFoundation.DateTime>! {
+        get { try! _default.get_AddedDates() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewselecteddateschangedeventargs.removeddates)
+    public var removedDates : WindowsFoundation.AnyIVectorView<WindowsFoundation.DateTime>! {
+        get { try! _default.get_RemovedDates() }
     }
 
     deinit {
@@ -3570,6 +4967,305 @@ open class DataTemplateSelector : WinRTClass, WinUI.IElementFactory {
         _default = nil
         _IDataTemplateSelectorOverrides = nil
         _IElementFactory = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker)
+open class DatePicker : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePicker
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IDatePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.IDatePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DatePicker")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.DatePickerBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDatePickerFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IDatePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.IDatePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DatePicker")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.calendaridentifierproperty)
+    public class var calendarIdentifierProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_CalendarIdentifierProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.dateproperty)
+    public class var dateProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_DateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.dayformatproperty)
+    public class var dayFormatProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_DayFormatProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.dayvisibleproperty)
+    public class var dayVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_DayVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.headerproperty)
+    public class var headerProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_HeaderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.headertemplateproperty)
+    public class var headerTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_HeaderTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.lightdismissoverlaymodeproperty)
+    public class var lightDismissOverlayModeProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_LightDismissOverlayModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.maxyearproperty)
+    public class var maxYearProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_MaxYearProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.minyearproperty)
+    public class var minYearProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_MinYearProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.monthformatproperty)
+    public class var monthFormatProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_MonthFormatProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.monthvisibleproperty)
+    public class var monthVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_MonthVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.orientationproperty)
+    public class var orientationProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_OrientationProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.selecteddateproperty)
+    public class var selectedDateProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_SelectedDateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.yearformatproperty)
+    public class var yearFormatProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_YearFormatProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.yearvisibleproperty)
+    public class var yearVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IDatePickerStatics.get_YearVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.calendaridentifier)
+    public var calendarIdentifier : String {
+        get { try! _default.get_CalendarIdentifier() }
+        set { try! _default.put_CalendarIdentifier(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.date)
+    public var date : WindowsFoundation.DateTime {
+        get { try! _default.get_Date() }
+        set { try! _default.put_Date(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.dayformat)
+    public var dayFormat : String {
+        get { try! _default.get_DayFormat() }
+        set { try! _default.put_DayFormat(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.dayvisible)
+    public var dayVisible : Bool {
+        get { try! _default.get_DayVisible() }
+        set { try! _default.put_DayVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.header)
+    public var header : Any! {
+        get { try! _default.get_Header() }
+        set { try! _default.put_Header(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.headertemplate)
+    public var headerTemplate : WinUI.DataTemplate! {
+        get { try! _default.get_HeaderTemplate() }
+        set { try! _default.put_HeaderTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.lightdismissoverlaymode)
+    public var lightDismissOverlayMode : LightDismissOverlayMode {
+        get { try! _default.get_LightDismissOverlayMode() }
+        set { try! _default.put_LightDismissOverlayMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.maxyear)
+    public var maxYear : WindowsFoundation.DateTime {
+        get { try! _default.get_MaxYear() }
+        set { try! _default.put_MaxYear(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.minyear)
+    public var minYear : WindowsFoundation.DateTime {
+        get { try! _default.get_MinYear() }
+        set { try! _default.put_MinYear(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.monthformat)
+    public var monthFormat : String {
+        get { try! _default.get_MonthFormat() }
+        set { try! _default.put_MonthFormat(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.monthvisible)
+    public var monthVisible : Bool {
+        get { try! _default.get_MonthVisible() }
+        set { try! _default.put_MonthVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.orientation)
+    public var orientation : Orientation {
+        get { try! _default.get_Orientation() }
+        set { try! _default.put_Orientation(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.selecteddate)
+    public var selectedDate : WindowsFoundation.DateTime? {
+        get { try! _default.get_SelectedDate() }
+        set { try! _default.put_SelectedDate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.yearformat)
+    public var yearFormat : String {
+        get { try! _default.get_YearFormat() }
+        set { try! _default.put_YearFormat(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.yearvisible)
+    public var yearVisible : Bool {
+        get { try! _default.get_YearVisible() }
+        set { try! _default.put_YearVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.datechanged)
+    public lazy var dateChanged : Event<EventHandler<DatePickerValueChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DateChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DateChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.selecteddatechanged)
+    public lazy var selectedDateChanged : Event<TypedEventHandler<DatePicker?, DatePickerSelectedValueChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectedDateChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectedDateChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickerselectedvaluechangedeventargs)
+public final class DatePickerSelectedValueChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePickerSelectedValueChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickerselectedvaluechangedeventargs.newdate)
+    public var newDate : WindowsFoundation.DateTime? {
+        get { try! _default.get_NewDate() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickerselectedvaluechangedeventargs.olddate)
+    public var oldDate : WindowsFoundation.DateTime? {
+        get { try! _default.get_OldDate() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickervaluechangedeventargs)
+public final class DatePickerValueChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePickerValueChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickervaluechangedeventargs.newdate)
+    public var newDate : WindowsFoundation.DateTime {
+        get { try! _default.get_NewDate() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickervaluechangedeventargs.olddate)
+    public var oldDate : WindowsFoundation.DateTime {
+        get { try! _default.get_OldDate() }
+    }
+
+    deinit {
+        _default = nil
     }
 }
 
@@ -7206,6 +8902,121 @@ open class ItemsSourceView : WinRTClass, WinUI.INotifyCollectionChanged {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel)
+public final class ItemsStackPanel : WinUI.Panel {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsStackPanel
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsStackPanel")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IItemsStackPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsStackPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsStackPanel")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.arestickygroupheadersenabledproperty)
+    public static var areStickyGroupHeadersEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsStackPanelStatics.get_AreStickyGroupHeadersEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.cachelengthproperty)
+    public static var cacheLengthProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsStackPanelStatics.get_CacheLengthProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.groupheaderplacementproperty)
+    public static var groupHeaderPlacementProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsStackPanelStatics.get_GroupHeaderPlacementProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.grouppaddingproperty)
+    public static var groupPaddingProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsStackPanelStatics.get_GroupPaddingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.orientationproperty)
+    public static var orientationProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsStackPanelStatics.get_OrientationProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.arestickygroupheadersenabled)
+    public var areStickyGroupHeadersEnabled : Bool {
+        get { try! _default.get_AreStickyGroupHeadersEnabled() }
+        set { try! _default.put_AreStickyGroupHeadersEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.cachelength)
+    public var cacheLength : Double {
+        get { try! _default.get_CacheLength() }
+        set { try! _default.put_CacheLength(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.firstcacheindex)
+    public var firstCacheIndex : Int32 {
+        get { try! _default.get_FirstCacheIndex() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.firstvisibleindex)
+    public var firstVisibleIndex : Int32 {
+        get { try! _default.get_FirstVisibleIndex() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.groupheaderplacement)
+    public var groupHeaderPlacement : WinUI.GroupHeaderPlacement {
+        get { try! _default.get_GroupHeaderPlacement() }
+        set { try! _default.put_GroupHeaderPlacement(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.grouppadding)
+    public var groupPadding : WinUI.Thickness {
+        get { try! _default.get_GroupPadding() }
+        set { try! _default.put_GroupPadding(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.itemsupdatingscrollmode)
+    public var itemsUpdatingScrollMode : ItemsUpdatingScrollMode {
+        get { try! _default.get_ItemsUpdatingScrollMode() }
+        set { try! _default.put_ItemsUpdatingScrollMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.lastcacheindex)
+    public var lastCacheIndex : Int32 {
+        get { try! _default.get_LastCacheIndex() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.lastvisibleindex)
+    public var lastVisibleIndex : Int32 {
+        get { try! _default.get_LastVisibleIndex() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.orientation)
+    public var orientation : Orientation {
+        get { try! _default.get_Orientation() }
+        set { try! _default.put_Orientation(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.scrollingdirection)
+    public var scrollingDirection : PanelScrollingDirection {
+        get { try! _default.get_ScrollingDirection() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemswrapgrid)
 open class ItemsWrapGrid : WinUI.Panel {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsWrapGrid
@@ -10295,6 +12106,303 @@ open class NavigationViewTemplateSettings : WinUI.DependencyObject {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox)
+open class NumberBox : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBox
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _INumberBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.INumberBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._INumberBoxFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _INumberBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.INumberBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.acceptsexpressionproperty)
+    public class var acceptsExpressionProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_AcceptsExpressionProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.descriptionproperty)
+    public class var descriptionProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_DescriptionProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.headerproperty)
+    public class var headerProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_HeaderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.headertemplateproperty)
+    public class var headerTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_HeaderTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.iswrapenabledproperty)
+    public class var isWrapEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_IsWrapEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.largechangeproperty)
+    public class var largeChangeProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_LargeChangeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.maximumproperty)
+    public class var maximumProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_MaximumProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.minimumproperty)
+    public class var minimumProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_MinimumProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.numberformatterproperty)
+    public class var numberFormatterProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_NumberFormatterProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.placeholdertextproperty)
+    public class var placeholderTextProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_PlaceholderTextProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.preventkeyboarddisplayonprogrammaticfocusproperty)
+    public class var preventKeyboardDisplayOnProgrammaticFocusProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_PreventKeyboardDisplayOnProgrammaticFocusProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.selectionflyoutproperty)
+    public class var selectionFlyoutProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_SelectionFlyoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.selectionhighlightcolorproperty)
+    public class var selectionHighlightColorProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_SelectionHighlightColorProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.smallchangeproperty)
+    public class var smallChangeProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_SmallChangeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.spinbuttonplacementmodeproperty)
+    public class var spinButtonPlacementModeProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_SpinButtonPlacementModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.textproperty)
+    public class var textProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_TextProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.textreadingorderproperty)
+    public class var textReadingOrderProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_TextReadingOrderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.validationmodeproperty)
+    public class var validationModeProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_ValidationModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.valueproperty)
+    public class var valueProperty : WinUI.DependencyProperty! {
+        get { try! _INumberBoxStatics.get_ValueProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.acceptsexpression)
+    public var acceptsExpression : Bool {
+        get { try! _default.get_AcceptsExpression() }
+        set { try! _default.put_AcceptsExpression(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.description)
+    public var description : Any! {
+        get { try! _default.get_Description() }
+        set { try! _default.put_Description(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.header)
+    public var header : Any! {
+        get { try! _default.get_Header() }
+        set { try! _default.put_Header(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.headertemplate)
+    public var headerTemplate : WinUI.DataTemplate! {
+        get { try! _default.get_HeaderTemplate() }
+        set { try! _default.put_HeaderTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.iswrapenabled)
+    public var isWrapEnabled : Bool {
+        get { try! _default.get_IsWrapEnabled() }
+        set { try! _default.put_IsWrapEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.largechange)
+    public var largeChange : Double {
+        get { try! _default.get_LargeChange() }
+        set { try! _default.put_LargeChange(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.maximum)
+    public var maximum : Double {
+        get { try! _default.get_Maximum() }
+        set { try! _default.put_Maximum(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.minimum)
+    public var minimum : Double {
+        get { try! _default.get_Minimum() }
+        set { try! _default.put_Minimum(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.numberformatter)
+    public var numberFormatter : UWP.AnyINumberFormatter2! {
+        get { try! _default.get_NumberFormatter() }
+        set { try! _default.put_NumberFormatter(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.placeholdertext)
+    public var placeholderText : String {
+        get { try! _default.get_PlaceholderText() }
+        set { try! _default.put_PlaceholderText(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.preventkeyboarddisplayonprogrammaticfocus)
+    public var preventKeyboardDisplayOnProgrammaticFocus : Bool {
+        get { try! _default.get_PreventKeyboardDisplayOnProgrammaticFocus() }
+        set { try! _default.put_PreventKeyboardDisplayOnProgrammaticFocus(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.selectionflyout)
+    public var selectionFlyout : WinUI.FlyoutBase! {
+        get { try! _default.get_SelectionFlyout() }
+        set { try! _default.put_SelectionFlyout(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.selectionhighlightcolor)
+    public var selectionHighlightColor : WinUI.SolidColorBrush! {
+        get { try! _default.get_SelectionHighlightColor() }
+        set { try! _default.put_SelectionHighlightColor(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.smallchange)
+    public var smallChange : Double {
+        get { try! _default.get_SmallChange() }
+        set { try! _default.put_SmallChange(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.spinbuttonplacementmode)
+    public var spinButtonPlacementMode : NumberBoxSpinButtonPlacementMode {
+        get { try! _default.get_SpinButtonPlacementMode() }
+        set { try! _default.put_SpinButtonPlacementMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.text)
+    public var text : String {
+        get { try! _default.get_Text() }
+        set { try! _default.put_Text(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.textreadingorder)
+    public var textReadingOrder : WinUI.TextReadingOrder {
+        get { try! _default.get_TextReadingOrder() }
+        set { try! _default.put_TextReadingOrder(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.validationmode)
+    public var validationMode : NumberBoxValidationMode {
+        get { try! _default.get_ValidationMode() }
+        set { try! _default.put_ValidationMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.value)
+    public var value : Double {
+        get { try! _default.get_Value() }
+        set { try! _default.put_Value(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.valuechanged)
+    public lazy var valueChanged : Event<TypedEventHandler<NumberBox?, NumberBoxValueChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_ValueChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_ValueChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvaluechangedeventargs)
+public final class NumberBoxValueChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBoxValueChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvaluechangedeventargs.newvalue)
+    public var newValue : Double {
+        get { try! _default.get_NewValue() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvaluechangedeventargs.oldvalue)
+    public var oldValue : Double {
+        get { try! _default.get_OldValue() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.page)
 open class Page : WinUI.UserControl {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPage
@@ -12613,6 +14721,565 @@ open class RelativePanel : WinUI.Panel {
         get { try! _default.get_Padding() }
         set { try! _default.put_Padding(newValue) }
     }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock)
+public final class RichTextBlock : WinUI.FrameworkElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlock
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlock")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IRichTextBlockStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlock")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.characterspacingproperty)
+    public static var characterSpacingProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_CharacterSpacingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontfamilyproperty)
+    public static var fontFamilyProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_FontFamilyProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontsizeproperty)
+    public static var fontSizeProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_FontSizeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontstretchproperty)
+    public static var fontStretchProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_FontStretchProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontstyleproperty)
+    public static var fontStyleProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_FontStyleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontweightproperty)
+    public static var fontWeightProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_FontWeightProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.foregroundproperty)
+    public static var foregroundProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_ForegroundProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.hasoverflowcontentproperty)
+    public static var hasOverflowContentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_HasOverflowContentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.horizontaltextalignmentproperty)
+    public static var horizontalTextAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_HorizontalTextAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.iscolorfontenabledproperty)
+    public static var isColorFontEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_IsColorFontEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.istextscalefactorenabledproperty)
+    public static var isTextScaleFactorEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_IsTextScaleFactorEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.istextselectionenabledproperty)
+    public static var isTextSelectionEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_IsTextSelectionEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.istexttrimmedproperty)
+    public static var isTextTrimmedProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_IsTextTrimmedProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.lineheightproperty)
+    public static var lineHeightProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_LineHeightProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.linestackingstrategyproperty)
+    public static var lineStackingStrategyProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_LineStackingStrategyProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.maxlinesproperty)
+    public static var maxLinesProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_MaxLinesProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.opticalmarginalignmentproperty)
+    public static var opticalMarginAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_OpticalMarginAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.overflowcontenttargetproperty)
+    public static var overflowContentTargetProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_OverflowContentTargetProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.paddingproperty)
+    public static var paddingProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_PaddingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectedtextproperty)
+    public static var selectedTextProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_SelectedTextProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectionflyoutproperty)
+    public static var selectionFlyoutProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_SelectionFlyoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectionhighlightcolorproperty)
+    public static var selectionHighlightColorProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_SelectionHighlightColorProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textalignmentproperty)
+    public static var textAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_TextAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textdecorationsproperty)
+    public static var textDecorationsProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_TextDecorationsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textindentproperty)
+    public static var textIndentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_TextIndentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textlineboundsproperty)
+    public static var textLineBoundsProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_TextLineBoundsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textreadingorderproperty)
+    public static var textReadingOrderProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_TextReadingOrderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.texttrimmingproperty)
+    public static var textTrimmingProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_TextTrimmingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textwrappingproperty)
+    public static var textWrappingProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockStatics.get_TextWrappingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectall)
+    public func selectAll() throws {
+        try _default.SelectAll()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.select)
+    public func select(_ start: WinUI.TextPointer!, _ end: WinUI.TextPointer!) throws {
+        try _default.Select(start, end)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.getpositionfrompoint)
+    public func getPositionFromPoint(_ point: WindowsFoundation.Point) throws -> WinUI.TextPointer! {
+        try _default.GetPositionFromPoint(point)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.copyselectiontoclipboard)
+    public func copySelectionToClipboard() throws {
+        try _default.CopySelectionToClipboard()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.baselineoffset)
+    public var baselineOffset : Double {
+        get { try! _default.get_BaselineOffset() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.blocks)
+    public var blocks : WinUI.BlockCollection! {
+        get { try! _default.get_Blocks() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.characterspacing)
+    public var characterSpacing : Int32 {
+        get { try! _default.get_CharacterSpacing() }
+        set { try! _default.put_CharacterSpacing(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.contentend)
+    public var contentEnd : WinUI.TextPointer! {
+        get { try! _default.get_ContentEnd() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.contentstart)
+    public var contentStart : WinUI.TextPointer! {
+        get { try! _default.get_ContentStart() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontfamily)
+    public var fontFamily : WinUI.FontFamily! {
+        get { try! _default.get_FontFamily() }
+        set { try! _default.put_FontFamily(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontsize)
+    public var fontSize : Double {
+        get { try! _default.get_FontSize() }
+        set { try! _default.put_FontSize(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontstretch)
+    public var fontStretch : UWP.FontStretch {
+        get { try! _default.get_FontStretch() }
+        set { try! _default.put_FontStretch(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontstyle)
+    public var fontStyle : UWP.FontStyle {
+        get { try! _default.get_FontStyle() }
+        set { try! _default.put_FontStyle(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.fontweight)
+    public var fontWeight : UWP.FontWeight {
+        get { try! _default.get_FontWeight() }
+        set { try! _default.put_FontWeight(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.foreground)
+    public var foreground : WinUI.Brush! {
+        get { try! _default.get_Foreground() }
+        set { try! _default.put_Foreground(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.hasoverflowcontent)
+    public var hasOverflowContent : Bool {
+        get { try! _default.get_HasOverflowContent() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.horizontaltextalignment)
+    public var horizontalTextAlignment : WinUI.TextAlignment {
+        get { try! _default.get_HorizontalTextAlignment() }
+        set { try! _default.put_HorizontalTextAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.iscolorfontenabled)
+    public var isColorFontEnabled : Bool {
+        get { try! _default.get_IsColorFontEnabled() }
+        set { try! _default.put_IsColorFontEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.istextscalefactorenabled)
+    public var isTextScaleFactorEnabled : Bool {
+        get { try! _default.get_IsTextScaleFactorEnabled() }
+        set { try! _default.put_IsTextScaleFactorEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.istextselectionenabled)
+    public var isTextSelectionEnabled : Bool {
+        get { try! _default.get_IsTextSelectionEnabled() }
+        set { try! _default.put_IsTextSelectionEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.istexttrimmed)
+    public var isTextTrimmed : Bool {
+        get { try! _default.get_IsTextTrimmed() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.lineheight)
+    public var lineHeight : Double {
+        get { try! _default.get_LineHeight() }
+        set { try! _default.put_LineHeight(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.linestackingstrategy)
+    public var lineStackingStrategy : WinUI.LineStackingStrategy {
+        get { try! _default.get_LineStackingStrategy() }
+        set { try! _default.put_LineStackingStrategy(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.maxlines)
+    public var maxLines : Int32 {
+        get { try! _default.get_MaxLines() }
+        set { try! _default.put_MaxLines(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.opticalmarginalignment)
+    public var opticalMarginAlignment : WinUI.OpticalMarginAlignment {
+        get { try! _default.get_OpticalMarginAlignment() }
+        set { try! _default.put_OpticalMarginAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.overflowcontenttarget)
+    public var overflowContentTarget : RichTextBlockOverflow! {
+        get { try! _default.get_OverflowContentTarget() }
+        set { try! _default.put_OverflowContentTarget(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.padding)
+    public var padding : WinUI.Thickness {
+        get { try! _default.get_Padding() }
+        set { try! _default.put_Padding(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectedtext)
+    public var selectedText : String {
+        get { try! _default.get_SelectedText() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectionend)
+    public var selectionEnd : WinUI.TextPointer! {
+        get { try! _default.get_SelectionEnd() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectionflyout)
+    public var selectionFlyout : WinUI.FlyoutBase! {
+        get { try! _default.get_SelectionFlyout() }
+        set { try! _default.put_SelectionFlyout(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectionhighlightcolor)
+    public var selectionHighlightColor : WinUI.SolidColorBrush! {
+        get { try! _default.get_SelectionHighlightColor() }
+        set { try! _default.put_SelectionHighlightColor(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectionstart)
+    public var selectionStart : WinUI.TextPointer! {
+        get { try! _default.get_SelectionStart() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textalignment)
+    public var textAlignment : WinUI.TextAlignment {
+        get { try! _default.get_TextAlignment() }
+        set { try! _default.put_TextAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textdecorations)
+    public var textDecorations : UWP.TextDecorations {
+        get { try! _default.get_TextDecorations() }
+        set { try! _default.put_TextDecorations(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.texthighlighters)
+    public var textHighlighters : WindowsFoundation.AnyIVector<WinUI.TextHighlighter?>! {
+        get { try! _default.get_TextHighlighters() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textindent)
+    public var textIndent : Double {
+        get { try! _default.get_TextIndent() }
+        set { try! _default.put_TextIndent(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textlinebounds)
+    public var textLineBounds : WinUI.TextLineBounds {
+        get { try! _default.get_TextLineBounds() }
+        set { try! _default.put_TextLineBounds(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textreadingorder)
+    public var textReadingOrder : WinUI.TextReadingOrder {
+        get { try! _default.get_TextReadingOrder() }
+        set { try! _default.put_TextReadingOrder(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.texttrimming)
+    public var textTrimming : WinUI.TextTrimming {
+        get { try! _default.get_TextTrimming() }
+        set { try! _default.put_TextTrimming(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.textwrapping)
+    public var textWrapping : WinUI.TextWrapping {
+        get { try! _default.get_TextWrapping() }
+        set { try! _default.put_TextWrapping(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.contextmenuopening)
+    public lazy var contextMenuOpening : Event<ContextMenuOpeningEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_ContextMenuOpening($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_ContextMenuOpening($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.istexttrimmedchanged)
+    public lazy var isTextTrimmedChanged : Event<TypedEventHandler<RichTextBlock?, IsTextTrimmedChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_IsTextTrimmedChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_IsTextTrimmedChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectionchanged)
+    public lazy var selectionChanged : Event<WinUI.RoutedEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectionChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectionChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow)
+public final class RichTextBlockOverflow : WinUI.FrameworkElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockOverflow
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlockOverflow")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IRichTextBlockOverflowStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockOverflowStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlockOverflow")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.hasoverflowcontentproperty)
+    public static var hasOverflowContentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockOverflowStatics.get_HasOverflowContentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.istexttrimmedproperty)
+    public static var isTextTrimmedProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockOverflowStatics.get_IsTextTrimmedProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.maxlinesproperty)
+    public static var maxLinesProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockOverflowStatics.get_MaxLinesProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.overflowcontenttargetproperty)
+    public static var overflowContentTargetProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockOverflowStatics.get_OverflowContentTargetProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.paddingproperty)
+    public static var paddingProperty : WinUI.DependencyProperty! {
+        get { try! _IRichTextBlockOverflowStatics.get_PaddingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.getpositionfrompoint)
+    public func getPositionFromPoint(_ point: WindowsFoundation.Point) throws -> WinUI.TextPointer! {
+        try _default.GetPositionFromPoint(point)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.baselineoffset)
+    public var baselineOffset : Double {
+        get { try! _default.get_BaselineOffset() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.contentend)
+    public var contentEnd : WinUI.TextPointer! {
+        get { try! _default.get_ContentEnd() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.contentsource)
+    public var contentSource : RichTextBlock! {
+        get { try! _default.get_ContentSource() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.contentstart)
+    public var contentStart : WinUI.TextPointer! {
+        get { try! _default.get_ContentStart() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.hasoverflowcontent)
+    public var hasOverflowContent : Bool {
+        get { try! _default.get_HasOverflowContent() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.istexttrimmed)
+    public var isTextTrimmed : Bool {
+        get { try! _default.get_IsTextTrimmed() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.maxlines)
+    public var maxLines : Int32 {
+        get { try! _default.get_MaxLines() }
+        set { try! _default.put_MaxLines(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.overflowcontenttarget)
+    public var overflowContentTarget : RichTextBlockOverflow! {
+        get { try! _default.get_OverflowContentTarget() }
+        set { try! _default.put_OverflowContentTarget(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.padding)
+    public var padding : WinUI.Thickness {
+        get { try! _default.get_Padding() }
+        set { try! _default.put_Padding(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.istexttrimmedchanged)
+    public lazy var isTextTrimmedChanged : Event<TypedEventHandler<RichTextBlockOverflow?, IsTextTrimmedChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_IsTextTrimmedChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_IsTextTrimmedChanged($0)
+       }
+      )
+    }()
 
     deinit {
         _default = nil
@@ -15719,6 +18386,51 @@ open class SwapChainPanel : WinUI.Grid {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon)
+public final class SymbolIcon : WinUI.IconElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISymbolIcon
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
+    public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _ISymbolIconFactory: __ABI_Microsoft_UI_Xaml_Controls.ISymbolIconFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
+    public init(_ symbol: Symbol) {
+        super.init(fromAbi: try! Self._ISymbolIconFactory.CreateInstanceWithSymbol(symbol))
+    }
+
+    private static let _ISymbolIconStatics: __ABI_Microsoft_UI_Xaml_Controls.ISymbolIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon.symbolproperty)
+    public static var symbolProperty : WinUI.DependencyProperty! {
+        get { try! _ISymbolIconStatics.get_SymbolProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon.symbol)
+    public var symbol : Symbol {
+        get { try! _default.get_Symbol() }
+        set { try! _default.put_Symbol(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview)
 open class TabView : WinUI.Control {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabView
@@ -18400,6 +21112,217 @@ public final class TextControlPasteEventArgs : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker)
+open class TimePicker : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePicker
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ITimePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.ITimePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TimePicker")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TimePickerBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ITimePickerFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _ITimePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.ITimePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TimePicker")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.clockidentifierproperty)
+    public class var clockIdentifierProperty : WinUI.DependencyProperty! {
+        get { try! _ITimePickerStatics.get_ClockIdentifierProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.headerproperty)
+    public class var headerProperty : WinUI.DependencyProperty! {
+        get { try! _ITimePickerStatics.get_HeaderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.headertemplateproperty)
+    public class var headerTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _ITimePickerStatics.get_HeaderTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.lightdismissoverlaymodeproperty)
+    public class var lightDismissOverlayModeProperty : WinUI.DependencyProperty! {
+        get { try! _ITimePickerStatics.get_LightDismissOverlayModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.minuteincrementproperty)
+    public class var minuteIncrementProperty : WinUI.DependencyProperty! {
+        get { try! _ITimePickerStatics.get_MinuteIncrementProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.selectedtimeproperty)
+    public class var selectedTimeProperty : WinUI.DependencyProperty! {
+        get { try! _ITimePickerStatics.get_SelectedTimeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.timeproperty)
+    public class var timeProperty : WinUI.DependencyProperty! {
+        get { try! _ITimePickerStatics.get_TimeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.clockidentifier)
+    public var clockIdentifier : String {
+        get { try! _default.get_ClockIdentifier() }
+        set { try! _default.put_ClockIdentifier(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.header)
+    public var header : Any! {
+        get { try! _default.get_Header() }
+        set { try! _default.put_Header(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.headertemplate)
+    public var headerTemplate : WinUI.DataTemplate! {
+        get { try! _default.get_HeaderTemplate() }
+        set { try! _default.put_HeaderTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.lightdismissoverlaymode)
+    public var lightDismissOverlayMode : LightDismissOverlayMode {
+        get { try! _default.get_LightDismissOverlayMode() }
+        set { try! _default.put_LightDismissOverlayMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.minuteincrement)
+    public var minuteIncrement : Int32 {
+        get { try! _default.get_MinuteIncrement() }
+        set { try! _default.put_MinuteIncrement(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.selectedtime)
+    public var selectedTime : WindowsFoundation.TimeSpan? {
+        get { try! _default.get_SelectedTime() }
+        set { try! _default.put_SelectedTime(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.time)
+    public var time : WindowsFoundation.TimeSpan {
+        get { try! _default.get_Time() }
+        set { try! _default.put_Time(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.selectedtimechanged)
+    public lazy var selectedTimeChanged : Event<TypedEventHandler<TimePicker?, TimePickerSelectedValueChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectedTimeChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectedTimeChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.timechanged)
+    public lazy var timeChanged : Event<EventHandler<TimePickerValueChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_TimeChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_TimeChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickerselectedvaluechangedeventargs)
+public final class TimePickerSelectedValueChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePickerSelectedValueChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickerselectedvaluechangedeventargs.newtime)
+    public var newTime : WindowsFoundation.TimeSpan? {
+        get { try! _default.get_NewTime() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickerselectedvaluechangedeventargs.oldtime)
+    public var oldTime : WindowsFoundation.TimeSpan? {
+        get { try! _default.get_OldTime() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickervaluechangedeventargs)
+public final class TimePickerValueChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePickerValueChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickervaluechangedeventargs.newtime)
+    public var newTime : WindowsFoundation.TimeSpan {
+        get { try! _default.get_NewTime() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickervaluechangedeventargs.oldtime)
+    public var oldTime : WindowsFoundation.TimeSpan {
+        get { try! _default.get_OldTime() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebar)
 open class TitleBar : WinUI.Control {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITitleBar
@@ -20648,6 +23571,7 @@ public final class XamlControlsResources : WinUI.ResourceDictionary {
     }
 }
 
+public typealias CalendarViewDayItemChangingEventHandler = (CalendarView?, CalendarViewDayItemChangingEventArgs?) throws -> ()
 public typealias ContextMenuOpeningEventHandler = (Any?, ContextMenuEventArgs?) throws -> ()
 public typealias DragItemsStartingEventHandler = (Any?, DragItemsStartingEventArgs?) throws -> ()
 public typealias ItemClickEventHandler = (Any?, ItemClickEventArgs?) throws -> ()
@@ -20828,6 +23752,32 @@ extension WinUI.BackgroundSizing {
     }
 }
 extension WinUI.BackgroundSizing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.CalendarViewDisplayMode {
+    public static var month : WinUI.CalendarViewDisplayMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewDisplayMode_Month
+    }
+    public static var year : WinUI.CalendarViewDisplayMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewDisplayMode_Year
+    }
+    public static var decade : WinUI.CalendarViewDisplayMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewDisplayMode_Decade
+    }
+}
+extension WinUI.CalendarViewDisplayMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.CalendarViewSelectionMode {
+    public static var none : WinUI.CalendarViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewSelectionMode_None
+    }
+    public static var single : WinUI.CalendarViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewSelectionMode_Single
+    }
+    public static var multiple : WinUI.CalendarViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCalendarViewSelectionMode_Multiple
+    }
+}
+extension WinUI.CalendarViewSelectionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.CandidateWindowAlignment {
     public static var `default` : WinUI.CandidateWindowAlignment {
@@ -21015,6 +23965,19 @@ extension WinUI.ItemCollectionTransitionTriggers {
 }
 extension WinUI.ItemCollectionTransitionTriggers: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
+extension WinUI.ItemsUpdatingScrollMode {
+    public static var keepItemsInView : WinUI.ItemsUpdatingScrollMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsUpdatingScrollMode_KeepItemsInView
+    }
+    public static var keepScrollOffset : WinUI.ItemsUpdatingScrollMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsUpdatingScrollMode_KeepScrollOffset
+    }
+    public static var keepLastItemInView : WinUI.ItemsUpdatingScrollMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsUpdatingScrollMode_KeepLastItemInView
+    }
+}
+extension WinUI.ItemsUpdatingScrollMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
 extension WinUI.LightDismissOverlayMode {
     public static var auto : WinUI.LightDismissOverlayMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CLightDismissOverlayMode_Auto
@@ -21131,6 +24094,29 @@ extension WinUI.NavigationViewShoulderNavigationEnabled {
     }
 }
 extension WinUI.NavigationViewShoulderNavigationEnabled: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.NumberBoxSpinButtonPlacementMode {
+    public static var hidden : WinUI.NumberBoxSpinButtonPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode_Hidden
+    }
+    public static var compact : WinUI.NumberBoxSpinButtonPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode_Compact
+    }
+    public static var inline : WinUI.NumberBoxSpinButtonPlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxSpinButtonPlacementMode_Inline
+    }
+}
+extension WinUI.NumberBoxSpinButtonPlacementMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.NumberBoxValidationMode {
+    public static var invalidInputOverwritten : WinUI.NumberBoxValidationMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxValidationMode_InvalidInputOverwritten
+    }
+    public static var disabled : WinUI.NumberBoxValidationMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CNumberBoxValidationMode_Disabled
+    }
+}
+extension WinUI.NumberBoxValidationMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.Orientation {
     public static var vertical : WinUI.Orientation {
@@ -21529,6 +24515,601 @@ extension WinUI.StretchDirection {
     }
 }
 extension WinUI.StretchDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.Symbol {
+    public static var previous : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Previous
+    }
+    public static var next : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Next
+    }
+    public static var play : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Play
+    }
+    public static var pause : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Pause
+    }
+    public static var edit : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Edit
+    }
+    public static var save : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Save
+    }
+    public static var clear : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Clear
+    }
+    public static var delete : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Delete
+    }
+    public static var remove : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Remove
+    }
+    public static var add : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Add
+    }
+    public static var cancel : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Cancel
+    }
+    public static var accept : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Accept
+    }
+    public static var more : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_More
+    }
+    public static var redo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Redo
+    }
+    public static var undo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Undo
+    }
+    public static var home : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Home
+    }
+    public static var up : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Up
+    }
+    public static var forward : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Forward
+    }
+    public static var back : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Back
+    }
+    public static var favorite : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Favorite
+    }
+    public static var camera : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Camera
+    }
+    public static var setting : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Setting
+    }
+    public static var video : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Video
+    }
+    public static var sync : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Sync
+    }
+    public static var download : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Download
+    }
+    public static var mail : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Mail
+    }
+    public static var find : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Find
+    }
+    public static var help : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Help
+    }
+    public static var upload : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Upload
+    }
+    public static var emoji : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Emoji
+    }
+    public static var twoPage : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_TwoPage
+    }
+    public static var leaveChat : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_LeaveChat
+    }
+    public static var mailForward : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MailForward
+    }
+    public static var clock : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Clock
+    }
+    public static var send : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Send
+    }
+    public static var crop : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Crop
+    }
+    public static var rotateCamera : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_RotateCamera
+    }
+    public static var people : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_People
+    }
+    public static var openPane : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OpenPane
+    }
+    public static var closePane : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ClosePane
+    }
+    public static var world : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_World
+    }
+    public static var flag : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Flag
+    }
+    public static var previewLink : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_PreviewLink
+    }
+    public static var globe : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Globe
+    }
+    public static var trim : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Trim
+    }
+    public static var attachCamera : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AttachCamera
+    }
+    public static var zoomIn : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ZoomIn
+    }
+    public static var bookmarks : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Bookmarks
+    }
+    public static var document : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Document
+    }
+    public static var protectedDocument : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ProtectedDocument
+    }
+    public static var page : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Page
+    }
+    public static var bullets : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Bullets
+    }
+    public static var comment : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Comment
+    }
+    public static var mailFilled : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MailFilled
+    }
+    public static var contactInfo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ContactInfo
+    }
+    public static var hangUp : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_HangUp
+    }
+    public static var viewAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ViewAll
+    }
+    public static var mapPin : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MapPin
+    }
+    public static var phone : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Phone
+    }
+    public static var videoChat : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_VideoChat
+    }
+    public static var `switch` : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Switch
+    }
+    public static var contact : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Contact
+    }
+    public static var rename : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Rename
+    }
+    public static var pin : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Pin
+    }
+    public static var musicInfo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MusicInfo
+    }
+    public static var go : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Go
+    }
+    public static var keyboard : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Keyboard
+    }
+    public static var dockLeft : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DockLeft
+    }
+    public static var dockRight : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DockRight
+    }
+    public static var dockBottom : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DockBottom
+    }
+    public static var remote : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Remote
+    }
+    public static var refresh : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Refresh
+    }
+    public static var rotate : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Rotate
+    }
+    public static var shuffle : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Shuffle
+    }
+    public static var list : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_List
+    }
+    public static var shop : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Shop
+    }
+    public static var selectAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SelectAll
+    }
+    public static var orientation : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Orientation
+    }
+    public static var `import` : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Import
+    }
+    public static var importAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ImportAll
+    }
+    public static var browsePhotos : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_BrowsePhotos
+    }
+    public static var webCam : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_WebCam
+    }
+    public static var pictures : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Pictures
+    }
+    public static var saveLocal : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SaveLocal
+    }
+    public static var caption : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Caption
+    }
+    public static var stop : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Stop
+    }
+    public static var showResults : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ShowResults
+    }
+    public static var volume : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Volume
+    }
+    public static var repair : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Repair
+    }
+    public static var message : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Message
+    }
+    public static var page2 : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Page2
+    }
+    public static var calendarDay : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_CalendarDay
+    }
+    public static var calendarWeek : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_CalendarWeek
+    }
+    public static var calendar : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Calendar
+    }
+    public static var character : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Character
+    }
+    public static var mailReplyAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MailReplyAll
+    }
+    public static var read : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Read
+    }
+    public static var link : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Link
+    }
+    public static var account : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Account
+    }
+    public static var showBcc : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ShowBcc
+    }
+    public static var hideBcc : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_HideBcc
+    }
+    public static var cut : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Cut
+    }
+    public static var attach : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Attach
+    }
+    public static var paste : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Paste
+    }
+    public static var filter : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Filter
+    }
+    public static var copy : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Copy
+    }
+    public static var emoji2 : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Emoji2
+    }
+    public static var important : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Important
+    }
+    public static var mailReply : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MailReply
+    }
+    public static var slideShow : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SlideShow
+    }
+    public static var sort : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Sort
+    }
+    public static var manage : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Manage
+    }
+    public static var allApps : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AllApps
+    }
+    public static var disconnectDrive : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DisconnectDrive
+    }
+    public static var mapDrive : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MapDrive
+    }
+    public static var newWindow : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_NewWindow
+    }
+    public static var openWith : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OpenWith
+    }
+    public static var contactPresence : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ContactPresence
+    }
+    public static var priority : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Priority
+    }
+    public static var goToToday : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_GoToToday
+    }
+    public static var font : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Font
+    }
+    public static var fontColor : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FontColor
+    }
+    public static var contact2 : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Contact2
+    }
+    public static var folder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Folder
+    }
+    public static var audio : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Audio
+    }
+    public static var placeholder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Placeholder
+    }
+    public static var view : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_View
+    }
+    public static var setLockScreen : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SetLockScreen
+    }
+    public static var setTile : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SetTile
+    }
+    public static var closedCaption : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ClosedCaption
+    }
+    public static var stopSlideShow : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_StopSlideShow
+    }
+    public static var permissions : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Permissions
+    }
+    public static var highlight : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Highlight
+    }
+    public static var disableUpdates : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_DisableUpdates
+    }
+    public static var unFavorite : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_UnFavorite
+    }
+    public static var unPin : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_UnPin
+    }
+    public static var openLocal : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OpenLocal
+    }
+    public static var mute : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Mute
+    }
+    public static var italic : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Italic
+    }
+    public static var underline : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Underline
+    }
+    public static var bold : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Bold
+    }
+    public static var moveToFolder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_MoveToFolder
+    }
+    public static var likeDislike : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_LikeDislike
+    }
+    public static var dislike : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Dislike
+    }
+    public static var like : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Like
+    }
+    public static var alignRight : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AlignRight
+    }
+    public static var alignCenter : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AlignCenter
+    }
+    public static var alignLeft : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AlignLeft
+    }
+    public static var zoom : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Zoom
+    }
+    public static var zoomOut : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ZoomOut
+    }
+    public static var openFile : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OpenFile
+    }
+    public static var otherUser : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OtherUser
+    }
+    public static var admin : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Admin
+    }
+    public static var street : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Street
+    }
+    public static var map : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Map
+    }
+    public static var clearSelection : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ClearSelection
+    }
+    public static var fontDecrease : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FontDecrease
+    }
+    public static var fontIncrease : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FontIncrease
+    }
+    public static var fontSize : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FontSize
+    }
+    public static var cellPhone : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_CellPhone
+    }
+    public static var reShare : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ReShare
+    }
+    public static var tag : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Tag
+    }
+    public static var repeatOne : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_RepeatOne
+    }
+    public static var repeatAll : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_RepeatAll
+    }
+    public static var outlineStar : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OutlineStar
+    }
+    public static var solidStar : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SolidStar
+    }
+    public static var calculator : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Calculator
+    }
+    public static var directions : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Directions
+    }
+    public static var target : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Target
+    }
+    public static var library : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Library
+    }
+    public static var phoneBook : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_PhoneBook
+    }
+    public static var memo : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Memo
+    }
+    public static var microphone : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Microphone
+    }
+    public static var postUpdate : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_PostUpdate
+    }
+    public static var backToWindow : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_BackToWindow
+    }
+    public static var fullScreen : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FullScreen
+    }
+    public static var newFolder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_NewFolder
+    }
+    public static var calendarReply : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_CalendarReply
+    }
+    public static var unSyncFolder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_UnSyncFolder
+    }
+    public static var reportHacked : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ReportHacked
+    }
+    public static var syncFolder : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SyncFolder
+    }
+    public static var blockContact : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_BlockContact
+    }
+    public static var switchApps : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_SwitchApps
+    }
+    public static var addFriend : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_AddFriend
+    }
+    public static var touchPointer : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_TouchPointer
+    }
+    public static var goToStart : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_GoToStart
+    }
+    public static var zeroBars : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ZeroBars
+    }
+    public static var oneBar : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_OneBar
+    }
+    public static var twoBars : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_TwoBars
+    }
+    public static var threeBars : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_ThreeBars
+    }
+    public static var fourBars : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_FourBars
+    }
+    public static var scan : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Scan
+    }
+    public static var preview : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Preview
+    }
+    public static var globalNavigationButton : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_GlobalNavigationButton
+    }
+    public static var share : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Share
+    }
+    public static var print : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_Print
+    }
+    public static var xboxOneConsole : WinUI.Symbol {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CSymbol_XboxOneConsole
+    }
+}
+extension WinUI.Symbol: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.TabViewCloseButtonOverlayMode {
     public static var auto : WinUI.TabViewCloseButtonOverlayMode {

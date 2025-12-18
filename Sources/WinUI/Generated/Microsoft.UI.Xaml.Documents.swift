@@ -9,6 +9,256 @@ import CWinRT
 public typealias LogicalDirection = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CLogicalDirection
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.underlinestyle)
 public typealias UnderlineStyle = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CUnderlineStyle
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block)
+open class Block : WinUI.TextElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBlock
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IBlockFactory : __ABI_Microsoft_UI_Xaml_Documents.IBlockFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Block")
+
+    public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.BlockBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IBlockFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IBlockStatics: __ABI_Microsoft_UI_Xaml_Documents.IBlockStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Block")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.horizontaltextalignmentproperty)
+    public class var horizontalTextAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _IBlockStatics.get_HorizontalTextAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.lineheightproperty)
+    public class var lineHeightProperty : WinUI.DependencyProperty! {
+        get { try! _IBlockStatics.get_LineHeightProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.linestackingstrategyproperty)
+    public class var lineStackingStrategyProperty : WinUI.DependencyProperty! {
+        get { try! _IBlockStatics.get_LineStackingStrategyProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.marginproperty)
+    public class var marginProperty : WinUI.DependencyProperty! {
+        get { try! _IBlockStatics.get_MarginProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.textalignmentproperty)
+    public class var textAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _IBlockStatics.get_TextAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.horizontaltextalignment)
+    public var horizontalTextAlignment : WinUI.TextAlignment {
+        get { try! _default.get_HorizontalTextAlignment() }
+        set { try! _default.put_HorizontalTextAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.lineheight)
+    public var lineHeight : Double {
+        get { try! _default.get_LineHeight() }
+        set { try! _default.put_LineHeight(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.linestackingstrategy)
+    public var lineStackingStrategy : WinUI.LineStackingStrategy {
+        get { try! _default.get_LineStackingStrategy() }
+        set { try! _default.put_LineStackingStrategy(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.margin)
+    public var margin : WinUI.Thickness {
+        get { try! _default.get_Margin() }
+        set { try! _default.put_Margin(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.textalignment)
+    public var textAlignment : WinUI.TextAlignment {
+        get { try! _default.get_TextAlignment() }
+        set { try! _default.put_TextAlignment(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection)
+public final class BlockCollection : WinRTClass, IVector, IIterable {
+    public typealias T = Block?
+    private typealias SwiftABI = WinUI.IVectorBlock
+    private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CBlock
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    // MARK: Collection
+    public typealias Element = T
+    public var startIndex: Int { 0 }
+    public var endIndex: Int { Int(size) }
+    public func index(after i: Int) -> Int {
+        i+1
+    }
+
+    public func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    public var count: Int { Int(size) }
+
+
+    public subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+        set(newValue) {
+            setAt(UInt32(position), newValue)
+        }
+    }
+
+    public func removeLast() {
+        removeAtEnd()
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.getat)
+    public func getAt(_ index: UInt32) -> Block? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.getview)
+    public func getView() -> WindowsFoundation.AnyIVectorView<Block?>? {
+        try! _default.GetView()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.indexof)
+    public func indexOf(_ value: Block?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.setat)
+    public func setAt(_ index: UInt32, _ value: Block?) {
+        try! _default.SetAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.insertat)
+    public func insertAt(_ index: UInt32, _ value: Block?) {
+        try! _default.InsertAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.removeat)
+    public func removeAt(_ index: UInt32) {
+        try! _default.RemoveAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.append)
+    public func append(_ value: Block?) {
+        try! _default.Append(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.removeatend)
+    public func removeAtEnd() {
+        try! _default.RemoveAtEnd()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.clear)
+    public func clear() {
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.getmany)
+    public func getMany(_ startIndex: UInt32, _ items: inout [Block?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.replaceall)
+    public func replaceAll(_ items: [Block?]) {
+        try! _default.ReplaceAll(items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.size)
+    public var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableBlock! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.first)
+    public func first() -> WindowsFoundation.AnyIIterator<Block?>? {
+        try! _IIterable.First()
+    }
+
+    deinit {
+        _default = nil
+        _IIterable = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.bold)
+public final class Bold : WinUI.Span {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBold
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Bold")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink)
 public final class Hyperlink : WinUI.Span {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IHyperlink
@@ -421,6 +671,107 @@ public final class InlineCollection : WinRTClass, IVector, IIterable {
     deinit {
         _default = nil
         _IIterable = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.italic)
+public final class Italic : WinUI.Span {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IItalic
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Italic")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.linebreak)
+public final class LineBreak : WinUI.Inline {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ILineBreak
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.LineBreak")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.paragraph)
+public final class Paragraph : WinUI.Block {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IParagraph
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Paragraph")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IParagraphStatics: __ABI_Microsoft_UI_Xaml_Documents.IParagraphStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Paragraph")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.paragraph.textindentproperty)
+    public static var textIndentProperty : WinUI.DependencyProperty! {
+        get { try! _IParagraphStatics.get_TextIndentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.paragraph.inlines)
+    public var inlines : InlineCollection! {
+        get { try! _default.get_Inlines() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.paragraph.textindent)
+    public var textIndent : Double {
+        get { try! _default.get_TextIndent() }
+        set { try! _default.put_TextIndent(newValue) }
+    }
+
+    deinit {
+        _default = nil
     }
 }
 
@@ -955,6 +1306,34 @@ public final class TextPointer : WinRTClass {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer.visualparent)
     public var visualParent : WinUI.FrameworkElement! {
         get { try! _default.get_VisualParent() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.underline)
+public final class Underline : WinUI.Span {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IUnderline
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Underline")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
     deinit {

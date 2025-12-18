@@ -264,6 +264,20 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
 
     }
 
+    public class CalendarViewDayItemChangingEventHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = CalendarViewDayItemChangingEventHandler
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandler
+        public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.CalendarViewDayItemChangingEventHandler
+
+        public static func from(abi: ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (sender, e) in
+                try _default.Invoke(sender, e)
+            }
+            return handler
+        }
+    }
     public class ContextMenuOpeningEventHandlerBridge : WinRTDelegateBridge {
         public typealias Handler = ContextMenuOpeningEventHandler
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContextMenuOpeningEventHandler
@@ -528,6 +542,96 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         }
         @_spi(WinRTInternal)
         public typealias Composable = IContentControlOverrides
+    }
+
+    public enum CalendarDatePickerBridge: ComposableBridge {
+        public typealias SwiftProjection = CalendarDatePicker
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker>?) -> CalendarDatePicker? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = CalendarDatePicker
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePicker
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum CalendarDatePickerDateChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CalendarDatePickerDateChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs>?) -> CalendarDatePickerDateChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CalendarViewBridge: ComposableBridge {
+        public typealias SwiftProjection = CalendarView
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView>?) -> CalendarView? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = CalendarView
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarView
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum CalendarViewDayItemBridge: ComposableBridge {
+        public typealias SwiftProjection = CalendarViewDayItem
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem>?) -> CalendarViewDayItem? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = CalendarViewDayItem
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItem
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum CalendarViewDayItemChangingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CalendarViewDayItemChangingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs>?) -> CalendarViewDayItemChangingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum CalendarViewSelectedDatesChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CalendarViewSelectedDatesChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs>?) -> CalendarViewSelectedDatesChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
 
     public enum CandidateWindowBoundsChangedEventArgsBridge: AbiBridge {
@@ -852,6 +956,45 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         }
         @_spi(WinRTInternal)
         public typealias Composable = IDataTemplateSelectorOverrides
+    }
+
+    public enum DatePickerBridge: ComposableBridge {
+        public typealias SwiftProjection = DatePicker
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker>?) -> DatePicker? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = DatePicker
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePicker
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum DatePickerSelectedValueChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DatePickerSelectedValueChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs>?) -> DatePickerSelectedValueChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum DatePickerValueChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = DatePickerValueChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs>?) -> DatePickerValueChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
 
     public enum DragItemsCompletedEventArgsBridge: AbiBridge {
@@ -1655,6 +1798,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias Composable = IItemsSourceView
     }
 
+    public enum ItemsStackPanelBridge: AbiBridge {
+        public typealias SwiftProjection = ItemsStackPanel
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel>?) -> ItemsStackPanel? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum ItemsWrapGridBridge: ComposableBridge {
         public typealias SwiftProjection = ItemsWrapGrid
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsWrapGrid
@@ -2168,6 +2320,36 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias Composable = INavigationViewTemplateSettings
     }
 
+    public enum NumberBoxBridge: ComposableBridge {
+        public typealias SwiftProjection = NumberBox
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox>?) -> NumberBox? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = NumberBox
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBox
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum NumberBoxValueChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = NumberBoxValueChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs>?) -> NumberBoxValueChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum PageBridge: ComposableBridge {
         public typealias SwiftProjection = Page
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPage
@@ -2529,6 +2711,24 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         }
         @_spi(WinRTInternal)
         public typealias Composable = IFrameworkElementOverrides
+    }
+
+    public enum RichTextBlockBridge: AbiBridge {
+        public typealias SwiftProjection = RichTextBlock
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock>?) -> RichTextBlock? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum RichTextBlockOverflowBridge: AbiBridge {
+        public typealias SwiftProjection = RichTextBlockOverflow
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow>?) -> RichTextBlockOverflow? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
 
     public enum RowDefinitionBridge: AbiBridge {
@@ -2936,6 +3136,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias Composable = IFrameworkElementOverrides
     }
 
+    public enum SymbolIconBridge: AbiBridge {
+        public typealias SwiftProjection = SymbolIcon
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon>?) -> SymbolIcon? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum TabViewBridge: ComposableBridge {
         public typealias SwiftProjection = TabView
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabView
@@ -3246,6 +3455,45 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         public typealias SwiftProjection = TextControlPasteEventArgs
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventArgs
         public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventArgs>?) -> TextControlPasteEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TimePickerBridge: ComposableBridge {
+        public typealias SwiftProjection = TimePicker
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker>?) -> TimePicker? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = TimePicker
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePicker
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+    public enum TimePickerSelectedValueChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = TimePickerSelectedValueChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs>?) -> TimePickerSelectedValueChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+    public enum TimePickerValueChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = TimePickerValueChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs>?) -> TimePickerValueChangedEventArgs? {
             guard let abi = abi else { return nil }
             return .init(fromAbi: WindowsFoundation.IInspectable(abi))
         }
@@ -3776,6 +4024,48 @@ public class ButtonMaker: MakeFromAbi {
     }
 }
 @_spi(WinRTInternal)
+public class CalendarDatePickerMaker: MakeFromAbi {
+    public typealias SwiftType = CalendarDatePicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CalendarDatePicker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CalendarDatePickerDateChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CalendarDatePickerDateChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CalendarDatePickerDateChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CalendarViewMaker: MakeFromAbi {
+    public typealias SwiftType = CalendarView
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CalendarView(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CalendarViewDayItemMaker: MakeFromAbi {
+    public typealias SwiftType = CalendarViewDayItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CalendarViewDayItem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CalendarViewDayItemChangingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CalendarViewDayItemChangingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CalendarViewDayItemChangingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CalendarViewSelectedDatesChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CalendarViewSelectedDatesChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CalendarViewSelectedDatesChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
 public class CandidateWindowBoundsChangedEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = CandidateWindowBoundsChangedEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
@@ -3941,6 +4231,27 @@ public class DataTemplateSelectorMaker: MakeFromAbi {
     public typealias SwiftType = DataTemplateSelector
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return DataTemplateSelector(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DatePickerMaker: MakeFromAbi {
+    public typealias SwiftType = DatePicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DatePicker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DatePickerSelectedValueChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DatePickerSelectedValueChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DatePickerSelectedValueChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class DatePickerValueChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DatePickerValueChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DatePickerValueChangedEventArgs(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
@@ -4287,6 +4598,13 @@ public class ItemsSourceViewMaker: MakeFromAbi {
     }
 }
 @_spi(WinRTInternal)
+public class ItemsStackPanelMaker: MakeFromAbi {
+    public typealias SwiftType = ItemsStackPanel
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ItemsStackPanel(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
 public class ItemsWrapGridMaker: MakeFromAbi {
     public typealias SwiftType = ItemsWrapGrid
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
@@ -4490,6 +4808,20 @@ public class NavigationViewTemplateSettingsMaker: MakeFromAbi {
     }
 }
 @_spi(WinRTInternal)
+public class NumberBoxMaker: MakeFromAbi {
+    public typealias SwiftType = NumberBox
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NumberBox(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class NumberBoxValueChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = NumberBoxValueChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NumberBoxValueChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
 public class PageMaker: MakeFromAbi {
     public typealias SwiftType = Page
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
@@ -4648,6 +4980,20 @@ public class RelativePanelMaker: MakeFromAbi {
     public typealias SwiftType = RelativePanel
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return RelativePanel(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RichTextBlockMaker: MakeFromAbi {
+    public typealias SwiftType = RichTextBlock
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RichTextBlock(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class RichTextBlockOverflowMaker: MakeFromAbi {
+    public typealias SwiftType = RichTextBlockOverflow
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RichTextBlockOverflow(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
@@ -4854,6 +5200,13 @@ public class SwapChainPanelMaker: MakeFromAbi {
     }
 }
 @_spi(WinRTInternal)
+public class SymbolIconMaker: MakeFromAbi {
+    public typealias SwiftType = SymbolIcon
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SymbolIcon(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
 public class TabViewMaker: MakeFromAbi {
     public typealias SwiftType = TabView
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
@@ -5040,6 +5393,27 @@ public class TextControlPasteEventArgsMaker: MakeFromAbi {
     public typealias SwiftType = TextControlPasteEventArgs
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return TextControlPasteEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TimePickerMaker: MakeFromAbi {
+    public typealias SwiftType = TimePicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TimePicker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TimePickerSelectedValueChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = TimePickerSelectedValueChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TimePickerSelectedValueChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class TimePickerValueChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = TimePickerValueChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TimePickerValueChangedEventArgs(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
