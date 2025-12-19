@@ -30,6 +30,8 @@ public typealias ContentDialogButton = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CC
 public typealias ContentDialogPlacement = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CContentDialogPlacement
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogresult)
 public typealias ContentDialogResult = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CContentDialogResult
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.disabledformattingaccelerators)
+public typealias DisabledFormattingAccelerators = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CDisabledFormattingAccelerators
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.elementrealizationoptions)
 public typealias ElementRealizationOptions = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CElementRealizationOptions
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expanddirection)
@@ -92,6 +94,8 @@ public typealias RefreshVisualizerOrientation = __x_ABI_CMicrosoft_CUI_CXaml_CCo
 public typealias RefreshVisualizerState = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CRefreshVisualizerState
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.requirespointer)
 public typealias RequiresPointer = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CRequiresPointer
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditclipboardformat)
+public typealias RichEditClipboardFormat = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CRichEditClipboardFormat
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollbarvisibility)
 public typealias ScrollBarVisibility = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CScrollBarVisibility
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollintoviewalignment)
@@ -14727,6 +14731,549 @@ open class RelativePanel : WinUI.Panel {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox)
+open class RichEditBox : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBox
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IRichEditBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichEditBox")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IRichEditBoxFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IRichEditBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichEditBox")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.acceptsreturnproperty)
+    public class var acceptsReturnProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_AcceptsReturnProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.charactercasingproperty)
+    public class var characterCasingProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_CharacterCasingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.clipboardcopyformatproperty)
+    public class var clipboardCopyFormatProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_ClipboardCopyFormatProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.descriptionproperty)
+    public class var descriptionProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_DescriptionProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.desiredcandidatewindowalignmentproperty)
+    public class var desiredCandidateWindowAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_DesiredCandidateWindowAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.disabledformattingacceleratorsproperty)
+    public class var disabledFormattingAcceleratorsProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_DisabledFormattingAcceleratorsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.headerproperty)
+    public class var headerProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_HeaderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.headertemplateproperty)
+    public class var headerTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_HeaderTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.horizontaltextalignmentproperty)
+    public class var horizontalTextAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_HorizontalTextAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.inputscopeproperty)
+    public class var inputScopeProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_InputScopeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.iscolorfontenabledproperty)
+    public class var isColorFontEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_IsColorFontEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.isreadonlyproperty)
+    public class var isReadOnlyProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_IsReadOnlyProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.isspellcheckenabledproperty)
+    public class var isSpellCheckEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_IsSpellCheckEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.istextpredictionenabledproperty)
+    public class var isTextPredictionEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_IsTextPredictionEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.maxlengthproperty)
+    public class var maxLengthProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_MaxLengthProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.placeholdertextproperty)
+    public class var placeholderTextProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_PlaceholderTextProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.preventkeyboarddisplayonprogrammaticfocusproperty)
+    public class var preventKeyboardDisplayOnProgrammaticFocusProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_PreventKeyboardDisplayOnProgrammaticFocusProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.proofingmenuflyoutproperty)
+    public class var proofingMenuFlyoutProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_ProofingMenuFlyoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionflyoutproperty)
+    public class var selectionFlyoutProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_SelectionFlyoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionhighlightcolorproperty)
+    public class var selectionHighlightColorProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_SelectionHighlightColorProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionhighlightcolorwhennotfocusedproperty)
+    public class var selectionHighlightColorWhenNotFocusedProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_SelectionHighlightColorWhenNotFocusedProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textalignmentproperty)
+    public class var textAlignmentProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_TextAlignmentProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textreadingorderproperty)
+    public class var textReadingOrderProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_TextReadingOrderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textwrappingproperty)
+    public class var textWrappingProperty : WinUI.DependencyProperty! {
+        get { try! _IRichEditBoxStatics.get_TextWrappingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.getlinguisticalternativesasync)
+    public func getLinguisticAlternativesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<String>?>! {
+        try _default.GetLinguisticAlternativesAsync()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.acceptsreturn)
+    public var acceptsReturn : Bool {
+        get { try! _default.get_AcceptsReturn() }
+        set { try! _default.put_AcceptsReturn(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.charactercasing)
+    public var characterCasing : CharacterCasing {
+        get { try! _default.get_CharacterCasing() }
+        set { try! _default.put_CharacterCasing(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.clipboardcopyformat)
+    public var clipboardCopyFormat : RichEditClipboardFormat {
+        get { try! _default.get_ClipboardCopyFormat() }
+        set { try! _default.put_ClipboardCopyFormat(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.description)
+    public var description : Any! {
+        get { try! _default.get_Description() }
+        set { try! _default.put_Description(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.desiredcandidatewindowalignment)
+    public var desiredCandidateWindowAlignment : CandidateWindowAlignment {
+        get { try! _default.get_DesiredCandidateWindowAlignment() }
+        set { try! _default.put_DesiredCandidateWindowAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.disabledformattingaccelerators)
+    public var disabledFormattingAccelerators : DisabledFormattingAccelerators {
+        get { try! _default.get_DisabledFormattingAccelerators() }
+        set { try! _default.put_DisabledFormattingAccelerators(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.document)
+    public var document : WinAppSDK.RichEditTextDocument! {
+        get { try! _default.get_Document() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.header)
+    public var header : Any! {
+        get { try! _default.get_Header() }
+        set { try! _default.put_Header(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.headertemplate)
+    public var headerTemplate : WinUI.DataTemplate! {
+        get { try! _default.get_HeaderTemplate() }
+        set { try! _default.put_HeaderTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.horizontaltextalignment)
+    public var horizontalTextAlignment : WinUI.TextAlignment {
+        get { try! _default.get_HorizontalTextAlignment() }
+        set { try! _default.put_HorizontalTextAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.inputscope)
+    public var inputScope : WinUI.InputScope! {
+        get { try! _default.get_InputScope() }
+        set { try! _default.put_InputScope(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.iscolorfontenabled)
+    public var isColorFontEnabled : Bool {
+        get { try! _default.get_IsColorFontEnabled() }
+        set { try! _default.put_IsColorFontEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.isreadonly)
+    public var isReadOnly : Bool {
+        get { try! _default.get_IsReadOnly() }
+        set { try! _default.put_IsReadOnly(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.isspellcheckenabled)
+    public var isSpellCheckEnabled : Bool {
+        get { try! _default.get_IsSpellCheckEnabled() }
+        set { try! _default.put_IsSpellCheckEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.istextpredictionenabled)
+    public var isTextPredictionEnabled : Bool {
+        get { try! _default.get_IsTextPredictionEnabled() }
+        set { try! _default.put_IsTextPredictionEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.maxlength)
+    public var maxLength : Int32 {
+        get { try! _default.get_MaxLength() }
+        set { try! _default.put_MaxLength(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.placeholdertext)
+    public var placeholderText : String {
+        get { try! _default.get_PlaceholderText() }
+        set { try! _default.put_PlaceholderText(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.preventkeyboarddisplayonprogrammaticfocus)
+    public var preventKeyboardDisplayOnProgrammaticFocus : Bool {
+        get { try! _default.get_PreventKeyboardDisplayOnProgrammaticFocus() }
+        set { try! _default.put_PreventKeyboardDisplayOnProgrammaticFocus(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.proofingmenuflyout)
+    public var proofingMenuFlyout : WinUI.FlyoutBase! {
+        get { try! _default.get_ProofingMenuFlyout() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionflyout)
+    public var selectionFlyout : WinUI.FlyoutBase! {
+        get { try! _default.get_SelectionFlyout() }
+        set { try! _default.put_SelectionFlyout(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionhighlightcolor)
+    public var selectionHighlightColor : WinUI.SolidColorBrush! {
+        get { try! _default.get_SelectionHighlightColor() }
+        set { try! _default.put_SelectionHighlightColor(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionhighlightcolorwhennotfocused)
+    public var selectionHighlightColorWhenNotFocused : WinUI.SolidColorBrush! {
+        get { try! _default.get_SelectionHighlightColorWhenNotFocused() }
+        set { try! _default.put_SelectionHighlightColorWhenNotFocused(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textalignment)
+    public var textAlignment : WinUI.TextAlignment {
+        get { try! _default.get_TextAlignment() }
+        set { try! _default.put_TextAlignment(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textdocument)
+    public var textDocument : WinAppSDK.RichEditTextDocument! {
+        get { try! _default.get_TextDocument() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textreadingorder)
+    public var textReadingOrder : WinUI.TextReadingOrder {
+        get { try! _default.get_TextReadingOrder() }
+        set { try! _default.put_TextReadingOrder(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textwrapping)
+    public var textWrapping : WinUI.TextWrapping {
+        get { try! _default.get_TextWrapping() }
+        set { try! _default.put_TextWrapping(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.candidatewindowboundschanged)
+    public lazy var candidateWindowBoundsChanged : Event<TypedEventHandler<RichEditBox?, CandidateWindowBoundsChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CandidateWindowBoundsChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CandidateWindowBoundsChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.contextmenuopening)
+    public lazy var contextMenuOpening : Event<ContextMenuOpeningEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_ContextMenuOpening($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_ContextMenuOpening($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.copyingtoclipboard)
+    public lazy var copyingToClipboard : Event<TypedEventHandler<RichEditBox?, TextControlCopyingToClipboardEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CopyingToClipboard($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CopyingToClipboard($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.cuttingtoclipboard)
+    public lazy var cuttingToClipboard : Event<TypedEventHandler<RichEditBox?, TextControlCuttingToClipboardEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CuttingToClipboard($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CuttingToClipboard($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.paste)
+    public lazy var paste : Event<TextControlPasteEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_Paste($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_Paste($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionchanged)
+    public lazy var selectionChanged : Event<WinUI.RoutedEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectionChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectionChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionchanging)
+    public lazy var selectionChanging : Event<TypedEventHandler<RichEditBox?, RichEditBoxSelectionChangingEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectionChanging($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectionChanging($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textchanged)
+    public lazy var textChanged : Event<WinUI.RoutedEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_TextChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_TextChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textchanging)
+    public lazy var textChanging : Event<TypedEventHandler<RichEditBox?, RichEditBoxTextChangingEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_TextChanging($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_TextChanging($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textcompositionchanged)
+    public lazy var textCompositionChanged : Event<TypedEventHandler<RichEditBox?, TextCompositionChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_TextCompositionChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_TextCompositionChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textcompositionended)
+    public lazy var textCompositionEnded : Event<TypedEventHandler<RichEditBox?, TextCompositionEndedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_TextCompositionEnded($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_TextCompositionEnded($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textcompositionstarted)
+    public lazy var textCompositionStarted : Event<TypedEventHandler<RichEditBox?, TextCompositionStartedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_TextCompositionStarted($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_TextCompositionStarted($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxselectionchangingeventargs)
+public final class RichEditBoxSelectionChangingEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxSelectionChangingEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxselectionchangingeventargs.cancel)
+    public var cancel : Bool {
+        get { try! _default.get_Cancel() }
+        set { try! _default.put_Cancel(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxselectionchangingeventargs.selectionlength)
+    public var selectionLength : Int32 {
+        get { try! _default.get_SelectionLength() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxselectionchangingeventargs.selectionstart)
+    public var selectionStart : Int32 {
+        get { try! _default.get_SelectionStart() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxtextchangingeventargs)
+public final class RichEditBoxTextChangingEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxTextChangingEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxTextChangingEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxtextchangingeventargs.iscontentchanging)
+    public var isContentChanging : Bool {
+        get { try! _default.get_IsContentChanging() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock)
 public final class RichTextBlock : WinUI.FrameworkElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlock
@@ -23864,6 +24411,25 @@ extension WinUI.ContentDialogResult {
 }
 extension WinUI.ContentDialogResult: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
+extension WinUI.DisabledFormattingAccelerators {
+    public static var none : WinUI.DisabledFormattingAccelerators {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CDisabledFormattingAccelerators_None
+    }
+    public static var bold : WinUI.DisabledFormattingAccelerators {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CDisabledFormattingAccelerators_Bold
+    }
+    public static var italic : WinUI.DisabledFormattingAccelerators {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CDisabledFormattingAccelerators_Italic
+    }
+    public static var underline : WinUI.DisabledFormattingAccelerators {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CDisabledFormattingAccelerators_Underline
+    }
+    public static var all : WinUI.DisabledFormattingAccelerators {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CDisabledFormattingAccelerators_All
+    }
+}
+extension WinUI.DisabledFormattingAccelerators: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
 extension WinUI.ElementRealizationOptions {
     public static var none : WinUI.ElementRealizationOptions {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CElementRealizationOptions_None
@@ -24266,6 +24832,16 @@ extension WinUI.RequiresPointer {
     }
 }
 extension WinUI.RequiresPointer: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+extension WinUI.RichEditClipboardFormat {
+    public static var allFormats : WinUI.RichEditClipboardFormat {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CRichEditClipboardFormat_AllFormats
+    }
+    public static var plainText : WinUI.RichEditClipboardFormat {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CRichEditClipboardFormat_PlainText
+    }
+}
+extension WinUI.RichEditClipboardFormat: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 extension WinUI.ScrollBarVisibility {
     public static var disabled : WinUI.ScrollBarVisibility {

@@ -1350,6 +1350,26 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanelStatics: W
     .init(Data1: 0xBDD929A2, Data2: 0x76CC, Data3: 0x59C4, Data4: ( 0x82,0xC1,0xF1,0x4B,0x5D,0xA4,0x22,0x1A ))// BDD929A2-76CC-59C4-82C1-F14B5DA4221A
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox: WindowsFoundation.IID {
+    .init(Data1: 0x699163DB, Data2: 0x723D, Data3: 0x5514, Data4: ( 0xA8,0xC9,0x2C,0x64,0xD9,0x9E,0x1E,0xA6 ))// 699163DB-723D-5514-A8C9-2C64D99E1EA6
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxFactory: WindowsFoundation.IID {
+    .init(Data1: 0x7C993C60, Data2: 0xF5B6, Data3: 0x589F, Data4: ( 0xBB,0xA8,0xB6,0x8B,0x97,0x13,0xE4,0xAE ))// 7C993C60-F5B6-589F-BBA8-B68B9713E4AE
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x5DBADBE1, Data2: 0x0515, Data3: 0x5045, Data4: ( 0x9A,0x6F,0x68,0x59,0x23,0x73,0x01,0xAC ))// 5DBADBE1-0515-5045-9A6F-6859237301AC
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics: WindowsFoundation.IID {
+    .init(Data1: 0xB3F59239, Data2: 0xEFD1, Data3: 0x5129, Data4: ( 0xBF,0x80,0x28,0x41,0xA3,0x31,0xB2,0x4A ))// B3F59239-EFD1-5129-BF80-2841A331B24A
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxTextChangingEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xE887B29A, Data2: 0x1551, Data3: 0x5868, Data4: ( 0xA5,0xDC,0x3F,0xCF,0xE7,0x45,0x2E,0x6B ))// E887B29A-1551-5868-A5DC-3FCFE7452E6B
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock: WindowsFoundation.IID {
     .init(Data1: 0xD766E4DB, Data2: 0xA684, Data3: 0x50B7, Data4: ( 0xA2,0x02,0xC8,0xE9,0x1F,0xA2,0x6F,0xF3 ))// D766E4DB-A684-50B7-A202-C8E91FA26FF3
 }
@@ -22440,6 +22460,860 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
                 }
             }
             return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class IRichEditBox: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox }
+
+        public func get_IsReadOnly() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsReadOnly(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsReadOnly(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsReadOnly(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_AcceptsReturn() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptsReturn(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_AcceptsReturn(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AcceptsReturn(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_TextAlignment() throws -> WinUI.TextAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextAlignment(_ value: WinUI.TextAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextAlignment(pThis, value))
+            }
+        }
+
+        public func get_TextWrapping() throws -> WinUI.TextWrapping {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextWrapping = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextWrapping(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextWrapping(_ value: WinUI.TextWrapping) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextWrapping(pThis, value))
+            }
+        }
+
+        public func get_IsSpellCheckEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsSpellCheckEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsSpellCheckEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsSpellCheckEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsTextPredictionEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextPredictionEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsTextPredictionEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsTextPredictionEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_Document() throws -> WinAppSDK.RichEditTextDocument? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Document(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Text.RichEditTextDocumentBridge.from(abi: value)
+        }
+
+        public func get_InputScope() throws -> WinUI.InputScope? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_InputScope(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Input.InputScopeBridge.from(abi: value)
+        }
+
+        public func put_InputScope(_ value: WinUI.InputScope?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_InputScope(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Header() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Header(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Header(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Header(pThis, _value))
+            }
+        }
+
+        public func get_HeaderTemplate() throws -> WinUI.DataTemplate? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplate(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: value)
+        }
+
+        public func put_HeaderTemplate(_ value: WinUI.DataTemplate?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HeaderTemplate(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_PlaceholderText() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_PlaceholderText(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PlaceholderText(pThis, _value.get()))
+            }
+        }
+
+        public func get_SelectionHighlightColor() throws -> WinUI.SolidColorBrush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColor(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.SolidColorBrushBridge.from(abi: value)
+        }
+
+        public func put_SelectionHighlightColor(_ value: WinUI.SolidColorBrush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionHighlightColor(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_PreventKeyboardDisplayOnProgrammaticFocus() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreventKeyboardDisplayOnProgrammaticFocus(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_PreventKeyboardDisplayOnProgrammaticFocus(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PreventKeyboardDisplayOnProgrammaticFocus(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsColorFontEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorFontEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsColorFontEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsColorFontEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_SelectionHighlightColorWhenNotFocused() throws -> WinUI.SolidColorBrush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColorWhenNotFocused(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.SolidColorBrushBridge.from(abi: value)
+        }
+
+        public func put_SelectionHighlightColorWhenNotFocused(_ value: WinUI.SolidColorBrush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionHighlightColorWhenNotFocused(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_MaxLength() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxLength(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MaxLength(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxLength(pThis, value))
+            }
+        }
+
+        public func get_HorizontalTextAlignment() throws -> WinUI.TextAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalTextAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_HorizontalTextAlignment(_ value: WinUI.TextAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalTextAlignment(pThis, value))
+            }
+        }
+
+        public func get_CharacterCasing() throws -> WinUI.CharacterCasing {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCharacterCasing = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharacterCasing(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_CharacterCasing(_ value: WinUI.CharacterCasing) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CharacterCasing(pThis, value))
+            }
+        }
+
+        public func get_DisabledFormattingAccelerators() throws -> WinUI.DisabledFormattingAccelerators {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CDisabledFormattingAccelerators = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisabledFormattingAccelerators(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DisabledFormattingAccelerators(_ value: WinUI.DisabledFormattingAccelerators) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DisabledFormattingAccelerators(pThis, value))
+            }
+        }
+
+        public func get_TextDocument() throws -> WinAppSDK.RichEditTextDocument? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextDocument(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Text.RichEditTextDocumentBridge.from(abi: value)
+        }
+
+        public func get_SelectionFlyout() throws -> WinUI.FlyoutBase? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionFlyout(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.from(abi: value)
+        }
+
+        public func put_SelectionFlyout(_ value: WinUI.FlyoutBase?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionFlyout(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_ProofingMenuFlyout() throws -> WinUI.FlyoutBase? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProofingMenuFlyout(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.from(abi: value)
+        }
+
+        public func get_Description() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Description(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Description(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Description(pThis, _value))
+            }
+        }
+
+        public func add_TextChanged(_ handler: WinUI.RoutedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml.RoutedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_TextChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_TextChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TextChanged(pThis, token))
+            }
+        }
+
+        public func add_SelectionChanged(_ handler: WinUI.RoutedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml.RoutedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectionChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectionChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectionChanged(pThis, token))
+            }
+        }
+
+        public func add_ContextMenuOpening(_ handler: WinUI.ContextMenuOpeningEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml_Controls.ContextMenuOpeningEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ContextMenuOpening(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ContextMenuOpening(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ContextMenuOpening(pThis, token))
+            }
+        }
+
+        public func add_Paste(_ handler: WinUI.TextControlPasteEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml_Controls.TextControlPasteEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Paste(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Paste(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Paste(pThis, token))
+            }
+        }
+
+        public func add_TextCompositionStarted(_ handler: TypedEventHandler<WinUI.RichEditBox?, WinUI.TextCompositionStartedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionStartedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_TextCompositionStarted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_TextCompositionStarted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TextCompositionStarted(pThis, token))
+            }
+        }
+
+        public func add_TextCompositionChanged(_ handler: TypedEventHandler<WinUI.RichEditBox?, WinUI.TextCompositionChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_TextCompositionChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_TextCompositionChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TextCompositionChanged(pThis, token))
+            }
+        }
+
+        public func add_TextCompositionEnded(_ handler: TypedEventHandler<WinUI.RichEditBox?, WinUI.TextCompositionEndedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionEndedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_TextCompositionEnded(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_TextCompositionEnded(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TextCompositionEnded(pThis, token))
+            }
+        }
+
+        public func add_CopyingToClipboard(_ handler: TypedEventHandler<WinUI.RichEditBox?, WinUI.TextControlCopyingToClipboardEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCopyingToClipboardEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CopyingToClipboard(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CopyingToClipboard(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CopyingToClipboard(pThis, token))
+            }
+        }
+
+        public func add_CuttingToClipboard(_ handler: TypedEventHandler<WinUI.RichEditBox?, WinUI.TextControlCuttingToClipboardEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCuttingToClipboardEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CuttingToClipboard(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CuttingToClipboard(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CuttingToClipboard(pThis, token))
+            }
+        }
+
+        public func add_SelectionChanging(_ handler: TypedEventHandler<WinUI.RichEditBox?, WinUI.RichEditBoxSelectionChangingEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBoxSelectionChangingEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectionChanging(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectionChanging(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectionChanging(pThis, token))
+            }
+        }
+
+        public func GetLinguisticAlternativesAsync() throws -> WindowsFoundation.AnyIAsyncOperation<WindowsFoundation.AnyIVectorView<String>?>? {
+            let (operation) = try ComPtrs.initialize { operationAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetLinguisticAlternativesAsync(pThis, &operationAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIAsyncOperation_1___x_ABI_C__FIVectorView_1_HSTRINGWrapper.unwrapFrom(abi: operation)
+        }
+
+        public func get_TextReadingOrder() throws -> WinUI.TextReadingOrder {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextReadingOrder = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextReadingOrder(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextReadingOrder(_ value: WinUI.TextReadingOrder) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextReadingOrder(pThis, value))
+            }
+        }
+
+        public func get_ClipboardCopyFormat() throws -> WinUI.RichEditClipboardFormat {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CRichEditClipboardFormat = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClipboardCopyFormat(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ClipboardCopyFormat(_ value: WinUI.RichEditClipboardFormat) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ClipboardCopyFormat(pThis, value))
+            }
+        }
+
+        public func get_DesiredCandidateWindowAlignment() throws -> WinUI.CandidateWindowAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CCandidateWindowAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredCandidateWindowAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_DesiredCandidateWindowAlignment(_ value: WinUI.CandidateWindowAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DesiredCandidateWindowAlignment(pThis, value))
+            }
+        }
+
+        public func add_CandidateWindowBoundsChanged(_ handler: TypedEventHandler<WinUI.RichEditBox?, WinUI.CandidateWindowBoundsChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCandidateWindowBoundsChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CandidateWindowBoundsChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CandidateWindowBoundsChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CandidateWindowBoundsChanged(pThis, token))
+            }
+        }
+
+        public func add_TextChanging(_ handler: TypedEventHandler<WinUI.RichEditBox?, WinUI.RichEditBoxTextChangingEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBoxTextChangingEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_TextChanging(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_TextChanging(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_TextChanging(pThis, token))
+            }
+        }
+
+    }
+
+    public class IRichEditBoxFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRichEditBox {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IRichEditBox(value!)
+        }
+
+    }
+
+    public class IRichEditBoxSelectionChangingEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs }
+
+        public func get_SelectionStart() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionStart(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_SelectionLength() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionLength(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Cancel() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cancel(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_Cancel(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Cancel(pThis, .init(from: value)))
+            }
+        }
+
+    }
+
+    public class IRichEditBoxStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics }
+
+        public func get_IsReadOnlyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsReadOnlyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_AcceptsReturnProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceptsReturnProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextWrappingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextWrappingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsSpellCheckEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsSpellCheckEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTextPredictionEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextPredictionEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_InputScopeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_InputScopeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HeaderTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeaderTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PlaceholderTextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderTextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionHighlightColorProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColorProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PreventKeyboardDisplayOnProgrammaticFocusProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreventKeyboardDisplayOnProgrammaticFocusProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsColorFontEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorFontEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionHighlightColorWhenNotFocusedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionHighlightColorWhenNotFocusedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxLengthProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxLengthProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HorizontalTextAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalTextAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CharacterCasingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharacterCasingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DisabledFormattingAcceleratorsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisabledFormattingAcceleratorsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionFlyoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionFlyoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ProofingMenuFlyoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ProofingMenuFlyoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DescriptionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DescriptionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DesiredCandidateWindowAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DesiredCandidateWindowAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextReadingOrderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextReadingOrderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ClipboardCopyFormatProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClipboardCopyFormatProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    public class IRichEditBoxTextChangingEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxTextChangingEventArgs }
+
+        public func get_IsContentChanging() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxTextChangingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsContentChanging(pThis, &value))
+            }
+            return .init(from: value)
         }
 
     }
