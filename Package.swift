@@ -11,6 +11,7 @@ let package = Package(
         .package(url: "https://github.com/rayman-zhao/swift-cwinrt", branch: "main"),
         .package(url: "https://github.com/rayman-zhao/swift-windowsfoundation", branch: "main"),
         .package(url: "https://github.com/rayman-zhao/swift-uwp", branch: "main"),
+        .package(url: "https://github.com/rayman-zhao/swift-webview2", branch: "main"),
         .package(url: "https://github.com/rayman-zhao/swift-windowsappsdk", branch: "main"),
     ],
     targets: [
@@ -21,6 +22,7 @@ let package = Package(
                 .product(name: "WindowsFoundation", package: "swift-windowsfoundation"),                
                 .product(name: "UWP", package: "swift-uwp"),
                 .product(name: "WinAppSDK", package: "swift-windowsappsdk"),
+                .product(name: "WebView2Core", package: "swift-webview2"),
             ]
         )
     ]

@@ -2,6 +2,7 @@
 // swiftlint:disable all
 import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import UWP
+@_spi(WinRTInternal) @_spi(WinRTImplements) import WebView2Core
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WinAppSDK
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
@@ -4885,6 +4886,34 @@ public final class ControlTemplate : WinUI.FrameworkTemplate {
     public var targetType : WinUI.TypeName {
         get { try! _default.get_TargetType() }
         set { try! _default.put_TargetType(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.corewebview2initializedeventargs)
+public final class CoreWebView2InitializedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICoreWebView2InitializedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICoreWebView2InitializedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.corewebview2initializedeventargs.exception)
+    public var exception : HRESULT {
+        get { try! _default.get_Exception() }
     }
 
     deinit {
@@ -24067,6 +24096,209 @@ open class VirtualizingLayoutContext : WinUI.LayoutContext {
         _IVirtualizingLayoutContext2 = nil
         _IVirtualizingLayoutContextOverrides = nil
         _IVirtualizingLayoutContextOverrides2 = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2)
+open class WebView2 : WinUI.FrameworkElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IWebView2
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IWebView2Factory : __ABI_Microsoft_UI_Xaml_Controls.IWebView2Factory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.WebView2")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IWebView2Factory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IWebView2Statics: __ABI_Microsoft_UI_Xaml_Controls.IWebView2Statics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.WebView2")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.cangobackproperty)
+    public class var canGoBackProperty : WinUI.DependencyProperty! {
+        get { try! _IWebView2Statics.get_CanGoBackProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.cangoforwardproperty)
+    public class var canGoForwardProperty : WinUI.DependencyProperty! {
+        get { try! _IWebView2Statics.get_CanGoForwardProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.defaultbackgroundcolorproperty)
+    public class var defaultBackgroundColorProperty : WinUI.DependencyProperty! {
+        get { try! _IWebView2Statics.get_DefaultBackgroundColorProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.sourceproperty)
+    public class var sourceProperty : WinUI.DependencyProperty! {
+        get { try! _IWebView2Statics.get_SourceProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.ensurecorewebview2async)
+    public func ensureCoreWebView2Async() throws -> WindowsFoundation.AnyIAsyncAction! {
+        try _default.EnsureCoreWebView2Async()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.executescriptasync)
+    public func executeScriptAsync(_ javascriptCode: String) throws -> WindowsFoundation.AnyIAsyncOperation<String>! {
+        try _default.ExecuteScriptAsync(javascriptCode)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.reload)
+    public func reload() throws {
+        try _default.Reload()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.goforward)
+    public func goForward() throws {
+        try _default.GoForward()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.goback)
+    public func goBack() throws {
+        try _default.GoBack()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.navigatetostring)
+    public func navigateToString(_ htmlContent: String) throws {
+        try _default.NavigateToString(htmlContent)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.close)
+    public func close() throws {
+        try _default.Close()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.cangoback)
+    public var canGoBack : Bool {
+        get { try! _default.get_CanGoBack() }
+        set { try! _default.put_CanGoBack(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.cangoforward)
+    public var canGoForward : Bool {
+        get { try! _default.get_CanGoForward() }
+        set { try! _default.put_CanGoForward(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.corewebview2)
+    public var coreWebView2 : WebView2Core.CoreWebView2! {
+        get { try! _default.get_CoreWebView2() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.defaultbackgroundcolor)
+    public var defaultBackgroundColor : UWP.Color {
+        get { try! _default.get_DefaultBackgroundColor() }
+        set { try! _default.put_DefaultBackgroundColor(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.source)
+    public var source : WindowsFoundation.Uri! {
+        get { try! _default.get_Source() }
+        set { try! _default.put_Source(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.coreprocessfailed)
+    public lazy var coreProcessFailed : Event<TypedEventHandler<WebView2?, CoreWebView2ProcessFailedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CoreProcessFailed($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CoreProcessFailed($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.corewebview2initialized)
+    public lazy var coreWebView2Initialized : Event<TypedEventHandler<WebView2?, CoreWebView2InitializedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CoreWebView2Initialized($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CoreWebView2Initialized($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.navigationcompleted)
+    public lazy var navigationCompleted : Event<TypedEventHandler<WebView2?, CoreWebView2NavigationCompletedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_NavigationCompleted($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_NavigationCompleted($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.navigationstarting)
+    public lazy var navigationStarting : Event<TypedEventHandler<WebView2?, CoreWebView2NavigationStartingEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_NavigationStarting($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_NavigationStarting($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.webmessagereceived)
+    public lazy var webMessageReceived : Event<TypedEventHandler<WebView2?, CoreWebView2WebMessageReceivedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_WebMessageReceived($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_WebMessageReceived($0)
+       }
+      )
+    }()
+
+    private lazy var _IWebView22: __ABI_Microsoft_UI_Xaml_Controls.IWebView22! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.ensurecorewebview2async)
+    public func ensureCoreWebView2Async(_ environment: WebView2Core.CoreWebView2Environment!) throws -> WindowsFoundation.AnyIAsyncAction! {
+        try _IWebView22.EnsureCoreWebView2WithEnvironmentAsync(environment)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.ensurecorewebview2async)
+    public func ensureCoreWebView2Async(_ environment: WebView2Core.CoreWebView2Environment!, _ controllerOptions: WebView2Core.CoreWebView2ControllerOptions!) throws -> WindowsFoundation.AnyIAsyncAction! {
+        try _IWebView22.EnsureCoreWebView2WithEnvironmentAndOptionsAsync(environment, controllerOptions)
+    }
+
+    deinit {
+        _default = nil
+        _IWebView22 = nil
     }
 }
 

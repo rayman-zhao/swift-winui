@@ -937,6 +937,15 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
+    public enum CoreWebView2InitializedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = CoreWebView2InitializedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICoreWebView2InitializedEventArgs
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CICoreWebView2InitializedEventArgs>?) -> CoreWebView2InitializedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
     public enum DataTemplateSelectorBridge: ComposableBridge {
         public typealias SwiftProjection = DataTemplateSelector
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelector
@@ -3920,6 +3929,27 @@ public enum __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
+    public enum WebView2Bridge: ComposableBridge {
+        public typealias SwiftProjection = WebView2
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2
+        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2>?) -> WebView2? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IFrameworkElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
+            public typealias Class = WebView2
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IWebView2
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IFrameworkElementOverrides
+    }
+
     public enum XamlControlsResourcesBridge: AbiBridge {
         public typealias SwiftProjection = XamlControlsResources
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIXamlControlsResources
@@ -4263,6 +4293,13 @@ public class ControlTemplateMaker: MakeFromAbi {
     public typealias SwiftType = ControlTemplate
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return ControlTemplate(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class CoreWebView2InitializedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = CoreWebView2InitializedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CoreWebView2InitializedEventArgs(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
@@ -5642,6 +5679,13 @@ public class VirtualizingLayoutContextMaker: MakeFromAbi {
     public typealias SwiftType = VirtualizingLayoutContext
     public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
         return VirtualizingLayoutContext(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+public class WebView2Maker: MakeFromAbi {
+    public typealias SwiftType = WebView2
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return WebView2(fromAbi: abi)
     }
 }
 @_spi(WinRTInternal)
