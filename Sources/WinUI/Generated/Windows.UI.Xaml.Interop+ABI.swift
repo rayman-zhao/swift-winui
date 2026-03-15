@@ -5,23 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __ABI_Windows_UI_Xaml_Interop {
-    public class _ABI_TypeName {
-        public var val: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
-        public init() { }
-        public init(from swift: WinUI.TypeName) {
-            val.Name = try! HString(swift.name).detach()
-            val.Kind = swift.kind
-        }
-
-        public func detach() -> __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName {
-            let result = val
-            val.Name = nil
-            return result
-        }
-
-        deinit {
-            WindowsDeleteString(val.Name)
-        }
-    }
-}
+public enum __ABI_Windows_UI_Xaml_Interop {}

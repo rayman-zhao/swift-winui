@@ -4,10 +4,107 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - AnnotationType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.annotationtype)
 public typealias AnnotationType = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType
+
+extension WinUI.AnnotationType {
+    public static var unknown : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Unknown
+    }
+    public static var spellingError : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_SpellingError
+    }
+    public static var grammarError : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_GrammarError
+    }
+    public static var comment : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Comment
+    }
+    public static var formulaError : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_FormulaError
+    }
+    public static var trackChanges : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_TrackChanges
+    }
+    public static var header : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Header
+    }
+    public static var footer : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Footer
+    }
+    public static var highlighted : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Highlighted
+    }
+    public static var endnote : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Endnote
+    }
+    public static var footnote : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Footnote
+    }
+    public static var insertionChange : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_InsertionChange
+    }
+    public static var deletionChange : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_DeletionChange
+    }
+    public static var moveChange : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_MoveChange
+    }
+    public static var formatChange : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_FormatChange
+    }
+    public static var unsyncedChange : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_UnsyncedChange
+    }
+    public static var editingLockedChange : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_EditingLockedChange
+    }
+    public static var externalChange : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_ExternalChange
+    }
+    public static var conflictingChange : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_ConflictingChange
+    }
+    public static var author : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Author
+    }
+    public static var advancedProofingIssue : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_AdvancedProofingIssue
+    }
+    public static var dataValidationError : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_DataValidationError
+    }
+    public static var circularReferenceError : WinUI.AnnotationType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_CircularReferenceError
+    }
+}
+extension WinUI.AnnotationType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationTextEditChangeType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationtexteditchangetype)
 public typealias AutomationTextEditChangeType = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType
+
+extension WinUI.AutomationTextEditChangeType {
+    public static var none : WinUI.AutomationTextEditChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType_None
+    }
+    public static var autoCorrect : WinUI.AutomationTextEditChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType_AutoCorrect
+    }
+    public static var composition : WinUI.AutomationTextEditChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType_Composition
+    }
+    public static var compositionFinalized : WinUI.AutomationTextEditChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType_CompositionFinalized
+    }
+}
+extension WinUI.AutomationTextEditChangeType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationAnnotation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationannotation)
 public final class AutomationAnnotation : WinUI.DependencyObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation.IAutomationAnnotation
@@ -67,6 +164,124 @@ public final class AutomationAnnotation : WinUI.DependencyObject {
         _default = nil
     }
 }
+
+// MARK: - AutomationAnnotation Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Automation {
+    public enum AutomationAnnotationBridge: AbiBridge {
+        public typealias SwiftProjection = AutomationAnnotation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation>?) -> AutomationAnnotation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AutomationAnnotationMaker: MakeFromAbi {
+    public typealias SwiftType = AutomationAnnotation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutomationAnnotation(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Automation {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation: WindowsFoundation.IID = .init(
+        Data1: 0xC2CC46AD, Data2: 0x1414, Data3: 0x5F1B, Data4: ( 0x80,0x8A,0x89,0xE5,0xD5,0x3D,0x82,0xFE ) // C2CC46AD-1414-5F1B-808A-89E5D53D82FE
+    ) 
+
+    public class IAutomationAnnotation: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation }
+
+        public func get_Type() throws -> WinUI.AnnotationType {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Type(_ value: WinUI.AnnotationType) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Type(pThis, value))
+            }
+        }
+
+        public func get_Element() throws -> WinUI.UIElement? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Element(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: value)
+        }
+
+        public func put_Element(_ value: WinUI.UIElement?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Element(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationFactory: WindowsFoundation.IID = .init(
+        Data1: 0x95F82773, Data2: 0xEAC5, Data3: 0x572E, Data4: ( 0x87,0xDE,0x24,0xD9,0x51,0x4B,0x9A,0x89 ) // 95F82773-EAC5-572E-87DE-24D9514B9A89
+    ) 
+
+    public class IAutomationAnnotationFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationFactory }
+
+        public func CreateInstance(_ type: WinUI.AnnotationType) throws -> IAutomationAnnotation {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, type, &valueAbi))
+                }
+            }
+            return IAutomationAnnotation(value!)
+        }
+
+        public func CreateWithElementParameter(_ type: WinUI.AnnotationType, _ element: WinUI.UIElement?) throws -> IAutomationAnnotation {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithElementParameter(pThis, type, RawPointer(element), &valueAbi))
+                }
+            }
+            return IAutomationAnnotation(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationStatics: WindowsFoundation.IID = .init(
+        Data1: 0xC5ABDC1E, Data2: 0xFC26, Data3: 0x5444, Data4: ( 0xA8,0xB3,0x59,0xB2,0xC0,0xA9,0x55,0x78 ) // C5ABDC1E-FC26-5444-A8B3-59B2C0A95578
+    ) 
+
+    public class IAutomationAnnotationStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationStatics }
+
+        public func get_TypeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TypeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ElementProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ElementProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AutomationProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationproperties)
 public final class AutomationProperties : WinRTClass {
@@ -503,6 +718,722 @@ public final class AutomationProperties : WinRTClass {
     }
 }
 
+// MARK: - AutomationProperties Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Automation {
+    public enum AutomationPropertiesBridge: AbiBridge {
+        public typealias SwiftProjection = AutomationProperties
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperties
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperties>?) -> AutomationProperties? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AutomationPropertiesMaker: MakeFromAbi {
+    public typealias SwiftType = AutomationProperties
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutomationProperties(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Automation {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperties: WindowsFoundation.IID = .init(
+        Data1: 0x525C6A71, Data2: 0xDD8A, Data3: 0x52A0, Data4: ( 0x97,0x7B,0xDB,0x1B,0x02,0xF8,0xE8,0x96 ) // 525C6A71-DD8A-52A0-977B-DB1B02F8E896
+    ) 
+
+    public class IAutomationProperties: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperties }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics: WindowsFoundation.IID = .init(
+        Data1: 0xB1E3E0F3, Data2: 0x112F, Data3: 0x5966, Data4: ( 0x87,0xDC,0x78,0x62,0xD4,0xAD,0x50,0xE5 ) // B1E3E0F3-112F-5966-87DC-7862D4AD50E5
+    ) 
+
+    public class IAutomationPropertiesStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics }
+
+        public func get_AcceleratorKeyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AcceleratorKeyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetAcceleratorKey(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAcceleratorKey(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetAcceleratorKey(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetAcceleratorKey(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_AccessKeyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessKeyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetAccessKey(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessKey(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetAccessKey(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetAccessKey(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_AutomationIdProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutomationIdProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetAutomationId(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationId(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetAutomationId(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetAutomationId(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_HelpTextProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HelpTextProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetHelpText(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetHelpText(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetHelpText(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetHelpText(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_IsRequiredForFormProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsRequiredForFormProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetIsRequiredForForm(_ element: WinUI.DependencyObject?) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsRequiredForForm(pThis, RawPointer(element), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SetIsRequiredForForm(_ element: WinUI.DependencyObject?, _ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsRequiredForForm(pThis, RawPointer(element), .init(from: value)))
+            }
+        }
+
+        public func get_ItemStatusProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemStatusProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetItemStatus(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemStatus(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetItemStatus(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetItemStatus(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_ItemTypeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTypeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetItemType(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemType(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetItemType(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetItemType(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_LabeledByProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LabeledByProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetLabeledBy(_ element: WinUI.DependencyObject?) throws -> WinUI.UIElement? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetLabeledBy(pThis, RawPointer(element), &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: result)
+        }
+
+        public func SetLabeledBy(_ element: WinUI.DependencyObject?, _ value: WinUI.UIElement?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetLabeledBy(pThis, RawPointer(element), RawPointer(value)))
+            }
+        }
+
+        public func get_NameProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NameProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetName(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetName(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetName(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetName(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_LiveSettingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LiveSettingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetLiveSetting(_ element: WinUI.DependencyObject?) throws -> WinUI.AutomationLiveSetting {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLiveSetting(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetLiveSetting(_ element: WinUI.DependencyObject?, _ value: WinUI.AutomationLiveSetting) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetLiveSetting(pThis, RawPointer(element), value))
+            }
+        }
+
+        public func get_AccessibilityViewProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessibilityViewProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetAccessibilityView(_ element: WinUI.DependencyObject?) throws -> WinUI.AccessibilityView {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessibilityView(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetAccessibilityView(_ element: WinUI.DependencyObject?, _ value: WinUI.AccessibilityView) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetAccessibilityView(pThis, RawPointer(element), value))
+            }
+        }
+
+        public func get_ControlledPeersProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ControlledPeersProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetControlledPeers(_ element: WinUI.DependencyObject?) throws -> WindowsFoundation.AnyIVector<WinUI.UIElement?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetControlledPeers(pThis, RawPointer(element), &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CUIElementWrapper.unwrapFrom(abi: result)
+        }
+
+        public func get_PositionInSetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PositionInSetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetPositionInSet(_ element: WinUI.DependencyObject?) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPositionInSet(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetPositionInSet(_ element: WinUI.DependencyObject?, _ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetPositionInSet(pThis, RawPointer(element), value))
+            }
+        }
+
+        public func get_SizeOfSetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SizeOfSetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetSizeOfSet(_ element: WinUI.DependencyObject?) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSizeOfSet(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetSizeOfSet(_ element: WinUI.DependencyObject?, _ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetSizeOfSet(pThis, RawPointer(element), value))
+            }
+        }
+
+        public func get_LevelProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LevelProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetLevel(_ element: WinUI.DependencyObject?) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLevel(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetLevel(_ element: WinUI.DependencyObject?, _ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetLevel(pThis, RawPointer(element), value))
+            }
+        }
+
+        public func get_AnnotationsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AnnotationsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetAnnotations(_ element: WinUI.DependencyObject?) throws -> WindowsFoundation.AnyIVector<WinUI.AutomationAnnotation?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetAnnotations(pThis, RawPointer(element), &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CAutomationAnnotationWrapper.unwrapFrom(abi: result)
+        }
+
+        public func get_LandmarkTypeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LandmarkTypeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetLandmarkType(_ element: WinUI.DependencyObject?) throws -> WinUI.AutomationLandmarkType {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLandmarkType(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetLandmarkType(_ element: WinUI.DependencyObject?, _ value: WinUI.AutomationLandmarkType) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetLandmarkType(pThis, RawPointer(element), value))
+            }
+        }
+
+        public func get_LocalizedLandmarkTypeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LocalizedLandmarkTypeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetLocalizedLandmarkType(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedLandmarkType(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetLocalizedLandmarkType(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetLocalizedLandmarkType(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_IsPeripheralProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsPeripheralProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetIsPeripheral(_ element: WinUI.DependencyObject?) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsPeripheral(pThis, RawPointer(element), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SetIsPeripheral(_ element: WinUI.DependencyObject?, _ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsPeripheral(pThis, RawPointer(element), .init(from: value)))
+            }
+        }
+
+        public func get_IsDataValidForFormProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDataValidForFormProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetIsDataValidForForm(_ element: WinUI.DependencyObject?) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsDataValidForForm(pThis, RawPointer(element), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SetIsDataValidForForm(_ element: WinUI.DependencyObject?, _ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsDataValidForForm(pThis, RawPointer(element), .init(from: value)))
+            }
+        }
+
+        public func get_FullDescriptionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FullDescriptionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetFullDescription(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetFullDescription(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetFullDescription(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetFullDescription(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_LocalizedControlTypeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LocalizedControlTypeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetLocalizedControlType(_ element: WinUI.DependencyObject?) throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedControlType(pThis, RawPointer(element), &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func SetLocalizedControlType(_ element: WinUI.DependencyObject?, _ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetLocalizedControlType(pThis, RawPointer(element), _value.get()))
+            }
+        }
+
+        public func get_DescribedByProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DescribedByProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetDescribedBy(_ element: WinUI.DependencyObject?) throws -> WindowsFoundation.AnyIVector<WinUI.DependencyObject?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDescribedBy(pThis, RawPointer(element), &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDependencyObjectWrapper.unwrapFrom(abi: result)
+        }
+
+        public func get_FlowsToProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FlowsToProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetFlowsTo(_ element: WinUI.DependencyObject?) throws -> WindowsFoundation.AnyIVector<WinUI.DependencyObject?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFlowsTo(pThis, RawPointer(element), &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDependencyObjectWrapper.unwrapFrom(abi: result)
+        }
+
+        public func get_FlowsFromProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FlowsFromProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetFlowsFrom(_ element: WinUI.DependencyObject?) throws -> WindowsFoundation.AnyIVector<WinUI.DependencyObject?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFlowsFrom(pThis, RawPointer(element), &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDependencyObjectWrapper.unwrapFrom(abi: result)
+        }
+
+        public func get_CultureProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CultureProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetCulture(_ element: WinUI.DependencyObject?) throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCulture(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetCulture(_ element: WinUI.DependencyObject?, _ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetCulture(pThis, RawPointer(element), value))
+            }
+        }
+
+        public func get_HeadingLevelProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HeadingLevelProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetHeadingLevel(_ element: WinUI.DependencyObject?) throws -> WinUI.AutomationHeadingLevel {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetHeadingLevel(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetHeadingLevel(_ element: WinUI.DependencyObject?, _ value: WinUI.AutomationHeadingLevel) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetHeadingLevel(pThis, RawPointer(element), value))
+            }
+        }
+
+        public func get_IsDialogProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDialogProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetIsDialog(_ element: WinUI.DependencyObject?) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsDialog(pThis, RawPointer(element), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SetIsDialog(_ element: WinUI.DependencyObject?, _ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetIsDialog(pThis, RawPointer(element), .init(from: value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics2: WindowsFoundation.IID = .init(
+        Data1: 0xD933A3ED, Data2: 0xE90A, Data3: 0x5DF0, Data4: ( 0x85,0x3D,0xCA,0xD1,0x7A,0x0B,0x9E,0xC8 ) // D933A3ED-E90A-5DF0-853D-CAD17A0B9EC8
+    ) 
+
+    public class IAutomationPropertiesStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics2 }
+
+        public func get_AutomationControlTypeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AutomationControlTypeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetAutomationControlType(_ element: WinUI.UIElement?) throws -> WinUI.AutomationControlType {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationControlType(pThis, RawPointer(element), &result))
+            }
+            return result
+        }
+
+        public func SetAutomationControlType(_ element: WinUI.UIElement?, _ value: WinUI.AutomationControlType) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetAutomationControlType(pThis, RawPointer(element), value))
+            }
+        }
+
+    }
+
+}
+// MARK: - AutomationProperty
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationproperty)
 public final class AutomationProperty : WinRTClass {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation.IAutomationProperty
@@ -526,92 +1457,36 @@ public final class AutomationProperty : WinRTClass {
     }
 }
 
-extension WinUI.AnnotationType {
-    public static var unknown : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Unknown
+// MARK: - AutomationProperty Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Automation {
+    public enum AutomationPropertyBridge: AbiBridge {
+        public typealias SwiftProjection = AutomationProperty
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty>?) -> AutomationProperty? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
     }
-    public static var spellingError : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_SpellingError
-    }
-    public static var grammarError : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_GrammarError
-    }
-    public static var comment : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Comment
-    }
-    public static var formulaError : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_FormulaError
-    }
-    public static var trackChanges : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_TrackChanges
-    }
-    public static var header : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Header
-    }
-    public static var footer : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Footer
-    }
-    public static var highlighted : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Highlighted
-    }
-    public static var endnote : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Endnote
-    }
-    public static var footnote : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Footnote
-    }
-    public static var insertionChange : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_InsertionChange
-    }
-    public static var deletionChange : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_DeletionChange
-    }
-    public static var moveChange : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_MoveChange
-    }
-    public static var formatChange : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_FormatChange
-    }
-    public static var unsyncedChange : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_UnsyncedChange
-    }
-    public static var editingLockedChange : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_EditingLockedChange
-    }
-    public static var externalChange : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_ExternalChange
-    }
-    public static var conflictingChange : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_ConflictingChange
-    }
-    public static var author : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_Author
-    }
-    public static var advancedProofingIssue : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_AdvancedProofingIssue
-    }
-    public static var dataValidationError : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_DataValidationError
-    }
-    public static var circularReferenceError : WinUI.AnnotationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType_CircularReferenceError
+
+}
+@_spi(WinRTInternal)
+public class AutomationPropertyMaker: MakeFromAbi {
+    public typealias SwiftType = AutomationProperty
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutomationProperty(fromAbi: abi)
     }
 }
-extension WinUI.AnnotationType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Automation {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty: WindowsFoundation.IID = .init(
+        Data1: 0x5CA6B2C8, Data2: 0xFF86, Data3: 0x5A41, Data4: ( 0xAA,0x18,0x69,0x48,0xFA,0xE5,0x92,0xCF ) // 5CA6B2C8-FF86-5A41-AA18-6948FAE592CF
+    ) 
 
-extension WinUI.AutomationTextEditChangeType {
-    public static var none : WinUI.AutomationTextEditChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType_None
+    public class IAutomationProperty: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty }
+
     }
-    public static var autoCorrect : WinUI.AutomationTextEditChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType_AutoCorrect
-    }
-    public static var composition : WinUI.AutomationTextEditChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType_Composition
-    }
-    public static var compositionFinalized : WinUI.AutomationTextEditChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAutomationTextEditChangeType_CompositionFinalized
-    }
+
 }
-extension WinUI.AutomationTextEditChangeType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

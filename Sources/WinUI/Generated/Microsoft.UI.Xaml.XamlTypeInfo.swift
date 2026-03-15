@@ -4,6 +4,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - XamlControlsXamlMetaDataProvider
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamltypeinfo.xamlcontrolsxamlmetadataprovider)
 public final class XamlControlsXamlMetaDataProvider : WinRTClass, WinUI.IXamlMetadataProvider {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Markup.IXamlMetadataProvider
@@ -58,3 +60,51 @@ public final class XamlControlsXamlMetaDataProvider : WinRTClass, WinUI.IXamlMet
     }
 }
 
+// MARK: - XamlControlsXamlMetaDataProvider Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_XamlTypeInfo {
+    public enum XamlControlsXamlMetaDataProviderBridge: AbiBridge {
+        public typealias SwiftProjection = XamlControlsXamlMetaDataProvider
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider>?) -> XamlControlsXamlMetaDataProvider? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class XamlControlsXamlMetaDataProviderMaker: MakeFromAbi {
+    public typealias SwiftType = XamlControlsXamlMetaDataProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return XamlControlsXamlMetaDataProvider(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_XamlTypeInfo {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProvider: WindowsFoundation.IID = .init(
+        Data1: 0x17FA3F58, Data2: 0x3472, Data3: 0x5AA2, Data4: ( 0xA0,0xF8,0x1A,0xB8,0xA5,0x19,0x57,0x3D ) // 17FA3F58-3472-5AA2-A0F8-1AB8A519573D
+    ) 
+
+    public class IXamlControlsXamlMetaDataProvider: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProvider }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProviderStatics: WindowsFoundation.IID = .init(
+        Data1: 0x2D7EB3FD, Data2: 0xECDB, Data3: 0x5084, Data4: ( 0xB7,0xE0,0x12,0xF9,0x59,0x83,0x81,0xEF ) // 2D7EB3FD-ECDB-5084-B7E0-12F9598381EF
+    ) 
+
+    public class IXamlControlsXamlMetaDataProviderStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProviderStatics }
+
+        public func Initialize() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProviderStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Initialize(pThis))
+            }
+        }
+
+    }
+
+}

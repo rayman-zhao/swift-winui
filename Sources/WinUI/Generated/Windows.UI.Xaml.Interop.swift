@@ -4,20 +4,10 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - TypeKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typekind)
 public typealias TypeKind = __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeKind
-/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename)
-public struct TypeName: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename.name)
-    public var name: String = ""
-    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename.kind)
-    public var kind: TypeKind = .init(0)
-    public init() {}
-    public init(name: String, kind: TypeKind) {
-        self.name = name
-        self.kind = kind
-    }
-}
 
 extension WinUI.TypeKind {
     public static var primitive : WinUI.TypeKind {
@@ -32,3 +22,52 @@ extension WinUI.TypeKind {
 }
 extension WinUI.TypeKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
+// MARK: - TypeName
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename)
+public struct TypeName: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename.name)
+    public var name: String = ""
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.ui.xaml.interop.typename.kind)
+    public var kind: TypeKind = .init(0)
+    public init() {}
+    public init(name: String, kind: TypeKind) {
+        self.name = name
+        self.kind = kind
+    }
+}
+
+// MARK: - TypeName Internals
+
+@_spi(WinRTInternal)
+extension TypeName: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName
+    public static func from(abi: ABI) -> Self {
+        .init(name: .init(from: abi.Name), kind: abi.Kind)
+    }
+    public func toABI() -> ABI {
+        __ABI_Windows_UI_Xaml_Interop._ABI_TypeName(from: self).detach()
+    }
+}
+
+@_spi(WinRTInternal)
+extension __ABI_Windows_UI_Xaml_Interop {
+    public class _ABI_TypeName {
+        public var val: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+        public init() { }
+        public init(from swift: WinUI.TypeName) {
+            val.Name = try! HString(swift.name).detach()
+            val.Kind = swift.kind
+        }
+
+        public func detach() -> __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName {
+            let result = val
+            val.Name = nil
+            return result
+        }
+
+        deinit {
+            WindowsDeleteString(val.Name)
+        }
+    }
+}

@@ -4,30 +4,605 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - AccessibilityView
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.accessibilityview)
 public typealias AccessibilityView = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView
+
+extension WinUI.AccessibilityView {
+    public static var raw : WinUI.AccessibilityView {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Raw
+    }
+    public static var control : WinUI.AccessibilityView {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Control
+    }
+    public static var content : WinUI.AccessibilityView {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Content
+    }
+}
+extension WinUI.AccessibilityView: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationControlType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationcontroltype)
 public typealias AutomationControlType = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType
+
+extension WinUI.AutomationControlType {
+    public static var button : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Button
+    }
+    public static var calendar : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Calendar
+    }
+    public static var checkBox : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_CheckBox
+    }
+    public static var comboBox : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ComboBox
+    }
+    public static var edit : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Edit
+    }
+    public static var hyperlink : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Hyperlink
+    }
+    public static var image : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Image
+    }
+    public static var listItem : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ListItem
+    }
+    public static var list : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_List
+    }
+    public static var menu : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Menu
+    }
+    public static var menuBar : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_MenuBar
+    }
+    public static var menuItem : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_MenuItem
+    }
+    public static var progressBar : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ProgressBar
+    }
+    public static var radioButton : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_RadioButton
+    }
+    public static var scrollBar : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ScrollBar
+    }
+    public static var slider : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Slider
+    }
+    public static var spinner : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Spinner
+    }
+    public static var statusBar : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_StatusBar
+    }
+    public static var tab : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Tab
+    }
+    public static var tabItem : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_TabItem
+    }
+    public static var text : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Text
+    }
+    public static var toolBar : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ToolBar
+    }
+    public static var toolTip : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ToolTip
+    }
+    public static var tree : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Tree
+    }
+    public static var treeItem : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_TreeItem
+    }
+    public static var custom : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Custom
+    }
+    public static var group : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Group
+    }
+    public static var thumb : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Thumb
+    }
+    public static var dataGrid : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_DataGrid
+    }
+    public static var dataItem : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_DataItem
+    }
+    public static var document : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Document
+    }
+    public static var splitButton : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_SplitButton
+    }
+    public static var window : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Window
+    }
+    public static var pane : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Pane
+    }
+    public static var header : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Header
+    }
+    public static var headerItem : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_HeaderItem
+    }
+    public static var table : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Table
+    }
+    public static var titleBar : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_TitleBar
+    }
+    public static var separator : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Separator
+    }
+    public static var semanticZoom : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_SemanticZoom
+    }
+    public static var appBar : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_AppBar
+    }
+    public static var flipView : WinUI.AutomationControlType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_FlipView
+    }
+}
+extension WinUI.AutomationControlType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationEvents
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationevents)
 public typealias AutomationEvents = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents
+
+extension WinUI.AutomationEvents {
+    public static var toolTipOpened : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_ToolTipOpened
+    }
+    public static var toolTipClosed : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_ToolTipClosed
+    }
+    public static var menuOpened : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_MenuOpened
+    }
+    public static var menuClosed : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_MenuClosed
+    }
+    public static var automationFocusChanged : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_AutomationFocusChanged
+    }
+    public static var invokePatternOnInvoked : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_InvokePatternOnInvoked
+    }
+    public static var selectionItemPatternOnElementAddedToSelection : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_SelectionItemPatternOnElementAddedToSelection
+    }
+    public static var selectionItemPatternOnElementRemovedFromSelection : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_SelectionItemPatternOnElementRemovedFromSelection
+    }
+    public static var selectionItemPatternOnElementSelected : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_SelectionItemPatternOnElementSelected
+    }
+    public static var selectionPatternOnInvalidated : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_SelectionPatternOnInvalidated
+    }
+    public static var textPatternOnTextSelectionChanged : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_TextPatternOnTextSelectionChanged
+    }
+    public static var textPatternOnTextChanged : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_TextPatternOnTextChanged
+    }
+    public static var asyncContentLoaded : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_AsyncContentLoaded
+    }
+    public static var propertyChanged : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_PropertyChanged
+    }
+    public static var structureChanged : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_StructureChanged
+    }
+    public static var dragStart : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragStart
+    }
+    public static var dragCancel : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragCancel
+    }
+    public static var dragComplete : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragComplete
+    }
+    public static var dragEnter : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragEnter
+    }
+    public static var dragLeave : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragLeave
+    }
+    public static var dropped : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_Dropped
+    }
+    public static var liveRegionChanged : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_LiveRegionChanged
+    }
+    public static var inputReachedTarget : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_InputReachedTarget
+    }
+    public static var inputReachedOtherElement : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_InputReachedOtherElement
+    }
+    public static var inputDiscarded : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_InputDiscarded
+    }
+    public static var windowClosed : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_WindowClosed
+    }
+    public static var windowOpened : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_WindowOpened
+    }
+    public static var conversionTargetChanged : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_ConversionTargetChanged
+    }
+    public static var textEditTextChanged : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_TextEditTextChanged
+    }
+    public static var layoutInvalidated : WinUI.AutomationEvents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_LayoutInvalidated
+    }
+}
+extension WinUI.AutomationEvents: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationHeadingLevel
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationheadinglevel)
 public typealias AutomationHeadingLevel = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel
+
+extension WinUI.AutomationHeadingLevel {
+    public static var none : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_None
+    }
+    public static var level1 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level1
+    }
+    public static var level2 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level2
+    }
+    public static var level3 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level3
+    }
+    public static var level4 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level4
+    }
+    public static var level5 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level5
+    }
+    public static var level6 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level6
+    }
+    public static var level7 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level7
+    }
+    public static var level8 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level8
+    }
+    public static var level9 : WinUI.AutomationHeadingLevel {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level9
+    }
+}
+extension WinUI.AutomationHeadingLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationLandmarkType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationlandmarktype)
 public typealias AutomationLandmarkType = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType
+
+extension WinUI.AutomationLandmarkType {
+    public static var none : WinUI.AutomationLandmarkType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_None
+    }
+    public static var custom : WinUI.AutomationLandmarkType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Custom
+    }
+    public static var form : WinUI.AutomationLandmarkType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Form
+    }
+    public static var main : WinUI.AutomationLandmarkType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Main
+    }
+    public static var navigation : WinUI.AutomationLandmarkType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Navigation
+    }
+    public static var search : WinUI.AutomationLandmarkType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Search
+    }
+}
+extension WinUI.AutomationLandmarkType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationLiveSetting
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationlivesetting)
 public typealias AutomationLiveSetting = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting
+
+extension WinUI.AutomationLiveSetting {
+    public static var off : WinUI.AutomationLiveSetting {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting_Off
+    }
+    public static var polite : WinUI.AutomationLiveSetting {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting_Polite
+    }
+    public static var assertive : WinUI.AutomationLiveSetting {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting_Assertive
+    }
+}
+extension WinUI.AutomationLiveSetting: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationNavigationDirection
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationnavigationdirection)
 public typealias AutomationNavigationDirection = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection
+
+extension WinUI.AutomationNavigationDirection {
+    public static var parent : WinUI.AutomationNavigationDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_Parent
+    }
+    public static var nextSibling : WinUI.AutomationNavigationDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_NextSibling
+    }
+    public static var previousSibling : WinUI.AutomationNavigationDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_PreviousSibling
+    }
+    public static var firstChild : WinUI.AutomationNavigationDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_FirstChild
+    }
+    public static var lastChild : WinUI.AutomationNavigationDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_LastChild
+    }
+}
+extension WinUI.AutomationNavigationDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationNotificationKind
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationnotificationkind)
 public typealias AutomationNotificationKind = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind
+
+extension WinUI.AutomationNotificationKind {
+    public static var itemAdded : WinUI.AutomationNotificationKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_ItemAdded
+    }
+    public static var itemRemoved : WinUI.AutomationNotificationKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_ItemRemoved
+    }
+    public static var actionCompleted : WinUI.AutomationNotificationKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_ActionCompleted
+    }
+    public static var actionAborted : WinUI.AutomationNotificationKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_ActionAborted
+    }
+    public static var other : WinUI.AutomationNotificationKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_Other
+    }
+}
+extension WinUI.AutomationNotificationKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationNotificationProcessing
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationnotificationprocessing)
 public typealias AutomationNotificationProcessing = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing
+
+extension WinUI.AutomationNotificationProcessing {
+    public static var importantAll : WinUI.AutomationNotificationProcessing {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_ImportantAll
+    }
+    public static var importantMostRecent : WinUI.AutomationNotificationProcessing {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_ImportantMostRecent
+    }
+    public static var all : WinUI.AutomationNotificationProcessing {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_All
+    }
+    public static var mostRecent : WinUI.AutomationNotificationProcessing {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_MostRecent
+    }
+    public static var currentThenMostRecent : WinUI.AutomationNotificationProcessing {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_CurrentThenMostRecent
+    }
+}
+extension WinUI.AutomationNotificationProcessing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationOrientation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationorientation)
 public typealias AutomationOrientation = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation
+
+extension WinUI.AutomationOrientation {
+    public static var none : WinUI.AutomationOrientation {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation_None
+    }
+    public static var horizontal : WinUI.AutomationOrientation {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation_Horizontal
+    }
+    public static var vertical : WinUI.AutomationOrientation {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation_Vertical
+    }
+}
+extension WinUI.AutomationOrientation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - AutomationStructureChangeType
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationstructurechangetype)
 public typealias AutomationStructureChangeType = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType
+
+extension WinUI.AutomationStructureChangeType {
+    public static var childAdded : WinUI.AutomationStructureChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildAdded
+    }
+    public static var childRemoved : WinUI.AutomationStructureChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildRemoved
+    }
+    public static var childrenInvalidated : WinUI.AutomationStructureChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenInvalidated
+    }
+    public static var childrenBulkAdded : WinUI.AutomationStructureChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenBulkAdded
+    }
+    public static var childrenBulkRemoved : WinUI.AutomationStructureChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenBulkRemoved
+    }
+    public static var childrenReordered : WinUI.AutomationStructureChangeType {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenReordered
+    }
+}
+extension WinUI.AutomationStructureChangeType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - PatternInterface
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.patterninterface)
 public typealias PatternInterface = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface
+
+extension WinUI.PatternInterface {
+    public static var invoke : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Invoke
+    }
+    public static var selection : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Selection
+    }
+    public static var value : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Value
+    }
+    public static var rangeValue : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_RangeValue
+    }
+    public static var scroll : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Scroll
+    }
+    public static var scrollItem : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_ScrollItem
+    }
+    public static var expandCollapse : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_ExpandCollapse
+    }
+    public static var grid : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Grid
+    }
+    public static var gridItem : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_GridItem
+    }
+    public static var multipleView : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_MultipleView
+    }
+    public static var window : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Window
+    }
+    public static var selectionItem : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_SelectionItem
+    }
+    public static var dock : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Dock
+    }
+    public static var table : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Table
+    }
+    public static var tableItem : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_TableItem
+    }
+    public static var toggle : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Toggle
+    }
+    public static var transform : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Transform
+    }
+    public static var text : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Text
+    }
+    public static var itemContainer : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_ItemContainer
+    }
+    public static var virtualizedItem : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_VirtualizedItem
+    }
+    public static var text2 : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Text2
+    }
+    public static var textChild : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_TextChild
+    }
+    public static var textRange : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_TextRange
+    }
+    public static var annotation : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Annotation
+    }
+    public static var drag : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Drag
+    }
+    public static var dropTarget : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_DropTarget
+    }
+    public static var objectModel : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_ObjectModel
+    }
+    public static var spreadsheet : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Spreadsheet
+    }
+    public static var spreadsheetItem : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_SpreadsheetItem
+    }
+    public static var styles : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Styles
+    }
+    public static var transform2 : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Transform2
+    }
+    public static var synchronizedInput : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_SynchronizedInput
+    }
+    public static var textEdit : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_TextEdit
+    }
+    public static var customNavigation : WinUI.PatternInterface {
+        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_CustomNavigation
+    }
+}
+extension WinUI.PatternInterface: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - RawElementProviderRuntimeId
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid)
+public struct RawElementProviderRuntimeId: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid.part1)
+    public var part1: UInt32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid.part2)
+    public var part2: UInt32 = 0
+    public init() {}
+    public init(part1: UInt32, part2: UInt32) {
+        self.part1 = part1
+        self.part2 = part2
+    }
+}
+
+// MARK: - RawElementProviderRuntimeId Internals
+
+@_spi(WinRTInternal)
+extension RawElementProviderRuntimeId: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRuntimeId
+    public static func from(abi: ABI) -> Self {
+        .init(part1: abi.Part1, part2: abi.Part2)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRuntimeId {
+    public static func from(swift: WinUI.RawElementProviderRuntimeId) -> __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRuntimeId {
+        .init(Part1: swift.part1, Part2: swift.part2)
+    }
+}
+// MARK: - AutomationPeer
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer)
 open class AutomationPeer : WinUI.DependencyObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeer
@@ -600,6 +1175,1443 @@ open class AutomationPeer : WinUI.DependencyObject {
     }
 }
 
+// MARK: - AutomationPeer Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Automation_Peers {
+    public enum AutomationPeerBridge: ComposableBridge {
+        public typealias SwiftProjection = AutomationPeer
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer>?) -> AutomationPeer? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IAutomationPeerOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverrides
+            public typealias Class = AutomationPeer
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeer
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IAutomationPeerOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class AutomationPeerMaker: MakeFromAbi {
+    public typealias SwiftType = AutomationPeer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutomationPeer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
+    internal typealias IAutomationPeerOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.IAutomationPeerOverrides>
+    internal static var IAutomationPeerOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverridesVtbl = .init(
+        QueryInterface: { IAutomationPeerOverridesWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IAutomationPeerOverridesWrapper.addRef($0) },
+        Release: { IAutomationPeerOverridesWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverridesWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            guard let instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let hstring = instance.GetRuntimeClassName().detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        GetPatternCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let patternInterface: WinUI.PatternInterface = $1
+                let result = try __unwrapped__instance.getPatternCore(patternInterface)
+                let resultWrapper = __ABI_.AnyWrapper(result)
+                resultWrapper?.copyTo($2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetAcceleratorKeyCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getAcceleratorKeyCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetAccessKeyCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getAccessKeyCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetAutomationControlTypeCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getAutomationControlTypeCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetAutomationIdCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getAutomationIdCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetBoundingRectangleCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getBoundingRectangleCore()
+                $1?.initialize(to: .from(swift: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetChildrenCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getChildrenCore()
+                let resultWrapper = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        NavigateCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let direction: WinUI.AutomationNavigationDirection = $1
+                let result = try __unwrapped__instance.navigateCore(direction)
+                let resultWrapper = __ABI_.AnyWrapper(result)
+                resultWrapper?.copyTo($2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetClassNameCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getClassNameCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetClickablePointCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getClickablePointCore()
+                $1?.initialize(to: .from(swift: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetHelpTextCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getHelpTextCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetItemStatusCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getItemStatusCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetItemTypeCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getItemTypeCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetLabeledByCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getLabeledByCore()
+                result?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetLocalizedControlTypeCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getLocalizedControlTypeCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetNameCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getNameCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetOrientationCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getOrientationCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        HasKeyboardFocusCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.hasKeyboardFocusCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsContentElementCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isContentElementCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsControlElementCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isControlElementCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsEnabledCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isEnabledCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsKeyboardFocusableCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isKeyboardFocusableCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsOffscreenCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isOffscreenCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsPasswordCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isPasswordCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsRequiredForFormCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isRequiredForFormCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        SetFocusCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.setFocusCore()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetPeerFromPointCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let point: WindowsFoundation.Point = .from(abi: $1)
+                let result = try __unwrapped__instance.getPeerFromPointCore(point)
+                result?.copyTo($2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetElementFromPointCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let pointInWindowCoordinates: WindowsFoundation.Point = .from(abi: $1)
+                let result = try __unwrapped__instance.getElementFromPointCore(pointInWindowCoordinates)
+                let resultWrapper = __ABI_.AnyWrapper(result)
+                resultWrapper?.copyTo($2)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetFocusedElementCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getFocusedElementCore()
+                let resultWrapper = __ABI_.AnyWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetLiveSettingCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getLiveSettingCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        ShowContextMenuCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.showContextMenuCore()
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetControlledPeersCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getControlledPeersCore()
+                let resultWrapper = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetAnnotationsCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getAnnotationsCore()
+                let resultWrapper = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerAnnotationWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetPositionInSetCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getPositionInSetCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetSizeOfSetCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getSizeOfSetCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetLevelCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getLevelCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetLandmarkTypeCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getLandmarkTypeCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetLocalizedLandmarkTypeCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getLocalizedLandmarkTypeCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsPeripheralCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isPeripheralCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsDataValidForFormCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isDataValidForFormCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetFullDescriptionCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getFullDescriptionCore()
+                $1?.initialize(to: try! HString(result).detach())
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetDescribedByCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getDescribedByCore()
+                let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetFlowsToCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getFlowsToCore()
+                let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetFlowsFromCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getFlowsFromCore()
+                let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
+                resultWrapper?.copyTo($1)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetCultureCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getCultureCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        GetHeadingLevelCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.getHeadingLevelCore()
+                $1?.initialize(to: result)
+                return S_OK
+            } catch { return failWith(error: error) }
+        },
+
+        IsDialogCore: {
+            do {
+                guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let result = try __unwrapped__instance.isDialogCore()
+                $1?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer: WindowsFoundation.IID = .init(
+        Data1: 0xE51D3E4E, Data2: 0x34F0, Data3: 0x568C, Data4: ( 0x99,0x9F,0x62,0x77,0xE2,0xAF,0xE6,0xD7 ) // E51D3E4E-34F0-568C-999F-6277E2AFE6D7
+    ) 
+
+    public class IAutomationPeer: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer }
+
+        public func get_EventsSource() throws -> WinUI.AutomationPeer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_EventsSource(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: value)
+        }
+
+        public func put_EventsSource(_ value: WinUI.AutomationPeer?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_EventsSource(pThis, RawPointer(value)))
+            }
+        }
+
+        public func GetPattern(_ patternInterface: WinUI.PatternInterface) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPattern(pThis, patternInterface, &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func RaiseAutomationEvent(_ eventId: WinUI.AutomationEvents) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseAutomationEvent(pThis, eventId))
+            }
+        }
+
+        public func RaisePropertyChangedEvent(_ automationProperty: WinUI.AutomationProperty?, _ oldValue: Any?, _ newValue: Any?) throws {
+            let oldValueWrapper = __ABI_.AnyWrapper(oldValue)
+            let _oldValue = try! oldValueWrapper?.toABI { $0 }
+            let newValueWrapper = __ABI_.AnyWrapper(newValue)
+            let _newValue = try! newValueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RaisePropertyChangedEvent(pThis, RawPointer(automationProperty), _oldValue, _newValue))
+            }
+        }
+
+        public func GetAcceleratorKey() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAcceleratorKey(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetAccessKey() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessKey(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetAutomationControlType() throws -> WinUI.AutomationControlType {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationControlType(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetAutomationId() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationId(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetBoundingRectangle() throws -> WindowsFoundation.Rect {
+            var result: __x_ABI_CWindows_CFoundation_CRect = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetBoundingRectangle(pThis, &result))
+            }
+            return .from(abi: result)
+        }
+
+        public func GetChildren() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeer?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetChildren(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
+        }
+
+        public func Navigate(_ direction: WinUI.AutomationNavigationDirection) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.Navigate(pThis, direction, &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetClassName() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetClassName(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetClickablePoint() throws -> WindowsFoundation.Point {
+            var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetClickablePoint(pThis, &result))
+            }
+            return .from(abi: result)
+        }
+
+        public func GetHelpText() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetHelpText(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetItemStatus() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemStatus(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetItemType() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemType(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetLabeledBy() throws -> WinUI.AutomationPeer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetLabeledBy(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
+        }
+
+        public func GetLocalizedControlType() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedControlType(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetName() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetName(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetOrientation() throws -> WinUI.AutomationOrientation {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetOrientation(pThis, &result))
+            }
+            return result
+        }
+
+        public func HasKeyboardFocus() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.HasKeyboardFocus(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsContentElement() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsContentElement(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsControlElement() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsControlElement(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsEnabled() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsEnabled(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsKeyboardFocusable() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsKeyboardFocusable(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsOffscreen() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsOffscreen(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsPassword() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsPassword(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsRequiredForForm() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsRequiredForForm(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SetFocus() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetFocus(pThis))
+            }
+        }
+
+        public func GetParent() throws -> WinUI.AutomationPeer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetParent(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
+        }
+
+        public func InvalidatePeer() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.InvalidatePeer(pThis))
+            }
+        }
+
+        public func GetPeerFromPoint(_ point: WindowsFoundation.Point) throws -> WinUI.AutomationPeer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPeerFromPoint(pThis, .from(swift: point), &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
+        }
+
+        public func GetElementFromPoint(_ pointInWindowCoordinates: WindowsFoundation.Point) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetElementFromPoint(pThis, .from(swift: pointInWindowCoordinates), &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetFocusedElement() throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFocusedElement(pThis, &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetLiveSetting() throws -> WinUI.AutomationLiveSetting {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLiveSetting(pThis, &result))
+            }
+            return result
+        }
+
+        public func ShowContextMenu() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ShowContextMenu(pThis))
+            }
+        }
+
+        public func GetControlledPeers() throws -> WindowsFoundation.AnyIVectorView<WinUI.AutomationPeer?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetControlledPeers(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetAnnotations() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeerAnnotation?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetAnnotations(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerAnnotationWrapper.unwrapFrom(abi: result)
+        }
+
+        public func SetParent(_ peer: WinUI.AutomationPeer?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetParent(pThis, RawPointer(peer)))
+            }
+        }
+
+        public func RaiseTextEditTextChangedEvent(_ automationTextEditChangeType: WinUI.AutomationTextEditChangeType, _ changedData: WindowsFoundation.AnyIVectorView<String>?) throws {
+            let changedDataWrapper = WinUI.__x_ABI_C__FIVectorView_1_HSTRINGWrapper(changedData)
+            let _changedData = try! changedDataWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseTextEditTextChangedEvent(pThis, automationTextEditChangeType, _changedData))
+            }
+        }
+
+        public func GetPositionInSet() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPositionInSet(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetSizeOfSet() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSizeOfSet(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetLevel() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLevel(pThis, &result))
+            }
+            return result
+        }
+
+        public func RaiseStructureChangedEvent(_ structureChangeType: WinUI.AutomationStructureChangeType, _ child: WinUI.AutomationPeer?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseStructureChangedEvent(pThis, structureChangeType, RawPointer(child)))
+            }
+        }
+
+        public func GetLandmarkType() throws -> WinUI.AutomationLandmarkType {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLandmarkType(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetLocalizedLandmarkType() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedLandmarkType(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func IsPeripheral() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsPeripheral(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsDataValidForForm() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsDataValidForForm(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func GetFullDescription() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetFullDescription(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetCulture() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCulture(pThis, &result))
+            }
+            return result
+        }
+
+        public func RaiseNotificationEvent(_ notificationKind: WinUI.AutomationNotificationKind, _ notificationProcessing: WinUI.AutomationNotificationProcessing, _ displayString: String, _ activityId: String) throws {
+            let _displayString = try! HString(displayString)
+            let _activityId = try! HString(activityId)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseNotificationEvent(pThis, notificationKind, notificationProcessing, _displayString.get(), _activityId.get()))
+            }
+        }
+
+        public func GetHeadingLevel() throws -> WinUI.AutomationHeadingLevel {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetHeadingLevel(pThis, &result))
+            }
+            return result
+        }
+
+        public func IsDialog() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsDialog(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected: WindowsFoundation.IID = .init(
+        Data1: 0x9663B2C3, Data2: 0x8C1F, Data3: 0x56D4, Data4: ( 0xAB,0xD9,0x26,0x80,0x82,0xA9,0xE8,0xBC ) // 9663B2C3-8C1F-56D4-ABD9-268082A9E8BC
+    ) 
+
+    public class IAutomationPeerProtected: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected }
+
+        public func PeerFromProvider(_ provider: WinUI.IRawElementProviderSimple?) throws -> WinUI.AutomationPeer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.PeerFromProvider(pThis, RawPointer(provider), &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
+        }
+
+        public func ProviderFromPeer(_ peer: WinUI.AutomationPeer?) throws -> WinUI.IRawElementProviderSimple? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.ProviderFromPeer(pThis, RawPointer(peer), &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Provider.IRawElementProviderSimpleBridge.from(abi: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides: WindowsFoundation.IID = .init(
+        Data1: 0x44F8F6DF, Data2: 0x1B60, Data3: 0x512D, Data4: ( 0xA2,0x95,0xDD,0x8C,0x27,0x6C,0x46,0x18 ) // 44F8F6DF-1B60-512D-A295-DD8C276C4618
+    ) 
+
+    public class IAutomationPeerOverrides: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides }
+
+        public func GetPatternCore(_ patternInterface: WinUI.PatternInterface) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPatternCore(pThis, patternInterface, &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetAcceleratorKeyCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAcceleratorKeyCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetAccessKeyCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessKeyCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetAutomationControlTypeCore() throws -> WinUI.AutomationControlType {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationControlTypeCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetAutomationIdCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationIdCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetBoundingRectangleCore() throws -> WindowsFoundation.Rect {
+            var result: __x_ABI_CWindows_CFoundation_CRect = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetBoundingRectangleCore(pThis, &result))
+            }
+            return .from(abi: result)
+        }
+
+        public func GetChildrenCore() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeer?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetChildrenCore(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
+        }
+
+        public func NavigateCore(_ direction: WinUI.AutomationNavigationDirection) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.NavigateCore(pThis, direction, &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetClassNameCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetClassNameCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetClickablePointCore() throws -> WindowsFoundation.Point {
+            var result: __x_ABI_CWindows_CFoundation_CPoint = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetClickablePointCore(pThis, &result))
+            }
+            return .from(abi: result)
+        }
+
+        public func GetHelpTextCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetHelpTextCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetItemStatusCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemStatusCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetItemTypeCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemTypeCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetLabeledByCore() throws -> WinUI.AutomationPeer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetLabeledByCore(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
+        }
+
+        public func GetLocalizedControlTypeCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedControlTypeCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetNameCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetNameCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetOrientationCore() throws -> WinUI.AutomationOrientation {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetOrientationCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func HasKeyboardFocusCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.HasKeyboardFocusCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsContentElementCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsContentElementCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsControlElementCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsControlElementCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsEnabledCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsEnabledCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsKeyboardFocusableCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsKeyboardFocusableCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsOffscreenCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsOffscreenCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsPasswordCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsPasswordCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsRequiredForFormCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsRequiredForFormCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SetFocusCore() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetFocusCore(pThis))
+            }
+        }
+
+        public func GetPeerFromPointCore(_ point: WindowsFoundation.Point) throws -> WinUI.AutomationPeer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPeerFromPointCore(pThis, .from(swift: point), &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: result)
+        }
+
+        public func GetElementFromPointCore(_ pointInWindowCoordinates: WindowsFoundation.Point) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetElementFromPointCore(pThis, .from(swift: pointInWindowCoordinates), &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetFocusedElementCore() throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFocusedElementCore(pThis, &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetLiveSettingCore() throws -> WinUI.AutomationLiveSetting {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLiveSettingCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func ShowContextMenuCore() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ShowContextMenuCore(pThis))
+            }
+        }
+
+        public func GetControlledPeersCore() throws -> WindowsFoundation.AnyIVectorView<WinUI.AutomationPeer?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetControlledPeersCore(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetAnnotationsCore() throws -> WindowsFoundation.AnyIVector<WinUI.AutomationPeerAnnotation?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetAnnotationsCore(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerAnnotationWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetPositionInSetCore() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetPositionInSetCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetSizeOfSetCore() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetSizeOfSetCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetLevelCore() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLevelCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetLandmarkTypeCore() throws -> WinUI.AutomationLandmarkType {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLandmarkTypeCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetLocalizedLandmarkTypeCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedLandmarkTypeCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func IsPeripheralCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsPeripheralCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func IsDataValidForFormCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsDataValidForFormCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func GetFullDescriptionCore() throws -> String {
+            var result: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetFullDescriptionCore(pThis, &result))
+            }
+            defer { WindowsDeleteString(result) }
+            return .init(from: result)
+        }
+
+        public func GetDescribedByCore() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetDescribedByCore(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetFlowsToCore() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFlowsToCore(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetFlowsFromCore() throws -> WindowsFoundation.AnyIIterable<WinUI.AutomationPeer?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetFlowsFromCore(pThis, &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper.unwrapFrom(abi: result)
+        }
+
+        public func GetCultureCore() throws -> Int32 {
+            var result: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCultureCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func GetHeadingLevelCore() throws -> WinUI.AutomationHeadingLevel {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetHeadingLevelCore(pThis, &result))
+            }
+            return result
+        }
+
+        public func IsDialogCore() throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsDialogCore(pThis, &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerFactory: WindowsFoundation.IID = .init(
+        Data1: 0xA1AF86A0, Data2: 0x6EC6, Data3: 0x5BE2, Data4: ( 0x85,0x8F,0x72,0x80,0x8B,0xE6,0xFD,0xDD ) // A1AF86A0-6EC6-5BE2-858F-72808BE6FDDD
+    ) 
+
+    public class IAutomationPeerFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAutomationPeer {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IAutomationPeer(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerStatics: WindowsFoundation.IID = .init(
+        Data1: 0x90B157FF, Data2: 0x18D5, Data3: 0x5623, Data4: ( 0x85,0x0C,0x61,0x2C,0xEA,0xE5,0x76,0xBD ) // 90B157FF-18D5-5623-850C-612CEAE576BD
+    ) 
+
+    public class IAutomationPeerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerStatics }
+
+        public func ListenerExists(_ eventId: WinUI.AutomationEvents) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ListenerExists(pThis, eventId, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func GenerateRawElementProviderRuntimeId() throws -> WinUI.RawElementProviderRuntimeId {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRuntimeId = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GenerateRawElementProviderRuntimeId(pThis, &result))
+            }
+            return .from(abi: result)
+        }
+
+    }
+
+}
+extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides {
+    public static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverridesVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+// MARK: - AutomationPeerAnnotation
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeerannotation)
 public final class AutomationPeerAnnotation : WinUI.DependencyObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotation
@@ -660,520 +2672,119 @@ public final class AutomationPeerAnnotation : WinUI.DependencyObject {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid)
-public struct RawElementProviderRuntimeId: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid.part1)
-    public var part1: UInt32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.rawelementproviderruntimeid.part2)
-    public var part2: UInt32 = 0
-    public init() {}
-    public init(part1: UInt32, part2: UInt32) {
-        self.part1 = part1
-        self.part2 = part2
+// MARK: - AutomationPeerAnnotation Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Automation_Peers {
+    public enum AutomationPeerAnnotationBridge: AbiBridge {
+        public typealias SwiftProjection = AutomationPeerAnnotation
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation>?) -> AutomationPeerAnnotation? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AutomationPeerAnnotationMaker: MakeFromAbi {
+    public typealias SwiftType = AutomationPeerAnnotation
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AutomationPeerAnnotation(fromAbi: abi)
     }
 }
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation: WindowsFoundation.IID = .init(
+        Data1: 0x2738B92A, Data2: 0x2528, Data3: 0x5B63, Data4: ( 0x97,0x3D,0xD2,0x9E,0xB0,0x59,0x36,0x47 ) // 2738B92A-2528-5B63-973D-D29EB0593647
+    ) 
 
-extension WinUI.AccessibilityView {
-    public static var raw : WinUI.AccessibilityView {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Raw
+    public class IAutomationPeerAnnotation: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation }
+
+        public func get_Type() throws -> WinUI.AnnotationType {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CAnnotationType = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Type(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Type(_ value: WinUI.AnnotationType) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Type(pThis, value))
+            }
+        }
+
+        public func get_Peer() throws -> WinUI.AutomationPeer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Peer(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.from(abi: value)
+        }
+
+        public func put_Peer(_ value: WinUI.AutomationPeer?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Peer(pThis, RawPointer(value)))
+            }
+        }
+
     }
-    public static var control : WinUI.AccessibilityView {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Control
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationFactory: WindowsFoundation.IID = .init(
+        Data1: 0x25A1A202, Data2: 0xBD68, Data3: 0x5D41, Data4: ( 0xA3,0x11,0xF8,0x4A,0xF9,0xC8,0xC4,0x40 ) // 25A1A202-BD68-5D41-A311-F84AF9C8C440
+    ) 
+
+    public class IAutomationPeerAnnotationFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationFactory }
+
+        public func CreateInstance(_ type: WinUI.AnnotationType) throws -> IAutomationPeerAnnotation {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, type, &valueAbi))
+                }
+            }
+            return IAutomationPeerAnnotation(value!)
+        }
+
+        public func CreateWithPeerParameter(_ type: WinUI.AnnotationType, _ peer: WinUI.AutomationPeer?) throws -> IAutomationPeerAnnotation {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateWithPeerParameter(pThis, type, RawPointer(peer), &valueAbi))
+                }
+            }
+            return IAutomationPeerAnnotation(value!)
+        }
+
     }
-    public static var content : WinUI.AccessibilityView {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAccessibilityView_Content
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationStatics: WindowsFoundation.IID = .init(
+        Data1: 0xC46105D7, Data2: 0x8CA3, Data3: 0x50E3, Data4: ( 0xA1,0xBC,0xB6,0xBB,0x2F,0x9C,0xE1,0xCD ) // C46105D7-8CA3-50E3-A1BC-B6BB2F9CE1CD
+    ) 
+
+    public class IAutomationPeerAnnotationStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationStatics }
+
+        public func get_TypeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TypeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PeerProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PeerProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
     }
+
 }
-extension WinUI.AccessibilityView: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationControlType {
-    public static var button : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Button
-    }
-    public static var calendar : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Calendar
-    }
-    public static var checkBox : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_CheckBox
-    }
-    public static var comboBox : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ComboBox
-    }
-    public static var edit : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Edit
-    }
-    public static var hyperlink : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Hyperlink
-    }
-    public static var image : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Image
-    }
-    public static var listItem : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ListItem
-    }
-    public static var list : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_List
-    }
-    public static var menu : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Menu
-    }
-    public static var menuBar : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_MenuBar
-    }
-    public static var menuItem : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_MenuItem
-    }
-    public static var progressBar : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ProgressBar
-    }
-    public static var radioButton : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_RadioButton
-    }
-    public static var scrollBar : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ScrollBar
-    }
-    public static var slider : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Slider
-    }
-    public static var spinner : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Spinner
-    }
-    public static var statusBar : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_StatusBar
-    }
-    public static var tab : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Tab
-    }
-    public static var tabItem : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_TabItem
-    }
-    public static var text : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Text
-    }
-    public static var toolBar : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ToolBar
-    }
-    public static var toolTip : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_ToolTip
-    }
-    public static var tree : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Tree
-    }
-    public static var treeItem : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_TreeItem
-    }
-    public static var custom : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Custom
-    }
-    public static var group : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Group
-    }
-    public static var thumb : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Thumb
-    }
-    public static var dataGrid : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_DataGrid
-    }
-    public static var dataItem : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_DataItem
-    }
-    public static var document : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Document
-    }
-    public static var splitButton : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_SplitButton
-    }
-    public static var window : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Window
-    }
-    public static var pane : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Pane
-    }
-    public static var header : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Header
-    }
-    public static var headerItem : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_HeaderItem
-    }
-    public static var table : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Table
-    }
-    public static var titleBar : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_TitleBar
-    }
-    public static var separator : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_Separator
-    }
-    public static var semanticZoom : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_SemanticZoom
-    }
-    public static var appBar : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_AppBar
-    }
-    public static var flipView : WinUI.AutomationControlType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationControlType_FlipView
-    }
-}
-extension WinUI.AutomationControlType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationEvents {
-    public static var toolTipOpened : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_ToolTipOpened
-    }
-    public static var toolTipClosed : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_ToolTipClosed
-    }
-    public static var menuOpened : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_MenuOpened
-    }
-    public static var menuClosed : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_MenuClosed
-    }
-    public static var automationFocusChanged : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_AutomationFocusChanged
-    }
-    public static var invokePatternOnInvoked : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_InvokePatternOnInvoked
-    }
-    public static var selectionItemPatternOnElementAddedToSelection : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_SelectionItemPatternOnElementAddedToSelection
-    }
-    public static var selectionItemPatternOnElementRemovedFromSelection : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_SelectionItemPatternOnElementRemovedFromSelection
-    }
-    public static var selectionItemPatternOnElementSelected : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_SelectionItemPatternOnElementSelected
-    }
-    public static var selectionPatternOnInvalidated : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_SelectionPatternOnInvalidated
-    }
-    public static var textPatternOnTextSelectionChanged : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_TextPatternOnTextSelectionChanged
-    }
-    public static var textPatternOnTextChanged : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_TextPatternOnTextChanged
-    }
-    public static var asyncContentLoaded : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_AsyncContentLoaded
-    }
-    public static var propertyChanged : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_PropertyChanged
-    }
-    public static var structureChanged : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_StructureChanged
-    }
-    public static var dragStart : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragStart
-    }
-    public static var dragCancel : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragCancel
-    }
-    public static var dragComplete : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragComplete
-    }
-    public static var dragEnter : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragEnter
-    }
-    public static var dragLeave : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_DragLeave
-    }
-    public static var dropped : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_Dropped
-    }
-    public static var liveRegionChanged : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_LiveRegionChanged
-    }
-    public static var inputReachedTarget : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_InputReachedTarget
-    }
-    public static var inputReachedOtherElement : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_InputReachedOtherElement
-    }
-    public static var inputDiscarded : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_InputDiscarded
-    }
-    public static var windowClosed : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_WindowClosed
-    }
-    public static var windowOpened : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_WindowOpened
-    }
-    public static var conversionTargetChanged : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_ConversionTargetChanged
-    }
-    public static var textEditTextChanged : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_TextEditTextChanged
-    }
-    public static var layoutInvalidated : WinUI.AutomationEvents {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationEvents_LayoutInvalidated
-    }
-}
-extension WinUI.AutomationEvents: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationHeadingLevel {
-    public static var none : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_None
-    }
-    public static var level1 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level1
-    }
-    public static var level2 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level2
-    }
-    public static var level3 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level3
-    }
-    public static var level4 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level4
-    }
-    public static var level5 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level5
-    }
-    public static var level6 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level6
-    }
-    public static var level7 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level7
-    }
-    public static var level8 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level8
-    }
-    public static var level9 : WinUI.AutomationHeadingLevel {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationHeadingLevel_Level9
-    }
-}
-extension WinUI.AutomationHeadingLevel: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationLandmarkType {
-    public static var none : WinUI.AutomationLandmarkType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_None
-    }
-    public static var custom : WinUI.AutomationLandmarkType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Custom
-    }
-    public static var form : WinUI.AutomationLandmarkType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Form
-    }
-    public static var main : WinUI.AutomationLandmarkType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Main
-    }
-    public static var navigation : WinUI.AutomationLandmarkType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Navigation
-    }
-    public static var search : WinUI.AutomationLandmarkType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLandmarkType_Search
-    }
-}
-extension WinUI.AutomationLandmarkType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationLiveSetting {
-    public static var off : WinUI.AutomationLiveSetting {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting_Off
-    }
-    public static var polite : WinUI.AutomationLiveSetting {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting_Polite
-    }
-    public static var assertive : WinUI.AutomationLiveSetting {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationLiveSetting_Assertive
-    }
-}
-extension WinUI.AutomationLiveSetting: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationNavigationDirection {
-    public static var parent : WinUI.AutomationNavigationDirection {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_Parent
-    }
-    public static var nextSibling : WinUI.AutomationNavigationDirection {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_NextSibling
-    }
-    public static var previousSibling : WinUI.AutomationNavigationDirection {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_PreviousSibling
-    }
-    public static var firstChild : WinUI.AutomationNavigationDirection {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_FirstChild
-    }
-    public static var lastChild : WinUI.AutomationNavigationDirection {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNavigationDirection_LastChild
-    }
-}
-extension WinUI.AutomationNavigationDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationNotificationKind {
-    public static var itemAdded : WinUI.AutomationNotificationKind {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_ItemAdded
-    }
-    public static var itemRemoved : WinUI.AutomationNotificationKind {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_ItemRemoved
-    }
-    public static var actionCompleted : WinUI.AutomationNotificationKind {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_ActionCompleted
-    }
-    public static var actionAborted : WinUI.AutomationNotificationKind {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_ActionAborted
-    }
-    public static var other : WinUI.AutomationNotificationKind {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationKind_Other
-    }
-}
-extension WinUI.AutomationNotificationKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationNotificationProcessing {
-    public static var importantAll : WinUI.AutomationNotificationProcessing {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_ImportantAll
-    }
-    public static var importantMostRecent : WinUI.AutomationNotificationProcessing {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_ImportantMostRecent
-    }
-    public static var all : WinUI.AutomationNotificationProcessing {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_All
-    }
-    public static var mostRecent : WinUI.AutomationNotificationProcessing {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_MostRecent
-    }
-    public static var currentThenMostRecent : WinUI.AutomationNotificationProcessing {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationNotificationProcessing_CurrentThenMostRecent
-    }
-}
-extension WinUI.AutomationNotificationProcessing: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationOrientation {
-    public static var none : WinUI.AutomationOrientation {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation_None
-    }
-    public static var horizontal : WinUI.AutomationOrientation {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation_Horizontal
-    }
-    public static var vertical : WinUI.AutomationOrientation {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationOrientation_Vertical
-    }
-}
-extension WinUI.AutomationOrientation: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.AutomationStructureChangeType {
-    public static var childAdded : WinUI.AutomationStructureChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildAdded
-    }
-    public static var childRemoved : WinUI.AutomationStructureChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildRemoved
-    }
-    public static var childrenInvalidated : WinUI.AutomationStructureChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenInvalidated
-    }
-    public static var childrenBulkAdded : WinUI.AutomationStructureChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenBulkAdded
-    }
-    public static var childrenBulkRemoved : WinUI.AutomationStructureChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenBulkRemoved
-    }
-    public static var childrenReordered : WinUI.AutomationStructureChangeType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CAutomationStructureChangeType_ChildrenReordered
-    }
-}
-extension WinUI.AutomationStructureChangeType: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.PatternInterface {
-    public static var invoke : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Invoke
-    }
-    public static var selection : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Selection
-    }
-    public static var value : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Value
-    }
-    public static var rangeValue : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_RangeValue
-    }
-    public static var scroll : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Scroll
-    }
-    public static var scrollItem : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_ScrollItem
-    }
-    public static var expandCollapse : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_ExpandCollapse
-    }
-    public static var grid : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Grid
-    }
-    public static var gridItem : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_GridItem
-    }
-    public static var multipleView : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_MultipleView
-    }
-    public static var window : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Window
-    }
-    public static var selectionItem : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_SelectionItem
-    }
-    public static var dock : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Dock
-    }
-    public static var table : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Table
-    }
-    public static var tableItem : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_TableItem
-    }
-    public static var toggle : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Toggle
-    }
-    public static var transform : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Transform
-    }
-    public static var text : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Text
-    }
-    public static var itemContainer : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_ItemContainer
-    }
-    public static var virtualizedItem : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_VirtualizedItem
-    }
-    public static var text2 : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Text2
-    }
-    public static var textChild : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_TextChild
-    }
-    public static var textRange : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_TextRange
-    }
-    public static var annotation : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Annotation
-    }
-    public static var drag : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Drag
-    }
-    public static var dropTarget : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_DropTarget
-    }
-    public static var objectModel : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_ObjectModel
-    }
-    public static var spreadsheet : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Spreadsheet
-    }
-    public static var spreadsheetItem : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_SpreadsheetItem
-    }
-    public static var styles : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Styles
-    }
-    public static var transform2 : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_Transform2
-    }
-    public static var synchronizedInput : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_SynchronizedInput
-    }
-    public static var textEdit : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_TextEdit
-    }
-    public static var customNavigation : WinUI.PatternInterface {
-        __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CPatternInterface_CustomNavigation
-    }
-}
-extension WinUI.PatternInterface: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

@@ -4,6 +4,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - IRawElementProviderSimple
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.provider.irawelementprovidersimple)
 public final class IRawElementProviderSimple : WinUI.DependencyObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Provider.IIRawElementProviderSimple
@@ -27,3 +29,36 @@ public final class IRawElementProviderSimple : WinUI.DependencyObject {
     }
 }
 
+// MARK: - IRawElementProviderSimple Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Automation_Provider {
+    public enum IRawElementProviderSimpleBridge: AbiBridge {
+        public typealias SwiftProjection = IRawElementProviderSimple
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple>?) -> IRawElementProviderSimple? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class IRawElementProviderSimpleMaker: MakeFromAbi {
+    public typealias SwiftType = IRawElementProviderSimple
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return IRawElementProviderSimple(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Automation_Provider {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple: WindowsFoundation.IID = .init(
+        Data1: 0xF90BC239, Data2: 0xADE2, Data3: 0x55C9, Data4: ( 0xA8,0x38,0xA3,0xB0,0x57,0x97,0x63,0xC5 ) // F90BC239-ADE2-55C9-A838-A3B0579763C5
+    ) 
+
+    public class IIRawElementProviderSimple: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple }
+
+    }
+
+}

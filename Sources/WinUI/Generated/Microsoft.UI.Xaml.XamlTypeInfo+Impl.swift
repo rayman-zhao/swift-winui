@@ -5,21 +5,4 @@ import Foundation
 import CWinRT
 
 @_spi(WinRTInternal)
-public enum __IMPL_Microsoft_UI_Xaml_XamlTypeInfo {
-    public enum XamlControlsXamlMetaDataProviderBridge: AbiBridge {
-        public typealias SwiftProjection = XamlControlsXamlMetaDataProvider
-        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider
-        public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider>?) -> XamlControlsXamlMetaDataProvider? {
-            guard let abi = abi else { return nil }
-            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
-        }
-    }
-
-}
-@_spi(WinRTInternal)
-public class XamlControlsXamlMetaDataProviderMaker: MakeFromAbi {
-    public typealias SwiftType = XamlControlsXamlMetaDataProvider
-    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
-        return XamlControlsXamlMetaDataProvider(fromAbi: abi)
-    }
-}
+public enum __IMPL_Microsoft_UI_Xaml_XamlTypeInfo {}

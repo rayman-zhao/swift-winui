@@ -5,10 +5,71 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - LogicalDirection
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.logicaldirection)
 public typealias LogicalDirection = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CLogicalDirection
+
+extension WinUI.LogicalDirection {
+    public static var backward : WinUI.LogicalDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CLogicalDirection_Backward
+    }
+    public static var forward : WinUI.LogicalDirection {
+        __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CLogicalDirection_Forward
+    }
+}
+extension WinUI.LogicalDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - UnderlineStyle
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.underlinestyle)
 public typealias UnderlineStyle = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CUnderlineStyle
+
+extension WinUI.UnderlineStyle {
+    public static var none : WinUI.UnderlineStyle {
+        __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CUnderlineStyle_None
+    }
+    public static var single : WinUI.UnderlineStyle {
+        __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CUnderlineStyle_Single
+    }
+}
+extension WinUI.UnderlineStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - TextRange
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange)
+public struct TextRange: Hashable, Codable, Sendable {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange.startindex)
+    public var startIndex: Int32 = 0
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange.length)
+    public var length: Int32 = 0
+    public init() {}
+    public init(startIndex: Int32, length: Int32) {
+        self.startIndex = startIndex
+        self.length = length
+    }
+}
+
+// MARK: - TextRange Internals
+
+@_spi(WinRTInternal)
+extension TextRange: WinRTBridgeable {
+    public typealias ABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CTextRange
+    public static func from(abi: ABI) -> Self {
+        .init(startIndex: abi.StartIndex, length: abi.Length)
+    }
+    public func toABI() -> ABI {
+        .from(swift: self)
+    }
+}
+
+extension __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CTextRange {
+    public static func from(swift: WinUI.TextRange) -> __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CTextRange {
+        .init(StartIndex: swift.startIndex, Length: swift.length)
+    }
+}
+// MARK: - Block
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block)
 open class Block : WinUI.TextElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBlock
@@ -105,6 +166,199 @@ open class Block : WinUI.TextElement {
         _default = nil
     }
 }
+
+// MARK: - Block Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum BlockBridge: ComposableBridge {
+        public typealias SwiftProjection = Block
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock>?) -> Block? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
+            public typealias Class = Block
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBlock
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextElementOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class BlockMaker: MakeFromAbi {
+    public typealias SwiftType = Block
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Block(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock: WindowsFoundation.IID = .init(
+        Data1: 0x8149D507, Data2: 0x672F, Data3: 0x5FD5, Data4: ( 0xA1,0x0A,0x35,0x13,0x89,0xBA,0x96,0x59 ) // 8149D507-672F-5FD5-A10A-351389BA9659
+    ) 
+
+    public class IBlock: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock }
+
+        public func get_TextAlignment() throws -> WinUI.TextAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextAlignment(_ value: WinUI.TextAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextAlignment(pThis, value))
+            }
+        }
+
+        public func get_HorizontalTextAlignment() throws -> WinUI.TextAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalTextAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_HorizontalTextAlignment(_ value: WinUI.TextAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalTextAlignment(pThis, value))
+            }
+        }
+
+        public func get_LineHeight() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineHeight(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LineHeight(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineHeight(pThis, value))
+            }
+        }
+
+        public func get_LineStackingStrategy() throws -> WinUI.LineStackingStrategy {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CLineStackingStrategy = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineStackingStrategy(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_LineStackingStrategy(_ value: WinUI.LineStackingStrategy) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineStackingStrategy(pThis, value))
+            }
+        }
+
+        public func get_Margin() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Margin(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Margin(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Margin(pThis, .from(swift: value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockFactory: WindowsFoundation.IID = .init(
+        Data1: 0x21BD671C, Data2: 0x33E2, Data3: 0x56EF, Data4: ( 0xBE,0x37,0xA1,0x28,0xE8,0x98,0x45,0x2C ) // 21BD671C-33E2-56EF-BE37-A128E898452C
+    ) 
+
+    public class IBlockFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.BlockBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBlock {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IBlock(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics: WindowsFoundation.IID = .init(
+        Data1: 0x830FEEDF, Data2: 0x9AA6, Data3: 0x56CD, Data4: ( 0x98,0x3E,0x05,0x55,0x00,0x17,0x1B,0x45 ) // 830FEEDF-9AA6-56CD-983E-055500171B45
+    ) 
+
+    public class IBlockStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics }
+
+        public func get_TextAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_HorizontalTextAlignmentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalTextAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LineHeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineHeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LineStackingStrategyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineStackingStrategyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MarginProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MarginProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - BlockCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection)
 public final class BlockCollection : WinRTClass, IVector, IIterable {
@@ -231,6 +485,32 @@ public final class BlockCollection : WinRTClass, IVector, IIterable {
     }
 }
 
+// MARK: - BlockCollection Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum BlockCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = BlockCollection
+        public typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CBlock
+        public static func from(abi: consuming ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CBlock>?) -> BlockCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class BlockCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = BlockCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return BlockCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+}
+// MARK: - Bold
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.bold)
 public final class Bold : WinUI.Span {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBold
@@ -258,6 +538,41 @@ public final class Bold : WinUI.Span {
         _default = nil
     }
 }
+
+// MARK: - Bold Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum BoldBridge: AbiBridge {
+        public typealias SwiftProjection = Bold
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold>?) -> Bold? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class BoldMaker: MakeFromAbi {
+    public typealias SwiftType = Bold
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Bold(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold: WindowsFoundation.IID = .init(
+        Data1: 0x241A5F5A, Data2: 0xC164, Data3: 0x597F, Data4: ( 0xB0,0xDB,0xFA,0xC7,0x43,0x12,0x97,0xF2 ) // 241A5F5A-C164-597F-B0DB-FAC7431297F2
+    ) 
+
+    public class IBold: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold }
+
+    }
+
+}
+// MARK: - Hyperlink
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink)
 public final class Hyperlink : WinUI.Span {
@@ -485,6 +800,427 @@ public final class Hyperlink : WinUI.Span {
     }
 }
 
+// MARK: - Hyperlink Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum HyperlinkBridge: AbiBridge {
+        public typealias SwiftProjection = Hyperlink
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink>?) -> Hyperlink? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class HyperlinkMaker: MakeFromAbi {
+    public typealias SwiftType = Hyperlink
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Hyperlink(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink: WindowsFoundation.IID = .init(
+        Data1: 0xAC09BD16, Data2: 0xCDFA, Data3: 0x54C2, Data4: ( 0x8D,0x03,0xA4,0x74,0x18,0x15,0x45,0xB1 ) // AC09BD16-CDFA-54C2-8D03-A474181545B1
+    ) 
+
+    public class IHyperlink: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink }
+
+        public func get_NavigateUri() throws -> WindowsFoundation.Uri? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NavigateUri(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Windows_Foundation.UriBridge.from(abi: value)
+        }
+
+        public func put_NavigateUri(_ value: WindowsFoundation.Uri?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NavigateUri(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_UnderlineStyle() throws -> WinUI.UnderlineStyle {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CUnderlineStyle = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_UnderlineStyle(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_UnderlineStyle(_ value: WinUI.UnderlineStyle) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_UnderlineStyle(pThis, value))
+            }
+        }
+
+        public func get_XYFocusLeft() throws -> WinUI.DependencyObject? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusLeft(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
+        }
+
+        public func put_XYFocusLeft(_ value: WinUI.DependencyObject?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusLeft(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_XYFocusRight() throws -> WinUI.DependencyObject? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusRight(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
+        }
+
+        public func put_XYFocusRight(_ value: WinUI.DependencyObject?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusRight(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_XYFocusUp() throws -> WinUI.DependencyObject? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusUp(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
+        }
+
+        public func put_XYFocusUp(_ value: WinUI.DependencyObject?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusUp(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_XYFocusDown() throws -> WinUI.DependencyObject? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusDown(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
+        }
+
+        public func put_XYFocusDown(_ value: WinUI.DependencyObject?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusDown(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_ElementSoundMode() throws -> WinUI.ElementSoundMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CElementSoundMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ElementSoundMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ElementSoundMode(_ value: WinUI.ElementSoundMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ElementSoundMode(pThis, value))
+            }
+        }
+
+        public func get_FocusState() throws -> WinUI.FocusState {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CFocusState = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FocusState(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_XYFocusUpNavigationStrategy() throws -> WinUI.XYFocusNavigationStrategy {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CXYFocusNavigationStrategy = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusUpNavigationStrategy(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_XYFocusUpNavigationStrategy(_ value: WinUI.XYFocusNavigationStrategy) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusUpNavigationStrategy(pThis, value))
+            }
+        }
+
+        public func get_XYFocusDownNavigationStrategy() throws -> WinUI.XYFocusNavigationStrategy {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CXYFocusNavigationStrategy = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusDownNavigationStrategy(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_XYFocusDownNavigationStrategy(_ value: WinUI.XYFocusNavigationStrategy) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusDownNavigationStrategy(pThis, value))
+            }
+        }
+
+        public func get_XYFocusLeftNavigationStrategy() throws -> WinUI.XYFocusNavigationStrategy {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CXYFocusNavigationStrategy = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusLeftNavigationStrategy(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_XYFocusLeftNavigationStrategy(_ value: WinUI.XYFocusNavigationStrategy) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusLeftNavigationStrategy(pThis, value))
+            }
+        }
+
+        public func get_XYFocusRightNavigationStrategy() throws -> WinUI.XYFocusNavigationStrategy {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CXYFocusNavigationStrategy = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusRightNavigationStrategy(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_XYFocusRightNavigationStrategy(_ value: WinUI.XYFocusNavigationStrategy) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XYFocusRightNavigationStrategy(pThis, value))
+            }
+        }
+
+        public func get_IsTabStop() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTabStop(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsTabStop(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsTabStop(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_TabIndex() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TabIndex(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TabIndex(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TabIndex(pThis, value))
+            }
+        }
+
+        public func add_Click(_ handler: TypedEventHandler<WinUI.Hyperlink?, WinUI.HyperlinkClickEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CHyperlink___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CHyperlinkClickEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Click(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Click(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Click(pThis, token))
+            }
+        }
+
+        public func add_GotFocus(_ handler: WinUI.RoutedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml.RoutedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_GotFocus(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_GotFocus(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_GotFocus(pThis, token))
+            }
+        }
+
+        public func add_LostFocus(_ handler: WinUI.RoutedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml.RoutedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_LostFocus(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_LostFocus(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_LostFocus(pThis, token))
+            }
+        }
+
+        public func Focus(_ value: WinUI.FocusState) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Focus(pThis, value, &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics: WindowsFoundation.IID = .init(
+        Data1: 0xE13598F4, Data2: 0x7BC7, Data3: 0x5AB9, Data4: ( 0x88,0x5B,0x70,0xF3,0x2F,0x8C,0x95,0x31 ) // E13598F4-7BC7-5AB9-885B-70F32F8C9531
+    ) 
+
+    public class IHyperlinkStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics }
+
+        public func get_NavigateUriProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NavigateUriProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_UnderlineStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_UnderlineStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_XYFocusLeftProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusLeftProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_XYFocusRightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusRightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_XYFocusUpProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusUpProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_XYFocusDownProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusDownProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ElementSoundModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ElementSoundModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FocusStateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FocusStateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_XYFocusUpNavigationStrategyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusUpNavigationStrategyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_XYFocusDownNavigationStrategyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusDownNavigationStrategyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_XYFocusLeftNavigationStrategyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusLeftNavigationStrategyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_XYFocusRightNavigationStrategyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XYFocusRightNavigationStrategyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTabStopProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTabStopProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TabIndexProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TabIndexProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - HyperlinkClickEventArgs
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlinkclickeventargs)
 public final class HyperlinkClickEventArgs : WinUI.RoutedEventArgs {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IHyperlinkClickEventArgs
@@ -507,6 +1243,41 @@ public final class HyperlinkClickEventArgs : WinUI.RoutedEventArgs {
         _default = nil
     }
 }
+
+// MARK: - HyperlinkClickEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum HyperlinkClickEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = HyperlinkClickEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs>?) -> HyperlinkClickEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class HyperlinkClickEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = HyperlinkClickEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return HyperlinkClickEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xF8F89552, Data2: 0x873D, Data3: 0x5EF5, Data4: ( 0x82,0xBF,0xC7,0x9A,0x95,0x09,0xB0,0x7C ) // F8F89552-873D-5EF5-82BF-C79A9509B07C
+    ) 
+
+    public class IHyperlinkClickEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs }
+
+    }
+
+}
+// MARK: - Inline
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inline)
 open class Inline : WinUI.TextElement {
@@ -548,6 +1319,75 @@ open class Inline : WinUI.TextElement {
         _default = nil
     }
 }
+
+// MARK: - Inline Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum InlineBridge: ComposableBridge {
+        public typealias SwiftProjection = Inline
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline>?) -> Inline? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
+            public typealias Class = Inline
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IInline
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextElementOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class InlineMaker: MakeFromAbi {
+    public typealias SwiftType = Inline
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Inline(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline: WindowsFoundation.IID = .init(
+        Data1: 0x813D427A, Data2: 0x8980, Data3: 0x5A79, Data4: ( 0xA8,0xFA,0xF2,0x79,0x19,0xCF,0xB2,0x4F ) // 813D427A-8980-5A79-A8FA-F27919CFB24F
+    ) 
+
+    public class IInline: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInlineFactory: WindowsFoundation.IID = .init(
+        Data1: 0xFD253A36, Data2: 0xFA2B, Data3: 0x5B30, Data4: ( 0x89,0xA8,0x9F,0x57,0x78,0x71,0xEC,0x07 ) // FD253A36-FA2B-5B30-89A8-9F577871EC07
+    ) 
+
+    public class IInlineFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInlineFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.InlineBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IInline {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInlineFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IInline(value!)
+        }
+
+    }
+
+}
+// MARK: - InlineCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection)
 public final class InlineCollection : WinRTClass, IVector, IIterable {
@@ -674,6 +1514,32 @@ public final class InlineCollection : WinRTClass, IVector, IIterable {
     }
 }
 
+// MARK: - InlineCollection Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum InlineCollectionBridge: AbiBridge {
+        public typealias SwiftProjection = InlineCollection
+        public typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline
+        public static func from(abi: consuming ComPtr<__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline>?) -> InlineCollection? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class InlineCollectionMaker: MakeFromAbi {
+    public typealias SwiftType = InlineCollection
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return InlineCollection(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+}
+// MARK: - Italic
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.italic)
 public final class Italic : WinUI.Span {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IItalic
@@ -702,6 +1568,41 @@ public final class Italic : WinUI.Span {
     }
 }
 
+// MARK: - Italic Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum ItalicBridge: AbiBridge {
+        public typealias SwiftProjection = Italic
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic>?) -> Italic? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ItalicMaker: MakeFromAbi {
+    public typealias SwiftType = Italic
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Italic(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic: WindowsFoundation.IID = .init(
+        Data1: 0xCA3CBEBD, Data2: 0x7A8D, Data3: 0x5D7A, Data4: ( 0x8F,0xDF,0x53,0x8E,0x8A,0x68,0x0F,0x6C ) // CA3CBEBD-7A8D-5D7A-8FDF-538E8A680F6C
+    ) 
+
+    public class IItalic: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic }
+
+    }
+
+}
+// MARK: - LineBreak
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.linebreak)
 public final class LineBreak : WinUI.Inline {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ILineBreak
@@ -729,6 +1630,41 @@ public final class LineBreak : WinUI.Inline {
         _default = nil
     }
 }
+
+// MARK: - LineBreak Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum LineBreakBridge: AbiBridge {
+        public typealias SwiftProjection = LineBreak
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak>?) -> LineBreak? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class LineBreakMaker: MakeFromAbi {
+    public typealias SwiftType = LineBreak
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LineBreak(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak: WindowsFoundation.IID = .init(
+        Data1: 0x09307599, Data2: 0x7CC2, Data3: 0x5F54, Data4: ( 0xB1,0x06,0x72,0x86,0x20,0xC1,0x6F,0x76 ) // 09307599-7CC2-5F54-B106-728620C16F76
+    ) 
+
+    public class ILineBreak: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak }
+
+    }
+
+}
+// MARK: - Paragraph
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.paragraph)
 public final class Paragraph : WinUI.Block {
@@ -774,6 +1710,82 @@ public final class Paragraph : WinUI.Block {
         _default = nil
     }
 }
+
+// MARK: - Paragraph Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum ParagraphBridge: AbiBridge {
+        public typealias SwiftProjection = Paragraph
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph>?) -> Paragraph? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ParagraphMaker: MakeFromAbi {
+    public typealias SwiftType = Paragraph
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Paragraph(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph: WindowsFoundation.IID = .init(
+        Data1: 0x9ED64C77, Data2: 0x329D, Data3: 0x502F, Data4: ( 0xA2,0x57,0xF5,0x83,0x98,0xED,0xAB,0x51 ) // 9ED64C77-329D-502F-A257-F58398EDAB51
+    ) 
+
+    public class IParagraph: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph }
+
+        public func get_Inlines() throws -> WinUI.InlineCollection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Inlines(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.InlineCollectionBridge.from(abi: value)
+        }
+
+        public func get_TextIndent() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextIndent(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextIndent(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextIndent(pThis, value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraphStatics: WindowsFoundation.IID = .init(
+        Data1: 0x4EB89AB1, Data2: 0x66C8, Data3: 0x5FC0, Data4: ( 0xAA,0x5F,0x48,0xC8,0x09,0x2C,0xEB,0x5F ) // 4EB89AB1-66C8-5FC0-AA5F-48C8092CEB5F
+    ) 
+
+    public class IParagraphStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraphStatics }
+
+        public func get_TextIndentProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraphStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextIndentProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - Run
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.run)
 public final class Run : WinUI.Inline {
@@ -821,6 +1833,89 @@ public final class Run : WinUI.Inline {
     }
 }
 
+// MARK: - Run Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum RunBridge: AbiBridge {
+        public typealias SwiftProjection = Run
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun>?) -> Run? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class RunMaker: MakeFromAbi {
+    public typealias SwiftType = Run
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Run(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun: WindowsFoundation.IID = .init(
+        Data1: 0x1F905239, Data2: 0x37CB, Data3: 0x590B, Data4: ( 0x91,0x32,0x3F,0xFB,0x77,0x41,0x90,0x6E ) // 1F905239-37CB-590B-9132-3FFB7741906E
+    ) 
+
+    public class IRun: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun }
+
+        public func get_Text() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Text(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Text(pThis, _value.get()))
+            }
+        }
+
+        public func get_FlowDirection() throws -> WinUI.FlowDirection {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CFlowDirection = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FlowDirection(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FlowDirection(_ value: WinUI.FlowDirection) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FlowDirection(pThis, value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRunStatics: WindowsFoundation.IID = .init(
+        Data1: 0x051B3C5B, Data2: 0x7600, Data3: 0x51A5, Data4: ( 0x80,0xC5,0x93,0xEB,0x50,0xFD,0x68,0x4F ) // 051B3C5B-7600-51A5-80C5-93EB50FD684F
+    ) 
+
+    public class IRunStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRunStatics }
+
+        public func get_FlowDirectionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRunStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FlowDirectionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - Span
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.span)
 open class Span : WinUI.Inline {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ISpan
@@ -867,6 +1962,90 @@ open class Span : WinUI.Inline {
         _default = nil
     }
 }
+
+// MARK: - Span Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum SpanBridge: ComposableBridge {
+        public typealias SwiftProjection = Span
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan>?) -> Span? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
+            public typealias Class = Span
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ISpan
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextElementOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class SpanMaker: MakeFromAbi {
+    public typealias SwiftType = Span
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Span(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan: WindowsFoundation.IID = .init(
+        Data1: 0x91B93D4D, Data2: 0x4E28, Data3: 0x57B9, Data4: ( 0xBF,0xFB,0x35,0x66,0xC2,0xA3,0xC2,0xA1 ) // 91B93D4D-4E28-57B9-BFFB-3566C2A3C2A1
+    ) 
+
+    public class ISpan: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan }
+
+        public func get_Inlines() throws -> WinUI.InlineCollection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Inlines(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.InlineCollectionBridge.from(abi: value)
+        }
+
+        public func put_Inlines(_ value: WinUI.InlineCollection?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Inlines(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpanFactory: WindowsFoundation.IID = .init(
+        Data1: 0xA6E87C16, Data2: 0xC175, Data3: 0x55C8, Data4: ( 0xBB,0xD3,0xCE,0x40,0xF9,0xD0,0xA6,0x80 ) // A6E87C16-C175-55C8-BBD3-CE40F9D0A680
+    ) 
+
+    public class ISpanFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpanFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.SpanBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISpan {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpanFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ISpan(value!)
+        }
+
+    }
+
+}
+// MARK: - TextElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement)
 open class TextElement : WinUI.DependencyObject {
@@ -1189,6 +2368,668 @@ open class TextElement : WinUI.DependencyObject {
     }
 }
 
+// MARK: - TextElement Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum TextElementBridge: ComposableBridge {
+        public typealias SwiftProjection = TextElement
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement>?) -> TextElement? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides
+            public typealias Class = TextElement
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElement
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextElementOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class TextElementMaker: MakeFromAbi {
+    public typealias SwiftType = TextElement
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TextElement(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    internal typealias ITextElementOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.TextElementBridge.ITextElementOverrides>
+    internal static var ITextElementOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverridesVtbl = .init(
+        QueryInterface: { ITextElementOverridesWrapper.queryInterface($0, $1, $2) },
+        AddRef: { ITextElementOverridesWrapper.addRef($0) },
+        Release: { ITextElementOverridesWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverridesWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            guard let instance = ITextElementOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let hstring = instance.GetRuntimeClassName().detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        OnDisconnectVisualChildren: {
+            do {
+                guard let __unwrapped__instance = ITextElementOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                try __unwrapped__instance.onDisconnectVisualChildren()
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement: WindowsFoundation.IID = .init(
+        Data1: 0xA122BA22, Data2: 0x833F, Data3: 0x5220, Data4: ( 0xA4,0x7E,0x6C,0xD5,0x07,0x53,0x1A,0xBE ) // A122BA22-833F-5220-A47E-6CD507531ABE
+    ) 
+
+    public class ITextElement: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement }
+
+        public func get_Name() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_FontSize() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontSize(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FontSize(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontSize(pThis, value))
+            }
+        }
+
+        public func get_FontFamily() throws -> WinUI.FontFamily? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontFamily(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.FontFamilyBridge.from(abi: value)
+        }
+
+        public func put_FontFamily(_ value: WinUI.FontFamily?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontFamily(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_FontWeight() throws -> UWP.FontWeight {
+            var value: __x_ABI_CWindows_CUI_CText_CFontWeight = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontWeight(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_FontWeight(_ value: UWP.FontWeight) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontWeight(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_FontStyle() throws -> UWP.FontStyle {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStyle = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStyle(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FontStyle(_ value: UWP.FontStyle) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStyle(pThis, value))
+            }
+        }
+
+        public func get_FontStretch() throws -> UWP.FontStretch {
+            var value: __x_ABI_CWindows_CUI_CText_CFontStretch = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStretch(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_FontStretch(_ value: UWP.FontStretch) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_FontStretch(pThis, value))
+            }
+        }
+
+        public func get_CharacterSpacing() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharacterSpacing(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_CharacterSpacing(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CharacterSpacing(pThis, value))
+            }
+        }
+
+        public func get_Foreground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Foreground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_Foreground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Foreground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Language() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Language(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_Language(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Language(pThis, _value.get()))
+            }
+        }
+
+        public func get_IsTextScaleFactorEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextScaleFactorEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsTextScaleFactorEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsTextScaleFactorEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_TextDecorations() throws -> UWP.TextDecorations {
+            var value: __x_ABI_CWindows_CUI_CText_CTextDecorations = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextDecorations(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_TextDecorations(_ value: UWP.TextDecorations) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextDecorations(pThis, value))
+            }
+        }
+
+        public func get_ContentStart() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentStart(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_ContentEnd() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentEnd(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_ElementStart() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ElementStart(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_ElementEnd() throws -> WinUI.TextPointer? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ElementEnd(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: value)
+        }
+
+        public func get_AllowFocusOnInteraction() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllowFocusOnInteraction(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_AllowFocusOnInteraction(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AllowFocusOnInteraction(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_AccessKey() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessKey(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_AccessKey(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AccessKey(pThis, _value.get()))
+            }
+        }
+
+        public func get_ExitDisplayModeOnAccessKeyInvoked() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitDisplayModeOnAccessKeyInvoked(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_ExitDisplayModeOnAccessKeyInvoked(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ExitDisplayModeOnAccessKeyInvoked(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsAccessKeyScope() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAccessKeyScope(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsAccessKeyScope(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsAccessKeyScope(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_AccessKeyScopeOwner() throws -> WinUI.DependencyObject? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessKeyScopeOwner(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
+        }
+
+        public func put_AccessKeyScopeOwner(_ value: WinUI.DependencyObject?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_AccessKeyScopeOwner(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_KeyTipPlacementMode() throws -> WinUI.KeyTipPlacementMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CKeyTipPlacementMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTipPlacementMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_KeyTipPlacementMode(_ value: WinUI.KeyTipPlacementMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyTipPlacementMode(pThis, value))
+            }
+        }
+
+        public func get_KeyTipHorizontalOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTipHorizontalOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_KeyTipHorizontalOffset(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyTipHorizontalOffset(pThis, value))
+            }
+        }
+
+        public func get_KeyTipVerticalOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTipVerticalOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_KeyTipVerticalOffset(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_KeyTipVerticalOffset(pThis, value))
+            }
+        }
+
+        public func get_XamlRoot() throws -> WinUI.XamlRoot? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_XamlRoot(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.XamlRootBridge.from(abi: value)
+        }
+
+        public func put_XamlRoot(_ value: WinUI.XamlRoot?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_XamlRoot(pThis, RawPointer(value)))
+            }
+        }
+
+        public func add_AccessKeyDisplayRequested(_ handler: TypedEventHandler<WinUI.TextElement?, WinUI.AccessKeyDisplayRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_AccessKeyDisplayRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_AccessKeyDisplayRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AccessKeyDisplayRequested(pThis, token))
+            }
+        }
+
+        public func add_AccessKeyDisplayDismissed(_ handler: TypedEventHandler<WinUI.TextElement?, WinUI.AccessKeyDisplayDismissedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayDismissedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_AccessKeyDisplayDismissed(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_AccessKeyDisplayDismissed(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AccessKeyDisplayDismissed(pThis, token))
+            }
+        }
+
+        public func add_AccessKeyInvoked(_ handler: TypedEventHandler<WinUI.TextElement?, WinUI.AccessKeyInvokedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyInvokedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_AccessKeyInvoked(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_AccessKeyInvoked(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_AccessKeyInvoked(pThis, token))
+            }
+        }
+
+        public func FindName(_ name: String) throws -> Any? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                let _name = try! HString(name)
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.FindName(pThis, _name.get(), &resultAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides: WindowsFoundation.IID = .init(
+        Data1: 0x41B01380, Data2: 0xE49F, Data3: 0x5FDA, Data4: ( 0x8C,0x72,0xAC,0xC1,0xAC,0x1E,0x91,0xDF ) // 41B01380-E49F-5FDA-8C72-ACC1AC1E91DF
+    ) 
+
+    public class ITextElementOverrides: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides }
+
+        public func OnDisconnectVisualChildren() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.OnDisconnectVisualChildren(pThis))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementFactory: WindowsFoundation.IID = .init(
+        Data1: 0xDF51FB95, Data2: 0xA5E6, Data3: 0x5B16, Data4: ( 0x8E,0x88,0x9F,0x7C,0xBF,0xA2,0x34,0xB1 ) // DF51FB95-A5E6-5B16-8E88-9F7CBFA234B1
+    ) 
+
+    public class ITextElementFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementFactory }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics: WindowsFoundation.IID = .init(
+        Data1: 0xC9B55919, Data2: 0xE1FE, Data3: 0x5ACD, Data4: ( 0xBA,0xC7,0xC9,0xD7,0xF4,0x13,0xB3,0x5C ) // C9B55919-E1FE-5ACD-BAC7-C9D7F413B35C
+    ) 
+
+    public class ITextElementStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics }
+
+        public func get_FontSizeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontSizeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FontFamilyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontFamilyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FontWeightProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontWeightProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FontStyleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStyleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_FontStretchProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FontStretchProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CharacterSpacingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CharacterSpacingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LanguageProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LanguageProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsTextScaleFactorEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsTextScaleFactorEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_TextDecorationsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextDecorationsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_AllowFocusOnInteractionProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AllowFocusOnInteractionProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_AccessKeyProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessKeyProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ExitDisplayModeOnAccessKeyInvokedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExitDisplayModeOnAccessKeyInvokedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsAccessKeyScopeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAccessKeyScopeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_AccessKeyScopeOwnerProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessKeyScopeOwnerProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_KeyTipPlacementModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTipPlacementModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_KeyTipHorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTipHorizontalOffsetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_KeyTipVerticalOffsetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyTipVerticalOffsetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides {
+    public static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Documents.ITextElementOverridesVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+// MARK: - TextHighlighter
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter)
 open class TextHighlighter : WinRTClass {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighter
@@ -1260,6 +3101,141 @@ open class TextHighlighter : WinRTClass {
     }
 }
 
+// MARK: - TextHighlighter Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum TextHighlighterBridge: ComposableBridge {
+        public typealias SwiftProjection = TextHighlighter
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter>?) -> TextHighlighter? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum ITextHighlighter : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = TextHighlighter
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighter
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = ITextHighlighter
+    }
+
+}
+@_spi(WinRTInternal)
+public class TextHighlighterMaker: MakeFromAbi {
+    public typealias SwiftType = TextHighlighter
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TextHighlighter(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter: WindowsFoundation.IID = .init(
+        Data1: 0xB756E861, Data2: 0x1D2B, Data3: 0x5F6F, Data4: ( 0x81,0xFD,0xC5,0x1A,0x5B,0xC0,0x68,0xFF ) // B756E861-1D2B-5F6F-81FD-C51A5BC068FF
+    ) 
+
+    public class ITextHighlighter: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter }
+
+        public func get_Ranges() throws -> WindowsFoundation.AnyIVector<WinUI.TextRange>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Ranges(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextRangeWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_Foreground() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Foreground(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_Foreground(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Foreground(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Background() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Background(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_Background(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Background(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterFactory: WindowsFoundation.IID = .init(
+        Data1: 0x69C7311F, Data2: 0xC019, Data3: 0x5B93, Data4: ( 0xB5,0x11,0x81,0x41,0x85,0x43,0xBA,0xB7 ) // 69C7311F-C019-5B93-B511-81418543BAB7
+    ) 
+
+    public class ITextHighlighterFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.TextHighlighterBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITextHighlighter {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ITextHighlighter(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterStatics: WindowsFoundation.IID = .init(
+        Data1: 0x4975047A, Data2: 0x87AD, Data3: 0x51A2, Data4: ( 0x97,0x7C,0xE7,0x71,0xDE,0x4F,0x40,0x35 ) // 4975047A-87AD-51A2-977C-E771DE4F4035
+    ) 
+
+    public class ITextHighlighterStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterStatics }
+
+        public func get_ForegroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ForegroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_BackgroundProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_BackgroundProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - TextPointer
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer)
 public final class TextPointer : WinRTClass {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextPointer
@@ -1313,6 +3289,92 @@ public final class TextPointer : WinRTClass {
     }
 }
 
+// MARK: - TextPointer Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum TextPointerBridge: AbiBridge {
+        public typealias SwiftProjection = TextPointer
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer>?) -> TextPointer? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class TextPointerMaker: MakeFromAbi {
+    public typealias SwiftType = TextPointer
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return TextPointer(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer: WindowsFoundation.IID = .init(
+        Data1: 0x842EB385, Data2: 0xEE41, Data3: 0x5930, Data4: ( 0x97,0x9B,0x43,0x8F,0xA7,0x52,0x5A,0x51 ) // 842EB385-EE41-5930-979B-438FA7525A51
+    ) 
+
+    public class ITextPointer: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer }
+
+        public func get_Parent() throws -> WinUI.DependencyObject? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Parent(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: value)
+        }
+
+        public func get_VisualParent() throws -> WinUI.FrameworkElement? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VisualParent(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.FrameworkElementBridge.from(abi: value)
+        }
+
+        public func get_LogicalDirection() throws -> WinUI.LogicalDirection {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CLogicalDirection = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LogicalDirection(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Offset() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
+            }
+            return value
+        }
+
+        public func GetCharacterRect(_ direction: WinUI.LogicalDirection) throws -> WindowsFoundation.Rect {
+            var result: __x_ABI_CWindows_CFoundation_CRect = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetCharacterRect(pThis, direction, &result))
+            }
+            return .from(abi: result)
+        }
+
+        public func GetPositionAtOffset(_ offset: Int32, _ direction: WinUI.LogicalDirection) throws -> WinUI.TextPointer? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetPositionAtOffset(pThis, offset, direction, &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Documents.TextPointerBridge.from(abi: result)
+        }
+
+    }
+
+}
+// MARK: - Underline
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.underline)
 public final class Underline : WinUI.Span {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IUnderline
@@ -1341,36 +3403,36 @@ public final class Underline : WinUI.Span {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange)
-public struct TextRange: Hashable, Codable, Sendable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange.startindex)
-    public var startIndex: Int32 = 0
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textrange.length)
-    public var length: Int32 = 0
-    public init() {}
-    public init(startIndex: Int32, length: Int32) {
-        self.startIndex = startIndex
-        self.length = length
+// MARK: - Underline Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Documents {
+    public enum UnderlineBridge: AbiBridge {
+        public typealias SwiftProjection = Underline
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline>?) -> Underline? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class UnderlineMaker: MakeFromAbi {
+    public typealias SwiftType = Underline
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Underline(fromAbi: abi)
     }
 }
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Documents {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline: WindowsFoundation.IID = .init(
+        Data1: 0x68AAEC6E, Data2: 0xEA71, Data3: 0x5ED2, Data4: ( 0xB8,0x3E,0x91,0x68,0x4B,0x25,0xEF,0xB9 ) // 68AAEC6E-EA71-5ED2-B83E-91684B25EFB9
+    ) 
 
-extension WinUI.LogicalDirection {
-    public static var backward : WinUI.LogicalDirection {
-        __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CLogicalDirection_Backward
+    public class IUnderline: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline }
+
     }
-    public static var forward : WinUI.LogicalDirection {
-        __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CLogicalDirection_Forward
-    }
+
 }
-extension WinUI.LogicalDirection: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-
-extension WinUI.UnderlineStyle {
-    public static var none : WinUI.UnderlineStyle {
-        __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CUnderlineStyle_None
-    }
-    public static var single : WinUI.UnderlineStyle {
-        __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CUnderlineStyle_Single
-    }
-}
-extension WinUI.UnderlineStyle: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
-

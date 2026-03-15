@@ -5,6 +5,8 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - Ellipse
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.ellipse)
 public final class Ellipse : WinUI.Shape {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IEllipse
@@ -32,6 +34,41 @@ public final class Ellipse : WinUI.Shape {
         _default = nil
     }
 }
+
+// MARK: - Ellipse Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Shapes {
+    public enum EllipseBridge: AbiBridge {
+        public typealias SwiftProjection = Ellipse
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse>?) -> Ellipse? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class EllipseMaker: MakeFromAbi {
+    public typealias SwiftType = Ellipse
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Ellipse(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Shapes {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse: WindowsFoundation.IID = .init(
+        Data1: 0x805C39AA, Data2: 0xFA8A, Data3: 0x5E0B, Data4: ( 0x98,0x47,0x4A,0xB8,0x1B,0x42,0xA3,0xDF ) // 805C39AA-FA8A-5E0B-9847-4AB81B42A3DF
+    ) 
+
+    public class IEllipse: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse }
+
+    }
+
+}
+// MARK: - Path
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.path)
 open class Path : WinUI.Shape {
@@ -86,6 +123,108 @@ open class Path : WinUI.Shape {
     }
 }
 
+// MARK: - Path Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Shapes {
+    public enum PathBridge: ComposableBridge {
+        public typealias SwiftProjection = Path
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath>?) -> Path? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IFrameworkElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
+            public typealias Class = Path
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IPath
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IFrameworkElementOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class PathMaker: MakeFromAbi {
+    public typealias SwiftType = Path
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Path(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Shapes {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath: WindowsFoundation.IID = .init(
+        Data1: 0x757D1CD8, Data2: 0x0EC0, Data3: 0x55C5, Data4: ( 0xB4,0x00,0x66,0x65,0x7E,0x49,0x3E,0x78 ) // 757D1CD8-0EC0-55C5-B400-66657E493E78
+    ) 
+
+    public class IPath: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath }
+
+        public func get_Data() throws -> WinUI.Geometry? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.GeometryBridge.from(abi: value)
+        }
+
+        public func put_Data(_ value: WinUI.Geometry?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Data(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPathFactory: WindowsFoundation.IID = .init(
+        Data1: 0x5E82E4C9, Data2: 0x7502, Data3: 0x5B1F, Data4: ( 0xB9,0x40,0xC3,0x34,0x6A,0x71,0x36,0x2A ) // 5E82E4C9-7502-5B1F-B940-C3346A71362A
+    ) 
+
+    public class IPathFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPathFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Shapes.PathBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPath {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPathFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IPath(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPathStatics: WindowsFoundation.IID = .init(
+        Data1: 0x2146D36F, Data2: 0x721C, Data3: 0x5B54, Data4: ( 0xAF,0x7D,0x60,0xF3,0xAD,0xC4,0xFB,0xCA ) // 2146D36F-721C-5B54-AF7D-60F3ADC4FBCA
+    ) 
+
+    public class IPathStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPathStatics }
+
+        public func get_DataProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPathStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - Rectangle
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle)
 public final class Rectangle : WinUI.Shape {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IRectangle
@@ -136,6 +275,96 @@ public final class Rectangle : WinUI.Shape {
         _default = nil
     }
 }
+
+// MARK: - Rectangle Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Shapes {
+    public enum RectangleBridge: AbiBridge {
+        public typealias SwiftProjection = Rectangle
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle>?) -> Rectangle? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class RectangleMaker: MakeFromAbi {
+    public typealias SwiftType = Rectangle
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Rectangle(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Shapes {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle: WindowsFoundation.IID = .init(
+        Data1: 0xBF7D30B9, Data2: 0x152C, Data3: 0x556E, Data4: ( 0x9F,0x10,0xD0,0xB7,0xEB,0xA4,0xE5,0x2F ) // BF7D30B9-152C-556E-9F10-D0B7EBA4E52F
+    ) 
+
+    public class IRectangle: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle }
+
+        public func get_RadiusX() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RadiusX(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_RadiusX(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RadiusX(pThis, value))
+            }
+        }
+
+        public func get_RadiusY() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_RadiusY(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_RadiusY(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_RadiusY(pThis, value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangleStatics: WindowsFoundation.IID = .init(
+        Data1: 0x3CC3CC79, Data2: 0xC332, Data3: 0x5AD0, Data4: ( 0x87,0x43,0x1F,0x1B,0x1E,0x67,0x0A,0x86 ) // 3CC3CC79-C332-5AD0-8743-1F1B1E670A86
+    ) 
+
+    public class IRectangleStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangleStatics }
+
+        public func get_RadiusXProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangleStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RadiusXProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_RadiusYProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangleStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_RadiusYProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - Shape
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape)
 open class Shape : WinUI.FrameworkElement {
@@ -310,3 +539,353 @@ open class Shape : WinUI.FrameworkElement {
     }
 }
 
+// MARK: - Shape Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Shapes {
+    public enum ShapeBridge: ComposableBridge {
+        public typealias SwiftProjection = Shape
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape>?) -> Shape? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IFrameworkElementOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
+            public typealias Class = Shape
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IShape
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IFrameworkElementOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class ShapeMaker: MakeFromAbi {
+    public typealias SwiftType = Shape
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Shape(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Shapes {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape: WindowsFoundation.IID = .init(
+        Data1: 0x9941AAD3, Data2: 0x6AF2, Data3: 0x5BA2, Data4: ( 0x90,0x85,0x85,0x06,0xD5,0xF2,0x48,0x5E ) // 9941AAD3-6AF2-5BA2-9085-8506D5F2485E
+    ) 
+
+    public class IShape: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape }
+
+        public func get_Fill() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Fill(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_Fill(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Fill(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Stroke() throws -> WinUI.Brush? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Stroke(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.from(abi: value)
+        }
+
+        public func put_Stroke(_ value: WinUI.Brush?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Stroke(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_StrokeMiterLimit() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeMiterLimit(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_StrokeMiterLimit(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeMiterLimit(pThis, value))
+            }
+        }
+
+        public func get_StrokeThickness() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeThickness(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_StrokeThickness(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeThickness(pThis, value))
+            }
+        }
+
+        public func get_StrokeStartLineCap() throws -> WinUI.PenLineCap {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CPenLineCap = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeStartLineCap(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_StrokeStartLineCap(_ value: WinUI.PenLineCap) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeStartLineCap(pThis, value))
+            }
+        }
+
+        public func get_StrokeEndLineCap() throws -> WinUI.PenLineCap {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CPenLineCap = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeEndLineCap(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_StrokeEndLineCap(_ value: WinUI.PenLineCap) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeEndLineCap(pThis, value))
+            }
+        }
+
+        public func get_StrokeLineJoin() throws -> WinUI.PenLineJoin {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CPenLineJoin = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeLineJoin(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_StrokeLineJoin(_ value: WinUI.PenLineJoin) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeLineJoin(pThis, value))
+            }
+        }
+
+        public func get_StrokeDashOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_StrokeDashOffset(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeDashOffset(pThis, value))
+            }
+        }
+
+        public func get_StrokeDashCap() throws -> WinUI.PenLineCap {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CPenLineCap = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashCap(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_StrokeDashCap(_ value: WinUI.PenLineCap) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeDashCap(pThis, value))
+            }
+        }
+
+        public func get_StrokeDashArray() throws -> WinUI.DoubleCollection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashArray(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.DoubleCollectionBridge.from(abi: value)
+        }
+
+        public func put_StrokeDashArray(_ value: WinUI.DoubleCollection?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_StrokeDashArray(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Stretch() throws -> WinUI.Stretch {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CStretch = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Stretch(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Stretch(_ value: WinUI.Stretch) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Stretch(pThis, value))
+            }
+        }
+
+        public func get_GeometryTransform() throws -> WinUI.Transform? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_GeometryTransform(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media.TransformBridge.from(abi: value)
+        }
+
+        public func GetAlphaMask() throws -> WinAppSDK.CompositionBrush? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetAlphaMask(pThis, &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Composition.CompositionBrushBridge.from(abi: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeFactory: WindowsFoundation.IID = .init(
+        Data1: 0x4FECAFAF, Data2: 0x8265, Data3: 0x5252, Data4: ( 0xBA,0x5C,0xF4,0x36,0x39,0xF9,0x74,0xA5 ) // 4FECAFAF-8265-5252-BA5C-F43639F974A5
+    ) 
+
+    public class IShapeFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Shapes.ShapeBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IShape {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IShape(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics: WindowsFoundation.IID = .init(
+        Data1: 0xEA407C43, Data2: 0x8A09, Data3: 0x587A, Data4: ( 0x95,0x8A,0x4D,0xD1,0x7D,0x21,0x7C,0xE1 ) // EA407C43-8A09-587A-958A-4DD17D217CE1
+    ) 
+
+    public class IShapeStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics }
+
+        public func get_FillProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FillProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeMiterLimitProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeMiterLimitProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeThicknessProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeThicknessProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeStartLineCapProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeStartLineCapProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeEndLineCapProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeEndLineCapProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeLineJoinProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeLineJoinProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeDashOffsetProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashOffsetProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeDashCapProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashCapProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StrokeDashArrayProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StrokeDashArrayProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_StretchProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StretchProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
