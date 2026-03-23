@@ -61,6 +61,8 @@
     "Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem",
     "Microsoft.UI.Xaml.Controls.NavigationView",
     "Microsoft.UI.Xaml.Controls.NavigationViewItem",
+    "Microsoft.UI.Xaml.Controls.NavigationViewItemHeader",
+    "Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator",
     "Microsoft.UI.Xaml.Controls.NumberBox",
     "Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem",
     "Microsoft.UI.Xaml.Controls.Page",

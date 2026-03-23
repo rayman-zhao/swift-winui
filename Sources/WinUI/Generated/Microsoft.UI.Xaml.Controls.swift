@@ -37305,6 +37305,116 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
     }
 
 }
+// MARK: - NavigationViewItemHeader
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemheader)
+open class NavigationViewItemHeader : WinUI.NavigationViewItemBase {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemHeader
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _INavigationViewItemHeaderFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemHeaderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemHeader")
+
+    public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemHeaderBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._INavigationViewItemHeaderFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - NavigationViewItemHeader Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum NavigationViewItemHeaderBridge: ComposableBridge {
+        public typealias SwiftProjection = NavigationViewItemHeader
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader>?) -> NavigationViewItemHeader? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IContentControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
+            public typealias Class = NavigationViewItemHeader
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemHeader
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IContentControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class NavigationViewItemHeaderMaker: MakeFromAbi {
+    public typealias SwiftType = NavigationViewItemHeader
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NavigationViewItemHeader(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader: WindowsFoundation.IID = .init(
+        Data1: 0x432BC062, Data2: 0x45BC, Data3: 0x57EF, Data4: ( 0xA2,0xD3,0x11,0x85,0x1A,0x56,0xA8,0x82 ) // 432BC062-45BC-57EF-A2D3-11851A56A882
+    ) 
+
+    public class INavigationViewItemHeader: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeaderFactory: WindowsFoundation.IID = .init(
+        Data1: 0x6A5447CD, Data2: 0x2918, Data3: 0x5FE3, Data4: ( 0x89,0x9B,0x93,0xD6,0x96,0x12,0x85,0xE6 ) // 6A5447CD-2918-5FE3-899B-93D6961285E6
+    ) 
+
+    public class INavigationViewItemHeaderFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeaderFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemHeaderBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationViewItemHeader {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeaderFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return INavigationViewItemHeader(value!)
+        }
+
+    }
+
+}
 // MARK: - NavigationViewItemInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewiteminvokedeventargs)
@@ -37429,6 +37539,116 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 }
             }
             return __IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - NavigationViewItemSeparator
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemseparator)
+open class NavigationViewItemSeparator : WinUI.NavigationViewItemBase {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemSeparator
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _INavigationViewItemSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator")
+
+    public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemSeparatorBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._INavigationViewItemSeparatorFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - NavigationViewItemSeparator Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum NavigationViewItemSeparatorBridge: ComposableBridge {
+        public typealias SwiftProjection = NavigationViewItemSeparator
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator>?) -> NavigationViewItemSeparator? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IContentControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
+            public typealias Class = NavigationViewItemSeparator
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemSeparator
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IContentControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class NavigationViewItemSeparatorMaker: MakeFromAbi {
+    public typealias SwiftType = NavigationViewItemSeparator
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return NavigationViewItemSeparator(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator: WindowsFoundation.IID = .init(
+        Data1: 0xE3C35630, Data2: 0x1D5F, Data3: 0x5689, Data4: ( 0xA0,0xCB,0x87,0x94,0x48,0x5C,0xAA,0xCF ) // E3C35630-1D5F-5689-A0CB-8794485CAACF
+    ) 
+
+    public class INavigationViewItemSeparator: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparatorFactory: WindowsFoundation.IID = .init(
+        Data1: 0x181266A1, Data2: 0xD4F8, Data3: 0x5AF7, Data4: ( 0x81,0x0B,0xAE,0xE8,0xA1,0xD4,0x52,0xED ) // 181266A1-D4F8-5AF7-810B-AEE8A1D452ED
+    ) 
+
+    public class INavigationViewItemSeparatorFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparatorFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemSeparatorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationViewItemSeparator {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparatorFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return INavigationViewItemSeparator(value!)
         }
 
     }
