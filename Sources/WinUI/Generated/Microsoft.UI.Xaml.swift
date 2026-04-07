@@ -1329,6 +1329,72 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
     }
 }
 
+// MARK: - VisualStateChangedEventHandler
+
+public typealias VisualStateChangedEventHandler = (Any?, VisualStateChangedEventArgs?) throws -> ()
+
+// MARK: - VisualStateChangedEventHandler Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml {
+    public class VisualStateChangedEventHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = VisualStateChangedEventHandler
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandler
+        public typealias SwiftABI = __ABI_Microsoft_UI_Xaml.VisualStateChangedEventHandler
+
+        public static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (sender, e) in
+                try _default.Invoke(sender, e)
+            }
+            return handler
+        }
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandler: WindowsFoundation.IID = .init(
+        Data1: 0xCDBBD854, Data2: 0x0539, Data3: 0x5BFF, Data4: ( 0xB4,0x48,0x33,0x19,0x3D,0x2F,0x41,0xB8 ) // CDBBD854-0539-5BFF-B448-33193D2F41B8
+    ) 
+
+    public class VisualStateChangedEventHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandler }
+
+        open func Invoke(_ sender: Any?, _ e: WinUI.VisualStateChangedEventArgs?) throws {
+            let senderWrapper = __ABI_.AnyWrapper(sender)
+            let _sender = try! senderWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _sender, RawPointer(e)))
+            }
+        }
+
+    }
+
+
+    typealias VisualStateChangedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml.VisualStateChangedEventHandlerBridge>
+    internal static var VisualStateChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandlerVtbl = .init(
+        QueryInterface: { VisualStateChangedEventHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { VisualStateChangedEventHandlerWrapper.addRef($0) },
+        Release: { VisualStateChangedEventHandlerWrapper.release($0) },
+        Invoke: {
+            do {
+                guard let __unwrapped__instance = VisualStateChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.VisualStateChangedEventArgs? = __IMPL_Microsoft_UI_Xaml.VisualStateChangedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml.VisualStateChangedEventHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
 // MARK: - IDataTemplateExtension
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.idatatemplateextension)
@@ -8274,6 +8340,138 @@ extension __ABI_Microsoft_UI_Xaml {
     }
 
 }
+// MARK: - StateTriggerBase
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.statetriggerbase)
+open class StateTriggerBase : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IStateTriggerBase
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBase
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IStateTriggerBaseFactory : __ABI_Microsoft_UI_Xaml.IStateTriggerBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.StateTriggerBase")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IStateTriggerBaseFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private lazy var _IStateTriggerBaseProtected: __ABI_Microsoft_UI_Xaml.IStateTriggerBaseProtected! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.statetriggerbase.setactive)
+    public func setActive(_ IsActive: Bool) throws {
+        try _IStateTriggerBaseProtected.SetActive(IsActive)
+    }
+
+    deinit {
+        _default = nil
+        _IStateTriggerBaseProtected = nil
+    }
+}
+
+// MARK: - StateTriggerBase Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml {
+    public enum StateTriggerBaseBridge: ComposableBridge {
+        public typealias SwiftProjection = StateTriggerBase
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBase
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBase>?) -> StateTriggerBase? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IStateTriggerBase : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = StateTriggerBase
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBase
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IStateTriggerBase
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IStateTriggerBase
+    }
+
+}
+@_spi(WinRTInternal)
+public class StateTriggerBaseMaker: MakeFromAbi {
+    public typealias SwiftType = StateTriggerBase
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return StateTriggerBase(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBase: WindowsFoundation.IID = .init(
+        Data1: 0xF07B0F7B, Data2: 0x5B94, Data3: 0x58AE, Data4: ( 0x87,0x17,0x22,0xAB,0x09,0x3B,0xC1,0x31 ) // F07B0F7B-5B94-58AE-8717-22AB093BC131
+    ) 
+
+    public class IStateTriggerBase: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBase }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBaseProtected: WindowsFoundation.IID = .init(
+        Data1: 0x2F695047, Data2: 0x335B, Data3: 0x5C00, Data4: ( 0xA0,0xD4,0x2A,0x8F,0xA5,0x45,0x44,0xC6 ) // 2F695047-335B-5C00-A0D4-2A8FA54544C6
+    ) 
+
+    public class IStateTriggerBaseProtected: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBaseProtected }
+
+        public func SetActive(_ IsActive: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBaseProtected.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetActive(pThis, .init(from: IsActive)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBaseFactory: WindowsFoundation.IID = .init(
+        Data1: 0xE7724D65, Data2: 0xFC7E, Data3: 0x5C67, Data4: ( 0xBB,0x84,0xB4,0xC7,0xB0,0x20,0xAD,0xC3 ) // E7724D65-FC7E-5C67-BB84-B4C7B020ADC3
+    ) 
+
+    public class IStateTriggerBaseFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBaseFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IStateTriggerBase {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIStateTriggerBaseFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IStateTriggerBase(value!)
+        }
+
+    }
+
+}
 // MARK: - Style
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.style)
@@ -13554,6 +13752,951 @@ extension __ABI_Microsoft_UI_Xaml {
                 innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
             }
             return IVector3Transition(value!)
+        }
+
+    }
+
+}
+// MARK: - VisualState
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstate)
+public final class VisualState : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVisualState
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualState
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.VisualState")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstate.name)
+    public var name : String {
+        get { try! _default.get_Name() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstate.setters)
+    public var setters : SetterBaseCollection! {
+        get { try! _default.get_Setters() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstate.statetriggers)
+    public var stateTriggers : WindowsFoundation.AnyIVector<StateTriggerBase?>! {
+        get { try! _default.get_StateTriggers() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstate.storyboard)
+    public var storyboard : WinUI.Storyboard! {
+        get { try! _default.get_Storyboard() }
+        set { try! _default.put_Storyboard(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - VisualState Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml {
+    public enum VisualStateBridge: AbiBridge {
+        public typealias SwiftProjection = VisualState
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualState
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIVisualState>?) -> VisualState? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class VisualStateMaker: MakeFromAbi {
+    public typealias SwiftType = VisualState
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisualState(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualState: WindowsFoundation.IID = .init(
+        Data1: 0x4BB32AE8, Data2: 0x0E28, Data3: 0x5521, Data4: ( 0xA7,0xF5,0x66,0xB6,0x61,0x37,0x29,0x94 ) // 4BB32AE8-0E28-5521-A7F5-66B661372994
+    ) 
+
+    public class IVisualState: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualState }
+
+        public func get_Name() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Storyboard() throws -> WinUI.Storyboard? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualState.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Storyboard(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.StoryboardBridge.from(abi: value)
+        }
+
+        public func put_Storyboard(_ value: WinUI.Storyboard?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Storyboard(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Setters() throws -> WinUI.SetterBaseCollection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualState.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Setters(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.SetterBaseCollectionBridge.from(abi: value)
+        }
+
+        public func get_StateTriggers() throws -> WindowsFoundation.AnyIVector<WinUI.StateTriggerBase?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualState.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_StateTriggers(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - VisualStateChangedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatechangedeventargs)
+public final class VisualStateChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVisualStateChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.VisualStateChangedEventArgs")
+    override public init() {
+        super.init(try! Self._defaultFactory.ActivateInstance())
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatechangedeventargs.control)
+    public var control : WinUI.Control! {
+        get { try! _default.get_Control() }
+        set { try! _default.put_Control(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatechangedeventargs.newstate)
+    public var newState : VisualState! {
+        get { try! _default.get_NewState() }
+        set { try! _default.put_NewState(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatechangedeventargs.oldstate)
+    public var oldState : VisualState! {
+        get { try! _default.get_OldState() }
+        set { try! _default.put_OldState(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - VisualStateChangedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml {
+    public enum VisualStateChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = VisualStateChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs>?) -> VisualStateChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class VisualStateChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = VisualStateChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisualStateChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x11DE9510, Data2: 0xA195, Data3: 0x577B, Data4: ( 0x88,0xC8,0x06,0x39,0x16,0x18,0x86,0x8C ) // 11DE9510-A195-577B-88C8-06391618868C
+    ) 
+
+    public class IVisualStateChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs }
+
+        public func get_OldState() throws -> WinUI.VisualState? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldState(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: value)
+        }
+
+        public func put_OldState(_ value: WinUI.VisualState?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_OldState(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_NewState() throws -> WinUI.VisualState? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewState(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: value)
+        }
+
+        public func put_NewState(_ value: WinUI.VisualState?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_NewState(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Control() throws -> WinUI.Control? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Control(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.ControlBridge.from(abi: value)
+        }
+
+        public func put_Control(_ value: WinUI.Control?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Control(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+}
+// MARK: - VisualStateGroup
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstategroup)
+public final class VisualStateGroup : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVisualStateGroup
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.VisualStateGroup")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstategroup.currentstate)
+    public var currentState : VisualState! {
+        get { try! _default.get_CurrentState() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstategroup.name)
+    public var name : String {
+        get { try! _default.get_Name() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstategroup.states)
+    public var states : WindowsFoundation.AnyIVector<VisualState?>! {
+        get { try! _default.get_States() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstategroup.transitions)
+    public var transitions : WindowsFoundation.AnyIVector<VisualTransition?>! {
+        get { try! _default.get_Transitions() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstategroup.currentstatechanged)
+    public lazy var currentStateChanged : Event<VisualStateChangedEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CurrentStateChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CurrentStateChanged($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstategroup.currentstatechanging)
+    public lazy var currentStateChanging : Event<VisualStateChangedEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_CurrentStateChanging($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_CurrentStateChanging($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - VisualStateGroup Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml {
+    public enum VisualStateGroupBridge: AbiBridge {
+        public typealias SwiftProjection = VisualStateGroup
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup>?) -> VisualStateGroup? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class VisualStateGroupMaker: MakeFromAbi {
+    public typealias SwiftType = VisualStateGroup
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisualStateGroup(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup: WindowsFoundation.IID = .init(
+        Data1: 0x8DFD691B, Data2: 0x710C, Data3: 0x5D6D, Data4: ( 0xB7,0x1A,0x7A,0x7F,0x5E,0xD5,0x4A,0xC7 ) // 8DFD691B-710C-5D6D-B71A-7A7F5ED54AC7
+    ) 
+
+    public class IVisualStateGroup: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup }
+
+        public func get_Name() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func get_Transitions() throws -> WindowsFoundation.AnyIVector<WinUI.VisualTransition?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Transitions(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_States() throws -> WindowsFoundation.AnyIVector<WinUI.VisualState?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_States(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_CurrentState() throws -> WinUI.VisualState? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentState(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: value)
+        }
+
+        public func add_CurrentStateChanged(_ handler: WinUI.VisualStateChangedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml.VisualStateChangedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CurrentStateChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CurrentStateChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CurrentStateChanged(pThis, token))
+            }
+        }
+
+        public func add_CurrentStateChanging(_ handler: WinUI.VisualStateChangedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml.VisualStateChangedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_CurrentStateChanging(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_CurrentStateChanging(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_CurrentStateChanging(pThis, token))
+            }
+        }
+
+    }
+
+}
+// MARK: - VisualStateManager
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager)
+open class VisualStateManager : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVisualStateManager
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManager
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Microsoft_UI_Xaml.IVisualStateManagerOverridesWrapper.IID:
+                let wrapper = __ABI_Microsoft_UI_Xaml.IVisualStateManagerOverridesWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return super.queryInterface(iid)
+        }
+    }
+    private static var _IVisualStateManagerFactory : __ABI_Microsoft_UI_Xaml.IVisualStateManagerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.VisualStateManager")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml.VisualStateManagerBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IVisualStateManagerFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IVisualStateManagerStatics: __ABI_Microsoft_UI_Xaml.IVisualStateManagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.VisualStateManager")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager.getvisualstategroups)
+    public class func getVisualStateGroups(_ obj: FrameworkElement!) throws -> WindowsFoundation.AnyIVector<VisualStateGroup?>! {
+        return try _IVisualStateManagerStatics.GetVisualStateGroups(obj)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager.getcustomvisualstatemanager)
+    public class func getCustomVisualStateManager(_ obj: FrameworkElement!) throws -> VisualStateManager! {
+        return try _IVisualStateManagerStatics.GetCustomVisualStateManager(obj)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager.setcustomvisualstatemanager)
+    public class func setCustomVisualStateManager(_ obj: FrameworkElement!, _ value: VisualStateManager!) throws {
+        try _IVisualStateManagerStatics.SetCustomVisualStateManager(obj, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager.gotostate)
+    public class func goToState(_ control: WinUI.Control!, _ stateName: String, _ useTransitions: Bool) throws -> Bool {
+        return try _IVisualStateManagerStatics.GoToState(control, stateName, useTransitions)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager.customvisualstatemanagerproperty)
+    public class var customVisualStateManagerProperty : DependencyProperty! {
+        get { try! _IVisualStateManagerStatics.get_CustomVisualStateManagerProperty() }
+    }
+
+    private lazy var _IVisualStateManagerProtected: __ABI_Microsoft_UI_Xaml.IVisualStateManagerProtected! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager.raisecurrentstatechanging)
+    public func raiseCurrentStateChanging(_ stateGroup: VisualStateGroup!, _ oldState: VisualState!, _ newState: VisualState!, _ control: WinUI.Control!) throws {
+        try _IVisualStateManagerProtected.RaiseCurrentStateChanging(stateGroup, oldState, newState, control)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager.raisecurrentstatechanged)
+    public func raiseCurrentStateChanged(_ stateGroup: VisualStateGroup!, _ oldState: VisualState!, _ newState: VisualState!, _ control: WinUI.Control!) throws {
+        try _IVisualStateManagerProtected.RaiseCurrentStateChanged(stateGroup, oldState, newState, control)
+    }
+
+    private lazy var _IVisualStateManagerOverrides: __ABI_Microsoft_UI_Xaml.IVisualStateManagerOverrides! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager.gotostatecore)
+    open func goToStateCore(_ control: WinUI.Control!, _ templateRoot: FrameworkElement!, _ stateName: String, _ group: VisualStateGroup!, _ state: VisualState!, _ useTransitions: Bool) throws -> Bool {
+        try _IVisualStateManagerOverrides.GoToStateCore(control, templateRoot, stateName, group, state, useTransitions)
+    }
+
+    deinit {
+        _default = nil
+        _IVisualStateManagerProtected = nil
+        _IVisualStateManagerOverrides = nil
+    }
+}
+
+// MARK: - VisualStateManager Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml {
+    public enum VisualStateManagerBridge: ComposableBridge {
+        public typealias SwiftProjection = VisualStateManager
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManager
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManager>?) -> VisualStateManager? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IVisualStateManagerOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVisualStateManagerOverrides
+            public typealias Class = VisualStateManager
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManager
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVisualStateManager
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IVisualStateManagerOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class VisualStateManagerMaker: MakeFromAbi {
+    public typealias SwiftType = VisualStateManager
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisualStateManager(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml {
+    internal typealias IVisualStateManagerOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml.VisualStateManagerBridge.IVisualStateManagerOverrides>
+    internal static var IVisualStateManagerOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerOverridesVtbl = .init(
+        QueryInterface: { IVisualStateManagerOverridesWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IVisualStateManagerOverridesWrapper.addRef($0) },
+        Release: { IVisualStateManagerOverridesWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Microsoft_UI_Xaml.IVisualStateManagerOverridesWrapper.IID
+            $1!.pointee = 3
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            guard let instance = IVisualStateManagerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let hstring = instance.GetRuntimeClassName().detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        GoToStateCore: {
+            do {
+                guard let __unwrapped__instance = IVisualStateManagerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let control: WinUI.Control? = __IMPL_Microsoft_UI_Xaml_Controls.ControlBridge.from(abi: ComPtr($1))
+                let templateRoot: WinUI.FrameworkElement? = __IMPL_Microsoft_UI_Xaml.FrameworkElementBridge.from(abi: ComPtr($2))
+                let stateName: String = .init(from: $3)
+                let group: WinUI.VisualStateGroup? = __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: ComPtr($4))
+                let state: WinUI.VisualState? = __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: ComPtr($5))
+                let useTransitions: Bool = .init(from: $6)
+                let result = try __unwrapped__instance.goToStateCore(control, templateRoot, stateName, group, state, useTransitions)
+                $7?.initialize(to: .init(from: result))
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManager: WindowsFoundation.IID = .init(
+        Data1: 0x342C8D32, Data2: 0xAD61, Data3: 0x5925, Data4: ( 0x93,0xD1,0x0C,0x70,0x4D,0xF2,0xA7,0xD1 ) // 342C8D32-AD61-5925-93D1-0C704DF2A7D1
+    ) 
+
+    public class IVisualStateManager: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManager }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerProtected: WindowsFoundation.IID = .init(
+        Data1: 0x0F008013, Data2: 0x787F, Data3: 0x5599, Data4: ( 0xA5,0xAD,0x0A,0x10,0xB9,0x88,0xED,0x24 ) // 0F008013-787F-5599-A5AD-0A10B988ED24
+    ) 
+
+    public class IVisualStateManagerProtected: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerProtected }
+
+        public func RaiseCurrentStateChanging(_ stateGroup: WinUI.VisualStateGroup?, _ oldState: WinUI.VisualState?, _ newState: WinUI.VisualState?, _ control: WinUI.Control?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerProtected.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseCurrentStateChanging(pThis, RawPointer(stateGroup), RawPointer(oldState), RawPointer(newState), RawPointer(control)))
+            }
+        }
+
+        public func RaiseCurrentStateChanged(_ stateGroup: WinUI.VisualStateGroup?, _ oldState: WinUI.VisualState?, _ newState: WinUI.VisualState?, _ control: WinUI.Control?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerProtected.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.RaiseCurrentStateChanged(pThis, RawPointer(stateGroup), RawPointer(oldState), RawPointer(newState), RawPointer(control)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerOverrides: WindowsFoundation.IID = .init(
+        Data1: 0xE3F8E9C9, Data2: 0x9432, Data3: 0x514C, Data4: ( 0x92,0x3E,0x14,0x2C,0xD8,0xC8,0x27,0x30 ) // E3F8E9C9-9432-514C-923E-142CD8C82730
+    ) 
+
+    public class IVisualStateManagerOverrides: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerOverrides }
+
+        public func GoToStateCore(_ control: WinUI.Control?, _ templateRoot: WinUI.FrameworkElement?, _ stateName: String, _ group: WinUI.VisualStateGroup?, _ state: WinUI.VisualState?, _ useTransitions: Bool) throws -> Bool {
+            var result: boolean = 0
+            let _stateName = try! HString(stateName)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerOverrides.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GoToStateCore(pThis, RawPointer(control), RawPointer(templateRoot), _stateName.get(), RawPointer(group), RawPointer(state), .init(from: useTransitions), &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerFactory: WindowsFoundation.IID = .init(
+        Data1: 0x713DAF82, Data2: 0x92B3, Data3: 0x58F2, Data4: ( 0x8F,0xC1,0xB0,0xD9,0xA2,0xCA,0xD0,0x3C ) // 713DAF82-92B3-58F2-8FC1-B0D9A2CAD03C
+    ) 
+
+    public class IVisualStateManagerFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml.VisualStateManagerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IVisualStateManager {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IVisualStateManager(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerStatics: WindowsFoundation.IID = .init(
+        Data1: 0xA4D5147D, Data2: 0x88C3, Data3: 0x57ED, Data4: ( 0xAD,0x83,0x24,0x5D,0xF5,0xF6,0xB5,0x0D ) // A4D5147D-88C3-57ED-AD83-245DF5F6B50D
+    ) 
+
+    public class IVisualStateManagerStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerStatics }
+
+        public func GetVisualStateGroups(_ obj: WinUI.FrameworkElement?) throws -> WindowsFoundation.AnyIVector<WinUI.VisualStateGroup?>? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetVisualStateGroups(pThis, RawPointer(obj), &resultAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.unwrapFrom(abi: result)
+        }
+
+        public func get_CustomVisualStateManagerProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CustomVisualStateManagerProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func GetCustomVisualStateManager(_ obj: WinUI.FrameworkElement?) throws -> WinUI.VisualStateManager? {
+            let (result) = try ComPtrs.initialize { resultAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.GetCustomVisualStateManager(pThis, RawPointer(obj), &resultAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.VisualStateManagerBridge.from(abi: result)
+        }
+
+        public func SetCustomVisualStateManager(_ obj: WinUI.FrameworkElement?, _ value: WinUI.VisualStateManager?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetCustomVisualStateManager(pThis, RawPointer(obj), RawPointer(value)))
+            }
+        }
+
+        public func GoToState(_ control: WinUI.Control?, _ stateName: String, _ useTransitions: Bool) throws -> Bool {
+            var result: boolean = 0
+            let _stateName = try! HString(stateName)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GoToState(pThis, RawPointer(control), _stateName.get(), .init(from: useTransitions), &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+}
+extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CIVisualStateManagerOverrides {
+    public static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml.IVisualStateManagerOverridesVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+// MARK: - VisualTransition
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualtransition)
+open class VisualTransition : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVisualTransition
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IVisualTransitionFactory : __ABI_Microsoft_UI_Xaml.IVisualTransitionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.VisualTransition")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IVisualTransitionFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualtransition.from)
+    public var from : String {
+        get { try! _default.get_From() }
+        set { try! _default.put_From(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualtransition.generatedduration)
+    public var generatedDuration : Duration {
+        get { try! _default.get_GeneratedDuration() }
+        set { try! _default.put_GeneratedDuration(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualtransition.generatedeasingfunction)
+    public var generatedEasingFunction : WinUI.EasingFunctionBase! {
+        get { try! _default.get_GeneratedEasingFunction() }
+        set { try! _default.put_GeneratedEasingFunction(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualtransition.storyboard)
+    public var storyboard : WinUI.Storyboard! {
+        get { try! _default.get_Storyboard() }
+        set { try! _default.put_Storyboard(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualtransition.to)
+    public var to : String {
+        get { try! _default.get_To() }
+        set { try! _default.put_To(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - VisualTransition Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml {
+    public enum VisualTransitionBridge: ComposableBridge {
+        public typealias SwiftProjection = VisualTransition
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition>?) -> VisualTransition? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IVisualTransition : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = VisualTransition
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IVisualTransition
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IVisualTransition
+    }
+
+}
+@_spi(WinRTInternal)
+public class VisualTransitionMaker: MakeFromAbi {
+    public typealias SwiftType = VisualTransition
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return VisualTransition(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition: WindowsFoundation.IID = .init(
+        Data1: 0xDD21AF54, Data2: 0x2CE1, Data3: 0x59DE, Data4: ( 0x9F,0xD1,0x2B,0x45,0xF6,0xBF,0x65,0x81 ) // DD21AF54-2CE1-59DE-9FD1-2B45F6BF6581
+    ) 
+
+    public class IVisualTransition: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition }
+
+        public func get_GeneratedDuration() throws -> WinUI.Duration {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CDuration = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GeneratedDuration(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_GeneratedDuration(_ value: WinUI.Duration) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_GeneratedDuration(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_GeneratedEasingFunction() throws -> WinUI.EasingFunctionBase? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_GeneratedEasingFunction(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.EasingFunctionBaseBridge.from(abi: value)
+        }
+
+        public func put_GeneratedEasingFunction(_ value: WinUI.EasingFunctionBase?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_GeneratedEasingFunction(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_To() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_To(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_To(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_To(pThis, _value.get()))
+            }
+        }
+
+        public func get_From() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_From(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_From(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_From(pThis, _value.get()))
+            }
+        }
+
+        public func get_Storyboard() throws -> WinUI.Storyboard? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Storyboard(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Media_Animation.StoryboardBridge.from(abi: value)
+        }
+
+        public func put_Storyboard(_ value: WinUI.Storyboard?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Storyboard(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransitionFactory: WindowsFoundation.IID = .init(
+        Data1: 0xF3E74C0D, Data2: 0x0B5B, Data3: 0x5920, Data4: ( 0xA3,0x09,0x08,0xCB,0x6B,0xF2,0xA7,0x39 ) // F3E74C0D-0B5B-5920-A309-08CB6BF2A739
+    ) 
+
+    public class IVisualTransitionFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransitionFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IVisualTransition {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIVisualTransitionFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IVisualTransition(value!)
         }
 
     }

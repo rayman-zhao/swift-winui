@@ -4104,6 +4104,93 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CSette
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase: WindowsFoundation.IID {
+    .init(Data1: 0xb497741b, Data2: 0x5419, Data3: 0x5197, Data4: ( 0xbf,0xf0,0x67,0xf8,0x44,0xe5,0xe7,0xad ))// b497741b-5419-5197-bff0-67f844e5e7ad
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVTable: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Microsoft.UI.Xaml.StateTriggerBase>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge>
+public class IIterableStateTriggerBase: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<WinUI.StateTriggerBase?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase
+    internal typealias SwiftABI = IIterableStateTriggerBase
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<WinUI.StateTriggerBase?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseImpl : IIterable, AbiInterfaceImpl {
+    typealias T = WinUI.StateTriggerBase?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.StateTriggerBase?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CTriggerBase: WindowsFoundation.IID {
     .init(Data1: 0x4fb6a3b8, Data2: 0x0c07, Data3: 0x57c1, Data4: ( 0xac,0xa7,0xa7,0xbc,0x45,0x3b,0x91,0xe2 ))// 4fb6a3b8-0c07-57c1-aca7-a7bc453b91e2
 }
@@ -4272,6 +4359,267 @@ fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CUIEle
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.UIElement?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState: WindowsFoundation.IID {
+    .init(Data1: 0x3f8d5041, Data2: 0xb506, Data3: 0x5ad0, Data4: ( 0xb3,0xb6,0x89,0xa1,0x16,0x2e,0x87,0xb1 ))// 3f8d5041-b506-5ad0-b3b6-89a1162e87b1
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVTable: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Microsoft.UI.Xaml.VisualState>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge>
+public class IIterableVisualState: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<WinUI.VisualState?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState
+    internal typealias SwiftABI = IIterableVisualState
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<WinUI.VisualState?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateImpl : IIterable, AbiInterfaceImpl {
+    typealias T = WinUI.VisualState?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualState?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup: WindowsFoundation.IID {
+    .init(Data1: 0x1440de85, Data2: 0xe884, Data3: 0x545a, Data4: ( 0x93,0x56,0x12,0xa9,0x3e,0x3a,0x08,0xfd ))// 1440de85-e884-545a-9356-12a93e3a08fd
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVTable: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Microsoft.UI.Xaml.VisualStateGroup>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge>
+public class IIterableVisualStateGroup: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<WinUI.VisualStateGroup?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup
+    internal typealias SwiftABI = IIterableVisualStateGroup
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<WinUI.VisualStateGroup?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupImpl : IIterable, AbiInterfaceImpl {
+    typealias T = WinUI.VisualStateGroup?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualStateGroup?>? {
+        try! _default.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition: WindowsFoundation.IID {
+    .init(Data1: 0x5b14edfc, Data2: 0x6706, Data3: 0x5c9d, Data4: ( 0xaf,0x5c,0xf0,0xe7,0x84,0x47,0x91,0xad ))// 5b14edfc-6706-5c9d-af5c-f0e7844791ad
+}
+
+internal var __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVTable: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterable`1<Microsoft.UI.Xaml.VisualTransition>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    First: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.first()
+        let resultWrapper = WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge>
+public class IIterableVisualTransition: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition }
+
+    open func First() throws -> WindowsFoundation.AnyIIterator<WinUI.VisualTransition?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.First(pThis, &resultAbi))
+            }
+        }
+        return WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.unwrapFrom(abi: result)
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition
+    internal typealias SwiftABI = IIterableVisualTransition
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterable<WinUI.VisualTransition?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionImpl : IIterable, AbiInterfaceImpl {
+    typealias T = WinUI.VisualTransition?
+    typealias Bridge = __x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterable-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualTransition?>? {
         try! _default.First()
     }
 
@@ -10987,6 +11335,157 @@ fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CSette
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase: WindowsFoundation.IID {
+    .init(Data1: 0x3cd61913, Data2: 0x6c9b, Data3: 0x585f, Data4: ( 0xad,0x3e,0xcb,0xfb,0x80,0x45,0x3a,0x7a ))// 3cd61913-6c9b-585f-ad3e-cbfb80453a7a
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVTable: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Microsoft.UI.Xaml.StateTriggerBase>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [WinUI.StateTriggerBase?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge>
+public class IIteratorStateTriggerBase: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase }
+
+    open func get_Current() throws -> WinUI.StateTriggerBase? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [WinUI.StateTriggerBase?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase
+    internal typealias SwiftABI = IIteratorStateTriggerBase
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<WinUI.StateTriggerBase?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseImpl : IIterator, AbiInterfaceImpl {
+    typealias T = WinUI.StateTriggerBase?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [WinUI.StateTriggerBase?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : WinUI.StateTriggerBase? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CTriggerBase: WindowsFoundation.IID {
     .init(Data1: 0x93d0f9fa, Data2: 0x22d2, Data3: 0x5e84, Data4: ( 0xac,0x72,0xaa,0xcf,0x06,0xf9,0x79,0x00 ))// 93d0f9fa-22d2-5e84-ac72-aacf06f97900
 }
@@ -11278,6 +11777,459 @@ fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CUIEle
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
     fileprivate var current : WinUI.UIElement? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState: WindowsFoundation.IID {
+    .init(Data1: 0xcd297392, Data2: 0x960b, Data3: 0x5dd7, Data4: ( 0xb5,0x22,0xeb,0x92,0x0a,0x0e,0xae,0xae ))// cd297392-960b-5dd7-b522-eb920a0eaeae
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVTable: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Microsoft.UI.Xaml.VisualState>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [WinUI.VisualState?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge>
+public class IIteratorVisualState: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState }
+
+    open func get_Current() throws -> WinUI.VisualState? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [WinUI.VisualState?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState
+    internal typealias SwiftABI = IIteratorVisualState
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<WinUI.VisualState?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateImpl : IIterator, AbiInterfaceImpl {
+    typealias T = WinUI.VisualState?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [WinUI.VisualState?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : WinUI.VisualState? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup: WindowsFoundation.IID {
+    .init(Data1: 0xc8d02e0b, Data2: 0x8835, Data3: 0x57af, Data4: ( 0xa1,0x2e,0x61,0x38,0x6f,0x22,0xbb,0xc8 ))// c8d02e0b-8835-57af-a12e-61386f22bbc8
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVTable: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Microsoft.UI.Xaml.VisualStateGroup>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [WinUI.VisualStateGroup?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge>
+public class IIteratorVisualStateGroup: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup }
+
+    open func get_Current() throws -> WinUI.VisualStateGroup? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [WinUI.VisualStateGroup?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup
+    internal typealias SwiftABI = IIteratorVisualStateGroup
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<WinUI.VisualStateGroup?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupImpl : IIterator, AbiInterfaceImpl {
+    typealias T = WinUI.VisualStateGroup?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [WinUI.VisualStateGroup?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : WinUI.VisualStateGroup? {
+        get { try! _default.get_Current() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.hascurrent)
+    fileprivate var hasCurrent : Bool {
+        get { try! _default.get_HasCurrent() }
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition: WindowsFoundation.IID {
+    .init(Data1: 0x8979e218, Data2: 0x236f, Data3: 0x5935, Data4: ( 0xa9,0x56,0x66,0xc4,0xac,0x1b,0xd5,0xe5 ))// 8979e218-236f-5935-a956-66c4ac1bd5e5
+}
+
+internal var __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVTable: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 3).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.IID
+        $1!.pointee = 3
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IIterator`1<Microsoft.UI.Xaml.VisualTransition>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    get_Current: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.current
+        result?.copyTo($1)
+        return S_OK
+    },
+
+    get_HasCurrent: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.hasCurrent
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    MoveNext: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.moveNext()
+        $1?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        var items: [WinUI.VisualTransition?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self, abi: (count: $1, start: $2))
+        let result = __unwrapped__instance.getMany(&items)
+        items.fill(abi: $2, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self)
+        $3?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge>
+public class IIteratorVisualTransition: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition }
+
+    open func get_Current() throws -> WinUI.VisualTransition? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Current(pThis, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.from(abi: result)
+    }
+
+    open func get_HasCurrent() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_HasCurrent(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func MoveNext() throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.MoveNext(pThis, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ items: inout [WinUI.VisualTransition?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition
+    internal typealias SwiftABI = IIteratorVisualTransition
+    internal typealias SwiftProjection = WindowsFoundation.AnyIIterator<WinUI.VisualTransition?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionImpl : IIterator, AbiInterfaceImpl {
+    typealias T = WinUI.VisualTransition?
+    typealias Bridge = __x_ABI_C__FIIterator_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.movenext)
+    fileprivate func moveNext() -> Bool {
+        try! _default.MoveNext()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.getmany)
+    fileprivate func getMany(_ items: inout [WinUI.VisualTransition?]) -> UInt32 {
+        try! _default.GetMany(&items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.iiterator-1.current)
+    fileprivate var current : WinUI.VisualTransition? {
         get { try! _default.get_Current() }
     }
 
@@ -20666,6 +21618,190 @@ fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CSet
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase: WindowsFoundation.IID {
+    .init(Data1: 0x00c2e28d, Data2: 0x9e12, Data3: 0x5d23, Data4: ( 0xaf,0x85,0xa4,0xd9,0x91,0x91,0x68,0xbf ))// 00c2e28d-9e12-5d23-af85-a4d9919168bf
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVTable: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.IID
+        iids[3] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Microsoft.UI.Xaml.StateTriggerBase>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.StateTriggerBase? = __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [WinUI.StateTriggerBase?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge>
+public class IVectorViewStateTriggerBase: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase }
+
+    open func GetAt(_ index: UInt32) throws -> WinUI.StateTriggerBase? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: WinUI.StateTriggerBase?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [WinUI.StateTriggerBase?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase
+    internal typealias SwiftABI = IVectorViewStateTriggerBase
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<WinUI.StateTriggerBase?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = WinUI.StateTriggerBase?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> WinUI.StateTriggerBase? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: WinUI.StateTriggerBase?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [WinUI.StateTriggerBase?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableStateTriggerBase! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.StateTriggerBase?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CTriggerBase: WindowsFoundation.IID {
     .init(Data1: 0x4b947794, Data2: 0x8e5c, Data3: 0x5fed, Data4: ( 0x87,0xbe,0x4d,0x2b,0x37,0x29,0xbd,0xd7 ))// 4b947794-8e5c-5fed-87be-4d2b3729bdd7
 }
@@ -21028,6 +22164,558 @@ fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CUIE
     private lazy var _IIterable: IIterableUIElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.UIElement?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState: WindowsFoundation.IID {
+    .init(Data1: 0x5c9df898, Data2: 0xd0f9, Data3: 0x5196, Data4: ( 0x96,0xa4,0x28,0x72,0x2a,0xcc,0xa2,0xa2 ))// 5c9df898-d0f9-5196-96a4-28722acca2a2
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVTable: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.IID
+        iids[3] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Microsoft.UI.Xaml.VisualState>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualState? = __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [WinUI.VisualState?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge>
+public class IVectorViewVisualState: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState }
+
+    open func GetAt(_ index: UInt32) throws -> WinUI.VisualState? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: WinUI.VisualState?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualState?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState
+    internal typealias SwiftABI = IVectorViewVisualState
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<WinUI.VisualState?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = WinUI.VisualState?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> WinUI.VisualState? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: WinUI.VisualState?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualState?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableVisualState! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualState?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup: WindowsFoundation.IID {
+    .init(Data1: 0x7d50bfbc, Data2: 0x971e, Data3: 0x53d7, Data4: ( 0x8b,0xff,0xbf,0x35,0x19,0xd7,0x34,0x9c ))// 7d50bfbc-971e-53d7-8bff-bf3519d7349c
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVTable: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.IID
+        iids[3] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Microsoft.UI.Xaml.VisualStateGroup>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualStateGroup? = __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [WinUI.VisualStateGroup?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge>
+public class IVectorViewVisualStateGroup: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup }
+
+    open func GetAt(_ index: UInt32) throws -> WinUI.VisualStateGroup? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: WinUI.VisualStateGroup?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualStateGroup?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup
+    internal typealias SwiftABI = IVectorViewVisualStateGroup
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<WinUI.VisualStateGroup?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = WinUI.VisualStateGroup?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> WinUI.VisualStateGroup? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: WinUI.VisualStateGroup?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualStateGroup?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableVisualStateGroup! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualStateGroup?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition: WindowsFoundation.IID {
+    .init(Data1: 0x94a2368c, Data2: 0x5ab9, Data3: 0x58d5, Data4: ( 0xb9,0x17,0xe2,0x01,0xba,0x86,0x43,0xfd ))// 94a2368c-5ab9-58d5-b917-e201ba8643fd
+}
+
+internal var __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVTable: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.IID
+        iids[3] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVectorView`1<Microsoft.UI.Xaml.VisualTransition>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualTransition? = __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [WinUI.VisualTransition?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge>
+public class IVectorViewVisualTransition: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition }
+
+    open func GetAt(_ index: UInt32) throws -> WinUI.VisualTransition? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func IndexOf(_ value: WinUI.VisualTransition?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualTransition?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self, abi: _items)
+        }
+        return result
+    }
+
+}
+
+internal enum __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition
+    internal typealias SwiftABI = IVectorViewVisualTransition
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVectorView<WinUI.VisualTransition?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionImpl : IVectorView, AbiInterfaceImpl {
+    typealias T = WinUI.VisualTransition?
+    typealias Bridge = __x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+    }
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> WinUI.VisualTransition? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.indexof)
+    fileprivate func indexOf(_ value: WinUI.VisualTransition?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualTransition?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableVisualTransition! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivectorview-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualTransition?>? {
         try! _IIterable.First()
     }
 
@@ -34629,6 +36317,349 @@ fileprivate class __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CSetterB
     public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
 }
 
+private var IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase: WindowsFoundation.IID {
+    .init(Data1: 0xdf1e41c3, Data2: 0x5b3e, Data3: 0x55be, Data4: ( 0x86,0xcf,0xc9,0x24,0x2a,0x9a,0x02,0x93 ))// df1e41c3-5b3e-55be-86cf-c9242a9a0293
+}
+
+internal var __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVTable: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.IID
+        iids[3] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVector`1<Microsoft.UI.Xaml.StateTriggerBase>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    GetView: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.getView()
+        let resultWrapper = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.StateTriggerBase? = __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    SetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: WinUI.StateTriggerBase? = __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.setAt(index, value)
+        return S_OK
+    },
+
+    InsertAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: WinUI.StateTriggerBase? = __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.insertAt(index, value)
+        return S_OK
+    },
+
+    RemoveAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        __unwrapped__instance.removeAt(index)
+        return S_OK
+    },
+
+    Append: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.StateTriggerBase? = __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.from(abi: ComPtr($1))
+        __unwrapped__instance.append(value)
+        return S_OK
+    },
+
+    RemoveAtEnd: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.removeAtEnd()
+        return S_OK
+    },
+
+    Clear: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.clear()
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [WinUI.StateTriggerBase?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    },
+
+    ReplaceAll: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let items: [WinUI.StateTriggerBase?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self, abi: (count: $1, start: $2))
+        __unwrapped__instance.replaceAll(items)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge>
+public class IVectorStateTriggerBase: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase }
+
+    open func GetAt(_ index: UInt32) throws -> WinUI.StateTriggerBase? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func GetView() throws -> WindowsFoundation.AnyIVectorView<WinUI.StateTriggerBase?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &resultAbi))
+            }
+        }
+        return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseWrapper.unwrapFrom(abi: result)
+    }
+
+    open func IndexOf(_ value: WinUI.StateTriggerBase?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func SetAt(_ index: UInt32, _ value: WinUI.StateTriggerBase?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.SetAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func InsertAt(_ index: UInt32, _ value: WinUI.StateTriggerBase?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAt(_ index: UInt32) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAt(pThis, index))
+        }
+    }
+
+    open func Append(_ value: WinUI.StateTriggerBase?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Append(pThis, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAtEnd() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAtEnd(pThis))
+        }
+    }
+
+    open func Clear() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
+        }
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [WinUI.StateTriggerBase?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self, abi: _items)
+        }
+        return result
+    }
+
+    open func ReplaceAll(_ items: [WinUI.StateTriggerBase?]) throws {
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.StateTriggerBaseBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ReplaceAll(pThis, _items.count, _items.start))
+            }
+        }
+    }
+
+}
+
+internal enum __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBase
+    internal typealias SwiftABI = IVectorStateTriggerBase
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVector<WinUI.StateTriggerBase?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseImpl : IVector, AbiInterfaceImpl {
+    typealias T = WinUI.StateTriggerBase?
+    typealias Bridge = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CStateTriggerBaseBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+        set(newValue) {
+            setAt(UInt32(position), newValue)
+        }
+    }
+
+    func removeLast() {
+        removeAtEnd()
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> WinUI.StateTriggerBase? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getview)
+    fileprivate func getView() -> WindowsFoundation.AnyIVectorView<WinUI.StateTriggerBase?>? {
+        try! _default.GetView()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.indexof)
+    fileprivate func indexOf(_ value: WinUI.StateTriggerBase?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.setat)
+    fileprivate func setAt(_ index: UInt32, _ value: WinUI.StateTriggerBase?) {
+        try! _default.SetAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.insertat)
+    fileprivate func insertAt(_ index: UInt32, _ value: WinUI.StateTriggerBase?) {
+        try! _default.InsertAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeat)
+    fileprivate func removeAt(_ index: UInt32) {
+        try! _default.RemoveAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.append)
+    fileprivate func append(_ value: WinUI.StateTriggerBase?) {
+        try! _default.Append(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeatend)
+    fileprivate func removeAtEnd() {
+        try! _default.RemoveAtEnd()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.clear)
+    fileprivate func clear() {
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [WinUI.StateTriggerBase?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.replaceall)
+    fileprivate func replaceAll(_ items: [WinUI.StateTriggerBase?]) {
+        try! _default.ReplaceAll(items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableStateTriggerBase! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.StateTriggerBase?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
 private var IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CTriggerBase: WindowsFoundation.IID {
     .init(Data1: 0xef52e000, Data2: 0x0b0f, Data3: 0x52b5, Data4: ( 0xbd,0xfe,0x4f,0x59,0x35,0xdc,0xf1,0xbc ))// ef52e000-0b0f-52b5-bdfe-4f5935dcf1bc
 }
@@ -35309,6 +37340,1035 @@ fileprivate class __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CUIEleme
     private lazy var _IIterable: IIterableUIElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.first)
     fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.UIElement?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState: WindowsFoundation.IID {
+    .init(Data1: 0xd9a7e4ce, Data2: 0x6753, Data3: 0x58d9, Data4: ( 0x93,0x14,0x98,0x3b,0xe6,0x77,0x62,0xfc ))// d9a7e4ce-6753-58d9-9314-983be67762fc
+}
+
+internal var __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVTable: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.IID
+        iids[3] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVector`1<Microsoft.UI.Xaml.VisualState>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    GetView: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.getView()
+        let resultWrapper = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualState? = __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    SetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: WinUI.VisualState? = __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.setAt(index, value)
+        return S_OK
+    },
+
+    InsertAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: WinUI.VisualState? = __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.insertAt(index, value)
+        return S_OK
+    },
+
+    RemoveAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        __unwrapped__instance.removeAt(index)
+        return S_OK
+    },
+
+    Append: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualState? = __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: ComPtr($1))
+        __unwrapped__instance.append(value)
+        return S_OK
+    },
+
+    RemoveAtEnd: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.removeAtEnd()
+        return S_OK
+    },
+
+    Clear: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.clear()
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [WinUI.VisualState?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    },
+
+    ReplaceAll: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let items: [WinUI.VisualState?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self, abi: (count: $1, start: $2))
+        __unwrapped__instance.replaceAll(items)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge>
+public class IVectorVisualState: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState }
+
+    open func GetAt(_ index: UInt32) throws -> WinUI.VisualState? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualStateBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func GetView() throws -> WindowsFoundation.AnyIVectorView<WinUI.VisualState?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &resultAbi))
+            }
+        }
+        return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateWrapper.unwrapFrom(abi: result)
+    }
+
+    open func IndexOf(_ value: WinUI.VisualState?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func SetAt(_ index: UInt32, _ value: WinUI.VisualState?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.SetAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func InsertAt(_ index: UInt32, _ value: WinUI.VisualState?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAt(_ index: UInt32) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAt(pThis, index))
+        }
+    }
+
+    open func Append(_ value: WinUI.VisualState?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Append(pThis, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAtEnd() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAtEnd(pThis))
+        }
+    }
+
+    open func Clear() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
+        }
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualState?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self, abi: _items)
+        }
+        return result
+    }
+
+    open func ReplaceAll(_ items: [WinUI.VisualState?]) throws {
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ReplaceAll(pThis, _items.count, _items.start))
+            }
+        }
+    }
+
+}
+
+internal enum __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualState
+    internal typealias SwiftABI = IVectorVisualState
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVector<WinUI.VisualState?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateImpl : IVector, AbiInterfaceImpl {
+    typealias T = WinUI.VisualState?
+    typealias Bridge = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+        set(newValue) {
+            setAt(UInt32(position), newValue)
+        }
+    }
+
+    func removeLast() {
+        removeAtEnd()
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> WinUI.VisualState? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getview)
+    fileprivate func getView() -> WindowsFoundation.AnyIVectorView<WinUI.VisualState?>? {
+        try! _default.GetView()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.indexof)
+    fileprivate func indexOf(_ value: WinUI.VisualState?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.setat)
+    fileprivate func setAt(_ index: UInt32, _ value: WinUI.VisualState?) {
+        try! _default.SetAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.insertat)
+    fileprivate func insertAt(_ index: UInt32, _ value: WinUI.VisualState?) {
+        try! _default.InsertAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeat)
+    fileprivate func removeAt(_ index: UInt32) {
+        try! _default.RemoveAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.append)
+    fileprivate func append(_ value: WinUI.VisualState?) {
+        try! _default.Append(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeatend)
+    fileprivate func removeAtEnd() {
+        try! _default.RemoveAtEnd()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.clear)
+    fileprivate func clear() {
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualState?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.replaceall)
+    fileprivate func replaceAll(_ items: [WinUI.VisualState?]) {
+        try! _default.ReplaceAll(items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableVisualState! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualState?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup: WindowsFoundation.IID {
+    .init(Data1: 0x533324a4, Data2: 0xe624, Data3: 0x5041, Data4: ( 0xba,0x1a,0x69,0xeb,0x5d,0x00,0x6a,0xcf ))// 533324a4-e624-5041-ba1a-69eb5d006acf
+}
+
+internal var __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVTable: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.IID
+        iids[3] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVector`1<Microsoft.UI.Xaml.VisualStateGroup>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    GetView: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.getView()
+        let resultWrapper = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualStateGroup? = __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    SetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: WinUI.VisualStateGroup? = __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.setAt(index, value)
+        return S_OK
+    },
+
+    InsertAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: WinUI.VisualStateGroup? = __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.insertAt(index, value)
+        return S_OK
+    },
+
+    RemoveAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        __unwrapped__instance.removeAt(index)
+        return S_OK
+    },
+
+    Append: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualStateGroup? = __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: ComPtr($1))
+        __unwrapped__instance.append(value)
+        return S_OK
+    },
+
+    RemoveAtEnd: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.removeAtEnd()
+        return S_OK
+    },
+
+    Clear: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.clear()
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [WinUI.VisualStateGroup?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    },
+
+    ReplaceAll: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let items: [WinUI.VisualStateGroup?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self, abi: (count: $1, start: $2))
+        __unwrapped__instance.replaceAll(items)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge>
+public class IVectorVisualStateGroup: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup }
+
+    open func GetAt(_ index: UInt32) throws -> WinUI.VisualStateGroup? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func GetView() throws -> WindowsFoundation.AnyIVectorView<WinUI.VisualStateGroup?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &resultAbi))
+            }
+        }
+        return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupWrapper.unwrapFrom(abi: result)
+    }
+
+    open func IndexOf(_ value: WinUI.VisualStateGroup?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func SetAt(_ index: UInt32, _ value: WinUI.VisualStateGroup?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.SetAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func InsertAt(_ index: UInt32, _ value: WinUI.VisualStateGroup?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAt(_ index: UInt32) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAt(pThis, index))
+        }
+    }
+
+    open func Append(_ value: WinUI.VisualStateGroup?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Append(pThis, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAtEnd() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAtEnd(pThis))
+        }
+    }
+
+    open func Clear() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
+        }
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualStateGroup?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self, abi: _items)
+        }
+        return result
+    }
+
+    open func ReplaceAll(_ items: [WinUI.VisualStateGroup?]) throws {
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualStateGroupBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ReplaceAll(pThis, _items.count, _items.start))
+            }
+        }
+    }
+
+}
+
+internal enum __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroup
+    internal typealias SwiftABI = IVectorVisualStateGroup
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVector<WinUI.VisualStateGroup?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupImpl : IVector, AbiInterfaceImpl {
+    typealias T = WinUI.VisualStateGroup?
+    typealias Bridge = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualStateGroupBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+        set(newValue) {
+            setAt(UInt32(position), newValue)
+        }
+    }
+
+    func removeLast() {
+        removeAtEnd()
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> WinUI.VisualStateGroup? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getview)
+    fileprivate func getView() -> WindowsFoundation.AnyIVectorView<WinUI.VisualStateGroup?>? {
+        try! _default.GetView()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.indexof)
+    fileprivate func indexOf(_ value: WinUI.VisualStateGroup?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.setat)
+    fileprivate func setAt(_ index: UInt32, _ value: WinUI.VisualStateGroup?) {
+        try! _default.SetAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.insertat)
+    fileprivate func insertAt(_ index: UInt32, _ value: WinUI.VisualStateGroup?) {
+        try! _default.InsertAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeat)
+    fileprivate func removeAt(_ index: UInt32) {
+        try! _default.RemoveAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.append)
+    fileprivate func append(_ value: WinUI.VisualStateGroup?) {
+        try! _default.Append(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeatend)
+    fileprivate func removeAtEnd() {
+        try! _default.RemoveAtEnd()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.clear)
+    fileprivate func clear() {
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualStateGroup?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.replaceall)
+    fileprivate func replaceAll(_ items: [WinUI.VisualStateGroup?]) {
+        try! _default.ReplaceAll(items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableVisualStateGroup! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualStateGroup?>? {
+        try! _IIterable.First()
+    }
+
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? { nil }
+}
+
+private var IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition: WindowsFoundation.IID {
+    .init(Data1: 0x937ffd52, Data2: 0x1b1e, Data3: 0x5700, Data4: ( 0xad,0xef,0x8f,0xd1,0x56,0xd5,0x80,0x03 ))// 937ffd52-1b1e-5700-adef-8fd156d58003
+}
+
+internal var __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVTable: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVtbl = .init(
+    QueryInterface: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.addRef($0) },
+    Release: { __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.release($0) },
+    GetIids: {
+        let size = MemoryLayout<WindowsFoundation.IID>.size
+        let iids = CoTaskMemAlloc(UInt64(size) * 4).assumingMemoryBound(to: WindowsFoundation.IID.self)
+        iids[0] = IUnknown.IID
+        iids[1] = IInspectable.IID
+        iids[2] = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.IID
+        iids[3] = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.IID
+        $1!.pointee = 4
+        $2!.pointee = iids
+        return S_OK
+    },
+
+    GetRuntimeClassName: {
+        _ = $0
+        let hstring = try! HString("Windows.Foundation.Collections.IVector`1<Microsoft.UI.Xaml.VisualTransition>").detach()
+        $1!.pointee = hstring
+        return S_OK
+    },
+
+    GetTrustLevel: {
+        _ = $0
+        $1!.pointee = TrustLevel(rawValue: 0)
+        return S_OK
+    },
+
+    GetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let result = __unwrapped__instance.getAt(index)
+        result?.copyTo($2)
+        return S_OK
+    },
+
+    get_Size: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.size
+        $1?.initialize(to: result)
+        return S_OK
+    },
+
+    GetView: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let result = __unwrapped__instance.getView()
+        let resultWrapper = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper(result)
+        resultWrapper?.copyTo($1)
+        return S_OK
+    },
+
+    IndexOf: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualTransition? = __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.from(abi: ComPtr($1))
+        var index: UInt32 = 0
+        let result = __unwrapped__instance.indexOf(value, &index)
+        $2?.initialize(to: index)
+        $3?.initialize(to: .init(from: result))
+        return S_OK
+    },
+
+    SetAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: WinUI.VisualTransition? = __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.setAt(index, value)
+        return S_OK
+    },
+
+    InsertAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        let value: WinUI.VisualTransition? = __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.from(abi: ComPtr($2))
+        __unwrapped__instance.insertAt(index, value)
+        return S_OK
+    },
+
+    RemoveAt: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let index: UInt32 = $1
+        __unwrapped__instance.removeAt(index)
+        return S_OK
+    },
+
+    Append: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let value: WinUI.VisualTransition? = __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.from(abi: ComPtr($1))
+        __unwrapped__instance.append(value)
+        return S_OK
+    },
+
+    RemoveAtEnd: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.removeAtEnd()
+        return S_OK
+    },
+
+    Clear: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        __unwrapped__instance.clear()
+        return S_OK
+    },
+
+    GetMany: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let startIndex: UInt32 = $1
+        var items: [WinUI.VisualTransition?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self, abi: (count: $2, start: $3))
+        let result = __unwrapped__instance.getMany(startIndex, &items)
+        items.fill(abi: $3, abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self)
+        $4?.initialize(to: result)
+        return S_OK
+    },
+
+    ReplaceAll: {
+        guard let __unwrapped__instance = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+        let items: [WinUI.VisualTransition?] = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self, abi: (count: $1, start: $2))
+        __unwrapped__instance.replaceAll(items)
+        return S_OK
+    }
+)
+typealias __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge>
+public class IVectorVisualTransition: WindowsFoundation.IInspectable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition }
+
+    open func GetAt(_ index: UInt32) throws -> WinUI.VisualTransition? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAt(pThis, index, &resultAbi))
+            }
+        }
+        return __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.from(abi: result)
+    }
+
+    open func get_Size() throws -> UInt32 {
+        var result: UINT32 = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.get_Size(pThis, &result))
+        }
+        return result
+    }
+
+    open func GetView() throws -> WindowsFoundation.AnyIVectorView<WinUI.VisualTransition?>? {
+        let (result) = try ComPtrs.initialize { resultAbi in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetView(pThis, &resultAbi))
+            }
+        }
+        return WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionWrapper.unwrapFrom(abi: result)
+    }
+
+    open func IndexOf(_ value: WinUI.VisualTransition?, _ index: inout UInt32) throws -> Bool {
+        var result: boolean = 0
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.IndexOf(pThis, RawPointer(value), &index, &result))
+        }
+        return .init(from: result)
+    }
+
+    open func SetAt(_ index: UInt32, _ value: WinUI.VisualTransition?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.SetAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func InsertAt(_ index: UInt32, _ value: WinUI.VisualTransition?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.InsertAt(pThis, index, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAt(_ index: UInt32) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAt(pThis, index))
+        }
+    }
+
+    open func Append(_ value: WinUI.VisualTransition?) throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Append(pThis, RawPointer(value)))
+        }
+    }
+
+    open func RemoveAtEnd() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.RemoveAtEnd(pThis))
+        }
+    }
+
+    open func Clear() throws {
+        _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Clear(pThis))
+        }
+    }
+
+    open func GetMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualTransition?]) throws -> UInt32 {
+        var result: UINT32 = 0
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetMany(pThis, startIndex, _items.count, _items.start, &result))
+            }
+        items = .from(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self, abi: _items)
+        }
+        return result
+    }
+
+    open func ReplaceAll(_ items: [WinUI.VisualTransition?]) throws {
+        try items.toABI(abiBridge: __IMPL_Microsoft_UI_Xaml.VisualTransitionBridge.self) { _items in
+            _ = try perform(as: __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.ReplaceAll(pThis, _items.count, _items.start))
+            }
+        }
+    }
+
+}
+
+internal enum __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge : AbiInterfaceBridge {
+    internal typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransition
+    internal typealias SwiftABI = IVectorVisualTransition
+    internal typealias SwiftProjection = WindowsFoundation.AnyIVector<WinUI.VisualTransition?>
+    internal static func from(abi: consuming ComPtr<CABI>?) -> SwiftProjection? {
+        guard let abi = abi else { return nil }
+        return __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionImpl(abi)
+    }
+
+    internal static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionVTable) { $0 }
+        return .init(lpVtbl: vtblPtr)
+    }
+}
+
+fileprivate class __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionImpl : IVector, AbiInterfaceImpl {
+    typealias T = WinUI.VisualTransition?
+    typealias Bridge = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CVisualTransitionBridge
+    let _default: Bridge.SwiftABI
+    init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        _default = Bridge.SwiftABI(fromAbi)
+    }
+
+    // MARK: Collection
+    typealias Element = T
+    var startIndex: Int { 0 }
+    var endIndex: Int { Int(size) }
+    func index(after i: Int) -> Int {
+        i+1
+    }
+
+    func index(of: Element) -> Int? {
+        var index: UInt32 = 0
+        let result = indexOf(of, &index)
+        guard result else { return nil }
+        return Int(index)
+    }
+    var count: Int { Int(size) }
+
+
+    subscript(position: Int) -> Element {
+        get {
+            getAt(UInt32(position))
+        }
+        set(newValue) {
+            setAt(UInt32(position), newValue)
+        }
+    }
+
+    func removeLast() {
+        removeAtEnd()
+    }
+
+    // MARK: WinRT
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getat)
+    fileprivate func getAt(_ index: UInt32) -> WinUI.VisualTransition? {
+        try! _default.GetAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getview)
+    fileprivate func getView() -> WindowsFoundation.AnyIVectorView<WinUI.VisualTransition?>? {
+        try! _default.GetView()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.indexof)
+    fileprivate func indexOf(_ value: WinUI.VisualTransition?, _ index: inout UInt32) -> Bool {
+        try! _default.IndexOf(value, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.setat)
+    fileprivate func setAt(_ index: UInt32, _ value: WinUI.VisualTransition?) {
+        try! _default.SetAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.insertat)
+    fileprivate func insertAt(_ index: UInt32, _ value: WinUI.VisualTransition?) {
+        try! _default.InsertAt(index, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeat)
+    fileprivate func removeAt(_ index: UInt32) {
+        try! _default.RemoveAt(index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.append)
+    fileprivate func append(_ value: WinUI.VisualTransition?) {
+        try! _default.Append(value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.removeatend)
+    fileprivate func removeAtEnd() {
+        try! _default.RemoveAtEnd()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.clear)
+    fileprivate func clear() {
+        try! _default.Clear()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.getmany)
+    fileprivate func getMany(_ startIndex: UInt32, _ items: inout [WinUI.VisualTransition?]) -> UInt32 {
+        try! _default.GetMany(startIndex, &items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.replaceall)
+    fileprivate func replaceAll(_ items: [WinUI.VisualTransition?]) {
+        try! _default.ReplaceAll(items)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.size)
+    fileprivate var size : UInt32 {
+        get { try! _default.get_Size() }
+    }
+
+    private lazy var _IIterable: IIterableVisualTransition! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/uwp/api/windows.foundation.collections.ivector-1.first)
+    fileprivate func first() -> WindowsFoundation.AnyIIterator<WinUI.VisualTransition?>? {
         try! _IIterable.First()
     }
 

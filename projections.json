@@ -158,6 +158,7 @@
     "Microsoft.UI.Xaml.Shapes.Ellipse",
     "Microsoft.UI.Xaml.Shapes.Path",
     "Microsoft.UI.Xaml.Shapes.Rectangle",
+    "Microsoft.UI.Xaml.VisualStateManager",
     "Microsoft.UI.Xaml.Window",
     "Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider"
   ],
