@@ -7,6 +7,27 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+// MARK: - AnnotatedScrollBarScrollingEventKind
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarscrollingeventkind)
+public typealias AnnotatedScrollBarScrollingEventKind = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CAnnotatedScrollBarScrollingEventKind
+
+extension WinUI.AnnotatedScrollBarScrollingEventKind {
+    public static var click : WinUI.AnnotatedScrollBarScrollingEventKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CAnnotatedScrollBarScrollingEventKind_Click
+    }
+    public static var drag : WinUI.AnnotatedScrollBarScrollingEventKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CAnnotatedScrollBarScrollingEventKind_Drag
+    }
+    public static var incrementButton : WinUI.AnnotatedScrollBarScrollingEventKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CAnnotatedScrollBarScrollingEventKind_IncrementButton
+    }
+    public static var decrementButton : WinUI.AnnotatedScrollBarScrollingEventKind {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CAnnotatedScrollBarScrollingEventKind_DecrementButton
+    }
+}
+extension WinUI.AnnotatedScrollBarScrollingEventKind: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
 // MARK: - AppBarClosedDisplayMode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarcloseddisplaymode)
@@ -396,6 +417,27 @@ extension WinUI.ItemsUpdatingScrollMode {
     }
 }
 extension WinUI.ItemsUpdatingScrollMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - ItemsViewSelectionMode
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewselectionmode)
+public typealias ItemsViewSelectionMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode
+
+extension WinUI.ItemsViewSelectionMode {
+    public static var none : WinUI.ItemsViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode_None
+    }
+    public static var single : WinUI.ItemsViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode_Single
+    }
+    public static var multiple : WinUI.ItemsViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode_Multiple
+    }
+    public static var extended : WinUI.ItemsViewSelectionMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode_Extended
+    }
+}
+extension WinUI.ItemsViewSelectionMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
 // MARK: - LightDismissOverlayMode
 
@@ -3713,6 +3755,651 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 }
             }
             return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CUIElementWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AnnotatedScrollBar
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar)
+open class AnnotatedScrollBar : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBar
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IAnnotatedScrollBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBar")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IAnnotatedScrollBarFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IAnnotatedScrollBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBar")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.detaillabeltemplateproperty)
+    public class var detailLabelTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _IAnnotatedScrollBarStatics.get_DetailLabelTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.labeltemplateproperty)
+    public class var labelTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _IAnnotatedScrollBarStatics.get_LabelTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.labelsproperty)
+    public class var labelsProperty : WinUI.DependencyProperty! {
+        get { try! _IAnnotatedScrollBarStatics.get_LabelsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.smallchangeproperty)
+    public class var smallChangeProperty : WinUI.DependencyProperty! {
+        get { try! _IAnnotatedScrollBarStatics.get_SmallChangeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.detaillabeltemplate)
+    public var detailLabelTemplate : WinUI.AnyIElementFactory! {
+        get { try! _default.get_DetailLabelTemplate() }
+        set { try! _default.put_DetailLabelTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.labeltemplate)
+    public var labelTemplate : WinUI.AnyIElementFactory! {
+        get { try! _default.get_LabelTemplate() }
+        set { try! _default.put_LabelTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.labels)
+    public var labels : WindowsFoundation.AnyIVector<AnnotatedScrollBarLabel?>! {
+        get { try! _default.get_Labels() }
+        set { try! _default.put_Labels(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.scrollcontroller)
+    public var scrollController : WinUI.AnyIScrollController! {
+        get { try! _default.get_ScrollController() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.smallchange)
+    public var smallChange : Double {
+        get { try! _default.get_SmallChange() }
+        set { try! _default.put_SmallChange(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.detaillabelrequested)
+    public lazy var detailLabelRequested : Event<TypedEventHandler<AnnotatedScrollBar?, AnnotatedScrollBarDetailLabelRequestedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DetailLabelRequested($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DetailLabelRequested($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.scrolling)
+    public lazy var scrolling : Event<TypedEventHandler<AnnotatedScrollBar?, AnnotatedScrollBarScrollingEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_Scrolling($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_Scrolling($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - AnnotatedScrollBar Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum AnnotatedScrollBarBridge: ComposableBridge {
+        public typealias SwiftProjection = AnnotatedScrollBar
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar>?) -> AnnotatedScrollBar? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = AnnotatedScrollBar
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBar
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class AnnotatedScrollBarMaker: MakeFromAbi {
+    public typealias SwiftType = AnnotatedScrollBar
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AnnotatedScrollBar(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar: WindowsFoundation.IID = .init(
+        Data1: 0x0F4904A9, Data2: 0xB6F9, Data3: 0x5834, Data4: ( 0x8D,0x5D,0x59,0xBC,0x3B,0x7B,0x7E,0xE2 ) // 0F4904A9-B6F9-5834-8D5D-59BC3B7B7EE2
+    ) 
+
+    public class IAnnotatedScrollBar: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar }
+
+        public func get_ScrollController() throws -> WinUI.AnyIScrollController? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollController(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_Labels() throws -> WindowsFoundation.AnyIVector<WinUI.AnnotatedScrollBarLabel?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Labels(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarLabelWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Labels(_ value: WindowsFoundation.AnyIVector<WinUI.AnnotatedScrollBarLabel?>?) throws {
+            let valueWrapper = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarLabelWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Labels(pThis, _value))
+            }
+        }
+
+        public func get_LabelTemplate() throws -> WinUI.AnyIElementFactory? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LabelTemplate(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Microsoft_UI_Xaml.IElementFactoryWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_LabelTemplate(_ value: WinUI.AnyIElementFactory?) throws {
+            let valueWrapper = __ABI_Microsoft_UI_Xaml.IElementFactoryWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LabelTemplate(pThis, _value))
+            }
+        }
+
+        public func get_DetailLabelTemplate() throws -> WinUI.AnyIElementFactory? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DetailLabelTemplate(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Microsoft_UI_Xaml.IElementFactoryWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_DetailLabelTemplate(_ value: WinUI.AnyIElementFactory?) throws {
+            let valueWrapper = __ABI_Microsoft_UI_Xaml.IElementFactoryWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_DetailLabelTemplate(pThis, _value))
+            }
+        }
+
+        public func get_SmallChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SmallChange(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SmallChange(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SmallChange(pThis, value))
+            }
+        }
+
+        public func add_Scrolling(_ handler: TypedEventHandler<WinUI.AnnotatedScrollBar?, WinUI.AnnotatedScrollBarScrollingEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarScrollingEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Scrolling(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Scrolling(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Scrolling(pThis, token))
+            }
+        }
+
+        public func add_DetailLabelRequested(_ handler: TypedEventHandler<WinUI.AnnotatedScrollBar?, WinUI.AnnotatedScrollBarDetailLabelRequestedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarDetailLabelRequestedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DetailLabelRequested(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DetailLabelRequested(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DetailLabelRequested(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarFactory: WindowsFoundation.IID = .init(
+        Data1: 0x3F64C40F, Data2: 0xB879, Data3: 0x5020, Data4: ( 0xB6,0x7C,0xB7,0x89,0xE1,0x73,0xC7,0x98 ) // 3F64C40F-B879-5020-B67C-B789E173C798
+    ) 
+
+    public class IAnnotatedScrollBarFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAnnotatedScrollBar {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IAnnotatedScrollBar(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarStatics: WindowsFoundation.IID = .init(
+        Data1: 0xDAACD0F4, Data2: 0x4912, Data3: 0x5934, Data4: ( 0x8D,0x5B,0xF2,0x41,0xC2,0xE9,0x0E,0x30 ) // DAACD0F4-4912-5934-8D5B-F241C2E90E30
+    ) 
+
+    public class IAnnotatedScrollBarStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarStatics }
+
+        public func get_LabelsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LabelsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LabelTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LabelTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_DetailLabelTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DetailLabelTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SmallChangeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SmallChangeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - AnnotatedScrollBarDetailLabelRequestedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbardetaillabelrequestedeventargs)
+public final class AnnotatedScrollBarDetailLabelRequestedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarDetailLabelRequestedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbardetaillabelrequestedeventargs.content)
+    public var content : Any! {
+        get { try! _default.get_Content() }
+        set { try! _default.put_Content(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbardetaillabelrequestedeventargs.scrolloffset)
+    public var scrollOffset : Double {
+        get { try! _default.get_ScrollOffset() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - AnnotatedScrollBarDetailLabelRequestedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum AnnotatedScrollBarDetailLabelRequestedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AnnotatedScrollBarDetailLabelRequestedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs>?) -> AnnotatedScrollBarDetailLabelRequestedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AnnotatedScrollBarDetailLabelRequestedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnnotatedScrollBarDetailLabelRequestedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AnnotatedScrollBarDetailLabelRequestedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x43275B82, Data2: 0xF594, Data3: 0x590D, Data4: ( 0x90,0xFF,0x76,0xFD,0x21,0x9F,0xEA,0xA8 ) // 43275B82-F594-590D-90FF-76FD219FEAA8
+    ) 
+
+    public class IAnnotatedScrollBarDetailLabelRequestedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs }
+
+        public func get_Content() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Content(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Content(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Content(pThis, _value))
+            }
+        }
+
+        public func get_ScrollOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollOffset(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - AnnotatedScrollBarLabel
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarlabel)
+public final class AnnotatedScrollBarLabel : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarLabel
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _IAnnotatedScrollBarLabelFactory: __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarLabelFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBarLabel")
+    public init(_ content: Any!, _ scrollOffset: Double) {
+        super.init(try! Self._IAnnotatedScrollBarLabelFactory.CreateInstance(content, scrollOffset))
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarlabel.content)
+    public var content : Any! {
+        get { try! _default.get_Content() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarlabel.scrolloffset)
+    public var scrollOffset : Double {
+        get { try! _default.get_ScrollOffset() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - AnnotatedScrollBarLabel Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum AnnotatedScrollBarLabelBridge: AbiBridge {
+        public typealias SwiftProjection = AnnotatedScrollBarLabel
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel>?) -> AnnotatedScrollBarLabel? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AnnotatedScrollBarLabelMaker: MakeFromAbi {
+    public typealias SwiftType = AnnotatedScrollBarLabel
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AnnotatedScrollBarLabel(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel: WindowsFoundation.IID = .init(
+        Data1: 0x238AC07F, Data2: 0x59FB, Data3: 0x574F, Data4: ( 0xBF,0x5C,0x61,0xC4,0x4A,0xB3,0x86,0xDC ) // 238AC07F-59FB-574F-BF5C-61C44AB386DC
+    ) 
+
+    public class IAnnotatedScrollBarLabel: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel }
+
+        public func get_Content() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Content(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_ScrollOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollOffset(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabelFactory: WindowsFoundation.IID = .init(
+        Data1: 0xB6169805, Data2: 0xC01C, Data3: 0x54C6, Data4: ( 0x80,0xE8,0xC6,0xC9,0x8F,0x9A,0xAA,0x53 ) // B6169805-C01C-54C6-80E8-C6C98F9AAA53
+    ) 
+
+    public class IAnnotatedScrollBarLabelFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabelFactory }
+
+        public func CreateInstance(_ content: Any?, _ scrollOffset: Double) throws -> IAnnotatedScrollBarLabel {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let contentWrapper = __ABI_.AnyWrapper(content)
+                let _content = try! contentWrapper?.toABI { $0 }
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabelFactory.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _content, scrollOffset, &valueAbi))
+                }
+            }
+            return IAnnotatedScrollBarLabel(value!)
+        }
+
+    }
+
+}
+// MARK: - AnnotatedScrollBarScrollingEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarscrollingeventargs)
+public final class AnnotatedScrollBarScrollingEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarScrollingEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarscrollingeventargs.cancel)
+    public var cancel : Bool {
+        get { try! _default.get_Cancel() }
+        set { try! _default.put_Cancel(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarscrollingeventargs.scrolloffset)
+    public var scrollOffset : Double {
+        get { try! _default.get_ScrollOffset() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarscrollingeventargs.scrollingeventkind)
+    public var scrollingEventKind : AnnotatedScrollBarScrollingEventKind {
+        get { try! _default.get_ScrollingEventKind() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - AnnotatedScrollBarScrollingEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum AnnotatedScrollBarScrollingEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = AnnotatedScrollBarScrollingEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs>?) -> AnnotatedScrollBarScrollingEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AnnotatedScrollBarScrollingEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = AnnotatedScrollBarScrollingEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AnnotatedScrollBarScrollingEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xA7466A60, Data2: 0xE55E, Data3: 0x58AE, Data4: ( 0x9F,0xC1,0x87,0xFE,0xF4,0x0E,0x52,0x1A ) // A7466A60-E55E-58AE-9FC1-87FEF40E521A
+    ) 
+
+    public class IAnnotatedScrollBarScrollingEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs }
+
+        public func get_ScrollOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_ScrollingEventKind() throws -> WinUI.AnnotatedScrollBarScrollingEventKind {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CAnnotatedScrollBarScrollingEventKind = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollingEventKind(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Cancel() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Cancel(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_Cancel(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Cancel(pThis, .init(from: value)))
+            }
         }
 
     }
@@ -29191,6 +29878,752 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             }
             return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
+
+    }
+
+}
+// MARK: - ItemsView
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview)
+open class ItemsView : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsView
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IItemsViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IItemsViewFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IItemsViewStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.currentitemindexproperty)
+    public class var currentItemIndexProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_CurrentItemIndexProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.isiteminvokedenabledproperty)
+    public class var isItemInvokedEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_IsItemInvokedEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemtemplateproperty)
+    public class var itemTemplateProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_ItemTemplateProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemtransitionproviderproperty)
+    public class var itemTransitionProviderProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_ItemTransitionProviderProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemssourceproperty)
+    public class var itemsSourceProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_ItemsSourceProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.layoutproperty)
+    public class var layoutProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_LayoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.scrollviewproperty)
+    public class var scrollViewProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_ScrollViewProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selecteditemproperty)
+    public class var selectedItemProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_SelectedItemProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectionmodeproperty)
+    public class var selectionModeProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_SelectionModeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.verticalscrollcontrollerproperty)
+    public class var verticalScrollControllerProperty : WinUI.DependencyProperty! {
+        get { try! _IItemsViewStatics.get_VerticalScrollControllerProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.trygetitemindex)
+    public func tryGetItemIndex(_ horizontalViewportRatio: Double, _ verticalViewportRatio: Double, _ index: inout Int32) throws -> Bool {
+        try _default.TryGetItemIndex(horizontalViewportRatio, verticalViewportRatio, &index)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.startbringitemintoview)
+    public func startBringItemIntoView(_ index: Int32, _ options: WinUI.BringIntoViewOptions!) throws {
+        try _default.StartBringItemIntoView(index, options)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.select)
+    public func select(_ itemIndex: Int32) throws {
+        try _default.Select(itemIndex)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.deselect)
+    public func deselect(_ itemIndex: Int32) throws {
+        try _default.Deselect(itemIndex)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.isselected)
+    public func isSelected(_ itemIndex: Int32) throws -> Bool {
+        try _default.IsSelected(itemIndex)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectall)
+    public func selectAll() throws {
+        try _default.SelectAll()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.deselectall)
+    public func deselectAll() throws {
+        try _default.DeselectAll()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.invertselection)
+    public func invertSelection() throws {
+        try _default.InvertSelection()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.currentitemindex)
+    public var currentItemIndex : Int32 {
+        get { try! _default.get_CurrentItemIndex() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.isiteminvokedenabled)
+    public var isItemInvokedEnabled : Bool {
+        get { try! _default.get_IsItemInvokedEnabled() }
+        set { try! _default.put_IsItemInvokedEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemtemplate)
+    public var itemTemplate : WinUI.AnyIElementFactory! {
+        get { try! _default.get_ItemTemplate() }
+        set { try! _default.put_ItemTemplate(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemtransitionprovider)
+    public var itemTransitionProvider : ItemCollectionTransitionProvider! {
+        get { try! _default.get_ItemTransitionProvider() }
+        set { try! _default.put_ItemTransitionProvider(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemssource)
+    public var itemsSource : Any! {
+        get { try! _default.get_ItemsSource() }
+        set { try! _default.put_ItemsSource(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.layout)
+    public var layout : Layout! {
+        get { try! _default.get_Layout() }
+        set { try! _default.put_Layout(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.scrollview)
+    public var scrollView : ScrollView! {
+        get { try! _default.get_ScrollView() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selecteditem)
+    public var selectedItem : Any! {
+        get { try! _default.get_SelectedItem() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selecteditems)
+    public var selectedItems : WindowsFoundation.AnyIVectorView<Any?>! {
+        get { try! _default.get_SelectedItems() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectionmode)
+    public var selectionMode : ItemsViewSelectionMode {
+        get { try! _default.get_SelectionMode() }
+        set { try! _default.put_SelectionMode(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.verticalscrollcontroller)
+    public var verticalScrollController : WinUI.AnyIScrollController! {
+        get { try! _default.get_VerticalScrollController() }
+        set { try! _default.put_VerticalScrollController(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.iteminvoked)
+    public lazy var itemInvoked : Event<TypedEventHandler<ItemsView?, ItemsViewItemInvokedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_ItemInvoked($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_ItemInvoked($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectionchanged)
+    public lazy var selectionChanged : Event<TypedEventHandler<ItemsView?, ItemsViewSelectionChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_SelectionChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_SelectionChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - ItemsView Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum ItemsViewBridge: ComposableBridge {
+        public typealias SwiftProjection = ItemsView
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView>?) -> ItemsView? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = ItemsView
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsView
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class ItemsViewMaker: MakeFromAbi {
+    public typealias SwiftType = ItemsView
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ItemsView(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView: WindowsFoundation.IID = .init(
+        Data1: 0xBBB195D8, Data2: 0x6A7F, Data3: 0x5A42, Data4: ( 0x98,0x66,0x25,0xFD,0x5A,0x44,0x73,0xAB ) // BBB195D8-6A7F-5A42-9866-25FD5A4473AB
+    ) 
+
+    public class IItemsView: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView }
+
+        public func get_ItemsSource() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemsSource(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_ItemsSource(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ItemsSource(pThis, _value))
+            }
+        }
+
+        public func get_ScrollView() throws -> WinUI.ScrollView? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollView(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: value)
+        }
+
+        public func get_VerticalScrollController() throws -> WinUI.AnyIScrollController? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalScrollController(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_VerticalScrollController(_ value: WinUI.AnyIScrollController?) throws {
+            let valueWrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_VerticalScrollController(pThis, _value))
+            }
+        }
+
+        public func get_ItemTemplate() throws -> WinUI.AnyIElementFactory? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTemplate(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Microsoft_UI_Xaml.IElementFactoryWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_ItemTemplate(_ value: WinUI.AnyIElementFactory?) throws {
+            let valueWrapper = __ABI_Microsoft_UI_Xaml.IElementFactoryWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ItemTemplate(pThis, _value))
+            }
+        }
+
+        public func get_Layout() throws -> WinUI.Layout? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Layout(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.LayoutBridge.from(abi: value)
+        }
+
+        public func put_Layout(_ value: WinUI.Layout?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Layout(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_IsItemInvokedEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsItemInvokedEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsItemInvokedEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsItemInvokedEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_SelectionMode() throws -> WinUI.ItemsViewSelectionMode {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CItemsViewSelectionMode = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionMode(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_SelectionMode(_ value: WinUI.ItemsViewSelectionMode) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_SelectionMode(pThis, value))
+            }
+        }
+
+        public func get_ItemTransitionProvider() throws -> WinUI.ItemCollectionTransitionProvider? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTransitionProvider(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls.ItemCollectionTransitionProviderBridge.from(abi: value)
+        }
+
+        public func put_ItemTransitionProvider(_ value: WinUI.ItemCollectionTransitionProvider?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ItemTransitionProvider(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_CurrentItemIndex() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentItemIndex(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_SelectedItem() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedItem(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func get_SelectedItems() throws -> WindowsFoundation.AnyIVectorView<Any?>? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedItems(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIVectorView_1_IInspectableWrapper.unwrapFrom(abi: value)
+        }
+
+        public func TryGetItemIndex(_ horizontalViewportRatio: Double, _ verticalViewportRatio: Double, _ index: inout Int32) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.TryGetItemIndex(pThis, horizontalViewportRatio, verticalViewportRatio, &index, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func StartBringItemIntoView(_ index: Int32, _ options: WinUI.BringIntoViewOptions?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.StartBringItemIntoView(pThis, index, RawPointer(options)))
+            }
+        }
+
+        public func Select(_ itemIndex: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Select(pThis, itemIndex))
+            }
+        }
+
+        public func Deselect(_ itemIndex: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Deselect(pThis, itemIndex))
+            }
+        }
+
+        public func IsSelected(_ itemIndex: Int32) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.IsSelected(pThis, itemIndex, &result))
+            }
+            return .init(from: result)
+        }
+
+        public func SelectAll() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SelectAll(pThis))
+            }
+        }
+
+        public func DeselectAll() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.DeselectAll(pThis))
+            }
+        }
+
+        public func InvertSelection() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.InvertSelection(pThis))
+            }
+        }
+
+        public func add_ItemInvoked(_ handler: TypedEventHandler<WinUI.ItemsView?, WinUI.ItemsViewItemInvokedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ItemInvoked(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ItemInvoked(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ItemInvoked(pThis, token))
+            }
+        }
+
+        public func add_SelectionChanged(_ handler: TypedEventHandler<WinUI.ItemsView?, WinUI.ItemsViewSelectionChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_SelectionChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_SelectionChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_SelectionChanged(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewFactory: WindowsFoundation.IID = .init(
+        Data1: 0xAEEEC7B9, Data2: 0x3CC8, Data3: 0x52DF, Data4: ( 0x8E,0x2E,0x99,0xA2,0x95,0xC2,0x53,0xAA ) // AEEEC7B9-3CC8-52DF-8E2E-99A295C253AA
+    ) 
+
+    public class IItemsViewFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemsView {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IItemsView(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics: WindowsFoundation.IID = .init(
+        Data1: 0xC64F1948, Data2: 0x77D3, Data3: 0x5DF5, Data4: ( 0x8D,0x33,0xC5,0x86,0x02,0xD4,0xCF,0xB9 ) // C64F1948-77D3-5DF5-8D33-C58602D4CFB9
+    ) 
+
+    public class IItemsViewStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics }
+
+        public func get_IsItemInvokedEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsItemInvokedEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ItemsSourceProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemsSourceProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ItemTemplateProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTemplateProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_LayoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LayoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectionModeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectionModeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ItemTransitionProviderProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ItemTransitionProviderProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CurrentItemIndexProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentItemIndexProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_SelectedItemProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedItemProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ScrollViewProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ScrollViewProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_VerticalScrollControllerProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalScrollControllerProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ItemsViewItemInvokedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewiteminvokedeventargs)
+public final class ItemsViewItemInvokedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsViewItemInvokedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewiteminvokedeventargs.invokeditem)
+    public var invokedItem : Any! {
+        get { try! _default.get_InvokedItem() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - ItemsViewItemInvokedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum ItemsViewItemInvokedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ItemsViewItemInvokedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs>?) -> ItemsViewItemInvokedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ItemsViewItemInvokedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ItemsViewItemInvokedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ItemsViewItemInvokedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x5A2386E8, Data2: 0x15B8, Data3: 0x5F25, Data4: ( 0x87,0x4B,0x79,0x12,0xF6,0x33,0xCE,0x21 ) // 5A2386E8-15B8-5F25-874B-7912F633CE21
+    ) 
+
+    public class IItemsViewItemInvokedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs }
+
+        public func get_InvokedItem() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_InvokedItem(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ItemsViewSelectionChangedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewselectionchangedeventargs)
+public final class ItemsViewSelectionChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsViewSelectionChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - ItemsViewSelectionChangedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum ItemsViewSelectionChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ItemsViewSelectionChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs>?) -> ItemsViewSelectionChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ItemsViewSelectionChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ItemsViewSelectionChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ItemsViewSelectionChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x9CD1690F, Data2: 0x6C9D, Data3: 0x543C, Data4: ( 0x82,0xF2,0x30,0xCD,0x37,0xD7,0x65,0xB3 ) // 9CD1690F-6C9D-543C-82F2-30CD37D765B3
+    ) 
+
+    public class IItemsViewSelectionChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs }
 
     }
 

@@ -13,6 +13,7 @@
     "Microsoft.UI.Xaml.Application",
     "Microsoft.UI.Xaml.Automation.AutomationProperties",
 
+	"Microsoft.UI.Xaml.Controls.AnnotatedScrollBar",
     "Microsoft.UI.Xaml.Controls.BitmapIcon",
     "Microsoft.UI.Xaml.Controls.Border",
     "Microsoft.UI.Xaml.Controls.BreadcrumbBar",
@@ -48,6 +49,7 @@
     "Microsoft.UI.Xaml.Controls.ItemsRepeater",
     "Microsoft.UI.Xaml.Controls.ItemsSourceView",
     "Microsoft.UI.Xaml.Controls.ItemsStackPanel",
+    "Microsoft.UI.Xaml.Controls.ItemsView",
     "Microsoft.UI.Xaml.Controls.ItemsWrapGrid",
     "Microsoft.UI.Xaml.Controls.HyperlinkButton",
     "Microsoft.UI.Xaml.Controls.ListBox",
