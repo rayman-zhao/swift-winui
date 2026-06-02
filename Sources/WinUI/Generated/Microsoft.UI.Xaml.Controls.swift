@@ -57015,6 +57015,322 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
     }
 
 }
+// MARK: - SplitButton
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton)
+open class SplitButton : WinUI.ContentControl {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitButton
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ISplitButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitButton")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SplitButtonBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ISplitButtonFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _ISplitButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitButton")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.commandparameterproperty)
+    public class var commandParameterProperty : WinUI.DependencyProperty! {
+        get { try! _ISplitButtonStatics.get_CommandParameterProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.commandproperty)
+    public class var commandProperty : WinUI.DependencyProperty! {
+        get { try! _ISplitButtonStatics.get_CommandProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.flyoutproperty)
+    public class var flyoutProperty : WinUI.DependencyProperty! {
+        get { try! _ISplitButtonStatics.get_FlyoutProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.command)
+    public var command : WinUI.AnyICommand! {
+        get { try! _default.get_Command() }
+        set { try! _default.put_Command(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.commandparameter)
+    public var commandParameter : Any! {
+        get { try! _default.get_CommandParameter() }
+        set { try! _default.put_CommandParameter(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.flyout)
+    public var flyout : WinUI.FlyoutBase! {
+        get { try! _default.get_Flyout() }
+        set { try! _default.put_Flyout(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.click)
+    public lazy var click : Event<TypedEventHandler<SplitButton?, SplitButtonClickEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_Click($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_Click($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - SplitButton Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum SplitButtonBridge: ComposableBridge {
+        public typealias SwiftProjection = SplitButton
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton>?) -> SplitButton? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IContentControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
+            public typealias Class = SplitButton
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitButton
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IContentControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class SplitButtonMaker: MakeFromAbi {
+    public typealias SwiftType = SplitButton
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SplitButton(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton: WindowsFoundation.IID = .init(
+        Data1: 0xF627202D, Data2: 0xD2D7, Data3: 0x5FF6, Data4: ( 0xBB,0x05,0x8C,0x48,0xEB,0x6B,0x1F,0xC6 ) // F627202D-D2D7-5FF6-BB05-8C48EB6B1FC6
+    ) 
+
+    public class ISplitButton: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton }
+
+        public func get_Flyout() throws -> WinUI.FlyoutBase? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Flyout(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.from(abi: value)
+        }
+
+        public func put_Flyout(_ value: WinUI.FlyoutBase?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Flyout(pThis, RawPointer(value)))
+            }
+        }
+
+        public func get_Command() throws -> WinUI.AnyICommand? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Command(pThis, &valueAbi))
+                }
+            }
+            return __ABI_Microsoft_UI_Xaml_Input.ICommandWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_Command(_ value: WinUI.AnyICommand?) throws {
+            let valueWrapper = __ABI_Microsoft_UI_Xaml_Input.ICommandWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Command(pThis, _value))
+            }
+        }
+
+        public func get_CommandParameter() throws -> Any? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommandParameter(pThis, &valueAbi))
+                }
+            }
+            return __ABI_.AnyWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_CommandParameter(_ value: Any?) throws {
+            let valueWrapper = __ABI_.AnyWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_CommandParameter(pThis, _value))
+            }
+        }
+
+        public func add_Click(_ handler: TypedEventHandler<WinUI.SplitButton?, WinUI.SplitButtonClickEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_Click(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_Click(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_Click(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonFactory: WindowsFoundation.IID = .init(
+        Data1: 0x07510092, Data2: 0x2612, Data3: 0x55E7, Data4: ( 0x98,0x1C,0xA5,0x36,0xDD,0xD4,0x57,0x0E ) // 07510092-2612-55E7-981C-A536DDD4570E
+    ) 
+
+    public class ISplitButtonFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SplitButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISplitButton {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ISplitButton(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonStatics: WindowsFoundation.IID = .init(
+        Data1: 0xD54DDD05, Data2: 0x73E7, Data3: 0x55A1, Data4: ( 0xA1,0x19,0xAA,0x34,0x2E,0x5F,0x9F,0xEB ) // D54DDD05-73E7-55A1-A119-AA342E5F9FEB
+    ) 
+
+    public class ISplitButtonStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonStatics }
+
+        public func get_FlyoutProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_FlyoutProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CommandProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommandProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_CommandParameterProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_CommandParameterProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - SplitButtonClickEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbuttonclickeventargs)
+public final class SplitButtonClickEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonClickEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonClickEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - SplitButtonClickEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum SplitButtonClickEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = SplitButtonClickEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonClickEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonClickEventArgs>?) -> SplitButtonClickEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class SplitButtonClickEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = SplitButtonClickEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return SplitButtonClickEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonClickEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x6AF896C2, Data2: 0xE65A, Data3: 0x5998, Data4: ( 0x9C,0x82,0x2A,0xF8,0xF3,0xE0,0x74,0x1F ) // 6AF896C2-E65A-5998-9C82-2AF8F3E0741F
+    ) 
+
+    public class ISplitButtonClickEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonClickEventArgs }
+
+    }
+
+}
 // MARK: - SplitView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview)

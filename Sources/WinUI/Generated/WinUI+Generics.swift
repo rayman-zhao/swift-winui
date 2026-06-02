@@ -47051,6 +47051,57 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__
         return handler
     }
 }
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x5d54f7ab, Data2: 0x75f6, Data3: 0x5d96, Data4: ( 0x8b,0xbe,0xc0,0x8e,0x29,0xe8,0x1e,0xa8 ))// 5d54f7ab-75f6-5d96-8bbe-c08e29e81ea8
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinUI.SplitButton? = __IMPL_Microsoft_UI_Xaml_Controls.SplitButtonBridge.from(abi: ComPtr($1))
+            let args: WinUI.SplitButtonClickEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.SplitButtonClickEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsBridge>
+public class TypedEventHandlerSplitButton_SplitButtonClickEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgs }
+
+    open func Invoke(_ sender: WinUI.SplitButton?, _ args: WinUI.SplitButtonClickEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.SplitButton?, WinUI.SplitButtonClickEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgs
+    internal typealias SwiftABI = WinUI.TypedEventHandlerSplitButton_SplitButtonClickEventArgs
+
+    internal static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitView_IInspectable: WindowsFoundation.IID {
     .init(Data1: 0xf811c258, Data2: 0xf10a, Data3: 0x5d33, Data4: ( 0x8b,0x12,0xb1,0xd8,0x41,0x57,0x19,0x6e ))// f811c258-f10a-5d33-8b12-b1d84157196e
 }
