@@ -14,6 +14,10 @@
     "Microsoft.UI.Xaml.Automation.AutomationProperties",
 
 	"Microsoft.UI.Xaml.Controls.AnnotatedScrollBar",
+	"Microsoft.UI.Xaml.Controls.AppBarButton",
+	"Microsoft.UI.Xaml.Controls.AppBarElementContainer",
+	"Microsoft.UI.Xaml.Controls.AppBarSeparator",
+	"Microsoft.UI.Xaml.Controls.AppBarToggleButton",
     "Microsoft.UI.Xaml.Controls.BitmapIcon",
     "Microsoft.UI.Xaml.Controls.Border",
     "Microsoft.UI.Xaml.Controls.BreadcrumbBar",
@@ -27,6 +31,7 @@
     "Microsoft.UI.Xaml.Controls.ColumnDefinition",
     "Microsoft.UI.Xaml.Controls.ComboBox",
     "Microsoft.UI.Xaml.Controls.ComboBoxItem",
+    "Microsoft.UI.Xaml.Controls.CommandBar",
     "Microsoft.UI.Xaml.Controls.ContentDialog",
     "Microsoft.UI.Xaml.Controls.ContentPresenter",
     "Microsoft.UI.Xaml.Controls.DatePicker",

@@ -1547,6 +1547,77 @@ public class IScrollSnapPointsInfoMaker: MakeFromAbi {
         return __IMPL_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointsInfoBridge.from(abi: RawPointer(swiftAbi))!
     }
 }
+// MARK: - AppBarButtonTemplateSettings
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbarbuttontemplatesettings)
+public final class AppBarButtonTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IAppBarButtonTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbarbuttontemplatesettings.keyboardacceleratortextminwidth)
+    public var keyboardAcceleratorTextMinWidth : Double {
+        get { try! _default.get_KeyboardAcceleratorTextMinWidth() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - AppBarButtonTemplateSettings Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum AppBarButtonTemplateSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = AppBarButtonTemplateSettings
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings>?) -> AppBarButtonTemplateSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AppBarButtonTemplateSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = AppBarButtonTemplateSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppBarButtonTemplateSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings: WindowsFoundation.IID = .init(
+        Data1: 0x6FC13525, Data2: 0xBF03, Data3: 0x5190, Data4: ( 0xA1,0xD5,0xEB,0xD6,0xA1,0xBC,0xB6,0xB4 ) // 6FC13525-BF03-5190-A1D5-EBD6A1BCB6B4
+    ) 
+
+    public class IAppBarButtonTemplateSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings }
+
+        public func get_KeyboardAcceleratorTextMinWidth() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextMinWidth(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
 // MARK: - AppBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings)
@@ -1728,6 +1799,77 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarTemplateSettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NegativeHiddenVerticalDelta(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - AppBarToggleButtonTemplateSettings
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartogglebuttontemplatesettings)
+public final class AppBarToggleButtonTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IAppBarToggleButtonTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartogglebuttontemplatesettings.keyboardacceleratortextminwidth)
+    public var keyboardAcceleratorTextMinWidth : Double {
+        get { try! _default.get_KeyboardAcceleratorTextMinWidth() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - AppBarToggleButtonTemplateSettings Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum AppBarToggleButtonTemplateSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = AppBarToggleButtonTemplateSettings
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings>?) -> AppBarToggleButtonTemplateSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class AppBarToggleButtonTemplateSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = AppBarToggleButtonTemplateSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return AppBarToggleButtonTemplateSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings: WindowsFoundation.IID = .init(
+        Data1: 0x32AA9F11, Data2: 0x2F5E, Data3: 0x57AB, Data4: ( 0xA5,0x70,0xB0,0x3B,0xCE,0xEE,0x83,0x5D ) // 32AA9F11-2F5E-57AB-A570-B03BCEEE835D
+    ) 
+
+    public class IAppBarToggleButtonTemplateSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings }
+
+        public func get_KeyboardAcceleratorTextMinWidth() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextMinWidth(pThis, &value))
             }
             return value
         }
@@ -2423,6 +2565,220 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIComboBoxTemplateSettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DropDownContentMinWidth(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+}
+// MARK: - CommandBarTemplateSettings
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings)
+public final class CommandBarTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ICommandBarTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.contentheight)
+    public var contentHeight : Double {
+        get { try! _default.get_ContentHeight() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.effectiveoverflowbuttonvisibility)
+    public var effectiveOverflowButtonVisibility : WinUI.Visibility {
+        get { try! _default.get_EffectiveOverflowButtonVisibility() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.negativeoverflowcontentheight)
+    public var negativeOverflowContentHeight : Double {
+        get { try! _default.get_NegativeOverflowContentHeight() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentcliprect)
+    public var overflowContentClipRect : WindowsFoundation.Rect {
+        get { try! _default.get_OverflowContentClipRect() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentcompactytranslation)
+    public var overflowContentCompactYTranslation : Double {
+        get { try! _default.get_OverflowContentCompactYTranslation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentheight)
+    public var overflowContentHeight : Double {
+        get { try! _default.get_OverflowContentHeight() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontenthiddenytranslation)
+    public var overflowContentHiddenYTranslation : Double {
+        get { try! _default.get_OverflowContentHiddenYTranslation() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontenthorizontaloffset)
+    public var overflowContentHorizontalOffset : Double {
+        get { try! _default.get_OverflowContentHorizontalOffset() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentmaxheight)
+    public var overflowContentMaxHeight : Double {
+        get { try! _default.get_OverflowContentMaxHeight() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentmaxwidth)
+    public var overflowContentMaxWidth : Double {
+        get { try! _default.get_OverflowContentMaxWidth() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentminwidth)
+    public var overflowContentMinWidth : Double {
+        get { try! _default.get_OverflowContentMinWidth() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings.overflowcontentminimalytranslation)
+    public var overflowContentMinimalYTranslation : Double {
+        get { try! _default.get_OverflowContentMinimalYTranslation() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - CommandBarTemplateSettings Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum CommandBarTemplateSettingsBridge: AbiBridge {
+        public typealias SwiftProjection = CommandBarTemplateSettings
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings>?) -> CommandBarTemplateSettings? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class CommandBarTemplateSettingsMaker: MakeFromAbi {
+    public typealias SwiftType = CommandBarTemplateSettings
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return CommandBarTemplateSettings(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings: WindowsFoundation.IID = .init(
+        Data1: 0xAE9535F6, Data2: 0x1678, Data3: 0x5066, Data4: ( 0x90,0xBF,0x14,0x7A,0xA6,0x10,0xC5,0xDD ) // AE9535F6-1678-5066-90BF-147AA610C5DD
+    ) 
+
+    public class ICommandBarTemplateSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings }
+
+        public func get_ContentHeight() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ContentHeight(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OverflowContentClipRect() throws -> WindowsFoundation.Rect {
+            var value: __x_ABI_CWindows_CFoundation_CRect = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentClipRect(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_OverflowContentMinWidth() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentMinWidth(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OverflowContentMaxWidth() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentMaxWidth(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OverflowContentMaxHeight() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentMaxHeight(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OverflowContentHorizontalOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentHorizontalOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OverflowContentHeight() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentHeight(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_NegativeOverflowContentHeight() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NegativeOverflowContentHeight(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_EffectiveOverflowButtonVisibility() throws -> WinUI.Visibility {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CVisibility = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_EffectiveOverflowButtonVisibility(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OverflowContentCompactYTranslation() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentCompactYTranslation(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OverflowContentMinimalYTranslation() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentMinimalYTranslation(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_OverflowContentHiddenYTranslation() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentHiddenYTranslation(pThis, &value))
             }
             return value
         }
