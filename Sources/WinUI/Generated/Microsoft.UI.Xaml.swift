@@ -6790,6 +6790,165 @@ extension __ABI_Microsoft_UI_Xaml {
     }
 
 }
+// MARK: - GridLengthHelper
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper)
+public final class GridLengthHelper : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IGridLengthHelper
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelper
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    private static let _IGridLengthHelperStatics: __ABI_Microsoft_UI_Xaml.IGridLengthHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.GridLengthHelper")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.frompixels)
+    public static func fromPixels(_ pixels: Double) throws -> GridLength {
+        return try _IGridLengthHelperStatics.FromPixels(pixels)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.fromvalueandtype)
+    public static func fromValueAndType(_ value: Double, _ type: GridUnitType) throws -> GridLength {
+        return try _IGridLengthHelperStatics.FromValueAndType(value, type)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.getisabsolute)
+    public static func getIsAbsolute(_ target: GridLength) throws -> Bool {
+        return try _IGridLengthHelperStatics.GetIsAbsolute(target)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.getisauto)
+    public static func getIsAuto(_ target: GridLength) throws -> Bool {
+        return try _IGridLengthHelperStatics.GetIsAuto(target)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.getisstar)
+    public static func getIsStar(_ target: GridLength) throws -> Bool {
+        return try _IGridLengthHelperStatics.GetIsStar(target)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.equals)
+    public static func equals(_ target: GridLength, _ value: GridLength) throws -> Bool {
+        return try _IGridLengthHelperStatics.Equals(target, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlengthhelper.auto)
+    public static var auto : GridLength {
+        get { try! _IGridLengthHelperStatics.get_Auto() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - GridLengthHelper Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml {
+    public enum GridLengthHelperBridge: AbiBridge {
+        public typealias SwiftProjection = GridLengthHelper
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelper
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelper>?) -> GridLengthHelper? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class GridLengthHelperMaker: MakeFromAbi {
+    public typealias SwiftType = GridLengthHelper
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return GridLengthHelper(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelper: WindowsFoundation.IID = .init(
+        Data1: 0x592B4FD5, Data2: 0x6564, Data3: 0x54E0, Data4: ( 0x87,0xD6,0x1C,0x41,0x93,0x9E,0xD4,0x99 ) // 592B4FD5-6564-54E0-87D6-1C41939ED499
+    ) 
+
+    public class IGridLengthHelper: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelper }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics: WindowsFoundation.IID = .init(
+        Data1: 0xCEA8881B, Data2: 0x4E64, Data3: 0x535D, Data4: ( 0x9F,0xCD,0xB4,0x82,0x8D,0x39,0x79,0xB0 ) // CEA8881B-4E64-535D-9FCD-B4828D3979B0
+    ) 
+
+    public class IGridLengthHelperStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics }
+
+        public func get_Auto() throws -> WinUI.GridLength {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CGridLength = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Auto(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func FromPixels(_ pixels: Double) throws -> WinUI.GridLength {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CGridLength = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FromPixels(pThis, pixels, &result))
+            }
+            return .from(abi: result)
+        }
+
+        public func FromValueAndType(_ value: Double, _ type: WinUI.GridUnitType) throws -> WinUI.GridLength {
+            var result: __x_ABI_CMicrosoft_CUI_CXaml_CGridLength = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.FromValueAndType(pThis, value, type, &result))
+            }
+            return .from(abi: result)
+        }
+
+        public func GetIsAbsolute(_ target: WinUI.GridLength) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsAbsolute(pThis, .from(swift: target), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func GetIsAuto(_ target: WinUI.GridLength) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsAuto(pThis, .from(swift: target), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func GetIsStar(_ target: WinUI.GridLength) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetIsStar(pThis, .from(swift: target), &result))
+            }
+            return .init(from: result)
+        }
+
+        public func Equals(_ target: WinUI.GridLength, _ value: WinUI.GridLength) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CIGridLengthHelperStatics.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Equals(pThis, .from(swift: target), .from(swift: value), &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+}
 // MARK: - LaunchActivatedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.launchactivatedeventargs)
