@@ -344,6 +344,204 @@ extension __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGeneratorPosition 
         .init(Index: swift.index, Offset: swift.offset)
     }
 }
+// MARK: - DragCompletedEventHandler
+
+public typealias DragCompletedEventHandler = (Any?, DragCompletedEventArgs?) throws -> ()
+
+// MARK: - DragCompletedEventHandler Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public class DragCompletedEventHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = DragCompletedEventHandler
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventHandler
+        public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventHandler
+
+        public static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (sender, e) in
+                try _default.Invoke(sender, e)
+            }
+            return handler
+        }
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventHandler: WindowsFoundation.IID = .init(
+        Data1: 0xA27012CB, Data2: 0x923F, Data3: 0x5992, Data4: ( 0xAD,0xE2,0x87,0x8F,0x7C,0x79,0x4E,0xF5 ) // A27012CB-923F-5992-ADE2-878F7C794EF5
+    ) 
+
+    public class DragCompletedEventHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventHandler }
+
+        open func Invoke(_ sender: Any?, _ e: WinUI.DragCompletedEventArgs?) throws {
+            let senderWrapper = __ABI_.AnyWrapper(sender)
+            let _sender = try! senderWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _sender, RawPointer(e)))
+            }
+        }
+
+    }
+
+
+    typealias DragCompletedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventHandlerBridge>
+    internal static var DragCompletedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventHandlerVtbl = .init(
+        QueryInterface: { DragCompletedEventHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { DragCompletedEventHandlerWrapper.addRef($0) },
+        Release: { DragCompletedEventHandlerWrapper.release($0) },
+        Invoke: {
+            do {
+                guard let __unwrapped__instance = DragCompletedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.DragCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+// MARK: - DragDeltaEventHandler
+
+public typealias DragDeltaEventHandler = (Any?, DragDeltaEventArgs?) throws -> ()
+
+// MARK: - DragDeltaEventHandler Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public class DragDeltaEventHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = DragDeltaEventHandler
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventHandler
+        public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventHandler
+
+        public static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (sender, e) in
+                try _default.Invoke(sender, e)
+            }
+            return handler
+        }
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventHandler: WindowsFoundation.IID = .init(
+        Data1: 0x49CA91D0, Data2: 0xFC43, Data3: 0x56B1, Data4: ( 0x98,0xBD,0x68,0xE2,0xE1,0xE2,0x4D,0xE9 ) // 49CA91D0-FC43-56B1-98BD-68E2E1E24DE9
+    ) 
+
+    public class DragDeltaEventHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventHandler }
+
+        open func Invoke(_ sender: Any?, _ e: WinUI.DragDeltaEventArgs?) throws {
+            let senderWrapper = __ABI_.AnyWrapper(sender)
+            let _sender = try! senderWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _sender, RawPointer(e)))
+            }
+        }
+
+    }
+
+
+    typealias DragDeltaEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventHandlerBridge>
+    internal static var DragDeltaEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventHandlerVtbl = .init(
+        QueryInterface: { DragDeltaEventHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { DragDeltaEventHandlerWrapper.addRef($0) },
+        Release: { DragDeltaEventHandlerWrapper.release($0) },
+        Invoke: {
+            do {
+                guard let __unwrapped__instance = DragDeltaEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.DragDeltaEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+// MARK: - DragStartedEventHandler
+
+public typealias DragStartedEventHandler = (Any?, DragStartedEventArgs?) throws -> ()
+
+// MARK: - DragStartedEventHandler Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public class DragStartedEventHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = DragStartedEventHandler
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventHandler
+        public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventHandler
+
+        public static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (sender, e) in
+                try _default.Invoke(sender, e)
+            }
+            return handler
+        }
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventHandler: WindowsFoundation.IID = .init(
+        Data1: 0x13191F6D, Data2: 0xA651, Data3: 0x5870, Data4: ( 0xB3,0xA1,0x22,0x15,0x50,0x00,0x35,0x12 ) // 13191F6D-A651-5870-B3A1-221550003512
+    ) 
+
+    public class DragStartedEventHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventHandler }
+
+        open func Invoke(_ sender: Any?, _ e: WinUI.DragStartedEventArgs?) throws {
+            let senderWrapper = __ABI_.AnyWrapper(sender)
+            let _sender = try! senderWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _sender, RawPointer(e)))
+            }
+        }
+
+    }
+
+
+    typealias DragStartedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventHandlerBridge>
+    internal static var DragStartedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventHandlerVtbl = .init(
+        QueryInterface: { DragStartedEventHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { DragStartedEventHandlerWrapper.addRef($0) },
+        Release: { DragStartedEventHandlerWrapper.release($0) },
+        Invoke: {
+            do {
+                guard let __unwrapped__instance = DragStartedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let e: WinUI.DragStartedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventArgsBridge.from(abi: ComPtr($2))
+                try __unwrapped__instance(sender, e)
+                return S_OK
+            } catch { return failWith(error: error) }
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
 // MARK: - ItemsChangedEventHandler
 
 public typealias ItemsChangedEventHandler = (Any?, ItemsChangedEventArgs?) throws -> ()
@@ -2781,6 +2979,427 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_OverflowContentHiddenYTranslation(pThis, &value))
             }
             return value
+        }
+
+    }
+
+}
+// MARK: - DragCompletedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragcompletedeventargs)
+open class DragCompletedEventArgs : WinUI.RoutedEventArgs {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragCompletedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IDragCompletedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragCompletedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.DragCompletedEventArgs")
+
+    public init(_ horizontalChange: Double, _ verticalChange: Double, _ canceled: Bool) {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDragCompletedEventArgsFactory.CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(horizontalChange, verticalChange, canceled, baseInterface, &innerInterface)
+        }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragcompletedeventargs.canceled)
+    public var canceled : Bool {
+        get { try! _default.get_Canceled() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragcompletedeventargs.horizontalchange)
+    public var horizontalChange : Double {
+        get { try! _default.get_HorizontalChange() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragcompletedeventargs.verticalchange)
+    public var verticalChange : Double {
+        get { try! _default.get_VerticalChange() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - DragCompletedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum DragCompletedEventArgsBridge: ComposableBridge {
+        public typealias SwiftProjection = DragCompletedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs>?) -> DragCompletedEventArgs? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IDragCompletedEventArgs : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = DragCompletedEventArgs
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragCompletedEventArgs
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IDragCompletedEventArgs
+    }
+
+}
+@_spi(WinRTInternal)
+public class DragCompletedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DragCompletedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DragCompletedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xACD47547, Data2: 0x3784, Data3: 0x51FF, Data4: ( 0x8E,0xEB,0x7B,0x21,0x24,0x39,0x97,0x4B ) // ACD47547-3784-51FF-8EEB-7B212439974B
+    ) 
+
+    public class IDragCompletedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs }
+
+        public func get_HorizontalChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalChange(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_VerticalChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalChange(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Canceled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Canceled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgsFactory: WindowsFoundation.IID = .init(
+        Data1: 0x5767C408, Data2: 0x454B, Data3: 0x55CF, Data4: ( 0xB7,0x4E,0x22,0x96,0x42,0xAE,0xD1,0x08 ) // 5767C408-454B-55CF-B74E-229642AED108
+    ) 
+
+    public class IDragCompletedEventArgsFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgsFactory }
+
+        public func CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(_ horizontalChange: Double, _ verticalChange: Double, _ canceled: Bool, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDragCompletedEventArgs {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgsFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(pThis, horizontalChange, verticalChange, .init(from: canceled), _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IDragCompletedEventArgs(value!)
+        }
+
+    }
+
+}
+// MARK: - DragDeltaEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragdeltaeventargs)
+open class DragDeltaEventArgs : WinUI.RoutedEventArgs {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragDeltaEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IDragDeltaEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragDeltaEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.DragDeltaEventArgs")
+
+    public init(_ horizontalChange: Double, _ verticalChange: Double) {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDragDeltaEventArgsFactory.CreateInstanceWithHorizontalChangeAndVerticalChange(horizontalChange, verticalChange, baseInterface, &innerInterface)
+        }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragdeltaeventargs.horizontalchange)
+    public var horizontalChange : Double {
+        get { try! _default.get_HorizontalChange() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragdeltaeventargs.verticalchange)
+    public var verticalChange : Double {
+        get { try! _default.get_VerticalChange() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - DragDeltaEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum DragDeltaEventArgsBridge: ComposableBridge {
+        public typealias SwiftProjection = DragDeltaEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs>?) -> DragDeltaEventArgs? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IDragDeltaEventArgs : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = DragDeltaEventArgs
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragDeltaEventArgs
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IDragDeltaEventArgs
+    }
+
+}
+@_spi(WinRTInternal)
+public class DragDeltaEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DragDeltaEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DragDeltaEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xBC405765, Data2: 0xED94, Data3: 0x5697, Data4: ( 0x85,0x06,0xA8,0xF3,0xD1,0x52,0x72,0xF9 ) // BC405765-ED94-5697-8506-A8F3D15272F9
+    ) 
+
+    public class IDragDeltaEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs }
+
+        public func get_HorizontalChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalChange(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_VerticalChange() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalChange(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgsFactory: WindowsFoundation.IID = .init(
+        Data1: 0x4ADBA280, Data2: 0xE1F9, Data3: 0x5DAB, Data4: ( 0x87,0xFF,0x59,0x03,0xB4,0x19,0xEF,0x9D ) // 4ADBA280-E1F9-5DAB-87FF-5903B419EF9D
+    ) 
+
+    public class IDragDeltaEventArgsFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgsFactory }
+
+        public func CreateInstanceWithHorizontalChangeAndVerticalChange(_ horizontalChange: Double, _ verticalChange: Double, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDragDeltaEventArgs {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgsFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithHorizontalChangeAndVerticalChange(pThis, horizontalChange, verticalChange, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IDragDeltaEventArgs(value!)
+        }
+
+    }
+
+}
+// MARK: - DragStartedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragstartedeventargs)
+open class DragStartedEventArgs : WinUI.RoutedEventArgs {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragStartedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IDragStartedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragStartedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.DragStartedEventArgs")
+
+    public init(_ horizontalOffset: Double, _ verticalOffset: Double) {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDragStartedEventArgsFactory.CreateInstanceWithHorizontalOffsetAndVerticalOffset(horizontalOffset, verticalOffset, baseInterface, &innerInterface)
+        }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragstartedeventargs.horizontaloffset)
+    public var horizontalOffset : Double {
+        get { try! _default.get_HorizontalOffset() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragstartedeventargs.verticaloffset)
+    public var verticalOffset : Double {
+        get { try! _default.get_VerticalOffset() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - DragStartedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum DragStartedEventArgsBridge: ComposableBridge {
+        public typealias SwiftProjection = DragStartedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs>?) -> DragStartedEventArgs? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IDragStartedEventArgs : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = DragStartedEventArgs
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragStartedEventArgs
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IDragStartedEventArgs
+    }
+
+}
+@_spi(WinRTInternal)
+public class DragStartedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = DragStartedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DragStartedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0xAA27AEE4, Data2: 0x2BDD, Data3: 0x5D9A, Data4: ( 0x8A,0x1C,0xB3,0x74,0x80,0xA2,0x01,0x2B ) // AA27AEE4-2BDD-5D9A-8A1C-B37480A2012B
+    ) 
+
+    public class IDragStartedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs }
+
+        public func get_HorizontalOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalOffset(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_VerticalOffset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_VerticalOffset(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgsFactory: WindowsFoundation.IID = .init(
+        Data1: 0x36078AA3, Data2: 0x906C, Data3: 0x5EF0, Data4: ( 0x9D,0x24,0x30,0xC0,0x9F,0x79,0xC1,0x8F ) // 36078AA3-906C-5EF0-9D24-30C09F79C18F
+    ) 
+
+    public class IDragStartedEventArgsFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgsFactory }
+
+        public func CreateInstanceWithHorizontalOffsetAndVerticalOffset(_ horizontalOffset: Double, _ verticalOffset: Double, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDragStartedEventArgs {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgsFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstanceWithHorizontalOffsetAndVerticalOffset(pThis, horizontalOffset, verticalOffset, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IDragStartedEventArgs(value!)
         }
 
     }
@@ -8107,6 +8726,204 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CompactPaneGridLength(pThis, &value))
             }
             return .from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - Thumb
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb)
+public final class Thumb : WinUI.Control {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IThumb
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Thumb")
+    override public init() {
+        super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
+    }
+
+    private static let _IThumbStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IThumbStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Thumb")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.isdraggingproperty)
+    public static var isDraggingProperty : WinUI.DependencyProperty! {
+        get { try! _IThumbStatics.get_IsDraggingProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.canceldrag)
+    public func cancelDrag() throws {
+        try _default.CancelDrag()
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.isdragging)
+    public var isDragging : Bool {
+        get { try! _default.get_IsDragging() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.dragcompleted)
+    public lazy var dragCompleted : Event<DragCompletedEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DragCompleted($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DragCompleted($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.dragdelta)
+    public lazy var dragDelta : Event<DragDeltaEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DragDelta($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DragDelta($0)
+       }
+      )
+    }()
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.dragstarted)
+    public lazy var dragStarted : Event<DragStartedEventHandler> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_DragStarted($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_DragStarted($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - Thumb Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum ThumbBridge: AbiBridge {
+        public typealias SwiftProjection = Thumb
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb>?) -> Thumb? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ThumbMaker: MakeFromAbi {
+    public typealias SwiftType = Thumb
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return Thumb(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb: WindowsFoundation.IID = .init(
+        Data1: 0x9B540AE4, Data2: 0x98ED, Data3: 0x5A19, Data4: ( 0x95,0x12,0xA5,0x68,0x78,0xC5,0x2F,0xEE ) // 9B540AE4-98ED-5A19-9512-A56878C52FEE
+    ) 
+
+    public class IThumb: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb }
+
+        public func get_IsDragging() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDragging(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func add_DragStarted(_ handler: WinUI.DragStartedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DragStarted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DragStarted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DragStarted(pThis, token))
+            }
+        }
+
+        public func add_DragDelta(_ handler: WinUI.DragDeltaEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DragDelta(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DragDelta(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DragDelta(pThis, token))
+            }
+        }
+
+        public func add_DragCompleted(_ handler: WinUI.DragCompletedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_DragCompleted(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_DragCompleted(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_DragCompleted(pThis, token))
+            }
+        }
+
+        public func CancelDrag() throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.CancelDrag(pThis))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumbStatics: WindowsFoundation.IID = .init(
+        Data1: 0x900C4924, Data2: 0x886A, Data3: 0x5F24, Data4: ( 0x96,0xD1,0x1E,0xC3,0xA3,0x6E,0x8D,0x66 ) // 900C4924-886A-5F24-96D1-1EC3A36E8D66
+    ) 
+
+    public class IThumbStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumbStatics }
+
+        public func get_IsDraggingProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumbStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsDraggingProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }

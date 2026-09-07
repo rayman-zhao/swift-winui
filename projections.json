@@ -79,6 +79,7 @@
     "Microsoft.UI.Xaml.Controls.Pivot",
     "Microsoft.UI.Xaml.Controls.PivotItem",
     "Microsoft.UI.Xaml.Controls.Primitives.Popup",
+    "Microsoft.UI.Xaml.Controls.Primitives.Thumb",
     "Microsoft.UI.Xaml.Controls.ProgressBar",
     "Microsoft.UI.Xaml.Controls.ProgressRing",
     "Microsoft.UI.Xaml.Controls.RadioButton",
