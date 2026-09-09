@@ -49685,6 +49685,57 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__
         return handler
     }
 }
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0x81b28e20, Data2: 0xa1b7, Data3: 0x5f3f, Data4: ( 0xbc,0x21,0x9d,0xb6,0xfa,0xa0,0xc5,0x49 ))// 81b28e20-a1b7-5f3f-bc21-9db6faa0c549
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinUI.ToggleSplitButton? = __IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonBridge.from(abi: ComPtr($1))
+            let args: WinUI.ToggleSplitButtonIsCheckedChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonIsCheckedChangedEventArgsBridge.from(abi: ComPtr($2))
+            try __unwrapped__instance(sender, args)
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsBridge>
+public class TypedEventHandlerToggleSplitButton_ToggleSplitButtonIsCheckedChangedEventArgs: WindowsFoundation.IUnknown {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgs }
+
+    open func Invoke(_ sender: WinUI.ToggleSplitButton?, _ args: WinUI.ToggleSplitButtonIsCheckedChangedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ToggleSplitButton?, WinUI.ToggleSplitButtonIsCheckedChangedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgs
+    internal typealias SwiftABI = WinUI.TypedEventHandlerToggleSplitButton_ToggleSplitButtonIsCheckedChangedEventArgs
+
+    internal static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewCollapsedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0x611c2f44, Data2: 0xfc2f, Data3: 0x5f3d, Data4: ( 0x99,0x4e,0x17,0x7b,0x9a,0x58,0xab,0x90 ))// 611c2f44-fc2f-5f3d-994e-177b9a58ab90
 }

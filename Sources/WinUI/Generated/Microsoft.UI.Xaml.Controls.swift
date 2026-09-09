@@ -69857,6 +69857,247 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
     }
 
 }
+// MARK: - ToggleSplitButton
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbutton)
+open class ToggleSplitButton : WinUI.SplitButton {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButton
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IToggleSplitButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSplitButton")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IToggleSplitButtonFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IToggleSplitButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSplitButton")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbutton.ischeckedproperty)
+    public class var isCheckedProperty : WinUI.DependencyProperty! {
+        get { try! _IToggleSplitButtonStatics.get_IsCheckedProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbutton.ischecked)
+    public var isChecked : Bool {
+        get { try! _default.get_IsChecked() }
+        set { try! _default.put_IsChecked(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbutton.ischeckedchanged)
+    public lazy var isCheckedChanged : Event<TypedEventHandler<ToggleSplitButton?, ToggleSplitButtonIsCheckedChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] in
+          guard let this = self?._default else { return .init() }
+          return try! this.add_IsCheckedChanged($0)
+        },
+        remove: { [weak self] in
+         try? self?._default.remove_IsCheckedChanged($0)
+       }
+      )
+    }()
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - ToggleSplitButton Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum ToggleSplitButtonBridge: ComposableBridge {
+        public typealias SwiftProjection = ToggleSplitButton
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton>?) -> ToggleSplitButton? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IContentControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
+            public typealias Class = ToggleSplitButton
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButton
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IContentControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class ToggleSplitButtonMaker: MakeFromAbi {
+    public typealias SwiftType = ToggleSplitButton
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ToggleSplitButton(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton: WindowsFoundation.IID = .init(
+        Data1: 0x5C0F247B, Data2: 0xBD00, Data3: 0x5509, Data4: ( 0x88,0xA8,0xB0,0x90,0x07,0xAE,0x22,0xB0 ) // 5C0F247B-BD00-5509-88A8-B09007AE22B0
+    ) 
+
+    public class IToggleSplitButton: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton }
+
+        public func get_IsChecked() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsChecked(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsChecked(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsChecked(pThis, .init(from: value)))
+            }
+        }
+
+        public func add_IsCheckedChanged(_ handler: TypedEventHandler<WinUI.ToggleSplitButton?, WinUI.ToggleSplitButtonIsCheckedChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_IsCheckedChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_IsCheckedChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_IsCheckedChanged(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonFactory: WindowsFoundation.IID = .init(
+        Data1: 0x25459D02, Data2: 0x0FFC, Data3: 0x5C7C, Data4: ( 0xAF,0x56,0xF5,0x5A,0xAD,0x6D,0xB5,0xE7 ) // 25459D02-0FFC-5C7C-AF56-F55AAD6DB5E7
+    ) 
+
+    public class IToggleSplitButtonFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IToggleSplitButton {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IToggleSplitButton(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonStatics: WindowsFoundation.IID = .init(
+        Data1: 0x801C9CA9, Data2: 0x5B24, Data3: 0x5B9E, Data4: ( 0xA8,0xD1,0xCF,0xF4,0xB6,0xE6,0x85,0x7F ) // 801C9CA9-5B24-5B9E-A8D1-CFF4B6E6857F
+    ) 
+
+    public class IToggleSplitButtonStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonStatics }
+
+        public func get_IsCheckedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCheckedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ToggleSplitButtonIsCheckedChangedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbuttonischeckedchangedeventargs)
+public final class ToggleSplitButtonIsCheckedChangedEventArgs : WinRTClass {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonIsCheckedChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonIsCheckedChangedEventArgs
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - ToggleSplitButtonIsCheckedChangedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum ToggleSplitButtonIsCheckedChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ToggleSplitButtonIsCheckedChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonIsCheckedChangedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonIsCheckedChangedEventArgs>?) -> ToggleSplitButtonIsCheckedChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ToggleSplitButtonIsCheckedChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ToggleSplitButtonIsCheckedChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ToggleSplitButtonIsCheckedChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonIsCheckedChangedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x6CAB1E15, Data2: 0xC017, Data3: 0x5760, Data4: ( 0x82,0x8B,0xDA,0xFC,0x21,0xD5,0x4E,0xB2 ) // 6CAB1E15-C017-5760-828B-DAFC21D54EB2
+    ) 
+
+    public class IToggleSplitButtonIsCheckedChangedEventArgs: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonIsCheckedChangedEventArgs }
+
+    }
+
+}
 // MARK: - ToggleSwitch
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.toggleswitch)
