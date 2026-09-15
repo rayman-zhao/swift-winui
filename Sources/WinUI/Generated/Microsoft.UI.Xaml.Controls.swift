@@ -47392,6 +47392,244 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
     }
 
 }
+// MARK: - RadioMenuFlyoutItem
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem)
+open class RadioMenuFlyoutItem : WinUI.MenuFlyoutItem {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItem
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IRadioMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RadioMenuFlyoutItemBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IRadioMenuFlyoutItemFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IRadioMenuFlyoutItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.groupnameproperty)
+    public class var groupNameProperty : WinUI.DependencyProperty! {
+        get { try! _IRadioMenuFlyoutItemStatics.get_GroupNameProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.ischeckedproperty)
+    public class var isCheckedProperty : WinUI.DependencyProperty! {
+        get { try! _IRadioMenuFlyoutItemStatics.get_IsCheckedProperty() }
+    }
+
+    private static let _IRadioMenuFlyoutItemStatics2: __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.setarecheckstatesenabled)
+    public class func setAreCheckStatesEnabled(_ object: MenuFlyoutSubItem!, _ value: Bool) throws {
+        try _IRadioMenuFlyoutItemStatics2.SetAreCheckStatesEnabled(object, value)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.getarecheckstatesenabled)
+    public class func getAreCheckStatesEnabled(_ object: MenuFlyoutSubItem!) throws -> Bool {
+        return try _IRadioMenuFlyoutItemStatics2.GetAreCheckStatesEnabled(object)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.arecheckstatesenabledproperty)
+    public class var areCheckStatesEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IRadioMenuFlyoutItemStatics2.get_AreCheckStatesEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.groupname)
+    public var groupName : String {
+        get { try! _default.get_GroupName() }
+        set { try! _default.put_GroupName(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.ischecked)
+    public var isChecked : Bool {
+        get { try! _default.get_IsChecked() }
+        set { try! _default.put_IsChecked(newValue) }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - RadioMenuFlyoutItem Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum RadioMenuFlyoutItemBridge: ComposableBridge {
+        public typealias SwiftProjection = RadioMenuFlyoutItem
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem>?) -> RadioMenuFlyoutItem? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = RadioMenuFlyoutItem
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItem
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class RadioMenuFlyoutItemMaker: MakeFromAbi {
+    public typealias SwiftType = RadioMenuFlyoutItem
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RadioMenuFlyoutItem(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem: WindowsFoundation.IID = .init(
+        Data1: 0x9D6F45F5, Data2: 0x5532, Data3: 0x5669, Data4: ( 0x8F,0x02,0x05,0x73,0x59,0x53,0x02,0x6A ) // 9D6F45F5-5532-5669-8F02-05735953026A
+    ) 
+
+    public class IRadioMenuFlyoutItem: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem }
+
+        public func get_IsChecked() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsChecked(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsChecked(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsChecked(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_GroupName() throws -> String {
+            var value: HSTRING?
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupName(pThis, &value))
+            }
+            defer { WindowsDeleteString(value) }
+            return .init(from: value)
+        }
+
+        public func put_GroupName(_ value: String) throws {
+            let _value = try! HString(value)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_GroupName(pThis, _value.get()))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemFactory: WindowsFoundation.IID = .init(
+        Data1: 0x113822D2, Data2: 0x35A3, Data3: 0x5B0D, Data4: ( 0x9D,0x0D,0xC3,0x83,0x0E,0xC1,0x97,0x3B ) // 113822D2-35A3-5B0D-9D0D-C3830EC1973B
+    ) 
+
+    public class IRadioMenuFlyoutItemFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RadioMenuFlyoutItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRadioMenuFlyoutItem {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IRadioMenuFlyoutItem(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics: WindowsFoundation.IID = .init(
+        Data1: 0x47117E20, Data2: 0xE03D, Data3: 0x53F0, Data4: ( 0x93,0x8E,0xEC,0xCB,0xFF,0xFB,0x54,0x21 ) // 47117E20-E03D-53F0-938E-ECCBFFFB5421
+    ) 
+
+    public class IRadioMenuFlyoutItemStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics }
+
+        public func get_IsCheckedProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsCheckedProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_GroupNameProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupNameProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x2040FFBF, Data2: 0x947F, Data3: 0x58ED, Data4: ( 0x96,0x9F,0x5D,0x8D,0x89,0x67,0xB9,0xA0 ) // 2040FFBF-947F-58ED-969F-5D8D8967B9A0
+    ) 
+
+    public class IRadioMenuFlyoutItemStatics2: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics2 }
+
+        public func get_AreCheckStatesEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_AreCheckStatesEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func SetAreCheckStatesEnabled(_ object: WinUI.MenuFlyoutSubItem?, _ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.SetAreCheckStatesEnabled(pThis, RawPointer(object), .init(from: value)))
+            }
+        }
+
+        public func GetAreCheckStatesEnabled(_ object: WinUI.MenuFlyoutSubItem?) throws -> Bool {
+            var result: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.GetAreCheckStatesEnabled(pThis, RawPointer(object), &result))
+            }
+            return .init(from: result)
+        }
+
+    }
+
+}
 // MARK: - RefreshContainer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshcontainer)

@@ -84,6 +84,7 @@
     "Microsoft.UI.Xaml.Controls.ProgressRing",
     "Microsoft.UI.Xaml.Controls.RadioButton",
     "Microsoft.UI.Xaml.Controls.RadioButtons",
+    "Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem",
     "Microsoft.UI.Xaml.Controls.RefreshContainer",
     "Microsoft.UI.Xaml.Controls.RelativePanel",
     "Microsoft.UI.Xaml.Controls.RichEditBox",
