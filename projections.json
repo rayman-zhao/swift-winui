@@ -57,6 +57,7 @@
     "Microsoft.UI.Xaml.Controls.ItemsView",
     "Microsoft.UI.Xaml.Controls.ItemsWrapGrid",
     "Microsoft.UI.Xaml.Controls.HyperlinkButton",
+    "Microsoft.UI.Xaml.Controls.LinedFlowLayoutItemCollectionTransitionProvider",
     "Microsoft.UI.Xaml.Controls.ListBox",
     "Microsoft.UI.Xaml.Controls.ListBoxItem",
     "Microsoft.UI.Xaml.Controls.MediaPlayerElement",

@@ -33362,6 +33362,116 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
         return .init(lpVtbl: vtblPtr)
     }
 }
+// MARK: - LinedFlowLayoutItemCollectionTransitionProvider
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.linedflowlayoutitemcollectiontransitionprovider)
+open class LinedFlowLayoutItemCollectionTransitionProvider : WinUI.ItemCollectionTransitionProvider {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ILinedFlowLayoutItemCollectionTransitionProvider
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _ILinedFlowLayoutItemCollectionTransitionProviderFactory : __ABI_Microsoft_UI_Xaml_Controls.ILinedFlowLayoutItemCollectionTransitionProviderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.LinedFlowLayoutItemCollectionTransitionProvider")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.LinedFlowLayoutItemCollectionTransitionProviderBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._ILinedFlowLayoutItemCollectionTransitionProviderFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - LinedFlowLayoutItemCollectionTransitionProvider Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum LinedFlowLayoutItemCollectionTransitionProviderBridge: ComposableBridge {
+        public typealias SwiftProjection = LinedFlowLayoutItemCollectionTransitionProvider
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider>?) -> LinedFlowLayoutItemCollectionTransitionProvider? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IItemCollectionTransitionProviderOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProviderOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProviderOverrides
+            public typealias Class = LinedFlowLayoutItemCollectionTransitionProvider
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ILinedFlowLayoutItemCollectionTransitionProvider
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IItemCollectionTransitionProviderOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class LinedFlowLayoutItemCollectionTransitionProviderMaker: MakeFromAbi {
+    public typealias SwiftType = LinedFlowLayoutItemCollectionTransitionProvider
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return LinedFlowLayoutItemCollectionTransitionProvider(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider: WindowsFoundation.IID = .init(
+        Data1: 0xA7C000DE, Data2: 0x2543, Data3: 0x5DC2, Data4: ( 0xA3,0x6D,0x5D,0x69,0xF4,0xF5,0x5D,0x61 ) // A7C000DE-2543-5DC2-A36D-5D69F4F55D61
+    ) 
+
+    public class ILinedFlowLayoutItemCollectionTransitionProvider: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProviderFactory: WindowsFoundation.IID = .init(
+        Data1: 0xE915C9FC, Data2: 0xBA75, Data3: 0x581E, Data4: ( 0x9B,0x96,0x20,0xED,0xD8,0xBE,0xFC,0xC4 ) // E915C9FC-BA75-581E-9B96-20EDD8BEFCC4
+    ) 
+
+    public class ILinedFlowLayoutItemCollectionTransitionProviderFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProviderFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.LinedFlowLayoutItemCollectionTransitionProviderBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ILinedFlowLayoutItemCollectionTransitionProvider {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProviderFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return ILinedFlowLayoutItemCollectionTransitionProvider(value!)
+        }
+
+    }
+
+}
 // MARK: - ListBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listbox)
