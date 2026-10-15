@@ -21280,6 +21280,116 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
     }
 
 }
+// MARK: - DropDownButton
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dropdownbutton)
+open class DropDownButton : WinUI.Button {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDropDownButton
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IDropDownButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IDropDownButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DropDownButton")
+
+    override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.DropDownButtonBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDropDownButtonFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - DropDownButton Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum DropDownButtonBridge: ComposableBridge {
+        public typealias SwiftProjection = DropDownButton
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton>?) -> DropDownButton? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IContentControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides
+            public typealias Class = DropDownButton
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDropDownButton
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IContentControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class DropDownButtonMaker: MakeFromAbi {
+    public typealias SwiftType = DropDownButton
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return DropDownButton(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton: WindowsFoundation.IID = .init(
+        Data1: 0xC1E9FA91, Data2: 0x4F95, Data3: 0x5796, Data4: ( 0x8A,0x7B,0x3B,0x75,0x94,0xA1,0x2C,0x69 ) // C1E9FA91-4F95-5796-8A7B-3B7594A12C69
+    ) 
+
+    public class IDropDownButton: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButtonFactory: WindowsFoundation.IID = .init(
+        Data1: 0x7CF3E13B, Data2: 0x668D, Data3: 0x57E7, Data4: ( 0xB5,0xD6,0xF5,0xCA,0x3D,0xBC,0x80,0xBD ) // 7CF3E13B-668D-57E7-B5D6-F5CA3DBC80BD
+    ) 
+
+    public class IDropDownButtonFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButtonFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.DropDownButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDropDownButton {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButtonFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IDropDownButton(value!)
+        }
+
+    }
+
+}
 // MARK: - DynamicOverflowItemsChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dynamicoverflowitemschangingeventargs)

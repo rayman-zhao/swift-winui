@@ -35,6 +35,7 @@
     "Microsoft.UI.Xaml.Controls.ContentDialog",
     "Microsoft.UI.Xaml.Controls.ContentPresenter",
     "Microsoft.UI.Xaml.Controls.DatePicker",
+    "Microsoft.UI.Xaml.Controls.DropDownButton",
     "Microsoft.UI.Xaml.Controls.Expander",
     "Microsoft.UI.Xaml.Controls.FlipView",
     "Microsoft.UI.Xaml.Controls.FlipViewItem",
