@@ -8,7 +8,7 @@ import CWinRT
 // MARK: - Ellipse
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.ellipse)
-public final class Ellipse : WinUI.Shape {
+public final class Ellipse : WinUI.Shape, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IEllipse
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -62,7 +62,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0x805C39AA, Data2: 0xFA8A, Data3: 0x5E0B, Data4: ( 0x98,0x47,0x4A,0xB8,0x1B,0x42,0xA3,0xDF ) // 805C39AA-FA8A-5E0B-9847-4AB81B42A3DF
     ) 
 
-    public class IEllipse: WindowsFoundation.IInspectable {
+    public class IEllipse: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse }
 
     }
@@ -71,7 +71,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
 // MARK: - Path
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.path)
-open class Path : WinUI.Shape {
+open class Path : WinUI.Shape, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IPath
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -98,7 +98,7 @@ open class Path : WinUI.Shape {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPathFactory : __ABI_Microsoft_UI_Xaml_Shapes.IPathFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Path")
+    private static nonisolated(unsafe) var _IPathFactory : __ABI_Microsoft_UI_Xaml_Shapes.IPathFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Path")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Shapes.PathBridge.Composable.self) { baseInterface, innerInterface in 
@@ -162,7 +162,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0x757D1CD8, Data2: 0x0EC0, Data3: 0x55C5, Data4: ( 0xB4,0x00,0x66,0x65,0x7E,0x49,0x3E,0x78 ) // 757D1CD8-0EC0-55C5-B400-66657E493E78
     ) 
 
-    public class IPath: WindowsFoundation.IInspectable {
+    public class IPath: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath }
 
         public func get_Data() throws -> WinUI.Geometry? {
@@ -186,7 +186,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0x5E82E4C9, Data2: 0x7502, Data3: 0x5B1F, Data4: ( 0xB9,0x40,0xC3,0x34,0x6A,0x71,0x36,0x2A ) // 5E82E4C9-7502-5B1F-B940-C3346A71362A
     ) 
 
-    public class IPathFactory: WindowsFoundation.IInspectable {
+    public class IPathFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPathFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Shapes.PathBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPath {
@@ -208,7 +208,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0x2146D36F, Data2: 0x721C, Data3: 0x5B54, Data4: ( 0xAF,0x7D,0x60,0xF3,0xAD,0xC4,0xFB,0xCA ) // 2146D36F-721C-5B54-AF7D-60F3ADC4FBCA
     ) 
 
-    public class IPathStatics: WindowsFoundation.IInspectable {
+    public class IPathStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPathStatics }
 
         public func get_DataProperty() throws -> WinUI.DependencyProperty? {
@@ -226,7 +226,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
 // MARK: - Rectangle
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle)
-public final class Rectangle : WinUI.Shape {
+public final class Rectangle : WinUI.Shape, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IRectangle
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -303,7 +303,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0xBF7D30B9, Data2: 0x152C, Data3: 0x556E, Data4: ( 0x9F,0x10,0xD0,0xB7,0xEB,0xA4,0xE5,0x2F ) // BF7D30B9-152C-556E-9F10-D0B7EBA4E52F
     ) 
 
-    public class IRectangle: WindowsFoundation.IInspectable {
+    public class IRectangle: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle }
 
         public func get_RadiusX() throws -> Double {
@@ -340,7 +340,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0x3CC3CC79, Data2: 0xC332, Data3: 0x5AD0, Data4: ( 0x87,0x43,0x1F,0x1B,0x1E,0x67,0x0A,0x86 ) // 3CC3CC79-C332-5AD0-8743-1F1B1E670A86
     ) 
 
-    public class IRectangleStatics: WindowsFoundation.IInspectable {
+    public class IRectangleStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangleStatics }
 
         public func get_RadiusXProperty() throws -> WinUI.DependencyProperty? {
@@ -367,7 +367,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
 // MARK: - Shape
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape)
-open class Shape : WinUI.FrameworkElement {
+open class Shape : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IShape
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -394,7 +394,7 @@ open class Shape : WinUI.FrameworkElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IShapeFactory : __ABI_Microsoft_UI_Xaml_Shapes.IShapeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Shape")
+    private static nonisolated(unsafe) var _IShapeFactory : __ABI_Microsoft_UI_Xaml_Shapes.IShapeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Shape")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Shapes.ShapeBridge.Composable.self) { baseInterface, innerInterface in 
@@ -578,7 +578,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0x9941AAD3, Data2: 0x6AF2, Data3: 0x5BA2, Data4: ( 0x90,0x85,0x85,0x06,0xD5,0xF2,0x48,0x5E ) // 9941AAD3-6AF2-5BA2-9085-8506D5F2485E
     ) 
 
-    public class IShape: WindowsFoundation.IInspectable {
+    public class IShape: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape }
 
         public func get_Fill() throws -> WinUI.Brush? {
@@ -762,7 +762,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0x4FECAFAF, Data2: 0x8265, Data3: 0x5252, Data4: ( 0xBA,0x5C,0xF4,0x36,0x39,0xF9,0x74,0xA5 ) // 4FECAFAF-8265-5252-BA5C-F43639F974A5
     ) 
 
-    public class IShapeFactory: WindowsFoundation.IInspectable {
+    public class IShapeFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Shapes.ShapeBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IShape {
@@ -784,7 +784,7 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
         Data1: 0xEA407C43, Data2: 0x8A09, Data3: 0x587A, Data4: ( 0x95,0x8A,0x4D,0xD1,0x7D,0x21,0x7C,0xE1 ) // EA407C43-8A09-587A-958A-4DD17D217CE1
     ) 
 
-    public class IShapeStatics: WindowsFoundation.IInspectable {
+    public class IShapeStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShapeStatics }
 
         public func get_FillProperty() throws -> WinUI.DependencyProperty? {

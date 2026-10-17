@@ -30,7 +30,7 @@ extension WinUI.NotifyCollectionChangedAction: @retroactive Hashable, @retroacti
 
 // MARK: - BindableVectorChangedEventHandler
 
-public typealias BindableVectorChangedEventHandler = (AnyIBindableObservableVector?, Any?) throws -> ()
+public typealias BindableVectorChangedEventHandler = @Sendable (AnyIBindableObservableVector?, Any?) throws -> ()
 
 // MARK: - BindableVectorChangedEventHandler Internals
 
@@ -57,7 +57,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0x624CD4E1, Data2: 0xD007, Data3: 0x43B1, Data4: ( 0x9C,0x03,0xAF,0x4D,0x3E,0x62,0x58,0xC4 ) // 624CD4E1-D007-43B1-9C03-AF4D3E6258C4
     ) 
 
-    public class BindableVectorChangedEventHandler: WindowsFoundation.IUnknown {
+    public class BindableVectorChangedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandler }
 
         open func Invoke(_ vector: WinUI.AnyIBindableObservableVector?, _ e: Any?) throws {
@@ -74,7 +74,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
 
     typealias BindableVectorChangedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Interop.BindableVectorChangedEventHandlerBridge>
-    internal static var BindableVectorChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var BindableVectorChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandlerVtbl = .init(
         QueryInterface: { BindableVectorChangedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { BindableVectorChangedEventHandlerWrapper.addRef($0) },
         Release: { BindableVectorChangedEventHandlerWrapper.release($0) },
@@ -98,7 +98,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - NotifyCollectionChangedEventHandler
 
-public typealias NotifyCollectionChangedEventHandler = (Any?, NotifyCollectionChangedEventArgs?) throws -> ()
+public typealias NotifyCollectionChangedEventHandler = @Sendable (Any?, NotifyCollectionChangedEventArgs?) throws -> ()
 
 // MARK: - NotifyCollectionChangedEventHandler Internals
 
@@ -125,7 +125,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0x8B0909DC, Data2: 0x2005, Data3: 0x5D93, Data4: ( 0xBF,0x8A,0x72,0x5F,0x01,0x7B,0xAA,0x8D ) // 8B0909DC-2005-5D93-BF8A-725F017BAA8D
     ) 
 
-    public class NotifyCollectionChangedEventHandler: WindowsFoundation.IUnknown {
+    public class NotifyCollectionChangedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.NotifyCollectionChangedEventArgs?) throws {
@@ -140,7 +140,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
 
     typealias NotifyCollectionChangedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventHandlerBridge>
-    internal static var NotifyCollectionChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var NotifyCollectionChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventHandlerVtbl = .init(
         QueryInterface: { NotifyCollectionChangedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { NotifyCollectionChangedEventHandlerWrapper.addRef($0) },
         Release: { NotifyCollectionChangedEventHandlerWrapper.release($0) },
@@ -201,7 +201,7 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
         }
     }
 
-    fileprivate class IBindableIterableImpl: IBindableIterable, WinRTAbiImpl {
+    fileprivate class IBindableIterableImpl: IBindableIterable, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableIterableBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -223,7 +223,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0x036D2C08, Data2: 0xDF29, Data3: 0x41AF, Data4: ( 0x8A,0xA2,0xD7,0x74,0xBE,0x62,0xBA,0x6F ) // 036D2C08-DF29-41AF-8AA2-D774BE62BA6F
     ) 
 
-    public class IBindableIterable: WindowsFoundation.IInspectable {
+    public class IBindableIterable: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterable }
 
         open func First() throws -> WinUI.AnyIBindableIterator? {
@@ -237,7 +237,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
     }
 
-    internal static var IBindableIterableVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterableVtbl = .init(
+    internal static nonisolated(unsafe) var IBindableIterableVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterableVtbl = .init(
         QueryInterface: { IBindableIterableWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBindableIterableWrapper.addRef($0) },
         Release: { IBindableIterableWrapper.release($0) },
@@ -329,7 +329,7 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
         }
     }
 
-    fileprivate class IBindableIteratorImpl: IBindableIterator, WinRTAbiImpl {
+    fileprivate class IBindableIteratorImpl: IBindableIterator, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableIteratorBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -361,7 +361,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0x6A1D6C07, Data2: 0x076D, Data3: 0x49F2, Data4: ( 0x83,0x14,0xF5,0x2C,0x9C,0x9A,0x83,0x31 ) // 6A1D6C07-076D-49F2-8314-F52C9C9A8331
     ) 
 
-    public class IBindableIterator: WindowsFoundation.IInspectable {
+    public class IBindableIterator: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterator }
 
         open func get_Current() throws -> Any? {
@@ -391,7 +391,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
     }
 
-    internal static var IBindableIteratorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIteratorVtbl = .init(
+    internal static nonisolated(unsafe) var IBindableIteratorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIteratorVtbl = .init(
         QueryInterface: { IBindableIteratorWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBindableIteratorWrapper.addRef($0) },
         Release: { IBindableIteratorWrapper.release($0) },
@@ -505,7 +505,7 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
         }
     }
 
-    fileprivate class IBindableObservableVectorImpl: IBindableObservableVector, WinRTAbiImpl {
+    fileprivate class IBindableObservableVectorImpl: IBindableObservableVector, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableObservableVectorBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -592,7 +592,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0xFE1EB536, Data2: 0x7E7F, Data3: 0x4F90, Data4: ( 0xAC,0x9A,0x47,0x49,0x84,0xAA,0xE5,0x12 ) // FE1EB536-7E7F-4F90-AC9A-474984AAE512
     ) 
 
-    public class IBindableObservableVector: WindowsFoundation.IInspectable {
+    public class IBindableObservableVector: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVector }
 
         open func add_VectorChanged(_ handler: WinUI.BindableVectorChangedEventHandler?) throws -> EventRegistrationToken {
@@ -613,7 +613,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
     }
 
-    internal static var IBindableObservableVectorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVectorVtbl = .init(
+    internal static nonisolated(unsafe) var IBindableObservableVectorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVectorVtbl = .init(
         QueryInterface: { IBindableObservableVectorWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBindableObservableVectorWrapper.addRef($0) },
         Release: { IBindableObservableVectorWrapper.release($0) },
@@ -729,7 +729,7 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
         }
     }
 
-    fileprivate class IBindableVectorImpl: IBindableVector, WinRTAbiImpl {
+    fileprivate class IBindableVectorImpl: IBindableVector, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableVectorBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -802,7 +802,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0x393DE7DE, Data2: 0x6FD0, Data3: 0x4C0D, Data4: ( 0xBB,0x71,0x47,0x24,0x4A,0x11,0x3E,0x93 ) // 393DE7DE-6FD0-4C0D-BB71-47244A113E93
     ) 
 
-    public class IBindableVector: WindowsFoundation.IInspectable {
+    public class IBindableVector: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector }
 
         open func GetAt(_ index: UInt32) throws -> Any? {
@@ -885,7 +885,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
     }
 
-    internal static var IBindableVectorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorVtbl = .init(
+    internal static nonisolated(unsafe) var IBindableVectorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorVtbl = .init(
         QueryInterface: { IBindableVectorWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBindableVectorWrapper.addRef($0) },
         Release: { IBindableVectorWrapper.release($0) },
@@ -1065,7 +1065,7 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
         }
     }
 
-    fileprivate class IBindableVectorViewImpl: IBindableVectorView, WinRTAbiImpl {
+    fileprivate class IBindableVectorViewImpl: IBindableVectorView, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableVectorViewBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1103,7 +1103,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0x346DD6E7, Data2: 0x976E, Data3: 0x4BC3, Data4: ( 0x81,0x5D,0xEC,0xE2,0x43,0xBC,0x0F,0x33 ) // 346DD6E7-976E-4BC3-815D-ECE243BC0F33
     ) 
 
-    public class IBindableVectorView: WindowsFoundation.IInspectable {
+    public class IBindableVectorView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorView }
 
         open func GetAt(_ index: UInt32) throws -> Any? {
@@ -1135,7 +1135,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
     }
 
-    internal static var IBindableVectorViewVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorViewVtbl = .init(
+    internal static nonisolated(unsafe) var IBindableVectorViewVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorViewVtbl = .init(
         QueryInterface: { IBindableVectorViewWrapper.queryInterface($0, $1, $2) },
         AddRef: { IBindableVectorViewWrapper.addRef($0) },
         Release: { IBindableVectorViewWrapper.release($0) },
@@ -1250,7 +1250,7 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
         }
     }
 
-    fileprivate class INotifyCollectionChangedImpl: INotifyCollectionChanged, WinRTAbiImpl {
+    fileprivate class INotifyCollectionChangedImpl: INotifyCollectionChanged, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INotifyCollectionChangedBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1280,7 +1280,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0x530155E1, Data2: 0x28A5, Data3: 0x5693, Data4: ( 0x87,0xCE,0x30,0x72,0x4D,0x95,0xA0,0x6D ) // 530155E1-28A5-5693-87CE-30724D95A06D
     ) 
 
-    public class INotifyCollectionChanged: WindowsFoundation.IInspectable {
+    public class INotifyCollectionChanged: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChanged }
 
         open func add_CollectionChanged(_ handler: WinUI.NotifyCollectionChangedEventHandler?) throws -> EventRegistrationToken {
@@ -1301,7 +1301,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
     }
 
-    internal static var INotifyCollectionChangedVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedVtbl = .init(
+    internal static nonisolated(unsafe) var INotifyCollectionChangedVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedVtbl = .init(
         QueryInterface: { INotifyCollectionChangedWrapper.queryInterface($0, $1, $2) },
         AddRef: { INotifyCollectionChangedWrapper.addRef($0) },
         Release: { INotifyCollectionChangedWrapper.release($0) },
@@ -1358,7 +1358,7 @@ public class INotifyCollectionChangedMaker: MakeFromAbi {
 // MARK: - NotifyCollectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.notifycollectionchangedeventargs)
-open class NotifyCollectionChangedEventArgs : WinRTClass {
+open class NotifyCollectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1386,7 +1386,7 @@ open class NotifyCollectionChangedEventArgs : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INotifyCollectionChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Interop.NotifyCollectionChangedEventArgs")
+    private static nonisolated(unsafe) var _INotifyCollectionChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Interop.NotifyCollectionChangedEventArgs")
 
     public init(_ action: NotifyCollectionChangedAction, _ newItems: AnyIBindableVector!, _ oldItems: AnyIBindableVector!, _ newIndex: Int32, _ oldIndex: Int32) {
         super.init()
@@ -1464,7 +1464,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0xDA049FF2, Data2: 0xD2E0, Data3: 0x5FE8, Data4: ( 0x8C,0x7B,0xF8,0x7F,0x26,0x06,0x0B,0x6F ) // DA049FF2-D2E0-5FE8-8C7B-F87F26060B6F
     ) 
 
-    public class INotifyCollectionChangedEventArgs: WindowsFoundation.IInspectable {
+    public class INotifyCollectionChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs }
 
         public func get_Action() throws -> WinUI.NotifyCollectionChangedAction {
@@ -1515,7 +1515,7 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Data1: 0x5108EBA4, Data2: 0x4892, Data3: 0x5A20, Data4: ( 0x83,0x74,0xA9,0x68,0x15,0xE0,0xFD,0x27 ) // 5108EBA4-4892-5A20-8374-A96815E0FD27
     ) 
 
-    public class INotifyCollectionChangedEventArgsFactory: WindowsFoundation.IInspectable {
+    public class INotifyCollectionChangedEventArgsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgsFactory }
 
         public func CreateInstanceWithAllParameters(_ action: WinUI.NotifyCollectionChangedAction, _ newItems: WinUI.AnyIBindableVector?, _ oldItems: WinUI.AnyIBindableVector?, _ newIndex: Int32, _ oldIndex: Int32, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INotifyCollectionChangedEventArgs {

@@ -7,7 +7,7 @@ import CWinRT
 // MARK: - XamlControlsXamlMetaDataProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamltypeinfo.xamlcontrolsxamlmetadataprovider)
-public final class XamlControlsXamlMetaDataProvider : WinRTClass, WinUI.IXamlMetadataProvider {
+public final class XamlControlsXamlMetaDataProvider : WinRTClass, @unchecked Sendable, WinUI.IXamlMetadataProvider {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Markup.IXamlMetadataProvider
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -87,7 +87,7 @@ extension __ABI_Microsoft_UI_Xaml_XamlTypeInfo {
         Data1: 0x17FA3F58, Data2: 0x3472, Data3: 0x5AA2, Data4: ( 0xA0,0xF8,0x1A,0xB8,0xA5,0x19,0x57,0x3D ) // 17FA3F58-3472-5AA2-A0F8-1AB8A519573D
     ) 
 
-    public class IXamlControlsXamlMetaDataProvider: WindowsFoundation.IInspectable {
+    public class IXamlControlsXamlMetaDataProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProvider }
 
     }
@@ -96,7 +96,7 @@ extension __ABI_Microsoft_UI_Xaml_XamlTypeInfo {
         Data1: 0x2D7EB3FD, Data2: 0xECDB, Data3: 0x5084, Data4: ( 0xB7,0xE0,0x12,0xF9,0x59,0x83,0x81,0xEF ) // 2D7EB3FD-ECDB-5084-B7E0-12F9598381EF
     ) 
 
-    public class IXamlControlsXamlMetaDataProviderStatics: WindowsFoundation.IInspectable {
+    public class IXamlControlsXamlMetaDataProviderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CXamlTypeInfo_CIXamlControlsXamlMetaDataProviderStatics }
 
         public func Initialize() throws {

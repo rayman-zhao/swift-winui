@@ -45,7 +45,7 @@ extension WinUI.NavigationMode: @retroactive Hashable, @retroactive Codable, @re
 
 // MARK: - NavigatedEventHandler
 
-public typealias NavigatedEventHandler = (Any?, NavigationEventArgs?) throws -> ()
+public typealias NavigatedEventHandler = @Sendable (Any?, NavigationEventArgs?) throws -> ()
 
 // MARK: - NavigatedEventHandler Internals
 
@@ -72,7 +72,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0x8631B517, Data2: 0x6D8E, Data3: 0x58EE, Data4: ( 0x82,0xFE,0xD4,0x03,0x4D,0x1B,0xD7,0xC1 ) // 8631B517-6D8E-58EE-82FE-D4034D1BD7C1
     ) 
 
-    public class NavigatedEventHandler: WindowsFoundation.IUnknown {
+    public class NavigatedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.NavigationEventArgs?) throws {
@@ -87,7 +87,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 
 
     typealias NavigatedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Navigation.NavigatedEventHandlerBridge>
-    internal static var NavigatedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var NavigatedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatedEventHandlerVtbl = .init(
         QueryInterface: { NavigatedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { NavigatedEventHandlerWrapper.addRef($0) },
         Release: { NavigatedEventHandlerWrapper.release($0) },
@@ -111,7 +111,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - NavigatingCancelEventHandler
 
-public typealias NavigatingCancelEventHandler = (Any?, NavigatingCancelEventArgs?) throws -> ()
+public typealias NavigatingCancelEventHandler = @Sendable (Any?, NavigatingCancelEventArgs?) throws -> ()
 
 // MARK: - NavigatingCancelEventHandler Internals
 
@@ -138,7 +138,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0xFCAE1401, Data2: 0xEC94, Data3: 0x565F, Data4: ( 0x9F,0x48,0x7C,0x4B,0x62,0x72,0xB3,0xB1 ) // FCAE1401-EC94-565F-9F48-7C4B6272B3B1
     ) 
 
-    public class NavigatingCancelEventHandler: WindowsFoundation.IUnknown {
+    public class NavigatingCancelEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.NavigatingCancelEventArgs?) throws {
@@ -153,7 +153,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 
 
     typealias NavigatingCancelEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Navigation.NavigatingCancelEventHandlerBridge>
-    internal static var NavigatingCancelEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var NavigatingCancelEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventHandlerVtbl = .init(
         QueryInterface: { NavigatingCancelEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { NavigatingCancelEventHandlerWrapper.addRef($0) },
         Release: { NavigatingCancelEventHandlerWrapper.release($0) },
@@ -177,7 +177,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - NavigationFailedEventHandler
 
-public typealias NavigationFailedEventHandler = (Any?, NavigationFailedEventArgs?) throws -> ()
+public typealias NavigationFailedEventHandler = @Sendable (Any?, NavigationFailedEventArgs?) throws -> ()
 
 // MARK: - NavigationFailedEventHandler Internals
 
@@ -204,7 +204,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0x97CA2B56, Data2: 0xD6EB, Data3: 0x5FD2, Data4: ( 0xA6,0x75,0xA3,0x39,0x64,0x0E,0xED,0xBA ) // 97CA2B56-D6EB-5FD2-A675-A339640EEDBA
     ) 
 
-    public class NavigationFailedEventHandler: WindowsFoundation.IUnknown {
+    public class NavigationFailedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.NavigationFailedEventArgs?) throws {
@@ -219,7 +219,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 
 
     typealias NavigationFailedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Navigation.NavigationFailedEventHandlerBridge>
-    internal static var NavigationFailedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var NavigationFailedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventHandlerVtbl = .init(
         QueryInterface: { NavigationFailedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { NavigationFailedEventHandlerWrapper.addRef($0) },
         Release: { NavigationFailedEventHandlerWrapper.release($0) },
@@ -243,7 +243,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - NavigationStoppedEventHandler
 
-public typealias NavigationStoppedEventHandler = (Any?, NavigationEventArgs?) throws -> ()
+public typealias NavigationStoppedEventHandler = @Sendable (Any?, NavigationEventArgs?) throws -> ()
 
 // MARK: - NavigationStoppedEventHandler Internals
 
@@ -270,7 +270,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0xB9E796A6, Data2: 0x7FFE, Data3: 0x5A63, Data4: ( 0xAE,0xF4,0xCB,0xC3,0x31,0x66,0x3B,0x66 ) // B9E796A6-7FFE-5A63-AEF4-CBC331663B66
     ) 
 
-    public class NavigationStoppedEventHandler: WindowsFoundation.IUnknown {
+    public class NavigationStoppedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationStoppedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.NavigationEventArgs?) throws {
@@ -285,7 +285,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 
 
     typealias NavigationStoppedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Navigation.NavigationStoppedEventHandlerBridge>
-    internal static var NavigationStoppedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationStoppedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var NavigationStoppedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationStoppedEventHandlerVtbl = .init(
         QueryInterface: { NavigationStoppedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { NavigationStoppedEventHandlerWrapper.addRef($0) },
         Release: { NavigationStoppedEventHandlerWrapper.release($0) },
@@ -310,7 +310,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - FrameNavigationOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.framenavigationoptions)
-open class FrameNavigationOptions : WinRTClass {
+open class FrameNavigationOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -338,7 +338,7 @@ open class FrameNavigationOptions : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFrameNavigationOptionsFactory : __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.FrameNavigationOptions")
+    private static nonisolated(unsafe) var _IFrameNavigationOptionsFactory : __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.FrameNavigationOptions")
 
     override public init() {
         super.init()
@@ -403,7 +403,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0x390DE593, Data2: 0x14CF, Data3: 0x5312, Data4: ( 0xAF,0x99,0x6C,0xD8,0xD5,0x9E,0xC5,0xD5 ) // 390DE593-14CF-5312-AF99-6CD8D59EC5D5
     ) 
 
-    public class IFrameNavigationOptions: WindowsFoundation.IInspectable {
+    public class IFrameNavigationOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions }
 
         public func get_IsNavigationStackEnabled() throws -> Bool {
@@ -441,7 +441,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0xDDF3F748, Data2: 0x7127, Data3: 0x5CEE, Data4: ( 0x9F,0x79,0xAC,0x28,0x1A,0x23,0x46,0x32 ) // DDF3F748-7127-5CEE-9F79-AC281A234632
     ) 
 
-    public class IFrameNavigationOptionsFactory: WindowsFoundation.IInspectable {
+    public class IFrameNavigationOptionsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptionsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Navigation.FrameNavigationOptionsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFrameNavigationOptions {
@@ -463,7 +463,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 // MARK: - NavigatingCancelEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigatingcanceleventargs)
-public final class NavigatingCancelEventArgs : WinRTClass {
+public final class NavigatingCancelEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.INavigatingCancelEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -538,7 +538,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0x172FDE12, Data2: 0xE06F, Data3: 0x5DF6, Data4: ( 0x93,0x0E,0x5F,0xAC,0xF7,0xB3,0xFB,0xE7 ) // 172FDE12-E06F-5DF6-930E-5FACF7B3FBE7
     ) 
 
-    public class INavigatingCancelEventArgs: WindowsFoundation.IInspectable {
+    public class INavigatingCancelEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs }
 
         public func get_Cancel() throws -> Bool {
@@ -565,6 +565,9 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 
         public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+            defer {
+                WinUI.TypeName.release(abi: value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
             }
@@ -595,7 +598,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 // MARK: - NavigationEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationeventargs)
-public final class NavigationEventArgs : WinRTClass {
+public final class NavigationEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.INavigationEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -675,7 +678,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0x876B70B4, Data2: 0x2923, Data3: 0x5785, Data4: ( 0x9C,0xEA,0x2E,0x44,0xAA,0x07,0x61,0xBD ) // 876B70B4-2923-5785-9CEA-2E44AA0761BD
     ) 
 
-    public class INavigationEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs }
 
         public func get_Content() throws -> Any? {
@@ -707,6 +710,9 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 
         public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+            defer {
+                WinUI.TypeName.release(abi: value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
             }
@@ -742,7 +748,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 // MARK: - NavigationFailedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationfailedeventargs)
-public final class NavigationFailedEventArgs : WinRTClass {
+public final class NavigationFailedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.INavigationFailedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -807,7 +813,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0xF808F9A0, Data2: 0x130C, Data3: 0x5974, Data4: ( 0x87,0xF8,0x44,0x33,0x27,0x1A,0x35,0xA9 ) // F808F9A0-130C-5974-87F8-4433271A35A9
     ) 
 
-    public class INavigationFailedEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationFailedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs }
 
         public func get_Exception() throws -> HRESULT {
@@ -834,6 +840,9 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 
         public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+            defer {
+                WinUI.TypeName.release(abi: value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
             }
@@ -846,7 +855,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 // MARK: - PageStackEntry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.pagestackentry)
-public final class PageStackEntry : WinUI.DependencyObject {
+public final class PageStackEntry : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntry
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -921,11 +930,14 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0xD591F56E, Data2: 0x4262, Data3: 0x5C91, Data4: ( 0x9D,0x79,0x29,0x16,0x5C,0xD8,0x21,0x00 ) // D591F56E-4262-5C91-9D79-29165CD82100
     ) 
 
-    public class IPageStackEntry: WindowsFoundation.IInspectable {
+    public class IPageStackEntry: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry }
 
         public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+            defer {
+                WinUI.TypeName.release(abi: value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
             }
@@ -956,7 +968,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0x7E5A9469, Data2: 0x6108, Data3: 0x5E92, Data4: ( 0xA4,0x99,0x5E,0xE9,0xF0,0x65,0xA6,0x8A ) // 7E5A9469-6108-5E92-A499-5EE9F065A68A
     ) 
 
-    public class IPageStackEntryFactory: WindowsFoundation.IInspectable {
+    public class IPageStackEntryFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntryFactory }
 
         public func CreateInstance(_ sourcePageType: WinUI.TypeName, _ parameter: Any?, _ navigationTransitionInfo: WinUI.NavigationTransitionInfo?) throws -> IPageStackEntry {
@@ -977,7 +989,7 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Data1: 0x2F1D4CB7, Data2: 0x923B, Data3: 0x59BB, Data4: ( 0xBF,0xC4,0x75,0x09,0x33,0xF2,0x83,0x85 ) // 2F1D4CB7-923B-59BB-BFC4-750933F28385
     ) 
 
-    public class IPageStackEntryStatics: WindowsFoundation.IInspectable {
+    public class IPageStackEntryStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntryStatics }
 
         public func get_SourcePageTypeProperty() throws -> WinUI.DependencyProperty? {

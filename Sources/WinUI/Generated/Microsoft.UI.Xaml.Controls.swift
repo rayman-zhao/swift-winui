@@ -2079,7 +2079,7 @@ extension WinUI.ZoomMode: @retroactive Hashable, @retroactive Codable, @retroact
 
 // MARK: - CalendarViewDayItemChangingEventHandler
 
-public typealias CalendarViewDayItemChangingEventHandler = (CalendarView?, CalendarViewDayItemChangingEventArgs?) throws -> ()
+public typealias CalendarViewDayItemChangingEventHandler = @Sendable (CalendarView?, CalendarViewDayItemChangingEventArgs?) throws -> ()
 
 // MARK: - CalendarViewDayItemChangingEventHandler Internals
 
@@ -2106,7 +2106,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAB8075FD, Data2: 0x7A4B, Data3: 0x504E, Data4: ( 0x8A,0x63,0xD7,0xF3,0x55,0x70,0xBD,0x86 ) // AB8075FD-7A4B-504E-8A63-D7F35570BD86
     ) 
 
-    public class CalendarViewDayItemChangingEventHandler: WindowsFoundation.IUnknown {
+    public class CalendarViewDayItemChangingEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandler }
 
         open func Invoke(_ sender: WinUI.CalendarView?, _ e: WinUI.CalendarViewDayItemChangingEventArgs?) throws {
@@ -2119,7 +2119,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
 
     typealias CalendarViewDayItemChangingEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemChangingEventHandlerBridge>
-    internal static var CalendarViewDayItemChangingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var CalendarViewDayItemChangingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventHandlerVtbl = .init(
         QueryInterface: { CalendarViewDayItemChangingEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { CalendarViewDayItemChangingEventHandlerWrapper.addRef($0) },
         Release: { CalendarViewDayItemChangingEventHandlerWrapper.release($0) },
@@ -2143,7 +2143,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ContextMenuOpeningEventHandler
 
-public typealias ContextMenuOpeningEventHandler = (Any?, ContextMenuEventArgs?) throws -> ()
+public typealias ContextMenuOpeningEventHandler = @Sendable (Any?, ContextMenuEventArgs?) throws -> ()
 
 // MARK: - ContextMenuOpeningEventHandler Internals
 
@@ -2170,7 +2170,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD010FF61, Data2: 0x4067, Data3: 0x526A, Data4: ( 0x95,0xA3,0x51,0x75,0x77,0xBC,0x52,0x73 ) // D010FF61-4067-526A-95A3-517577BC5273
     ) 
 
-    public class ContextMenuOpeningEventHandler: WindowsFoundation.IUnknown {
+    public class ContextMenuOpeningEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContextMenuOpeningEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.ContextMenuEventArgs?) throws {
@@ -2185,7 +2185,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
 
     typealias ContextMenuOpeningEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.ContextMenuOpeningEventHandlerBridge>
-    internal static var ContextMenuOpeningEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContextMenuOpeningEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ContextMenuOpeningEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContextMenuOpeningEventHandlerVtbl = .init(
         QueryInterface: { ContextMenuOpeningEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ContextMenuOpeningEventHandlerWrapper.addRef($0) },
         Release: { ContextMenuOpeningEventHandlerWrapper.release($0) },
@@ -2209,7 +2209,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - DragItemsStartingEventHandler
 
-public typealias DragItemsStartingEventHandler = (Any?, DragItemsStartingEventArgs?) throws -> ()
+public typealias DragItemsStartingEventHandler = @Sendable (Any?, DragItemsStartingEventArgs?) throws -> ()
 
 // MARK: - DragItemsStartingEventHandler Internals
 
@@ -2236,7 +2236,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x55532800, Data2: 0x7617, Data3: 0x5D67, Data4: ( 0x80,0xBF,0xB9,0x8C,0x0A,0x41,0xB9,0xD6 ) // 55532800-7617-5D67-80BF-B98C0A41B9D6
     ) 
 
-    public class DragItemsStartingEventHandler: WindowsFoundation.IUnknown {
+    public class DragItemsStartingEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsStartingEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.DragItemsStartingEventArgs?) throws {
@@ -2251,7 +2251,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
 
     typealias DragItemsStartingEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.DragItemsStartingEventHandlerBridge>
-    internal static var DragItemsStartingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsStartingEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var DragItemsStartingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsStartingEventHandlerVtbl = .init(
         QueryInterface: { DragItemsStartingEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { DragItemsStartingEventHandlerWrapper.addRef($0) },
         Release: { DragItemsStartingEventHandlerWrapper.release($0) },
@@ -2275,7 +2275,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ItemClickEventHandler
 
-public typealias ItemClickEventHandler = (Any?, ItemClickEventArgs?) throws -> ()
+public typealias ItemClickEventHandler = @Sendable (Any?, ItemClickEventArgs?) throws -> ()
 
 // MARK: - ItemClickEventHandler Internals
 
@@ -2302,7 +2302,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA3903624, Data2: 0x3393, Data3: 0x566C, Data4: ( 0xA6,0xB9,0xA6,0xB4,0xB3,0xE3,0x01,0xC3 ) // A3903624-3393-566C-A6B9-A6B4B3E301C3
     ) 
 
-    public class ItemClickEventHandler: WindowsFoundation.IUnknown {
+    public class ItemClickEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemClickEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.ItemClickEventArgs?) throws {
@@ -2317,7 +2317,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
 
     typealias ItemClickEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.ItemClickEventHandlerBridge>
-    internal static var ItemClickEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemClickEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ItemClickEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemClickEventHandlerVtbl = .init(
         QueryInterface: { ItemClickEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ItemClickEventHandlerWrapper.addRef($0) },
         Release: { ItemClickEventHandlerWrapper.release($0) },
@@ -2341,7 +2341,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - SelectionChangedEventHandler
 
-public typealias SelectionChangedEventHandler = (Any?, SelectionChangedEventArgs?) throws -> ()
+public typealias SelectionChangedEventHandler = @Sendable (Any?, SelectionChangedEventArgs?) throws -> ()
 
 // MARK: - SelectionChangedEventHandler Internals
 
@@ -2368,7 +2368,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA232390D, Data2: 0x0E34, Data3: 0x595E, Data4: ( 0x89,0x31,0xFA,0x92,0x8A,0x99,0x09,0xF4 ) // A232390D-0E34-595E-8931-FA928A9909F4
     ) 
 
-    public class SelectionChangedEventHandler: WindowsFoundation.IUnknown {
+    public class SelectionChangedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.SelectionChangedEventArgs?) throws {
@@ -2383,7 +2383,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
 
     typealias SelectionChangedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.SelectionChangedEventHandlerBridge>
-    internal static var SelectionChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var SelectionChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventHandlerVtbl = .init(
         QueryInterface: { SelectionChangedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { SelectionChangedEventHandlerWrapper.addRef($0) },
         Release: { SelectionChangedEventHandlerWrapper.release($0) },
@@ -2407,7 +2407,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - SemanticZoomViewChangedEventHandler
 
-public typealias SemanticZoomViewChangedEventHandler = (Any?, SemanticZoomViewChangedEventArgs?) throws -> ()
+public typealias SemanticZoomViewChangedEventHandler = @Sendable (Any?, SemanticZoomViewChangedEventArgs?) throws -> ()
 
 // MARK: - SemanticZoomViewChangedEventHandler Internals
 
@@ -2434,7 +2434,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4CC95C52, Data2: 0x8A54, Data3: 0x53B7, Data4: ( 0x92,0x51,0x0B,0x3E,0xFA,0x60,0x53,0x98 ) // 4CC95C52-8A54-53B7-9251-0B3EFA605398
     ) 
 
-    public class SemanticZoomViewChangedEventHandler: WindowsFoundation.IUnknown {
+    public class SemanticZoomViewChangedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomViewChangedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.SemanticZoomViewChangedEventArgs?) throws {
@@ -2449,7 +2449,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
 
     typealias SemanticZoomViewChangedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomViewChangedEventHandlerBridge>
-    internal static var SemanticZoomViewChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomViewChangedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var SemanticZoomViewChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomViewChangedEventHandlerVtbl = .init(
         QueryInterface: { SemanticZoomViewChangedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { SemanticZoomViewChangedEventHandlerWrapper.addRef($0) },
         Release: { SemanticZoomViewChangedEventHandlerWrapper.release($0) },
@@ -2473,7 +2473,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - TextChangedEventHandler
 
-public typealias TextChangedEventHandler = (Any?, TextChangedEventArgs?) throws -> ()
+public typealias TextChangedEventHandler = @Sendable (Any?, TextChangedEventArgs?) throws -> ()
 
 // MARK: - TextChangedEventHandler Internals
 
@@ -2500,7 +2500,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5D8DDCFF, Data2: 0x45D8, Data3: 0x5E7C, Data4: ( 0x9B,0x8B,0xC4,0x1D,0x28,0x93,0xC6,0xA1 ) // 5D8DDCFF-45D8-5E7C-9B8B-C41D2893C6A1
     ) 
 
-    public class TextChangedEventHandler: WindowsFoundation.IUnknown {
+    public class TextChangedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextChangedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.TextChangedEventArgs?) throws {
@@ -2515,7 +2515,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
 
     typealias TextChangedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.TextChangedEventHandlerBridge>
-    internal static var TextChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextChangedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var TextChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextChangedEventHandlerVtbl = .init(
         QueryInterface: { TextChangedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { TextChangedEventHandlerWrapper.addRef($0) },
         Release: { TextChangedEventHandlerWrapper.release($0) },
@@ -2539,7 +2539,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - TextControlPasteEventHandler
 
-public typealias TextControlPasteEventHandler = (Any?, TextControlPasteEventArgs?) throws -> ()
+public typealias TextControlPasteEventHandler = @Sendable (Any?, TextControlPasteEventArgs?) throws -> ()
 
 // MARK: - TextControlPasteEventHandler Internals
 
@@ -2566,7 +2566,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDDF3A6C0, Data2: 0x5AB1, Data3: 0x5D74, Data4: ( 0x82,0x89,0x89,0x2C,0x06,0x14,0x65,0x8F ) // DDF3A6C0-5AB1-5D74-8289-892C0614658F
     ) 
 
-    public class TextControlPasteEventHandler: WindowsFoundation.IUnknown {
+    public class TextControlPasteEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.TextControlPasteEventArgs?) throws {
@@ -2581,7 +2581,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
 
     typealias TextControlPasteEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Controls.TextControlPasteEventHandlerBridge>
-    internal static var TextControlPasteEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var TextControlPasteEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventHandlerVtbl = .init(
         QueryInterface: { TextControlPasteEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { TextControlPasteEventHandlerWrapper.addRef($0) },
         Release: { TextControlPasteEventHandlerWrapper.release($0) },
@@ -2646,7 +2646,7 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
-    fileprivate class ICommandBarElementImpl: ICommandBarElement, WinRTAbiImpl {
+    fileprivate class ICommandBarElementImpl: ICommandBarElement, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICommandBarElementBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2680,7 +2680,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF8EB20B4, Data2: 0x373E, Data3: 0x5327, Data4: ( 0x99,0x42,0x66,0xA1,0xEA,0x21,0xF5,0xF9 ) // F8EB20B4-373E-5327-9942-66A1EA21F5F9
     ) 
 
-    public class ICommandBarElement: WindowsFoundation.IInspectable {
+    public class ICommandBarElement: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElement }
 
         open func get_IsCompact() throws -> Bool {
@@ -2721,7 +2721,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
-    internal static var ICommandBarElementVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElementVtbl = .init(
+    internal static nonisolated(unsafe) var ICommandBarElementVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarElementVtbl = .init(
         QueryInterface: { ICommandBarElementWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICommandBarElementWrapper.addRef($0) },
         Release: { ICommandBarElementWrapper.release($0) },
@@ -2834,7 +2834,7 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
-    fileprivate class IInsertionPanelImpl: IInsertionPanel, WinRTAbiImpl {
+    fileprivate class IInsertionPanelImpl: IInsertionPanel, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IInsertionPanelBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -2856,7 +2856,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x84E13E27, Data2: 0x2D24, Data3: 0x59C4, Data4: ( 0xA0,0x0E,0x16,0xC7,0x25,0x59,0x01,0xE2 ) // 84E13E27-2D24-59C4-A00E-16C7255901E2
     ) 
 
-    public class IInsertionPanel: WindowsFoundation.IInspectable {
+    public class IInsertionPanel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInsertionPanel }
 
         open func GetInsertionIndexes(_ position: WindowsFoundation.Point, _ first: inout Int32, _ second: inout Int32) throws {
@@ -2867,7 +2867,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
-    internal static var IInsertionPanelVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInsertionPanelVtbl = .init(
+    internal static nonisolated(unsafe) var IInsertionPanelVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInsertionPanelVtbl = .init(
         QueryInterface: { IInsertionPanelWrapper.queryInterface($0, $1, $2) },
         AddRef: { IInsertionPanelWrapper.addRef($0) },
         Release: { IInsertionPanelWrapper.release($0) },
@@ -2964,7 +2964,7 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
-    fileprivate class IItemContainerMappingImpl: IItemContainerMapping, WinRTAbiImpl {
+    fileprivate class IItemContainerMappingImpl: IItemContainerMapping, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IItemContainerMappingBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -3001,7 +3001,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB3E03A32, Data2: 0xEA83, Data3: 0x5626, Data4: ( 0xBF,0xDA,0xD3,0x27,0xA1,0xC7,0x55,0x0C ) // B3E03A32-EA83-5626-BFDA-D327A1C7550C
     ) 
 
-    public class IItemContainerMapping: WindowsFoundation.IInspectable {
+    public class IItemContainerMapping: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerMapping }
 
         open func ItemFromContainer(_ container: WinUI.DependencyObject?) throws -> Any? {
@@ -3043,7 +3043,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
-    internal static var IItemContainerMappingVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerMappingVtbl = .init(
+    internal static nonisolated(unsafe) var IItemContainerMappingVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerMappingVtbl = .init(
         QueryInterface: { IItemContainerMappingWrapper.queryInterface($0, $1, $2) },
         AddRef: { IItemContainerMappingWrapper.addRef($0) },
         Release: { IItemContainerMappingWrapper.release($0) },
@@ -3164,7 +3164,7 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
-    fileprivate class IKeyIndexMappingImpl: IKeyIndexMapping, WinRTAbiImpl {
+    fileprivate class IKeyIndexMappingImpl: IKeyIndexMapping, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IKeyIndexMappingBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -3191,15 +3191,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB1F3BBA0, Data2: 0x108E, Data3: 0x560D, Data4: ( 0x96,0x81,0x26,0x39,0x1B,0x4B,0xC3,0x0D ) // B1F3BBA0-108E-560D-9681-26391B4BC30D
     ) 
 
-    public class IKeyIndexMapping: WindowsFoundation.IInspectable {
+    public class IKeyIndexMapping: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIKeyIndexMapping }
 
         open func KeyFromIndex(_ index: Int32) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIKeyIndexMapping.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.KeyFromIndex(pThis, index, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -3214,7 +3216,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
-    internal static var IKeyIndexMappingVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIKeyIndexMappingVtbl = .init(
+    internal static nonisolated(unsafe) var IKeyIndexMappingVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIKeyIndexMappingVtbl = .init(
         QueryInterface: { IKeyIndexMappingWrapper.queryInterface($0, $1, $2) },
         AddRef: { IKeyIndexMappingWrapper.addRef($0) },
         Release: { IKeyIndexMappingWrapper.release($0) },
@@ -3312,7 +3314,7 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
-    fileprivate class INavigateImpl: INavigate, WinRTAbiImpl {
+    fileprivate class INavigateImpl: INavigate, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INavigateBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -3334,7 +3336,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDD06F030, Data2: 0x5D47, Data3: 0x533C, Data4: ( 0x95,0xCF,0xDE,0x25,0x6A,0x0F,0x37,0x3A ) // DD06F030-5D47-533C-95CF-DE256A0F373A
     ) 
 
-    public class INavigate: WindowsFoundation.IInspectable {
+    public class INavigate: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigate }
 
         open func Navigate(_ sourcePageType: WinUI.TypeName) throws -> Bool {
@@ -3348,7 +3350,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
-    internal static var INavigateVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigateVtbl = .init(
+    internal static nonisolated(unsafe) var INavigateVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigateVtbl = .init(
         QueryInterface: { INavigateWrapper.queryInterface($0, $1, $2) },
         AddRef: { INavigateWrapper.addRef($0) },
         Release: { INavigateWrapper.release($0) },
@@ -3440,7 +3442,7 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
-    fileprivate class IScrollAnchorProviderImpl: IScrollAnchorProvider, WinRTAbiImpl {
+    fileprivate class IScrollAnchorProviderImpl: IScrollAnchorProvider, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IScrollAnchorProviderBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -3472,7 +3474,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x885DF41F, Data2: 0xF240, Data3: 0x5B7B, Data4: ( 0xA7,0x03,0xBF,0xAF,0x39,0xC6,0xA2,0xCD ) // 885DF41F-F240-5B7B-A703-BFAF39C6A2CD
     ) 
 
-    public class IScrollAnchorProvider: WindowsFoundation.IInspectable {
+    public class IScrollAnchorProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollAnchorProvider }
 
         open func get_CurrentAnchor() throws -> WinUI.UIElement? {
@@ -3498,7 +3500,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
-    internal static var IScrollAnchorProviderVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollAnchorProviderVtbl = .init(
+    internal static nonisolated(unsafe) var IScrollAnchorProviderVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollAnchorProviderVtbl = .init(
         QueryInterface: { IScrollAnchorProviderWrapper.queryInterface($0, $1, $2) },
         AddRef: { IScrollAnchorProviderWrapper.addRef($0) },
         Release: { IScrollAnchorProviderWrapper.release($0) },
@@ -3619,7 +3621,7 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
         }
     }
 
-    fileprivate class ISemanticZoomInformationImpl: ISemanticZoomInformation, WinRTAbiImpl {
+    fileprivate class ISemanticZoomInformationImpl: ISemanticZoomInformation, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ISemanticZoomInformationBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -3689,7 +3691,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x12D62B04, Data2: 0xBB13, Data3: 0x50F2, Data4: ( 0x9D,0x8B,0xE5,0x7C,0x02,0xB4,0xBD,0xE4 ) // 12D62B04-BB13-50F2-9D8B-E57C02B4BDE4
     ) 
 
-    public class ISemanticZoomInformation: WindowsFoundation.IInspectable {
+    public class ISemanticZoomInformation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomInformation }
 
         open func get_SemanticZoomOwner() throws -> WinUI.SemanticZoom? {
@@ -3779,7 +3781,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
     }
 
-    internal static var ISemanticZoomInformationVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomInformationVtbl = .init(
+    internal static nonisolated(unsafe) var ISemanticZoomInformationVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomInformationVtbl = .init(
         QueryInterface: { ISemanticZoomInformationWrapper.queryInterface($0, $1, $2) },
         AddRef: { ISemanticZoomInformationWrapper.addRef($0) },
         Release: { ISemanticZoomInformationWrapper.release($0) },
@@ -3928,7 +3930,7 @@ public class ISemanticZoomInformationMaker: MakeFromAbi {
 // MARK: - AnchorRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.anchorrequestedeventargs)
-public final class AnchorRequestedEventArgs : WinRTClass {
+public final class AnchorRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnchorRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnchorRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3988,7 +3990,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD5645E80, Data2: 0xD4D3, Data3: 0x5DF8, Data4: ( 0xA3,0xAC,0x1F,0x9B,0xEE,0xB2,0xBC,0xEF ) // D5645E80-D4D3-5DF8-A3AC-1F9BEEB2BCEF
     ) 
 
-    public class IAnchorRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IAnchorRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnchorRequestedEventArgs }
 
         public func get_Anchor() throws -> WinUI.UIElement? {
@@ -4021,7 +4023,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AnnotatedScrollBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar)
-open class AnnotatedScrollBar : WinUI.Control {
+open class AnnotatedScrollBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4048,7 +4050,7 @@ open class AnnotatedScrollBar : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IAnnotatedScrollBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBar")
+    private static nonisolated(unsafe) var _IAnnotatedScrollBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -4176,7 +4178,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0F4904A9, Data2: 0xB6F9, Data3: 0x5834, Data4: ( 0x8D,0x5D,0x59,0xBC,0x3B,0x7B,0x7E,0xE2 ) // 0F4904A9-B6F9-5834-8D5D-59BC3B7B7EE2
     ) 
 
-    public class IAnnotatedScrollBar: WindowsFoundation.IInspectable {
+    public class IAnnotatedScrollBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar }
 
         public func get_ScrollController() throws -> WinUI.AnyIScrollController? {
@@ -4291,7 +4293,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3F64C40F, Data2: 0xB879, Data3: 0x5020, Data4: ( 0xB6,0x7C,0xB7,0x89,0xE1,0x73,0xC7,0x98 ) // 3F64C40F-B879-5020-B67C-B789E173C798
     ) 
 
-    public class IAnnotatedScrollBarFactory: WindowsFoundation.IInspectable {
+    public class IAnnotatedScrollBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAnnotatedScrollBar {
@@ -4313,7 +4315,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDAACD0F4, Data2: 0x4912, Data3: 0x5934, Data4: ( 0x8D,0x5B,0xF2,0x41,0xC2,0xE9,0x0E,0x30 ) // DAACD0F4-4912-5934-8D5B-F241C2E90E30
     ) 
 
-    public class IAnnotatedScrollBarStatics: WindowsFoundation.IInspectable {
+    public class IAnnotatedScrollBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarStatics }
 
         public func get_LabelsProperty() throws -> WinUI.DependencyProperty? {
@@ -4358,7 +4360,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AnnotatedScrollBarDetailLabelRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbardetaillabelrequestedeventargs)
-public final class AnnotatedScrollBarDetailLabelRequestedEventArgs : WinRTClass {
+public final class AnnotatedScrollBarDetailLabelRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarDetailLabelRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4418,7 +4420,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x43275B82, Data2: 0xF594, Data3: 0x590D, Data4: ( 0x90,0xFF,0x76,0xFD,0x21,0x9F,0xEA,0xA8 ) // 43275B82-F594-590D-90FF-76FD219FEAA8
     ) 
 
-    public class IAnnotatedScrollBarDetailLabelRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IAnnotatedScrollBarDetailLabelRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs }
 
         public func get_Content() throws -> Any? {
@@ -4452,7 +4454,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AnnotatedScrollBarLabel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarlabel)
-public final class AnnotatedScrollBarLabel : WinRTClass {
+public final class AnnotatedScrollBarLabel : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarLabel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4516,7 +4518,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x238AC07F, Data2: 0x59FB, Data3: 0x574F, Data4: ( 0xBF,0x5C,0x61,0xC4,0x4A,0xB3,0x86,0xDC ) // 238AC07F-59FB-574F-BF5C-61C44AB386DC
     ) 
 
-    public class IAnnotatedScrollBarLabel: WindowsFoundation.IInspectable {
+    public class IAnnotatedScrollBarLabel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel }
 
         public func get_Content() throws -> Any? {
@@ -4542,7 +4544,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB6169805, Data2: 0xC01C, Data3: 0x54C6, Data4: ( 0x80,0xE8,0xC6,0xC9,0x8F,0x9A,0xAA,0x53 ) // B6169805-C01C-54C6-80E8-C6C98F9AAA53
     ) 
 
-    public class IAnnotatedScrollBarLabelFactory: WindowsFoundation.IInspectable {
+    public class IAnnotatedScrollBarLabelFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabelFactory }
 
         public func CreateInstance(_ content: Any?, _ scrollOffset: Double) throws -> IAnnotatedScrollBarLabel {
@@ -4562,7 +4564,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AnnotatedScrollBarScrollingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarscrollingeventargs)
-public final class AnnotatedScrollBarScrollingEventArgs : WinRTClass {
+public final class AnnotatedScrollBarScrollingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarScrollingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4627,7 +4629,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA7466A60, Data2: 0xE55E, Data3: 0x58AE, Data4: ( 0x9F,0xC1,0x87,0xFE,0xF4,0x0E,0x52,0x1A ) // A7466A60-E55E-58AE-9FC1-87FEF40E521A
     ) 
 
-    public class IAnnotatedScrollBarScrollingEventArgs: WindowsFoundation.IInspectable {
+    public class IAnnotatedScrollBarScrollingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs }
 
         public func get_ScrollOffset() throws -> Double {
@@ -4666,7 +4668,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AppBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbar)
-open class AppBar : WinUI.ContentControl {
+open class AppBar : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4698,7 +4700,7 @@ open class AppBar : WinUI.ContentControl {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IAppBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBar")
+    private static nonisolated(unsafe) var _IAppBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -4871,7 +4873,7 @@ public class AppBarMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IAppBarOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.AppBarBridge.IAppBarOverrides>
-    internal static var IAppBarOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IAppBarOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarOverridesVtbl = .init(
         QueryInterface: { IAppBarOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IAppBarOverridesWrapper.addRef($0) },
         Release: { IAppBarOverridesWrapper.release($0) },
@@ -4943,7 +4945,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3D8C2927, Data2: 0x5AC5, Data3: 0x51BB, Data4: ( 0x8B,0xEC,0x13,0xFF,0x4C,0x1B,0xD6,0xC8 ) // 3D8C2927-5AC5-51BB-8BEC-13FF4C1BD6C8
     ) 
 
-    public class IAppBar: WindowsFoundation.IInspectable {
+    public class IAppBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBar }
 
         public func get_IsOpen() throws -> Bool {
@@ -5081,7 +5083,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x67F17798, Data2: 0xE281, Data3: 0x5E53, Data4: ( 0x8E,0xDF,0x42,0xC2,0x9C,0x35,0x4D,0x63 ) // 67F17798-E281-5E53-8EDF-42C29C354D63
     ) 
 
-    public class IAppBarOverrides: WindowsFoundation.IInspectable {
+    public class IAppBarOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarOverrides }
 
         public func OnClosed(_ e: Any?) throws {
@@ -5122,7 +5124,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x66B96B53, Data2: 0x755B, Data3: 0x5472, Data4: ( 0xB2,0xC4,0x86,0x24,0xE9,0x77,0xD6,0x5B ) // 66B96B53-755B-5472-B2C4-8624E977D65B
     ) 
 
-    public class IAppBarFactory: WindowsFoundation.IInspectable {
+    public class IAppBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.AppBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAppBar {
@@ -5144,7 +5146,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0DC7172C, Data2: 0xA03D, Data3: 0x5AE4, Data4: ( 0x95,0x38,0xFF,0xD8,0x04,0x82,0x3B,0xCE ) // 0DC7172C-A03D-5AE4-9538-FFD804823BCE
     ) 
 
-    public class IAppBarStatics: WindowsFoundation.IInspectable {
+    public class IAppBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarStatics }
 
         public func get_IsOpenProperty() throws -> WinUI.DependencyProperty? {
@@ -5195,7 +5197,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - AppBarButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton)
-open class AppBarButton : WinUI.Button, ICommandBarElement {
+open class AppBarButton : WinUI.Button, @unchecked Sendable, ICommandBarElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButton
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5222,7 +5224,7 @@ open class AppBarButton : WinUI.Button, ICommandBarElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IAppBarButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarButton")
+    private static nonisolated(unsafe) var _IAppBarButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarButton")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarButtonBridge.Composable.self) { baseInterface, innerInterface in 
@@ -5358,15 +5360,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8AB0E278, Data2: 0xB6AE, Data3: 0x569E, Data4: ( 0x8D,0xCD,0xD2,0x93,0x55,0x2F,0xE4,0xD5 ) // 8AB0E278-B6AE-569E-8DCD-D293552FE4D5
     ) 
 
-    public class IAppBarButton: WindowsFoundation.IInspectable {
+    public class IAppBarButton: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButton }
 
         public func get_Label() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButton.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Label(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -5408,10 +5412,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_KeyboardAcceleratorTextOverride() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButton.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextOverride(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -5437,7 +5443,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4168A40A, Data2: 0xD11F, Data3: 0x5AEB, Data4: ( 0x97,0x4E,0xBB,0x43,0xA6,0xE7,0xF9,0xB2 ) // 4168A40A-D11F-5AEB-974E-BB43A6E7F9B2
     ) 
 
-    public class IAppBarButtonFactory: WindowsFoundation.IInspectable {
+    public class IAppBarButtonFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButtonFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.AppBarButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAppBarButton {
@@ -5459,7 +5465,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x74327A2A, Data2: 0x18FA, Data3: 0x59C3, Data4: ( 0x82,0x68,0xEC,0x37,0x32,0xA4,0xD2,0x72 ) // 74327A2A-18FA-59C3-8268-EC3732A4D272
     ) 
 
-    public class IAppBarButtonStatics: WindowsFoundation.IInspectable {
+    public class IAppBarButtonStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButtonStatics }
 
         public func get_LabelProperty() throws -> WinUI.DependencyProperty? {
@@ -5531,7 +5537,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AppBarElementContainer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarelementcontainer)
-open class AppBarElementContainer : WinUI.ContentControl, ICommandBarElement {
+open class AppBarElementContainer : WinUI.ContentControl, @unchecked Sendable, ICommandBarElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarElementContainer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarElementContainer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5558,7 +5564,7 @@ open class AppBarElementContainer : WinUI.ContentControl, ICommandBarElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IAppBarElementContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarElementContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarElementContainer")
+    private static nonisolated(unsafe) var _IAppBarElementContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarElementContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarElementContainer")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarElementContainerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -5645,7 +5651,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x55D90715, Data2: 0x70BC, Data3: 0x5B2B, Data4: ( 0xBD,0x12,0xA9,0x40,0x29,0x7F,0x93,0x5F ) // 55D90715-70BC-5B2B-BD12-A940297F935F
     ) 
 
-    public class IAppBarElementContainer: WindowsFoundation.IInspectable {
+    public class IAppBarElementContainer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarElementContainer }
 
     }
@@ -5654,7 +5660,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0664BF62, Data2: 0x1FAB, Data3: 0x5873, Data4: ( 0x96,0x08,0x11,0x7C,0x3B,0x44,0x83,0xFF ) // 0664BF62-1FAB-5873-9608-117C3B4483FF
     ) 
 
-    public class IAppBarElementContainerFactory: WindowsFoundation.IInspectable {
+    public class IAppBarElementContainerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarElementContainerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.AppBarElementContainerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAppBarElementContainer {
@@ -5676,7 +5682,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x50C068DE, Data2: 0x72D0, Data3: 0x52BA, Data4: ( 0xBB,0x42,0xAD,0xA6,0x52,0x7B,0x39,0x2F ) // 50C068DE-72D0-52BA-BB42-ADA6527B392F
     ) 
 
-    public class IAppBarElementContainerStatics: WindowsFoundation.IInspectable {
+    public class IAppBarElementContainerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarElementContainerStatics }
 
         public func get_IsCompactProperty() throws -> WinUI.DependencyProperty? {
@@ -5712,7 +5718,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AppBarSeparator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarseparator)
-open class AppBarSeparator : WinUI.Control, ICommandBarElement {
+open class AppBarSeparator : WinUI.Control, @unchecked Sendable, ICommandBarElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarSeparator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarSeparator
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5739,7 +5745,7 @@ open class AppBarSeparator : WinUI.Control, ICommandBarElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IAppBarSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarSeparator")
+    private static nonisolated(unsafe) var _IAppBarSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarSeparator")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarSeparatorBridge.Composable.self) { baseInterface, innerInterface in 
@@ -5826,7 +5832,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x57BB94A3, Data2: 0x1E56, Data3: 0x5EBE, Data4: ( 0x8A,0x57,0x3A,0x24,0x3C,0x49,0x1D,0x67 ) // 57BB94A3-1E56-5EBE-8A57-3A243C491D67
     ) 
 
-    public class IAppBarSeparator: WindowsFoundation.IInspectable {
+    public class IAppBarSeparator: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarSeparator }
 
     }
@@ -5835,7 +5841,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6497D326, Data2: 0xFB55, Data3: 0x5CF5, Data4: ( 0x8C,0xC4,0xC5,0x56,0xB1,0xA9,0x58,0xFB ) // 6497D326-FB55-5CF5-8CC4-C556B1A958FB
     ) 
 
-    public class IAppBarSeparatorFactory: WindowsFoundation.IInspectable {
+    public class IAppBarSeparatorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarSeparatorFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.AppBarSeparatorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAppBarSeparator {
@@ -5857,7 +5863,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDDA9A3D2, Data2: 0xD3B9, Data3: 0x5BE1, Data4: ( 0xAB,0xF7,0xDB,0xA1,0xEA,0xAF,0xE0,0xF7 ) // DDA9A3D2-D3B9-5BE1-ABF7-DBA1EAAFE0F7
     ) 
 
-    public class IAppBarSeparatorStatics: WindowsFoundation.IInspectable {
+    public class IAppBarSeparatorStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarSeparatorStatics }
 
         public func get_IsCompactProperty() throws -> WinUI.DependencyProperty? {
@@ -5893,7 +5899,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AppBarToggleButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton)
-open class AppBarToggleButton : WinUI.ToggleButton, ICommandBarElement {
+open class AppBarToggleButton : WinUI.ToggleButton, @unchecked Sendable, ICommandBarElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5920,7 +5926,7 @@ open class AppBarToggleButton : WinUI.ToggleButton, ICommandBarElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IAppBarToggleButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarToggleButton")
+    private static nonisolated(unsafe) var _IAppBarToggleButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarToggleButton")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarToggleButtonBridge.Composable.self) { baseInterface, innerInterface in 
@@ -6056,15 +6062,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9687C0B1, Data2: 0xC390, Data3: 0x59BE, Data4: ( 0xAC,0xDC,0x4F,0xC4,0x8F,0x55,0x28,0x23 ) // 9687C0B1-C390-59BE-ACDC-4FC48F552823
     ) 
 
-    public class IAppBarToggleButton: WindowsFoundation.IInspectable {
+    public class IAppBarToggleButton: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton }
 
         public func get_Label() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Label(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -6106,10 +6114,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_KeyboardAcceleratorTextOverride() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextOverride(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -6135,7 +6145,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x07BFB2D6, Data2: 0x23B9, Data3: 0x57A2, Data4: ( 0x91,0x22,0x00,0x62,0x94,0xBF,0xA9,0x2F ) // 07BFB2D6-23B9-57A2-9122-006294BFA92F
     ) 
 
-    public class IAppBarToggleButtonFactory: WindowsFoundation.IInspectable {
+    public class IAppBarToggleButtonFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.AppBarToggleButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAppBarToggleButton {
@@ -6157,7 +6167,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x70021504, Data2: 0x3FE8, Data3: 0x53BC, Data4: ( 0xAB,0xD6,0xD6,0x97,0x62,0xF4,0xBC,0x87 ) // 70021504-3FE8-53BC-ABD6-D69762F4BC87
     ) 
 
-    public class IAppBarToggleButtonStatics: WindowsFoundation.IInspectable {
+    public class IAppBarToggleButtonStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButtonStatics }
 
         public func get_LabelProperty() throws -> WinUI.DependencyProperty? {
@@ -6229,7 +6239,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AutoSuggestBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestbox)
-public final class AutoSuggestBox : WinUI.ItemsControl {
+public final class AutoSuggestBox : WinUI.ItemsControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6455,7 +6465,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3EEA809E, Data2: 0xB2DB, Data3: 0x521D, Data4: ( 0x97,0xDB,0xE0,0x64,0x8F,0xB5,0xD7,0x98 ) // 3EEA809E-B2DB-521D-97DB-E0648FB5D798
     ) 
 
-    public class IAutoSuggestBox: WindowsFoundation.IInspectable {
+    public class IAutoSuggestBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBox }
 
         public func get_MaxSuggestionListHeight() throws -> Double {
@@ -6488,10 +6498,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_TextMemberPath() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextMemberPath(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -6504,10 +6516,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -6534,10 +6548,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PlaceholderText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -6694,7 +6710,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9DFA2FF9, Data2: 0x1094, Data3: 0x54A8, Data4: ( 0xBE,0xEE,0xB3,0x45,0xFA,0x3E,0xE0,0x89 ) // 9DFA2FF9-1094-54A8-BEEE-B345FA3EE089
     ) 
 
-    public class IAutoSuggestBoxStatics: WindowsFoundation.IInspectable {
+    public class IAutoSuggestBoxStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxStatics }
 
         public func get_MaxSuggestionListHeightProperty() throws -> WinUI.DependencyProperty? {
@@ -6811,7 +6827,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AutoSuggestBoxQuerySubmittedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestboxquerysubmittedeventargs)
-public final class AutoSuggestBoxQuerySubmittedEventArgs : WinUI.DependencyObject {
+public final class AutoSuggestBoxQuerySubmittedEventArgs : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxQuerySubmittedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxQuerySubmittedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6875,15 +6891,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x26DA5DE4, Data2: 0x57A6, Data3: 0x57BF, Data4: ( 0xAC,0xC9,0xAA,0xC5,0x99,0xC0,0xB2,0x2B ) // 26DA5DE4-57A6-57BF-ACC9-AAC599C0B22B
     ) 
 
-    public class IAutoSuggestBoxQuerySubmittedEventArgs: WindowsFoundation.IInspectable {
+    public class IAutoSuggestBoxQuerySubmittedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxQuerySubmittedEventArgs }
 
         public func get_QueryText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxQuerySubmittedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_QueryText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -6902,7 +6920,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AutoSuggestBoxSuggestionChosenEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestboxsuggestionchoseneventargs)
-public final class AutoSuggestBoxSuggestionChosenEventArgs : WinUI.DependencyObject {
+public final class AutoSuggestBoxSuggestionChosenEventArgs : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxSuggestionChosenEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxSuggestionChosenEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -6961,7 +6979,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7547C7E9, Data2: 0x7429, Data3: 0x5045, Data4: ( 0xAD,0x98,0x33,0x8A,0x96,0xB2,0x70,0xB1 ) // 7547C7E9-7429-5045-AD98-338A96B270B1
     ) 
 
-    public class IAutoSuggestBoxSuggestionChosenEventArgs: WindowsFoundation.IInspectable {
+    public class IAutoSuggestBoxSuggestionChosenEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxSuggestionChosenEventArgs }
 
         public func get_SelectedItem() throws -> Any? {
@@ -6979,7 +6997,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AutoSuggestBoxTextChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestboxtextchangedeventargs)
-public final class AutoSuggestBoxTextChangedEventArgs : WinUI.DependencyObject {
+public final class AutoSuggestBoxTextChangedEventArgs : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxTextChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxTextChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7050,7 +7068,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD7191D84, Data2: 0xE886, Data3: 0x547F, Data4: ( 0xA3,0xE2,0x12,0xF0,0xE0,0x5B,0x20,0xFA ) // D7191D84-E886-547F-A3E2-12F0E05B20FA
     ) 
 
-    public class IAutoSuggestBoxTextChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IAutoSuggestBoxTextChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxTextChangedEventArgs }
 
         public func get_Reason() throws -> WinUI.AutoSuggestionBoxTextChangeReason {
@@ -7081,7 +7099,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x40155FB9, Data2: 0x253B, Data3: 0x5624, Data4: ( 0xA1,0x7A,0x29,0x4B,0xE7,0xA0,0x7F,0x87 ) // 40155FB9-253B-5624-A17A-294BE7A07F87
     ) 
 
-    public class IAutoSuggestBoxTextChangedEventArgsStatics: WindowsFoundation.IInspectable {
+    public class IAutoSuggestBoxTextChangedEventArgsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxTextChangedEventArgsStatics }
 
         public func get_ReasonProperty() throws -> WinUI.DependencyProperty? {
@@ -7099,7 +7117,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - BitmapIcon
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.bitmapicon)
-open class BitmapIcon : WinUI.IconElement {
+open class BitmapIcon : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBitmapIcon
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBitmapIcon
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7126,7 +7144,7 @@ open class BitmapIcon : WinUI.IconElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IBitmapIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IBitmapIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BitmapIcon")
+    private static nonisolated(unsafe) var _IBitmapIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IBitmapIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BitmapIcon")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.BitmapIconBridge.Composable.self) { baseInterface, innerInterface in 
@@ -7201,7 +7219,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC370BC29, Data2: 0x805B, Data3: 0x5BAD, Data4: ( 0xB6,0x15,0xEC,0x64,0x0E,0x57,0x9D,0xBB ) // C370BC29-805B-5BAD-B615-EC640E579DBB
     ) 
 
-    public class IBitmapIcon: WindowsFoundation.IInspectable {
+    public class IBitmapIcon: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBitmapIcon }
 
         public func get_UriSource() throws -> WindowsFoundation.Uri? {
@@ -7239,7 +7257,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB43B5DDC, Data2: 0xCDB5, Data3: 0x5AD6, Data4: ( 0x8A,0xC1,0x2F,0xCC,0xA3,0x3B,0xE3,0x9E ) // B43B5DDC-CDB5-5AD6-8AC1-2FCCA33BE39E
     ) 
 
-    public class IBitmapIconFactory: WindowsFoundation.IInspectable {
+    public class IBitmapIconFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBitmapIconFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.BitmapIconBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBitmapIcon {
@@ -7261,7 +7279,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x01C67EB2, Data2: 0x327E, Data3: 0x5C4E, Data4: ( 0xAF,0xB4,0x38,0xB0,0x2E,0xD1,0x28,0x86 ) // 01C67EB2-327E-5C4E-AFB4-38B02ED12886
     ) 
 
-    public class IBitmapIconStatics: WindowsFoundation.IInspectable {
+    public class IBitmapIconStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBitmapIconStatics }
 
         public func get_UriSourceProperty() throws -> WinUI.DependencyProperty? {
@@ -7288,7 +7306,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Border
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.border)
-public final class Border : WinUI.FrameworkElement {
+public final class Border : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBorder
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBorder
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7432,7 +7450,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1CA13B47, Data2: 0xFF5C, Data3: 0x5ABC, Data4: ( 0xA4,0x11,0xA1,0x77,0xDF,0x94,0x82,0xA9 ) // 1CA13B47-FF5C-5ABC-A411-A177DF9482A9
     ) 
 
-    public class IBorder: WindowsFoundation.IInspectable {
+    public class IBorder: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBorder }
 
         public func get_BorderBrush() throws -> WinUI.Brush? {
@@ -7572,7 +7590,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9385CD66, Data2: 0xC178, Data3: 0x5176, Data4: ( 0xB4,0xA5,0x16,0x0E,0x00,0xE9,0x39,0x35 ) // 9385CD66-C178-5176-B4A5-160E00E93935
     ) 
 
-    public class IBorderStatics: WindowsFoundation.IInspectable {
+    public class IBorderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBorderStatics }
 
         public func get_BorderBrushProperty() throws -> WinUI.DependencyProperty? {
@@ -7644,7 +7662,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - BreadcrumbBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.breadcrumbbar)
-open class BreadcrumbBar : WinUI.Control {
+open class BreadcrumbBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7671,7 +7689,7 @@ open class BreadcrumbBar : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IBreadcrumbBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BreadcrumbBar")
+    private static nonisolated(unsafe) var _IBreadcrumbBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BreadcrumbBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.BreadcrumbBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -7759,7 +7777,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2E47B7D6, Data2: 0x5FBD, Data3: 0x54C7, Data4: ( 0xB0,0xB1,0xCE,0xFF,0x4A,0x19,0xC7,0x44 ) // 2E47B7D6-5FBD-54C7-B0B1-CEFF4A19C744
     ) 
 
-    public class IBreadcrumbBar: WindowsFoundation.IInspectable {
+    public class IBreadcrumbBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBar }
 
         public func get_ItemsSource() throws -> Any? {
@@ -7818,7 +7836,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD5B6A6D9, Data2: 0x3148, Data3: 0x5CBC, Data4: ( 0xA6,0xAE,0x0F,0x44,0xCD,0xE4,0x19,0x52 ) // D5B6A6D9-3148-5CBC-A6AE-0F44CDE41952
     ) 
 
-    public class IBreadcrumbBarFactory: WindowsFoundation.IInspectable {
+    public class IBreadcrumbBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.BreadcrumbBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBreadcrumbBar {
@@ -7840,7 +7858,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4ABF3FB5, Data2: 0x6F69, Data3: 0x54E2, Data4: ( 0xA6,0x8F,0xE5,0xF9,0x04,0xF7,0x9F,0x38 ) // 4ABF3FB5-6F69-54E2-A68F-E5F904F79F38
     ) 
 
-    public class IBreadcrumbBarStatics: WindowsFoundation.IInspectable {
+    public class IBreadcrumbBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarStatics }
 
         public func get_ItemsSourceProperty() throws -> WinUI.DependencyProperty? {
@@ -7867,7 +7885,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - BreadcrumbBarItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.breadcrumbbaritem)
-open class BreadcrumbBarItem : WinUI.ContentControl {
+open class BreadcrumbBarItem : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -7894,7 +7912,7 @@ open class BreadcrumbBarItem : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IBreadcrumbBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BreadcrumbBarItem")
+    private static nonisolated(unsafe) var _IBreadcrumbBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BreadcrumbBarItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.BreadcrumbBarItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -7946,7 +7964,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x34582DE4, Data2: 0x6BEF, Data3: 0x5BA0, Data4: ( 0x86,0xCA,0x7C,0xC1,0xA3,0xDB,0x37,0xEE ) // 34582DE4-6BEF-5BA0-86CA-7CC1A3DB37EE
     ) 
 
-    public class IBreadcrumbBarItem: WindowsFoundation.IInspectable {
+    public class IBreadcrumbBarItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarItem }
 
     }
@@ -7955,7 +7973,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x186C3BD3, Data2: 0x7008, Data3: 0x5544, Data4: ( 0x8D,0x3A,0x65,0xAF,0x8F,0xE9,0xFE,0x69 ) // 186C3BD3-7008-5544-8D3A-65AF8FE9FE69
     ) 
 
-    public class IBreadcrumbBarItemFactory: WindowsFoundation.IInspectable {
+    public class IBreadcrumbBarItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.BreadcrumbBarItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBreadcrumbBarItem {
@@ -7977,7 +7995,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - BreadcrumbBarItemClickedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.breadcrumbbaritemclickedeventargs)
-public final class BreadcrumbBarItemClickedEventArgs : WinRTClass {
+public final class BreadcrumbBarItemClickedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarItemClickedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarItemClickedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -8036,7 +8054,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1CEEA503, Data2: 0x365E, Data3: 0x580D, Data4: ( 0xBC,0xD4,0xE9,0xAD,0x02,0x48,0xF6,0xB5 ) // 1CEEA503-365E-580D-BCD4-E9AD0248F6B5
     ) 
 
-    public class IBreadcrumbBarItemClickedEventArgs: WindowsFoundation.IInspectable {
+    public class IBreadcrumbBarItemClickedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarItemClickedEventArgs }
 
         public func get_Index() throws -> Int32 {
@@ -8062,7 +8080,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Button
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.button)
-open class Button : WinUI.ButtonBase {
+open class Button : WinUI.ButtonBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIButton
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -8089,7 +8107,7 @@ open class Button : WinUI.ButtonBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Button")
+    private static nonisolated(unsafe) var _IButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Button")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ButtonBridge.Composable.self) { baseInterface, innerInterface in 
@@ -8153,7 +8171,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x216C183D, Data2: 0xD07A, Data3: 0x5AA5, Data4: ( 0xB8,0xA4,0x03,0x00,0xA2,0x68,0x3E,0x87 ) // 216C183D-D07A-5AA5-B8A4-0300A2683E87
     ) 
 
-    public class IButton: WindowsFoundation.IInspectable {
+    public class IButton: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIButton }
 
         public func get_Flyout() throws -> WinUI.FlyoutBase? {
@@ -8177,7 +8195,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFE393422, Data2: 0xD91C, Data3: 0x57B1, Data4: ( 0x9A,0x9C,0x2C,0x7E,0x3F,0x41,0xF7,0x7C ) // FE393422-D91C-57B1-9A9C-2C7E3F41F77C
     ) 
 
-    public class IButtonFactory: WindowsFoundation.IInspectable {
+    public class IButtonFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIButtonFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IButton {
@@ -8199,7 +8217,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x57823D25, Data2: 0xB26A, Data3: 0x5E0F, Data4: ( 0x94,0xF6,0xBB,0xAE,0x70,0x68,0x3D,0xC5 ) // 57823D25-B26A-5E0F-94F6-BBAE70683DC5
     ) 
 
-    public class IButtonStatics: WindowsFoundation.IInspectable {
+    public class IButtonStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIButtonStatics }
 
         public func get_FlyoutProperty() throws -> WinUI.DependencyProperty? {
@@ -8217,7 +8235,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarDatePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker)
-open class CalendarDatePicker : WinUI.Control {
+open class CalendarDatePicker : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePicker
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -8244,7 +8262,7 @@ open class CalendarDatePicker : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICalendarDatePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarDatePicker")
+    private static nonisolated(unsafe) var _ICalendarDatePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarDatePicker")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarDatePickerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -8557,7 +8575,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE3D9FAA1, Data2: 0x0FD0, Data3: 0x5932, Data4: ( 0xA6,0xDB,0xFF,0x00,0xC0,0x03,0xAC,0x21 ) // E3D9FAA1-0FD0-5932-A6DB-FF00C003AC21
     ) 
 
-    public class ICalendarDatePicker: WindowsFoundation.IInspectable {
+    public class ICalendarDatePicker: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker }
 
         public func get_Date() throws -> WindowsFoundation.DateTime? {
@@ -8593,10 +8611,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_DateFormat() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DateFormat(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -8609,10 +8629,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PlaceholderText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -8773,10 +8795,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_DayOfWeekFormat() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayOfWeekFormat(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -8789,10 +8813,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_CalendarIdentifier() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifier(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -8913,7 +8939,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB00C7818, Data2: 0x955A, Data3: 0x5524, Data4: ( 0xB4,0x51,0x93,0x86,0x82,0x30,0x89,0x2F ) // B00C7818-955A-5524-B451-93868230892F
     ) 
 
-    public class ICalendarDatePickerFactory: WindowsFoundation.IInspectable {
+    public class ICalendarDatePickerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CalendarDatePickerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICalendarDatePicker {
@@ -8935,7 +8961,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE74EB740, Data2: 0x1AEB, Data3: 0x591F, Data4: ( 0xB8,0x4A,0xEF,0x88,0x1C,0x3B,0x52,0x7E ) // E74EB740-1AEB-591F-B84A-EF881C3B527E
     ) 
 
-    public class ICalendarDatePickerStatics: WindowsFoundation.IInspectable {
+    public class ICalendarDatePickerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerStatics }
 
         public func get_DateProperty() throws -> WinUI.DependencyProperty? {
@@ -9106,7 +9132,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarDatePickerDateChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepickerdatechangedeventargs)
-public final class CalendarDatePickerDateChangedEventArgs : WinRTClass {
+public final class CalendarDatePickerDateChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerDateChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -9165,7 +9191,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x57C212D7, Data2: 0xC2F2, Data3: 0x54A0, Data4: ( 0x9D,0x41,0xF2,0x63,0xB1,0xE5,0x10,0x6E ) // 57C212D7-C2F2-54A0-9D41-F263B1E5106E
     ) 
 
-    public class ICalendarDatePickerDateChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ICalendarDatePickerDateChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs }
 
         public func get_NewDate() throws -> WindowsFoundation.DateTime? {
@@ -9192,7 +9218,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview)
-open class CalendarView : WinUI.Control {
+open class CalendarView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -9219,7 +9245,7 @@ open class CalendarView : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICalendarViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarView")
+    private static nonisolated(unsafe) var _ICalendarViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -10131,15 +10157,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE786081E, Data2: 0xB680, Data3: 0x56AB, Data4: ( 0xBF,0xBB,0x52,0xD5,0xB1,0x7C,0x36,0x5E ) // E786081E-B680-56AB-BFBB-52D5B17C365E
     ) 
 
-    public class ICalendarView: WindowsFoundation.IInspectable {
+    public class ICalendarView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView }
 
         public func get_CalendarIdentifier() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifier(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -10152,10 +10180,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_DayOfWeekFormat() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayOfWeekFormat(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -11267,7 +11297,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2F31D1EB, Data2: 0x8229, Data3: 0x517C, Data4: ( 0xB3,0xA6,0x5A,0x5F,0x28,0x72,0x4E,0x8F ) // 2F31D1EB-8229-517C-B3A6-5A5F28724E8F
     ) 
 
-    public class ICalendarViewFactory: WindowsFoundation.IInspectable {
+    public class ICalendarViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICalendarView {
@@ -11289,7 +11319,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9553E6FC, Data2: 0xE4DA, Data3: 0x57D4, Data4: ( 0x94,0x72,0x7F,0x8E,0xD5,0xFF,0x72,0x19 ) // 9553E6FC-E4DA-57D4-9472-7F8ED5FF7219
     ) 
 
-    public class ICalendarViewStatics: WindowsFoundation.IInspectable {
+    public class ICalendarViewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewStatics }
 
         public func get_CalendarIdentifierProperty() throws -> WinUI.DependencyProperty? {
@@ -11973,7 +12003,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarViewDayItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem)
-open class CalendarViewDayItem : WinUI.Control {
+open class CalendarViewDayItem : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12000,7 +12030,7 @@ open class CalendarViewDayItem : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICalendarViewDayItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarViewDayItem")
+    private static nonisolated(unsafe) var _ICalendarViewDayItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarViewDayItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -12079,7 +12109,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x947D3A07, Data2: 0x6FA4, Data3: 0x553C, Data4: ( 0x9B,0x12,0x57,0xCA,0x1B,0xF7,0x2E,0x9E ) // 947D3A07-6FA4-553C-9B12-57CA1BF72E9E
     ) 
 
-    public class ICalendarViewDayItem: WindowsFoundation.IInspectable {
+    public class ICalendarViewDayItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem }
 
         public func get_IsBlackout() throws -> Bool {
@@ -12118,7 +12148,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE6159E51, Data2: 0x1C48, Data3: 0x5A77, Data4: ( 0xA3,0xA1,0xAE,0xF5,0x9D,0x6A,0x8C,0x4E ) // E6159E51-1C48-5A77-A3A1-AEF59D6A8C4E
     ) 
 
-    public class ICalendarViewDayItemFactory: WindowsFoundation.IInspectable {
+    public class ICalendarViewDayItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICalendarViewDayItem {
@@ -12140,7 +12170,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2B2C4006, Data2: 0x57FA, Data3: 0x5F0F, Data4: ( 0xB8,0xED,0x26,0xE2,0x1F,0x91,0x0E,0x3A ) // 2B2C4006-57FA-5F0F-B8ED-26E21F910E3A
     ) 
 
-    public class ICalendarViewDayItemStatics: WindowsFoundation.IInspectable {
+    public class ICalendarViewDayItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemStatics }
 
         public func get_IsBlackoutProperty() throws -> WinUI.DependencyProperty? {
@@ -12167,7 +12197,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarViewDayItemChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitemchangingeventargs)
-public final class CalendarViewDayItemChangingEventArgs : WinRTClass {
+public final class CalendarViewDayItemChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12241,7 +12271,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE894FE7F, Data2: 0x12F6, Data3: 0x5B1A, Data4: ( 0x88,0xA2,0xA9,0x67,0x64,0xC1,0x27,0x3F ) // E894FE7F-12F6-5B1A-88A2-A96764C1273F
     ) 
 
-    public class ICalendarViewDayItemChangingEventArgs: WindowsFoundation.IInspectable {
+    public class ICalendarViewDayItemChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs }
 
         public func get_InRecycleQueue() throws -> Bool {
@@ -12291,7 +12321,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarViewSelectedDatesChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewselecteddateschangedeventargs)
-public final class CalendarViewSelectedDatesChangedEventArgs : WinRTClass {
+public final class CalendarViewSelectedDatesChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewSelectedDatesChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12350,7 +12380,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x675F688F, Data2: 0xBC30, Data3: 0x59F6, Data4: ( 0x83,0xC4,0x14,0x0B,0xD0,0x53,0xA0,0x9A ) // 675F688F-BC30-59F6-83C4-140BD053A09A
     ) 
 
-    public class ICalendarViewSelectedDatesChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ICalendarViewSelectedDatesChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs }
 
         public func get_AddedDates() throws -> WindowsFoundation.AnyIVectorView<WindowsFoundation.DateTime>? {
@@ -12377,7 +12407,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CandidateWindowBoundsChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.candidatewindowboundschangedeventargs)
-public final class CandidateWindowBoundsChangedEventArgs : WinRTClass {
+public final class CandidateWindowBoundsChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICandidateWindowBoundsChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICandidateWindowBoundsChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12431,7 +12461,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB76FAF94, Data2: 0x3172, Data3: 0x5C50, Data4: ( 0x95,0x07,0x26,0xCD,0x87,0x38,0x15,0xA1 ) // B76FAF94-3172-5C50-9507-26CD873815A1
     ) 
 
-    public class ICandidateWindowBoundsChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ICandidateWindowBoundsChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICandidateWindowBoundsChangedEventArgs }
 
         public func get_Bounds() throws -> WindowsFoundation.Rect {
@@ -12448,7 +12478,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Canvas
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.canvas)
-open class Canvas : WinUI.Panel {
+open class Canvas : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICanvas
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICanvas
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12475,7 +12505,7 @@ open class Canvas : WinUI.Panel {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICanvasFactory : __ABI_Microsoft_UI_Xaml_Controls.ICanvasFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Canvas")
+    private static nonisolated(unsafe) var _ICanvasFactory : __ABI_Microsoft_UI_Xaml_Controls.ICanvasFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Canvas")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CanvasBridge.Composable.self) { baseInterface, innerInterface in 
@@ -12573,7 +12603,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x457BA139, Data2: 0x1146, Data3: 0x51D2, Data4: ( 0x80,0x7E,0xD9,0xD6,0x5C,0x92,0x70,0x60 ) // 457BA139-1146-51D2-807E-D9D65C927060
     ) 
 
-    public class ICanvas: WindowsFoundation.IInspectable {
+    public class ICanvas: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICanvas }
 
     }
@@ -12582,7 +12612,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x374C5050, Data2: 0x3481, Data3: 0x5557, Data4: ( 0x99,0x48,0x80,0x4C,0x0B,0x8E,0xEA,0x89 ) // 374C5050-3481-5557-9948-804C0B8EEA89
     ) 
 
-    public class ICanvasFactory: WindowsFoundation.IInspectable {
+    public class ICanvasFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICanvasFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CanvasBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICanvas {
@@ -12604,7 +12634,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC00D5E0F, Data2: 0x77E3, Data3: 0x5C59, Data4: ( 0x8F,0xCD,0x86,0x76,0x1F,0x0C,0x66,0x07 ) // C00D5E0F-77E3-5C59-8FCD-86761F0C6607
     ) 
 
-    public class ICanvasStatics: WindowsFoundation.IInspectable {
+    public class ICanvasStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICanvasStatics }
 
         public func get_LeftProperty() throws -> WinUI.DependencyProperty? {
@@ -12682,7 +12712,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CheckBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.checkbox)
-open class CheckBox : WinUI.ToggleButton {
+open class CheckBox : WinUI.ToggleButton, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICheckBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICheckBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12709,7 +12739,7 @@ open class CheckBox : WinUI.ToggleButton {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICheckBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.ICheckBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CheckBox")
+    private static nonisolated(unsafe) var _ICheckBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.ICheckBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CheckBox")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CheckBoxBridge.Composable.self) { baseInterface, innerInterface in 
@@ -12761,7 +12791,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC5830000, Data2: 0x4C9D, Data3: 0x5FDD, Data4: ( 0x93,0x46,0x67,0x4C,0x71,0xCD,0x80,0xC5 ) // C5830000-4C9D-5FDD-9346-674C71CD80C5
     ) 
 
-    public class ICheckBox: WindowsFoundation.IInspectable {
+    public class ICheckBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICheckBox }
 
     }
@@ -12770,7 +12800,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF43FF58D, Data2: 0x31D5, Data3: 0x5835, Data4: ( 0xAF,0x7B,0x37,0x5B,0xC6,0xA9,0xBC,0xF3 ) // F43FF58D-31D5-5835-AF7B-375BC6A9BCF3
     ) 
 
-    public class ICheckBoxFactory: WindowsFoundation.IInspectable {
+    public class ICheckBoxFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICheckBoxFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CheckBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICheckBox {
@@ -12792,7 +12822,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ChoosingGroupHeaderContainerEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.choosinggroupheadercontainereventargs)
-public final class ChoosingGroupHeaderContainerEventArgs : WinRTClass {
+public final class ChoosingGroupHeaderContainerEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IChoosingGroupHeaderContainerEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIChoosingGroupHeaderContainerEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12862,7 +12892,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2DB1B0B0, Data2: 0xAEE9, Data3: 0x55FA, Data4: ( 0x8C,0x30,0xC9,0x8F,0x00,0x64,0x3D,0x00 ) // 2DB1B0B0-AEE9-55FA-8C30-C98F00643D00
     ) 
 
-    public class IChoosingGroupHeaderContainerEventArgs: WindowsFoundation.IInspectable {
+    public class IChoosingGroupHeaderContainerEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIChoosingGroupHeaderContainerEventArgs }
 
         public func get_GroupHeaderContainer() throws -> WinUI.ListViewBaseHeaderItem? {
@@ -12903,7 +12933,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ChoosingItemContainerEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.choosingitemcontainereventargs)
-public final class ChoosingItemContainerEventArgs : WinRTClass {
+public final class ChoosingItemContainerEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IChoosingItemContainerEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIChoosingItemContainerEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -12979,7 +13009,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB479B9D2, Data2: 0xA63F, Data3: 0x5638, Data4: ( 0x94,0x86,0x8C,0xCC,0x1F,0x40,0x25,0x1E ) // B479B9D2-A63F-5638-9486-8CCC1F40251E
     ) 
 
-    public class IChoosingItemContainerEventArgs: WindowsFoundation.IInspectable {
+    public class IChoosingItemContainerEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIChoosingItemContainerEventArgs }
 
         public func get_ItemIndex() throws -> Int32 {
@@ -13034,7 +13064,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ColumnDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinition)
-public final class ColumnDefinition : WinUI.DependencyObject {
+public final class ColumnDefinition : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IColumnDefinition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColumnDefinition
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -13127,7 +13157,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x454CEA14, Data2: 0x87EC, Data3: 0x5890, Data4: ( 0xBB,0x62,0xF1,0xD8,0x2A,0x94,0x75,0x8E ) // 454CEA14-87EC-5890-BB62-F1D82A94758E
     ) 
 
-    public class IColumnDefinition: WindowsFoundation.IInspectable {
+    public class IColumnDefinition: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColumnDefinition }
 
         public func get_Width() throws -> WinUI.GridLength {
@@ -13186,7 +13216,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xABA4B755, Data2: 0xCA63, Data3: 0x5ED7, Data4: ( 0xAE,0x31,0x45,0xF9,0xF9,0x19,0x20,0xB0 ) // ABA4B755-CA63-5ED7-AE31-45F9F91920B0
     ) 
 
-    public class IColumnDefinitionStatics: WindowsFoundation.IInspectable {
+    public class IColumnDefinitionStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColumnDefinitionStatics }
 
         public func get_WidthProperty() throws -> WinUI.DependencyProperty? {
@@ -13222,7 +13252,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ColumnDefinitionCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection)
-public final class ColumnDefinitionCollection : WinRTClass, IVector, IIterable {
+public final class ColumnDefinitionCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = ColumnDefinition?
     private typealias SwiftABI = WinUI.IVectorColumnDefinition
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColumnDefinition
@@ -13373,7 +13403,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ComboBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.combobox)
-open class ComboBox : WinUI.Selector {
+open class ComboBox : WinUI.Selector, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IComboBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -13405,7 +13435,7 @@ open class ComboBox : WinUI.Selector {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IComboBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IComboBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ComboBox")
+    private static nonisolated(unsafe) var _IComboBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IComboBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ComboBox")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ComboBoxBridge.Composable.self) { baseInterface, innerInterface in 
@@ -13669,7 +13699,7 @@ public class ComboBoxMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IComboBoxOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ComboBoxBridge.IComboBoxOverrides>
-    internal static var IComboBoxOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IComboBoxOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxOverridesVtbl = .init(
         QueryInterface: { IComboBoxOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IComboBoxOverridesWrapper.addRef($0) },
         Release: { IComboBoxOverridesWrapper.release($0) },
@@ -13723,7 +13753,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC77DA58B, Data2: 0x4FD7, Data3: 0x51E0, Data4: ( 0xA4,0x31,0xF8,0x46,0x58,0xA8,0x3E,0x9E ) // C77DA58B-4FD7-51E0-A431-F84658A83E9E
     ) 
 
-    public class IComboBox: WindowsFoundation.IInspectable {
+    public class IComboBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBox }
 
         public func get_IsDropDownOpen() throws -> Bool {
@@ -13837,10 +13867,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PlaceholderText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -13910,10 +13942,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -14010,7 +14044,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA6AFBC7A, Data2: 0x284F, Data3: 0x5B9A, Data4: ( 0x89,0xFE,0xA3,0x34,0xB6,0x13,0xF8,0x95 ) // A6AFBC7A-284F-5B9A-89FE-A334B613F895
     ) 
 
-    public class IComboBoxOverrides: WindowsFoundation.IInspectable {
+    public class IComboBoxOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxOverrides }
 
         public func OnDropDownClosed(_ e: Any?) throws {
@@ -14035,7 +14069,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x71C1014B, Data2: 0xACDF, Data3: 0x5C03, Data4: ( 0xB5,0xED,0x02,0x87,0x1C,0xAA,0xEB,0x6B ) // 71C1014B-ACDF-5C03-B5ED-02871CAAEB6B
     ) 
 
-    public class IComboBoxFactory: WindowsFoundation.IInspectable {
+    public class IComboBoxFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ComboBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IComboBox {
@@ -14057,7 +14091,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7DA7CD09, Data2: 0xE256, Data3: 0x5238, Data4: ( 0x9F,0xED,0x02,0xB2,0xF3,0xAF,0xBA,0x25 ) // 7DA7CD09-E256-5238-9FED-02B2F3AFBA25
     ) 
 
-    public class IComboBoxStatics: WindowsFoundation.IInspectable {
+    public class IComboBoxStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxStatics }
 
         public func get_IsEditableProperty() throws -> WinUI.DependencyProperty? {
@@ -14189,7 +14223,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ComboBoxItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.comboboxitem)
-open class ComboBoxItem : WinUI.SelectorItem {
+open class ComboBoxItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IComboBoxItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -14216,7 +14250,7 @@ open class ComboBoxItem : WinUI.SelectorItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IComboBoxItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IComboBoxItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ComboBoxItem")
+    private static nonisolated(unsafe) var _IComboBoxItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IComboBoxItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ComboBoxItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ComboBoxItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -14268,7 +14302,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDF65F6F4, Data2: 0x863F, Data3: 0x558D, Data4: ( 0xBC,0x4E,0x82,0xC1,0x2F,0x28,0x06,0x2F ) // DF65F6F4-863F-558D-BC4E-82C12F28062F
     ) 
 
-    public class IComboBoxItem: WindowsFoundation.IInspectable {
+    public class IComboBoxItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxItem }
 
     }
@@ -14277,7 +14311,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8540B906, Data2: 0xC96B, Data3: 0x592D, Data4: ( 0x88,0xD7,0x0C,0x23,0xA3,0x38,0x6D,0x93 ) // 8540B906-C96B-592D-88D7-0C23A3386D93
     ) 
 
-    public class IComboBoxItemFactory: WindowsFoundation.IInspectable {
+    public class IComboBoxItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ComboBoxItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IComboBoxItem {
@@ -14299,7 +14333,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ComboBoxTextSubmittedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.comboboxtextsubmittedeventargs)
-public final class ComboBoxTextSubmittedEventArgs : WinRTClass {
+public final class ComboBoxTextSubmittedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IComboBoxTextSubmittedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxTextSubmittedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -14359,15 +14393,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0D7A9794, Data2: 0x73B5, Data3: 0x585E, Data4: ( 0xBF,0xBB,0xDE,0x6D,0xF7,0xEB,0x9F,0xCF ) // 0D7A9794-73B5-585E-BFBB-DE6DF7EB9FCF
     ) 
 
-    public class IComboBoxTextSubmittedEventArgs: WindowsFoundation.IInspectable {
+    public class IComboBoxTextSubmittedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxTextSubmittedEventArgs }
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxTextSubmittedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -14391,7 +14427,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CommandBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar)
-open class CommandBar : WinUI.AppBar {
+open class CommandBar : WinUI.AppBar, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICommandBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -14418,7 +14454,7 @@ open class CommandBar : WinUI.AppBar {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ICommandBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ICommandBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CommandBar")
+    private static nonisolated(unsafe) var _ICommandBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ICommandBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CommandBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CommandBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -14553,7 +14589,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB7CA8EE3, Data2: 0xA07A, Data3: 0x5F69, Data4: ( 0x8A,0xB8,0xBE,0x4E,0x3E,0x4C,0xF0,0xC8 ) // B7CA8EE3-A07A-5F69-8AB8-BE4E3E4CF0C8
     ) 
 
-    public class ICommandBar: WindowsFoundation.IInspectable {
+    public class ICommandBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar }
 
         public func get_PrimaryCommands() throws -> WindowsFoundation.AnyIObservableVector<WinUI.AnyICommandBarElement?>? {
@@ -14662,7 +14698,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8D4079C3, Data2: 0xFA0A, Data3: 0x5BB1, Data4: ( 0xB4,0x5D,0x49,0x9C,0x37,0x87,0x61,0xB4 ) // 8D4079C3-FA0A-5BB1-B45D-499C378761B4
     ) 
 
-    public class ICommandBarFactory: WindowsFoundation.IInspectable {
+    public class ICommandBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.CommandBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ICommandBar {
@@ -14684,7 +14720,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4ED65848, Data2: 0x4C67, Data3: 0x588F, Data4: ( 0x96,0x66,0x11,0xFF,0x56,0xD7,0x6F,0x02 ) // 4ED65848-4C67-588F-9666-11FF56D76F02
     ) 
 
-    public class ICommandBarStatics: WindowsFoundation.IInspectable {
+    public class ICommandBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBarStatics }
 
         public func get_PrimaryCommandsProperty() throws -> WinUI.DependencyProperty? {
@@ -14747,7 +14783,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContainerContentChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.containercontentchangingeventargs)
-public final class ContainerContentChangingEventArgs : WinRTClass {
+public final class ContainerContentChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContainerContentChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContainerContentChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -14842,7 +14878,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF4C8C937, Data2: 0xB070, Data3: 0x53CE, Data4: ( 0xA7,0x6C,0x07,0x4E,0xE5,0x75,0x0A,0x71 ) // F4C8C937-B070-53CE-A76C-074EE5750A71
     ) 
 
-    public class IContainerContentChangingEventArgs: WindowsFoundation.IInspectable {
+    public class IContainerContentChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContainerContentChangingEventArgs }
 
         public func get_ItemContainer() throws -> WinUI.SelectorItem? {
@@ -14923,7 +14959,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentcontrol)
-open class ContentControl : WinUI.Control {
+open class ContentControl : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControl
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -14955,7 +14991,7 @@ open class ContentControl : WinUI.Control {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IContentControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentControl")
+    private static nonisolated(unsafe) var _IContentControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentControl")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ContentControlBridge.Composable.self) { baseInterface, innerInterface in 
@@ -15071,7 +15107,7 @@ public class ContentControlMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IContentControlOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ContentControlBridge.IContentControlOverrides>
-    internal static var IContentControlOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IContentControlOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverridesVtbl = .init(
         QueryInterface: { IContentControlOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IContentControlOverridesWrapper.addRef($0) },
         Release: { IContentControlOverridesWrapper.release($0) },
@@ -15136,7 +15172,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x07E81761, Data2: 0x11B2, Data3: 0x52AE, Data4: ( 0x8F,0x8B,0x4D,0x53,0xD2,0xB5,0x90,0x0A ) // 07E81761-11B2-52AE-8F8B-4D53D2B5900A
     ) 
 
-    public class IContentControl: WindowsFoundation.IInspectable {
+    public class IContentControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControl }
 
         public func get_Content() throws -> Any? {
@@ -15216,7 +15252,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2504174A, Data2: 0x017E, Data3: 0x5A2D, Data4: ( 0x9C,0x28,0xD9,0x7C,0x66,0xAE,0x99,0x37 ) // 2504174A-017E-5A2D-9C28-D97C66AE9937
     ) 
 
-    public class IContentControlOverrides: WindowsFoundation.IInspectable {
+    public class IContentControlOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlOverrides }
 
         public func OnContentChanged(_ oldContent: Any?, _ newContent: Any?) throws {
@@ -15247,7 +15283,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3DEA958E, Data2: 0x5ACD, Data3: 0x5F80, Data4: ( 0x89,0x38,0x38,0x63,0x4F,0x51,0x49,0x3A ) // 3DEA958E-5ACD-5F80-8938-38634F51493A
     ) 
 
-    public class IContentControlFactory: WindowsFoundation.IInspectable {
+    public class IContentControlFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ContentControlBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IContentControl {
@@ -15269,7 +15305,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF25484F4, Data2: 0x2FED, Data3: 0x5A0A, Data4: ( 0x88,0x64,0x7D,0x6D,0x4A,0xC4,0x3E,0xF8 ) // F25484F4-2FED-5A0A-8864-7D6D4AC43EF8
     ) 
 
-    public class IContentControlStatics: WindowsFoundation.IInspectable {
+    public class IContentControlStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControlStatics }
 
         public func get_ContentProperty() throws -> WinUI.DependencyProperty? {
@@ -15320,7 +15356,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ContentDialog
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog)
-open class ContentDialog : WinUI.ContentControl {
+open class ContentDialog : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialog
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialog
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -15347,7 +15383,7 @@ open class ContentDialog : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IContentDialogFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentDialogFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentDialog")
+    private static nonisolated(unsafe) var _IContentDialogFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentDialogFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentDialog")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogBridge.Composable.self) { baseInterface, innerInterface in 
@@ -15691,7 +15727,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAC2145A3, Data2: 0x4A32, Data3: 0x5305, Data4: ( 0xA8,0x1D,0x47,0x50,0x95,0x15,0xBF,0xCE ) // AC2145A3-4A32-5305-A81D-47509515BFCE
     ) 
 
-    public class IContentDialog: WindowsFoundation.IInspectable {
+    public class IContentDialog: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialog }
 
         public func get_Title() throws -> Any? {
@@ -15742,10 +15778,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PrimaryButtonText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialog.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PrimaryButtonText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -15758,10 +15796,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_SecondaryButtonText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialog.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SecondaryButtonText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -15774,10 +15814,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_CloseButtonText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialog.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CloseButtonText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -16103,7 +16145,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA05B3AD7, Data2: 0xC60E, Data3: 0x545A, Data4: ( 0x9E,0xE4,0xF0,0x98,0x22,0x0E,0xD8,0x16 ) // A05B3AD7-C60E-545A-9EE4-F098220ED816
     ) 
 
-    public class IContentDialogFactory: WindowsFoundation.IInspectable {
+    public class IContentDialogFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ContentDialogBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IContentDialog {
@@ -16125,7 +16167,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x397B18DD, Data2: 0x6964, Data3: 0x5056, Data4: ( 0x97,0xC3,0xD6,0x9C,0xD7,0x71,0x6A,0x4B ) // 397B18DD-6964-5056-97C3-D69CD7716A4B
     ) 
 
-    public class IContentDialogStatics: WindowsFoundation.IInspectable {
+    public class IContentDialogStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogStatics }
 
         public func get_TitleProperty() throws -> WinUI.DependencyProperty? {
@@ -16296,7 +16338,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogButtonClickDeferral
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogbuttonclickdeferral)
-public final class ContentDialogButtonClickDeferral : WinRTClass {
+public final class ContentDialogButtonClickDeferral : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogButtonClickDeferral
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogButtonClickDeferral
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -16350,7 +16392,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDDCA6D2E, Data2: 0xA81A, Data3: 0x5F61, Data4: ( 0x8B,0x87,0xE4,0xB6,0xEC,0x5F,0xA3,0x98 ) // DDCA6D2E-A81A-5F61-8B87-E4B6EC5FA398
     ) 
 
-    public class IContentDialogButtonClickDeferral: WindowsFoundation.IInspectable {
+    public class IContentDialogButtonClickDeferral: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogButtonClickDeferral }
 
         public func Complete() throws {
@@ -16365,7 +16407,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogButtonClickEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogbuttonclickeventargs)
-public final class ContentDialogButtonClickEventArgs : WinRTClass {
+public final class ContentDialogButtonClickEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogButtonClickEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogButtonClickEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -16425,7 +16467,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBAE6261C, Data2: 0x362F, Data3: 0x5342, Data4: ( 0xBA,0x26,0x5F,0x69,0x90,0xEF,0x72,0x6C ) // BAE6261C-362F-5342-BA26-5F6990EF726C
     ) 
 
-    public class IContentDialogButtonClickEventArgs: WindowsFoundation.IInspectable {
+    public class IContentDialogButtonClickEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogButtonClickEventArgs }
 
         public func get_Cancel() throws -> Bool {
@@ -16457,7 +16499,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogClosedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogclosedeventargs)
-public final class ContentDialogClosedEventArgs : WinRTClass {
+public final class ContentDialogClosedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogClosedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -16511,7 +16553,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9B84E681, Data2: 0x1AB6, Data3: 0x5485, Data4: ( 0x88,0xB2,0xD0,0xD3,0xC0,0x5B,0x29,0xF3 ) // 9B84E681-1AB6-5485-88B2-D0D3C05B29F3
     ) 
 
-    public class IContentDialogClosedEventArgs: WindowsFoundation.IInspectable {
+    public class IContentDialogClosedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosedEventArgs }
 
         public func get_Result() throws -> WinUI.ContentDialogResult {
@@ -16528,7 +16570,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogClosingDeferral
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogclosingdeferral)
-public final class ContentDialogClosingDeferral : WinRTClass {
+public final class ContentDialogClosingDeferral : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogClosingDeferral
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosingDeferral
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -16582,7 +16624,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9D74ECC1, Data2: 0x67D3, Data3: 0x5F02, Data4: ( 0x9B,0x30,0x56,0xF3,0xB2,0xE8,0xB0,0xA6 ) // 9D74ECC1-67D3-5F02-9B30-56F3B2E8B0A6
     ) 
 
-    public class IContentDialogClosingDeferral: WindowsFoundation.IInspectable {
+    public class IContentDialogClosingDeferral: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosingDeferral }
 
         public func Complete() throws {
@@ -16597,7 +16639,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogclosingeventargs)
-public final class ContentDialogClosingEventArgs : WinRTClass {
+public final class ContentDialogClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -16662,7 +16704,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x12782103, Data2: 0x3B80, Data3: 0x511C, Data4: ( 0x91,0x28,0x12,0xCB,0x8C,0xDA,0xC4,0x44 ) // 12782103-3B80-511C-9128-12CB8CDAC444
     ) 
 
-    public class IContentDialogClosingEventArgs: WindowsFoundation.IInspectable {
+    public class IContentDialogClosingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosingEventArgs }
 
         public func get_Result() throws -> WinUI.ContentDialogResult {
@@ -16702,7 +16744,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogOpenedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogopenedeventargs)
-public final class ContentDialogOpenedEventArgs : WinRTClass {
+public final class ContentDialogOpenedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogOpenedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogOpenedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -16751,7 +16793,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD1355ED8, Data2: 0x64ED, Data3: 0x5BBC, Data4: ( 0x94,0x11,0x5F,0x4D,0xBC,0xA7,0xD9,0x3F ) // D1355ED8-64ED-5BBC-9411-5F4DBCA7D93F
     ) 
 
-    public class IContentDialogOpenedEventArgs: WindowsFoundation.IInspectable {
+    public class IContentDialogOpenedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogOpenedEventArgs }
 
     }
@@ -16760,7 +16802,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentPresenter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentpresenter)
-open class ContentPresenter : WinUI.FrameworkElement {
+open class ContentPresenter : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentPresenter
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentPresenter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -16792,7 +16834,7 @@ open class ContentPresenter : WinUI.FrameworkElement {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IContentPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentPresenter")
+    private static nonisolated(unsafe) var _IContentPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentPresenter")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ContentPresenterBridge.Composable.self) { baseInterface, innerInterface in 
@@ -17146,7 +17188,7 @@ public class ContentPresenterMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IContentPresenterOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ContentPresenterBridge.IContentPresenterOverrides>
-    internal static var IContentPresenterOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentPresenterOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IContentPresenterOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentPresenterOverridesVtbl = .init(
         QueryInterface: { IContentPresenterOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IContentPresenterOverridesWrapper.addRef($0) },
         Release: { IContentPresenterOverridesWrapper.release($0) },
@@ -17200,7 +17242,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x075E6CA8, Data2: 0xDA46, Data3: 0x5EC6, Data4: ( 0x8C,0x64,0x03,0xB3,0xDD,0xEA,0xF7,0x4F ) // 075E6CA8-DA46-5EC6-8C64-03B3DDEAF74F
     ) 
 
-    public class IContentPresenter: WindowsFoundation.IInspectable {
+    public class IContentPresenter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentPresenter }
 
         public func get_Content() throws -> Any? {
@@ -17598,7 +17640,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x00E96954, Data2: 0xD6E0, Data3: 0x510F, Data4: ( 0xA2,0xD2,0x38,0xA0,0x32,0xB9,0x62,0x36 ) // 00E96954-D6E0-510F-A2D2-38A032B96236
     ) 
 
-    public class IContentPresenterOverrides: WindowsFoundation.IInspectable {
+    public class IContentPresenterOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentPresenterOverrides }
 
         public func OnContentTemplateChanged(_ oldContentTemplate: WinUI.DataTemplate?, _ newContentTemplate: WinUI.DataTemplate?) throws {
@@ -17619,7 +17661,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x730B1D5E, Data2: 0x2540, Data3: 0x5A3D, Data4: ( 0xA6,0xC7,0x88,0x8A,0xA8,0x61,0x46,0x10 ) // 730B1D5E-2540-5A3D-A6C7-888AA8614610
     ) 
 
-    public class IContentPresenterFactory: WindowsFoundation.IInspectable {
+    public class IContentPresenterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentPresenterFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ContentPresenterBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IContentPresenter {
@@ -17641,7 +17683,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC3E55F6C, Data2: 0x7ABE, Data3: 0x568F, Data4: ( 0xB6,0x7B,0x8E,0xBD,0x32,0x74,0xF3,0x3E ) // C3E55F6C-7ABE-568F-B67B-8EBD3274F33E
     ) 
 
-    public class IContentPresenterStatics: WindowsFoundation.IInspectable {
+    public class IContentPresenterStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentPresenterStatics }
 
         public func get_ContentProperty() throws -> WinUI.DependencyProperty? {
@@ -17890,7 +17932,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ContextMenuEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contextmenueventargs)
-public final class ContextMenuEventArgs : WinUI.RoutedEventArgs {
+public final class ContextMenuEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContextMenuEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContextMenuEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -17955,7 +17997,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x65637BB3, Data2: 0xE279, Data3: 0x5507, Data4: ( 0xBD,0x16,0x6F,0x7B,0xA6,0x70,0x5F,0x31 ) // 65637BB3-E279-5507-BD16-6F7BA6705F31
     ) 
 
-    public class IContextMenuEventArgs: WindowsFoundation.IInspectable {
+    public class IContextMenuEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContextMenuEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -17994,7 +18036,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Control
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control)
-open class Control : WinUI.FrameworkElement {
+open class Control : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControl
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -18026,7 +18068,7 @@ open class Control : WinUI.FrameworkElement {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Control")
+    private static nonisolated(unsafe) var _IControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Control")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ControlBridge.Composable.self) { baseInterface, innerInterface in 
@@ -18579,7 +18621,7 @@ public class ControlMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IControlOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ControlBridge.IControlOverrides>
-    internal static var IControlOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IControlOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverridesVtbl = .init(
         QueryInterface: { IControlOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IControlOverridesWrapper.addRef($0) },
         Release: { IControlOverridesWrapper.release($0) },
@@ -18865,7 +18907,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x857D6E8A, Data2: 0xD45A, Data3: 0x5C69, Data4: ( 0xA9,0x9C,0xBF,0x6A,0x5C,0x54,0xFB,0x38 ) // 857D6E8A-D45A-5C69-A99C-BF6A5C54FB38
     ) 
 
-    public class IControl: WindowsFoundation.IInspectable {
+    public class IControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControl }
 
         public func get_IsFocusEngagementEnabled() throws -> Bool {
@@ -19278,7 +19320,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5C750339, Data2: 0x1789, Data3: 0x5095, Data4: ( 0xA2,0x14,0xDD,0x9D,0x05,0x64,0xE5,0x79 ) // 5C750339-1789-5095-A214-DD9D0564E579
     ) 
 
-    public class IControlProtected: WindowsFoundation.IInspectable {
+    public class IControlProtected: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlProtected }
 
         public func get_DefaultStyleKey() throws -> Any? {
@@ -19314,7 +19356,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5F644395, Data2: 0x2177, Data3: 0x5161, Data4: ( 0x9F,0x87,0xC6,0xC7,0x49,0xC7,0x3A,0x03 ) // 5F644395-2177-5161-9F87-C6C749C73A03
     ) 
 
-    public class IControlOverrides: WindowsFoundation.IInspectable {
+    public class IControlOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides }
 
         public func OnPointerEntered(_ e: WinUI.PointerRoutedEventArgs?) throws {
@@ -19491,7 +19533,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x25159233, Data2: 0x9438, Data3: 0x5534, Data4: ( 0xAE,0xB9,0x00,0xEB,0x05,0x9C,0xF7,0x3F ) // 25159233-9438-5534-AEB9-00EB059CF73F
     ) 
 
-    public class IControlFactory: WindowsFoundation.IInspectable {
+    public class IControlFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ControlBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IControl {
@@ -19513,7 +19555,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC3AE388D, Data2: 0xAA36, Data3: 0x5E10, Data4: ( 0xAC,0xAC,0x98,0x41,0x5F,0x47,0xBC,0xC7 ) // C3AE388D-AA36-5E10-ACAC-98415F47BCC7
     ) 
 
-    public class IControlStatics: WindowsFoundation.IInspectable {
+    public class IControlStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlStatics }
 
         public func get_IsFocusEngagementEnabledProperty() throws -> WinUI.DependencyProperty? {
@@ -19799,7 +19841,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ControlTemplate
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.controltemplate)
-public final class ControlTemplate : WinUI.FrameworkTemplate {
+public final class ControlTemplate : WinUI.FrameworkTemplate, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlTemplate
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlTemplate
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -19859,11 +19901,14 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3A192751, Data2: 0x2106, Data3: 0x547A, Data4: ( 0xAC,0xA0,0xF1,0x5A,0xE8,0x92,0x6E,0xA0 ) // 3A192751-2106-547A-ACA0-F15AE8926EA0
     ) 
 
-    public class IControlTemplate: WindowsFoundation.IInspectable {
+    public class IControlTemplate: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlTemplate }
 
         public func get_TargetType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+            defer {
+                WinUI.TypeName.release(abi: value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlTemplate.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_TargetType(pThis, &value))
             }
@@ -19883,7 +19928,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CoreWebView2InitializedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.corewebview2initializedeventargs)
-public final class CoreWebView2InitializedEventArgs : WinRTClass {
+public final class CoreWebView2InitializedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICoreWebView2InitializedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICoreWebView2InitializedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -19937,7 +19982,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEE59D277, Data2: 0x8B2E, Data3: 0x57AB, Data4: ( 0x86,0x31,0x91,0xD2,0x7B,0x12,0xEB,0xD9 ) // EE59D277-8B2E-57AB-8631-91D27B12EBD9
     ) 
 
-    public class ICoreWebView2InitializedEventArgs: WindowsFoundation.IInspectable {
+    public class ICoreWebView2InitializedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CICoreWebView2InitializedEventArgs }
 
         public func get_Exception() throws -> HRESULT {
@@ -19954,7 +19999,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DataTemplateSelector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datatemplateselector)
-open class DataTemplateSelector : WinRTClass, WinUI.IElementFactory {
+open class DataTemplateSelector : WinRTClass, @unchecked Sendable, WinUI.IElementFactory {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelector
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelector
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -19987,7 +20032,7 @@ open class DataTemplateSelector : WinRTClass, WinUI.IElementFactory {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IDataTemplateSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DataTemplateSelector")
+    private static nonisolated(unsafe) var _IDataTemplateSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DataTemplateSelector")
 
     override public init() {
         super.init()
@@ -20071,7 +20116,7 @@ public class DataTemplateSelectorMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IDataTemplateSelectorOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.IDataTemplateSelectorOverrides>
-    internal static var IDataTemplateSelectorOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelectorOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IDataTemplateSelectorOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelectorOverridesVtbl = .init(
         QueryInterface: { IDataTemplateSelectorOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IDataTemplateSelectorOverridesWrapper.addRef($0) },
         Release: { IDataTemplateSelectorOverridesWrapper.release($0) },
@@ -20124,7 +20169,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x86CA4FA4, Data2: 0x7DE0, Data3: 0x5049, Data4: ( 0x82,0xF5,0x39,0xEC,0x78,0x56,0x90,0x28 ) // 86CA4FA4-7DE0-5049-82F5-39EC78569028
     ) 
 
-    public class IDataTemplateSelector: WindowsFoundation.IInspectable {
+    public class IDataTemplateSelector: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelector }
 
         public func SelectTemplate(_ item: Any?, _ container: WinUI.DependencyObject?) throws -> WinUI.DataTemplate? {
@@ -20155,7 +20200,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x980448CC, Data2: 0xC114, Data3: 0x5B89, Data4: ( 0x8E,0x09,0x61,0xB0,0xF2,0x64,0xE5,0x92 ) // 980448CC-C114-5B89-8E09-61B0F264E592
     ) 
 
-    public class IDataTemplateSelectorOverrides: WindowsFoundation.IInspectable {
+    public class IDataTemplateSelectorOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelectorOverrides }
 
         public func SelectTemplateCore(_ item: Any?, _ container: WinUI.DependencyObject?) throws -> WinUI.DataTemplate? {
@@ -20186,7 +20231,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x43217EDA, Data2: 0x6F7F, Data3: 0x5B80, Data4: ( 0xA7,0x0B,0x94,0x45,0x11,0xB3,0x54,0xAB ) // 43217EDA-6F7F-5B80-A70B-944511B354AB
     ) 
 
-    public class IDataTemplateSelectorFactory: WindowsFoundation.IInspectable {
+    public class IDataTemplateSelectorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelectorFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDataTemplateSelector {
@@ -20214,7 +20259,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - DatePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker)
-open class DatePicker : WinUI.Control {
+open class DatePicker : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePicker
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -20241,7 +20286,7 @@ open class DatePicker : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IDatePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.IDatePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DatePicker")
+    private static nonisolated(unsafe) var _IDatePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.IDatePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DatePicker")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.DatePickerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -20485,7 +20530,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCA1DC351, Data2: 0x3AE3, Data3: 0x5247, Data4: ( 0x82,0x63,0x16,0xBD,0x51,0x6C,0x6E,0x72 ) // CA1DC351-3AE3-5247-8263-16BD516C6E72
     ) 
 
-    public class IDatePicker: WindowsFoundation.IInspectable {
+    public class IDatePicker: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker }
 
         public func get_Header() throws -> Any? {
@@ -20522,10 +20567,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_CalendarIdentifier() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CalendarIdentifier(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -20594,10 +20641,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_DayFormat() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DayFormat(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -20610,10 +20659,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_MonthFormat() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_MonthFormat(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -20626,10 +20677,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_YearFormat() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_YearFormat(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -20751,7 +20804,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA16BEA02, Data2: 0xB3E0, Data3: 0x5FDC, Data4: ( 0xB5,0xBB,0x25,0xF7,0x94,0xDC,0x48,0x3B ) // A16BEA02-B3E0-5FDC-B5BB-25F794DC483B
     ) 
 
-    public class IDatePickerFactory: WindowsFoundation.IInspectable {
+    public class IDatePickerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.DatePickerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDatePicker {
@@ -20773,7 +20826,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4D810253, Data2: 0xAAE7, Data3: 0x5BE1, Data4: ( 0xB7,0xA8,0xAF,0x45,0x1C,0xA4,0x33,0xE1 ) // 4D810253-AAE7-5BE1-B7A8-AF451CA433E1
     ) 
 
-    public class IDatePickerStatics: WindowsFoundation.IInspectable {
+    public class IDatePickerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerStatics }
 
         public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
@@ -20917,7 +20970,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DatePickerSelectedValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickerselectedvaluechangedeventargs)
-public final class DatePickerSelectedValueChangedEventArgs : WinRTClass {
+public final class DatePickerSelectedValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePickerSelectedValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -20976,7 +21029,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x305ED436, Data2: 0x370F, Data3: 0x5E82, Data4: ( 0xAC,0xF2,0xF1,0x41,0x3E,0x8F,0x9E,0xC4 ) // 305ED436-370F-5E82-ACF2-F1413E8F9EC4
     ) 
 
-    public class IDatePickerSelectedValueChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IDatePickerSelectedValueChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs }
 
         public func get_OldDate() throws -> WindowsFoundation.DateTime? {
@@ -21003,7 +21056,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DatePickerValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickervaluechangedeventargs)
-public final class DatePickerValueChangedEventArgs : WinRTClass {
+public final class DatePickerValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePickerValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -21062,7 +21115,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBD4E36CA, Data2: 0xF6AB, Data3: 0x57CF, Data4: ( 0x84,0xF0,0x75,0xD0,0x24,0x08,0x4F,0x20 ) // BD4E36CA-F6AB-57CF-84F0-75D024084F20
     ) 
 
-    public class IDatePickerValueChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IDatePickerValueChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs }
 
         public func get_OldDate() throws -> WindowsFoundation.DateTime {
@@ -21087,7 +21140,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DragItemsCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dragitemscompletedeventargs)
-public final class DragItemsCompletedEventArgs : WinRTClass {
+public final class DragItemsCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDragItemsCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -21146,7 +21199,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC0138552, Data2: 0xF467, Data3: 0x5C3E, Data4: ( 0x8A,0xF4,0x59,0x36,0x07,0x76,0x28,0x44 ) // C0138552-F467-5C3E-8AF4-593607762844
     ) 
 
-    public class IDragItemsCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class IDragItemsCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsCompletedEventArgs }
 
         public func get_Items() throws -> WindowsFoundation.AnyIVectorView<Any?>? {
@@ -21172,7 +21225,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DragItemsStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dragitemsstartingeventargs)
-public final class DragItemsStartingEventArgs : WinRTClass {
+public final class DragItemsStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDragItemsStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsStartingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -21242,7 +21295,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA6938886, Data2: 0x20DF, Data3: 0x558E, Data4: ( 0xAC,0x74,0xBB,0x5B,0x7F,0x2F,0x7E,0x90 ) // A6938886-20DF-558E-AC74-BB5B7F2F7E90
     ) 
 
-    public class IDragItemsStartingEventArgs: WindowsFoundation.IInspectable {
+    public class IDragItemsStartingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsStartingEventArgs }
 
         public func get_Cancel() throws -> Bool {
@@ -21283,7 +21336,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DropDownButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dropdownbutton)
-open class DropDownButton : WinUI.Button {
+open class DropDownButton : WinUI.Button, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDropDownButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -21310,7 +21363,7 @@ open class DropDownButton : WinUI.Button {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IDropDownButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IDropDownButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DropDownButton")
+    private static nonisolated(unsafe) var _IDropDownButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IDropDownButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DropDownButton")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.DropDownButtonBridge.Composable.self) { baseInterface, innerInterface in 
@@ -21362,7 +21415,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC1E9FA91, Data2: 0x4F95, Data3: 0x5796, Data4: ( 0x8A,0x7B,0x3B,0x75,0x94,0xA1,0x2C,0x69 ) // C1E9FA91-4F95-5796-8A7B-3B7594A12C69
     ) 
 
-    public class IDropDownButton: WindowsFoundation.IInspectable {
+    public class IDropDownButton: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton }
 
     }
@@ -21371,7 +21424,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7CF3E13B, Data2: 0x668D, Data3: 0x57E7, Data4: ( 0xB5,0xD6,0xF5,0xCA,0x3D,0xBC,0x80,0xBD ) // 7CF3E13B-668D-57E7-B5D6-F5CA3DBC80BD
     ) 
 
-    public class IDropDownButtonFactory: WindowsFoundation.IInspectable {
+    public class IDropDownButtonFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButtonFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.DropDownButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDropDownButton {
@@ -21393,7 +21446,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DynamicOverflowItemsChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dynamicoverflowitemschangingeventargs)
-public final class DynamicOverflowItemsChangingEventArgs : WinRTClass {
+public final class DynamicOverflowItemsChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDynamicOverflowItemsChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -21452,7 +21505,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBF64C37F, Data2: 0x6332, Data3: 0x541D, Data4: ( 0x80,0xF1,0x87,0x6C,0x5B,0xB9,0xB1,0x96 ) // BF64C37F-6332-541D-80F1-876C5BB9B196
     ) 
 
-    public class IDynamicOverflowItemsChangingEventArgs: WindowsFoundation.IInspectable {
+    public class IDynamicOverflowItemsChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs }
 
         public func get_Action() throws -> WinUI.CommandBarDynamicOverflowAction {
@@ -21469,7 +21522,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Expander
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expander)
-open class Expander : WinUI.ContentControl {
+open class Expander : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IExpander
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpander
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -21496,7 +21549,7 @@ open class Expander : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IExpanderFactory : __ABI_Microsoft_UI_Xaml_Controls.IExpanderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Expander")
+    private static nonisolated(unsafe) var _IExpanderFactory : __ABI_Microsoft_UI_Xaml_Controls.IExpanderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Expander")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ExpanderBridge.Composable.self) { baseInterface, innerInterface in 
@@ -21635,7 +21688,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCA633942, Data2: 0xE584, Data3: 0x55C2, Data4: ( 0xB7,0xEE,0xCF,0xFC,0x73,0xC8,0x12,0x7A ) // CA633942-E584-55C2-B7EE-CFFC73C8127A
     ) 
 
-    public class IExpander: WindowsFoundation.IInspectable {
+    public class IExpander: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpander }
 
         public func get_Header() throws -> Any? {
@@ -21760,7 +21813,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x51A5AFC2, Data2: 0xB16D, Data3: 0x516E, Data4: ( 0x83,0xAE,0x5A,0x10,0x47,0x6B,0x13,0xAF ) // 51A5AFC2-B16D-516E-83AE-5A10476B13AF
     ) 
 
-    public class IExpanderFactory: WindowsFoundation.IInspectable {
+    public class IExpanderFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ExpanderBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IExpander {
@@ -21782,7 +21835,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB742C27B, Data2: 0xC023, Data3: 0x5096, Data4: ( 0x8C,0x2A,0x71,0x7D,0x32,0x4A,0xFB,0x7E ) // B742C27B-C023-5096-8C2A-717D324AFB7E
     ) 
 
-    public class IExpanderStatics: WindowsFoundation.IInspectable {
+    public class IExpanderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderStatics }
 
         public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
@@ -21836,7 +21889,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ExpanderCollapsedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expandercollapsedeventargs)
-public final class ExpanderCollapsedEventArgs : WinRTClass {
+public final class ExpanderCollapsedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IExpanderCollapsedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderCollapsedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -21885,7 +21938,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x968A6870, Data2: 0x7426, Data3: 0x535E, Data4: ( 0xA5,0x26,0x27,0x9E,0x6E,0xED,0xEC,0xD0 ) // 968A6870-7426-535E-A526-279E6EEDECD0
     ) 
 
-    public class IExpanderCollapsedEventArgs: WindowsFoundation.IInspectable {
+    public class IExpanderCollapsedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderCollapsedEventArgs }
 
     }
@@ -21894,7 +21947,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ExpanderExpandingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expanderexpandingeventargs)
-public final class ExpanderExpandingEventArgs : WinRTClass {
+public final class ExpanderExpandingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IExpanderExpandingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderExpandingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -21943,7 +21996,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x433F2E36, Data2: 0x19E7, Data3: 0x579C, Data4: ( 0xB4,0xCE,0x9C,0xE5,0xD5,0x10,0xD0,0x01 ) // 433F2E36-19E7-579C-B4CE-9CE5D510D001
     ) 
 
-    public class IExpanderExpandingEventArgs: WindowsFoundation.IInspectable {
+    public class IExpanderExpandingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderExpandingEventArgs }
 
     }
@@ -21952,7 +22005,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ExpanderTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expandertemplatesettings)
-public final class ExpanderTemplateSettings : WinUI.DependencyObject {
+public final class ExpanderTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IExpanderTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -22011,7 +22064,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8F959018, Data2: 0xF6B8, Data3: 0x5C02, Data4: ( 0xBE,0x08,0xCD,0x19,0x6C,0x9F,0xCD,0x2D ) // 8F959018-F6B8-5C02-BE08-CD196C9FCD2D
     ) 
 
-    public class IExpanderTemplateSettings: WindowsFoundation.IInspectable {
+    public class IExpanderTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderTemplateSettings }
 
         public func get_ContentHeight() throws -> Double {
@@ -22036,7 +22089,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FlipView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flipview)
-open class FlipView : WinUI.Selector {
+open class FlipView : WinUI.Selector, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFlipView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -22063,7 +22116,7 @@ open class FlipView : WinUI.Selector {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFlipViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlipViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlipView")
+    private static nonisolated(unsafe) var _IFlipViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlipViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlipView")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FlipViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -22127,7 +22180,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x96C35E7F, Data2: 0xCC48, Data3: 0x5ACC, Data4: ( 0xB3,0xB4,0x8A,0xB4,0xBD,0xF1,0xFE,0x17 ) // 96C35E7F-CC48-5ACC-B3B4-8AB4BDF1FE17
     ) 
 
-    public class IFlipView: WindowsFoundation.IInspectable {
+    public class IFlipView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipView }
 
         public func get_UseTouchAnimationsForAllNavigation() throws -> Bool {
@@ -22150,7 +22203,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF3A89BE6, Data2: 0x81E3, Data3: 0x53C4, Data4: ( 0x9D,0xC9,0x98,0xA5,0xA4,0xE7,0x9B,0x13 ) // F3A89BE6-81E3-53C4-9DC9-98A5A4E79B13
     ) 
 
-    public class IFlipViewFactory: WindowsFoundation.IInspectable {
+    public class IFlipViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.FlipViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFlipView {
@@ -22172,7 +22225,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1E98FC86, Data2: 0x2BC1, Data3: 0x5C89, Data4: ( 0x83,0x05,0x25,0x1A,0xD5,0x6A,0x9C,0xDB ) // 1E98FC86-2BC1-5C89-8305-251AD56A9CDB
     ) 
 
-    public class IFlipViewStatics: WindowsFoundation.IInspectable {
+    public class IFlipViewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipViewStatics }
 
         public func get_UseTouchAnimationsForAllNavigationProperty() throws -> WinUI.DependencyProperty? {
@@ -22190,7 +22243,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FlipViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flipviewitem)
-open class FlipViewItem : WinUI.SelectorItem {
+open class FlipViewItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFlipViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipViewItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -22217,7 +22270,7 @@ open class FlipViewItem : WinUI.SelectorItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFlipViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlipViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlipViewItem")
+    private static nonisolated(unsafe) var _IFlipViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlipViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlipViewItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FlipViewItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -22269,7 +22322,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x516F2058, Data2: 0xAF67, Data3: 0x5EB3, Data4: ( 0xB7,0x96,0xE7,0x5B,0x34,0xF3,0xFD,0x92 ) // 516F2058-AF67-5EB3-B796-E75B34F3FD92
     ) 
 
-    public class IFlipViewItem: WindowsFoundation.IInspectable {
+    public class IFlipViewItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipViewItem }
 
     }
@@ -22278,7 +22331,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDEB2CD5F, Data2: 0x9D76, Data3: 0x5678, Data4: ( 0xB1,0xCA,0x02,0x67,0x75,0x7C,0x4F,0xED ) // DEB2CD5F-9D76-5678-B1CA-0267757C4FED
     ) 
 
-    public class IFlipViewItemFactory: WindowsFoundation.IInspectable {
+    public class IFlipViewItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipViewItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.FlipViewItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFlipViewItem {
@@ -22300,7 +22353,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Flyout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flyout)
-open class Flyout : WinUI.FlyoutBase {
+open class Flyout : WinUI.FlyoutBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFlyout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyout
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -22327,7 +22380,7 @@ open class Flyout : WinUI.FlyoutBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFlyoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlyoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Flyout")
+    private static nonisolated(unsafe) var _IFlyoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlyoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Flyout")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FlyoutBridge.Composable.self) { baseInterface, innerInterface in 
@@ -22402,7 +22455,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD4A1EB7D, Data2: 0x59B8, Data3: 0x5DF9, Data4: ( 0x87,0xC3,0xBD,0x5E,0x38,0x56,0x92,0x3F ) // D4A1EB7D-59B8-5DF9-87C3-BD5E3856923F
     ) 
 
-    public class IFlyout: WindowsFoundation.IInspectable {
+    public class IFlyout: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyout }
 
         public func get_Content() throws -> WinUI.UIElement? {
@@ -22441,7 +22494,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFD19002E, Data2: 0x66B3, Data3: 0x5656, Data4: ( 0xB4,0x9C,0xB2,0xAC,0xA1,0x1E,0x96,0x02 ) // FD19002E-66B3-5656-B49C-B2ACA11E9602
     ) 
 
-    public class IFlyoutFactory: WindowsFoundation.IInspectable {
+    public class IFlyoutFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyoutFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.FlyoutBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFlyout {
@@ -22463,7 +22516,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x23AE001A, Data2: 0xAAA6, Data3: 0x5D19, Data4: ( 0x99,0x47,0x91,0x7E,0xCB,0xD8,0x83,0xCA ) // 23AE001A-AAA6-5D19-9947-917ECBD883CA
     ) 
 
-    public class IFlyoutStatics: WindowsFoundation.IInspectable {
+    public class IFlyoutStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyoutStatics }
 
         public func get_ContentProperty() throws -> WinUI.DependencyProperty? {
@@ -22490,7 +22543,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FlyoutPresenter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flyoutpresenter)
-open class FlyoutPresenter : WinUI.ContentControl {
+open class FlyoutPresenter : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFlyoutPresenter
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyoutPresenter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -22517,7 +22570,7 @@ open class FlyoutPresenter : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFlyoutPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlyoutPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlyoutPresenter")
+    private static nonisolated(unsafe) var _IFlyoutPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlyoutPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlyoutPresenter")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FlyoutPresenterBridge.Composable.self) { baseInterface, innerInterface in 
@@ -22581,7 +22634,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x70259825, Data2: 0x7F56, Data3: 0x5107, Data4: ( 0x91,0x7E,0x71,0x94,0xB1,0xEF,0x1B,0x81 ) // 70259825-7F56-5107-917E-7194B1EF1B81
     ) 
 
-    public class IFlyoutPresenter: WindowsFoundation.IInspectable {
+    public class IFlyoutPresenter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyoutPresenter }
 
         public func get_IsDefaultShadowEnabled() throws -> Bool {
@@ -22604,7 +22657,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE9539A80, Data2: 0x74ED, Data3: 0x5158, Data4: ( 0x9F,0x93,0x89,0x36,0x69,0xCB,0x04,0x6F ) // E9539A80-74ED-5158-9F93-893669CB046F
     ) 
 
-    public class IFlyoutPresenterFactory: WindowsFoundation.IInspectable {
+    public class IFlyoutPresenterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyoutPresenterFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.FlyoutPresenterBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFlyoutPresenter {
@@ -22626,7 +22679,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB415A2EC, Data2: 0x1BDD, Data3: 0x5F94, Data4: ( 0x95,0x00,0x25,0x72,0x23,0x64,0x64,0x69 ) // B415A2EC-1BDD-5F94-9500-257223646469
     ) 
 
-    public class IFlyoutPresenterStatics: WindowsFoundation.IInspectable {
+    public class IFlyoutPresenterStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyoutPresenterStatics }
 
         public func get_IsDefaultShadowEnabledProperty() throws -> WinUI.DependencyProperty? {
@@ -22644,7 +22697,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FocusDisengagedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.focusdisengagedeventargs)
-public final class FocusDisengagedEventArgs : WinUI.RoutedEventArgs {
+public final class FocusDisengagedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFocusDisengagedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFocusDisengagedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -22693,7 +22746,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC0B4B88C, Data2: 0xC195, Data3: 0x5064, Data4: ( 0x84,0xC7,0x33,0xCB,0x26,0x2C,0xB2,0x40 ) // C0B4B88C-C195-5064-84C7-33CB262CB240
     ) 
 
-    public class IFocusDisengagedEventArgs: WindowsFoundation.IInspectable {
+    public class IFocusDisengagedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFocusDisengagedEventArgs }
 
     }
@@ -22702,7 +22755,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FocusEngagedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.focusengagedeventargs)
-public final class FocusEngagedEventArgs : WinUI.RoutedEventArgs {
+public final class FocusEngagedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFocusEngagedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFocusEngagedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -22757,7 +22810,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1E71E8E4, Data2: 0x74B2, Data3: 0x50A1, Data4: ( 0x8F,0x2B,0x42,0xC0,0x11,0x8A,0xB0,0xEA ) // 1E71E8E4-74B2-50A1-8F2B-42C0118AB0EA
     ) 
 
-    public class IFocusEngagedEventArgs: WindowsFoundation.IInspectable {
+    public class IFocusEngagedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFocusEngagedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -22780,7 +22833,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FontIcon
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.fonticon)
-open class FontIcon : WinUI.IconElement {
+open class FontIcon : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFontIcon
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIcon
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -22807,7 +22860,7 @@ open class FontIcon : WinUI.IconElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFontIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IFontIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIcon")
+    private static nonisolated(unsafe) var _IFontIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IFontIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIcon")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FontIconBridge.Composable.self) { baseInterface, innerInterface in 
@@ -22937,15 +22990,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6EBA5ED9, Data2: 0xD233, Data3: 0x5F5E, Data4: ( 0x91,0xA8,0xF5,0x13,0x42,0x92,0x65,0x8A ) // 6EBA5ED9-D233-5F5E-91A8-F5134292658A
     ) 
 
-    public class IFontIcon: WindowsFoundation.IInspectable {
+    public class IFontIcon: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIcon }
 
         public func get_Glyph() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIcon.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Glyph(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -23047,7 +23102,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAA9A24FE, Data2: 0xBEF8, Data3: 0x564A, Data4: ( 0xB2,0x00,0x69,0x4C,0xD6,0xF6,0xBA,0x4E ) // AA9A24FE-BEF8-564A-B200-694CD6F6BA4E
     ) 
 
-    public class IFontIconFactory: WindowsFoundation.IInspectable {
+    public class IFontIconFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIconFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.FontIconBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFontIcon {
@@ -23069,7 +23124,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x55564030, Data2: 0x2F80, Data3: 0x5BE5, Data4: ( 0x8C,0x2A,0xEB,0xB6,0xEC,0xBA,0x07,0xE8 ) // 55564030-2F80-5BE5-8C2A-EBB6ECBA07E8
     ) 
 
-    public class IFontIconStatics: WindowsFoundation.IInspectable {
+    public class IFontIconStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIconStatics }
 
         public func get_GlyphProperty() throws -> WinUI.DependencyProperty? {
@@ -23141,7 +23196,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FontIconSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.fonticonsource)
-open class FontIconSource : WinUI.IconSource {
+open class FontIconSource : WinUI.IconSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFontIconSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIconSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -23168,7 +23223,7 @@ open class FontIconSource : WinUI.IconSource {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFontIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IFontIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIconSource")
+    private static nonisolated(unsafe) var _IFontIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IFontIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIconSource")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FontIconSourceBridge.Composable.self) { baseInterface, innerInterface in 
@@ -23298,15 +23353,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB89D614C, Data2: 0xE9B5, Data3: 0x5B6A, Data4: ( 0x9B,0xEC,0xAD,0x78,0xB1,0xA1,0x4B,0x74 ) // B89D614C-E9B5-5B6A-9BEC-AD78B1A14B74
     ) 
 
-    public class IFontIconSource: WindowsFoundation.IInspectable {
+    public class IFontIconSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIconSource }
 
         public func get_Glyph() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIconSource.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Glyph(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -23408,7 +23465,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBB40EEEE, Data2: 0x64D1, Data3: 0x5133, Data4: ( 0xB1,0xD6,0xAE,0x13,0xC2,0x1B,0x66,0x78 ) // BB40EEEE-64D1-5133-B1D6-AE13C21B6678
     ) 
 
-    public class IFontIconSourceFactory: WindowsFoundation.IInspectable {
+    public class IFontIconSourceFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIconSourceFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.FontIconSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFontIconSource {
@@ -23430,7 +23487,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC309C231, Data2: 0xF7BF, Data3: 0x5C06, Data4: ( 0xA2,0xD2,0x56,0x50,0x2C,0xFD,0x33,0xE5 ) // C309C231-F7BF-5C06-A2D2-56502CFD33E5
     ) 
 
-    public class IFontIconSourceStatics: WindowsFoundation.IInspectable {
+    public class IFontIconSourceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIconSourceStatics }
 
         public func get_GlyphProperty() throws -> WinUI.DependencyProperty? {
@@ -23502,7 +23559,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Frame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.frame)
-open class Frame : WinUI.ContentControl, INavigate {
+open class Frame : WinUI.ContentControl, @unchecked Sendable, INavigate {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFrame
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -23529,7 +23586,7 @@ open class Frame : WinUI.ContentControl, INavigate {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IFrameFactory : __ABI_Microsoft_UI_Xaml_Controls.IFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Frame")
+    private static nonisolated(unsafe) var _IFrameFactory : __ABI_Microsoft_UI_Xaml_Controls.IFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Frame")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FrameBridge.Composable.self) { baseInterface, innerInterface in 
@@ -23779,7 +23836,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE6D50443, Data2: 0x621E, Data3: 0x5360, Data4: ( 0x85,0x6A,0x75,0xB0,0x1E,0x1F,0xCD,0x22 ) // E6D50443-621E-5360-856A-75B01E1FCD22
     ) 
 
-    public class IFrame: WindowsFoundation.IInspectable {
+    public class IFrame: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFrame }
 
         public func get_CacheSize() throws -> Int32 {
@@ -23814,6 +23871,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_CurrentSourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+            defer {
+                WinUI.TypeName.release(abi: value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurrentSourcePageType(pThis, &value))
             }
@@ -23822,6 +23882,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_SourcePageType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+            defer {
+                WinUI.TypeName.release(abi: value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SourcePageType(pThis, &value))
             }
@@ -23992,10 +24055,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func GetNavigationState() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFrame.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetNavigationState(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -24019,7 +24084,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x53A3070F, Data2: 0x19D9, Data3: 0x59BC, Data4: ( 0xBD,0xD6,0x4D,0xBF,0x13,0x9E,0x7D,0xA5 ) // 53A3070F-19D9-59BC-BDD6-4DBF139E7DA5
     ) 
 
-    public class IFrameFactory: WindowsFoundation.IInspectable {
+    public class IFrameFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFrameFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.FrameBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IFrame {
@@ -24041,7 +24106,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8A974D00, Data2: 0x8DA2, Data3: 0x588A, Data4: ( 0xA1,0x82,0x1F,0x76,0x21,0xEE,0x65,0x0B ) // 8A974D00-8DA2-588A-A182-1F7621EE650B
     ) 
 
-    public class IFrameStatics: WindowsFoundation.IInspectable {
+    public class IFrameStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFrameStatics }
 
         public func get_CacheSizeProperty() throws -> WinUI.DependencyProperty? {
@@ -24131,7 +24196,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Grid
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid)
-open class Grid : WinUI.Panel {
+open class Grid : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGrid
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGrid
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -24158,7 +24223,7 @@ open class Grid : WinUI.Panel {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IGridFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Grid")
+    private static nonisolated(unsafe) var _IGridFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Grid")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.GridBridge.Composable.self) { baseInterface, innerInterface in 
@@ -24358,7 +24423,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC4496219, Data2: 0x9014, Data3: 0x58A1, Data4: ( 0xB4,0xAD,0xC5,0x04,0x49,0x13,0xA5,0xBB ) // C4496219-9014-58A1-B4AD-C5044913A5BB
     ) 
 
-    public class IGrid: WindowsFoundation.IInspectable {
+    public class IGrid: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGrid }
 
         public func get_RowDefinitions() throws -> WinUI.RowDefinitionCollection? {
@@ -24484,7 +24549,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB16BF561, Data2: 0xFC6C, Data3: 0x57C6, Data4: ( 0x8E,0xBC,0x0B,0x06,0xCE,0x45,0x13,0xAA ) // B16BF561-FC6C-57C6-8EBC-0B06CE4513AA
     ) 
 
-    public class IGridFactory: WindowsFoundation.IInspectable {
+    public class IGridFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.GridBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IGrid {
@@ -24506,7 +24571,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEF9CF81D, Data2: 0xA431, Data3: 0x50F4, Data4: ( 0xAB,0xF5,0x30,0x23,0xFE,0x44,0x77,0x04 ) // EF9CF81D-A431-50F4-ABF5-3023FE447704
     ) 
 
-    public class IGridStatics: WindowsFoundation.IInspectable {
+    public class IGridStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridStatics }
 
         public func get_BackgroundSizingProperty() throws -> WinUI.DependencyProperty? {
@@ -24670,7 +24735,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - GridView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.gridview)
-open class GridView : WinUI.ListViewBase {
+open class GridView : WinUI.ListViewBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGridView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -24697,7 +24762,7 @@ open class GridView : WinUI.ListViewBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IGridViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GridView")
+    private static nonisolated(unsafe) var _IGridViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GridView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.GridViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -24749,7 +24814,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD495F2FA, Data2: 0x594D, Data3: 0x5170, Data4: ( 0xB1,0xE8,0x86,0x29,0xA1,0x79,0xF9,0xFB ) // D495F2FA-594D-5170-B1E8-8629A179F9FB
     ) 
 
-    public class IGridView: WindowsFoundation.IInspectable {
+    public class IGridView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridView }
 
     }
@@ -24758,7 +24823,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x892947EA, Data2: 0x6B86, Data3: 0x5F17, Data4: ( 0xA9,0xB8,0x21,0x21,0xB2,0x25,0x12,0x71 ) // 892947EA-6B86-5F17-A9B8-2121B2251271
     ) 
 
-    public class IGridViewFactory: WindowsFoundation.IInspectable {
+    public class IGridViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.GridViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IGridView {
@@ -24780,7 +24845,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - GridViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.gridviewitem)
-open class GridViewItem : WinUI.SelectorItem {
+open class GridViewItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGridViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridViewItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -24807,7 +24872,7 @@ open class GridViewItem : WinUI.SelectorItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IGridViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GridViewItem")
+    private static nonisolated(unsafe) var _IGridViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GridViewItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.GridViewItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -24864,7 +24929,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9DEBB4A5, Data2: 0xE7B7, Data3: 0x5A41, Data4: ( 0xA1,0xEE,0xF7,0x7D,0x8A,0x7B,0x00,0x23 ) // 9DEBB4A5-E7B7-5A41-A1EE-F77D8A7B0023
     ) 
 
-    public class IGridViewItem: WindowsFoundation.IInspectable {
+    public class IGridViewItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridViewItem }
 
         public func get_TemplateSettings() throws -> WinUI.GridViewItemTemplateSettings? {
@@ -24882,7 +24947,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x96A56215, Data2: 0x230C, Data3: 0x5EFB, Data4: ( 0x84,0x01,0x0C,0xE0,0x16,0x17,0xC6,0x57 ) // 96A56215-230C-5EFB-8401-0CE01617C657
     ) 
 
-    public class IGridViewItemFactory: WindowsFoundation.IInspectable {
+    public class IGridViewItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridViewItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.GridViewItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IGridViewItem {
@@ -24904,7 +24969,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - GroupStyle
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.groupstyle)
-open class GroupStyle : WinRTClass, WinUI.INotifyPropertyChanged {
+open class GroupStyle : WinRTClass, @unchecked Sendable, WinUI.INotifyPropertyChanged {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGroupStyle
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyle
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -24932,7 +24997,7 @@ open class GroupStyle : WinRTClass, WinUI.INotifyPropertyChanged {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IGroupStyleFactory : __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GroupStyle")
+    private static nonisolated(unsafe) var _IGroupStyleFactory : __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GroupStyle")
 
     override public init() {
         super.init()
@@ -25042,7 +25107,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA77D937E, Data2: 0x0188, Data3: 0x584C, Data4: ( 0xAB,0x1D,0x9D,0xF1,0x91,0x6E,0xDC,0x75 ) // A77D937E-0188-584C-AB1D-9DF1916EDC75
     ) 
 
-    public class IGroupStyle: WindowsFoundation.IInspectable {
+    public class IGroupStyle: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyle }
 
         public func get_Panel() throws -> WinUI.ItemsPanelTemplate? {
@@ -25155,7 +25220,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDC884AA2, Data2: 0xE2A8, Data3: 0x57AB, Data4: ( 0x8C,0xBC,0xB1,0xD8,0xEC,0x54,0x0B,0x0C ) // DC884AA2-E2A8-57AB-8CBC-B1D8EC540B0C
     ) 
 
-    public class IGroupStyleFactory: WindowsFoundation.IInspectable {
+    public class IGroupStyleFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyleFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.GroupStyleBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IGroupStyle {
@@ -25177,7 +25242,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - GroupStyleSelector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.groupstyleselector)
-open class GroupStyleSelector : WinRTClass {
+open class GroupStyleSelector : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelector
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyleSelector
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -25210,7 +25275,7 @@ open class GroupStyleSelector : WinRTClass {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IGroupStyleSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GroupStyleSelector")
+    private static nonisolated(unsafe) var _IGroupStyleSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GroupStyleSelector")
 
     override public init() {
         super.init()
@@ -25272,7 +25337,7 @@ public class GroupStyleSelectorMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IGroupStyleSelectorOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.GroupStyleSelectorBridge.IGroupStyleSelectorOverrides>
-    internal static var IGroupStyleSelectorOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyleSelectorOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IGroupStyleSelectorOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyleSelectorOverridesVtbl = .init(
         QueryInterface: { IGroupStyleSelectorOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IGroupStyleSelectorOverridesWrapper.addRef($0) },
         Release: { IGroupStyleSelectorOverridesWrapper.release($0) },
@@ -25315,7 +25380,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x524F5086, Data2: 0x3E02, Data3: 0x5B71, Data4: ( 0xBE,0x7C,0x8A,0x8F,0xA0,0xFE,0xAA,0x2C ) // 524F5086-3E02-5B71-BE7C-8A8FA0FEAA2C
     ) 
 
-    public class IGroupStyleSelector: WindowsFoundation.IInspectable {
+    public class IGroupStyleSelector: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyleSelector }
 
         public func SelectGroupStyle(_ group: Any?, _ level: UInt32) throws -> WinUI.GroupStyle? {
@@ -25335,7 +25400,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x80594304, Data2: 0xEBEB, Data3: 0x5A5D, Data4: ( 0xA7,0x94,0xAC,0xDC,0x21,0x4C,0xBC,0x94 ) // 80594304-EBEB-5A5D-A794-ACDC214CBC94
     ) 
 
-    public class IGroupStyleSelectorOverrides: WindowsFoundation.IInspectable {
+    public class IGroupStyleSelectorOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyleSelectorOverrides }
 
         public func SelectGroupStyleCore(_ group: Any?, _ level: UInt32) throws -> WinUI.GroupStyle? {
@@ -25355,7 +25420,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0E0699BE, Data2: 0x50C2, Data3: 0x5C15, Data4: ( 0xAE,0xD3,0xE7,0xBD,0x66,0x3E,0x5F,0xAD ) // 0E0699BE-50C2-5C15-AED3-E7BD663E5FAD
     ) 
 
-    public class IGroupStyleSelectorFactory: WindowsFoundation.IInspectable {
+    public class IGroupStyleSelectorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyleSelectorFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.GroupStyleSelectorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IGroupStyleSelector {
@@ -25383,7 +25448,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - HyperlinkButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.hyperlinkbutton)
-open class HyperlinkButton : WinUI.ButtonBase {
+open class HyperlinkButton : WinUI.ButtonBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IHyperlinkButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIHyperlinkButton
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -25410,7 +25475,7 @@ open class HyperlinkButton : WinUI.ButtonBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IHyperlinkButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IHyperlinkButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.HyperlinkButton")
+    private static nonisolated(unsafe) var _IHyperlinkButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IHyperlinkButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.HyperlinkButton")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.HyperlinkButtonBridge.Composable.self) { baseInterface, innerInterface in 
@@ -25474,7 +25539,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6DBEE605, Data2: 0x8DF0, Data3: 0x50CC, Data4: ( 0x9A,0x42,0x25,0x0E,0xB1,0x38,0xF0,0xC6 ) // 6DBEE605-8DF0-50CC-9A42-250EB138F0C6
     ) 
 
-    public class IHyperlinkButton: WindowsFoundation.IInspectable {
+    public class IHyperlinkButton: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIHyperlinkButton }
 
         public func get_NavigateUri() throws -> WindowsFoundation.Uri? {
@@ -25498,7 +25563,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x01F775EA, Data2: 0xC5ED, Data3: 0x514A, Data4: ( 0xA2,0x3D,0x89,0xC4,0x94,0xA8,0xF0,0x9D ) // 01F775EA-C5ED-514A-A23D-89C494A8F09D
     ) 
 
-    public class IHyperlinkButtonFactory: WindowsFoundation.IInspectable {
+    public class IHyperlinkButtonFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIHyperlinkButtonFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.HyperlinkButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IHyperlinkButton {
@@ -25520,7 +25585,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAB5C7B77, Data2: 0x7C4C, Data3: 0x5B26, Data4: ( 0x9C,0x7C,0x76,0x3F,0x8D,0x95,0x25,0x8E ) // AB5C7B77-7C4C-5B26-9C7C-763F8D95258E
     ) 
 
-    public class IHyperlinkButtonStatics: WindowsFoundation.IInspectable {
+    public class IHyperlinkButtonStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIHyperlinkButtonStatics }
 
         public func get_NavigateUriProperty() throws -> WinUI.DependencyProperty? {
@@ -25538,7 +25603,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - IconElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconelement)
-open class IconElement : WinUI.FrameworkElement {
+open class IconElement : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IIconElement
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconElement
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -25565,7 +25630,7 @@ open class IconElement : WinUI.FrameworkElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IIconElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconElement")
+    private static nonisolated(unsafe) var _IIconElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconElement")
 
     private static let _IIconElementStatics: __ABI_Microsoft_UI_Xaml_Controls.IIconElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconelement.foregroundproperty)
@@ -25623,7 +25688,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x18F69350, Data2: 0x279E, Data3: 0x50EA, Data4: ( 0x8D,0x23,0x13,0x8E,0x71,0x7E,0xD9,0x39 ) // 18F69350-279E-50EA-8D23-138E717ED939
     ) 
 
-    public class IIconElement: WindowsFoundation.IInspectable {
+    public class IIconElement: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconElement }
 
         public func get_Foreground() throws -> WinUI.Brush? {
@@ -25647,7 +25712,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7161EEFF, Data2: 0x2CC3, Data3: 0x59C9, Data4: ( 0xB3,0x55,0xF7,0x52,0xEF,0x20,0x30,0xFB ) // 7161EEFF-2CC3-59C9-B355-F752EF2030FB
     ) 
 
-    public class IIconElementFactory: WindowsFoundation.IInspectable {
+    public class IIconElementFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconElementFactory }
 
     }
@@ -25656,7 +25721,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4CCFDC81, Data2: 0x9D9D, Data3: 0x5A02, Data4: ( 0xB9,0x5B,0xAD,0x1A,0xDD,0x92,0x17,0x50 ) // 4CCFDC81-9D9D-5A02-B95B-AD1ADD921750
     ) 
 
-    public class IIconElementStatics: WindowsFoundation.IInspectable {
+    public class IIconElementStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconElementStatics }
 
         public func get_ForegroundProperty() throws -> WinUI.DependencyProperty? {
@@ -25674,7 +25739,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - IconSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconsource)
-open class IconSource : WinUI.DependencyObject {
+open class IconSource : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IIconSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -25706,7 +25771,7 @@ open class IconSource : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSource")
+    private static nonisolated(unsafe) var _IIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSource")
 
     private static let _IIconSourceStatics: __ABI_Microsoft_UI_Xaml_Controls.IIconSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconsource.foregroundproperty)
@@ -25778,7 +25843,7 @@ public class IconSourceMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IIconSourceOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.IconSourceBridge.IIconSourceOverrides>
-    internal static var IIconSourceOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IIconSourceOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceOverridesVtbl = .init(
         QueryInterface: { IIconSourceOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IIconSourceOverridesWrapper.addRef($0) },
         Release: { IIconSourceOverridesWrapper.release($0) },
@@ -25829,7 +25894,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x39E6B320, Data2: 0xA2AF, Data3: 0x5EE3, Data4: ( 0xB7,0xE9,0x4B,0xA4,0xAA,0x80,0x54,0x1A ) // 39E6B320-A2AF-5EE3-B7E9-4BA4AA80541A
     ) 
 
-    public class IIconSource: WindowsFoundation.IInspectable {
+    public class IIconSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSource }
 
         public func get_Foreground() throws -> WinUI.Brush? {
@@ -25862,7 +25927,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9A02D369, Data2: 0x1C79, Data3: 0x5A81, Data4: ( 0x87,0x1B,0x0B,0x90,0x94,0x6B,0xA7,0xF0 ) // 9A02D369-1C79-5A81-871B-0B90946BA7F0
     ) 
 
-    public class IIconSourceOverrides: WindowsFoundation.IInspectable {
+    public class IIconSourceOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceOverrides }
 
         public func CreateIconElementCore() throws -> WinUI.IconElement? {
@@ -25889,7 +25954,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE8BC19C6, Data2: 0x9A64, Data3: 0x5C54, Data4: ( 0x93,0x38,0xE1,0x8E,0x07,0x68,0x75,0xBF ) // E8BC19C6-9A64-5C54-9338-E18E076875BF
     ) 
 
-    public class IIconSourceFactory: WindowsFoundation.IInspectable {
+    public class IIconSourceFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceFactory }
 
     }
@@ -25898,7 +25963,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEED55973, Data2: 0x7E15, Data3: 0x575F, Data4: ( 0xAF,0x8E,0xAE,0x2B,0x9B,0x97,0x5D,0xD7 ) // EED55973-7E15-575F-AF8E-AE2B9B975DD7
     ) 
 
-    public class IIconSourceStatics: WindowsFoundation.IInspectable {
+    public class IIconSourceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceStatics }
 
         public func get_ForegroundProperty() throws -> WinUI.DependencyProperty? {
@@ -25922,7 +25987,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - IconSourceElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconsourceelement)
-open class IconSourceElement : WinUI.IconElement {
+open class IconSourceElement : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IIconSourceElement
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceElement
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -25949,7 +26014,7 @@ open class IconSourceElement : WinUI.IconElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IIconSourceElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconSourceElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSourceElement")
+    private static nonisolated(unsafe) var _IIconSourceElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconSourceElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSourceElement")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.IconSourceElementBridge.Composable.self) { baseInterface, innerInterface in 
@@ -26013,7 +26078,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAB6F4473, Data2: 0x1F6B, Data3: 0x5B24, Data4: ( 0x82,0x59,0x1D,0x38,0xE9,0x0A,0x11,0x0A ) // AB6F4473-1F6B-5B24-8259-1D38E90A110A
     ) 
 
-    public class IIconSourceElement: WindowsFoundation.IInspectable {
+    public class IIconSourceElement: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceElement }
 
         public func get_IconSource() throws -> WinUI.IconSource? {
@@ -26037,7 +26102,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x13E1A240, Data2: 0xAD47, Data3: 0x51AE, Data4: ( 0x96,0x32,0x71,0x5F,0x4B,0x7E,0xA5,0x2E ) // 13E1A240-AD47-51AE-9632-715F4B7EA52E
     ) 
 
-    public class IIconSourceElementFactory: WindowsFoundation.IInspectable {
+    public class IIconSourceElementFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceElementFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.IconSourceElementBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IIconSourceElement {
@@ -26059,7 +26124,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2CC2539F, Data2: 0x69FC, Data3: 0x5160, Data4: ( 0xAB,0x84,0x37,0xE7,0xE0,0x4E,0x26,0x91 ) // 2CC2539F-69FC-5160-AB84-37E7E04E2691
     ) 
 
-    public class IIconSourceElementStatics: WindowsFoundation.IInspectable {
+    public class IIconSourceElementStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceElementStatics }
 
         public func get_IconSourceProperty() throws -> WinUI.DependencyProperty? {
@@ -26077,7 +26142,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Image
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.image)
-public final class Image : WinUI.FrameworkElement {
+public final class Image : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IImage
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -26201,7 +26266,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x220D3D8D, Data2: 0x66DE, Data3: 0x53A1, Data4: ( 0xA2,0x15,0xBA,0x9C,0x16,0x55,0x65,0xAB ) // 220D3D8D-66DE-53A1-A215-BA9C165565AB
     ) 
 
-    public class IImage: WindowsFoundation.IInspectable {
+    public class IImage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImage }
 
         public func get_Source() throws -> WinUI.ImageSource? {
@@ -26303,7 +26368,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCB5378A8, Data2: 0x996B, Data3: 0x547E, Data4: ( 0x9C,0x4C,0x7B,0xBF,0xD9,0xDB,0xE7,0xDC ) // CB5378A8-996B-547E-9C4C-7BBFD9DBE7DC
     ) 
 
-    public class IImageStatics: WindowsFoundation.IInspectable {
+    public class IImageStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageStatics }
 
         public func get_SourceProperty() throws -> WinUI.DependencyProperty? {
@@ -26339,7 +26404,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ImageIcon
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.imageicon)
-open class ImageIcon : WinUI.IconElement {
+open class ImageIcon : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IImageIcon
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIcon
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -26366,7 +26431,7 @@ open class ImageIcon : WinUI.IconElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IImageIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IImageIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIcon")
+    private static nonisolated(unsafe) var _IImageIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IImageIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIcon")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ImageIconBridge.Composable.self) { baseInterface, innerInterface in 
@@ -26430,7 +26495,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x78A7B526, Data2: 0xE635, Data3: 0x59C6, Data4: ( 0x93,0xA1,0xD7,0xE3,0xC2,0xFA,0xC6,0xD5 ) // 78A7B526-E635-59C6-93A1-D7E3C2FAC6D5
     ) 
 
-    public class IImageIcon: WindowsFoundation.IInspectable {
+    public class IImageIcon: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIcon }
 
         public func get_Source() throws -> WinUI.ImageSource? {
@@ -26454,7 +26519,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x235E0279, Data2: 0xA7D0, Data3: 0x5FDA, Data4: ( 0xA3,0x08,0x9B,0x7C,0xB9,0xC4,0xC9,0x12 ) // 235E0279-A7D0-5FDA-A308-9B7CB9C4C912
     ) 
 
-    public class IImageIconFactory: WindowsFoundation.IInspectable {
+    public class IImageIconFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIconFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ImageIconBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IImageIcon {
@@ -26476,7 +26541,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6BD31828, Data2: 0xF8F9, Data3: 0x5D86, Data4: ( 0x80,0xD5,0xE7,0x42,0x35,0x46,0xDA,0x7D ) // 6BD31828-F8F9-5D86-80D5-E7423546DA7D
     ) 
 
-    public class IImageIconStatics: WindowsFoundation.IInspectable {
+    public class IImageIconStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIconStatics }
 
         public func get_SourceProperty() throws -> WinUI.DependencyProperty? {
@@ -26494,7 +26559,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ImageIconSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.imageiconsource)
-open class ImageIconSource : WinUI.IconSource {
+open class ImageIconSource : WinUI.IconSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IImageIconSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIconSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -26521,7 +26586,7 @@ open class ImageIconSource : WinUI.IconSource {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IImageIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IImageIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIconSource")
+    private static nonisolated(unsafe) var _IImageIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IImageIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIconSource")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ImageIconSourceBridge.Composable.self) { baseInterface, innerInterface in 
@@ -26585,7 +26650,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x67F75BE0, Data2: 0xC84D, Data3: 0x57FF, Data4: ( 0x9F,0x68,0x03,0x9C,0x81,0xEA,0x78,0x96 ) // 67F75BE0-C84D-57FF-9F68-039C81EA7896
     ) 
 
-    public class IImageIconSource: WindowsFoundation.IInspectable {
+    public class IImageIconSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIconSource }
 
         public func get_ImageSource() throws -> WinUI.ImageSource? {
@@ -26609,7 +26674,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x24F76321, Data2: 0x71BD, Data3: 0x530A, Data4: ( 0x8C,0xC8,0x3F,0x61,0x5C,0xD1,0x43,0x7A ) // 24F76321-71BD-530A-8CC8-3F615CD1437A
     ) 
 
-    public class IImageIconSourceFactory: WindowsFoundation.IInspectable {
+    public class IImageIconSourceFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIconSourceFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ImageIconSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IImageIconSource {
@@ -26631,7 +26696,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3AAE805C, Data2: 0xC128, Data3: 0x5F0D, Data4: ( 0xAE,0x43,0x1B,0x15,0x88,0x91,0xA1,0xDD ) // 3AAE805C-C128-5F0D-AE43-1B158891A1DD
     ) 
 
-    public class IImageIconSourceStatics: WindowsFoundation.IInspectable {
+    public class IImageIconSourceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIconSourceStatics }
 
         public func get_ImageSourceProperty() throws -> WinUI.DependencyProperty? {
@@ -26649,7 +26714,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBadge
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobadge)
-open class InfoBadge : WinUI.Control {
+open class InfoBadge : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBadge
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadge
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -26676,7 +26741,7 @@ open class InfoBadge : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInfoBadgeFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadge")
+    private static nonisolated(unsafe) var _IInfoBadgeFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadge")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.InfoBadgeBridge.Composable.self) { baseInterface, innerInterface in 
@@ -26761,7 +26826,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x82104D7F, Data2: 0x03D4, Data3: 0x5EA4, Data4: ( 0x87,0x2E,0xF9,0xEC,0xAB,0x75,0x86,0x01 ) // 82104D7F-03D4-5EA4-872E-F9ECAB758601
     ) 
 
-    public class IInfoBadge: WindowsFoundation.IInspectable {
+    public class IInfoBadge: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadge }
 
         public func get_Value() throws -> Int32 {
@@ -26808,7 +26873,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFB498205, Data2: 0x2DE0, Data3: 0x5986, Data4: ( 0x8A,0xEC,0x2C,0x46,0xAC,0x23,0x50,0x87 ) // FB498205-2DE0-5986-8AEC-2C46AC235087
     ) 
 
-    public class IInfoBadgeFactory: WindowsFoundation.IInspectable {
+    public class IInfoBadgeFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadgeFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.InfoBadgeBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IInfoBadge {
@@ -26830,7 +26895,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB0160061, Data2: 0xB463, Data3: 0x54DE, Data4: ( 0x81,0xAC,0x64,0xF3,0x90,0xD4,0xF2,0x5D ) // B0160061-B463-54DE-81AC-64F390D4F25D
     ) 
 
-    public class IInfoBadgeStatics: WindowsFoundation.IInspectable {
+    public class IInfoBadgeStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadgeStatics }
 
         public func get_ValueProperty() throws -> WinUI.DependencyProperty? {
@@ -26866,7 +26931,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBadgeTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobadgetemplatesettings)
-open class InfoBadgeTemplateSettings : WinUI.DependencyObject {
+open class InfoBadgeTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadgeTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -26893,7 +26958,7 @@ open class InfoBadgeTemplateSettings : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInfoBadgeTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadgeTemplateSettings")
+    private static nonisolated(unsafe) var _IInfoBadgeTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadgeTemplateSettings")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.InfoBadgeTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -26968,7 +27033,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCE810F86, Data2: 0xD4BB, Data3: 0x51BD, Data4: ( 0xBF,0x7D,0xDF,0xD1,0xE6,0xC8,0x5F,0x4A ) // CE810F86-D4BB-51BD-BF7D-DFD1E6C85F4A
     ) 
 
-    public class IInfoBadgeTemplateSettings: WindowsFoundation.IInspectable {
+    public class IInfoBadgeTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadgeTemplateSettings }
 
         public func get_InfoBadgeCornerRadius() throws -> WinUI.CornerRadius {
@@ -27006,7 +27071,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5D366775, Data2: 0x1F6E, Data3: 0x558C, Data4: ( 0xAA,0xB4,0x66,0x77,0x04,0xB3,0x07,0x0C ) // 5D366775-1F6E-558C-AAB4-667704B3070C
     ) 
 
-    public class IInfoBadgeTemplateSettingsFactory: WindowsFoundation.IInspectable {
+    public class IInfoBadgeTemplateSettingsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadgeTemplateSettingsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.InfoBadgeTemplateSettingsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IInfoBadgeTemplateSettings {
@@ -27028,7 +27093,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x10959133, Data2: 0x64CE, Data3: 0x586F, Data4: ( 0xA2,0x52,0x9E,0x26,0xFC,0x1A,0xD9,0xBA ) // 10959133-64CE-586F-A252-9E26FC1AD9BA
     ) 
 
-    public class IInfoBadgeTemplateSettingsStatics: WindowsFoundation.IInspectable {
+    public class IInfoBadgeTemplateSettingsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadgeTemplateSettingsStatics }
 
         public func get_InfoBadgeCornerRadiusProperty() throws -> WinUI.DependencyProperty? {
@@ -27055,7 +27120,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobar)
-open class InfoBar : WinUI.Control {
+open class InfoBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -27082,7 +27147,7 @@ open class InfoBar : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInfoBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBar")
+    private static nonisolated(unsafe) var _IInfoBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.InfoBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -27327,7 +27392,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC1C3A438, Data2: 0xDD79, Data3: 0x5D22, Data4: ( 0x9E,0x42,0x5A,0x3C,0xDF,0x81,0x13,0xA9 ) // C1C3A438-DD79-5D22-9E42-5A3CDF8113A9
     ) 
 
-    public class IInfoBar: WindowsFoundation.IInspectable {
+    public class IInfoBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBar }
 
         public func get_IsOpen() throws -> Bool {
@@ -27346,10 +27411,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -27362,10 +27429,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Message() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Message(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -27592,7 +27661,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x60618A60, Data2: 0x9BE7, Data3: 0x5DF5, Data4: ( 0xBE,0x0D,0x93,0x3D,0x34,0xDD,0xB4,0x4C ) // 60618A60-9BE7-5DF5-BE0D-933D34DDB44C
     ) 
 
-    public class IInfoBarFactory: WindowsFoundation.IInspectable {
+    public class IInfoBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.InfoBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IInfoBar {
@@ -27614,7 +27683,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5FB1E80D, Data2: 0xEA5D, Data3: 0x57BA, Data4: ( 0x99,0x15,0xB6,0x78,0x2B,0x98,0x2A,0xCA ) // 5FB1E80D-EA5D-57BA-9915-B6782B982ACA
     ) 
 
-    public class IInfoBarStatics: WindowsFoundation.IInspectable {
+    public class IInfoBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarStatics }
 
         public func get_IsOpenProperty() throws -> WinUI.DependencyProperty? {
@@ -27749,7 +27818,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBarClosedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobarclosedeventargs)
-open class InfoBarClosedEventArgs : WinRTClass {
+open class InfoBarClosedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarClosedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -27777,7 +27846,7 @@ open class InfoBarClosedEventArgs : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInfoBarClosedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarClosedEventArgs")
+    private static nonisolated(unsafe) var _IInfoBarClosedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarClosedEventArgs")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobarclosedeventargs.reason)
     public var reason : InfoBarCloseReason {
@@ -27828,7 +27897,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x593AF0B3, Data2: 0xBDED, Data3: 0x53DA, Data4: ( 0x8F,0x56,0x80,0xED,0x3C,0x64,0x32,0x2C ) // 593AF0B3-BDED-53DA-8F56-80ED3C64322C
     ) 
 
-    public class IInfoBarClosedEventArgs: WindowsFoundation.IInspectable {
+    public class IInfoBarClosedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarClosedEventArgs }
 
         public func get_Reason() throws -> WinUI.InfoBarCloseReason {
@@ -27845,7 +27914,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x42FE1F7E, Data2: 0x6D68, Data3: 0x5A85, Data4: ( 0x8A,0x5C,0xAB,0xB7,0xEF,0xFC,0xDF,0x26 ) // 42FE1F7E-6D68-5A85-8A5C-ABB7EFFCDF26
     ) 
 
-    public class IInfoBarClosedEventArgsFactory: WindowsFoundation.IInspectable {
+    public class IInfoBarClosedEventArgsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarClosedEventArgsFactory }
 
     }
@@ -27854,7 +27923,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBarClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobarclosingeventargs)
-open class InfoBarClosingEventArgs : WinRTClass {
+open class InfoBarClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarClosingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -27882,7 +27951,7 @@ open class InfoBarClosingEventArgs : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInfoBarClosingEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosingEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarClosingEventArgs")
+    private static nonisolated(unsafe) var _IInfoBarClosingEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosingEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarClosingEventArgs")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobarclosingeventargs.cancel)
     public var cancel : Bool {
@@ -27939,7 +28008,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x062D01D6, Data2: 0x61AF, Data3: 0x5435, Data4: ( 0x8C,0x4B,0xC5,0x11,0x06,0x58,0x3B,0x5B ) // 062D01D6-61AF-5435-8C4B-C51106583B5B
     ) 
 
-    public class IInfoBarClosingEventArgs: WindowsFoundation.IInspectable {
+    public class IInfoBarClosingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarClosingEventArgs }
 
         public func get_Reason() throws -> WinUI.InfoBarCloseReason {
@@ -27970,7 +28039,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD6CFCC14, Data2: 0x5206, Data3: 0x5C9D, Data4: ( 0x80,0x1C,0x3A,0x90,0xB4,0xE2,0xEB,0xE4 ) // D6CFCC14-5206-5C9D-801C-3A90B4E2EBE4
     ) 
 
-    public class IInfoBarClosingEventArgsFactory: WindowsFoundation.IInspectable {
+    public class IInfoBarClosingEventArgsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarClosingEventArgsFactory }
 
     }
@@ -27979,7 +28048,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobartemplatesettings)
-open class InfoBarTemplateSettings : WinUI.DependencyObject {
+open class InfoBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBarTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -28006,7 +28075,7 @@ open class InfoBarTemplateSettings : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInfoBarTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings")
+    private static nonisolated(unsafe) var _IInfoBarTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.InfoBarTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -28070,7 +28139,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x926F7292, Data2: 0x9882, Data3: 0x5056, Data4: ( 0x80,0x97,0x6D,0xA2,0xA7,0xEA,0x27,0xCD ) // 926F7292-9882-5056-8097-6DA2A7EA27CD
     ) 
 
-    public class IInfoBarTemplateSettings: WindowsFoundation.IInspectable {
+    public class IInfoBarTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarTemplateSettings }
 
         public func get_IconElement() throws -> WinUI.IconElement? {
@@ -28094,7 +28163,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x29517DAF, Data2: 0xC763, Data3: 0x56CE, Data4: ( 0x8D,0x54,0xEE,0xFC,0xAF,0x7F,0x2E,0x01 ) // 29517DAF-C763-56CE-8D54-EEFCAF7F2E01
     ) 
 
-    public class IInfoBarTemplateSettingsFactory: WindowsFoundation.IInspectable {
+    public class IInfoBarTemplateSettingsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarTemplateSettingsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.InfoBarTemplateSettingsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IInfoBarTemplateSettings {
@@ -28116,7 +28185,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x57671639, Data2: 0x43E8, Data3: 0x506D, Data4: ( 0xB9,0xA7,0x53,0x9A,0x60,0x5A,0x1C,0x67 ) // 57671639-43E8-506D-B9A7-539A605A1C67
     ) 
 
-    public class IInfoBarTemplateSettingsStatics: WindowsFoundation.IInspectable {
+    public class IInfoBarTemplateSettingsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarTemplateSettingsStatics }
 
         public func get_IconElementProperty() throws -> WinUI.DependencyProperty? {
@@ -28134,7 +28203,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - IsTextTrimmedChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.istexttrimmedchangedeventargs)
-public final class IsTextTrimmedChangedEventArgs : WinRTClass {
+public final class IsTextTrimmedChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IIsTextTrimmedChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIsTextTrimmedChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -28183,7 +28252,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3C709B2F, Data2: 0x16BA, Data3: 0x55D2, Data4: ( 0xB6,0xF6,0xDF,0xC5,0x4A,0x1E,0xD0,0x21 ) // 3C709B2F-16BA-55D2-B6F6-DFC54A1ED021
     ) 
 
-    public class IIsTextTrimmedChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IIsTextTrimmedChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIsTextTrimmedChangedEventArgs }
 
     }
@@ -28192,7 +28261,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemClickEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemclickeventargs)
-public final class ItemClickEventArgs : WinUI.RoutedEventArgs {
+public final class ItemClickEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemClickEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemClickEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -28251,7 +28320,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1CF87A70, Data2: 0x6348, Data3: 0x57EC, Data4: ( 0x9E,0xAC,0xFA,0x05,0x65,0xAD,0xC6,0x0F ) // 1CF87A70-6348-57EC-9EAC-FA0565ADC60F
     ) 
 
-    public class IItemClickEventArgs: WindowsFoundation.IInspectable {
+    public class IItemClickEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemClickEventArgs }
 
         public func get_ClickedItem() throws -> Any? {
@@ -28269,7 +28338,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection)
-public final class ItemCollection : WinRTClass, IObservableVector, IVector, IIterable {
+public final class ItemCollection : WinRTClass, @unchecked Sendable, IObservableVector, IVector, IIterable {
     public typealias T = Any?
     private typealias SwiftABI = WinUI.IObservableVectorAny
     private typealias CABI = __x_ABI_C__FIObservableVector_1_IInspectable
@@ -28435,7 +28504,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollectionTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransition)
-public final class ItemCollectionTransition : WinRTClass {
+public final class ItemCollectionTransition : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransition
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -28514,7 +28583,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x63A8D310, Data2: 0x4D8A, Data3: 0x515E, Data4: ( 0xA9,0x00,0x04,0x16,0xD9,0x37,0x45,0x75 ) // 63A8D310-4D8A-515E-A900-0416D9374575
     ) 
 
-    public class IItemCollectionTransition: WindowsFoundation.IInspectable {
+    public class IItemCollectionTransition: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransition }
 
         public func get_Operation() throws -> WinUI.ItemCollectionTransitionOperation {
@@ -28572,7 +28641,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollectionTransitionCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitioncompletedeventargs)
-public final class ItemCollectionTransitionCompletedEventArgs : WinRTClass {
+public final class ItemCollectionTransitionCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -28631,7 +28700,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB43CA4F6, Data2: 0x7AE5, Data3: 0x576F, Data4: ( 0xB7,0x4D,0xEC,0x70,0xB1,0xC5,0x84,0x88 ) // B43CA4F6-7AE5-576F-B74D-EC70B1C58488
     ) 
 
-    public class IItemCollectionTransitionCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class IItemCollectionTransitionCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionCompletedEventArgs }
 
         public func get_Transition() throws -> WinUI.ItemCollectionTransition? {
@@ -28658,7 +28727,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollectionTransitionProgress
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitionprogress)
-public final class ItemCollectionTransitionProgress : WinRTClass {
+public final class ItemCollectionTransitionProgress : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProgress
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProgress
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -28722,7 +28791,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4DA82DDE, Data2: 0xC778, Data3: 0x57F6, Data4: ( 0xA0,0xE7,0xA7,0x67,0xEF,0x08,0x59,0x1D ) // 4DA82DDE-C778-57F6-A0E7-A767EF08591D
     ) 
 
-    public class IItemCollectionTransitionProgress: WindowsFoundation.IInspectable {
+    public class IItemCollectionTransitionProgress: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProgress }
 
         public func get_Transition() throws -> WinUI.ItemCollectionTransition? {
@@ -28755,7 +28824,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollectionTransitionProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitionprovider)
-open class ItemCollectionTransitionProvider : WinRTClass {
+open class ItemCollectionTransitionProvider : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProvider
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProvider
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -28788,7 +28857,7 @@ open class ItemCollectionTransitionProvider : WinRTClass {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IItemCollectionTransitionProviderFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProviderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider")
+    private static nonisolated(unsafe) var _IItemCollectionTransitionProviderFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProviderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider")
 
     override public init() {
         super.init()
@@ -28873,7 +28942,7 @@ public class ItemCollectionTransitionProviderMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IItemCollectionTransitionProviderOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemCollectionTransitionProviderBridge.IItemCollectionTransitionProviderOverrides>
-    internal static var IItemCollectionTransitionProviderOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProviderOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IItemCollectionTransitionProviderOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProviderOverridesVtbl = .init(
         QueryInterface: { IItemCollectionTransitionProviderOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IItemCollectionTransitionProviderOverridesWrapper.addRef($0) },
         Release: { IItemCollectionTransitionProviderOverridesWrapper.release($0) },
@@ -28924,7 +28993,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x32132262, Data2: 0xE07D, Data3: 0x51F7, Data4: ( 0xA6,0x88,0x95,0x28,0x04,0x2F,0x7E,0x0B ) // 32132262-E07D-51F7-A688-9528042F7E0B
     ) 
 
-    public class IItemCollectionTransitionProvider: WindowsFoundation.IInspectable {
+    public class IItemCollectionTransitionProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProvider }
 
         public func ShouldAnimate(_ transition: WinUI.ItemCollectionTransition?) throws -> Bool {
@@ -28963,7 +29032,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6935222B, Data2: 0xEF83, Data3: 0x5872, Data4: ( 0xA9,0xD4,0x83,0x19,0xBC,0xD6,0x7A,0x67 ) // 6935222B-EF83-5872-A9D4-8319BCD67A67
     ) 
 
-    public class IItemCollectionTransitionProviderOverrides: WindowsFoundation.IInspectable {
+    public class IItemCollectionTransitionProviderOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProviderOverrides }
 
         public func ShouldAnimateCore(_ transition: WinUI.ItemCollectionTransition?) throws -> Bool {
@@ -28988,7 +29057,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF1B53104, Data2: 0x24BE, Data3: 0x510D, Data4: ( 0x9E,0xB1,0x34,0x01,0xDE,0x36,0x1D,0xBC ) // F1B53104-24BE-510D-9EB1-3401DE361DBC
     ) 
 
-    public class IItemCollectionTransitionProviderFactory: WindowsFoundation.IInspectable {
+    public class IItemCollectionTransitionProviderFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProviderFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemCollectionTransitionProviderBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemCollectionTransitionProvider {
@@ -29016,7 +29085,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ItemContainer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainer)
-open class ItemContainer : WinUI.Control {
+open class ItemContainer : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemContainer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -29043,7 +29112,7 @@ open class ItemContainer : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IItemContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemContainer")
+    private static nonisolated(unsafe) var _IItemContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemContainer")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemContainerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -29118,7 +29187,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6332A67F, Data2: 0x7FD9, Data3: 0x53C7, Data4: ( 0xAF,0xD8,0xCF,0xA1,0x23,0x7C,0xF6,0xD1 ) // 6332A67F-7FD9-53C7-AFD8-CFA1237CF6D1
     ) 
 
-    public class IItemContainer: WindowsFoundation.IInspectable {
+    public class IItemContainer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer }
 
         public func get_Child() throws -> WinUI.UIElement? {
@@ -29156,7 +29225,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEE1CC57C, Data2: 0x6BF2, Data3: 0x5EE9, Data4: ( 0xA9,0x43,0xC9,0x5C,0xA7,0x75,0xED,0xB4 ) // EE1CC57C-6BF2-5EE9-A943-C95CA775EDB4
     ) 
 
-    public class IItemContainerFactory: WindowsFoundation.IInspectable {
+    public class IItemContainerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemContainerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemContainer {
@@ -29178,7 +29247,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE26E121D, Data2: 0xB7BF, Data3: 0x5632, Data4: ( 0x85,0xA2,0xF3,0x60,0x40,0xE6,0x49,0xF8 ) // E26E121D-B7BF-5632-85A2-F36040E649F8
     ) 
 
-    public class IItemContainerStatics: WindowsFoundation.IInspectable {
+    public class IItemContainerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerStatics }
 
         public func get_ChildProperty() throws -> WinUI.DependencyProperty? {
@@ -29205,7 +29274,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemContainerGenerator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainergenerator)
-public final class ItemContainerGenerator : WinRTClass {
+public final class ItemContainerGenerator : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemContainerGenerator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerGenerator
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -29337,7 +29406,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC4C5D5AE, Data2: 0xED98, Data3: 0x510F, Data4: ( 0xAF,0xAE,0x8A,0x0A,0xC6,0x06,0x7A,0x3B ) // C4C5D5AE-ED98-510F-AFAE-8A0AC6067A3B
     ) 
 
-    public class IItemContainerGenerator: WindowsFoundation.IInspectable {
+    public class IItemContainerGenerator: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerGenerator }
 
         public func add_ItemsChanged(_ handler: WinUI.ItemsChangedEventHandler?) throws -> EventRegistrationToken {
@@ -29471,7 +29540,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol)
-open class ItemsControl : WinUI.Control, IItemContainerMapping {
+open class ItemsControl : WinUI.Control, @unchecked Sendable, IItemContainerMapping {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsControl
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -29503,7 +29572,7 @@ open class ItemsControl : WinUI.Control, IItemContainerMapping {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IItemsControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsControl")
+    private static nonisolated(unsafe) var _IItemsControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsControl")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsControlBridge.Composable.self) { baseInterface, innerInterface in 
@@ -29771,7 +29840,7 @@ public class ItemsControlMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IItemsControlOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemsControlBridge.IItemsControlOverrides>
-    internal static var IItemsControlOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControlOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IItemsControlOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControlOverridesVtbl = .init(
         QueryInterface: { IItemsControlOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IItemsControlOverridesWrapper.addRef($0) },
         Release: { IItemsControlOverridesWrapper.release($0) },
@@ -29904,7 +29973,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBF1CCB54, Data2: 0x83E2, Data3: 0x5B98, Data4: ( 0xAC,0xBC,0x73,0x6F,0x87,0x6C,0x3D,0x35 ) // BF1CCB54-83E2-5B98-ACBC-736F876C3D35
     ) 
 
-    public class IItemsControl: WindowsFoundation.IInspectable {
+    public class IItemsControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControl }
 
         public func get_ItemsSource() throws -> Any? {
@@ -29980,10 +30049,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_DisplayMemberPath() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControl.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayMemberPath(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -30104,7 +30175,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x285C215F, Data2: 0x64B2, Data3: 0x5F7D, Data4: ( 0x88,0xD2,0x56,0xC6,0x65,0x8F,0x73,0xEE ) // 285C215F-64B2-5F7D-88D2-56C6658F73EE
     ) 
 
-    public class IItemsControlOverrides: WindowsFoundation.IInspectable {
+    public class IItemsControlOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControlOverrides }
 
         public func IsItemItsOwnContainerOverride(_ item: Any?) throws -> Bool {
@@ -30186,7 +30257,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB2686273, Data2: 0x2DD3, Data3: 0x5454, Data4: ( 0x9F,0x25,0x24,0x7E,0x66,0x27,0x03,0x36 ) // B2686273-2DD3-5454-9F25-247E66270336
     ) 
 
-    public class IItemsControlFactory: WindowsFoundation.IInspectable {
+    public class IItemsControlFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControlFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemsControlBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemsControl {
@@ -30208,7 +30279,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4FB961E1, Data2: 0x5F91, Data3: 0x5585, Data4: ( 0xA6,0x92,0x68,0x25,0xCD,0xE3,0xED,0x1E ) // 4FB961E1-5F91-5585-A692-6825CDE3ED1E
     ) 
 
-    public class IItemsControlStatics: WindowsFoundation.IInspectable {
+    public class IItemsControlStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControlStatics }
 
         public func get_ItemsSourceProperty() throws -> WinUI.DependencyProperty? {
@@ -30331,7 +30402,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ItemsPanelTemplate
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemspaneltemplate)
-public final class ItemsPanelTemplate : WinUI.FrameworkTemplate {
+public final class ItemsPanelTemplate : WinUI.FrameworkTemplate, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsPanelTemplate
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsPanelTemplate
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -30385,7 +30456,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6153AF2F, Data2: 0xF095, Data3: 0x5E8C, Data4: ( 0x89,0xD4,0x9E,0x03,0x20,0x3B,0x9C,0xC2 ) // 6153AF2F-F095-5E8C-89D4-9E03203B9CC2
     ) 
 
-    public class IItemsPanelTemplate: WindowsFoundation.IInspectable {
+    public class IItemsPanelTemplate: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsPanelTemplate }
 
     }
@@ -30394,7 +30465,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsRepeater
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater)
-open class ItemsRepeater : WinUI.FrameworkElement {
+open class ItemsRepeater : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeater
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeater
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -30421,7 +30492,7 @@ open class ItemsRepeater : WinUI.FrameworkElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IItemsRepeaterFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsRepeater")
+    private static nonisolated(unsafe) var _IItemsRepeaterFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsRepeater")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterBridge.Composable.self) { baseInterface, innerInterface in 
@@ -30613,7 +30684,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9DABAC84, Data2: 0xFE81, Data3: 0x53D1, Data4: ( 0xA0,0x41,0x7A,0x3B,0xEF,0xEA,0x50,0x5F ) // 9DABAC84-FE81-53D1-A041-7A3BEFEA505F
     ) 
 
-    public class IItemsRepeater: WindowsFoundation.IInspectable {
+    public class IItemsRepeater: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeater }
 
         public func get_ItemsSource() throws -> Any? {
@@ -30797,7 +30868,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x265E249A, Data2: 0x2812, Data3: 0x55B6, Data4: ( 0xA1,0x91,0xCB,0x96,0x08,0x9B,0x51,0xAC ) // 265E249A-2812-55B6-A191-CB96089B51AC
     ) 
 
-    public class IItemsRepeater2: WindowsFoundation.IInspectable {
+    public class IItemsRepeater2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeater2 }
 
         public func get_ItemTransitionProvider() throws -> WinUI.ItemCollectionTransitionProvider? {
@@ -30821,7 +30892,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC3C1F244, Data2: 0x67A8, Data3: 0x568F, Data4: ( 0xA6,0xF7,0x5D,0xA8,0xB0,0xEA,0xDD,0x49 ) // C3C1F244-67A8-568F-A6F7-5DA8B0EADD49
     ) 
 
-    public class IItemsRepeaterFactory: WindowsFoundation.IInspectable {
+    public class IItemsRepeaterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemsRepeater {
@@ -30843,7 +30914,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xED8C4CB7, Data2: 0x2EDC, Data3: 0x5416, Data4: ( 0xAF,0xBF,0x87,0xA9,0xAA,0x2A,0xF2,0x6E ) // ED8C4CB7-2EDC-5416-AFBF-87A9AA2AF26E
     ) 
 
-    public class IItemsRepeaterStatics: WindowsFoundation.IInspectable {
+    public class IItemsRepeaterStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterStatics }
 
         public func get_ItemsSourceProperty() throws -> WinUI.DependencyProperty? {
@@ -30906,7 +30977,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x83D8B5EA, Data2: 0xCA31, Data3: 0x5192, Data4: ( 0xB9,0xA9,0x2A,0x62,0xE6,0x01,0x94,0xE7 ) // 83D8B5EA-CA31-5192-B9A9-2A62E60194E7
     ) 
 
-    public class IItemsRepeaterStatics2: WindowsFoundation.IInspectable {
+    public class IItemsRepeaterStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterStatics2 }
 
         public func get_ItemTransitionProviderProperty() throws -> WinUI.DependencyProperty? {
@@ -30924,7 +30995,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsRepeaterElementClearingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeaterelementclearingeventargs)
-public final class ItemsRepeaterElementClearingEventArgs : WinRTClass {
+public final class ItemsRepeaterElementClearingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterElementClearingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementClearingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -30978,7 +31049,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8F394A59, Data2: 0x07C6, Data3: 0x54CE, Data4: ( 0x80,0xD1,0xBB,0x0B,0x71,0xDA,0xEF,0xA0 ) // 8F394A59-07C6-54CE-80D1-BB0B71DAEFA0
     ) 
 
-    public class IItemsRepeaterElementClearingEventArgs: WindowsFoundation.IInspectable {
+    public class IItemsRepeaterElementClearingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementClearingEventArgs }
 
         public func get_Element() throws -> WinUI.UIElement? {
@@ -30996,7 +31067,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsRepeaterElementIndexChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeaterelementindexchangedeventargs)
-public final class ItemsRepeaterElementIndexChangedEventArgs : WinRTClass {
+public final class ItemsRepeaterElementIndexChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterElementIndexChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementIndexChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -31060,7 +31131,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x38E3D613, Data2: 0x48FB, Data3: 0x5906, Data4: ( 0xBF,0x18,0xF7,0x13,0x03,0x01,0xFC,0xC3 ) // 38E3D613-48FB-5906-BF18-F7130301FCC3
     ) 
 
-    public class IItemsRepeaterElementIndexChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IItemsRepeaterElementIndexChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementIndexChangedEventArgs }
 
         public func get_Element() throws -> WinUI.UIElement? {
@@ -31094,7 +31165,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsRepeaterElementPreparedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeaterelementpreparedeventargs)
-public final class ItemsRepeaterElementPreparedEventArgs : WinRTClass {
+public final class ItemsRepeaterElementPreparedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterElementPreparedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementPreparedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -31153,7 +31224,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x612DB572, Data2: 0xC2E7, Data3: 0x58FC, Data4: ( 0x94,0x8A,0xB7,0xDC,0x0E,0x1F,0xC1,0x3A ) // 612DB572-C2E7-58FC-948A-B7DC0E1FC13A
     ) 
 
-    public class IItemsRepeaterElementPreparedEventArgs: WindowsFoundation.IInspectable {
+    public class IItemsRepeaterElementPreparedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementPreparedEventArgs }
 
         public func get_Element() throws -> WinUI.UIElement? {
@@ -31179,7 +31250,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsSourceView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemssourceview)
-open class ItemsSourceView : WinRTClass, WinUI.INotifyCollectionChanged {
+open class ItemsSourceView : WinRTClass, @unchecked Sendable, WinUI.INotifyCollectionChanged {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsSourceView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsSourceView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -31207,7 +31278,7 @@ open class ItemsSourceView : WinRTClass, WinUI.INotifyCollectionChanged {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IItemsSourceViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsSourceViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsSourceView")
+    private static nonisolated(unsafe) var _IItemsSourceViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsSourceViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsSourceView")
 
     public init(_ source: Any!) {
         super.init()
@@ -31305,7 +31376,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF7F802DE, Data2: 0xE79C, Data3: 0x5C5F, Data4: ( 0xAB,0xF8,0xCC,0xBD,0x48,0x6B,0x89,0xD6 ) // F7F802DE-E79C-5C5F-ABF8-CCBD486B89D6
     ) 
 
-    public class IItemsSourceView: WindowsFoundation.IInspectable {
+    public class IItemsSourceView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsSourceView }
 
         public func get_Count() throws -> Int32 {
@@ -31335,10 +31406,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func KeyFromIndex(_ index: Int32) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsSourceView.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.KeyFromIndex(pThis, index, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -31367,7 +31440,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAADC6FDD, Data2: 0xEB00, Data3: 0x5E58, Data4: ( 0xB9,0x5D,0x12,0x0F,0x89,0x1D,0x73,0x3F ) // AADC6FDD-EB00-5E58-B95D-120F891D733F
     ) 
 
-    public class IItemsSourceViewFactory: WindowsFoundation.IInspectable {
+    public class IItemsSourceViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsSourceViewFactory }
 
         public func CreateInstance(_ source: Any?, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemsSourceViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemsSourceView {
@@ -31391,7 +31464,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsStackPanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel)
-public final class ItemsStackPanel : WinUI.Panel {
+public final class ItemsStackPanel : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsStackPanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -31532,7 +31605,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF7E52FDF, Data2: 0x4779, Data3: 0x5F63, Data4: ( 0x99,0x99,0x7D,0x67,0x7E,0x3F,0xD2,0xC1 ) // F7E52FDF-4779-5F63-9999-7D677E3FD2C1
     ) 
 
-    public class IItemsStackPanel: WindowsFoundation.IInspectable {
+    public class IItemsStackPanel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel }
 
         public func get_GroupPadding() throws -> WinUI.Thickness {
@@ -31665,7 +31738,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7CA08D59, Data2: 0xBE10, Data3: 0x5D61, Data4: ( 0xAB,0xE2,0x08,0x9A,0xD4,0x4D,0xB1,0xD6 ) // 7CA08D59-BE10-5D61-ABE2-089AD44DB1D6
     ) 
 
-    public class IItemsStackPanelStatics: WindowsFoundation.IInspectable {
+    public class IItemsStackPanelStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanelStatics }
 
         public func get_GroupPaddingProperty() throws -> WinUI.DependencyProperty? {
@@ -31719,7 +31792,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview)
-open class ItemsView : WinUI.Control {
+open class ItemsView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -31746,7 +31819,7 @@ open class ItemsView : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IItemsViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
+    private static nonisolated(unsafe) var _IItemsViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -31977,7 +32050,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBBB195D8, Data2: 0x6A7F, Data3: 0x5A42, Data4: ( 0x98,0x66,0x25,0xFD,0x5A,0x44,0x73,0xAB ) // BBB195D8-6A7F-5A42-9866-25FD5A4473AB
     ) 
 
-    public class IItemsView: WindowsFoundation.IInspectable {
+    public class IItemsView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView }
 
         public func get_ItemsSource() throws -> Any? {
@@ -32214,7 +32287,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAEEEC7B9, Data2: 0x3CC8, Data3: 0x52DF, Data4: ( 0x8E,0x2E,0x99,0xA2,0x95,0xC2,0x53,0xAA ) // AEEEC7B9-3CC8-52DF-8E2E-99A295C253AA
     ) 
 
-    public class IItemsViewFactory: WindowsFoundation.IInspectable {
+    public class IItemsViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemsView {
@@ -32236,7 +32309,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC64F1948, Data2: 0x77D3, Data3: 0x5DF5, Data4: ( 0x8D,0x33,0xC5,0x86,0x02,0xD4,0xCF,0xB9 ) // C64F1948-77D3-5DF5-8D33-C58602D4CFB9
     ) 
 
-    public class IItemsViewStatics: WindowsFoundation.IInspectable {
+    public class IItemsViewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewStatics }
 
         public func get_IsItemInvokedEnabledProperty() throws -> WinUI.DependencyProperty? {
@@ -32335,7 +32408,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsViewItemInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewiteminvokedeventargs)
-public final class ItemsViewItemInvokedEventArgs : WinRTClass {
+public final class ItemsViewItemInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsViewItemInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -32389,7 +32462,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5A2386E8, Data2: 0x15B8, Data3: 0x5F25, Data4: ( 0x87,0x4B,0x79,0x12,0xF6,0x33,0xCE,0x21 ) // 5A2386E8-15B8-5F25-874B-7912F633CE21
     ) 
 
-    public class IItemsViewItemInvokedEventArgs: WindowsFoundation.IInspectable {
+    public class IItemsViewItemInvokedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs }
 
         public func get_InvokedItem() throws -> Any? {
@@ -32407,7 +32480,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsViewSelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewselectionchangedeventargs)
-public final class ItemsViewSelectionChangedEventArgs : WinRTClass {
+public final class ItemsViewSelectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsViewSelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -32456,7 +32529,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9CD1690F, Data2: 0x6C9D, Data3: 0x543C, Data4: ( 0x82,0xF2,0x30,0xCD,0x37,0xD7,0x65,0xB3 ) // 9CD1690F-6C9D-543C-82F2-30CD37D765B3
     ) 
 
-    public class IItemsViewSelectionChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IItemsViewSelectionChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs }
 
     }
@@ -32465,7 +32538,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsWrapGrid
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemswrapgrid)
-open class ItemsWrapGrid : WinUI.Panel {
+open class ItemsWrapGrid : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsWrapGrid
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsWrapGrid
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -32492,7 +32565,7 @@ open class ItemsWrapGrid : WinUI.Panel {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IItemsWrapGridFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsWrapGridFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsWrapGrid")
+    private static nonisolated(unsafe) var _IItemsWrapGridFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsWrapGridFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsWrapGrid")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsWrapGridBridge.Composable.self) { baseInterface, innerInterface in 
@@ -32658,7 +32731,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x29910BC5, Data2: 0xB305, Data3: 0x5529, Data4: ( 0xB8,0x8C,0x77,0x6C,0x66,0xE1,0xB3,0xBA ) // 29910BC5-B305-5529-B88C-776C66E1B3BA
     ) 
 
-    public class IItemsWrapGrid: WindowsFoundation.IInspectable {
+    public class IItemsWrapGrid: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsWrapGrid }
 
         public func get_GroupPadding() throws -> WinUI.Thickness {
@@ -32819,7 +32892,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC2F96D8C, Data2: 0x3A18, Data3: 0x552E, Data4: ( 0xB9,0x70,0x6C,0x57,0x56,0x52,0xE9,0x2D ) // C2F96D8C-3A18-552E-B970-6C575652E92D
     ) 
 
-    public class IItemsWrapGridFactory: WindowsFoundation.IInspectable {
+    public class IItemsWrapGridFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsWrapGridFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ItemsWrapGridBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IItemsWrapGrid {
@@ -32841,7 +32914,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF757D5CB, Data2: 0x3BF2, Data3: 0x5A23, Data4: ( 0x96,0x8F,0x04,0x5B,0xC8,0x0D,0x57,0xCE ) // F757D5CB-3BF2-5A23-968F-045BC80D57CE
     ) 
 
-    public class IItemsWrapGridStatics: WindowsFoundation.IInspectable {
+    public class IItemsWrapGridStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsWrapGridStatics }
 
         public func get_GroupPaddingProperty() throws -> WinUI.DependencyProperty? {
@@ -32922,7 +32995,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Layout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout)
-open class Layout : WinUI.DependencyObject {
+open class Layout : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ILayout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayout
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -32954,7 +33027,7 @@ open class Layout : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _ILayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.ILayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Layout")
+    private static nonisolated(unsafe) var _ILayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.ILayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Layout")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout.initializeforcontext)
     public func initializeForContext(_ context: LayoutContext!) throws {
@@ -33076,7 +33149,7 @@ public class LayoutMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias ILayoutOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.LayoutBridge.ILayoutOverrides>
-    internal static var ILayoutOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var ILayoutOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutOverridesVtbl = .init(
         QueryInterface: { ILayoutOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { ILayoutOverridesWrapper.addRef($0) },
         Release: { ILayoutOverridesWrapper.release($0) },
@@ -33117,7 +33190,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x24E50C1C, Data2: 0x9C51, Data3: 0x5144, Data4: ( 0x9D,0xDC,0x3F,0x50,0x01,0x91,0xC2,0x62 ) // 24E50C1C-9C51-5144-9DDC-3F500191C262
     ) 
 
-    public class ILayout: WindowsFoundation.IInspectable {
+    public class ILayout: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayout }
 
         public func InitializeForContext(_ context: WinUI.LayoutContext?) throws {
@@ -33186,7 +33259,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCC545FF5, Data2: 0x0C41, Data3: 0x5C14, Data4: ( 0x95,0x65,0x25,0x57,0xCC,0xC8,0x41,0x32 ) // CC545FF5-0C41-5C14-9565-2557CCC84132
     ) 
 
-    public class ILayout2: WindowsFoundation.IInspectable {
+    public class ILayout2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayout2 }
 
         public func get_IndexBasedLayoutOrientation() throws -> WinUI.IndexBasedLayoutOrientation {
@@ -33203,7 +33276,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE46FF416, Data2: 0x741E, Data3: 0x5176, Data4: ( 0xA1,0xD4,0x57,0x18,0xD2,0x34,0x22,0x43 ) // E46FF416-741E-5176-A1D4-5718D2342243
     ) 
 
-    public class ILayoutProtected: WindowsFoundation.IInspectable {
+    public class ILayoutProtected: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutProtected }
 
         public func InvalidateMeasure() throws {
@@ -33224,7 +33297,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3FFFE35F, Data2: 0x6F2E, Data3: 0x501F, Data4: ( 0xA2,0xAD,0xE7,0x5A,0x4E,0x1C,0xD5,0x92 ) // 3FFFE35F-6F2E-501F-A2AD-E75A4E1CD592
     ) 
 
-    public class ILayoutProtected2: WindowsFoundation.IInspectable {
+    public class ILayoutProtected2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutProtected2 }
 
         public func SetIndexBasedLayoutOrientation(_ orientation: WinUI.IndexBasedLayoutOrientation) throws {
@@ -33239,7 +33312,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x441D00C3, Data2: 0xDD50, Data3: 0x5348, Data4: ( 0x85,0x2D,0x85,0x60,0x8C,0xC7,0xDC,0xE1 ) // 441D00C3-DD50-5348-852D-85608CC7DCE1
     ) 
 
-    public class ILayoutOverrides: WindowsFoundation.IInspectable {
+    public class ILayoutOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutOverrides }
 
         public func CreateDefaultItemTransitionProvider() throws -> WinUI.ItemCollectionTransitionProvider? {
@@ -33257,7 +33330,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEAF956B4, Data2: 0x59C9, Data3: 0x5E13, Data4: ( 0xA4,0x9D,0xF3,0x5B,0x17,0x1D,0x8F,0xC9 ) // EAF956B4-59C9-5E13-A49D-F35B171D8FC9
     ) 
 
-    public class ILayoutFactory: WindowsFoundation.IInspectable {
+    public class ILayoutFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutFactory }
 
     }
@@ -33272,7 +33345,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - LayoutContext
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layoutcontext)
-open class LayoutContext : WinUI.DependencyObject {
+open class LayoutContext : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ILayoutContext
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutContext
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -33304,7 +33377,7 @@ open class LayoutContext : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _ILayoutContextFactory : __ABI_Microsoft_UI_Xaml_Controls.ILayoutContextFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.LayoutContext")
+    private static nonisolated(unsafe) var _ILayoutContextFactory : __ABI_Microsoft_UI_Xaml_Controls.ILayoutContextFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.LayoutContext")
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layoutcontext.layoutstate)
     public var layoutState : Any! {
@@ -33361,7 +33434,7 @@ public class LayoutContextMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias ILayoutContextOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.LayoutContextBridge.ILayoutContextOverrides>
-    internal static var ILayoutContextOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutContextOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var ILayoutContextOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutContextOverridesVtbl = .init(
         QueryInterface: { ILayoutContextOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { ILayoutContextOverridesWrapper.addRef($0) },
         Release: { ILayoutContextOverridesWrapper.release($0) },
@@ -33408,7 +33481,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB45A2E55, Data2: 0x2ECC, Data3: 0x5462, Data4: ( 0xBB,0x26,0xD4,0x7C,0x45,0x5B,0xB4,0x8E ) // B45A2E55-2ECC-5462-BB26-D47C455BB48E
     ) 
 
-    public class ILayoutContext: WindowsFoundation.IInspectable {
+    public class ILayoutContext: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutContext }
 
         public func get_LayoutState() throws -> Any? {
@@ -33434,7 +33507,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFDA70E44, Data2: 0x6526, Data3: 0x5535, Data4: ( 0xBE,0x2B,0xEC,0x27,0x43,0x67,0x0A,0xE2 ) // FDA70E44-6526-5535-BE2B-EC2743670AE2
     ) 
 
-    public class ILayoutContextOverrides: WindowsFoundation.IInspectable {
+    public class ILayoutContextOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutContextOverrides }
 
         public func get_LayoutStateCore() throws -> Any? {
@@ -33460,7 +33533,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF7664771, Data2: 0x9242, Data3: 0x599E, Data4: ( 0xA7,0xDD,0x07,0x05,0x56,0x5D,0xEF,0x98 ) // F7664771-9242-599E-A7DD-0705565DEF98
     ) 
 
-    public class ILayoutContextFactory: WindowsFoundation.IInspectable {
+    public class ILayoutContextFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutContextFactory }
 
     }
@@ -33475,7 +33548,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - LinedFlowLayoutItemCollectionTransitionProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.linedflowlayoutitemcollectiontransitionprovider)
-open class LinedFlowLayoutItemCollectionTransitionProvider : WinUI.ItemCollectionTransitionProvider {
+open class LinedFlowLayoutItemCollectionTransitionProvider : WinUI.ItemCollectionTransitionProvider, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ILinedFlowLayoutItemCollectionTransitionProvider
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -33502,7 +33575,7 @@ open class LinedFlowLayoutItemCollectionTransitionProvider : WinUI.ItemCollectio
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ILinedFlowLayoutItemCollectionTransitionProviderFactory : __ABI_Microsoft_UI_Xaml_Controls.ILinedFlowLayoutItemCollectionTransitionProviderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.LinedFlowLayoutItemCollectionTransitionProvider")
+    private static nonisolated(unsafe) var _ILinedFlowLayoutItemCollectionTransitionProviderFactory : __ABI_Microsoft_UI_Xaml_Controls.ILinedFlowLayoutItemCollectionTransitionProviderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.LinedFlowLayoutItemCollectionTransitionProvider")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.LinedFlowLayoutItemCollectionTransitionProviderBridge.Composable.self) { baseInterface, innerInterface in 
@@ -33554,7 +33627,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA7C000DE, Data2: 0x2543, Data3: 0x5DC2, Data4: ( 0xA3,0x6D,0x5D,0x69,0xF4,0xF5,0x5D,0x61 ) // A7C000DE-2543-5DC2-A36D-5D69F4F55D61
     ) 
 
-    public class ILinedFlowLayoutItemCollectionTransitionProvider: WindowsFoundation.IInspectable {
+    public class ILinedFlowLayoutItemCollectionTransitionProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider }
 
     }
@@ -33563,7 +33636,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE915C9FC, Data2: 0xBA75, Data3: 0x581E, Data4: ( 0x9B,0x96,0x20,0xED,0xD8,0xBE,0xFC,0xC4 ) // E915C9FC-BA75-581E-9B96-20EDD8BEFCC4
     ) 
 
-    public class ILinedFlowLayoutItemCollectionTransitionProviderFactory: WindowsFoundation.IInspectable {
+    public class ILinedFlowLayoutItemCollectionTransitionProviderFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProviderFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.LinedFlowLayoutItemCollectionTransitionProviderBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ILinedFlowLayoutItemCollectionTransitionProvider {
@@ -33585,7 +33658,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listbox)
-open class ListBox : WinUI.Selector {
+open class ListBox : WinUI.Selector, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -33612,7 +33685,7 @@ open class ListBox : WinUI.Selector {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IListBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IListBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListBox")
+    private static nonisolated(unsafe) var _IListBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IListBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListBox")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListBoxBridge.Composable.self) { baseInterface, innerInterface in 
@@ -33702,7 +33775,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF3E7DEDF, Data2: 0x7A3C, Data3: 0x59F1, Data4: ( 0x9E,0x05,0xAE,0x50,0x26,0xB5,0x42,0x93 ) // F3E7DEDF-7A3C-59F1-9E05-AE5026B54293
     ) 
 
-    public class IListBox: WindowsFoundation.IInspectable {
+    public class IListBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBox }
 
         public func get_SelectedItems() throws -> WindowsFoundation.AnyIVector<Any?>? {
@@ -33762,7 +33835,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD048E0BC, Data2: 0x4692, Data3: 0x5C60, Data4: ( 0xB2,0xE9,0x07,0xC4,0x43,0x3C,0xE0,0x50 ) // D048E0BC-4692-5C60-B2E9-07C4433CE050
     ) 
 
-    public class IListBoxFactory: WindowsFoundation.IInspectable {
+    public class IListBoxFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBoxFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ListBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IListBox {
@@ -33784,7 +33857,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x763A4986, Data2: 0xDB3A, Data3: 0x5A94, Data4: ( 0x85,0x05,0xAE,0xE2,0xF2,0x29,0xAF,0x85 ) // 763A4986-DB3A-5A94-8505-AEE2F229AF85
     ) 
 
-    public class IListBoxStatics: WindowsFoundation.IInspectable {
+    public class IListBoxStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBoxStatics }
 
         public func get_SelectionModeProperty() throws -> WinUI.DependencyProperty? {
@@ -33811,7 +33884,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListBoxItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listboxitem)
-open class ListBoxItem : WinUI.SelectorItem {
+open class ListBoxItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListBoxItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBoxItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -33838,7 +33911,7 @@ open class ListBoxItem : WinUI.SelectorItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IListBoxItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListBoxItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListBoxItem")
+    private static nonisolated(unsafe) var _IListBoxItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListBoxItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListBoxItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListBoxItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -33890,7 +33963,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCC67FB35, Data2: 0x04F1, Data3: 0x5EAD, Data4: ( 0x96,0xC5,0xB2,0xEA,0x67,0xB2,0x25,0xC6 ) // CC67FB35-04F1-5EAD-96C5-B2EA67B225C6
     ) 
 
-    public class IListBoxItem: WindowsFoundation.IInspectable {
+    public class IListBoxItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBoxItem }
 
     }
@@ -33899,7 +33972,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8E9E0E6D, Data2: 0x4597, Data3: 0x5EFA, Data4: ( 0x94,0xBC,0x7F,0xFA,0xDC,0x26,0x4C,0x28 ) // 8E9E0E6D-4597-5EFA-94BC-7FFADC264C28
     ) 
 
-    public class IListBoxItemFactory: WindowsFoundation.IInspectable {
+    public class IListBoxItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBoxItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ListBoxItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IListBoxItem {
@@ -33921,7 +33994,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview)
-open class ListView : WinUI.ListViewBase {
+open class ListView : WinUI.ListViewBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -33948,7 +34021,7 @@ open class ListView : WinUI.ListViewBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IListViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListView")
+    private static nonisolated(unsafe) var _IListViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -34000,7 +34073,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF6015DB1, Data2: 0xDF63, Data3: 0x52FD, Data4: ( 0xA1,0x64,0x0D,0xF4,0x47,0x15,0xEE,0x0A ) // F6015DB1-DF63-52FD-A164-0DF44715EE0A
     ) 
 
-    public class IListView: WindowsFoundation.IInspectable {
+    public class IListView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListView }
 
     }
@@ -34009,7 +34082,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x03EBEFB8, Data2: 0xF64A, Data3: 0x5BF9, Data4: ( 0x95,0x70,0xCB,0x09,0xEE,0xEA,0x23,0x35 ) // 03EBEFB8-F64A-5BF9-9570-CB09EEEA2335
     ) 
 
-    public class IListViewFactory: WindowsFoundation.IInspectable {
+    public class IListViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ListViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IListView {
@@ -34031,7 +34104,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListViewBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase)
-open class ListViewBase : WinUI.Selector, ISemanticZoomInformation {
+open class ListViewBase : WinUI.Selector, @unchecked Sendable, ISemanticZoomInformation {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListViewBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBase
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -34058,7 +34131,7 @@ open class ListViewBase : WinUI.Selector, ISemanticZoomInformation {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IListViewBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewBase")
+    private static nonisolated(unsafe) var _IListViewBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewBase")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListViewBaseBridge.Composable.self) { baseInterface, innerInterface in 
@@ -34517,7 +34590,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x775C57AC, Data2: 0xABCE, Data3: 0x5BEB, Data4: ( 0x8E,0x34,0x3B,0x81,0x58,0xAE,0xDD,0x80 ) // 775C57AC-ABCE-5BEB-8E34-3B8158AEDD80
     ) 
 
-    public class IListViewBase: WindowsFoundation.IInspectable {
+    public class IListViewBase: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBase }
 
         public func get_SelectedItems() throws -> WindowsFoundation.AnyIVector<Any?>? {
@@ -34984,7 +35057,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x44092863, Data2: 0xC09E, Data3: 0x551E, Data4: ( 0x85,0xBF,0x95,0x1B,0x55,0x29,0x50,0xC8 ) // 44092863-C09E-551E-85BF-951B552950C8
     ) 
 
-    public class IListViewBaseFactory: WindowsFoundation.IInspectable {
+    public class IListViewBaseFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBaseFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ListViewBaseBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IListViewBase {
@@ -35006,7 +35079,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB8487E94, Data2: 0x010F, Data3: 0x56D4, Data4: ( 0x9F,0x76,0x94,0xBF,0x8C,0x46,0x27,0x45 ) // B8487E94-010F-56D4-9F76-94BF8C462745
     ) 
 
-    public class IListViewBaseStatics: WindowsFoundation.IInspectable {
+    public class IListViewBaseStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBaseStatics }
 
         public func get_SelectionModeProperty() throws -> WinUI.DependencyProperty? {
@@ -35204,7 +35277,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListViewBaseHeaderItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbaseheaderitem)
-open class ListViewBaseHeaderItem : WinUI.ContentControl {
+open class ListViewBaseHeaderItem : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseHeaderItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBaseHeaderItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -35231,7 +35304,7 @@ open class ListViewBaseHeaderItem : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IListViewBaseHeaderItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseHeaderItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewBaseHeaderItem")
+    private static nonisolated(unsafe) var _IListViewBaseHeaderItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseHeaderItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewBaseHeaderItem")
 
     deinit {
         _default = nil
@@ -35277,7 +35350,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9220C4FF, Data2: 0x1974, Data3: 0x53FD, Data4: ( 0xAD,0x74,0xC2,0x9E,0x7B,0x36,0x0A,0x06 ) // 9220C4FF-1974-53FD-AD74-C29E7B360A06
     ) 
 
-    public class IListViewBaseHeaderItem: WindowsFoundation.IInspectable {
+    public class IListViewBaseHeaderItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBaseHeaderItem }
 
     }
@@ -35286,7 +35359,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x228FC10A, Data2: 0xB86F, Data3: 0x5B57, Data4: ( 0x96,0xF4,0x34,0xD9,0xF9,0xFB,0x87,0x11 ) // 228FC10A-B86F-5B57-96F4-34D9F9FB8711
     ) 
 
-    public class IListViewBaseHeaderItemFactory: WindowsFoundation.IInspectable {
+    public class IListViewBaseHeaderItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBaseHeaderItemFactory }
 
     }
@@ -35295,7 +35368,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewitem)
-open class ListViewItem : WinUI.SelectorItem {
+open class ListViewItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -35322,7 +35395,7 @@ open class ListViewItem : WinUI.SelectorItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IListViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewItem")
+    private static nonisolated(unsafe) var _IListViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListViewItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -35379,7 +35452,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x05FE41C2, Data2: 0x0451, Data3: 0x5D38, Data4: ( 0x9C,0x55,0x5D,0x10,0xCF,0xD0,0x88,0x89 ) // 05FE41C2-0451-5D38-9C55-5D10CFD08889
     ) 
 
-    public class IListViewItem: WindowsFoundation.IInspectable {
+    public class IListViewItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewItem }
 
         public func get_TemplateSettings() throws -> WinUI.ListViewItemTemplateSettings? {
@@ -35397,7 +35470,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD9F4D0B8, Data2: 0xEE59, Data3: 0x5036, Data4: ( 0xBD,0x7A,0x7C,0x89,0xCF,0x0B,0xC2,0xAC ) // D9F4D0B8-EE59-5036-BD7A-7C89CF0BC2AC
     ) 
 
-    public class IListViewItemFactory: WindowsFoundation.IInspectable {
+    public class IListViewItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ListViewItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IListViewItem {
@@ -35419,7 +35492,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MediaPlayerElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediaplayerelement)
-open class MediaPlayerElement : WinUI.Control {
+open class MediaPlayerElement : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMediaPlayerElement
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaPlayerElement
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -35446,7 +35519,7 @@ open class MediaPlayerElement : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IMediaPlayerElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IMediaPlayerElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaPlayerElement")
+    private static nonisolated(unsafe) var _IMediaPlayerElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IMediaPlayerElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaPlayerElement")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MediaPlayerElementBridge.Composable.self) { baseInterface, innerInterface in 
@@ -35586,7 +35659,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC314A38C, Data2: 0x780C, Data3: 0x558A, Data4: ( 0x98,0xCD,0x0A,0x8D,0xEB,0x46,0x7F,0xCF ) // C314A38C-780C-558A-98CD-0A8DEB467FCF
     ) 
 
-    public class IMediaPlayerElement: WindowsFoundation.IInspectable {
+    public class IMediaPlayerElement: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaPlayerElement }
 
         public func get_Source() throws -> UWP.AnyIMediaPlaybackSource? {
@@ -35713,7 +35786,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x51ACA342, Data2: 0x65A0, Data3: 0x5DB6, Data4: ( 0x80,0x82,0xBD,0x54,0xA8,0xD1,0x49,0x99 ) // 51ACA342-65A0-5DB6-8082-BD54A8D14999
     ) 
 
-    public class IMediaPlayerElementFactory: WindowsFoundation.IInspectable {
+    public class IMediaPlayerElementFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaPlayerElementFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.MediaPlayerElementBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IMediaPlayerElement {
@@ -35735,7 +35808,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6F77BBA8, Data2: 0xFB23, Data3: 0x5E27, Data4: ( 0x97,0xC1,0x16,0xD4,0x37,0xD0,0x70,0x2F ) // 6F77BBA8-FB23-5E27-97C1-16D437D0702F
     ) 
 
-    public class IMediaPlayerElementStatics: WindowsFoundation.IInspectable {
+    public class IMediaPlayerElementStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaPlayerElementStatics }
 
         public func get_SourceProperty() throws -> WinUI.DependencyProperty? {
@@ -35807,7 +35880,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MediaTransportControls
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediatransportcontrols)
-open class MediaTransportControls : WinUI.Control {
+open class MediaTransportControls : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMediaTransportControls
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaTransportControls
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -35834,7 +35907,7 @@ open class MediaTransportControls : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IMediaTransportControlsFactory : __ABI_Microsoft_UI_Xaml_Controls.IMediaTransportControlsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaTransportControls")
+    private static nonisolated(unsafe) var _IMediaTransportControlsFactory : __ABI_Microsoft_UI_Xaml_Controls.IMediaTransportControlsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaTransportControls")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MediaTransportControlsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -36185,7 +36258,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC99C110B, Data2: 0x9DEE, Data3: 0x5A6B, Data4: ( 0xBB,0x9E,0x61,0xBF,0xCA,0xAA,0xFA,0x3E ) // C99C110B-9DEE-5A6B-BB9E-61BFCAAAFA3E
     ) 
 
-    public class IMediaTransportControls: WindowsFoundation.IInspectable {
+    public class IMediaTransportControls: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaTransportControls }
 
         public func get_IsZoomButtonVisible() throws -> Bool {
@@ -36572,7 +36645,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA3F9A254, Data2: 0x1BCF, Data3: 0x57B5, Data4: ( 0x94,0x81,0xC1,0x9C,0x45,0x83,0xAC,0x0E ) // A3F9A254-1BCF-57B5-9481-C19C4583AC0E
     ) 
 
-    public class IMediaTransportControlsFactory: WindowsFoundation.IInspectable {
+    public class IMediaTransportControlsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaTransportControlsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.MediaTransportControlsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IMediaTransportControls {
@@ -36594,7 +36667,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF497067E, Data2: 0x7C41, Data3: 0x5083, Data4: ( 0x96,0xC5,0xB6,0x88,0x1D,0x88,0xB1,0x87 ) // F497067E-7C41-5083-96C5-B6881D88B187
     ) 
 
-    public class IMediaTransportControlsStatics: WindowsFoundation.IInspectable {
+    public class IMediaTransportControlsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaTransportControlsStatics }
 
         public func get_IsZoomButtonVisibleProperty() throws -> WinUI.DependencyProperty? {
@@ -36828,7 +36901,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubar)
-open class MenuBar : WinUI.Control {
+open class MenuBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -36855,7 +36928,7 @@ open class MenuBar : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IMenuBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBar")
+    private static nonisolated(unsafe) var _IMenuBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -36918,7 +36991,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBA97F337, Data2: 0x8F1E, Data3: 0x5141, Data4: ( 0xB5,0x3F,0xE7,0x7A,0x8B,0xA3,0xEB,0xBD ) // BA97F337-8F1E-5141-B53F-E77A8BA3EBBD
     ) 
 
-    public class IMenuBar: WindowsFoundation.IInspectable {
+    public class IMenuBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBar }
 
         public func get_Items() throws -> WindowsFoundation.AnyIVector<WinUI.MenuBarItem?>? {
@@ -36936,7 +37009,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x76AA8759, Data2: 0x04EE, Data3: 0x5A4C, Data4: ( 0xB9,0x8C,0xD0,0x37,0x42,0xD4,0x7C,0xDB ) // 76AA8759-04EE-5A4C-B98C-D03742D47CDB
     ) 
 
-    public class IMenuBarFactory: WindowsFoundation.IInspectable {
+    public class IMenuBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.MenuBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IMenuBar {
@@ -36958,7 +37031,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x79AA0B84, Data2: 0x5554, Data3: 0x5F7C, Data4: ( 0x80,0xD9,0x79,0x70,0xAA,0x03,0x01,0x25 ) // 79AA0B84-5554-5F7C-80D9-7970AA030125
     ) 
 
-    public class IMenuBarStatics: WindowsFoundation.IInspectable {
+    public class IMenuBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBarStatics }
 
         public func get_ItemsProperty() throws -> WinUI.DependencyProperty? {
@@ -36976,7 +37049,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuBarItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubaritem)
-open class MenuBarItem : WinUI.Control {
+open class MenuBarItem : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuBarItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBarItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -37003,7 +37076,7 @@ open class MenuBarItem : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IMenuBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBarItem")
+    private static nonisolated(unsafe) var _IMenuBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBarItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuBarItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -37077,15 +37150,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA7900980, Data2: 0x51CC, Data3: 0x531D, Data4: ( 0x97,0xC5,0x35,0x6B,0x13,0x57,0x33,0x98 ) // A7900980-51CC-531D-97C5-356B13573398
     ) 
 
-    public class IMenuBarItem: WindowsFoundation.IInspectable {
+    public class IMenuBarItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBarItem }
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBarItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -37111,7 +37186,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x87D02172, Data2: 0x83CB, Data3: 0x5459, Data4: ( 0x94,0x0F,0x17,0x3F,0x75,0x01,0xB3,0x00 ) // 87D02172-83CB-5459-940F-173F7501B300
     ) 
 
-    public class IMenuBarItemFactory: WindowsFoundation.IInspectable {
+    public class IMenuBarItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBarItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.MenuBarItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IMenuBarItem {
@@ -37133,7 +37208,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC8A33F46, Data2: 0x2E1C, Data3: 0x5CE0, Data4: ( 0xBC,0x09,0x45,0x24,0xE6,0x89,0x41,0xC8 ) // C8A33F46-2E1C-5CE0-BC09-4524E68941C8
     ) 
 
-    public class IMenuBarItemStatics: WindowsFoundation.IInspectable {
+    public class IMenuBarItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBarItemStatics }
 
         public func get_TitleProperty() throws -> WinUI.DependencyProperty? {
@@ -37160,7 +37235,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyout)
-open class MenuFlyout : WinUI.FlyoutBase {
+open class MenuFlyout : WinUI.FlyoutBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyout
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -37187,7 +37262,7 @@ open class MenuFlyout : WinUI.FlyoutBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IMenuFlyoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyout")
+    private static nonisolated(unsafe) var _IMenuFlyoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyout")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutBridge.Composable.self) { baseInterface, innerInterface in 
@@ -37261,7 +37336,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF4C77C6C, Data2: 0x1FA5, Data3: 0x5D85, Data4: ( 0x85,0x59,0x5D,0x02,0xB7,0xD4,0xE5,0xE7 ) // F4C77C6C-1FA5-5D85-8559-5D02B7D4E5E7
     ) 
 
-    public class IMenuFlyout: WindowsFoundation.IInspectable {
+    public class IMenuFlyout: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyout }
 
         public func get_Items() throws -> WindowsFoundation.AnyIVector<WinUI.MenuFlyoutItemBase?>? {
@@ -37300,7 +37375,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA3D225DE, Data2: 0x6B35, Data3: 0x5442, Data4: ( 0xB6,0xC9,0x06,0xFD,0x24,0x13,0x9A,0x63 ) // A3D225DE-6B35-5442-B6C9-06FD24139A63
     ) 
 
-    public class IMenuFlyoutFactory: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IMenuFlyout {
@@ -37322,7 +37397,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6959E683, Data2: 0x16F6, Data3: 0x5208, Data4: ( 0x84,0xE0,0xB0,0xBE,0x92,0xD9,0xF6,0xDD ) // 6959E683-16F6-5208-84E0-B0BE92D9F6DD
     ) 
 
-    public class IMenuFlyoutStatics: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutStatics }
 
         public func get_MenuFlyoutPresenterStyleProperty() throws -> WinUI.DependencyProperty? {
@@ -37340,7 +37415,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyoutItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutitem)
-open class MenuFlyoutItem : WinUI.MenuFlyoutItemBase {
+open class MenuFlyoutItem : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -37367,7 +37442,7 @@ open class MenuFlyoutItem : WinUI.MenuFlyoutItemBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutItem")
+    private static nonisolated(unsafe) var _IMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutItem")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -37493,15 +37568,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4252DF5A, Data2: 0x44F9, Data3: 0x5EE8, Data4: ( 0xB1,0xCC,0x53,0xDE,0x9A,0xAA,0x40,0x95 ) // 4252DF5A-44F9-5EE8-B1CC-53DE9AAA4095
     ) 
 
-    public class IMenuFlyoutItem: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItem }
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -37563,10 +37640,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_KeyboardAcceleratorTextOverride() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_KeyboardAcceleratorTextOverride(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -37608,7 +37687,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9C3C9A1F, Data2: 0x89AF, Data3: 0x521A, Data4: ( 0x81,0xA5,0x8A,0x01,0xDB,0x7A,0x79,0xAF ) // 9C3C9A1F-89AF-521A-81A5-8A01DB7A79AF
     ) 
 
-    public class IMenuFlyoutItemFactory: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IMenuFlyoutItem {
@@ -37630,7 +37709,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9D7953D6, Data2: 0xE6A6, Data3: 0x5154, Data4: ( 0x91,0xF4,0x67,0xF4,0xD6,0x04,0x2A,0x4F ) // 9D7953D6-E6A6-5154-91F4-67F4D6042A4F
     ) 
 
-    public class IMenuFlyoutItemStatics: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItemStatics }
 
         public func get_TextProperty() throws -> WinUI.DependencyProperty? {
@@ -37684,7 +37763,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyoutItemBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutitembase)
-open class MenuFlyoutItemBase : WinUI.Control {
+open class MenuFlyoutItemBase : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItemBase
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -37711,7 +37790,7 @@ open class MenuFlyoutItemBase : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IMenuFlyoutItemBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase")
+    private static nonisolated(unsafe) var _IMenuFlyoutItemBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase")
 
     deinit {
         _default = nil
@@ -37757,7 +37836,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4BEE2715, Data2: 0x44A1, Data3: 0x5F94, Data4: ( 0x86,0xE8,0x02,0xDD,0xBE,0x3D,0xC6,0xB9 ) // 4BEE2715-44A1-5F94-86E8-02DDBE3DC6B9
     ) 
 
-    public class IMenuFlyoutItemBase: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutItemBase: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItemBase }
 
     }
@@ -37766,7 +37845,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x33F4EAD3, Data2: 0xAB54, Data3: 0x505D, Data4: ( 0xBC,0x5F,0x45,0xE7,0xC3,0x5F,0x20,0xF8 ) // 33F4EAD3-AB54-505D-BC5F-45E7C35F20F8
     ) 
 
-    public class IMenuFlyoutItemBaseFactory: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutItemBaseFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItemBaseFactory }
 
     }
@@ -37775,7 +37854,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyoutSeparator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutseparator)
-open class MenuFlyoutSeparator : WinUI.MenuFlyoutItemBase {
+open class MenuFlyoutSeparator : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSeparator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSeparator
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -37802,7 +37881,7 @@ open class MenuFlyoutSeparator : WinUI.MenuFlyoutItemBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IMenuFlyoutSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutSeparator")
+    private static nonisolated(unsafe) var _IMenuFlyoutSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutSeparator")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutSeparatorBridge.Composable.self) { baseInterface, innerInterface in 
@@ -37854,7 +37933,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3EAF5FD5, Data2: 0x935E, Data3: 0x5ED7, Data4: ( 0x8D,0x05,0xF6,0xBA,0xFA,0x93,0x6D,0x25 ) // 3EAF5FD5-935E-5ED7-8D05-F6BAFA936D25
     ) 
 
-    public class IMenuFlyoutSeparator: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutSeparator: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSeparator }
 
     }
@@ -37863,7 +37942,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x26156C9C, Data2: 0x95EF, Data3: 0x5E55, Data4: ( 0x83,0x42,0x77,0x3F,0xC4,0x3B,0xAA,0xC3 ) // 26156C9C-95EF-5E55-8342-773FC43BAAC3
     ) 
 
-    public class IMenuFlyoutSeparatorFactory: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutSeparatorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSeparatorFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutSeparatorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IMenuFlyoutSeparator {
@@ -37885,7 +37964,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyoutSubItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutsubitem)
-public final class MenuFlyoutSubItem : WinUI.MenuFlyoutItemBase {
+public final class MenuFlyoutSubItem : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSubItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSubItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -37967,7 +38046,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6B0688C1, Data2: 0x47B0, Data3: 0x53B5, Data4: ( 0xB6,0xF9,0x5E,0xC5,0xD6,0x62,0x3B,0x84 ) // 6B0688C1-47B0-53B5-B6F9-5EC5D6623B84
     ) 
 
-    public class IMenuFlyoutSubItem: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutSubItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSubItem }
 
         public func get_Items() throws -> WindowsFoundation.AnyIVector<WinUI.MenuFlyoutItemBase?>? {
@@ -37981,10 +38060,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSubItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -38016,7 +38097,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF59A8DDF, Data2: 0x804B, Data3: 0x5F56, Data4: ( 0xBC,0x42,0xF2,0x7F,0x98,0x7D,0xB2,0x91 ) // F59A8DDF-804B-5F56-BC42-F27F987DB291
     ) 
 
-    public class IMenuFlyoutSubItemStatics: WindowsFoundation.IInspectable {
+    public class IMenuFlyoutSubItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSubItemStatics }
 
         public func get_TextProperty() throws -> WinUI.DependencyProperty? {
@@ -38043,7 +38124,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview)
-open class NavigationView : WinUI.ContentControl {
+open class NavigationView : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -38070,7 +38151,7 @@ open class NavigationView : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INavigationViewFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationView")
+    private static nonisolated(unsafe) var _INavigationViewFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -38678,7 +38759,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE77A4B36, Data2: 0x3DD1, Data3: 0x53D9, Data4: ( 0x9F,0x97,0x65,0xDC,0xCA,0xA7,0x4A,0x5C ) // E77A4B36-3DD1-53D9-9F97-65DCCAA74A5C
     ) 
 
-    public class INavigationView: WindowsFoundation.IInspectable {
+    public class INavigationView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationView }
 
         public func get_IsPaneOpen() throws -> Bool {
@@ -39104,7 +39185,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x05B428CF, Data2: 0x014C, Data3: 0x56DD, Data4: ( 0x89,0x6A,0xA3,0xE7,0x08,0x9D,0x73,0xB5 ) // 05B428CF-014C-56DD-896A-A3E7089D73B5
     ) 
 
-    public class INavigationView2: WindowsFoundation.IInspectable {
+    public class INavigationView2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationView2 }
 
         public func get_IsBackButtonVisible() throws -> WinUI.NavigationViewBackButtonVisible {
@@ -39137,10 +39218,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PaneTitle() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationView2.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PaneTitle(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -39405,7 +39488,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFFEA1ADA, Data2: 0x9232, Data3: 0x5507, Data4: ( 0xA3,0x20,0xED,0x2F,0xAD,0xBE,0x61,0x27 ) // FFEA1ADA-9232-5507-A320-ED2FADBE6127
     ) 
 
-    public class INavigationViewFactory: WindowsFoundation.IInspectable {
+    public class INavigationViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationView {
@@ -39427,7 +39510,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDCD04CAF, Data2: 0x1904, Data3: 0x564B, Data4: ( 0xB0,0xDE,0xBA,0xBA,0xFF,0x99,0x62,0xF5 ) // DCD04CAF-1904-564B-B0DE-BABAFF9962F5
     ) 
 
-    public class INavigationViewStatics: WindowsFoundation.IInspectable {
+    public class INavigationViewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewStatics }
 
         public func get_IsPaneOpenProperty() throws -> WinUI.DependencyProperty? {
@@ -39661,7 +39744,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x79588150, Data2: 0x4A1B, Data3: 0x5E7C, Data4: ( 0x9F,0x8A,0xEB,0xC8,0x14,0xCE,0x77,0x3D ) // 79588150-4A1B-5E7C-9F8A-EBC814CE773D
     ) 
 
-    public class INavigationViewStatics2: WindowsFoundation.IInspectable {
+    public class INavigationViewStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewStatics2 }
 
         public func get_IsBackButtonVisibleProperty() throws -> WinUI.DependencyProperty? {
@@ -39778,7 +39861,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewBackRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewbackrequestedeventargs)
-public final class NavigationViewBackRequestedEventArgs : WinRTClass {
+public final class NavigationViewBackRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewBackRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewBackRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -39827,7 +39910,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAE752207, Data2: 0xBD1B, Data3: 0x5AFA, Data4: ( 0xA8,0x72,0xE9,0xBB,0xAE,0xEA,0x0E,0xDE ) // AE752207-BD1B-5AFA-A872-E9BBAEEA0EDE
     ) 
 
-    public class INavigationViewBackRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationViewBackRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewBackRequestedEventArgs }
 
     }
@@ -39836,7 +39919,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewDisplayModeChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewdisplaymodechangedeventargs)
-public final class NavigationViewDisplayModeChangedEventArgs : WinRTClass {
+public final class NavigationViewDisplayModeChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewDisplayModeChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewDisplayModeChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -39890,7 +39973,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x58DCF1EA, Data2: 0x9E56, Data3: 0x522C, Data4: ( 0xB3,0xF8,0x34,0xBD,0x55,0xEC,0xAC,0xA4 ) // 58DCF1EA-9E56-522C-B3F8-34BD55ECACA4
     ) 
 
-    public class INavigationViewDisplayModeChangedEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationViewDisplayModeChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewDisplayModeChangedEventArgs }
 
         public func get_DisplayMode() throws -> WinUI.NavigationViewDisplayMode {
@@ -39907,7 +39990,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitem)
-open class NavigationViewItem : WinUI.NavigationViewItemBase {
+open class NavigationViewItem : WinUI.NavigationViewItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -39934,7 +40017,7 @@ open class NavigationViewItem : WinUI.NavigationViewItemBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INavigationViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
+    private static nonisolated(unsafe) var _INavigationViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -40090,7 +40173,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3AB3D503, Data2: 0xA37C, Data3: 0x5836, Data4: ( 0x8A,0xDB,0x28,0x82,0x06,0x2E,0x73,0xA1 ) // 3AB3D503-A37C-5836-8ADB-2882062E73A1
     ) 
 
-    public class INavigationViewItem: WindowsFoundation.IInspectable {
+    public class INavigationViewItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItem }
 
         public func get_Icon() throws -> WinUI.IconElement? {
@@ -40122,7 +40205,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2D5BD889, Data2: 0x9DAC, Data3: 0x5675, Data4: ( 0xB2,0x54,0x68,0x22,0x6F,0x07,0x7A,0x61 ) // 2D5BD889-9DAC-5675-B254-68226F077A61
     ) 
 
-    public class INavigationViewItem2: WindowsFoundation.IInspectable {
+    public class INavigationViewItem2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItem2 }
 
         public func get_SelectsOnInvoked() throws -> Bool {
@@ -40213,7 +40296,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC6AA3120, Data2: 0xD888, Data3: 0x5C32, Data4: ( 0x8B,0xB7,0x49,0x0E,0xC9,0x1B,0x1A,0xEC ) // C6AA3120-D888-5C32-8BB7-490EC91B1AEC
     ) 
 
-    public class INavigationViewItem3: WindowsFoundation.IInspectable {
+    public class INavigationViewItem3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItem3 }
 
         public func get_InfoBadge() throws -> WinUI.InfoBadge? {
@@ -40237,7 +40320,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDE60A001, Data2: 0x9385, Data3: 0x5535, Data4: ( 0x80,0xE1,0x2B,0x68,0xF4,0xBF,0xDE,0x26 ) // DE60A001-9385-5535-80E1-2B68F4BFDE26
     ) 
 
-    public class INavigationViewItemFactory: WindowsFoundation.IInspectable {
+    public class INavigationViewItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationViewItem {
@@ -40259,7 +40342,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7B6198E5, Data2: 0x0714, Data3: 0x531C, Data4: ( 0xA0,0x56,0x21,0xB3,0xCA,0x40,0xEC,0x1A ) // 7B6198E5-0714-531C-A056-21B3CA40EC1A
     ) 
 
-    public class INavigationViewItemStatics: WindowsFoundation.IInspectable {
+    public class INavigationViewItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemStatics }
 
         public func get_IconProperty() throws -> WinUI.DependencyProperty? {
@@ -40286,7 +40369,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD49D016F, Data2: 0xABD0, Data3: 0x51F3, Data4: ( 0xAC,0xF0,0x11,0x8E,0xCC,0xEE,0xA7,0x60 ) // D49D016F-ABD0-51F3-ACF0-118ECCEEA760
     ) 
 
-    public class INavigationViewItemStatics2: WindowsFoundation.IInspectable {
+    public class INavigationViewItemStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemStatics2 }
 
         public func get_SelectsOnInvokedProperty() throws -> WinUI.DependencyProperty? {
@@ -40349,7 +40432,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x957BEB66, Data2: 0xD33A, Data3: 0x53AA, Data4: ( 0xA5,0x18,0x7D,0x42,0x6B,0xB9,0xB1,0x77 ) // 957BEB66-D33A-53AA-A518-7D426BB9B177
     ) 
 
-    public class INavigationViewItemStatics3: WindowsFoundation.IInspectable {
+    public class INavigationViewItemStatics3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemStatics3 }
 
         public func get_InfoBadgeProperty() throws -> WinUI.DependencyProperty? {
@@ -40367,7 +40450,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitembase)
-open class NavigationViewItemBase : WinUI.ContentControl {
+open class NavigationViewItemBase : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemBase
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -40394,7 +40477,7 @@ open class NavigationViewItemBase : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INavigationViewItemBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemBase")
+    private static nonisolated(unsafe) var _INavigationViewItemBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemBase")
 
     private static let _INavigationViewItemBaseStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitembase.isselectedproperty)
@@ -40454,7 +40537,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x33586494, Data2: 0xAF48, Data3: 0x513F, Data4: ( 0xBE,0x4D,0xF6,0x45,0xE8,0xC8,0x90,0x05 ) // 33586494-AF48-513F-BE4D-F645E8C89005
     ) 
 
-    public class INavigationViewItemBase: WindowsFoundation.IInspectable {
+    public class INavigationViewItemBase: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemBase }
 
     }
@@ -40463,7 +40546,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD94EE683, Data2: 0xD437, Data3: 0x5523, Data4: ( 0x9C,0x5C,0x11,0xD4,0x80,0x4E,0x47,0x1E ) // D94EE683-D437-5523-9C5C-11D4804E471E
     ) 
 
-    public class INavigationViewItemBase2: WindowsFoundation.IInspectable {
+    public class INavigationViewItemBase2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemBase2 }
 
         public func get_IsSelected() throws -> Bool {
@@ -40486,7 +40569,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x31B9D7B1, Data2: 0x7C38, Data3: 0x5916, Data4: ( 0x99,0xC6,0xC7,0x1F,0x6B,0x01,0x2B,0x1B ) // 31B9D7B1-7C38-5916-99C6-C71F6B012B1B
     ) 
 
-    public class INavigationViewItemBaseFactory: WindowsFoundation.IInspectable {
+    public class INavigationViewItemBaseFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemBaseFactory }
 
     }
@@ -40495,7 +40578,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x71A0C438, Data2: 0xF0C2, Data3: 0x5093, Data4: ( 0x89,0x06,0xC1,0xC3,0xC0,0x2D,0xE7,0x91 ) // 71A0C438-F0C2-5093-8906-C1C3C02DE791
     ) 
 
-    public class INavigationViewItemBaseStatics: WindowsFoundation.IInspectable {
+    public class INavigationViewItemBaseStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemBaseStatics }
 
         public func get_IsSelectedProperty() throws -> WinUI.DependencyProperty? {
@@ -40513,7 +40596,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemCollapsedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemcollapsedeventargs)
-public final class NavigationViewItemCollapsedEventArgs : WinRTClass {
+public final class NavigationViewItemCollapsedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemCollapsedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemCollapsedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -40572,7 +40655,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB546F6A1, Data2: 0xC66F, Data3: 0x5DED, Data4: ( 0xB5,0xD7,0xBE,0xD0,0xA2,0x61,0x97,0xE3 ) // B546F6A1-C66F-5DED-B5D7-BED0A26197E3
     ) 
 
-    public class INavigationViewItemCollapsedEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationViewItemCollapsedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemCollapsedEventArgs }
 
         public func get_CollapsedItemContainer() throws -> WinUI.NavigationViewItemBase? {
@@ -40599,7 +40682,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemExpandingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemexpandingeventargs)
-public final class NavigationViewItemExpandingEventArgs : WinRTClass {
+public final class NavigationViewItemExpandingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemExpandingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemExpandingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -40658,7 +40741,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6F0941BE, Data2: 0xE991, Data3: 0x52F8, Data4: ( 0x83,0x15,0xF0,0x83,0x89,0x49,0x79,0x76 ) // 6F0941BE-E991-52F8-8315-F08389497976
     ) 
 
-    public class INavigationViewItemExpandingEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationViewItemExpandingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemExpandingEventArgs }
 
         public func get_ExpandingItemContainer() throws -> WinUI.NavigationViewItemBase? {
@@ -40685,7 +40768,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemHeader
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemheader)
-open class NavigationViewItemHeader : WinUI.NavigationViewItemBase {
+open class NavigationViewItemHeader : WinUI.NavigationViewItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemHeader
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -40712,7 +40795,7 @@ open class NavigationViewItemHeader : WinUI.NavigationViewItemBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INavigationViewItemHeaderFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemHeaderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemHeader")
+    private static nonisolated(unsafe) var _INavigationViewItemHeaderFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemHeaderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemHeader")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemHeaderBridge.Composable.self) { baseInterface, innerInterface in 
@@ -40764,7 +40847,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x432BC062, Data2: 0x45BC, Data3: 0x57EF, Data4: ( 0xA2,0xD3,0x11,0x85,0x1A,0x56,0xA8,0x82 ) // 432BC062-45BC-57EF-A2D3-11851A56A882
     ) 
 
-    public class INavigationViewItemHeader: WindowsFoundation.IInspectable {
+    public class INavigationViewItemHeader: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader }
 
     }
@@ -40773,7 +40856,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6A5447CD, Data2: 0x2918, Data3: 0x5FE3, Data4: ( 0x89,0x9B,0x93,0xD6,0x96,0x12,0x85,0xE6 ) // 6A5447CD-2918-5FE3-899B-93D6961285E6
     ) 
 
-    public class INavigationViewItemHeaderFactory: WindowsFoundation.IInspectable {
+    public class INavigationViewItemHeaderFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeaderFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemHeaderBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationViewItemHeader {
@@ -40795,7 +40878,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewiteminvokedeventargs)
-public final class NavigationViewItemInvokedEventArgs : WinRTClass {
+public final class NavigationViewItemInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemInvokedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -40871,7 +40954,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x074CEBAA, Data2: 0x5D05, Data3: 0x547B, Data4: ( 0x8C,0xD6,0xD1,0x9A,0xC2,0xD9,0xBB,0x3B ) // 074CEBAA-5D05-547B-8CD6-D19AC2D9BB3B
     ) 
 
-    public class INavigationViewItemInvokedEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationViewItemInvokedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemInvokedEventArgs }
 
         public func get_InvokedItem() throws -> Any? {
@@ -40897,7 +40980,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE1CBB99F, Data2: 0x19EB, Data3: 0x5C7B, Data4: ( 0xB9,0x82,0x85,0x4B,0xB0,0x8D,0x5E,0xB7 ) // E1CBB99F-19EB-5C7B-B982-854BB08D5EB7
     ) 
 
-    public class INavigationViewItemInvokedEventArgs2: WindowsFoundation.IInspectable {
+    public class INavigationViewItemInvokedEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemInvokedEventArgs2 }
 
         public func get_InvokedItemContainer() throws -> WinUI.NavigationViewItemBase? {
@@ -40924,7 +41007,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemSeparator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemseparator)
-open class NavigationViewItemSeparator : WinUI.NavigationViewItemBase {
+open class NavigationViewItemSeparator : WinUI.NavigationViewItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemSeparator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -40951,7 +41034,7 @@ open class NavigationViewItemSeparator : WinUI.NavigationViewItemBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INavigationViewItemSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator")
+    private static nonisolated(unsafe) var _INavigationViewItemSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemSeparatorBridge.Composable.self) { baseInterface, innerInterface in 
@@ -41003,7 +41086,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE3C35630, Data2: 0x1D5F, Data3: 0x5689, Data4: ( 0xA0,0xCB,0x87,0x94,0x48,0x5C,0xAA,0xCF ) // E3C35630-1D5F-5689-A0CB-8794485CAACF
     ) 
 
-    public class INavigationViewItemSeparator: WindowsFoundation.IInspectable {
+    public class INavigationViewItemSeparator: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator }
 
     }
@@ -41012,7 +41095,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x181266A1, Data2: 0xD4F8, Data3: 0x5AF7, Data4: ( 0x81,0x0B,0xAE,0xE8,0xA1,0xD4,0x52,0xED ) // 181266A1-D4F8-5AF7-810B-AEE8A1D452ED
     ) 
 
-    public class INavigationViewItemSeparatorFactory: WindowsFoundation.IInspectable {
+    public class INavigationViewItemSeparatorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparatorFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemSeparatorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationViewItemSeparator {
@@ -41034,7 +41117,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewPaneClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewpaneclosingeventargs)
-public final class NavigationViewPaneClosingEventArgs : WinRTClass {
+public final class NavigationViewPaneClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewPaneClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewPaneClosingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -41089,7 +41172,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE8643304, Data2: 0x6DB4, Data3: 0x5AF5, Data4: ( 0xBA,0xC2,0x62,0x73,0x3C,0xA0,0x37,0xDA ) // E8643304-6DB4-5AF5-BAC2-62733CA037DA
     ) 
 
-    public class INavigationViewPaneClosingEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationViewPaneClosingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewPaneClosingEventArgs }
 
         public func get_Cancel() throws -> Bool {
@@ -41112,7 +41195,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewSelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewselectionchangedeventargs)
-public final class NavigationViewSelectionChangedEventArgs : WinRTClass {
+public final class NavigationViewSelectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewSelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewSelectionChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -41183,7 +41266,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x14A064A5, Data2: 0xC79D, Data3: 0x5F63, Data4: ( 0xAC,0x6E,0x1C,0x31,0x3F,0xE6,0x35,0x66 ) // 14A064A5-C79D-5F63-AC6E-1C313FE63566
     ) 
 
-    public class INavigationViewSelectionChangedEventArgs: WindowsFoundation.IInspectable {
+    public class INavigationViewSelectionChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewSelectionChangedEventArgs }
 
         public func get_SelectedItem() throws -> Any? {
@@ -41209,7 +41292,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE9B5191F, Data2: 0x1AD1, Data3: 0x5366, Data4: ( 0xBC,0x1A,0x90,0xB9,0x60,0x76,0xD4,0x9E ) // E9B5191F-1AD1-5366-BC1A-90B96076D49E
     ) 
 
-    public class INavigationViewSelectionChangedEventArgs2: WindowsFoundation.IInspectable {
+    public class INavigationViewSelectionChangedEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewSelectionChangedEventArgs2 }
 
         public func get_SelectedItemContainer() throws -> WinUI.NavigationViewItemBase? {
@@ -41236,7 +41319,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewtemplatesettings)
-open class NavigationViewTemplateSettings : WinUI.DependencyObject {
+open class NavigationViewTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -41263,7 +41346,7 @@ open class NavigationViewTemplateSettings : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INavigationViewTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings")
+    private static nonisolated(unsafe) var _INavigationViewTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -41419,7 +41502,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBBD25FA5, Data2: 0x9C08, Data3: 0x5F10, Data4: ( 0xBE,0x20,0xCB,0x4C,0x18,0x99,0xBD,0x9D ) // BBD25FA5-9C08-5F10-BE20-CB4C1899BD9D
     ) 
 
-    public class INavigationViewTemplateSettings: WindowsFoundation.IInspectable {
+    public class INavigationViewTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateSettings }
 
         public func get_TopPadding() throws -> Double {
@@ -41500,7 +41583,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x56BEC72F, Data2: 0x1DE1, Data3: 0x5060, Data4: ( 0xA4,0x4C,0x18,0x78,0x85,0xDF,0x29,0x73 ) // 56BEC72F-1DE1-5060-A44C-187885DF2973
     ) 
 
-    public class INavigationViewTemplateSettings2: WindowsFoundation.IInspectable {
+    public class INavigationViewTemplateSettings2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateSettings2 }
 
         public func get_OpenPaneLength() throws -> Double {
@@ -41517,7 +41600,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x34FF6C94, Data2: 0x6465, Data3: 0x5F3E, Data4: ( 0xB0,0xA5,0x4F,0x1E,0xEA,0x48,0xE7,0x43 ) // 34FF6C94-6465-5F3E-B0A5-4F1EEA48E743
     ) 
 
-    public class INavigationViewTemplateSettingsFactory: WindowsFoundation.IInspectable {
+    public class INavigationViewTemplateSettingsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateSettingsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NavigationViewTemplateSettingsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INavigationViewTemplateSettings {
@@ -41539,7 +41622,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBE3A88D6, Data2: 0xD19B, Data3: 0x5543, Data4: ( 0x8B,0x72,0xD4,0x2B,0x45,0x9E,0x72,0xED ) // BE3A88D6-D19B-5543-8B72-D42B459E72ED
     ) 
 
-    public class INavigationViewTemplateSettingsStatics: WindowsFoundation.IInspectable {
+    public class INavigationViewTemplateSettingsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateSettingsStatics }
 
         public func get_TopPaddingProperty() throws -> WinUI.DependencyProperty? {
@@ -41629,7 +41712,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC0C06BE3, Data2: 0x9203, Data3: 0x5EEA, Data4: ( 0x91,0xDC,0x5D,0x81,0x2A,0x97,0x02,0xA6 ) // C0C06BE3-9203-5EEA-91DC-5D812A9702A6
     ) 
 
-    public class INavigationViewTemplateSettingsStatics2: WindowsFoundation.IInspectable {
+    public class INavigationViewTemplateSettingsStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateSettingsStatics2 }
 
         public func get_OpenPaneLengthProperty() throws -> WinUI.DependencyProperty? {
@@ -41647,7 +41730,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NumberBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox)
-open class NumberBox : WinUI.Control {
+open class NumberBox : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -41674,7 +41757,7 @@ open class NumberBox : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _INumberBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.INumberBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
+    private static nonisolated(unsafe) var _INumberBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.INumberBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.Composable.self) { baseInterface, innerInterface in 
@@ -41949,7 +42032,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC18EB0E9, Data2: 0x29FB, Data3: 0x525D, Data4: ( 0xAB,0xBC,0xD6,0xB2,0x11,0x0F,0x54,0x2E ) // C18EB0E9-29FB-525D-ABBC-D6B2110F542E
     ) 
 
-    public class INumberBox: WindowsFoundation.IInspectable {
+    public class INumberBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox }
 
         public func get_Minimum() throws -> Double {
@@ -42024,10 +42107,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -42072,10 +42157,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PlaceholderText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -42256,7 +42343,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6B81F3CB, Data2: 0x45A4, Data3: 0x5D19, Data4: ( 0x9B,0xBB,0xA9,0xFE,0x46,0x56,0xAC,0x4D ) // 6B81F3CB-45A4-5D19-9BBB-A9FE4656AC4D
     ) 
 
-    public class INumberBoxFactory: WindowsFoundation.IInspectable {
+    public class INumberBoxFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> INumberBox {
@@ -42278,7 +42365,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x251EC05C, Data2: 0xA77C, Data3: 0x5540, Data4: ( 0xBE,0x39,0x60,0x53,0xF7,0x97,0xCD,0xE7 ) // 251EC05C-A77C-5540-BE39-6053F797CDE7
     ) 
 
-    public class INumberBoxStatics: WindowsFoundation.IInspectable {
+    public class INumberBoxStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxStatics }
 
         public func get_MinimumProperty() throws -> WinUI.DependencyProperty? {
@@ -42458,7 +42545,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NumberBoxValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvaluechangedeventargs)
-public final class NumberBoxValueChangedEventArgs : WinRTClass {
+public final class NumberBoxValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBoxValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -42517,7 +42604,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC66CF16E, Data2: 0x7C8A, Data3: 0x532E, Data4: ( 0x9D,0x23,0x05,0x8C,0x1C,0x98,0xDD,0x50 ) // C66CF16E-7C8A-532E-9D23-058C1C98DD50
     ) 
 
-    public class INumberBoxValueChangedEventArgs: WindowsFoundation.IInspectable {
+    public class INumberBoxValueChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs }
 
         public func get_OldValue() throws -> Double {
@@ -42542,7 +42629,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Page
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.page)
-open class Page : WinUI.UserControl {
+open class Page : WinUI.UserControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPage
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -42574,7 +42661,7 @@ open class Page : WinUI.UserControl {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IPageFactory : __ABI_Microsoft_UI_Xaml_Controls.IPageFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Page")
+    private static nonisolated(unsafe) var _IPageFactory : __ABI_Microsoft_UI_Xaml_Controls.IPageFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Page")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PageBridge.Composable.self) { baseInterface, innerInterface in 
@@ -42679,7 +42766,7 @@ public class PageMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IPageOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.PageBridge.IPageOverrides>
-    internal static var IPageOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPageOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IPageOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPageOverridesVtbl = .init(
         QueryInterface: { IPageOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IPageOverridesWrapper.addRef($0) },
         Release: { IPageOverridesWrapper.release($0) },
@@ -42741,7 +42828,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEB42988E, Data2: 0x6CB5, Data3: 0x5DD6, Data4: ( 0x9E,0x59,0x4C,0x04,0xE5,0xCA,0xEC,0x6D ) // EB42988E-6CB5-5DD6-9E59-4C04E5CAEC6D
     ) 
 
-    public class IPage: WindowsFoundation.IInspectable {
+    public class IPage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPage }
 
         public func get_Frame() throws -> WinUI.Frame? {
@@ -42803,7 +42890,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9B8445F7, Data2: 0xD938, Data3: 0x5626, Data4: ( 0x85,0x0A,0x86,0xE9,0x1C,0xA8,0x9E,0x98 ) // 9B8445F7-D938-5626-850A-86E91CA89E98
     ) 
 
-    public class IPageOverrides: WindowsFoundation.IInspectable {
+    public class IPageOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPageOverrides }
 
         public func OnNavigatedFrom(_ e: WinUI.NavigationEventArgs?) throws {
@@ -42830,7 +42917,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFF4357D5, Data2: 0xDDCD, Data3: 0x5129, Data4: ( 0x9D,0x0F,0xD8,0xAE,0xD2,0xAD,0xC1,0xA9 ) // FF4357D5-DDCD-5129-9D0F-D8AED2ADC1A9
     ) 
 
-    public class IPageFactory: WindowsFoundation.IInspectable {
+    public class IPageFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPageFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.PageBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPage {
@@ -42852,7 +42939,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB6241486, Data2: 0xA374, Data3: 0x5D09, Data4: ( 0xA0,0x1F,0x9A,0xBE,0x31,0x1C,0x08,0x84 ) // B6241486-A374-5D09-A01F-9ABE311C0884
     ) 
 
-    public class IPageStatics: WindowsFoundation.IInspectable {
+    public class IPageStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPageStatics }
 
         public func get_FrameProperty() throws -> WinUI.DependencyProperty? {
@@ -42894,7 +42981,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - Panel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.panel)
-open class Panel : WinUI.FrameworkElement {
+open class Panel : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPanel
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -42921,7 +43008,7 @@ open class Panel : WinUI.FrameworkElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Panel")
+    private static nonisolated(unsafe) var _IPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Panel")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PanelBridge.Composable.self) { baseInterface, innerInterface in 
@@ -43017,7 +43104,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x27A1B418, Data2: 0x56F3, Data3: 0x525E, Data4: ( 0xB8,0x83,0xCE,0xFE,0xD9,0x05,0xEE,0xD3 ) // 27A1B418-56F3-525E-B883-CEFED905EED3
     ) 
 
-    public class IPanel: WindowsFoundation.IInspectable {
+    public class IPanel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPanel }
 
         public func get_Children() throws -> WinUI.UIElementCollection? {
@@ -43088,7 +43175,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF5E7E21C, Data2: 0x4C97, Data3: 0x5D20, Data4: ( 0xBE,0xE6,0x3E,0x4F,0xC6,0xAB,0x14,0xE9 ) // F5E7E21C-4C97-5D20-BEE6-3E4FC6AB14E9
     ) 
 
-    public class IPanelFactory: WindowsFoundation.IInspectable {
+    public class IPanelFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPanelFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.PanelBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPanel {
@@ -43110,7 +43197,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x76A9CAA7, Data2: 0xA5D4, Data3: 0x5061, Data4: ( 0xA3,0x25,0x17,0xC7,0x6F,0x66,0xDE,0x51 ) // 76A9CAA7-A5D4-5061-A325-17C76F66DE51
     ) 
 
-    public class IPanelStatics: WindowsFoundation.IInspectable {
+    public class IPanelStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPanelStatics }
 
         public func get_BackgroundProperty() throws -> WinUI.DependencyProperty? {
@@ -43146,7 +43233,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PasswordBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordbox)
-public final class PasswordBox : WinUI.Control {
+public final class PasswordBox : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPasswordBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -43427,15 +43514,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6D3CCFF7, Data2: 0xAAEE, Data3: 0x5ADC, Data4: ( 0x82,0x98,0x33,0x30,0x0F,0xA1,0x19,0xDA ) // 6D3CCFF7-AAEE-5ADC-8298-33300FA119DA
     ) 
 
-    public class IPasswordBox: WindowsFoundation.IInspectable {
+    public class IPasswordBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBox }
 
         public func get_Password() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Password(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -43448,10 +43537,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PasswordChar() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PasswordChar(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -43524,10 +43615,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PlaceholderText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -43732,7 +43825,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x90E6559C, Data2: 0x5F74, Data3: 0x5CD1, Data4: ( 0x87,0xB6,0xC0,0x51,0x40,0x85,0xAB,0x42 ) // 90E6559C-5F74-5CD1-87B6-C0514085AB42
     ) 
 
-    public class IPasswordBoxStatics: WindowsFoundation.IInspectable {
+    public class IPasswordBoxStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBoxStatics }
 
         public func get_PasswordProperty() throws -> WinUI.DependencyProperty? {
@@ -43876,7 +43969,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PasswordBoxPasswordChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordboxpasswordchangingeventargs)
-public final class PasswordBoxPasswordChangingEventArgs : WinRTClass {
+public final class PasswordBoxPasswordChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPasswordBoxPasswordChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBoxPasswordChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -43930,7 +44023,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9A2F3B79, Data2: 0xC00C, Data3: 0x5D27, Data4: ( 0xBB,0x67,0x92,0xCA,0xB3,0xDB,0x04,0x77 ) // 9A2F3B79-C00C-5D27-BB67-92CAB3DB0477
     ) 
 
-    public class IPasswordBoxPasswordChangingEventArgs: WindowsFoundation.IInspectable {
+    public class IPasswordBoxPasswordChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBoxPasswordChangingEventArgs }
 
         public func get_IsContentChanging() throws -> Bool {
@@ -43947,7 +44040,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PersonPicture
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.personpicture)
-open class PersonPicture : WinUI.Control {
+open class PersonPicture : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPersonPicture
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPicture
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -43974,7 +44067,7 @@ open class PersonPicture : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPersonPictureFactory : __ABI_Microsoft_UI_Xaml_Controls.IPersonPictureFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PersonPicture")
+    private static nonisolated(unsafe) var _IPersonPictureFactory : __ABI_Microsoft_UI_Xaml_Controls.IPersonPictureFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PersonPicture")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PersonPictureBridge.Composable.self) { baseInterface, innerInterface in 
@@ -44142,7 +44235,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x30EC982C, Data2: 0x0EFA, Data3: 0x5538, Data4: ( 0xA3,0x56,0xE9,0xEB,0xD5,0xAA,0x36,0x3C ) // 30EC982C-0EFA-5538-A356-E9EBD5AA363C
     ) 
 
-    public class IPersonPicture: WindowsFoundation.IInspectable {
+    public class IPersonPicture: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPicture }
 
         public func get_BadgeNumber() throws -> Int32 {
@@ -44161,10 +44254,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_BadgeGlyph() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPicture.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BadgeGlyph(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -44192,10 +44287,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_BadgeText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPicture.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_BadgeText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -44237,10 +44334,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_DisplayName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPicture.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DisplayName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -44253,10 +44352,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Initials() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPicture.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Initials(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -44311,7 +44412,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7EC0794C, Data2: 0xF2CC, Data3: 0x5282, Data4: ( 0xA8,0x9D,0xCD,0x3B,0xB7,0x65,0xB7,0x1A ) // 7EC0794C-F2CC-5282-A89D-CD3BB765B71A
     ) 
 
-    public class IPersonPictureFactory: WindowsFoundation.IInspectable {
+    public class IPersonPictureFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPictureFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.PersonPictureBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPersonPicture {
@@ -44333,7 +44434,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3C769423, Data2: 0x9B05, Data3: 0x56C1, Data4: ( 0xA1,0x69,0x09,0x84,0x93,0xC2,0x1F,0x91 ) // 3C769423-9B05-56C1-A169-098493C21F91
     ) 
 
-    public class IPersonPictureStatics: WindowsFoundation.IInspectable {
+    public class IPersonPictureStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPictureStatics }
 
         public func get_BadgeNumberProperty() throws -> WinUI.DependencyProperty? {
@@ -44432,7 +44533,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PersonPictureTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.personpicturetemplatesettings)
-public final class PersonPictureTemplateSettings : WinUI.DependencyObject {
+public final class PersonPictureTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPersonPictureTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPictureTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -44491,15 +44592,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE16DF12F, Data2: 0xC3C0, Data3: 0x5F26, Data4: ( 0xA3,0x81,0x08,0xF2,0xDF,0x05,0x2F,0x29 ) // E16DF12F-C3C0-5F26-A381-08F2DF052F29
     ) 
 
-    public class IPersonPictureTemplateSettings: WindowsFoundation.IInspectable {
+    public class IPersonPictureTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPictureTemplateSettings }
 
         public func get_ActualInitials() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPictureTemplateSettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ActualInitials(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -44518,7 +44621,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PipsPager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspager)
-open class PipsPager : WinUI.Control {
+open class PipsPager : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPipsPager
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -44545,7 +44648,7 @@ open class PipsPager : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPipsPagerFactory : __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PipsPager")
+    private static nonisolated(unsafe) var _IPipsPagerFactory : __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PipsPager")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PipsPagerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -44740,7 +44843,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDE7FC5D5, Data2: 0x9446, Data3: 0x5693, Data4: ( 0xBB,0xF3,0xFD,0x7F,0x94,0x3A,0x56,0x7C ) // DE7FC5D5-9446-5693-BBF3-FD7F943A567C
     ) 
 
-    public class IPipsPager: WindowsFoundation.IInspectable {
+    public class IPipsPager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPager }
 
         public func get_NumberOfPages() throws -> Int32 {
@@ -44918,7 +45021,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2ED8334B, Data2: 0x4F00, Data3: 0x5606, Data4: ( 0x9F,0x72,0xE6,0xF7,0x30,0x07,0x46,0xA0 ) // 2ED8334B-4F00-5606-9F72-E6F7300746A0
     ) 
 
-    public class IPipsPager2: WindowsFoundation.IInspectable {
+    public class IPipsPager2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPager2 }
 
         public func get_WrapMode() throws -> WinUI.PipsPagerWrapMode {
@@ -44941,7 +45044,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x020722CD, Data2: 0x813A, Data3: 0x5165, Data4: ( 0xA8,0x99,0x3D,0xF9,0xAD,0xCD,0x80,0x5E ) // 020722CD-813A-5165-A899-3DF9ADCD805E
     ) 
 
-    public class IPipsPagerFactory: WindowsFoundation.IInspectable {
+    public class IPipsPagerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.PipsPagerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPipsPager {
@@ -44963,7 +45066,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x37714CD8, Data2: 0xFBA6, Data3: 0x5D98, Data4: ( 0xA3,0x95,0x0A,0x7A,0x3E,0xA6,0x48,0x67 ) // 37714CD8-FBA6-5D98-A395-0A7A3EA64867
     ) 
 
-    public class IPipsPagerStatics: WindowsFoundation.IInspectable {
+    public class IPipsPagerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerStatics }
 
         public func get_NumberOfPagesProperty() throws -> WinUI.DependencyProperty? {
@@ -45062,7 +45165,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x00143F5F, Data2: 0xEF77, Data3: 0x54A9, Data4: ( 0x9B,0xF3,0x5D,0xAE,0x37,0x99,0xE4,0xA4 ) // 00143F5F-EF77-54A9-9BF3-5DAE3799E4A4
     ) 
 
-    public class IPipsPagerStatics2: WindowsFoundation.IInspectable {
+    public class IPipsPagerStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerStatics2 }
 
         public func get_WrapModeProperty() throws -> WinUI.DependencyProperty? {
@@ -45080,7 +45183,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PipsPagerSelectedIndexChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspagerselectedindexchangedeventargs)
-public final class PipsPagerSelectedIndexChangedEventArgs : WinRTClass {
+public final class PipsPagerSelectedIndexChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerSelectedIndexChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerSelectedIndexChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -45129,7 +45232,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6C2CE4FC, Data2: 0xBF52, Data3: 0x5CA6, Data4: ( 0x9D,0xA4,0xB0,0xBD,0x5B,0x92,0x8D,0x97 ) // 6C2CE4FC-BF52-5CA6-9DA4-B0BD5B928D97
     ) 
 
-    public class IPipsPagerSelectedIndexChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IPipsPagerSelectedIndexChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerSelectedIndexChangedEventArgs }
 
     }
@@ -45138,7 +45241,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PipsPagerTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspagertemplatesettings)
-public final class PipsPagerTemplateSettings : WinUI.DependencyObject {
+public final class PipsPagerTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -45192,7 +45295,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9D8C1252, Data2: 0x56C5, Data3: 0x57AF, Data4: ( 0x9A,0x3A,0x08,0xE9,0xB9,0x47,0xE5,0xFA ) // 9D8C1252-56C5-57AF-9A3A-08E9B947E5FA
     ) 
 
-    public class IPipsPagerTemplateSettings: WindowsFoundation.IInspectable {
+    public class IPipsPagerTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerTemplateSettings }
 
         public func get_PipsPagerItems() throws -> WindowsFoundation.AnyIVector<Int32>? {
@@ -45210,7 +45313,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Pivot
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivot)
-open class Pivot : WinUI.ItemsControl {
+open class Pivot : WinUI.ItemsControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPivot
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivot
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -45237,7 +45340,7 @@ open class Pivot : WinUI.ItemsControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPivotFactory : __ABI_Microsoft_UI_Xaml_Controls.IPivotFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Pivot")
+    private static nonisolated(unsafe) var _IPivotFactory : __ABI_Microsoft_UI_Xaml_Controls.IPivotFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Pivot")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PivotBridge.Composable.self) { baseInterface, innerInterface in 
@@ -45502,7 +45605,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1C6438E5, Data2: 0xECAC, Data3: 0x5FB6, Data4: ( 0x8E,0x8E,0x00,0xDE,0x7E,0x92,0x23,0x03 ) // 1C6438E5-ECAC-5FB6-8E8E-00DE7E922303
     ) 
 
-    public class IPivot: WindowsFoundation.IInspectable {
+    public class IPivot: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivot }
 
         public func get_Title() throws -> Any? {
@@ -45775,7 +45878,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDA9D033C, Data2: 0x4782, Data3: 0x5A69, Data4: ( 0x90,0xAF,0x07,0x6C,0xCD,0xF0,0x71,0xAE ) // DA9D033C-4782-5A69-90AF-076CCDF071AE
     ) 
 
-    public class IPivotFactory: WindowsFoundation.IInspectable {
+    public class IPivotFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.PivotBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPivot {
@@ -45797,7 +45900,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x619CC35F, Data2: 0xB97B, Data3: 0x5E32, Data4: ( 0x88,0x5E,0x70,0x94,0x9E,0xD9,0x7E,0xEB ) // 619CC35F-B97B-5E32-885E-70949ED97EEB
     ) 
 
-    public class IPivotStatics: WindowsFoundation.IInspectable {
+    public class IPivotStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotStatics }
 
         public func get_TitleProperty() throws -> WinUI.DependencyProperty? {
@@ -45937,7 +46040,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PivotItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivotitem)
-open class PivotItem : WinUI.ContentControl {
+open class PivotItem : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPivotItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -45964,7 +46067,7 @@ open class PivotItem : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IPivotItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IPivotItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PivotItem")
+    private static nonisolated(unsafe) var _IPivotItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IPivotItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PivotItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PivotItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -46028,7 +46131,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8108C195, Data2: 0x63F5, Data3: 0x5DF9, Data4: ( 0xAB,0xCF,0x41,0x8F,0xA2,0xDB,0xFB,0xEC ) // 8108C195-63F5-5DF9-ABCF-418FA2DBFBEC
     ) 
 
-    public class IPivotItem: WindowsFoundation.IInspectable {
+    public class IPivotItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotItem }
 
         public func get_Header() throws -> Any? {
@@ -46054,7 +46157,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9149A2AB, Data2: 0x606C, Data3: 0x55A9, Data4: ( 0x87,0x86,0x80,0x1D,0x55,0xCA,0x8E,0xD6 ) // 9149A2AB-606C-55A9-8786-801D55CA8ED6
     ) 
 
-    public class IPivotItemFactory: WindowsFoundation.IInspectable {
+    public class IPivotItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.PivotItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPivotItem {
@@ -46076,7 +46179,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE2EBE630, Data2: 0x6629, Data3: 0x5B7B, Data4: ( 0x86,0x66,0xFD,0xEB,0x9B,0x98,0xDB,0x2C ) // E2EBE630-6629-5B7B-8666-FDEB9B98DB2C
     ) 
 
-    public class IPivotItemStatics: WindowsFoundation.IInspectable {
+    public class IPivotItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotItemStatics }
 
         public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
@@ -46094,7 +46197,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PivotItemEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivotitemeventargs)
-public final class PivotItemEventArgs : WinRTClass {
+public final class PivotItemEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPivotItemEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotItemEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -46154,7 +46257,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE42C62C2, Data2: 0x0CB9, Data3: 0x5E5B, Data4: ( 0x81,0x48,0x8D,0x80,0xA3,0x83,0x8D,0xE9 ) // E42C62C2-0CB9-5E5B-8148-8D80A3838DE9
     ) 
 
-    public class IPivotItemEventArgs: WindowsFoundation.IInspectable {
+    public class IPivotItemEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotItemEventArgs }
 
         public func get_Item() throws -> WinUI.PivotItem? {
@@ -46178,7 +46281,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ProgressBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressbar)
-open class ProgressBar : WinUI.RangeBase {
+open class ProgressBar : WinUI.RangeBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IProgressBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -46205,7 +46308,7 @@ open class ProgressBar : WinUI.RangeBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IProgressBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IProgressBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressBar")
+    private static nonisolated(unsafe) var _IProgressBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IProgressBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ProgressBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -46296,7 +46399,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x87555C8C, Data2: 0x0AAF, Data3: 0x52C1, Data4: ( 0x83,0x90,0x0D,0xB1,0x7F,0x40,0x43,0x8E ) // 87555C8C-0AAF-52C1-8390-0DB17F40438E
     ) 
 
-    public class IProgressBar: WindowsFoundation.IInspectable {
+    public class IProgressBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressBar }
 
         public func get_IsIndeterminate() throws -> Bool {
@@ -46356,7 +46459,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x189826AD, Data2: 0xF6F2, Data3: 0x533E, Data4: ( 0x9D,0xDB,0xB6,0x60,0x0E,0x88,0x67,0x5B ) // 189826AD-F6F2-533E-9DDB-B6600E88675B
     ) 
 
-    public class IProgressBarFactory: WindowsFoundation.IInspectable {
+    public class IProgressBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ProgressBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IProgressBar {
@@ -46378,7 +46481,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x61BBB127, Data2: 0xE4C4, Data3: 0x5E22, Data4: ( 0xA8,0xDC,0xCF,0xCF,0x95,0x72,0x36,0xD0 ) // 61BBB127-E4C4-5E22-A8DC-CFCF957236D0
     ) 
 
-    public class IProgressBarStatics: WindowsFoundation.IInspectable {
+    public class IProgressBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressBarStatics }
 
         public func get_IsIndeterminateProperty() throws -> WinUI.DependencyProperty? {
@@ -46414,7 +46517,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ProgressBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressbartemplatesettings)
-public final class ProgressBarTemplateSettings : WinUI.DependencyObject {
+public final class ProgressBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IProgressBarTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressBarTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -46518,7 +46621,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFBEA95C9, Data2: 0x9EF9, Data3: 0x5E79, Data4: ( 0xAF,0x54,0x44,0xDE,0xD2,0x80,0x35,0xD5 ) // FBEA95C9-9EF9-5E79-AF54-44DED28035D5
     ) 
 
-    public class IProgressBarTemplateSettings: WindowsFoundation.IInspectable {
+    public class IProgressBarTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressBarTemplateSettings }
 
         public func get_ContainerAnimationStartPosition() throws -> Double {
@@ -46616,7 +46719,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ProgressRing
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressring)
-open class ProgressRing : WinUI.Control {
+open class ProgressRing : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IProgressRing
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressRing
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -46643,7 +46746,7 @@ open class ProgressRing : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IProgressRingFactory : __ABI_Microsoft_UI_Xaml_Controls.IProgressRingFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressRing")
+    private static nonisolated(unsafe) var _IProgressRingFactory : __ABI_Microsoft_UI_Xaml_Controls.IProgressRingFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressRing")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ProgressRingBridge.Composable.self) { baseInterface, innerInterface in 
@@ -46756,7 +46859,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2670D03F, Data2: 0xE28C, Data3: 0x5652, Data4: ( 0xBE,0xE2,0xB5,0x21,0x2E,0xBD,0xF7,0xFF ) // 2670D03F-E28C-5652-BEE2-B5212EBDF7FF
     ) 
 
-    public class IProgressRing: WindowsFoundation.IInspectable {
+    public class IProgressRing: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressRing }
 
         public func get_IsActive() throws -> Bool {
@@ -46844,7 +46947,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x092FA98C, Data2: 0x62A7, Data3: 0x5DBC, Data4: ( 0x9A,0x85,0x3E,0x55,0x6B,0xA8,0x1F,0x79 ) // 092FA98C-62A7-5DBC-9A85-3E556BA81F79
     ) 
 
-    public class IProgressRingFactory: WindowsFoundation.IInspectable {
+    public class IProgressRingFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressRingFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ProgressRingBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IProgressRing {
@@ -46866,7 +46969,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4BA1166A, Data2: 0xCEC2, Data3: 0x50E2, Data4: ( 0xB2,0x6B,0x66,0xB6,0x9D,0xC2,0xE3,0x71 ) // 4BA1166A-CEC2-50E2-B26B-66B69DC2E371
     ) 
 
-    public class IProgressRingStatics: WindowsFoundation.IInspectable {
+    public class IProgressRingStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressRingStatics }
 
         public func get_IsActiveProperty() throws -> WinUI.DependencyProperty? {
@@ -46920,7 +47023,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ProgressRingTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressringtemplatesettings)
-public final class ProgressRingTemplateSettings : WinUI.DependencyObject {
+public final class ProgressRingTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IProgressRingTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressRingTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -46984,7 +47087,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x34020D86, Data2: 0xE1C1, Data3: 0x5D7C, Data4: ( 0xB2,0x23,0xAC,0xD7,0xF8,0x62,0xFF,0xD5 ) // 34020D86-E1C1-5D7C-B223-ACD7F862FFD5
     ) 
 
-    public class IProgressRingTemplateSettings: WindowsFoundation.IInspectable {
+    public class IProgressRingTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressRingTemplateSettings }
 
         public func get_EllipseDiameter() throws -> Double {
@@ -47017,7 +47120,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RadioButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiobutton)
-open class RadioButton : WinUI.ToggleButton {
+open class RadioButton : WinUI.ToggleButton, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRadioButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButton
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -47044,7 +47147,7 @@ open class RadioButton : WinUI.ToggleButton {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IRadioButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButton")
+    private static nonisolated(unsafe) var _IRadioButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButton")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RadioButtonBridge.Composable.self) { baseInterface, innerInterface in 
@@ -47108,15 +47211,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x38F30CEE, Data2: 0xE75A, Data3: 0x5BA1, Data4: ( 0xAE,0x64,0x44,0x74,0xA3,0xAB,0xEA,0xC7 ) // 38F30CEE-E75A-5BA1-AE64-4474A3ABEAC7
     ) 
 
-    public class IRadioButton: WindowsFoundation.IInspectable {
+    public class IRadioButton: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButton }
 
         public func get_GroupName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButton.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -47133,7 +47238,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5772C79A, Data2: 0xB3EB, Data3: 0x5719, Data4: ( 0x80,0x05,0x2A,0x51,0x34,0x29,0x49,0x5A ) // 5772C79A-B3EB-5719-8005-2A513429495A
     ) 
 
-    public class IRadioButtonFactory: WindowsFoundation.IInspectable {
+    public class IRadioButtonFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButtonFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RadioButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRadioButton {
@@ -47155,7 +47260,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA8BCE4D4, Data2: 0x68FE, Data3: 0x53D9, Data4: ( 0xA3,0x17,0x74,0xAB,0x40,0x9C,0xD4,0xEE ) // A8BCE4D4-68FE-53D9-A317-74AB409CD4EE
     ) 
 
-    public class IRadioButtonStatics: WindowsFoundation.IInspectable {
+    public class IRadioButtonStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButtonStatics }
 
         public func get_GroupNameProperty() throws -> WinUI.DependencyProperty? {
@@ -47173,7 +47278,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RadioButtons
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiobuttons)
-open class RadioButtons : WinUI.Control {
+open class RadioButtons : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRadioButtons
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButtons
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -47200,7 +47305,7 @@ open class RadioButtons : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IRadioButtonsFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButtons")
+    private static nonisolated(unsafe) var _IRadioButtonsFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButtons")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RadioButtonsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -47358,7 +47463,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x966DAF80, Data2: 0xEE85, Data3: 0x5D90, Data4: ( 0xB6,0xB3,0x80,0xBE,0xC9,0x13,0x46,0x73 ) // 966DAF80-EE85-5D90-B6B3-80BEC9134673
     ) 
 
-    public class IRadioButtons: WindowsFoundation.IInspectable {
+    public class IRadioButtons: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButtons }
 
         public func get_ItemsSource() throws -> Any? {
@@ -47512,7 +47617,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2CF95EFB, Data2: 0xA7A2, Data3: 0x5D85, Data4: ( 0x8E,0xAD,0xEA,0x22,0x2B,0xAA,0x3C,0x55 ) // 2CF95EFB-A7A2-5D85-8EAD-EA222BAA3C55
     ) 
 
-    public class IRadioButtonsFactory: WindowsFoundation.IInspectable {
+    public class IRadioButtonsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButtonsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RadioButtonsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRadioButtons {
@@ -47534,7 +47639,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDE0BF0CA, Data2: 0x9AE8, Data3: 0x5B8A, Data4: ( 0x97,0x38,0x7D,0x98,0xB3,0x44,0xC0,0x39 ) // DE0BF0CA-9AE8-5B8A-9738-7D98B344C039
     ) 
 
-    public class IRadioButtonsStatics: WindowsFoundation.IInspectable {
+    public class IRadioButtonsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButtonsStatics }
 
         public func get_ItemsSourceProperty() throws -> WinUI.DependencyProperty? {
@@ -47615,7 +47720,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RadioMenuFlyoutItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem)
-open class RadioMenuFlyoutItem : WinUI.MenuFlyoutItem {
+open class RadioMenuFlyoutItem : WinUI.MenuFlyoutItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -47642,7 +47747,7 @@ open class RadioMenuFlyoutItem : WinUI.MenuFlyoutItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IRadioMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
+    private static nonisolated(unsafe) var _IRadioMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RadioMenuFlyoutItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -47733,7 +47838,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9D6F45F5, Data2: 0x5532, Data3: 0x5669, Data4: ( 0x8F,0x02,0x05,0x73,0x59,0x53,0x02,0x6A ) // 9D6F45F5-5532-5669-8F02-05735953026A
     ) 
 
-    public class IRadioMenuFlyoutItem: WindowsFoundation.IInspectable {
+    public class IRadioMenuFlyoutItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem }
 
         public func get_IsChecked() throws -> Bool {
@@ -47752,10 +47857,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_GroupName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_GroupName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -47772,7 +47879,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x113822D2, Data2: 0x35A3, Data3: 0x5B0D, Data4: ( 0x9D,0x0D,0xC3,0x83,0x0E,0xC1,0x97,0x3B ) // 113822D2-35A3-5B0D-9D0D-C3830EC1973B
     ) 
 
-    public class IRadioMenuFlyoutItemFactory: WindowsFoundation.IInspectable {
+    public class IRadioMenuFlyoutItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RadioMenuFlyoutItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRadioMenuFlyoutItem {
@@ -47794,7 +47901,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x47117E20, Data2: 0xE03D, Data3: 0x53F0, Data4: ( 0x93,0x8E,0xEC,0xCB,0xFF,0xFB,0x54,0x21 ) // 47117E20-E03D-53F0-938E-ECCBFFFB5421
     ) 
 
-    public class IRadioMenuFlyoutItemStatics: WindowsFoundation.IInspectable {
+    public class IRadioMenuFlyoutItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics }
 
         public func get_IsCheckedProperty() throws -> WinUI.DependencyProperty? {
@@ -47821,7 +47928,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2040FFBF, Data2: 0x947F, Data3: 0x58ED, Data4: ( 0x96,0x9F,0x5D,0x8D,0x89,0x67,0xB9,0xA0 ) // 2040FFBF-947F-58ED-969F-5D8D8967B9A0
     ) 
 
-    public class IRadioMenuFlyoutItemStatics2: WindowsFoundation.IInspectable {
+    public class IRadioMenuFlyoutItemStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItemStatics2 }
 
         public func get_AreCheckStatesEnabledProperty() throws -> WinUI.DependencyProperty? {
@@ -47853,7 +47960,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RefreshContainer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshcontainer)
-open class RefreshContainer : WinUI.ContentControl {
+open class RefreshContainer : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRefreshContainer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshContainer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -47880,7 +47987,7 @@ open class RefreshContainer : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IRefreshContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IRefreshContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshContainer")
+    private static nonisolated(unsafe) var _IRefreshContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IRefreshContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshContainer")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RefreshContainerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -47973,7 +48080,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1C9778E8, Data2: 0xA427, Data3: 0x5F86, Data4: ( 0x9D,0x5E,0x02,0xDB,0x9B,0x2C,0x40,0x93 ) // 1C9778E8-A427-5F86-9D5E-02DB9B2C4093
     ) 
 
-    public class IRefreshContainer: WindowsFoundation.IInspectable {
+    public class IRefreshContainer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshContainer }
 
         public func get_Visualizer() throws -> WinUI.RefreshVisualizer? {
@@ -48033,7 +48140,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5F228FA1, Data2: 0x2EA2, Data3: 0x52B5, Data4: ( 0xB7,0x8A,0x0C,0x13,0x3F,0x86,0xF0,0x20 ) // 5F228FA1-2EA2-52B5-B78A-0C133F86F020
     ) 
 
-    public class IRefreshContainerFactory: WindowsFoundation.IInspectable {
+    public class IRefreshContainerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshContainerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RefreshContainerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRefreshContainer {
@@ -48055,7 +48162,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x875EF8A0, Data2: 0x74C2, Data3: 0x5201, Data4: ( 0xB7,0x08,0x50,0xA4,0x8E,0x7E,0x76,0x01 ) // 875EF8A0-74C2-5201-B708-50A48E7E7601
     ) 
 
-    public class IRefreshContainerStatics: WindowsFoundation.IInspectable {
+    public class IRefreshContainerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshContainerStatics }
 
         public func get_VisualizerProperty() throws -> WinUI.DependencyProperty? {
@@ -48082,7 +48189,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RefreshRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshrequestedeventargs)
-public final class RefreshRequestedEventArgs : WinRTClass {
+public final class RefreshRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRefreshRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -48136,7 +48243,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xED97A956, Data2: 0x6019, Data3: 0x5329, Data4: ( 0x93,0x12,0xF8,0x85,0xB5,0xC7,0x74,0xCD ) // ED97A956-6019-5329-9312-F885B5C774CD
     ) 
 
-    public class IRefreshRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IRefreshRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshRequestedEventArgs }
 
         public func GetDeferral() throws -> WindowsFoundation.Deferral? {
@@ -48154,7 +48261,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RefreshStateChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshstatechangedeventargs)
-public final class RefreshStateChangedEventArgs : WinRTClass {
+public final class RefreshStateChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRefreshStateChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshStateChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -48213,7 +48320,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7BE897CE, Data2: 0x17C4, Data3: 0x5FDF, Data4: ( 0xB4,0x41,0xC6,0xEF,0x33,0x01,0xE0,0xF6 ) // 7BE897CE-17C4-5FDF-B441-C6EF3301E0F6
     ) 
 
-    public class IRefreshStateChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IRefreshStateChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshStateChangedEventArgs }
 
         public func get_OldState() throws -> WinUI.RefreshVisualizerState {
@@ -48238,7 +48345,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RefreshVisualizer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshvisualizer)
-open class RefreshVisualizer : WinUI.Control {
+open class RefreshVisualizer : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRefreshVisualizer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshVisualizer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -48265,7 +48372,7 @@ open class RefreshVisualizer : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IRefreshVisualizerFactory : __ABI_Microsoft_UI_Xaml_Controls.IRefreshVisualizerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshVisualizer")
+    private static nonisolated(unsafe) var _IRefreshVisualizerFactory : __ABI_Microsoft_UI_Xaml_Controls.IRefreshVisualizerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshVisualizer")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RefreshVisualizerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -48386,7 +48493,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD6C55DB6, Data2: 0xD82D, Data3: 0x5B68, Data4: ( 0xBA,0x1D,0x28,0x59,0x3F,0xB0,0xAB,0x12 ) // D6C55DB6-D82D-5B68-BA1D-28593FB0AB12
     ) 
 
-    public class IRefreshVisualizer: WindowsFoundation.IInspectable {
+    public class IRefreshVisualizer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshVisualizer }
 
         public func RequestRefresh() throws {
@@ -48470,7 +48577,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9D6F2BF2, Data2: 0x6628, Data3: 0x582A, Data4: ( 0x89,0x2B,0x68,0xC2,0x77,0x0C,0x17,0x3C ) // 9D6F2BF2-6628-582A-892B-68C2770C173C
     ) 
 
-    public class IRefreshVisualizerFactory: WindowsFoundation.IInspectable {
+    public class IRefreshVisualizerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshVisualizerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RefreshVisualizerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRefreshVisualizer {
@@ -48492,7 +48599,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3540FE79, Data2: 0x590D, Data3: 0x546F, Data4: ( 0xBF,0x2A,0xA3,0x0D,0x46,0xE8,0xCD,0xFA ) // 3540FE79-590D-546F-BF2A-A30D46E8CDFA
     ) 
 
-    public class IRefreshVisualizerStatics: WindowsFoundation.IInspectable {
+    public class IRefreshVisualizerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshVisualizerStatics }
 
         public func get_InfoProviderProperty() throws -> WinUI.DependencyProperty? {
@@ -48537,7 +48644,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RelativePanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.relativepanel)
-open class RelativePanel : WinUI.Panel {
+open class RelativePanel : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRelativePanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanel
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -48564,7 +48671,7 @@ open class RelativePanel : WinUI.Panel {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IRelativePanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IRelativePanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RelativePanel")
+    private static nonisolated(unsafe) var _IRelativePanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IRelativePanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RelativePanel")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RelativePanelBridge.Composable.self) { baseInterface, innerInterface in 
@@ -48912,7 +49019,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC432FCC4, Data2: 0x88F2, Data3: 0x59D8, Data4: ( 0x9D,0x0E,0xA2,0x37,0xBE,0xAE,0xB0,0x7F ) // C432FCC4-88F2-59D8-9D0E-A237BEAEB07F
     ) 
 
-    public class IRelativePanel: WindowsFoundation.IInspectable {
+    public class IRelativePanel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanel }
 
         public func get_BackgroundSizing() throws -> WinUI.BackgroundSizing {
@@ -48992,7 +49099,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC85F1443, Data2: 0xD973, Data3: 0x50FD, Data4: ( 0x94,0x97,0xB8,0x67,0xF4,0x92,0x46,0x8F ) // C85F1443-D973-50FD-9497-B867F492468F
     ) 
 
-    public class IRelativePanelFactory: WindowsFoundation.IInspectable {
+    public class IRelativePanelFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanelFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RelativePanelBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRelativePanel {
@@ -49014,7 +49121,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBDD929A2, Data2: 0x76CC, Data3: 0x59C4, Data4: ( 0x82,0xC1,0xF1,0x4B,0x5D,0xA4,0x22,0x1A ) // BDD929A2-76CC-59C4-82C1-F14B5DA4221A
     ) 
 
-    public class IRelativePanelStatics: WindowsFoundation.IInspectable {
+    public class IRelativePanelStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanelStatics }
 
         public func get_BackgroundSizingProperty() throws -> WinUI.DependencyProperty? {
@@ -49466,7 +49573,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichEditBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox)
-open class RichEditBox : WinUI.Control {
+open class RichEditBox : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -49493,7 +49600,7 @@ open class RichEditBox : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IRichEditBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichEditBox")
+    private static nonisolated(unsafe) var _IRichEditBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichEditBox")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.Composable.self) { baseInterface, innerInterface in 
@@ -49980,7 +50087,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x699163DB, Data2: 0x723D, Data3: 0x5514, Data4: ( 0xA8,0xC9,0x2C,0x64,0xD9,0x9E,0x1E,0xA6 ) // 699163DB-723D-5514-A8C9-2C64D99E1EA6
     ) 
 
-    public class IRichEditBox: WindowsFoundation.IInspectable {
+    public class IRichEditBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox }
 
         public func get_IsReadOnly() throws -> Bool {
@@ -50125,10 +50232,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PlaceholderText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -50552,7 +50661,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7C993C60, Data2: 0xF5B6, Data3: 0x589F, Data4: ( 0xBB,0xA8,0xB6,0x8B,0x97,0x13,0xE4,0xAE ) // 7C993C60-F5B6-589F-BBA8-B68B9713E4AE
     ) 
 
-    public class IRichEditBoxFactory: WindowsFoundation.IInspectable {
+    public class IRichEditBoxFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRichEditBox {
@@ -50574,7 +50683,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB3F59239, Data2: 0xEFD1, Data3: 0x5129, Data4: ( 0xBF,0x80,0x28,0x41,0xA3,0x31,0xB2,0x4A ) // B3F59239-EFD1-5129-BF80-2841A331B24A
     ) 
 
-    public class IRichEditBoxStatics: WindowsFoundation.IInspectable {
+    public class IRichEditBoxStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxStatics }
 
         public func get_IsReadOnlyProperty() throws -> WinUI.DependencyProperty? {
@@ -50799,7 +50908,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichEditBoxSelectionChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxselectionchangingeventargs)
-public final class RichEditBoxSelectionChangingEventArgs : WinRTClass {
+public final class RichEditBoxSelectionChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxSelectionChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -50864,7 +50973,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5DBADBE1, Data2: 0x0515, Data3: 0x5045, Data4: ( 0x9A,0x6F,0x68,0x59,0x23,0x73,0x01,0xAC ) // 5DBADBE1-0515-5045-9A6F-6859237301AC
     ) 
 
-    public class IRichEditBoxSelectionChangingEventArgs: WindowsFoundation.IInspectable {
+    public class IRichEditBoxSelectionChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs }
 
         public func get_SelectionStart() throws -> Int32 {
@@ -50903,7 +51012,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichEditBoxTextChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxtextchangingeventargs)
-public final class RichEditBoxTextChangingEventArgs : WinRTClass {
+public final class RichEditBoxTextChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxTextChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxTextChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -50957,7 +51066,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE887B29A, Data2: 0x1551, Data3: 0x5868, Data4: ( 0xA5,0xDC,0x3F,0xCF,0xE7,0x45,0x2E,0x6B ) // E887B29A-1551-5868-A5DC-3FCFE7452E6B
     ) 
 
-    public class IRichEditBoxTextChangingEventArgs: WindowsFoundation.IInspectable {
+    public class IRichEditBoxTextChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxTextChangingEventArgs }
 
         public func get_IsContentChanging() throws -> Bool {
@@ -50974,7 +51083,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichTextBlock
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock)
-public final class RichTextBlock : WinUI.FrameworkElement {
+public final class RichTextBlock : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlock
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -51439,7 +51548,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD766E4DB, Data2: 0xA684, Data3: 0x50B7, Data4: ( 0xA2,0x02,0xC8,0xE9,0x1F,0xA2,0x6F,0xF3 ) // D766E4DB-A684-50B7-A202-C8E91FA26FF3
     ) 
 
-    public class IRichTextBlock: WindowsFoundation.IInspectable {
+    public class IRichTextBlock: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock }
 
         public func get_FontSize() throws -> Double {
@@ -51674,10 +51783,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_SelectedText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -51979,7 +52090,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x65DCA245, Data2: 0xB4FC, Data3: 0x5718, Data4: ( 0xB6,0x28,0xA4,0x95,0x3F,0x61,0xD6,0xA3 ) // 65DCA245-B4FC-5718-B628-A4953F61D6A3
     ) 
 
-    public class IRichTextBlockStatics: WindowsFoundation.IInspectable {
+    public class IRichTextBlockStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockStatics }
 
         public func get_FontSizeProperty() throws -> WinUI.DependencyProperty? {
@@ -52249,7 +52360,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichTextBlockOverflow
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow)
-public final class RichTextBlockOverflow : WinUI.FrameworkElement {
+public final class RichTextBlockOverflow : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockOverflow
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -52395,7 +52506,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x015C2522, Data2: 0x0646, Data3: 0x5C71, Data4: ( 0x9F,0x54,0x3C,0x38,0xC7,0x23,0x5A,0x62 ) // 015C2522-0646-5C71-9F54-3C38C7235A62
     ) 
 
-    public class IRichTextBlockOverflow: WindowsFoundation.IInspectable {
+    public class IRichTextBlockOverflow: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow }
 
         public func get_OverflowContentTarget() throws -> WinUI.RichTextBlockOverflow? {
@@ -52523,7 +52634,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6DB6EE42, Data2: 0xA333, Data3: 0x5E5B, Data4: ( 0x9C,0xE8,0xF5,0xE2,0xF4,0x6F,0x4D,0x66 ) // 6DB6EE42-A333-5E5B-9CE8-F5E2F46F4D66
     ) 
 
-    public class IRichTextBlockOverflowStatics: WindowsFoundation.IInspectable {
+    public class IRichTextBlockOverflowStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflowStatics }
 
         public func get_OverflowContentTargetProperty() throws -> WinUI.DependencyProperty? {
@@ -52577,7 +52688,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RowDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinition)
-public final class RowDefinition : WinUI.DependencyObject {
+public final class RowDefinition : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRowDefinition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRowDefinition
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -52670,7 +52781,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFE870F2F, Data2: 0x89EF, Data3: 0x5DAC, Data4: ( 0x9F,0x33,0x96,0x8D,0x0D,0xC5,0x77,0xC3 ) // FE870F2F-89EF-5DAC-9F33-968D0DC577C3
     ) 
 
-    public class IRowDefinition: WindowsFoundation.IInspectable {
+    public class IRowDefinition: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRowDefinition }
 
         public func get_Height() throws -> WinUI.GridLength {
@@ -52729,7 +52840,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7317C7C5, Data2: 0xFD6F, Data3: 0x58D9, Data4: ( 0x9B,0x53,0x49,0x78,0xDB,0xAC,0xDE,0x23 ) // 7317C7C5-FD6F-58D9-9B53-4978DBACDE23
     ) 
 
-    public class IRowDefinitionStatics: WindowsFoundation.IInspectable {
+    public class IRowDefinitionStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRowDefinitionStatics }
 
         public func get_HeightProperty() throws -> WinUI.DependencyProperty? {
@@ -52765,7 +52876,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RowDefinitionCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection)
-public final class RowDefinitionCollection : WinRTClass, IVector, IIterable {
+public final class RowDefinitionCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = RowDefinition?
     private typealias SwiftABI = WinUI.IVectorRowDefinition
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRowDefinition
@@ -52916,7 +53027,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview)
-open class ScrollView : WinUI.Control {
+open class ScrollView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -52943,7 +53054,7 @@ open class ScrollView : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IScrollViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollView")
+    private static nonisolated(unsafe) var _IScrollViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -53470,7 +53581,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8C98C86D, Data2: 0x378A, Data3: 0x5102, Data4: ( 0xA1,0xE3,0x33,0x52,0x28,0x0F,0xA0,0x10 ) // 8C98C86D-378A-5102-A1E3-3352280FA010
     ) 
 
-    public class IScrollView: WindowsFoundation.IInspectable {
+    public class IScrollView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollView }
 
         public func get_Content() throws -> WinUI.UIElement? {
@@ -54107,7 +54218,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF3547344, Data2: 0x22E4, Data3: 0x5E6C, Data4: ( 0x9E,0xCE,0x66,0x50,0x4E,0xF7,0x33,0xED ) // F3547344-22E4-5E6C-9ECE-66504EF733ED
     ) 
 
-    public class IScrollViewFactory: WindowsFoundation.IInspectable {
+    public class IScrollViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IScrollView {
@@ -54129,7 +54240,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAC966C50, Data2: 0x31F1, Data3: 0x5485, Data4: ( 0x8E,0x08,0xEE,0x7A,0x7E,0x9A,0x6F,0xD0 ) // AC966C50-31F1-5485-8E08-EE7A7E9A6FD0
     ) 
 
-    public class IScrollViewStatics: WindowsFoundation.IInspectable {
+    public class IScrollViewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewStatics }
 
         public func get_ContentProperty() throws -> WinUI.DependencyProperty? {
@@ -54336,7 +54447,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollViewer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer)
-public final class ScrollViewer : WinUI.ContentControl, IScrollAnchorProvider {
+public final class ScrollViewer : WinUI.ContentControl, @unchecked Sendable, IScrollAnchorProvider {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollViewer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -55084,7 +55195,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1DC28C2E, Data2: 0x996C, Data3: 0x5394, Data4: ( 0x89,0xC3,0x4D,0xC6,0x56,0xB4,0xAD,0x46 ) // 1DC28C2E-996C-5394-89C3-4DC656B4AD46
     ) 
 
-    public class IScrollViewer: WindowsFoundation.IInspectable {
+    public class IScrollViewer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewer }
 
         public func get_HorizontalScrollBarVisibility() throws -> WinUI.ScrollBarVisibility {
@@ -55717,7 +55828,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD971FD86, Data2: 0x0A96, Data3: 0x50C4, Data4: ( 0xA6,0xE1,0x99,0x75,0xFA,0xA2,0xA1,0x42 ) // D971FD86-0A96-50C4-A6E1-9975FAA2A142
     ) 
 
-    public class IScrollViewerStatics: WindowsFoundation.IInspectable {
+    public class IScrollViewerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerStatics }
 
         public func get_HorizontalSnapPointsAlignmentProperty() throws -> WinUI.DependencyProperty? {
@@ -56296,7 +56407,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollViewerView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewerview)
-public final class ScrollViewerView : WinRTClass {
+public final class ScrollViewerView : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollViewerView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -56360,7 +56471,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1E9F68EE, Data2: 0x6CE5, Data3: 0x5CBF, Data4: ( 0xBB,0xFE,0xB8,0xCD,0x28,0x4B,0x9C,0x23 ) // 1E9F68EE-6CE5-5CBF-BBFE-B8CD284B9C23
     ) 
 
-    public class IScrollViewerView: WindowsFoundation.IInspectable {
+    public class IScrollViewerView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerView }
 
         public func get_HorizontalOffset() throws -> Double {
@@ -56393,7 +56504,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollViewerViewChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewerviewchangedeventargs)
-public final class ScrollViewerViewChangedEventArgs : WinRTClass {
+public final class ScrollViewerViewChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollViewerViewChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerViewChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -56452,7 +56563,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBF7BB85B, Data2: 0x1D46, Data3: 0x5004, Data4: ( 0xA3,0x70,0xEC,0xB6,0x26,0x63,0x05,0x88 ) // BF7BB85B-1D46-5004-A370-ECB626630588
     ) 
 
-    public class IScrollViewerViewChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IScrollViewerViewChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerViewChangedEventArgs }
 
         public func get_IsIntermediate() throws -> Bool {
@@ -56469,7 +56580,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollViewerViewChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewerviewchangingeventargs)
-public final class ScrollViewerViewChangingEventArgs : WinRTClass {
+public final class ScrollViewerViewChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollViewerViewChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerViewChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -56533,7 +56644,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAEE37D7C, Data2: 0x4696, Data3: 0x55F1, Data4: ( 0x96,0xCA,0x65,0x68,0x32,0xFC,0x0F,0xD2 ) // AEE37D7C-4696-55F1-96CA-656832FC0FD2
     ) 
 
-    public class IScrollViewerViewChangingEventArgs: WindowsFoundation.IInspectable {
+    public class IScrollViewerViewChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerViewChangingEventArgs }
 
         public func get_NextView() throws -> WinUI.ScrollViewerView? {
@@ -56568,7 +56679,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingAnchorRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollinganchorrequestedeventargs)
-public final class ScrollingAnchorRequestedEventArgs : WinRTClass {
+public final class ScrollingAnchorRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingAnchorRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingAnchorRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -56628,7 +56739,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6A46CB4B, Data2: 0xAB26, Data3: 0x55B2, Data4: ( 0xAA,0x76,0x9B,0x33,0x7A,0x4F,0x8E,0x8E ) // 6A46CB4B-AB26-55B2-AA76-9B337A4F8E8E
     ) 
 
-    public class IScrollingAnchorRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IScrollingAnchorRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingAnchorRequestedEventArgs }
 
         public func get_AnchorCandidates() throws -> WindowsFoundation.AnyIVector<WinUI.UIElement?>? {
@@ -56661,7 +56772,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingBringingIntoViewEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingbringingintovieweventargs)
-public final class ScrollingBringingIntoViewEventArgs : WinRTClass {
+public final class ScrollingBringingIntoViewEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingBringingIntoViewEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingBringingIntoViewEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -56742,7 +56853,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x09760D99, Data2: 0xD60C, Data3: 0x5C76, Data4: ( 0x80,0x33,0x12,0x7B,0x20,0x85,0x35,0x8C ) // 09760D99-D60C-5C76-8033-127B2085358C
     ) 
 
-    public class IScrollingBringingIntoViewEventArgs: WindowsFoundation.IInspectable {
+    public class IScrollingBringingIntoViewEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingBringingIntoViewEventArgs }
 
         public func get_SnapPointsMode() throws -> WinUI.ScrollingSnapPointsMode {
@@ -56812,7 +56923,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingScrollAnimationStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingscrollanimationstartingeventargs)
-public final class ScrollingScrollAnimationStartingEventArgs : WinRTClass {
+public final class ScrollingScrollAnimationStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollAnimationStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollAnimationStartingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -56882,7 +56993,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7ACB0423, Data2: 0x6FC7, Data3: 0x516B, Data4: ( 0xAB,0x67,0x03,0xA4,0xA4,0x28,0x5A,0x90 ) // 7ACB0423-6FC7-516B-AB67-03A4A4285A90
     ) 
 
-    public class IScrollingScrollAnimationStartingEventArgs: WindowsFoundation.IInspectable {
+    public class IScrollingScrollAnimationStartingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollAnimationStartingEventArgs }
 
         public func get_Animation() throws -> WinAppSDK.CompositionAnimation? {
@@ -56930,7 +57041,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingScrollCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingscrollcompletedeventargs)
-public final class ScrollingScrollCompletedEventArgs : WinRTClass {
+public final class ScrollingScrollCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -56984,7 +57095,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9BDEAE9C, Data2: 0x972C, Data3: 0x54AE, Data4: ( 0x9C,0x62,0xFC,0x1A,0x03,0xFF,0x3F,0xA8 ) // 9BDEAE9C-972C-54AE-9C62-FC1A03FF3FA8
     ) 
 
-    public class IScrollingScrollCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class IScrollingScrollCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollCompletedEventArgs }
 
         public func get_CorrelationId() throws -> Int32 {
@@ -57001,7 +57112,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingScrollOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingscrolloptions)
-open class ScrollingScrollOptions : WinRTClass {
+open class ScrollingScrollOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollOptions
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -57029,7 +57140,7 @@ open class ScrollingScrollOptions : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IScrollingScrollOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollingScrollOptions")
+    private static nonisolated(unsafe) var _IScrollingScrollOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollingScrollOptions")
 
     public init(_ animationMode: ScrollingAnimationMode) {
         super.init()
@@ -57101,7 +57212,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x30B2E77B, Data2: 0x2553, Data3: 0x5B09, Data4: ( 0xB3,0x08,0xB4,0xB0,0x6F,0xC8,0xF9,0xAF ) // 30B2E77B-2553-5B09-B308-B4B06FC8F9AF
     ) 
 
-    public class IScrollingScrollOptions: WindowsFoundation.IInspectable {
+    public class IScrollingScrollOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollOptions }
 
         public func get_AnimationMode() throws -> WinUI.ScrollingAnimationMode {
@@ -57138,7 +57249,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x31EB58FE, Data2: 0x0F6A, Data3: 0x51EC, Data4: ( 0x90,0xDB,0x5C,0xCA,0xA0,0xA2,0x88,0xA6 ) // 31EB58FE-0F6A-51EC-90DB-5CCAA0A288A6
     ) 
 
-    public class IScrollingScrollOptionsFactory: WindowsFoundation.IInspectable {
+    public class IScrollingScrollOptionsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollOptionsFactory }
 
         public func CreateInstance(_ animationMode: WinUI.ScrollingAnimationMode, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ScrollingScrollOptionsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IScrollingScrollOptions {
@@ -57173,7 +57284,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingZoomAnimationStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingzoomanimationstartingeventargs)
-public final class ScrollingZoomAnimationStartingEventArgs : WinRTClass {
+public final class ScrollingZoomAnimationStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomAnimationStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomAnimationStartingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -57248,7 +57359,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x59BFB77B, Data2: 0x47C9, Data3: 0x5691, Data4: ( 0xBD,0xCD,0x53,0x6F,0xBE,0x8E,0xB8,0xC1 ) // 59BFB77B-47C9-5691-BDCD-536FBE8EB8C1
     ) 
 
-    public class IScrollingZoomAnimationStartingEventArgs: WindowsFoundation.IInspectable {
+    public class IScrollingZoomAnimationStartingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomAnimationStartingEventArgs }
 
         public func get_CenterPoint() throws -> WindowsFoundation.Vector2 {
@@ -57304,7 +57415,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingZoomCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingzoomcompletedeventargs)
-public final class ScrollingZoomCompletedEventArgs : WinRTClass {
+public final class ScrollingZoomCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -57358,7 +57469,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC821207E, Data2: 0xAB2A, Data3: 0x5F6C, Data4: ( 0x90,0x74,0x41,0x18,0x40,0xA6,0x8D,0x55 ) // C821207E-AB2A-5F6C-9074-411840A68D55
     ) 
 
-    public class IScrollingZoomCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class IScrollingZoomCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomCompletedEventArgs }
 
         public func get_CorrelationId() throws -> Int32 {
@@ -57375,7 +57486,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingZoomOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingzoomoptions)
-open class ScrollingZoomOptions : WinRTClass {
+open class ScrollingZoomOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomOptions
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -57403,7 +57514,7 @@ open class ScrollingZoomOptions : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IScrollingZoomOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollingZoomOptions")
+    private static nonisolated(unsafe) var _IScrollingZoomOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollingZoomOptions")
 
     public init(_ animationMode: ScrollingAnimationMode) {
         super.init()
@@ -57475,7 +57586,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE4ACE0B2, Data2: 0x9B0C, Data3: 0x5EDA, Data4: ( 0x88,0xA2,0xC3,0x1B,0x1B,0x84,0xF8,0x29 ) // E4ACE0B2-9B0C-5EDA-88A2-C31B1B84F829
     ) 
 
-    public class IScrollingZoomOptions: WindowsFoundation.IInspectable {
+    public class IScrollingZoomOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomOptions }
 
         public func get_AnimationMode() throws -> WinUI.ScrollingAnimationMode {
@@ -57512,7 +57623,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD1C82E57, Data2: 0xD5E8, Data3: 0x58F5, Data4: ( 0xA2,0xC0,0xEE,0x70,0xC6,0x41,0x43,0xBE ) // D1C82E57-D5E8-58F5-A2C0-EE70C64143BE
     ) 
 
-    public class IScrollingZoomOptionsFactory: WindowsFoundation.IInspectable {
+    public class IScrollingZoomOptionsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomOptionsFactory }
 
         public func CreateInstance(_ animationMode: WinUI.ScrollingAnimationMode, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ScrollingZoomOptionsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IScrollingZoomOptions {
@@ -57547,7 +57658,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectionchangedeventargs)
-open class SelectionChangedEventArgs : WinUI.RoutedEventArgs {
+open class SelectionChangedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -57574,7 +57685,7 @@ open class SelectionChangedEventArgs : WinUI.RoutedEventArgs {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISelectionChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectionChangedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectionChangedEventArgs")
+    private static nonisolated(unsafe) var _ISelectionChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectionChangedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectionChangedEventArgs")
 
     public init(_ removedItems: WindowsFoundation.AnyIVector<Any?>!, _ addedItems: WindowsFoundation.AnyIVector<Any?>!) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SelectionChangedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -57636,7 +57747,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB6C18076, Data2: 0x4B76, Data3: 0x5416, Data4: ( 0xAD,0x29,0xE2,0xDC,0x20,0xC4,0x62,0x46 ) // B6C18076-4B76-5416-AD29-E2DC20C46246
     ) 
 
-    public class ISelectionChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ISelectionChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventArgs }
 
         public func get_AddedItems() throws -> WindowsFoundation.AnyIVector<Any?>? {
@@ -57663,7 +57774,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0FCD041D, Data2: 0x465F, Data3: 0x5745, Data4: ( 0x98,0x82,0x0C,0x83,0x48,0xE4,0x13,0x5D ) // 0FCD041D-465F-5745-9882-0C8348E4135D
     ) 
 
-    public class ISelectionChangedEventArgsFactory: WindowsFoundation.IInspectable {
+    public class ISelectionChangedEventArgsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventArgsFactory }
 
         public func CreateInstanceWithRemovedItemsAndAddedItems(_ removedItems: WindowsFoundation.AnyIVector<Any?>?, _ addedItems: WindowsFoundation.AnyIVector<Any?>?, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SelectionChangedEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISelectionChangedEventArgs {
@@ -57689,7 +57800,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SelectorBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar)
-open class SelectorBar : WinUI.Control {
+open class SelectorBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -57716,7 +57827,7 @@ open class SelectorBar : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISelectorBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBar")
+    private static nonisolated(unsafe) var _ISelectorBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -57803,7 +57914,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7F4AD191, Data2: 0x55EA, Data3: 0x508E, Data4: ( 0xBF,0x47,0x70,0x47,0xD8,0x67,0x73,0x70 ) // 7F4AD191-55EA-508E-BF47-7047D8677370
     ) 
 
-    public class ISelectorBar: WindowsFoundation.IInspectable {
+    public class ISelectorBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar }
 
         public func get_Items() throws -> WindowsFoundation.AnyIVector<WinUI.SelectorBarItem?>? {
@@ -57852,7 +57963,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x71243DC7, Data2: 0xB46C, Data3: 0x5A04, Data4: ( 0x98,0x94,0xE4,0x20,0xE4,0x62,0x70,0x3F ) // 71243DC7-B46C-5A04-9894-E420E462703F
     ) 
 
-    public class ISelectorBarFactory: WindowsFoundation.IInspectable {
+    public class ISelectorBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SelectorBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISelectorBar {
@@ -57874,7 +57985,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x672B4E72, Data2: 0x728A, Data3: 0x53EA, Data4: ( 0xB6,0x6A,0x96,0x8B,0xC8,0x02,0xDC,0x24 ) // 672B4E72-728A-53EA-B66A-968BC802DC24
     ) 
 
-    public class ISelectorBarStatics: WindowsFoundation.IInspectable {
+    public class ISelectorBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarStatics }
 
         public func get_ItemsProperty() throws -> WinUI.DependencyProperty? {
@@ -57901,7 +58012,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SelectorBarItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbaritem)
-open class SelectorBarItem : WinUI.ItemContainer {
+open class SelectorBarItem : WinUI.ItemContainer, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -57928,7 +58039,7 @@ open class SelectorBarItem : WinUI.ItemContainer {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISelectorBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBarItem")
+    private static nonisolated(unsafe) var _ISelectorBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBarItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -58003,15 +58114,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3CDBA1F9, Data2: 0xA13A, Data3: 0x56A2, Data4: ( 0xB9,0xA9,0xF9,0x54,0x99,0x8D,0x36,0x58 ) // 3CDBA1F9-A13A-56A2-B9A9-F954998D3658
     ) 
 
-    public class ISelectorBarItem: WindowsFoundation.IInspectable {
+    public class ISelectorBarItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem }
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -58043,7 +58156,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE46B62EA, Data2: 0xE60D, Data3: 0x5989, Data4: ( 0xBE,0xA7,0x54,0x70,0xDA,0x32,0x68,0x16 ) // E46B62EA-E60D-5989-BEA7-5470DA326816
     ) 
 
-    public class ISelectorBarItemFactory: WindowsFoundation.IInspectable {
+    public class ISelectorBarItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SelectorBarItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISelectorBarItem {
@@ -58065,7 +58178,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x08B5BDFC, Data2: 0x54DE, Data3: 0x5D4C, Data4: ( 0xAA,0xE3,0x37,0x63,0xA6,0xB4,0xE7,0x5B ) // 08B5BDFC-54DE-5D4C-AAE3-3763A6B4E75B
     ) 
 
-    public class ISelectorBarItemStatics: WindowsFoundation.IInspectable {
+    public class ISelectorBarItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItemStatics }
 
         public func get_TextProperty() throws -> WinUI.DependencyProperty? {
@@ -58092,7 +58205,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SelectorBarSelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbarselectionchangedeventargs)
-public final class SelectorBarSelectionChangedEventArgs : WinRTClass {
+public final class SelectorBarSelectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarSelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarSelectionChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -58141,7 +58254,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x73B3F6C5, Data2: 0x5050, Data3: 0x5C5A, Data4: ( 0x89,0x9C,0x4E,0x6E,0x04,0x74,0xCB,0x63 ) // 73B3F6C5-5050-5C5A-899C-4E6E0474CB63
     ) 
 
-    public class ISelectorBarSelectionChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ISelectorBarSelectionChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarSelectionChangedEventArgs }
 
     }
@@ -58150,7 +58263,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SemanticZoom
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoom)
-public final class SemanticZoom : WinUI.Control {
+public final class SemanticZoom : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoom
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoom
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -58291,7 +58404,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7E14616D, Data2: 0x55EF, Data3: 0x548C, Data4: ( 0xA9,0x97,0xC9,0x23,0xE3,0x02,0x71,0x8F ) // 7E14616D-55EF-548C-A997-C923E302718F
     ) 
 
-    public class ISemanticZoom: WindowsFoundation.IInspectable {
+    public class ISemanticZoom: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoom }
 
         public func get_ZoomedInView() throws -> WinUI.AnyISemanticZoomInformation? {
@@ -58414,7 +58527,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE4FBD358, Data2: 0x9342, Data3: 0x56D3, Data4: ( 0xB5,0xC2,0xBF,0x80,0xDE,0x6F,0x47,0xED ) // E4FBD358-9342-56D3-B5C2-BF80DE6F47ED
     ) 
 
-    public class ISemanticZoomStatics: WindowsFoundation.IInspectable {
+    public class ISemanticZoomStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomStatics }
 
         public func get_ZoomedInViewProperty() throws -> WinUI.DependencyProperty? {
@@ -58468,7 +58581,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SemanticZoomLocation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoomlocation)
-public final class SemanticZoomLocation : WinRTClass {
+public final class SemanticZoomLocation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomLocation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomLocation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -58534,7 +58647,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x41C1DEC7, Data2: 0xF34F, Data3: 0x51DB, Data4: ( 0x95,0x25,0x5C,0x14,0x9B,0x05,0xA5,0x27 ) // 41C1DEC7-F34F-51DB-9525-5C149B05A527
     ) 
 
-    public class ISemanticZoomLocation: WindowsFoundation.IInspectable {
+    public class ISemanticZoomLocation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomLocation }
 
         public func get_Item() throws -> Any? {
@@ -58574,7 +58687,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SemanticZoomViewChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoomviewchangedeventargs)
-public final class SemanticZoomViewChangedEventArgs : WinRTClass {
+public final class SemanticZoomViewChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomViewChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomViewChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -58646,7 +58759,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCF62D53D, Data2: 0x97D3, Data3: 0x5CEF, Data4: ( 0x96,0xF3,0x1C,0x41,0x3F,0x52,0x4E,0xCA ) // CF62D53D-97D3-5CEF-96F3-1C413F524ECA
     ) 
 
-    public class ISemanticZoomViewChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ISemanticZoomViewChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomViewChangedEventArgs }
 
         public func get_IsSourceZoomedInView() throws -> Bool {
@@ -58699,7 +58812,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Slider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.slider)
-open class Slider : WinUI.RangeBase {
+open class Slider : WinUI.RangeBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISlider
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISlider
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -58726,7 +58839,7 @@ open class Slider : WinUI.RangeBase {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISliderFactory : __ABI_Microsoft_UI_Xaml_Controls.ISliderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Slider")
+    private static nonisolated(unsafe) var _ISliderFactory : __ABI_Microsoft_UI_Xaml_Controls.ISliderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Slider")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SliderBridge.Composable.self) { baseInterface, innerInterface in 
@@ -58900,7 +59013,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF7418ECF, Data2: 0x7C35, Data3: 0x5216, Data4: ( 0x8B,0xF1,0xD8,0x2D,0x47,0xCC,0xE5,0xDF ) // F7418ECF-7C35-5216-8BF1-D82D47CCE5DF
     ) 
 
-    public class ISlider: WindowsFoundation.IInspectable {
+    public class ISlider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISlider }
 
         public func get_IntermediateValue() throws -> Double {
@@ -59070,7 +59183,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x06604D71, Data2: 0x34CA, Data3: 0x5F39, Data4: ( 0x96,0x56,0x29,0xD8,0x1D,0x3C,0x11,0x0C ) // 06604D71-34CA-5F39-9656-29D81D3C110C
     ) 
 
-    public class ISliderFactory: WindowsFoundation.IInspectable {
+    public class ISliderFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISliderFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SliderBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISlider {
@@ -59092,7 +59205,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF0541F7B, Data2: 0x6D81, Data3: 0x59E2, Data4: ( 0x99,0x7A,0x2E,0x65,0xFB,0xCC,0xCD,0x21 ) // F0541F7B-6D81-59E2-997A-2E65FBCCCD21
     ) 
 
-    public class ISliderStatics: WindowsFoundation.IInspectable {
+    public class ISliderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISliderStatics }
 
         public func get_IntermediateValueProperty() throws -> WinUI.DependencyProperty? {
@@ -59200,7 +59313,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SplitButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton)
-open class SplitButton : WinUI.ContentControl {
+open class SplitButton : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -59227,7 +59340,7 @@ open class SplitButton : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISplitButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitButton")
+    private static nonisolated(unsafe) var _ISplitButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitButton")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SplitButtonBridge.Composable.self) { baseInterface, innerInterface in 
@@ -59326,7 +59439,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF627202D, Data2: 0xD2D7, Data3: 0x5FF6, Data4: ( 0xBB,0x05,0x8C,0x48,0xEB,0x6B,0x1F,0xC6 ) // F627202D-D2D7-5FF6-BB05-8C48EB6B1FC6
     ) 
 
-    public class ISplitButton: WindowsFoundation.IInspectable {
+    public class ISplitButton: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton }
 
         public func get_Flyout() throws -> WinUI.FlyoutBase? {
@@ -59400,7 +59513,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x07510092, Data2: 0x2612, Data3: 0x55E7, Data4: ( 0x98,0x1C,0xA5,0x36,0xDD,0xD4,0x57,0x0E ) // 07510092-2612-55E7-981C-A536DDD4570E
     ) 
 
-    public class ISplitButtonFactory: WindowsFoundation.IInspectable {
+    public class ISplitButtonFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SplitButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISplitButton {
@@ -59422,7 +59535,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD54DDD05, Data2: 0x73E7, Data3: 0x55A1, Data4: ( 0xA1,0x19,0xAA,0x34,0x2E,0x5F,0x9F,0xEB ) // D54DDD05-73E7-55A1-A119-AA342E5F9FEB
     ) 
 
-    public class ISplitButtonStatics: WindowsFoundation.IInspectable {
+    public class ISplitButtonStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonStatics }
 
         public func get_FlyoutProperty() throws -> WinUI.DependencyProperty? {
@@ -59458,7 +59571,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SplitButtonClickEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbuttonclickeventargs)
-public final class SplitButtonClickEventArgs : WinRTClass {
+public final class SplitButtonClickEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonClickEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonClickEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -59507,7 +59620,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6AF896C2, Data2: 0xE65A, Data3: 0x5998, Data4: ( 0x9C,0x82,0x2A,0xF8,0xF3,0xE0,0x74,0x1F ) // 6AF896C2-E65A-5998-9C82-2AF8F3E0741F
     ) 
 
-    public class ISplitButtonClickEventArgs: WindowsFoundation.IInspectable {
+    public class ISplitButtonClickEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonClickEventArgs }
 
     }
@@ -59516,7 +59629,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SplitView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview)
-open class SplitView : WinUI.Control {
+open class SplitView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -59543,7 +59656,7 @@ open class SplitView : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISplitViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ISplitViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitView")
+    private static nonisolated(unsafe) var _ISplitViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ISplitViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SplitViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -59757,7 +59870,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x10AE18F7, Data2: 0x1666, Data3: 0x5897, Data4: ( 0xBB,0xCE,0x1E,0x68,0x7E,0x77,0x84,0xA8 ) // 10AE18F7-1666-5897-BBCE-1E687E7784A8
     ) 
 
-    public class ISplitView: WindowsFoundation.IInspectable {
+    public class ISplitView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitView }
 
         public func get_Content() throws -> WinUI.UIElement? {
@@ -59968,7 +60081,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x389ECE72, Data2: 0x75CE, Data3: 0x561B, Data4: ( 0xAA,0xD3,0xC5,0x21,0x25,0xCA,0x6A,0x50 ) // 389ECE72-75CE-561B-AAD3-C52125CA6A50
     ) 
 
-    public class ISplitViewFactory: WindowsFoundation.IInspectable {
+    public class ISplitViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SplitViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISplitView {
@@ -59990,7 +60103,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1C69A263, Data2: 0x552C, Data3: 0x5505, Data4: ( 0xAC,0x81,0x49,0xE2,0x47,0xFE,0xE9,0xDB ) // 1C69A263-552C-5505-AC81-49E247FEE9DB
     ) 
 
-    public class ISplitViewStatics: WindowsFoundation.IInspectable {
+    public class ISplitViewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitViewStatics }
 
         public func get_ContentProperty() throws -> WinUI.DependencyProperty? {
@@ -60089,7 +60202,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SplitViewPaneClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitviewpaneclosingeventargs)
-public final class SplitViewPaneClosingEventArgs : WinRTClass {
+public final class SplitViewPaneClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitViewPaneClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitViewPaneClosingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -60144,7 +60257,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9138965B, Data2: 0x8499, Data3: 0x5F9C, Data4: ( 0x93,0xE0,0x34,0xBE,0xDA,0x44,0x1E,0x6D ) // 9138965B-8499-5F9C-93E0-34BEDA441E6D
     ) 
 
-    public class ISplitViewPaneClosingEventArgs: WindowsFoundation.IInspectable {
+    public class ISplitViewPaneClosingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitViewPaneClosingEventArgs }
 
         public func get_Cancel() throws -> Bool {
@@ -60167,7 +60280,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - StackLayout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stacklayout)
-open class StackLayout : WinUI.VirtualizingLayout {
+open class StackLayout : WinUI.VirtualizingLayout, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IStackLayout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackLayout
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -60194,7 +60307,7 @@ open class StackLayout : WinUI.VirtualizingLayout {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IStackLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IStackLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackLayout")
+    private static nonisolated(unsafe) var _IStackLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IStackLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackLayout")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.StackLayoutBridge.Composable.self) { baseInterface, innerInterface in 
@@ -60269,7 +60382,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3EA9C3DD, Data2: 0x8103, Data3: 0x571F, Data4: ( 0x9E,0x07,0x44,0xEA,0x76,0xC9,0x1A,0x10 ) // 3EA9C3DD-8103-571F-9E07-44EA76C91A10
     ) 
 
-    public class IStackLayout: WindowsFoundation.IInspectable {
+    public class IStackLayout: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackLayout }
 
         public func get_Orientation() throws -> WinUI.Orientation {
@@ -60306,7 +60419,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEA606F86, Data2: 0x21A1, Data3: 0x5C35, Data4: ( 0x91,0x1E,0x4A,0x1D,0xE8,0xBC,0x69,0xD9 ) // EA606F86-21A1-5C35-911E-4A1DE8BC69D9
     ) 
 
-    public class IStackLayoutFactory: WindowsFoundation.IInspectable {
+    public class IStackLayoutFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackLayoutFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.StackLayoutBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IStackLayout {
@@ -60328,7 +60441,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5610AECF, Data2: 0xFB2A, Data3: 0x5726, Data4: ( 0xAC,0x3A,0x16,0x47,0x9B,0xA2,0xEC,0xAD ) // 5610AECF-FB2A-5726-AC3A-16479BA2ECAD
     ) 
 
-    public class IStackLayoutStatics: WindowsFoundation.IInspectable {
+    public class IStackLayoutStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackLayoutStatics }
 
         public func get_OrientationProperty() throws -> WinUI.DependencyProperty? {
@@ -60355,7 +60468,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - StackPanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stackpanel)
-open class StackPanel : WinUI.Panel, WinUI.IScrollSnapPointsInfo, IInsertionPanel {
+open class StackPanel : WinUI.Panel, @unchecked Sendable, WinUI.IScrollSnapPointsInfo, IInsertionPanel {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IStackPanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackPanel
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -60382,7 +60495,7 @@ open class StackPanel : WinUI.Panel, WinUI.IScrollSnapPointsInfo, IInsertionPane
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IStackPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IStackPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackPanel")
+    private static nonisolated(unsafe) var _IStackPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IStackPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackPanel")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.StackPanelBridge.Composable.self) { baseInterface, innerInterface in 
@@ -60578,7 +60691,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x493AB00B, Data2: 0x3A6A, Data3: 0x5E4A, Data4: ( 0x94,0x52,0x40,0x7C,0xD5,0x19,0x74,0x06 ) // 493AB00B-3A6A-5E4A-9452-407CD5197406
     ) 
 
-    public class IStackPanel: WindowsFoundation.IInspectable {
+    public class IStackPanel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackPanel }
 
         public func get_AreScrollSnapPointsRegular() throws -> Bool {
@@ -60700,7 +60813,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x64C1D388, Data2: 0x47A2, Data3: 0x5A74, Data4: ( 0xA7,0x5B,0x55,0x9D,0x15,0x1E,0xE5,0xAC ) // 64C1D388-47A2-5A74-A75B-559D151EE5AC
     ) 
 
-    public class IStackPanelFactory: WindowsFoundation.IInspectable {
+    public class IStackPanelFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackPanelFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.StackPanelBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IStackPanel {
@@ -60722,7 +60835,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x10BB04E3, Data2: 0xEB01, Data3: 0x5EA8, Data4: ( 0x9F,0x96,0x69,0x50,0x84,0x79,0xDE,0xF9 ) // 10BB04E3-EB01-5EA8-9F96-69508479DEF9
     ) 
 
-    public class IStackPanelStatics: WindowsFoundation.IInspectable {
+    public class IStackPanelStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackPanelStatics }
 
         public func get_AreScrollSnapPointsRegularProperty() throws -> WinUI.DependencyProperty? {
@@ -60803,7 +60916,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - StyleSelector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.styleselector)
-open class StyleSelector : WinRTClass {
+open class StyleSelector : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IStyleSelector
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStyleSelector
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -60836,7 +60949,7 @@ open class StyleSelector : WinRTClass {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IStyleSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IStyleSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StyleSelector")
+    private static nonisolated(unsafe) var _IStyleSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IStyleSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StyleSelector")
 
     override public init() {
         super.init()
@@ -60898,7 +61011,7 @@ public class StyleSelectorMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IStyleSelectorOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.StyleSelectorBridge.IStyleSelectorOverrides>
-    internal static var IStyleSelectorOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStyleSelectorOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IStyleSelectorOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStyleSelectorOverridesVtbl = .init(
         QueryInterface: { IStyleSelectorOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IStyleSelectorOverridesWrapper.addRef($0) },
         Release: { IStyleSelectorOverridesWrapper.release($0) },
@@ -60941,7 +61054,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7F9CF759, Data2: 0x785B, Data3: 0x5EF9, Data4: ( 0x9E,0xA7,0x15,0x55,0x67,0x3A,0x47,0x5A ) // 7F9CF759-785B-5EF9-9EA7-1555673A475A
     ) 
 
-    public class IStyleSelector: WindowsFoundation.IInspectable {
+    public class IStyleSelector: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStyleSelector }
 
         public func SelectStyle(_ item: Any?, _ container: WinUI.DependencyObject?) throws -> WinUI.Style? {
@@ -60961,7 +61074,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x26015D75, Data2: 0xEF00, Data3: 0x5C78, Data4: ( 0x8E,0x58,0x16,0x3D,0xA1,0x0F,0x69,0x4F ) // 26015D75-EF00-5C78-8E58-163DA10F694F
     ) 
 
-    public class IStyleSelectorOverrides: WindowsFoundation.IInspectable {
+    public class IStyleSelectorOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStyleSelectorOverrides }
 
         public func SelectStyleCore(_ item: Any?, _ container: WinUI.DependencyObject?) throws -> WinUI.Style? {
@@ -60981,7 +61094,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2A033206, Data2: 0xA4FB, Data3: 0x5F11, Data4: ( 0x8C,0x2D,0x61,0xE1,0xDF,0x78,0xFB,0xC3 ) // 2A033206-A4FB-5F11-8C2D-61E1DF78FBC3
     ) 
 
-    public class IStyleSelectorFactory: WindowsFoundation.IInspectable {
+    public class IStyleSelectorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStyleSelectorFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.StyleSelectorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IStyleSelector {
@@ -61009,7 +61122,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - SwapChainPanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.swapchainpanel)
-open class SwapChainPanel : WinUI.Grid {
+open class SwapChainPanel : WinUI.Grid, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISwapChainPanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISwapChainPanel
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -61036,7 +61149,7 @@ open class SwapChainPanel : WinUI.Grid {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISwapChainPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.ISwapChainPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SwapChainPanel")
+    private static nonisolated(unsafe) var _ISwapChainPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.ISwapChainPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SwapChainPanel")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SwapChainPanelBridge.Composable.self) { baseInterface, innerInterface in 
@@ -61127,7 +61240,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x08844F85, Data2: 0xAA1B, Data3: 0x540D, Data4: ( 0xBE,0xF2,0xB2,0xBB,0x7B,0x25,0x7F,0x8C ) // 08844F85-AA1B-540D-BEF2-B2BB7B257F8C
     ) 
 
-    public class ISwapChainPanel: WindowsFoundation.IInspectable {
+    public class ISwapChainPanel: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISwapChainPanel }
 
         public func get_CompositionScaleX() throws -> Float {
@@ -61177,7 +61290,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x38D00B69, Data2: 0x5759, Data3: 0x5F37, Data4: ( 0x9E,0x1C,0x3A,0xE0,0xD4,0x28,0x8B,0x26 ) // 38D00B69-5759-5F37-9E1C-3AE0D4288B26
     ) 
 
-    public class ISwapChainPanelFactory: WindowsFoundation.IInspectable {
+    public class ISwapChainPanelFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISwapChainPanelFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.SwapChainPanelBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISwapChainPanel {
@@ -61199,7 +61312,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD83B0621, Data2: 0xAACA, Data3: 0x534B, Data4: ( 0xAF,0xDE,0x53,0x70,0x16,0x71,0x76,0xB5 ) // D83B0621-AACA-534B-AFDE-5370167176B5
     ) 
 
-    public class ISwapChainPanelStatics: WindowsFoundation.IInspectable {
+    public class ISwapChainPanelStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISwapChainPanelStatics }
 
         public func get_CompositionScaleXProperty() throws -> WinUI.DependencyProperty? {
@@ -61226,7 +61339,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SymbolIcon
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon)
-public final class SymbolIcon : WinUI.IconElement {
+public final class SymbolIcon : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISymbolIcon
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -61297,7 +61410,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA4322906, Data2: 0x0DBE, Data3: 0x5EB7, Data4: ( 0x8B,0x64,0x3E,0x83,0x22,0x46,0xEB,0x7F ) // A4322906-0DBE-5EB7-8B64-3E832246EB7F
     ) 
 
-    public class ISymbolIcon: WindowsFoundation.IInspectable {
+    public class ISymbolIcon: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon }
 
         public func get_Symbol() throws -> WinUI.Symbol {
@@ -61320,7 +61433,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD4430447, Data2: 0x567C, Data3: 0x5AAD, Data4: ( 0x99,0x6A,0xA5,0x47,0x77,0x4E,0x2C,0x3C ) // D4430447-567C-5AAD-996A-A547774E2C3C
     ) 
 
-    public class ISymbolIconFactory: WindowsFoundation.IInspectable {
+    public class ISymbolIconFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconFactory }
 
         public func CreateInstanceWithSymbol(_ symbol: WinUI.Symbol) throws -> ISymbolIcon {
@@ -61338,7 +61451,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCCAA0C34, Data2: 0x31F2, Data3: 0x50F1, Data4: ( 0xB3,0x28,0xBE,0x6E,0xDC,0x29,0x1A,0xAA ) // CCAA0C34-31F2-50F1-B328-BE6EDC291AAA
     ) 
 
-    public class ISymbolIconStatics: WindowsFoundation.IInspectable {
+    public class ISymbolIconStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIconStatics }
 
         public func get_SymbolProperty() throws -> WinUI.DependencyProperty? {
@@ -61356,7 +61469,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview)
-open class TabView : WinUI.Control {
+open class TabView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -61383,7 +61496,7 @@ open class TabView : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITabViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabView")
+    private static nonisolated(unsafe) var _ITabViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -61826,7 +61939,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x07B509E1, Data2: 0x1D38, Data3: 0x551B, Data4: ( 0x95,0xF4,0x47,0x32,0xB0,0x49,0xF6,0xA6 ) // 07B509E1-1D38-551B-95F4-4732B049F6A6
     ) 
 
-    public class ITabView: WindowsFoundation.IInspectable {
+    public class ITabView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabView }
 
         public func get_TabWidthMode() throws -> WinUI.TabViewWidthMode {
@@ -62268,7 +62381,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDEAA552E, Data2: 0x4E6C, Data3: 0x5239, Data4: ( 0xAC,0x75,0xD9,0x41,0x9A,0x23,0x09,0xDA ) // DEAA552E-4E6C-5239-AC75-D9419A2309DA
     ) 
 
-    public class ITabView2: WindowsFoundation.IInspectable {
+    public class ITabView2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabView2 }
 
         public func get_CanTearOutTabs() throws -> Bool {
@@ -62355,7 +62468,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE7E83685, Data2: 0xEEDF, Data3: 0x5106, Data4: ( 0x94,0x29,0x88,0x44,0x35,0xAB,0x16,0x6B ) // E7E83685-EEDF-5106-9429-884435AB166B
     ) 
 
-    public class ITabViewFactory: WindowsFoundation.IInspectable {
+    public class ITabViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITabView {
@@ -62377,7 +62490,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF4326C08, Data2: 0x1B94, Data3: 0x53D7, Data4: ( 0x93,0x4F,0xE6,0xAE,0x0D,0x3D,0x18,0xAB ) // F4326C08-1B94-53D7-934F-E6AE0D3D18AB
     ) 
 
-    public class ITabViewStatics: WindowsFoundation.IInspectable {
+    public class ITabViewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewStatics }
 
         public func get_TabWidthModeProperty() throws -> WinUI.DependencyProperty? {
@@ -62548,7 +62661,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB589DA39, Data2: 0x25F2, Data3: 0x517C, Data4: ( 0x82,0xD1,0xC5,0x1D,0x80,0x85,0x55,0x0E ) // B589DA39-25F2-517C-82D1-C51D8085550E
     ) 
 
-    public class ITabViewStatics2: WindowsFoundation.IInspectable {
+    public class ITabViewStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewStatics2 }
 
         public func get_CanTearOutTabsProperty() throws -> WinUI.DependencyProperty? {
@@ -62566,7 +62679,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewExternalTornOutTabsDroppedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewexternaltornouttabsdroppedeventargs)
-public final class TabViewExternalTornOutTabsDroppedEventArgs : WinRTClass {
+public final class TabViewExternalTornOutTabsDroppedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewExternalTornOutTabsDroppedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -62630,25 +62743,39 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x69912428, Data2: 0x34D9, Data3: 0x5AAC, Data4: ( 0x85,0xB7,0xA9,0x1D,0x71,0xC1,0x33,0xAA ) // 69912428-34D9-5AAC-85B7-A91D71C133AA
     ) 
 
-    public class ITabViewExternalTornOutTabsDroppedEventArgs: WindowsFoundation.IInspectable {
+    public class ITabViewExternalTornOutTabsDroppedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppedEventArgs }
 
         public func get_Items() throws -> [Any?] {
             var value: WinRTArrayAbi<UnsafeMutablePointer<C_IInspectable>?> = (0, nil)
+            defer {
+                if let start = value.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(value.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abiBridge: __IMPL_.AnyBridge.self, abi: value)
 
         }
 
         public func get_Tabs() throws -> [WinUI.UIElement?] {
             var value: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CMicrosoft_CUI_CXaml_CIUIElement>?> = (0, nil)
+            defer {
+                if let start = value.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(value.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tabs(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abiBridge: __IMPL_Microsoft_UI_Xaml.UIElementBridge.self, abi: value)
 
         }
@@ -62667,7 +62794,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewExternalTornOutTabsDroppingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewexternaltornouttabsdroppingeventargs)
-public final class TabViewExternalTornOutTabsDroppingEventArgs : WinRTClass {
+public final class TabViewExternalTornOutTabsDroppingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewExternalTornOutTabsDroppingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -62737,25 +62864,39 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB2378908, Data2: 0xC5D7, Data3: 0x560E, Data4: ( 0xA2,0xE2,0x46,0x40,0x3E,0x13,0xE5,0xAD ) // B2378908-C5D7-560E-A2E2-46403E13E5AD
     ) 
 
-    public class ITabViewExternalTornOutTabsDroppingEventArgs: WindowsFoundation.IInspectable {
+    public class ITabViewExternalTornOutTabsDroppingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppingEventArgs }
 
         public func get_Items() throws -> [Any?] {
             var value: WinRTArrayAbi<UnsafeMutablePointer<C_IInspectable>?> = (0, nil)
+            defer {
+                if let start = value.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(value.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abiBridge: __IMPL_.AnyBridge.self, abi: value)
 
         }
 
         public func get_Tabs() throws -> [WinUI.UIElement?] {
             var value: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CMicrosoft_CUI_CXaml_CIUIElement>?> = (0, nil)
+            defer {
+                if let start = value.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(value.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tabs(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abiBridge: __IMPL_Microsoft_UI_Xaml.UIElementBridge.self, abi: value)
 
         }
@@ -62788,7 +62929,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitem)
-open class TabViewItem : WinUI.ListViewItem {
+open class TabViewItem : WinUI.ListViewItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -62815,7 +62956,7 @@ open class TabViewItem : WinUI.ListViewItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITabViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItem")
+    private static nonisolated(unsafe) var _ITabViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TabViewItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -62935,7 +63076,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x64980AFA, Data2: 0x97AF, Data3: 0x5190, Data4: ( 0x90,0xB3,0x4B,0xA2,0x77,0xB1,0x11,0x3D ) // 64980AFA-97AF-5190-90B3-4BA277B1113D
     ) 
 
-    public class ITabViewItem: WindowsFoundation.IInspectable {
+    public class ITabViewItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItem }
 
         public func get_Header() throws -> Any? {
@@ -63030,7 +63171,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB64C2423, Data2: 0x7E56, Data3: 0x5D41, Data4: ( 0x8A,0x84,0x1E,0xE2,0x8F,0x98,0x26,0xA4 ) // B64C2423-7E56-5D41-8A84-1EE28F9826A4
     ) 
 
-    public class ITabViewItemFactory: WindowsFoundation.IInspectable {
+    public class ITabViewItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TabViewItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITabViewItem {
@@ -63052,7 +63193,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4CFC7EAB, Data2: 0x2EFF, Data3: 0x5457, Data4: ( 0x82,0x51,0xC1,0x9D,0x37,0x4A,0xB3,0x4D ) // 4CFC7EAB-2EFF-5457-8251-C19D374AB34D
     ) 
 
-    public class ITabViewItemStatics: WindowsFoundation.IInspectable {
+    public class ITabViewItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemStatics }
 
         public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
@@ -63106,7 +63247,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewItemTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitemtemplatesettings)
-open class TabViewItemTemplateSettings : WinUI.DependencyObject {
+open class TabViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -63133,7 +63274,7 @@ open class TabViewItemTemplateSettings : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITabViewItemTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings")
+    private static nonisolated(unsafe) var _ITabViewItemTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TabViewItemTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -63211,7 +63352,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCC5C99EC, Data2: 0xC9D1, Data3: 0x55F5, Data4: ( 0xBC,0x81,0x76,0x12,0xFF,0x4E,0x2B,0x77 ) // CC5C99EC-C9D1-55F5-BC81-7612FF4E2B77
     ) 
 
-    public class ITabViewItemTemplateSettings: WindowsFoundation.IInspectable {
+    public class ITabViewItemTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemTemplateSettings }
 
         public func get_IconElement() throws -> WinUI.IconElement? {
@@ -63235,7 +63376,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9E2780D3, Data2: 0x7056, Data3: 0x5AAF, Data4: ( 0x9A,0x7A,0x40,0x4A,0x2C,0x09,0x4C,0xED ) // 9E2780D3-7056-5AAF-9A7A-404A2C094CED
     ) 
 
-    public class ITabViewItemTemplateSettings2: WindowsFoundation.IInspectable {
+    public class ITabViewItemTemplateSettings2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemTemplateSettings2 }
 
         public func get_TabGeometry() throws -> WinUI.Geometry? {
@@ -63259,7 +63400,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCBA3E467, Data2: 0x4C98, Data3: 0x5885, Data4: ( 0xBA,0x24,0x6F,0xA6,0x99,0xCC,0x8E,0xDD ) // CBA3E467-4C98-5885-BA24-6FA699CC8EDD
     ) 
 
-    public class ITabViewItemTemplateSettingsFactory: WindowsFoundation.IInspectable {
+    public class ITabViewItemTemplateSettingsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemTemplateSettingsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TabViewItemTemplateSettingsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITabViewItemTemplateSettings {
@@ -63281,7 +63422,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEB62DD88, Data2: 0xFC12, Data3: 0x5338, Data4: ( 0x8E,0x88,0x78,0x8B,0xE7,0x2D,0x07,0xD6 ) // EB62DD88-FC12-5338-8E88-788BE72D07D6
     ) 
 
-    public class ITabViewItemTemplateSettingsStatics: WindowsFoundation.IInspectable {
+    public class ITabViewItemTemplateSettingsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemTemplateSettingsStatics }
 
         public func get_IconElementProperty() throws -> WinUI.DependencyProperty? {
@@ -63299,7 +63440,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD31AB42B, Data2: 0x3842, Data3: 0x5E4D, Data4: ( 0x88,0x45,0x62,0x32,0xEE,0xA8,0xEE,0x1D ) // D31AB42B-3842-5E4D-8845-6232EEA8EE1D
     ) 
 
-    public class ITabViewItemTemplateSettingsStatics2: WindowsFoundation.IInspectable {
+    public class ITabViewItemTemplateSettingsStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemTemplateSettingsStatics2 }
 
         public func get_TabGeometryProperty() throws -> WinUI.DependencyProperty? {
@@ -63317,7 +63458,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabCloseRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabcloserequestedeventargs)
-public final class TabViewTabCloseRequestedEventArgs : WinRTClass {
+public final class TabViewTabCloseRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabCloseRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabCloseRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -63376,7 +63517,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xD56AB9B2, Data2: 0xE264, Data3: 0x5C7E, Data4: ( 0xA1,0xCB,0xE4,0x1A,0x16,0xA6,0xC6,0xC6 ) // D56AB9B2-E264-5C7E-A1CB-E41A16A6C6C6
     ) 
 
-    public class ITabViewTabCloseRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class ITabViewTabCloseRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabCloseRequestedEventArgs }
 
         public func get_Item() throws -> Any? {
@@ -63403,7 +63544,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabDragCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabdragcompletedeventargs)
-public final class TabViewTabDragCompletedEventArgs : WinRTClass {
+public final class TabViewTabDragCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabDragCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDragCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -63467,7 +63608,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x791FC623, Data2: 0xC8F6, Data3: 0x5102, Data4: ( 0x81,0xBD,0x18,0x69,0xCD,0xE8,0x22,0x84 ) // 791FC623-C8F6-5102-81BD-1869CDE82284
     ) 
 
-    public class ITabViewTabDragCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class ITabViewTabDragCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDragCompletedEventArgs }
 
         public func get_DropResult() throws -> UWP.DataPackageOperation {
@@ -63502,7 +63643,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabDragStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabdragstartingeventargs)
-public final class TabViewTabDragStartingEventArgs : WinRTClass {
+public final class TabViewTabDragStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabDragStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDragStartingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -63572,7 +63713,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x97682812, Data2: 0x1A7B, Data3: 0x53FD, Data4: ( 0x8B,0x4E,0xC2,0xF7,0x0D,0x2A,0xD2,0x50 ) // 97682812-1A7B-53FD-8B4E-C2F70D2AD250
     ) 
 
-    public class ITabViewTabDragStartingEventArgs: WindowsFoundation.IInspectable {
+    public class ITabViewTabDragStartingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDragStartingEventArgs }
 
         public func get_Cancel() throws -> Bool {
@@ -63622,7 +63763,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabDroppedOutsideEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabdroppedoutsideeventargs)
-public final class TabViewTabDroppedOutsideEventArgs : WinRTClass {
+public final class TabViewTabDroppedOutsideEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabDroppedOutsideEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDroppedOutsideEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -63681,7 +63822,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1F1F4D5D, Data2: 0x0FB1, Data3: 0x51AB, Data4: ( 0xB6,0x6F,0xF7,0xA3,0x22,0xBF,0x2D,0x13 ) // 1F1F4D5D-0FB1-51AB-B66F-F7A322BF2D13
     ) 
 
-    public class ITabViewTabDroppedOutsideEventArgs: WindowsFoundation.IInspectable {
+    public class ITabViewTabDroppedOutsideEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDroppedOutsideEventArgs }
 
         public func get_Item() throws -> Any? {
@@ -63708,7 +63849,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabTearOutRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabtearoutrequestedeventargs)
-public final class TabViewTabTearOutRequestedEventArgs : WinRTClass {
+public final class TabViewTabTearOutRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabTearOutRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -63772,25 +63913,39 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE8A0C441, Data2: 0x66C5, Data3: 0x578A, Data4: ( 0x81,0x77,0x47,0xDF,0xFF,0xB9,0x7B,0x83 ) // E8A0C441-66C5-578A-8177-47DFFFB97B83
     ) 
 
-    public class ITabViewTabTearOutRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class ITabViewTabTearOutRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutRequestedEventArgs }
 
         public func get_Items() throws -> [Any?] {
             var value: WinRTArrayAbi<UnsafeMutablePointer<C_IInspectable>?> = (0, nil)
+            defer {
+                if let start = value.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(value.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abiBridge: __IMPL_.AnyBridge.self, abi: value)
 
         }
 
         public func get_Tabs() throws -> [WinUI.UIElement?] {
             var value: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CMicrosoft_CUI_CXaml_CIUIElement>?> = (0, nil)
+            defer {
+                if let start = value.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(value.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tabs(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abiBridge: __IMPL_Microsoft_UI_Xaml.UIElementBridge.self, abi: value)
 
         }
@@ -63809,7 +63964,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabTearOutWindowRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabtearoutwindowrequestedeventargs)
-public final class TabViewTabTearOutWindowRequestedEventArgs : WinRTClass {
+public final class TabViewTabTearOutWindowRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabTearOutWindowRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutWindowRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -63874,25 +64029,39 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0C13AFA7, Data2: 0xF291, Data3: 0x5BAC, Data4: ( 0xA6,0xE8,0xCC,0x67,0xA6,0x9B,0x04,0xC9 ) // 0C13AFA7-F291-5BAC-A6E8-CC67A69B04C9
     ) 
 
-    public class ITabViewTabTearOutWindowRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class ITabViewTabTearOutWindowRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutWindowRequestedEventArgs }
 
         public func get_Items() throws -> [Any?] {
             var value: WinRTArrayAbi<UnsafeMutablePointer<C_IInspectable>?> = (0, nil)
+            defer {
+                if let start = value.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(value.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutWindowRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Items(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abiBridge: __IMPL_.AnyBridge.self, abi: value)
 
         }
 
         public func get_Tabs() throws -> [WinUI.UIElement?] {
             var value: WinRTArrayAbi<UnsafeMutablePointer<__x_ABI_CMicrosoft_CUI_CXaml_CIUIElement>?> = (0, nil)
+            defer {
+                if let start = value.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(value.count)) {
+                        _ = element?.pointee.lpVtbl.pointee.Release(element)
+                    }
+                }
+                CoTaskMemFree(value.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutWindowRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Tabs(pThis, &value.count, &value.start))
             }
-            defer { CoTaskMemFree(value.start) }
             return .from(abiBridge: __IMPL_Microsoft_UI_Xaml.UIElementBridge.self, abi: value)
 
         }
@@ -63917,7 +64086,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TeachingTip
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtip)
-open class TeachingTip : WinUI.ContentControl {
+open class TeachingTip : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTip
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTip
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -63944,7 +64113,7 @@ open class TeachingTip : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITeachingTipFactory : __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTip")
+    private static nonisolated(unsafe) var _ITeachingTipFactory : __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTip")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipBridge.Composable.self) { baseInterface, innerInterface in 
@@ -64279,15 +64448,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDAEBD5F7, Data2: 0x3B47, Data3: 0x5B12, Data4: ( 0xB8,0x04,0xF4,0xE1,0x44,0x2B,0x21,0x13 ) // DAEBD5F7-3B47-5B12-B804-F4E1442B2113
     ) 
 
-    public class ITeachingTip: WindowsFoundation.IInspectable {
+    public class ITeachingTip: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTip }
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -64300,10 +64471,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Subtitle() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTip.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtitle(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -64668,7 +64841,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA3ECD47D, Data2: 0x2972, Data3: 0x5D19, Data4: ( 0xA6,0x2E,0xDD,0xFB,0xC5,0xE1,0xAD,0x57 ) // A3ECD47D-2972-5D19-A62E-DDFBC5E1AD57
     ) 
 
-    public class ITeachingTipFactory: WindowsFoundation.IInspectable {
+    public class ITeachingTipFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TeachingTipBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITeachingTip {
@@ -64690,7 +64863,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7C3ECDDB, Data2: 0x0B4D, Data3: 0x51C2, Data4: ( 0xA2,0x7F,0x89,0x18,0x0A,0xFD,0x45,0xA8 ) // 7C3ECDDB-0B4D-51C2-A27F-89180AFD45A8
     ) 
 
-    public class ITeachingTipStatics: WindowsFoundation.IInspectable {
+    public class ITeachingTipStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipStatics }
 
         public func get_IsOpenProperty() throws -> WinUI.DependencyProperty? {
@@ -64888,7 +65061,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TeachingTipClosedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtipclosedeventargs)
-public final class TeachingTipClosedEventArgs : WinRTClass {
+public final class TeachingTipClosedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipClosedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipClosedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -64942,7 +65115,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2536F506, Data2: 0x4038, Data3: 0x59DB, Data4: ( 0x9E,0x35,0xA9,0x25,0x2F,0xB5,0xAD,0xB2 ) // 2536F506-4038-59DB-9E35-A9252FB5ADB2
     ) 
 
-    public class ITeachingTipClosedEventArgs: WindowsFoundation.IInspectable {
+    public class ITeachingTipClosedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipClosedEventArgs }
 
         public func get_Reason() throws -> WinUI.TeachingTipCloseReason {
@@ -64959,7 +65132,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TeachingTipClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtipclosingeventargs)
-public final class TeachingTipClosingEventArgs : WinRTClass {
+public final class TeachingTipClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipClosingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -65024,7 +65197,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x16F53512, Data2: 0x3C55, Data3: 0x5636, Data4: ( 0xA8,0x56,0x22,0x9D,0x97,0x68,0xD6,0x4E ) // 16F53512-3C55-5636-A856-229D9768D64E
     ) 
 
-    public class ITeachingTipClosingEventArgs: WindowsFoundation.IInspectable {
+    public class ITeachingTipClosingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipClosingEventArgs }
 
         public func get_Reason() throws -> WinUI.TeachingTipCloseReason {
@@ -65064,7 +65237,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TeachingTipTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtiptemplatesettings)
-open class TeachingTipTemplateSettings : WinUI.DependencyObject {
+open class TeachingTipTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -65091,7 +65264,7 @@ open class TeachingTipTemplateSettings : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITeachingTipTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings")
+    private static nonisolated(unsafe) var _ITeachingTipTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -65177,7 +65350,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB081E1E9, Data2: 0xC1A5, Data3: 0x590A, Data4: ( 0x80,0x49,0x69,0xEA,0x00,0x3B,0x6C,0xF7 ) // B081E1E9-C1A5-590A-8049-69EA003B6CF7
     ) 
 
-    public class ITeachingTipTemplateSettings: WindowsFoundation.IInspectable {
+    public class ITeachingTipTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipTemplateSettings }
 
         public func get_TopRightHighlightMargin() throws -> WinUI.Thickness {
@@ -65229,7 +65402,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x63210545, Data2: 0xE195, Data3: 0x56CD, Data4: ( 0xBC,0xCD,0x16,0x92,0x55,0xE1,0x34,0xE3 ) // 63210545-E195-56CD-BCCD-169255E134E3
     ) 
 
-    public class ITeachingTipTemplateSettingsFactory: WindowsFoundation.IInspectable {
+    public class ITeachingTipTemplateSettingsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipTemplateSettingsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TeachingTipTemplateSettingsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITeachingTipTemplateSettings {
@@ -65251,7 +65424,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFA9ACF9A, Data2: 0x9743, Data3: 0x51EE, Data4: ( 0x8D,0xB9,0x8A,0xBD,0x06,0x3E,0xDF,0xEA ) // FA9ACF9A-9743-51EE-8DB9-8ABD063EDFEA
     ) 
 
-    public class ITeachingTipTemplateSettingsStatics: WindowsFoundation.IInspectable {
+    public class ITeachingTipTemplateSettingsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipTemplateSettingsStatics }
 
         public func get_TopRightHighlightMarginProperty() throws -> WinUI.DependencyProperty? {
@@ -65287,7 +65460,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBlock
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock)
-public final class TextBlock : WinUI.FrameworkElement {
+public final class TextBlock : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBlock
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBlock
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -65731,7 +65904,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1AC8D84F, Data2: 0x392C, Data3: 0x5C7E, Data4: ( 0x83,0xF5,0xA5,0x3E,0x3B,0xF0,0xAB,0xB0 ) // 1AC8D84F-392C-5C7E-83F5-A53E3BF0ABB0
     ) 
 
-    public class ITextBlock: WindowsFoundation.IInspectable {
+    public class ITextBlock: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBlock }
 
         public func get_FontSize() throws -> Double {
@@ -65878,10 +66051,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBlock.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -65959,10 +66134,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_SelectedText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBlock.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -66250,7 +66427,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3187104B, Data2: 0x65C2, Data3: 0x5E53, Data4: ( 0xB8,0x89,0xC8,0x27,0x2B,0x13,0x14,0xCD ) // 3187104B-65C2-5E53-B889-C8272B1314CD
     ) 
 
-    public class ITextBlockStatics: WindowsFoundation.IInspectable {
+    public class ITextBlockStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBlockStatics }
 
         public func get_FontSizeProperty() throws -> WinUI.DependencyProperty? {
@@ -66502,7 +66679,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox)
-open class TextBox : WinUI.Control {
+open class TextBox : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -66529,7 +66706,7 @@ open class TextBox : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITextBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.ITextBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBox")
+    private static nonisolated(unsafe) var _ITextBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.ITextBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBox")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.Composable.self) { baseInterface, innerInterface in 
@@ -67112,15 +67289,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x873AF7C2, Data2: 0xAB89, Data3: 0x5D76, Data4: ( 0x8D,0xBE,0x3D,0x63,0x25,0x66,0x9D,0xF5 ) // 873AF7C2-AB89-5D76-8DBE-3D6325669DF5
     ) 
 
-    public class ITextBox: WindowsFoundation.IInspectable {
+    public class ITextBox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBox }
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -67133,10 +67312,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_SelectedText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_SelectedText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -67322,10 +67503,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_PlaceholderText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBox.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PlaceholderText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -67809,7 +67992,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE1D8B82E, Data2: 0xBC60, Data3: 0x5D27, Data4: ( 0xB6,0x46,0x5C,0xA4,0xC4,0xA6,0x94,0x32 ) // E1D8B82E-BC60-5D27-B646-5CA4C4A69432
     ) 
 
-    public class ITextBoxFactory: WindowsFoundation.IInspectable {
+    public class ITextBoxFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITextBox {
@@ -67831,7 +68014,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA41CF38F, Data2: 0x712A, Data3: 0x5599, Data4: ( 0xBB,0xED,0x5A,0x3D,0x9B,0x6B,0xD4,0x6E ) // A41CF38F-712A-5599-BBED-5A3D9B6BD46E
     ) 
 
-    public class ITextBoxStatics: WindowsFoundation.IInspectable {
+    public class ITextBoxStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxStatics }
 
         public func get_TextProperty() throws -> WinUI.DependencyProperty? {
@@ -68083,7 +68266,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBoxBeforeTextChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textboxbeforetextchangingeventargs)
-public final class TextBoxBeforeTextChangingEventArgs : WinRTClass {
+public final class TextBoxBeforeTextChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBoxBeforeTextChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxBeforeTextChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68143,15 +68326,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBA46105B, Data2: 0x9A16, Data3: 0x5237, Data4: ( 0xA2,0x0F,0x5D,0xF7,0x50,0x99,0x2A,0x05 ) // BA46105B-9A16-5237-A20F-5DF750992A05
     ) 
 
-    public class ITextBoxBeforeTextChangingEventArgs: WindowsFoundation.IInspectable {
+    public class ITextBoxBeforeTextChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxBeforeTextChangingEventArgs }
 
         public func get_NewText() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxBeforeTextChangingEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewText(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -68175,7 +68360,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBoxSelectionChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textboxselectionchangingeventargs)
-public final class TextBoxSelectionChangingEventArgs : WinRTClass {
+public final class TextBoxSelectionChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBoxSelectionChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxSelectionChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68240,7 +68425,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6DCE20DB, Data2: 0x894E, Data3: 0x5FF6, Data4: ( 0x82,0x5B,0xF9,0x89,0x1A,0xF7,0x95,0x16 ) // 6DCE20DB-894E-5FF6-825B-F9891AF79516
     ) 
 
-    public class ITextBoxSelectionChangingEventArgs: WindowsFoundation.IInspectable {
+    public class ITextBoxSelectionChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxSelectionChangingEventArgs }
 
         public func get_SelectionStart() throws -> Int32 {
@@ -68279,7 +68464,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBoxTextChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textboxtextchangingeventargs)
-public final class TextBoxTextChangingEventArgs : WinRTClass {
+public final class TextBoxTextChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBoxTextChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxTextChangingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68333,7 +68518,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA1A08D48, Data2: 0xE8C0, Data3: 0x5379, Data4: ( 0xB1,0x38,0x7E,0xB3,0xF8,0xD5,0xF5,0xE6 ) // A1A08D48-E8C0-5379-B138-7EB3F8D5F5E6
     ) 
 
-    public class ITextBoxTextChangingEventArgs: WindowsFoundation.IInspectable {
+    public class ITextBoxTextChangingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxTextChangingEventArgs }
 
         public func get_IsContentChanging() throws -> Bool {
@@ -68350,7 +68535,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textchangedeventargs)
-public final class TextChangedEventArgs : WinUI.RoutedEventArgs {
+public final class TextChangedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68399,7 +68584,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x71C37E43, Data2: 0x7BE7, Data3: 0x52FC, Data4: ( 0xBF,0x8C,0x98,0x67,0xF4,0x4B,0xE5,0xF4 ) // 71C37E43-7BE7-52FC-BF8C-9867F44BE5F4
     ) 
 
-    public class ITextChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ITextChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextChangedEventArgs }
 
     }
@@ -68408,7 +68593,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextCompositionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcompositionchangedeventargs)
-public final class TextCompositionChangedEventArgs : WinRTClass {
+public final class TextCompositionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextCompositionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68467,7 +68652,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x04F420D2, Data2: 0xBA9C, Data3: 0x5F59, Data4: ( 0xB8,0xAC,0x0D,0x8A,0xA5,0x0A,0x92,0x40 ) // 04F420D2-BA9C-5F59-B8AC-0D8AA50A9240
     ) 
 
-    public class ITextCompositionChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ITextCompositionChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionChangedEventArgs }
 
         public func get_StartIndex() throws -> Int32 {
@@ -68492,7 +68677,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextCompositionEndedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcompositionendedeventargs)
-public final class TextCompositionEndedEventArgs : WinRTClass {
+public final class TextCompositionEndedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextCompositionEndedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionEndedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68551,7 +68736,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x19D0A5C5, Data2: 0x8D0F, Data3: 0x5118, Data4: ( 0x8C,0x30,0xE7,0x09,0x32,0x6F,0x12,0x83 ) // 19D0A5C5-8D0F-5118-8C30-E709326F1283
     ) 
 
-    public class ITextCompositionEndedEventArgs: WindowsFoundation.IInspectable {
+    public class ITextCompositionEndedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionEndedEventArgs }
 
         public func get_StartIndex() throws -> Int32 {
@@ -68576,7 +68761,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextCompositionStartedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcompositionstartedeventargs)
-public final class TextCompositionStartedEventArgs : WinRTClass {
+public final class TextCompositionStartedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextCompositionStartedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionStartedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68635,7 +68820,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA604FF71, Data2: 0x5D44, Data3: 0x5859, Data4: ( 0x8D,0x71,0x72,0x03,0x0E,0xD7,0x8B,0xC8 ) // A604FF71-5D44-5859-8D71-72030ED78BC8
     ) 
 
-    public class ITextCompositionStartedEventArgs: WindowsFoundation.IInspectable {
+    public class ITextCompositionStartedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionStartedEventArgs }
 
         public func get_StartIndex() throws -> Int32 {
@@ -68660,7 +68845,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextControlCopyingToClipboardEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcontrolcopyingtoclipboardeventargs)
-public final class TextControlCopyingToClipboardEventArgs : WinRTClass {
+public final class TextControlCopyingToClipboardEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextControlCopyingToClipboardEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlCopyingToClipboardEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68715,7 +68900,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1DAAC6D5, Data2: 0x8DB5, Data3: 0x5D9F, Data4: ( 0x93,0x82,0x1E,0x64,0x4F,0x9A,0xA4,0x37 ) // 1DAAC6D5-8DB5-5D9F-9382-1E644F9AA437
     ) 
 
-    public class ITextControlCopyingToClipboardEventArgs: WindowsFoundation.IInspectable {
+    public class ITextControlCopyingToClipboardEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlCopyingToClipboardEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -68738,7 +68923,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextControlCuttingToClipboardEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcontrolcuttingtoclipboardeventargs)
-public final class TextControlCuttingToClipboardEventArgs : WinRTClass {
+public final class TextControlCuttingToClipboardEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextControlCuttingToClipboardEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlCuttingToClipboardEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68793,7 +68978,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9D73671F, Data2: 0xEA30, Data3: 0x555D, Data4: ( 0x81,0x29,0x5A,0x96,0xAE,0xC7,0x3A,0x14 ) // 9D73671F-EA30-555D-8129-5A96AEC73A14
     ) 
 
-    public class ITextControlCuttingToClipboardEventArgs: WindowsFoundation.IInspectable {
+    public class ITextControlCuttingToClipboardEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlCuttingToClipboardEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -68816,7 +69001,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextControlPasteEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcontrolpasteeventargs)
-public final class TextControlPasteEventArgs : WinRTClass {
+public final class TextControlPasteEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextControlPasteEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68871,7 +69056,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFC5E567E, Data2: 0x3AA9, Data3: 0x5C57, Data4: ( 0x88,0xD4,0x83,0x4A,0xD3,0xB6,0x2E,0x9E ) // FC5E567E-3AA9-5C57-88D4-834AD3B62E9E
     ) 
 
-    public class ITextControlPasteEventArgs: WindowsFoundation.IInspectable {
+    public class ITextControlPasteEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -68894,7 +69079,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TimePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker)
-open class TimePicker : WinUI.Control {
+open class TimePicker : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePicker
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -68921,7 +69106,7 @@ open class TimePicker : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITimePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.ITimePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TimePicker")
+    private static nonisolated(unsafe) var _ITimePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.ITimePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TimePicker")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TimePickerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -69077,7 +69262,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xED4BAA33, Data2: 0xC240, Data3: 0x5934, Data4: ( 0x92,0x29,0x82,0xD3,0x7B,0x26,0xF8,0x46 ) // ED4BAA33-C240-5934-9229-82D37B26F846
     ) 
 
-    public class ITimePicker: WindowsFoundation.IInspectable {
+    public class ITimePicker: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker }
 
         public func get_Header() throws -> Any? {
@@ -69114,10 +69299,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_ClockIdentifier() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ClockIdentifier(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -69225,7 +69412,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1584429E, Data2: 0xAAFE, Data3: 0x5C65, Data4: ( 0x89,0xE9,0x8C,0x06,0x6E,0x56,0x90,0xE7 ) // 1584429E-AAFE-5C65-89E9-8C066E5690E7
     ) 
 
-    public class ITimePickerFactory: WindowsFoundation.IInspectable {
+    public class ITimePickerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TimePickerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITimePicker {
@@ -69247,7 +69434,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x12BEF59E, Data2: 0x4222, Data3: 0x507B, Data4: ( 0x90,0x1E,0xEF,0xFD,0x04,0x62,0x0C,0x4F ) // 12BEF59E-4222-507B-901E-EFFD04620C4F
     ) 
 
-    public class ITimePickerStatics: WindowsFoundation.IInspectable {
+    public class ITimePickerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerStatics }
 
         public func get_HeaderProperty() throws -> WinUI.DependencyProperty? {
@@ -69319,7 +69506,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TimePickerSelectedValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickerselectedvaluechangedeventargs)
-public final class TimePickerSelectedValueChangedEventArgs : WinRTClass {
+public final class TimePickerSelectedValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePickerSelectedValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -69378,7 +69565,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6ED7EDF1, Data2: 0x9B0B, Data3: 0x5E7B, Data4: ( 0x9E,0x10,0xF3,0x56,0x60,0xA2,0x9F,0xD2 ) // 6ED7EDF1-9B0B-5E7B-9E10-F35660A29FD2
     ) 
 
-    public class ITimePickerSelectedValueChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ITimePickerSelectedValueChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs }
 
         public func get_OldTime() throws -> WindowsFoundation.TimeSpan? {
@@ -69405,7 +69592,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TimePickerValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickervaluechangedeventargs)
-public final class TimePickerValueChangedEventArgs : WinRTClass {
+public final class TimePickerValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePickerValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -69464,7 +69651,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7B98953F, Data2: 0xC24A, Data3: 0x53C6, Data4: ( 0x8A,0x3A,0x52,0x05,0x58,0x50,0x8B,0x08 ) // 7B98953F-C24A-53C6-8A3A-520558508B08
     ) 
 
-    public class ITimePickerValueChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ITimePickerValueChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs }
 
         public func get_OldTime() throws -> WindowsFoundation.TimeSpan {
@@ -69489,7 +69676,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TitleBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebar)
-open class TitleBar : WinUI.Control {
+open class TitleBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITitleBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -69516,7 +69703,7 @@ open class TitleBar : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITitleBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ITitleBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBar")
+    private static nonisolated(unsafe) var _ITitleBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ITitleBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBar")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TitleBarBridge.Composable.self) { baseInterface, innerInterface in 
@@ -69704,15 +69891,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC552714D, Data2: 0x5D30, Data3: 0x5A2B, Data4: ( 0x9C,0x7A,0xD6,0x8B,0xEA,0x3D,0xDE,0x8D ) // C552714D-5D30-5A2B-9C7A-D68BEA3DDE8D
     ) 
 
-    public class ITitleBar: WindowsFoundation.IInspectable {
+    public class ITitleBar: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar }
 
         public func get_Title() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Title(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -69725,10 +69914,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_Subtitle() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Subtitle(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -69888,7 +70079,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC4452799, Data2: 0x4606, Data3: 0x59EF, Data4: ( 0x93,0x92,0xA0,0x54,0x8D,0x48,0xB8,0x2E ) // C4452799-4606-59EF-9392-A0548D48B82E
     ) 
 
-    public class ITitleBarFactory: WindowsFoundation.IInspectable {
+    public class ITitleBarFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TitleBarBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITitleBar {
@@ -69910,7 +70101,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF9ADA39B, Data2: 0x1F24, Data3: 0x5955, Data4: ( 0x9B,0x5C,0xCA,0xCB,0xFE,0x9A,0x41,0xCF ) // F9ADA39B-1F24-5955-9B5C-CACBFE9A41CF
     ) 
 
-    public class ITitleBarStatics: WindowsFoundation.IInspectable {
+    public class ITitleBarStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarStatics }
 
         public func get_TitleProperty() throws -> WinUI.DependencyProperty? {
@@ -70009,7 +70200,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TitleBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebartemplatesettings)
-open class TitleBarTemplateSettings : WinUI.DependencyObject {
+open class TitleBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITitleBarTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -70036,7 +70227,7 @@ open class TitleBarTemplateSettings : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITitleBarTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITitleBarTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBarTemplateSettings")
+    private static nonisolated(unsafe) var _ITitleBarTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITitleBarTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBarTemplateSettings")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TitleBarTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -70100,7 +70291,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBE19011A, Data2: 0x4957, Data3: 0x5332, Data4: ( 0x98,0xB8,0x17,0x04,0x40,0x1B,0x6A,0x0E ) // BE19011A-4957-5332-98B8-1704401B6A0E
     ) 
 
-    public class ITitleBarTemplateSettings: WindowsFoundation.IInspectable {
+    public class ITitleBarTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings }
 
         public func get_IconElement() throws -> WinUI.IconElement? {
@@ -70124,7 +70315,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFCF9E48C, Data2: 0xDFE4, Data3: 0x55F3, Data4: ( 0xB1,0x79,0xB9,0x00,0xA7,0xAE,0x9C,0x25 ) // FCF9E48C-DFE4-55F3-B179-B900A7AE9C25
     ) 
 
-    public class ITitleBarTemplateSettingsFactory: WindowsFoundation.IInspectable {
+    public class ITitleBarTemplateSettingsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TitleBarTemplateSettingsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITitleBarTemplateSettings {
@@ -70146,7 +70337,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF568E19B, Data2: 0xB9AF, Data3: 0x5F1F, Data4: ( 0xA7,0x52,0x48,0x2F,0x12,0x88,0x74,0x34 ) // F568E19B-B9AF-5F1F-A752-482F12887434
     ) 
 
-    public class ITitleBarTemplateSettingsStatics: WindowsFoundation.IInspectable {
+    public class ITitleBarTemplateSettingsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettingsStatics }
 
         public func get_IconElementProperty() throws -> WinUI.DependencyProperty? {
@@ -70164,7 +70355,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToggleMenuFlyoutItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglemenuflyoutitem)
-open class ToggleMenuFlyoutItem : WinUI.MenuFlyoutItem {
+open class ToggleMenuFlyoutItem : WinUI.MenuFlyoutItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleMenuFlyoutItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -70191,7 +70382,7 @@ open class ToggleMenuFlyoutItem : WinUI.MenuFlyoutItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IToggleMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IToggleMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem")
+    private static nonisolated(unsafe) var _IToggleMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IToggleMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ToggleMenuFlyoutItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -70255,7 +70446,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1803F260, Data2: 0x67E4, Data3: 0x5BC1, Data4: ( 0xA6,0x3A,0x12,0x35,0x10,0x16,0x7B,0xB8 ) // 1803F260-67E4-5BC1-A63A-123510167BB8
     ) 
 
-    public class IToggleMenuFlyoutItem: WindowsFoundation.IInspectable {
+    public class IToggleMenuFlyoutItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItem }
 
         public func get_IsChecked() throws -> Bool {
@@ -70278,7 +70469,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x426DFD57, Data2: 0x6CC9, Data3: 0x570F, Data4: ( 0x95,0x0D,0x37,0x43,0x72,0x35,0xDC,0x89 ) // 426DFD57-6CC9-570F-950D-37437235DC89
     ) 
 
-    public class IToggleMenuFlyoutItemFactory: WindowsFoundation.IInspectable {
+    public class IToggleMenuFlyoutItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ToggleMenuFlyoutItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IToggleMenuFlyoutItem {
@@ -70300,7 +70491,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7411E854, Data2: 0xC59A, Data3: 0x5463, Data4: ( 0xBE,0xAB,0x64,0xDD,0xB0,0x52,0xC6,0xDC ) // 7411E854-C59A-5463-BEAB-64DDB052C6DC
     ) 
 
-    public class IToggleMenuFlyoutItemStatics: WindowsFoundation.IInspectable {
+    public class IToggleMenuFlyoutItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItemStatics }
 
         public func get_IsCheckedProperty() throws -> WinUI.DependencyProperty? {
@@ -70318,7 +70509,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToggleSplitButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbutton)
-open class ToggleSplitButton : WinUI.SplitButton {
+open class ToggleSplitButton : WinUI.SplitButton, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -70345,7 +70536,7 @@ open class ToggleSplitButton : WinUI.SplitButton {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IToggleSplitButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSplitButton")
+    private static nonisolated(unsafe) var _IToggleSplitButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSplitButton")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonBridge.Composable.self) { baseInterface, innerInterface in 
@@ -70422,7 +70613,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5C0F247B, Data2: 0xBD00, Data3: 0x5509, Data4: ( 0x88,0xA8,0xB0,0x90,0x07,0xAE,0x22,0xB0 ) // 5C0F247B-BD00-5509-88A8-B09007AE22B0
     ) 
 
-    public class IToggleSplitButton: WindowsFoundation.IInspectable {
+    public class IToggleSplitButton: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton }
 
         public func get_IsChecked() throws -> Bool {
@@ -70461,7 +70652,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x25459D02, Data2: 0x0FFC, Data3: 0x5C7C, Data4: ( 0xAF,0x56,0xF5,0x5A,0xAD,0x6D,0xB5,0xE7 ) // 25459D02-0FFC-5C7C-AF56-F55AAD6DB5E7
     ) 
 
-    public class IToggleSplitButtonFactory: WindowsFoundation.IInspectable {
+    public class IToggleSplitButtonFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IToggleSplitButton {
@@ -70483,7 +70674,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x801C9CA9, Data2: 0x5B24, Data3: 0x5B9E, Data4: ( 0xA8,0xD1,0xCF,0xF4,0xB6,0xE6,0x85,0x7F ) // 801C9CA9-5B24-5B9E-A8D1-CFF4B6E6857F
     ) 
 
-    public class IToggleSplitButtonStatics: WindowsFoundation.IInspectable {
+    public class IToggleSplitButtonStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonStatics }
 
         public func get_IsCheckedProperty() throws -> WinUI.DependencyProperty? {
@@ -70501,7 +70692,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToggleSplitButtonIsCheckedChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbuttonischeckedchangedeventargs)
-public final class ToggleSplitButtonIsCheckedChangedEventArgs : WinRTClass {
+public final class ToggleSplitButtonIsCheckedChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonIsCheckedChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonIsCheckedChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -70550,7 +70741,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x6CAB1E15, Data2: 0xC017, Data3: 0x5760, Data4: ( 0x82,0x8B,0xDA,0xFC,0x21,0xD5,0x4E,0xB2 ) // 6CAB1E15-C017-5760-828B-DAFC21D54EB2
     ) 
 
-    public class IToggleSplitButtonIsCheckedChangedEventArgs: WindowsFoundation.IInspectable {
+    public class IToggleSplitButtonIsCheckedChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonIsCheckedChangedEventArgs }
 
     }
@@ -70559,7 +70750,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToggleSwitch
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.toggleswitch)
-public final class ToggleSwitch : WinUI.Control {
+public final class ToggleSwitch : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSwitch
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSwitch
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -70709,7 +70900,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1B17EEB1, Data2: 0x74BF, Data3: 0x5A83, Data4: ( 0x81,0x61,0xA8,0x6F,0x0F,0xDC,0xDF,0x24 ) // 1B17EEB1-74BF-5A83-8161-A86F0FDCDF24
     ) 
 
-    public class IToggleSwitch: WindowsFoundation.IInspectable {
+    public class IToggleSwitch: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSwitch }
 
         public func get_IsOn() throws -> Bool {
@@ -70853,7 +71044,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x772682DB, Data2: 0xE3D4, Data3: 0x5242, Data4: ( 0xB6,0xDE,0x36,0x70,0x57,0x25,0xEE,0xB8 ) // 772682DB-E3D4-5242-B6DE-36705725EEB8
     ) 
 
-    public class IToggleSwitchOverrides: WindowsFoundation.IInspectable {
+    public class IToggleSwitchOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSwitchOverrides }
 
         public func OnToggled() throws {
@@ -70898,7 +71089,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC9C203D6, Data2: 0x0619, Data3: 0x504D, Data4: ( 0x9E,0xD8,0x50,0x54,0xFE,0x3C,0xA5,0x1E ) // C9C203D6-0619-504D-9ED8-5054FE3CA51E
     ) 
 
-    public class IToggleSwitchStatics: WindowsFoundation.IInspectable {
+    public class IToggleSwitchStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSwitchStatics }
 
         public func get_IsOnProperty() throws -> WinUI.DependencyProperty? {
@@ -70970,7 +71161,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToolTip
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tooltip)
-open class ToolTip : WinUI.ContentControl {
+open class ToolTip : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToolTip
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTip
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -70997,7 +71188,7 @@ open class ToolTip : WinUI.ContentControl {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IToolTipFactory : __ABI_Microsoft_UI_Xaml_Controls.IToolTipFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToolTip")
+    private static nonisolated(unsafe) var _IToolTipFactory : __ABI_Microsoft_UI_Xaml_Controls.IToolTipFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToolTip")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ToolTipBridge.Composable.self) { baseInterface, innerInterface in 
@@ -71147,7 +71338,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x67E93D74, Data2: 0x5E93, Data3: 0x59A1, Data4: ( 0x91,0xBF,0x41,0x3E,0xFB,0xEB,0x90,0x4C ) // 67E93D74-5E93-59A1-91BF-413EFBEB904C
     ) 
 
-    public class IToolTip: WindowsFoundation.IInspectable {
+    public class IToolTip: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTip }
 
         public func get_HorizontalOffset() throws -> Double {
@@ -71285,7 +71476,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBCBB3720, Data2: 0x2DB8, Data3: 0x54E1, Data4: ( 0x88,0x06,0xFC,0xBE,0xD3,0x89,0x49,0xA9 ) // BCBB3720-2DB8-54E1-8806-FCBED38949A9
     ) 
 
-    public class IToolTipFactory: WindowsFoundation.IInspectable {
+    public class IToolTipFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTipFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ToolTipBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IToolTip {
@@ -71307,7 +71498,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x88EB60D4, Data2: 0xCD54, Data3: 0x5E23, Data4: ( 0xBD,0x1A,0x22,0x37,0x02,0x44,0x2B,0xA4 ) // 88EB60D4-CD54-5E23-BD1A-223702442BA4
     ) 
 
-    public class IToolTipStatics: WindowsFoundation.IInspectable {
+    public class IToolTipStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTipStatics }
 
         public func get_HorizontalOffsetProperty() throws -> WinUI.DependencyProperty? {
@@ -71370,7 +71561,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToolTipService
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tooltipservice)
-public final class ToolTipService : WinRTClass {
+public final class ToolTipService : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToolTipService
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTipService
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -71465,7 +71656,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x01140768, Data2: 0x2727, Data3: 0x5F89, Data4: ( 0x80,0xE0,0x52,0x10,0x32,0x6A,0x34,0x31 ) // 01140768-2727-5F89-80E0-5210326A3431
     ) 
 
-    public class IToolTipService: WindowsFoundation.IInspectable {
+    public class IToolTipService: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTipService }
 
     }
@@ -71474,7 +71665,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5AA38ADC, Data2: 0x9874, Data3: 0x5E0A, Data4: ( 0x8D,0x8E,0x15,0x74,0xEF,0xC0,0xB8,0x8F ) // 5AA38ADC-9874-5E0A-8D8E-1574EFC0B88F
     ) 
 
-    public class IToolTipServiceStatics: WindowsFoundation.IInspectable {
+    public class IToolTipServiceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTipServiceStatics }
 
         public func get_PlacementProperty() throws -> WinUI.DependencyProperty? {
@@ -71556,7 +71747,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview)
-open class TreeView : WinUI.Control {
+open class TreeView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeView
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -71583,7 +71774,7 @@ open class TreeView : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITreeViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeView")
+    private static nonisolated(unsafe) var _ITreeViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeView")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.Composable.self) { baseInterface, innerInterface in 
@@ -71885,7 +72076,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1BEF9AF4, Data2: 0x712C, Data3: 0x50EF, Data4: ( 0x9B,0xB4,0x88,0x1B,0x97,0x52,0x32,0xAB ) // 1BEF9AF4-712C-50EF-9BB4-881B975232AB
     ) 
 
-    public class ITreeView: WindowsFoundation.IInspectable {
+    public class ITreeView: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeView }
 
         public func get_RootNodes() throws -> WindowsFoundation.AnyIVector<WinUI.TreeViewNode?>? {
@@ -71992,7 +72183,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB947CA7D, Data2: 0x0F6F, Data3: 0x594C, Data4: ( 0x83,0xEC,0x14,0x15,0x3D,0x34,0x32,0x25 ) // B947CA7D-0F6F-594C-83EC-14153D343225
     ) 
 
-    public class ITreeView2: WindowsFoundation.IInspectable {
+    public class ITreeView2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeView2 }
 
         public func NodeFromContainer(_ container: WinUI.DependencyObject?) throws -> WinUI.TreeViewNode? {
@@ -72232,7 +72423,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xA1B5538E, Data2: 0x7956, Data3: 0x5671, Data4: ( 0xAF,0xD0,0x4C,0x0F,0x38,0x12,0x2B,0x70 ) // A1B5538E-7956-5671-AFD0-4C0F38122B70
     ) 
 
-    public class ITreeView3: WindowsFoundation.IInspectable {
+    public class ITreeView3: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeView3 }
 
         public func add_SelectionChanged(_ handler: TypedEventHandler<WinUI.TreeView?, WinUI.TreeViewSelectionChangedEventArgs?>?) throws -> EventRegistrationToken {
@@ -72257,7 +72448,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x9C6220BE, Data2: 0xF9EB, Data3: 0x518A, Data4: ( 0xB3,0x0E,0x7E,0x41,0xDE,0x5E,0xFD,0xA9 ) // 9C6220BE-F9EB-518A-B30E-7E41DE5EFDA9
     ) 
 
-    public class ITreeViewFactory: WindowsFoundation.IInspectable {
+    public class ITreeViewFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITreeView {
@@ -72279,7 +72470,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x71EFAF86, Data2: 0x4D73, Data3: 0x5F5F, Data4: ( 0x8E,0xA6,0xA4,0x2D,0xFE,0x04,0x49,0x17 ) // 71EFAF86-4D73-5F5F-8EA6-A42DFE044917
     ) 
 
-    public class ITreeViewStatics: WindowsFoundation.IInspectable {
+    public class ITreeViewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewStatics }
 
         public func get_SelectedItemProperty() throws -> WinUI.DependencyProperty? {
@@ -72306,7 +72497,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDDD01C44, Data2: 0xA883, Data3: 0x583B, Data4: ( 0x91,0x81,0xDC,0xA5,0x83,0xDA,0x0A,0xD9 ) // DDD01C44-A883-583B-9181-DCA583DA0AD9
     ) 
 
-    public class ITreeViewStatics2: WindowsFoundation.IInspectable {
+    public class ITreeViewStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewStatics2 }
 
         public func get_CanDragItemsProperty() throws -> WinUI.DependencyProperty? {
@@ -72387,7 +72578,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewCollapsedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewcollapsedeventargs)
-public final class TreeViewCollapsedEventArgs : WinRTClass {
+public final class TreeViewCollapsedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewCollapsedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewCollapsedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -72448,7 +72639,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8EE00B59, Data2: 0x42C6, Data3: 0x5D73, Data4: ( 0x80,0x9F,0x68,0x71,0x00,0x88,0xE5,0xA5 ) // 8EE00B59-42C6-5D73-809F-68710088E5A5
     ) 
 
-    public class ITreeViewCollapsedEventArgs: WindowsFoundation.IInspectable {
+    public class ITreeViewCollapsedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewCollapsedEventArgs }
 
         public func get_Node() throws -> WinUI.TreeViewNode? {
@@ -72466,7 +72657,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x77804A23, Data2: 0x9FEB, Data3: 0x5C57, Data4: ( 0x9C,0x95,0x4D,0xD9,0x84,0x26,0x72,0x17 ) // 77804A23-9FEB-5C57-9C95-4DD984267217
     ) 
 
-    public class ITreeViewCollapsedEventArgs2: WindowsFoundation.IInspectable {
+    public class ITreeViewCollapsedEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewCollapsedEventArgs2 }
 
         public func get_Item() throws -> Any? {
@@ -72484,7 +72675,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewDragItemsCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewdragitemscompletedeventargs)
-public final class TreeViewDragItemsCompletedEventArgs : WinRTClass {
+public final class TreeViewDragItemsCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewDragItemsCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewDragItemsCompletedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -72550,7 +72741,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xE5B8547E, Data2: 0xF839, Data3: 0x55DB, Data4: ( 0x9C,0x26,0x2A,0x95,0xF5,0x7A,0x60,0xDC ) // E5B8547E-F839-55DB-9C26-2A95F57A60DC
     ) 
 
-    public class ITreeViewDragItemsCompletedEventArgs: WindowsFoundation.IInspectable {
+    public class ITreeViewDragItemsCompletedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewDragItemsCompletedEventArgs }
 
         public func get_DropResult() throws -> UWP.DataPackageOperation {
@@ -72576,7 +72767,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x060D3921, Data2: 0x57A0, Data3: 0x5BC5, Data4: ( 0xBE,0x26,0x32,0x0B,0xD9,0xC1,0xA6,0xE8 ) // 060D3921-57A0-5BC5-BE26-320BD9C1A6E8
     ) 
 
-    public class ITreeViewDragItemsCompletedEventArgs2: WindowsFoundation.IInspectable {
+    public class ITreeViewDragItemsCompletedEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewDragItemsCompletedEventArgs2 }
 
         public func get_NewParentItem() throws -> Any? {
@@ -72594,7 +72785,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewDragItemsStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewdragitemsstartingeventargs)
-public final class TreeViewDragItemsStartingEventArgs : WinRTClass {
+public final class TreeViewDragItemsStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewDragItemsStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewDragItemsStartingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -72659,7 +72850,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1B6C4FFC, Data2: 0xCD32, Data3: 0x5E06, Data4: ( 0xB7,0x82,0xDF,0x9F,0x07,0x75,0x46,0xC7 ) // 1B6C4FFC-CD32-5E06-B782-DF9F077546C7
     ) 
 
-    public class ITreeViewDragItemsStartingEventArgs: WindowsFoundation.IInspectable {
+    public class ITreeViewDragItemsStartingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewDragItemsStartingEventArgs }
 
         public func get_Cancel() throws -> Bool {
@@ -72700,7 +72891,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewExpandingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewexpandingeventargs)
-public final class TreeViewExpandingEventArgs : WinRTClass {
+public final class TreeViewExpandingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewExpandingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewExpandingEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -72761,7 +72952,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBD769EF7, Data2: 0xCADC, Data3: 0x5334, Data4: ( 0x93,0xAD,0xC9,0xBB,0xE8,0x20,0x64,0x3D ) // BD769EF7-CADC-5334-93AD-C9BBE820643D
     ) 
 
-    public class ITreeViewExpandingEventArgs: WindowsFoundation.IInspectable {
+    public class ITreeViewExpandingEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewExpandingEventArgs }
 
         public func get_Node() throws -> WinUI.TreeViewNode? {
@@ -72779,7 +72970,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xED7840E5, Data2: 0xDBF5, Data3: 0x5937, Data4: ( 0x89,0xDD,0x99,0x7A,0x6F,0xDE,0x0D,0x5C ) // ED7840E5-DBF5-5937-89DD-997A6FDE0D5C
     ) 
 
-    public class ITreeViewExpandingEventArgs2: WindowsFoundation.IInspectable {
+    public class ITreeViewExpandingEventArgs2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewExpandingEventArgs2 }
 
         public func get_Item() throws -> Any? {
@@ -72797,7 +72988,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewitem)
-open class TreeViewItem : WinUI.ListViewItem {
+open class TreeViewItem : WinUI.ListViewItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItem
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -72824,7 +73015,7 @@ open class TreeViewItem : WinUI.ListViewItem {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITreeViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItem")
+    private static nonisolated(unsafe) var _ITreeViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItem")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewItemBridge.Composable.self) { baseInterface, innerInterface in 
@@ -72978,7 +73169,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x70437A49, Data2: 0x2999, Data3: 0x5A97, Data4: ( 0xB1,0x9D,0x35,0x4E,0xF5,0x9D,0x4F,0x5C ) // 70437A49-2999-5A97-B19D-354EF59D4F5C
     ) 
 
-    public class ITreeViewItem: WindowsFoundation.IInspectable {
+    public class ITreeViewItem: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItem }
 
         public func get_GlyphOpacity() throws -> Double {
@@ -73012,10 +73203,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_ExpandedGlyph() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_ExpandedGlyph(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -73028,10 +73221,12 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         public func get_CollapsedGlyph() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItem.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CollapsedGlyph(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -73085,7 +73280,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xB1B70143, Data2: 0x3F5B, Data3: 0x54F4, Data4: ( 0x8B,0xD7,0x41,0xDC,0x15,0xCF,0x45,0xA9 ) // B1B70143-3F5B-54F4-8BD7-41DC15CF45A9
     ) 
 
-    public class ITreeViewItem2: WindowsFoundation.IInspectable {
+    public class ITreeViewItem2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItem2 }
 
         public func get_HasUnrealizedChildren() throws -> Bool {
@@ -73125,7 +73320,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x878FD918, Data2: 0xE77E, Data3: 0x5BE8, Data4: ( 0x8C,0x8A,0xB7,0x9B,0x27,0xB0,0x8D,0x9B ) // 878FD918-E77E-5BE8-8C8A-B79B27B08D9B
     ) 
 
-    public class ITreeViewItemFactory: WindowsFoundation.IInspectable {
+    public class ITreeViewItemFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TreeViewItemBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITreeViewItem {
@@ -73147,7 +73342,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xEFDB238D, Data2: 0x2CCA, Data3: 0x589C, Data4: ( 0xAE,0xDF,0x8E,0x29,0x7B,0x5A,0xA2,0x48 ) // EFDB238D-2CCA-589C-AEDF-8E297B5AA248
     ) 
 
-    public class ITreeViewItemStatics: WindowsFoundation.IInspectable {
+    public class ITreeViewItemStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemStatics }
 
         public func get_GlyphOpacityProperty() throws -> WinUI.DependencyProperty? {
@@ -73219,7 +73414,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x431BEF52, Data2: 0xD60D, Data3: 0x5CE3, Data4: ( 0xB8,0x12,0xAE,0xE4,0xA2,0xFB,0x7E,0xD3 ) // 431BEF52-D60D-5CE3-B812-AEE4A2FB7ED3
     ) 
 
-    public class ITreeViewItemStatics2: WindowsFoundation.IInspectable {
+    public class ITreeViewItemStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemStatics2 }
 
         public func get_HasUnrealizedChildrenProperty() throws -> WinUI.DependencyProperty? {
@@ -73246,7 +73441,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewItemInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewiteminvokedeventargs)
-public final class TreeViewItemInvokedEventArgs : WinRTClass {
+public final class TreeViewItemInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemInvokedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -73306,7 +73501,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1A05853C, Data2: 0xB101, Data3: 0x542C, Data4: ( 0x9A,0x1E,0x77,0x5A,0x04,0x4C,0x46,0x52 ) // 1A05853C-B101-542C-9A1E-775A044C4652
     ) 
 
-    public class ITreeViewItemInvokedEventArgs: WindowsFoundation.IInspectable {
+    public class ITreeViewItemInvokedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemInvokedEventArgs }
 
         public func get_InvokedItem() throws -> Any? {
@@ -73338,7 +73533,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewItemTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewitemtemplatesettings)
-open class TreeViewItemTemplateSettings : WinUI.DependencyObject {
+open class TreeViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemTemplateSettings
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -73365,7 +73560,7 @@ open class TreeViewItemTemplateSettings : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITreeViewItemTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItemTemplateSettings")
+    private static nonisolated(unsafe) var _ITreeViewItemTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItemTemplateSettings")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewItemTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -73458,7 +73653,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x29B5DD9C, Data2: 0x2BFB, Data3: 0x5E1C, Data4: ( 0x97,0xCB,0xCD,0xC3,0xC3,0x4A,0x36,0x5D ) // 29B5DD9C-2BFB-5E1C-97CB-CDC3C34A365D
     ) 
 
-    public class ITreeViewItemTemplateSettings: WindowsFoundation.IInspectable {
+    public class ITreeViewItemTemplateSettings: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemTemplateSettings }
 
         public func get_ExpandedGlyphVisibility() throws -> WinUI.Visibility {
@@ -73499,7 +73694,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x1D1A66E3, Data2: 0xF56D, Data3: 0x5D7F, Data4: ( 0x94,0x2C,0xF3,0xA8,0x7F,0x5C,0x55,0x2E ) // 1D1A66E3-F56D-5D7F-942C-F3A87F5C552E
     ) 
 
-    public class ITreeViewItemTemplateSettingsFactory: WindowsFoundation.IInspectable {
+    public class ITreeViewItemTemplateSettingsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemTemplateSettingsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TreeViewItemTemplateSettingsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITreeViewItemTemplateSettings {
@@ -73521,7 +73716,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x67817566, Data2: 0x6528, Data3: 0x5F4A, Data4: ( 0xB1,0xE1,0x71,0x0A,0xB0,0x94,0xC7,0x4F ) // 67817566-6528-5F4A-B1E1-710AB094C74F
     ) 
 
-    public class ITreeViewItemTemplateSettingsStatics: WindowsFoundation.IInspectable {
+    public class ITreeViewItemTemplateSettingsStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemTemplateSettingsStatics }
 
         public func get_ExpandedGlyphVisibilityProperty() throws -> WinUI.DependencyProperty? {
@@ -73566,7 +73761,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewList
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewlist)
-open class TreeViewList : WinUI.ListView {
+open class TreeViewList : WinUI.ListView, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewList
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewList
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -73593,7 +73788,7 @@ open class TreeViewList : WinUI.ListView {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITreeViewListFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewListFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewList")
+    private static nonisolated(unsafe) var _ITreeViewListFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewListFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewList")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewListBridge.Composable.self) { baseInterface, innerInterface in 
@@ -73645,7 +73840,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x94CEE57B, Data2: 0x7085, Data3: 0x5A6A, Data4: ( 0xAA,0xC3,0x18,0x45,0x09,0xB8,0xEC,0xE0 ) // 94CEE57B-7085-5A6A-AAC3-184509B8ECE0
     ) 
 
-    public class ITreeViewList: WindowsFoundation.IInspectable {
+    public class ITreeViewList: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewList }
 
     }
@@ -73654,7 +73849,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x461499A0, Data2: 0x68CF, Data3: 0x5B81, Data4: ( 0xB0,0xE4,0xB1,0xAF,0x92,0x9B,0x0B,0x12 ) // 461499A0-68CF-5B81-B0E4-B1AF929B0B12
     ) 
 
-    public class ITreeViewListFactory: WindowsFoundation.IInspectable {
+    public class ITreeViewListFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewListFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TreeViewListBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITreeViewList {
@@ -73676,7 +73871,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewnode)
-open class TreeViewNode : WinUI.DependencyObject {
+open class TreeViewNode : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewNode
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewNode
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -73703,7 +73898,7 @@ open class TreeViewNode : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITreeViewNodeFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewNodeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewNode")
+    private static nonisolated(unsafe) var _ITreeViewNodeFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewNodeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewNode")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewNodeBridge.Composable.self) { baseInterface, innerInterface in 
@@ -73814,7 +74009,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x00378A74, Data2: 0x790B, Data3: 0x5328, Data4: ( 0x8A,0xFA,0x7D,0x65,0xE2,0x2D,0xA4,0x26 ) // 00378A74-790B-5328-8AFA-7D65E22DA426
     ) 
 
-    public class ITreeViewNode: WindowsFoundation.IInspectable {
+    public class ITreeViewNode: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewNode }
 
         public func get_Content() throws -> Any? {
@@ -73902,7 +74097,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC105A5E5, Data2: 0xCEA8, Data3: 0x5EFD, Data4: ( 0x8B,0xE8,0x3D,0x89,0xB5,0x4C,0xBD,0x5F ) // C105A5E5-CEA8-5EFD-8BE8-3D89B54CBD5F
     ) 
 
-    public class ITreeViewNodeFactory: WindowsFoundation.IInspectable {
+    public class ITreeViewNodeFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewNodeFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.TreeViewNodeBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITreeViewNode {
@@ -73924,7 +74119,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xF5BB217C, Data2: 0x66B9, Data3: 0x5B62, Data4: ( 0xB2,0xD6,0xFB,0x47,0x84,0x3C,0x8F,0x6F ) // F5BB217C-66B9-5B62-B2D6-FB47843C8F6F
     ) 
 
-    public class ITreeViewNodeStatics: WindowsFoundation.IInspectable {
+    public class ITreeViewNodeStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewNodeStatics }
 
         public func get_ContentProperty() throws -> WinUI.DependencyProperty? {
@@ -73969,7 +74164,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewSelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewselectionchangedeventargs)
-public final class TreeViewSelectionChangedEventArgs : WinRTClass {
+public final class TreeViewSelectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewSelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewSelectionChangedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -74028,7 +74223,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x664190F3, Data2: 0x7133, Data3: 0x5599, Data4: ( 0xB4,0x1C,0x1D,0x54,0xCD,0x2C,0xB9,0x30 ) // 664190F3-7133-5599-B41C-1D54CD2CB930
     ) 
 
-    public class ITreeViewSelectionChangedEventArgs: WindowsFoundation.IInspectable {
+    public class ITreeViewSelectionChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewSelectionChangedEventArgs }
 
         public func get_AddedItems() throws -> WindowsFoundation.AnyIVector<Any?>? {
@@ -74055,7 +74250,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - UIElementCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection)
-public final class UIElementCollection : WinRTClass, IVector, IIterable {
+public final class UIElementCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = WinUI.UIElement?
     private typealias SwiftABI = WinUI.IVectorUIElement
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CUIElement
@@ -74213,7 +74408,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x23050CB1, Data2: 0xDB88, Data3: 0x54ED, Data4: ( 0x90,0x83,0x5E,0xCF,0xB1,0x25,0x12,0xFD ) // 23050CB1-DB88-54ED-9083-5ECFB12512FD
     ) 
 
-    public class IUIElementCollection: WindowsFoundation.IInspectable {
+    public class IUIElementCollection: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUIElementCollection }
 
         public func Move(_ oldIndex: UInt32, _ newIndex: UInt32) throws {
@@ -74228,7 +74423,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - UniformGridLayout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uniformgridlayout)
-open class UniformGridLayout : WinUI.VirtualizingLayout {
+open class UniformGridLayout : WinUI.VirtualizingLayout, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IUniformGridLayout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUniformGridLayout
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -74255,7 +74450,7 @@ open class UniformGridLayout : WinUI.VirtualizingLayout {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IUniformGridLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IUniformGridLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UniformGridLayout")
+    private static nonisolated(unsafe) var _IUniformGridLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IUniformGridLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UniformGridLayout")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.UniformGridLayoutBridge.Composable.self) { baseInterface, innerInterface in 
@@ -74396,7 +74591,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x8A164CBC, Data2: 0x2A5E, Data3: 0x56E5, Data4: ( 0xA0,0x11,0xFB,0x76,0x33,0x4A,0xAB,0xDF ) // 8A164CBC-2A5E-56E5-A011-FB76334AABDF
     ) 
 
-    public class IUniformGridLayout: WindowsFoundation.IInspectable {
+    public class IUniformGridLayout: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUniformGridLayout }
 
         public func get_Orientation() throws -> WinUI.Orientation {
@@ -74517,7 +74712,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0D9ED808, Data2: 0xF3F9, Data3: 0x5034, Data4: ( 0x96,0x27,0x15,0x2B,0x91,0xE9,0x1B,0x4B ) // 0D9ED808-F3F9-5034-9627-152B91E91B4B
     ) 
 
-    public class IUniformGridLayoutFactory: WindowsFoundation.IInspectable {
+    public class IUniformGridLayoutFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUniformGridLayoutFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.UniformGridLayoutBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IUniformGridLayout {
@@ -74539,7 +74734,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x19BE9A3E, Data2: 0x37E1, Data3: 0x5A6D, Data4: ( 0x8B,0x62,0x41,0x93,0x25,0xEA,0x70,0x5A ) // 19BE9A3E-37E1-5A6D-8B62-419325EA705A
     ) 
 
-    public class IUniformGridLayoutStatics: WindowsFoundation.IInspectable {
+    public class IUniformGridLayoutStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUniformGridLayoutStatics }
 
         public func get_OrientationProperty() throws -> WinUI.DependencyProperty? {
@@ -74620,7 +74815,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - UserControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.usercontrol)
-open class UserControl : WinUI.Control {
+open class UserControl : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IUserControl
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUserControl
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -74647,7 +74842,7 @@ open class UserControl : WinUI.Control {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IUserControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IUserControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UserControl")
+    private static nonisolated(unsafe) var _IUserControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IUserControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UserControl")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.UserControlBridge.Composable.self) { baseInterface, innerInterface in 
@@ -74711,7 +74906,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xAB8A0A51, Data2: 0x44CF, Data3: 0x5337, Data4: ( 0xAD,0x77,0x8E,0xDA,0x17,0x95,0xE9,0xF6 ) // AB8A0A51-44CF-5337-AD77-8EDA1795E9F6
     ) 
 
-    public class IUserControl: WindowsFoundation.IInspectable {
+    public class IUserControl: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUserControl }
 
         public func get_Content() throws -> WinUI.UIElement? {
@@ -74735,7 +74930,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x61AC9074, Data2: 0xAAB3, Data3: 0x50B8, Data4: ( 0x8B,0x18,0xD4,0xD2,0x57,0x3A,0x52,0x35 ) // 61AC9074-AAB3-50B8-8B18-D4D2573A5235
     ) 
 
-    public class IUserControlFactory: WindowsFoundation.IInspectable {
+    public class IUserControlFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUserControlFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.UserControlBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IUserControl {
@@ -74757,7 +74952,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x575E8FA1, Data2: 0x2E2D, Data3: 0x5857, Data4: ( 0x9A,0x93,0x6B,0x11,0xE5,0x43,0x16,0xBA ) // 575E8FA1-2E2D-5857-9A93-6B11E54316BA
     ) 
 
-    public class IUserControlStatics: WindowsFoundation.IInspectable {
+    public class IUserControlStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUserControlStatics }
 
         public func get_ContentProperty() throws -> WinUI.DependencyProperty? {
@@ -74775,7 +74970,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - VariableSizedWrapGrid
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.variablesizedwrapgrid)
-public final class VariableSizedWrapGrid : WinUI.Panel {
+public final class VariableSizedWrapGrid : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IVariableSizedWrapGrid
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVariableSizedWrapGrid
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -74926,7 +75121,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xBFECD12B, Data2: 0xE16A, Data3: 0x58A0, Data4: ( 0xAF,0x5F,0x46,0x72,0x62,0x74,0x62,0xD5 ) // BFECD12B-E16A-58A0-AF5F-4672627462D5
     ) 
 
-    public class IVariableSizedWrapGrid: WindowsFoundation.IInspectable {
+    public class IVariableSizedWrapGrid: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVariableSizedWrapGrid }
 
         public func get_ItemHeight() throws -> Double {
@@ -75019,7 +75214,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0D979FE6, Data2: 0x64AF, Data3: 0x5AF5, Data4: ( 0x91,0x4A,0xDD,0x38,0xF2,0xCC,0xF2,0xD7 ) // 0D979FE6-64AF-5AF5-914A-DD38F2CCF2D7
     ) 
 
-    public class IVariableSizedWrapGridStatics: WindowsFoundation.IInspectable {
+    public class IVariableSizedWrapGridStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVariableSizedWrapGridStatics }
 
         public func get_ItemHeightProperty() throws -> WinUI.DependencyProperty? {
@@ -75128,7 +75323,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Viewbox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox)
-public final class Viewbox : WinUI.FrameworkElement {
+public final class Viewbox : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IViewbox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -75211,7 +75406,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x510683E8, Data2: 0xD0FE, Data3: 0x5EF4, Data4: ( 0x85,0xBD,0xE1,0x13,0x10,0x76,0xAC,0x22 ) // 510683E8-D0FE-5EF4-85BD-E1131076AC22
     ) 
 
-    public class IViewbox: WindowsFoundation.IInspectable {
+    public class IViewbox: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox }
 
         public func get_Child() throws -> WinUI.UIElement? {
@@ -75263,7 +75458,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x0466C103, Data2: 0x1E17, Data3: 0x5E83, Data4: ( 0xA2,0x62,0x88,0x55,0xF2,0x16,0xB5,0x9F ) // 0466C103-1E17-5E83-A262-8855F216B59F
     ) 
 
-    public class IViewboxStatics: WindowsFoundation.IInspectable {
+    public class IViewboxStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewboxStatics }
 
         public func get_StretchProperty() throws -> WinUI.DependencyProperty? {
@@ -75290,7 +75485,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - VirtualizingLayout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayout)
-open class VirtualizingLayout : WinUI.Layout {
+open class VirtualizingLayout : WinUI.Layout, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayout
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -75322,7 +75517,7 @@ open class VirtualizingLayout : WinUI.Layout {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IVirtualizingLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VirtualizingLayout")
+    private static nonisolated(unsafe) var _IVirtualizingLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VirtualizingLayout")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutBridge.Composable.self) { baseInterface, innerInterface in 
@@ -75398,7 +75593,7 @@ public class VirtualizingLayoutMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IVirtualizingLayoutOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutBridge.IVirtualizingLayoutOverrides>
-    internal static var IVirtualizingLayoutOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IVirtualizingLayoutOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutOverridesVtbl = .init(
         QueryInterface: { IVirtualizingLayoutOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IVirtualizingLayoutOverridesWrapper.addRef($0) },
         Release: { IVirtualizingLayoutOverridesWrapper.release($0) },
@@ -75482,7 +75677,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x54857CE0, Data2: 0xB9E6, Data3: 0x51A3, Data4: ( 0xBF,0xA8,0xDC,0xD8,0xEE,0x30,0x6D,0x5C ) // 54857CE0-B9E6-51A3-BFA8-DCD8EE306D5C
     ) 
 
-    public class IVirtualizingLayout: WindowsFoundation.IInspectable {
+    public class IVirtualizingLayout: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayout }
 
     }
@@ -75491,7 +75686,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x4357A35B, Data2: 0x3703, Data3: 0x5819, Data4: ( 0xA7,0x76,0xD1,0x39,0x84,0x8E,0x9E,0xD9 ) // 4357A35B-3703-5819-A776-D139848E9ED9
     ) 
 
-    public class IVirtualizingLayoutOverrides: WindowsFoundation.IInspectable {
+    public class IVirtualizingLayoutOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutOverrides }
 
         public func InitializeForContextCore(_ context: WinUI.VirtualizingLayoutContext?) throws {
@@ -75536,7 +75731,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC7C128E1, Data2: 0x5DF7, Data3: 0x5345, Data4: ( 0xB5,0xCD,0x43,0xAF,0xDF,0xA9,0x48,0xB4 ) // C7C128E1-5DF7-5345-B5CD-43AFDFA948B4
     ) 
 
-    public class IVirtualizingLayoutFactory: WindowsFoundation.IInspectable {
+    public class IVirtualizingLayoutFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IVirtualizingLayout {
@@ -75564,7 +75759,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - VirtualizingLayoutContext
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext)
-open class VirtualizingLayoutContext : WinUI.LayoutContext {
+open class VirtualizingLayoutContext : WinUI.LayoutContext, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContext
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContext
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -75599,7 +75794,7 @@ open class VirtualizingLayoutContext : WinUI.LayoutContext {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IVirtualizingLayoutContextFactory : __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VirtualizingLayoutContext")
+    private static nonisolated(unsafe) var _IVirtualizingLayoutContextFactory : __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VirtualizingLayoutContext")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.Composable.self) { baseInterface, innerInterface in 
@@ -75751,7 +75946,7 @@ public class VirtualizingLayoutContextMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Controls {
     internal typealias IVirtualizingLayoutContextOverrides2Wrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.IVirtualizingLayoutContextOverrides2>
-    internal static var IVirtualizingLayoutContextOverrides2VTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContextOverrides2Vtbl = .init(
+    internal static nonisolated(unsafe) var IVirtualizingLayoutContextOverrides2VTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContextOverrides2Vtbl = .init(
         QueryInterface: { IVirtualizingLayoutContextOverrides2Wrapper.queryInterface($0, $1, $2) },
         AddRef: { IVirtualizingLayoutContextOverrides2Wrapper.addRef($0) },
         Release: { IVirtualizingLayoutContextOverrides2Wrapper.release($0) },
@@ -75790,7 +75985,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         }
     )
     internal typealias IVirtualizingLayoutContextOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.IVirtualizingLayoutContextOverrides>
-    internal static var IVirtualizingLayoutContextOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContextOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IVirtualizingLayoutContextOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContextOverridesVtbl = .init(
         QueryInterface: { IVirtualizingLayoutContextOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IVirtualizingLayoutContextOverridesWrapper.addRef($0) },
         Release: { IVirtualizingLayoutContextOverridesWrapper.release($0) },
@@ -75894,7 +76089,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x5B5B186A, Data2: 0xA7F9, Data3: 0x5A2E, Data4: ( 0xB1,0xF0,0x89,0x50,0xCC,0xD9,0x73,0x50 ) // 5B5B186A-A7F9-5A2E-B1F0-8950CCD97350
     ) 
 
-    public class IVirtualizingLayoutContext: WindowsFoundation.IInspectable {
+    public class IVirtualizingLayoutContext: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContext }
 
         public func get_ItemCount() throws -> Int32 {
@@ -75974,7 +76169,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xC34E5864, Data2: 0xA883, Data3: 0x59BE, Data4: ( 0x8C,0xE0,0x4A,0x77,0xE8,0x7B,0x03,0x43 ) // C34E5864-A883-59BE-8CE0-4A77E87B0343
     ) 
 
-    public class IVirtualizingLayoutContext2: WindowsFoundation.IInspectable {
+    public class IVirtualizingLayoutContext2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContext2 }
 
         public func get_VisibleRect() throws -> WindowsFoundation.Rect {
@@ -75991,7 +76186,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x78633B2A, Data2: 0x9633, Data3: 0x5086, Data4: ( 0x89,0xA7,0x0E,0x96,0x0A,0x95,0xA3,0xB2 ) // 78633B2A-9633-5086-89A7-0E960A95A3B2
     ) 
 
-    public class IVirtualizingLayoutContextOverrides: WindowsFoundation.IInspectable {
+    public class IVirtualizingLayoutContextOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContextOverrides }
 
         public func ItemCountCore() throws -> Int32 {
@@ -76062,7 +76257,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xDA384C25, Data2: 0x5D8F, Data3: 0x5EDE, Data4: ( 0xAE,0x54,0xC3,0x18,0x81,0x3A,0xE7,0x84 ) // DA384C25-5D8F-5EDE-AE54-C318813AE784
     ) 
 
-    public class IVirtualizingLayoutContextOverrides2: WindowsFoundation.IInspectable {
+    public class IVirtualizingLayoutContextOverrides2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContextOverrides2 }
 
         public func VisibleRectCore() throws -> WindowsFoundation.Rect {
@@ -76079,7 +76274,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x3F790B67, Data2: 0xFDFB, Data3: 0x505A, Data4: ( 0x8B,0x85,0x62,0x10,0x50,0x6D,0xF3,0x11 ) // 3F790B67-FDFB-505A-8B85-6210506DF311
     ) 
 
-    public class IVirtualizingLayoutContextFactory: WindowsFoundation.IInspectable {
+    public class IVirtualizingLayoutContextFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContextFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IVirtualizingLayoutContext {
@@ -76113,7 +76308,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - WebView2
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2)
-open class WebView2 : WinUI.FrameworkElement {
+open class WebView2 : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IWebView2
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -76140,7 +76335,7 @@ open class WebView2 : WinUI.FrameworkElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IWebView2Factory : __ABI_Microsoft_UI_Xaml_Controls.IWebView2Factory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.WebView2")
+    private static nonisolated(unsafe) var _IWebView2Factory : __ABI_Microsoft_UI_Xaml_Controls.IWebView2Factory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.WebView2")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.Composable.self) { baseInterface, innerInterface in 
@@ -76354,7 +76549,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x2B2C76C2, Data2: 0x997C, Data3: 0x5069, Data4: ( 0xA8,0xF0,0x9B,0x84,0xCD,0x7E,0x62,0x4B ) // 2B2C76C2-997C-5069-A8F0-9B84CD7E624B
     ) 
 
-    public class IWebView2: WindowsFoundation.IInspectable {
+    public class IWebView2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2 }
 
         public func get_CoreWebView2() throws -> WebView2Core.CoreWebView2? {
@@ -76559,7 +76754,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x560C5EED, Data2: 0x3E7A, Data3: 0x51E4, Data4: ( 0xB1,0x4F,0x10,0x7B,0xA0,0x2B,0x89,0xBE ) // 560C5EED-3E7A-51E4-B14F-107BA02B89BE
     ) 
 
-    public class IWebView22: WindowsFoundation.IInspectable {
+    public class IWebView22: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView22 }
 
         public func EnsureCoreWebView2WithEnvironmentAsync(_ environment: WebView2Core.CoreWebView2Environment?) throws -> WindowsFoundation.AnyIAsyncAction? {
@@ -76586,7 +76781,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xFB4EC2CE, Data2: 0x3074, Data3: 0x5C42, Data4: ( 0xB6,0x55,0x64,0xFB,0x81,0xFB,0xD0,0x40 ) // FB4EC2CE-3074-5C42-B655-64FB81FBD040
     ) 
 
-    public class IWebView2Factory: WindowsFoundation.IInspectable {
+    public class IWebView2Factory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2Factory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IWebView2 {
@@ -76608,7 +76803,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x7F3226D0, Data2: 0xF6D5, Data3: 0x5AA7, Data4: ( 0xB1,0x75,0x64,0x54,0x51,0xCA,0x3C,0x85 ) // 7F3226D0-F6D5-5AA7-B175-645451CA3C85
     ) 
 
-    public class IWebView2Statics: WindowsFoundation.IInspectable {
+    public class IWebView2Statics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2Statics }
 
         public func get_SourceProperty() throws -> WinUI.DependencyProperty? {
@@ -76653,7 +76848,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - XamlControlsResources
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.xamlcontrolsresources)
-public final class XamlControlsResources : WinUI.ResourceDictionary {
+public final class XamlControlsResources : WinUI.ResourceDictionary, @unchecked Sendable {
     public typealias K = Any?
     public typealias V = Any?
     public typealias T = WindowsFoundation.AnyIKeyValuePair<Any?, Any?>?
@@ -76727,7 +76922,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0x918CA043, Data2: 0xF42C, Data3: 0x5805, Data4: ( 0x86,0x1B,0x62,0xD6,0xD1,0xD0,0xC1,0x62 ) // 918CA043-F42C-5805-861B-62D6D1D0C162
     ) 
 
-    public class IXamlControlsResources: WindowsFoundation.IInspectable {
+    public class IXamlControlsResources: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIXamlControlsResources }
 
         public func get_UseCompactResources() throws -> Bool {
@@ -76750,7 +76945,7 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Data1: 0xCB49196C, Data2: 0x1458, Data3: 0x5E92, Data4: ( 0xB7,0x01,0xD0,0x8D,0x3E,0x81,0x6B,0xC5 ) // CB49196C-1458-5E92-B701-D08D3E816BC5
     ) 
 
-    public class IXamlControlsResourcesStatics: WindowsFoundation.IInspectable {
+    public class IXamlControlsResourcesStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIXamlControlsResourcesStatics }
 
         public func EnsureRevealLights(_ element: WinUI.UIElement?) throws {

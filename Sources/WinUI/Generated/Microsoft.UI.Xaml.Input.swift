@@ -374,7 +374,7 @@ extension WinUI.XYFocusNavigationStrategyOverride: @retroactive Hashable, @retro
 
 // MARK: - DoubleTappedEventHandler
 
-public typealias DoubleTappedEventHandler = (Any?, DoubleTappedRoutedEventArgs?) throws -> ()
+public typealias DoubleTappedEventHandler = @Sendable (Any?, DoubleTappedRoutedEventArgs?) throws -> ()
 
 // MARK: - DoubleTappedEventHandler Internals
 
@@ -401,7 +401,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xF7A501B9, Data2: 0xE277, Data3: 0x5611, Data4: ( 0x87,0xB0,0x0E,0x06,0x07,0x62,0x21,0x83 ) // F7A501B9-E277-5611-87B0-0E0607622183
     ) 
 
-    public class DoubleTappedEventHandler: WindowsFoundation.IUnknown {
+    public class DoubleTappedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.DoubleTappedRoutedEventArgs?) throws {
@@ -416,7 +416,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias DoubleTappedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.DoubleTappedEventHandlerBridge>
-    internal static var DoubleTappedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var DoubleTappedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedEventHandlerVtbl = .init(
         QueryInterface: { DoubleTappedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { DoubleTappedEventHandlerWrapper.addRef($0) },
         Release: { DoubleTappedEventHandlerWrapper.release($0) },
@@ -440,7 +440,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - HoldingEventHandler
 
-public typealias HoldingEventHandler = (Any?, HoldingRoutedEventArgs?) throws -> ()
+public typealias HoldingEventHandler = @Sendable (Any?, HoldingRoutedEventArgs?) throws -> ()
 
 // MARK: - HoldingEventHandler Internals
 
@@ -467,7 +467,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xFE23C5BD, Data2: 0x4984, Data3: 0x56B6, Data4: ( 0xB9,0x2B,0xFC,0x9D,0x12,0x16,0xB2,0x4E ) // FE23C5BD-4984-56B6-B92B-FC9D1216B24E
     ) 
 
-    public class HoldingEventHandler: WindowsFoundation.IUnknown {
+    public class HoldingEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.HoldingRoutedEventArgs?) throws {
@@ -482,7 +482,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias HoldingEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.HoldingEventHandlerBridge>
-    internal static var HoldingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var HoldingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingEventHandlerVtbl = .init(
         QueryInterface: { HoldingEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { HoldingEventHandlerWrapper.addRef($0) },
         Release: { HoldingEventHandlerWrapper.release($0) },
@@ -506,7 +506,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - KeyEventHandler
 
-public typealias KeyEventHandler = (Any?, KeyRoutedEventArgs?) throws -> ()
+public typealias KeyEventHandler = @Sendable (Any?, KeyRoutedEventArgs?) throws -> ()
 
 // MARK: - KeyEventHandler Internals
 
@@ -533,7 +533,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xDB68E7CC, Data2: 0x9A2B, Data3: 0x527D, Data4: ( 0x99,0x89,0x25,0x28,0x4D,0xAC,0xCC,0x03 ) // DB68E7CC-9A2B-527D-9989-25284DACCC03
     ) 
 
-    public class KeyEventHandler: WindowsFoundation.IUnknown {
+    public class KeyEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.KeyRoutedEventArgs?) throws {
@@ -548,7 +548,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias KeyEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.KeyEventHandlerBridge>
-    internal static var KeyEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var KeyEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyEventHandlerVtbl = .init(
         QueryInterface: { KeyEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { KeyEventHandlerWrapper.addRef($0) },
         Release: { KeyEventHandlerWrapper.release($0) },
@@ -572,7 +572,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationCompletedEventHandler
 
-public typealias ManipulationCompletedEventHandler = (Any?, ManipulationCompletedRoutedEventArgs?) throws -> ()
+public typealias ManipulationCompletedEventHandler = @Sendable (Any?, ManipulationCompletedRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationCompletedEventHandler Internals
 
@@ -599,7 +599,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xD51DF8DB, Data2: 0x71CD, Data3: 0x5BFD, Data4: ( 0x84,0x26,0x76,0x72,0x18,0xEE,0x55,0xEC ) // D51DF8DB-71CD-5BFD-8426-767218EE55EC
     ) 
 
-    public class ManipulationCompletedEventHandler: WindowsFoundation.IUnknown {
+    public class ManipulationCompletedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationCompletedRoutedEventArgs?) throws {
@@ -614,7 +614,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias ManipulationCompletedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.ManipulationCompletedEventHandlerBridge>
-    internal static var ManipulationCompletedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ManipulationCompletedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedEventHandlerVtbl = .init(
         QueryInterface: { ManipulationCompletedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ManipulationCompletedEventHandlerWrapper.addRef($0) },
         Release: { ManipulationCompletedEventHandlerWrapper.release($0) },
@@ -638,7 +638,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationDeltaEventHandler
 
-public typealias ManipulationDeltaEventHandler = (Any?, ManipulationDeltaRoutedEventArgs?) throws -> ()
+public typealias ManipulationDeltaEventHandler = @Sendable (Any?, ManipulationDeltaRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationDeltaEventHandler Internals
 
@@ -665,7 +665,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x83F2D4CE, Data2: 0x105F, Data3: 0x5392, Data4: ( 0xA3,0x8A,0xB7,0x46,0x7B,0x7C,0x2E,0xA5 ) // 83F2D4CE-105F-5392-A38A-B7467B7C2EA5
     ) 
 
-    public class ManipulationDeltaEventHandler: WindowsFoundation.IUnknown {
+    public class ManipulationDeltaEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationDeltaRoutedEventArgs?) throws {
@@ -680,7 +680,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias ManipulationDeltaEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.ManipulationDeltaEventHandlerBridge>
-    internal static var ManipulationDeltaEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ManipulationDeltaEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaEventHandlerVtbl = .init(
         QueryInterface: { ManipulationDeltaEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ManipulationDeltaEventHandlerWrapper.addRef($0) },
         Release: { ManipulationDeltaEventHandlerWrapper.release($0) },
@@ -704,7 +704,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationInertiaStartingEventHandler
 
-public typealias ManipulationInertiaStartingEventHandler = (Any?, ManipulationInertiaStartingRoutedEventArgs?) throws -> ()
+public typealias ManipulationInertiaStartingEventHandler = @Sendable (Any?, ManipulationInertiaStartingRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationInertiaStartingEventHandler Internals
 
@@ -731,7 +731,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x5DE296BD, Data2: 0x6F1C, Data3: 0x5F60, Data4: ( 0x91,0x80,0x10,0x70,0x52,0x82,0x57,0x6C ) // 5DE296BD-6F1C-5F60-9180-10705282576C
     ) 
 
-    public class ManipulationInertiaStartingEventHandler: WindowsFoundation.IUnknown {
+    public class ManipulationInertiaStartingEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationInertiaStartingRoutedEventArgs?) throws {
@@ -746,7 +746,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias ManipulationInertiaStartingEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.ManipulationInertiaStartingEventHandlerBridge>
-    internal static var ManipulationInertiaStartingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ManipulationInertiaStartingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingEventHandlerVtbl = .init(
         QueryInterface: { ManipulationInertiaStartingEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ManipulationInertiaStartingEventHandlerWrapper.addRef($0) },
         Release: { ManipulationInertiaStartingEventHandlerWrapper.release($0) },
@@ -770,7 +770,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationStartedEventHandler
 
-public typealias ManipulationStartedEventHandler = (Any?, ManipulationStartedRoutedEventArgs?) throws -> ()
+public typealias ManipulationStartedEventHandler = @Sendable (Any?, ManipulationStartedRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationStartedEventHandler Internals
 
@@ -797,7 +797,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x41060669, Data2: 0x304C, Data3: 0x53AC, Data4: ( 0x9D,0x43,0xBC,0x31,0x12,0x35,0xAA,0xE4 ) // 41060669-304C-53AC-9D43-BC311235AAE4
     ) 
 
-    public class ManipulationStartedEventHandler: WindowsFoundation.IUnknown {
+    public class ManipulationStartedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationStartedRoutedEventArgs?) throws {
@@ -812,7 +812,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias ManipulationStartedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedEventHandlerBridge>
-    internal static var ManipulationStartedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ManipulationStartedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedEventHandlerVtbl = .init(
         QueryInterface: { ManipulationStartedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ManipulationStartedEventHandlerWrapper.addRef($0) },
         Release: { ManipulationStartedEventHandlerWrapper.release($0) },
@@ -836,7 +836,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationStartingEventHandler
 
-public typealias ManipulationStartingEventHandler = (Any?, ManipulationStartingRoutedEventArgs?) throws -> ()
+public typealias ManipulationStartingEventHandler = @Sendable (Any?, ManipulationStartingRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationStartingEventHandler Internals
 
@@ -863,7 +863,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x44F528F1, Data2: 0xF0E4, Data3: 0x505C, Data4: ( 0xA0,0xBB,0x0C,0x48,0x39,0xB2,0x9D,0xF5 ) // 44F528F1-F0E4-505C-A0BB-0C4839B29DF5
     ) 
 
-    public class ManipulationStartingEventHandler: WindowsFoundation.IUnknown {
+    public class ManipulationStartingEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.ManipulationStartingRoutedEventArgs?) throws {
@@ -878,7 +878,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias ManipulationStartingEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.ManipulationStartingEventHandlerBridge>
-    internal static var ManipulationStartingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var ManipulationStartingEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingEventHandlerVtbl = .init(
         QueryInterface: { ManipulationStartingEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { ManipulationStartingEventHandlerWrapper.addRef($0) },
         Release: { ManipulationStartingEventHandlerWrapper.release($0) },
@@ -902,7 +902,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - PointerEventHandler
 
-public typealias PointerEventHandler = (Any?, PointerRoutedEventArgs?) throws -> ()
+public typealias PointerEventHandler = @Sendable (Any?, PointerRoutedEventArgs?) throws -> ()
 
 // MARK: - PointerEventHandler Internals
 
@@ -929,7 +929,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xA48A71E1, Data2: 0x8BB4, Data3: 0x5597, Data4: ( 0x9E,0x31,0x90,0x3A,0x3F,0x6A,0x04,0xFB ) // A48A71E1-8BB4-5597-9E31-903A3F6A04FB
     ) 
 
-    public class PointerEventHandler: WindowsFoundation.IUnknown {
+    public class PointerEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.PointerRoutedEventArgs?) throws {
@@ -944,7 +944,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias PointerEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.PointerEventHandlerBridge>
-    internal static var PointerEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var PointerEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerEventHandlerVtbl = .init(
         QueryInterface: { PointerEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { PointerEventHandlerWrapper.addRef($0) },
         Release: { PointerEventHandlerWrapper.release($0) },
@@ -968,7 +968,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - RightTappedEventHandler
 
-public typealias RightTappedEventHandler = (Any?, RightTappedRoutedEventArgs?) throws -> ()
+public typealias RightTappedEventHandler = @Sendable (Any?, RightTappedRoutedEventArgs?) throws -> ()
 
 // MARK: - RightTappedEventHandler Internals
 
@@ -995,7 +995,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x5070E32F, Data2: 0x3DC7, Data3: 0x56CF, Data4: ( 0x8F,0xDD,0xDE,0x1B,0x40,0xD0,0xB4,0x72 ) // 5070E32F-3DC7-56CF-8FDD-DE1B40D0B472
     ) 
 
-    public class RightTappedEventHandler: WindowsFoundation.IUnknown {
+    public class RightTappedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.RightTappedRoutedEventArgs?) throws {
@@ -1010,7 +1010,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias RightTappedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.RightTappedEventHandlerBridge>
-    internal static var RightTappedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var RightTappedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedEventHandlerVtbl = .init(
         QueryInterface: { RightTappedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { RightTappedEventHandlerWrapper.addRef($0) },
         Release: { RightTappedEventHandlerWrapper.release($0) },
@@ -1034,7 +1034,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - TappedEventHandler
 
-public typealias TappedEventHandler = (Any?, TappedRoutedEventArgs?) throws -> ()
+public typealias TappedEventHandler = @Sendable (Any?, TappedRoutedEventArgs?) throws -> ()
 
 // MARK: - TappedEventHandler Internals
 
@@ -1061,7 +1061,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xB60074F3, Data2: 0x125B, Data3: 0x534E, Data4: ( 0x8F,0x9C,0x97,0x69,0xBD,0x3F,0x0F,0x64 ) // B60074F3-125B-534E-8F9C-9769BD3F0F64
     ) 
 
-    public class TappedEventHandler: WindowsFoundation.IUnknown {
+    public class TappedEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.TappedRoutedEventArgs?) throws {
@@ -1076,7 +1076,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
 
     typealias TappedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Input.TappedEventHandlerBridge>
-    internal static var TappedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var TappedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedEventHandlerVtbl = .init(
         QueryInterface: { TappedEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { TappedEventHandlerWrapper.addRef($0) },
         Release: { TappedEventHandlerWrapper.release($0) },
@@ -1141,7 +1141,7 @@ extension __IMPL_Microsoft_UI_Xaml_Input {
         }
     }
 
-    fileprivate class ICommandImpl: ICommand, WinRTAbiImpl {
+    fileprivate class ICommandImpl: ICommand, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICommandBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1181,7 +1181,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xE5AF3542, Data2: 0xCA67, Data3: 0x4081, Data4: ( 0x99,0x5B,0x70,0x9D,0xD1,0x37,0x92,0xDF ) // E5AF3542-CA67-4081-995B-709DD13792DF
     ) 
 
-    public class ICommand: WindowsFoundation.IInspectable {
+    public class ICommand: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CICommand }
 
         open func add_CanExecuteChanged(_ handler: EventHandler<Any?>?) throws -> EventRegistrationToken {
@@ -1220,7 +1220,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
     }
 
-    internal static var ICommandVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICommandVtbl = .init(
+    internal static nonisolated(unsafe) var ICommandVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICommandVtbl = .init(
         QueryInterface: { ICommandWrapper.queryInterface($0, $1, $2) },
         AddRef: { ICommandWrapper.addRef($0) },
         Release: { ICommandWrapper.release($0) },
@@ -1296,7 +1296,7 @@ public class ICommandMaker: MakeFromAbi {
 // MARK: - AccessKeyDisplayDismissedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.accesskeydisplaydismissedeventargs)
-public final class AccessKeyDisplayDismissedEventArgs : WinRTClass {
+public final class AccessKeyDisplayDismissedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IAccessKeyDisplayDismissedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayDismissedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1350,7 +1350,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x125A83D8, Data2: 0x7F86, Data3: 0x5EA9, Data4: ( 0x90,0x63,0xB9,0x40,0x7E,0x64,0x45,0x87 ) // 125A83D8-7F86-5EA9-9063-B9407E644587
     ) 
 
-    public class IAccessKeyDisplayDismissedEventArgs: WindowsFoundation.IInspectable {
+    public class IAccessKeyDisplayDismissedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayDismissedEventArgs }
 
     }
@@ -1359,7 +1359,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - AccessKeyDisplayRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.accesskeydisplayrequestedeventargs)
-public final class AccessKeyDisplayRequestedEventArgs : WinRTClass {
+public final class AccessKeyDisplayRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IAccessKeyDisplayRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1418,15 +1418,17 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xC4ED84D8, Data2: 0x2B27, Data3: 0x59B1, Data4: ( 0x9C,0xF0,0x7F,0x91,0x64,0xDE,0x58,0xCB ) // C4ED84D8-2B27-59B1-9CF0-7F9164DE58CB
     ) 
 
-    public class IAccessKeyDisplayRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IAccessKeyDisplayRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs }
 
         public func get_PressedKeys() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_PressedKeys(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1436,7 +1438,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - AccessKeyInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.accesskeyinvokedeventargs)
-public final class AccessKeyInvokedEventArgs : WinRTClass {
+public final class AccessKeyInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IAccessKeyInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1496,7 +1498,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xD00C11A4, Data2: 0xF9FB, Data3: 0x5707, Data4: ( 0x96,0x92,0x98,0xB8,0x0B,0xB8,0x54,0x6D ) // D00C11A4-F9FB-5707-9692-98B80BB8546D
     ) 
 
-    public class IAccessKeyInvokedEventArgs: WindowsFoundation.IInspectable {
+    public class IAccessKeyInvokedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -1519,7 +1521,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - CharacterReceivedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.characterreceivedroutedeventargs)
-public final class CharacterReceivedRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class CharacterReceivedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.ICharacterReceivedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1584,7 +1586,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xE26CA5BB, Data2: 0x34C3, Data3: 0x5C1E, Data4: ( 0x9A,0x16,0x00,0xB8,0x0B,0x07,0xA8,0x99 ) // E26CA5BB-34C3-5C1E-9A16-00B80B07A899
     ) 
 
-    public class ICharacterReceivedRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class ICharacterReceivedRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs }
 
         public func get_Character() throws -> Character {
@@ -1623,7 +1625,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ContextRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.contextrequestedeventargs)
-public final class ContextRequestedEventArgs : WinUI.RoutedEventArgs {
+public final class ContextRequestedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IContextRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1688,7 +1690,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xBCEDCB98, Data2: 0x77B5, Data3: 0x53C0, Data4: ( 0x80,0x2E,0xFD,0x52,0xF3,0x80,0x6E,0x51 ) // BCEDCB98-77B5-53C0-802E-FD52F3806E51
     ) 
 
-    public class IContextRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IContextRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -1721,7 +1723,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - DoubleTappedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.doubletappedroutedeventargs)
-public final class DoubleTappedRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class DoubleTappedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IDoubleTappedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1791,7 +1793,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x32B9549D, Data2: 0x11D8, Data3: 0x53A5, Data4: ( 0xA9,0x53,0x02,0x40,0x95,0x37,0xA1,0x1F ) // 32B9549D-11D8-53A5-A953-02409537A11F
     ) 
 
-    public class IDoubleTappedRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IDoubleTappedRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs }
 
         public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
@@ -1830,7 +1832,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FindNextElementOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions)
-public final class FindNextElementOptions : WinRTClass {
+public final class FindNextElementOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFindNextElementOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1908,7 +1910,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x7F88E76B, Data2: 0x7417, Data3: 0x5447, Data4: ( 0xAE,0xD4,0x2F,0xAB,0xD2,0x91,0xBD,0xC6 ) // 7F88E76B-7417-5447-AED4-2FABD291BDC6
     ) 
 
-    public class IFindNextElementOptions: WindowsFoundation.IInspectable {
+    public class IFindNextElementOptions: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions }
 
         public func get_SearchRoot() throws -> WinUI.DependencyObject? {
@@ -1974,7 +1976,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FocusManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager)
-public final class FocusManager : WinRTClass {
+public final class FocusManager : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFocusManager
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2058,7 +2060,7 @@ public final class FocusManager : WinRTClass {
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.gettingfocus)
-    public static var gettingFocus : Event<EventHandler<GettingFocusEventArgs?>> = {
+    public static nonisolated(unsafe) var gettingFocus : Event<EventHandler<GettingFocusEventArgs?>> = {
       .init(
         add: { try! _IFocusManagerStatics.add_GettingFocus($0) },
         remove: { try? _IFocusManagerStatics.remove_GettingFocus($0) }
@@ -2066,7 +2068,7 @@ public final class FocusManager : WinRTClass {
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.gotfocus)
-    public static var gotFocus : Event<EventHandler<FocusManagerGotFocusEventArgs?>> = {
+    public static nonisolated(unsafe) var gotFocus : Event<EventHandler<FocusManagerGotFocusEventArgs?>> = {
       .init(
         add: { try! _IFocusManagerStatics.add_GotFocus($0) },
         remove: { try? _IFocusManagerStatics.remove_GotFocus($0) }
@@ -2074,7 +2076,7 @@ public final class FocusManager : WinRTClass {
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.losingfocus)
-    public static var losingFocus : Event<EventHandler<LosingFocusEventArgs?>> = {
+    public static nonisolated(unsafe) var losingFocus : Event<EventHandler<LosingFocusEventArgs?>> = {
       .init(
         add: { try! _IFocusManagerStatics.add_LosingFocus($0) },
         remove: { try? _IFocusManagerStatics.remove_LosingFocus($0) }
@@ -2082,7 +2084,7 @@ public final class FocusManager : WinRTClass {
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.lostfocus)
-    public static var lostFocus : Event<EventHandler<FocusManagerLostFocusEventArgs?>> = {
+    public static nonisolated(unsafe) var lostFocus : Event<EventHandler<FocusManagerLostFocusEventArgs?>> = {
       .init(
         add: { try! _IFocusManagerStatics.add_LostFocus($0) },
         remove: { try? _IFocusManagerStatics.remove_LostFocus($0) }
@@ -2121,7 +2123,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x9FD07BC5, Data2: 0xD2D4, Data3: 0x53FE, Data4: ( 0xA3,0x1A,0x84,0x6D,0xE8,0xB7,0xA2,0x57 ) // 9FD07BC5-D2D4-53FE-A31A-846DE8B7A257
     ) 
 
-    public class IFocusManager: WindowsFoundation.IInspectable {
+    public class IFocusManager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManager }
 
     }
@@ -2130,7 +2132,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xE73DCE04, Data2: 0xE23A, Data3: 0x5FB3, Data4: ( 0x96,0xAB,0x7D,0xF0,0x4C,0x51,0xDF,0xF2 ) // E73DCE04-E23A-5FB3-96AB-7DF04C51DFF2
     ) 
 
-    public class IFocusManagerStatics: WindowsFoundation.IInspectable {
+    public class IFocusManagerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerStatics }
 
         public func add_GotFocus(_ handler: EventHandler<WinUI.FocusManagerGotFocusEventArgs?>?) throws -> EventRegistrationToken {
@@ -2318,7 +2320,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FocusManagerGotFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanagergotfocuseventargs)
-public final class FocusManagerGotFocusEventArgs : WinRTClass {
+public final class FocusManagerGotFocusEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFocusManagerGotFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2377,7 +2379,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x50ACA341, Data2: 0x4519, Data3: 0x59CF, Data4: ( 0x83,0xB1,0xC9,0xC4,0x5C,0xFD,0xB8,0x16 ) // 50ACA341-4519-59CF-83B1-C9C45CFDB816
     ) 
 
-    public class IFocusManagerGotFocusEventArgs: WindowsFoundation.IInspectable {
+    public class IFocusManagerGotFocusEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs }
 
         public func get_NewFocusedElement() throws -> WinUI.DependencyObject? {
@@ -2403,7 +2405,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FocusManagerLostFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanagerlostfocuseventargs)
-public final class FocusManagerLostFocusEventArgs : WinRTClass {
+public final class FocusManagerLostFocusEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFocusManagerLostFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2462,7 +2464,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xFDAF2C3F, Data2: 0xA22E, Data3: 0x5902, Data4: ( 0xAB,0xCE,0xB6,0x07,0x58,0xFB,0xED,0x1E ) // FDAF2C3F-A22E-5902-ABCE-B60758FBED1E
     ) 
 
-    public class IFocusManagerLostFocusEventArgs: WindowsFoundation.IInspectable {
+    public class IFocusManagerLostFocusEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs }
 
         public func get_OldFocusedElement() throws -> WinUI.DependencyObject? {
@@ -2488,7 +2490,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FocusMovementResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmovementresult)
-public final class FocusMovementResult : WinRTClass {
+public final class FocusMovementResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFocusMovementResult
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusMovementResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2542,7 +2544,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xA46259FD, Data2: 0x3EDD, Data3: 0x554B, Data4: ( 0xA1,0x88,0x0A,0x47,0xB7,0x1E,0x4E,0x1A ) // A46259FD-3EDD-554B-A188-0A47B71E4E1A
     ) 
 
-    public class IFocusMovementResult: WindowsFoundation.IInspectable {
+    public class IFocusMovementResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusMovementResult }
 
         public func get_Succeeded() throws -> Bool {
@@ -2559,7 +2561,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - GettingFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs)
-public final class GettingFocusEventArgs : WinUI.RoutedEventArgs {
+public final class GettingFocusEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IGettingFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2661,7 +2663,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x37FD3AF0, Data2: 0xBD3C, Data3: 0x5BF5, Data4: ( 0xA9,0xCD,0x71,0xA1,0xE8,0x7A,0xF9,0x50 ) // 37FD3AF0-BD3C-5BF5-A9CD-71A1E87AF950
     ) 
 
-    public class IGettingFocusEventArgs: WindowsFoundation.IInspectable {
+    public class IGettingFocusEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs }
 
         public func get_OldFocusedElement() throws -> WinUI.DependencyObject? {
@@ -2770,7 +2772,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - HoldingRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.holdingroutedeventargs)
-public final class HoldingRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class HoldingRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IHoldingRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2845,7 +2847,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x8272A4B2, Data2: 0x2221, Data3: 0x551E, Data4: ( 0xB0,0xBB,0x16,0xE2,0x91,0x38,0xAB,0x20 ) // 8272A4B2-2221-551E-B0BB-16E29138AB20
     ) 
 
-    public class IHoldingRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IHoldingRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs }
 
         public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
@@ -2892,7 +2894,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InertiaExpansionBehavior
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiaexpansionbehavior)
-public final class InertiaExpansionBehavior : WinRTClass {
+public final class InertiaExpansionBehavior : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInertiaExpansionBehavior
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2953,7 +2955,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xD60029B7, Data2: 0xF0CD, Data3: 0x5AEA, Data4: ( 0xAB,0xE5,0x74,0x10,0xD0,0x91,0x18,0xC6 ) // D60029B7-F0CD-5AEA-ABE5-7410D09118C6
     ) 
 
-    public class IInertiaExpansionBehavior: WindowsFoundation.IInspectable {
+    public class IInertiaExpansionBehavior: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior }
 
         public func get_DesiredDeceleration() throws -> Double {
@@ -2990,7 +2992,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InertiaRotationBehavior
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiarotationbehavior)
-public final class InertiaRotationBehavior : WinRTClass {
+public final class InertiaRotationBehavior : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInertiaRotationBehavior
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3051,7 +3053,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x27B4BD03, Data2: 0x9149, Data3: 0x5691, Data4: ( 0xBC,0xE5,0xFA,0x33,0xB3,0x2C,0x4A,0x81 ) // 27B4BD03-9149-5691-BCE5-FA33B32C4A81
     ) 
 
-    public class IInertiaRotationBehavior: WindowsFoundation.IInspectable {
+    public class IInertiaRotationBehavior: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior }
 
         public func get_DesiredDeceleration() throws -> Double {
@@ -3088,7 +3090,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InertiaTranslationBehavior
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiatranslationbehavior)
-public final class InertiaTranslationBehavior : WinRTClass {
+public final class InertiaTranslationBehavior : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInertiaTranslationBehavior
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3149,7 +3151,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xD4F91CF5, Data2: 0x3317, Data3: 0x5914, Data4: ( 0xB2,0x5A,0xEA,0x6E,0xE5,0x5B,0x96,0xD0 ) // D4F91CF5-3317-5914-B25A-EA6EE55B96D0
     ) 
 
-    public class IInertiaTranslationBehavior: WindowsFoundation.IInspectable {
+    public class IInertiaTranslationBehavior: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior }
 
         public func get_DesiredDeceleration() throws -> Double {
@@ -3186,7 +3188,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InputScope
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inputscope)
-public final class InputScope : WinUI.DependencyObject {
+public final class InputScope : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInputScope
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScope
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3245,7 +3247,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x76EA58B1, Data2: 0xE910, Data3: 0x5176, Data4: ( 0x91,0x47,0x69,0x5C,0xC9,0x5E,0x7D,0xA2 ) // 76EA58B1-E910-5176-9147-695CC95E7DA2
     ) 
 
-    public class IInputScope: WindowsFoundation.IInspectable {
+    public class IInputScope: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScope }
 
         public func get_Names() throws -> WindowsFoundation.AnyIVector<WinUI.InputScopeName?>? {
@@ -3263,7 +3265,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InputScopeName
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inputscopename)
-public final class InputScopeName : WinUI.DependencyObject {
+public final class InputScopeName : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInputScopeName
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3328,7 +3330,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xEE99A66D, Data2: 0x28D0, Data3: 0x53CB, Data4: ( 0x82,0xEE,0x1B,0x6E,0xE5,0x8B,0xCC,0x35 ) // EE99A66D-28D0-53CB-82EE-1B6EE58BCC35
     ) 
 
-    public class IInputScopeName: WindowsFoundation.IInspectable {
+    public class IInputScopeName: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName }
 
         public func get_NameValue() throws -> WinUI.InputScopeNameValue {
@@ -3351,7 +3353,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xFEEC2EFD, Data2: 0xBC09, Data3: 0x5CD6, Data4: ( 0x9B,0x47,0x6D,0x35,0xD1,0xD8,0x7C,0x61 ) // FEEC2EFD-BC09-5CD6-9B47-6D35D1D87C61
     ) 
 
-    public class IInputScopeNameFactory: WindowsFoundation.IInspectable {
+    public class IInputScopeNameFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeNameFactory }
 
         public func CreateInstance(_ nameValue: WinUI.InputScopeNameValue) throws -> IInputScopeName {
@@ -3369,7 +3371,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - KeyRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs)
-public final class KeyRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class KeyRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IKeyRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3444,7 +3446,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xEE357007, Data2: 0xA2D6, Data3: 0x5C75, Data4: ( 0x94,0x31,0x05,0xFD,0x66,0xEC,0x79,0x15 ) // EE357007-A2D6-5C75-9431-05FD66EC7915
     ) 
 
-    public class IKeyRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IKeyRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs }
 
         public func get_Key() throws -> UWP.VirtualKey {
@@ -3487,10 +3489,12 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 
         public func get_DeviceId() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_DeviceId(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -3500,7 +3504,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - KeyboardAccelerator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator)
-open class KeyboardAccelerator : WinUI.DependencyObject {
+open class KeyboardAccelerator : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IKeyboardAccelerator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3527,7 +3531,7 @@ open class KeyboardAccelerator : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IKeyboardAcceleratorFactory : __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.KeyboardAccelerator")
+    private static nonisolated(unsafe) var _IKeyboardAcceleratorFactory : __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.KeyboardAccelerator")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Input.KeyboardAcceleratorBridge.Composable.self) { baseInterface, innerInterface in 
@@ -3637,7 +3641,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x6F8BF1E2, Data2: 0x4E91, Data3: 0x5CF9, Data4: ( 0xA6,0xBE,0x47,0x70,0xCA,0xF3,0xD7,0x70 ) // 6F8BF1E2-4E91-5CF9-A6BE-4770CAF3D770
     ) 
 
-    public class IKeyboardAccelerator: WindowsFoundation.IInspectable {
+    public class IKeyboardAccelerator: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator }
 
         public func get_Key() throws -> UWP.VirtualKey {
@@ -3719,7 +3723,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xCA1D410A, Data2: 0xAF2A, Data3: 0x51B9, Data4: ( 0xA1,0xDE,0x6C,0x0A,0xF9,0xF3,0xB5,0x98 ) // CA1D410A-AF2A-51B9-A1DE-6C0AF9F3B598
     ) 
 
-    public class IKeyboardAcceleratorFactory: WindowsFoundation.IInspectable {
+    public class IKeyboardAcceleratorFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Input.KeyboardAcceleratorBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IKeyboardAccelerator {
@@ -3741,7 +3745,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x73E674CA, Data2: 0x73F4, Data3: 0x5E77, Data4: ( 0xB8,0xD6,0xFF,0x78,0x52,0xA6,0x3B,0x0B ) // 73E674CA-73F4-5E77-B8D6-FF7852A63B0B
     ) 
 
-    public class IKeyboardAcceleratorStatics: WindowsFoundation.IInspectable {
+    public class IKeyboardAcceleratorStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorStatics }
 
         public func get_KeyProperty() throws -> WinUI.DependencyProperty? {
@@ -3786,7 +3790,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - KeyboardAcceleratorInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardacceleratorinvokedeventargs)
-public final class KeyboardAcceleratorInvokedEventArgs : WinRTClass {
+public final class KeyboardAcceleratorInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3851,7 +3855,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x62C9FDB0, Data2: 0xB574, Data3: 0x527D, Data4: ( 0x97,0xEB,0x5C,0x7F,0x67,0x44,0x41,0xE0 ) // 62C9FDB0-B574-527D-97EB-5C7F674441E0
     ) 
 
-    public class IKeyboardAcceleratorInvokedEventArgs: WindowsFoundation.IInspectable {
+    public class IKeyboardAcceleratorInvokedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs }
 
         public func get_Handled() throws -> Bool {
@@ -3892,7 +3896,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - LosingFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs)
-public final class LosingFocusEventArgs : WinUI.RoutedEventArgs {
+public final class LosingFocusEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.ILosingFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3994,7 +3998,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xFA0E5FFA, Data2: 0x2B1B, Data3: 0x52F8, Data4: ( 0xBB,0x66,0xE3,0x5F,0x51,0xE7,0x3C,0xF3 ) // FA0E5FFA-2B1B-52F8-BB66-E35F51E73CF3
     ) 
 
-    public class ILosingFocusEventArgs: WindowsFoundation.IInspectable {
+    public class ILosingFocusEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs }
 
         public func get_OldFocusedElement() throws -> WinUI.DependencyObject? {
@@ -4103,7 +4107,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationCompletedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs)
-public final class ManipulationCompletedRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class ManipulationCompletedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationCompletedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4193,7 +4197,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xE3BE9E4E, Data2: 0xC5FB, Data3: 0x5859, Data4: ( 0xA8,0x1D,0xCE,0x12,0xFC,0x3A,0x2F,0x4D ) // E3BE9E4E-C5FB-5859-A81D-CE12FC3A2F4D
     ) 
 
-    public class IManipulationCompletedRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IManipulationCompletedRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs }
 
         public func get_Container() throws -> WinUI.UIElement? {
@@ -4265,7 +4269,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationDeltaRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs)
-public final class ManipulationDeltaRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class ManipulationDeltaRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationDeltaRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4365,7 +4369,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x51369745, Data2: 0x960F, Data3: 0x54AC, Data4: ( 0x93,0xFA,0x76,0x3D,0x22,0x91,0x0D,0xEA ) // 51369745-960F-54AC-93FA-763D22910DEA
     ) 
 
-    public class IManipulationDeltaRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IManipulationDeltaRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs }
 
         public func get_Container() throws -> WinUI.UIElement? {
@@ -4451,7 +4455,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationInertiaStartingRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs)
-public final class ManipulationInertiaStartingRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class ManipulationInertiaStartingRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationInertiaStartingRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4554,7 +4558,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x17D510BE, Data2: 0x5514, Data3: 0x5952, Data4: ( 0x9A,0xFD,0x95,0x9B,0x60,0xAB,0x93,0x94 ) // 17D510BE-5514-5952-9AFD-959B60AB9394
     ) 
 
-    public class IManipulationInertiaStartingRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IManipulationInertiaStartingRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs }
 
         public func get_Container() throws -> WinUI.UIElement? {
@@ -4663,7 +4667,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationPivot
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationpivot)
-public final class ManipulationPivot : WinRTClass {
+public final class ManipulationPivot : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationPivot
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4734,7 +4738,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x286BABA4, Data2: 0x313D, Data3: 0x507C, Data4: ( 0xAD,0xC5,0xF7,0x39,0x73,0x2C,0xEA,0x27 ) // 286BABA4-313D-507C-ADC5-F739732CEA27
     ) 
 
-    public class IManipulationPivot: WindowsFoundation.IInspectable {
+    public class IManipulationPivot: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot }
 
         public func get_Center() throws -> WindowsFoundation.Point {
@@ -4771,7 +4775,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x67143CCD, Data2: 0xEA6C, Data3: 0x5FE2, Data4: ( 0xBE,0xF2,0xAD,0xCB,0xD7,0xAF,0x52,0xFD ) // 67143CCD-EA6C-5FE2-BEF2-ADCBD7AF52FD
     ) 
 
-    public class IManipulationPivotFactory: WindowsFoundation.IInspectable {
+    public class IManipulationPivotFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivotFactory }
 
         public func CreateInstanceWithCenterAndRadius(_ center: WindowsFoundation.Point, _ radius: Double) throws -> IManipulationPivot {
@@ -4789,7 +4793,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationStartedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartedroutedeventargs)
-open class ManipulationStartedRoutedEventArgs : WinUI.RoutedEventArgs {
+open class ManipulationStartedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -4816,7 +4820,7 @@ open class ManipulationStartedRoutedEventArgs : WinUI.RoutedEventArgs {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IManipulationStartedRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationStartedRoutedEventArgs")
+    private static nonisolated(unsafe) var _IManipulationStartedRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationStartedRoutedEventArgs")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedRoutedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
@@ -4899,7 +4903,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x61857950, Data2: 0x5821, Data3: 0x5652, Data4: ( 0x9F,0xDF,0xC6,0x27,0x7C,0x58,0x86,0xF5 ) // 61857950-5821-5652-9FDF-C6277C5886F5
     ) 
 
-    public class IManipulationStartedRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IManipulationStartedRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs }
 
         public func get_Container() throws -> WinUI.UIElement? {
@@ -4961,7 +4965,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x5681B0DE, Data2: 0x3FA7, Data3: 0x503E, Data4: ( 0x9C,0x46,0xA8,0x03,0x39,0x76,0x02,0x92 ) // 5681B0DE-3FA7-503E-9C46-A80339760292
     ) 
 
-    public class IManipulationStartedRoutedEventArgsFactory: WindowsFoundation.IInspectable {
+    public class IManipulationStartedRoutedEventArgsFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgsFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedRoutedEventArgsBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IManipulationStartedRoutedEventArgs {
@@ -4983,7 +4987,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationStartingRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartingroutedeventargs)
-public final class ManipulationStartingRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class ManipulationStartingRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationStartingRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5061,7 +5065,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x93A99F86, Data2: 0xF5A0, Data3: 0x5326, Data4: ( 0x91,0xB0,0x85,0x1C,0x89,0x7A,0xF7,0x9F ) // 93A99F86-F5A0-5326-91B0-851C897AF79F
     ) 
 
-    public class IManipulationStartingRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IManipulationStartingRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs }
 
         public func get_Mode() throws -> WinUI.ManipulationModes {
@@ -5128,7 +5132,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - NoFocusCandidateFoundEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.nofocuscandidatefoundeventargs)
-public final class NoFocusCandidateFoundEventArgs : WinUI.RoutedEventArgs {
+public final class NoFocusCandidateFoundEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.INoFocusCandidateFoundEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5193,7 +5197,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0xA2D7153A, Data2: 0xCD2A, Data3: 0x59CB, Data4: ( 0xA5,0x74,0xAC,0x82,0xE3,0x0B,0x92,0x01 ) // A2D7153A-CD2A-59CB-A574-AC82E30B9201
     ) 
 
-    public class INoFocusCandidateFoundEventArgs: WindowsFoundation.IInspectable {
+    public class INoFocusCandidateFoundEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs }
 
         public func get_Direction() throws -> WinUI.FocusNavigationDirection {
@@ -5232,7 +5236,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - Pointer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointer)
-public final class Pointer : WinRTClass {
+public final class Pointer : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IPointer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5301,7 +5305,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x1F9AFBF5, Data2: 0x11A3, Data3: 0x5E68, Data4: ( 0xAA,0x1B,0x72,0xFE,0xBF,0xA0,0xAB,0x23 ) // 1F9AFBF5-11A3-5E68-AA1B-72FEBFA0AB23
     ) 
 
-    public class IPointer: WindowsFoundation.IInspectable {
+    public class IPointer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer }
 
         public func get_PointerId() throws -> UInt32 {
@@ -5342,7 +5346,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - PointerRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs)
-public final class PointerRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class PointerRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IPointerRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5422,7 +5426,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x66E78A9A, Data2: 0x1BEC, Data3: 0x5F92, Data4: ( 0xB1,0xA1,0xEA,0x63,0x34,0xEE,0x51,0x1C ) // 66E78A9A-1BEC-5F92-B1A1-EA6334EE511C
     ) 
 
-    public class IPointerRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IPointerRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs }
 
         public func get_Pointer() throws -> WinUI.Pointer? {
@@ -5488,7 +5492,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ProcessKeyboardAcceleratorEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.processkeyboardacceleratoreventargs)
-public final class ProcessKeyboardAcceleratorEventArgs : WinRTClass {
+public final class ProcessKeyboardAcceleratorEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IProcessKeyboardAcceleratorEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5553,7 +5557,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x9BE0D058, Data2: 0x3D26, Data3: 0x5811, Data4: ( 0xB5,0x0A,0x3B,0xB8,0x0C,0xA7,0x66,0xC9 ) // 9BE0D058-3D26-5811-B50A-3BB80CA766C9
     ) 
 
-    public class IProcessKeyboardAcceleratorEventArgs: WindowsFoundation.IInspectable {
+    public class IProcessKeyboardAcceleratorEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs }
 
         public func get_Key() throws -> UWP.VirtualKey {
@@ -5592,7 +5596,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - RightTappedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.righttappedroutedeventargs)
-public final class RightTappedRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class RightTappedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IRightTappedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5662,7 +5666,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x3972FAFB, Data2: 0x2915, Data3: 0x5C62, Data4: ( 0xBB,0x6B,0x54,0xAD,0x84,0xFF,0x40,0x0D ) // 3972FAFB-2915-5C62-BB6B-54AD84FF400D
     ) 
 
-    public class IRightTappedRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class IRightTappedRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs }
 
         public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {
@@ -5701,7 +5705,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - TappedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.tappedroutedeventargs)
-public final class TappedRoutedEventArgs : WinUI.RoutedEventArgs {
+public final class TappedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.ITappedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -5771,7 +5775,7 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Data1: 0x73F74B8C, Data2: 0x3709, Data3: 0x547E, Data4: ( 0x8E,0x0C,0x51,0xC0,0x3C,0x89,0x12,0x6A ) // 73F74B8C-3709-547E-8E0C-51C03C89126A
     ) 
 
-    public class ITappedRoutedEventArgs: WindowsFoundation.IInspectable {
+    public class ITappedRoutedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs }
 
         public func get_PointerDeviceType() throws -> WinAppSDK.PointerDeviceType {

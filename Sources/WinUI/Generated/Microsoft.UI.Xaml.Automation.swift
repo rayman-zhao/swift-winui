@@ -106,7 +106,7 @@ extension WinUI.AutomationTextEditChangeType: @retroactive Hashable, @retroactiv
 // MARK: - AutomationAnnotation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationannotation)
-public final class AutomationAnnotation : WinUI.DependencyObject {
+public final class AutomationAnnotation : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation.IAutomationAnnotation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -192,7 +192,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
         Data1: 0xC2CC46AD, Data2: 0x1414, Data3: 0x5F1B, Data4: ( 0x80,0x8A,0x89,0xE5,0xD5,0x3D,0x82,0xFE ) // C2CC46AD-1414-5F1B-808A-89E5D53D82FE
     ) 
 
-    public class IAutomationAnnotation: WindowsFoundation.IInspectable {
+    public class IAutomationAnnotation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation }
 
         public func get_Type() throws -> WinUI.AnnotationType {
@@ -230,7 +230,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
         Data1: 0x95F82773, Data2: 0xEAC5, Data3: 0x572E, Data4: ( 0x87,0xDE,0x24,0xD9,0x51,0x4B,0x9A,0x89 ) // 95F82773-EAC5-572E-87DE-24D9514B9A89
     ) 
 
-    public class IAutomationAnnotationFactory: WindowsFoundation.IInspectable {
+    public class IAutomationAnnotationFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationFactory }
 
         public func CreateInstance(_ type: WinUI.AnnotationType) throws -> IAutomationAnnotation {
@@ -257,7 +257,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
         Data1: 0xC5ABDC1E, Data2: 0xFC26, Data3: 0x5444, Data4: ( 0xA8,0xB3,0x59,0xB2,0xC0,0xA9,0x55,0x78 ) // C5ABDC1E-FC26-5444-A8B3-59B2C0A95578
     ) 
 
-    public class IAutomationAnnotationStatics: WindowsFoundation.IInspectable {
+    public class IAutomationAnnotationStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotationStatics }
 
         public func get_TypeProperty() throws -> WinUI.DependencyProperty? {
@@ -284,7 +284,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 // MARK: - AutomationProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationproperties)
-public final class AutomationProperties : WinRTClass {
+public final class AutomationProperties : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation.IAutomationProperties
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperties
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -745,7 +745,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
         Data1: 0x525C6A71, Data2: 0xDD8A, Data3: 0x52A0, Data4: ( 0x97,0x7B,0xDB,0x1B,0x02,0xF8,0xE8,0x96 ) // 525C6A71-DD8A-52A0-977B-DB1B02F8E896
     ) 
 
-    public class IAutomationProperties: WindowsFoundation.IInspectable {
+    public class IAutomationProperties: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperties }
 
     }
@@ -754,7 +754,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
         Data1: 0xB1E3E0F3, Data2: 0x112F, Data3: 0x5966, Data4: ( 0x87,0xDC,0x78,0x62,0xD4,0xAD,0x50,0xE5 ) // B1E3E0F3-112F-5966-87DC-7862D4AD50E5
     ) 
 
-    public class IAutomationPropertiesStatics: WindowsFoundation.IInspectable {
+    public class IAutomationPropertiesStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics }
 
         public func get_AcceleratorKeyProperty() throws -> WinUI.DependencyProperty? {
@@ -768,10 +768,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetAcceleratorKey(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAcceleratorKey(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -793,10 +795,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetAccessKey(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessKey(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -818,10 +822,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetAutomationId(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationId(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -843,10 +849,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetHelpText(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHelpText(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -891,10 +899,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetItemStatus(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemStatus(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -916,10 +926,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetItemType(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemType(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -965,10 +977,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetName(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetName(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -1164,10 +1178,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetLocalizedLandmarkType(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedLandmarkType(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -1235,10 +1251,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetFullDescription(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFullDescription(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -1260,10 +1278,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 
         public func GetLocalizedControlType(_ element: WinUI.DependencyObject?) throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedControlType(pThis, RawPointer(element), &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -1403,7 +1423,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
         Data1: 0xD933A3ED, Data2: 0xE90A, Data3: 0x5DF0, Data4: ( 0x85,0x3D,0xCA,0xD1,0x7A,0x0B,0x9E,0xC8 ) // D933A3ED-E90A-5DF0-853D-CAD17A0B9EC8
     ) 
 
-    public class IAutomationPropertiesStatics2: WindowsFoundation.IInspectable {
+    public class IAutomationPropertiesStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationPropertiesStatics2 }
 
         public func get_AutomationControlTypeProperty() throws -> WinUI.DependencyProperty? {
@@ -1435,7 +1455,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 // MARK: - AutomationProperty
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationproperty)
-public final class AutomationProperty : WinRTClass {
+public final class AutomationProperty : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation.IAutomationProperty
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1484,7 +1504,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
         Data1: 0x5CA6B2C8, Data2: 0xFF86, Data3: 0x5A41, Data4: ( 0xAA,0x18,0x69,0x48,0xFA,0xE5,0x92,0xCF ) // 5CA6B2C8-FF86-5A41-AA18-6948FAE592CF
     ) 
 
-    public class IAutomationProperty: WindowsFoundation.IInspectable {
+    public class IAutomationProperty: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty }
 
     }

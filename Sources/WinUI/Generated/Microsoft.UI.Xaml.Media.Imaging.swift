@@ -58,7 +58,7 @@ extension WinUI.SvgImageSourceLoadStatus: @retroactive Hashable, @retroactive Co
 
 // MARK: - DownloadProgressEventHandler
 
-public typealias DownloadProgressEventHandler = (Any?, DownloadProgressEventArgs?) throws -> ()
+public typealias DownloadProgressEventHandler = @Sendable (Any?, DownloadProgressEventArgs?) throws -> ()
 
 // MARK: - DownloadProgressEventHandler Internals
 
@@ -85,7 +85,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x9A8E4AF5, Data2: 0xB124, Data3: 0x5205, Data4: ( 0x8A,0xE9,0x34,0x96,0xE0,0x63,0xC5,0x69 ) // 9A8E4AF5-B124-5205-8AE9-3496E063C569
     ) 
 
-    public class DownloadProgressEventHandler: WindowsFoundation.IUnknown {
+    public class DownloadProgressEventHandler: WindowsFoundation.IUnknown, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventHandler }
 
         open func Invoke(_ sender: Any?, _ e: WinUI.DownloadProgressEventArgs?) throws {
@@ -100,7 +100,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 
 
     typealias DownloadProgressEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Media_Imaging.DownloadProgressEventHandlerBridge>
-    internal static var DownloadProgressEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventHandlerVtbl = .init(
+    internal static nonisolated(unsafe) var DownloadProgressEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventHandlerVtbl = .init(
         QueryInterface: { DownloadProgressEventHandlerWrapper.queryInterface($0, $1, $2) },
         AddRef: { DownloadProgressEventHandlerWrapper.addRef($0) },
         Release: { DownloadProgressEventHandlerWrapper.release($0) },
@@ -125,7 +125,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - BitmapImage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage)
-public final class BitmapImage : WinUI.BitmapSource {
+public final class BitmapImage : WinUI.BitmapSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImage
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -320,7 +320,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x5CC29916, Data2: 0xA411, Data3: 0x5BC2, Data4: ( 0xA3,0xC5,0xA0,0x0D,0x99,0xA5,0x9D,0xA8 ) // 5CC29916-A411-5BC2-A3C5-A00D99A59DA8
     ) 
 
-    public class IBitmapImage: WindowsFoundation.IInspectable {
+    public class IBitmapImage: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage }
 
         public func get_CreateOptions() throws -> WinUI.BitmapCreateOptions {
@@ -490,7 +490,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0xF037E0E9, Data2: 0xF229, Data3: 0x522E, Data4: ( 0x95,0xC9,0xDA,0x22,0x11,0xA1,0x4B,0x05 ) // F037E0E9-F229-522E-95C9-DA2211A14B05
     ) 
 
-    public class IBitmapImageFactory: WindowsFoundation.IInspectable {
+    public class IBitmapImageFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageFactory }
 
         public func CreateInstanceWithUriSource(_ uriSource: WindowsFoundation.Uri?) throws -> IBitmapImage {
@@ -508,7 +508,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x4BCF71A9, Data2: 0x1897, Data3: 0x51DC, Data4: ( 0x8E,0x3F,0x2C,0x5C,0x79,0x6D,0x1C,0xD9 ) // 4BCF71A9-1897-51DC-8E3F-2C5C796D1CD9
     ) 
 
-    public class IBitmapImageStatics: WindowsFoundation.IInspectable {
+    public class IBitmapImageStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImageStatics }
 
         public func get_CreateOptionsProperty() throws -> WinUI.DependencyProperty? {
@@ -589,7 +589,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - BitmapSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource)
-open class BitmapSource : WinUI.ImageSource {
+open class BitmapSource : WinUI.ImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -616,7 +616,7 @@ open class BitmapSource : WinUI.ImageSource {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IBitmapSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapSource")
+    private static nonisolated(unsafe) var _IBitmapSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapSource")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.BitmapSourceBridge.Composable.self) { baseInterface, innerInterface in 
@@ -699,7 +699,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x8424269D, Data2: 0x9B82, Data3: 0x534F, Data4: ( 0x8F,0xEA,0xAF,0x5B,0x5E,0xF9,0x6B,0xF2 ) // 8424269D-9B82-534F-8FEA-AF5B5EF96BF2
     ) 
 
-    public class IBitmapSource: WindowsFoundation.IInspectable {
+    public class IBitmapSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource }
 
         public func get_PixelWidth() throws -> Int32 {
@@ -743,7 +743,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x0392F025, Data2: 0x1868, Data3: 0x5876, Data4: ( 0xAD,0x67,0x12,0xE9,0x4A,0x8D,0xA5,0xBF ) // 0392F025-1868-5876-AD67-12E94A8DA5BF
     ) 
 
-    public class IBitmapSourceFactory: WindowsFoundation.IInspectable {
+    public class IBitmapSourceFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSourceFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.BitmapSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBitmapSource {
@@ -765,7 +765,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0xEFA3745E, Data2: 0x4400, Data3: 0x5F0B, Data4: ( 0xBD,0xC7,0x3F,0x29,0x11,0xA3,0xD7,0x19 ) // EFA3745E-4400-5F0B-BDC7-3F2911A3D719
     ) 
 
-    public class IBitmapSourceStatics: WindowsFoundation.IInspectable {
+    public class IBitmapSourceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSourceStatics }
 
         public func get_PixelWidthProperty() throws -> WinUI.DependencyProperty? {
@@ -792,7 +792,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - DownloadProgressEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.downloadprogresseventargs)
-public final class DownloadProgressEventArgs : WinRTClass {
+public final class DownloadProgressEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IDownloadProgressEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -847,7 +847,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x9A0EA80B, Data2: 0x1A17, Data3: 0x50D5, Data4: ( 0x83,0xF3,0x37,0x77,0x38,0x21,0x26,0x19 ) // 9A0EA80B-1A17-50D5-83F3-377738212619
     ) 
 
-    public class IDownloadProgressEventArgs: WindowsFoundation.IInspectable {
+    public class IDownloadProgressEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs }
 
         public func get_Progress() throws -> Int32 {
@@ -870,7 +870,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - RenderTargetBitmap
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap)
-public final class RenderTargetBitmap : WinUI.ImageSource {
+public final class RenderTargetBitmap : WinUI.ImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IRenderTargetBitmap
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -960,7 +960,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0xCF10407D, Data2: 0xFA8B, Data3: 0x57A3, Data4: ( 0x95,0x74,0x71,0x05,0x29,0xAE,0x0B,0x04 ) // CF10407D-FA8B-57A3-9574-710529AE0B04
     ) 
 
-    public class IRenderTargetBitmap: WindowsFoundation.IInspectable {
+    public class IRenderTargetBitmap: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap }
 
         public func get_PixelWidth() throws -> Int32 {
@@ -1012,7 +1012,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x83E822E4, Data2: 0x9F84, Data3: 0x5986, Data4: ( 0x93,0xB0,0xE4,0xF7,0x01,0x9C,0x36,0x7D ) // 83E822E4-9F84-5986-93B0-E4F7019C367D
     ) 
 
-    public class IRenderTargetBitmapStatics: WindowsFoundation.IInspectable {
+    public class IRenderTargetBitmapStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmapStatics }
 
         public func get_PixelWidthProperty() throws -> WinUI.DependencyProperty? {
@@ -1039,7 +1039,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SoftwareBitmapSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.softwarebitmapsource)
-public final class SoftwareBitmapSource : WinUI.ImageSource, WindowsFoundation.IClosable {
+public final class SoftwareBitmapSource : WinUI.ImageSource, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISoftwareBitmapSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISoftwareBitmapSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1108,7 +1108,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0xA6ACA802, Data2: 0x1F24, Data3: 0x5A1E, Data4: ( 0xBF,0x08,0x78,0x1A,0x85,0xED,0x55,0x11 ) // A6ACA802-1F24-5A1E-BF08-781A85ED5511
     ) 
 
-    public class ISoftwareBitmapSource: WindowsFoundation.IInspectable {
+    public class ISoftwareBitmapSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISoftwareBitmapSource }
 
         public func SetBitmapAsync(_ softwareBitmap: UWP.SoftwareBitmap?) throws -> WindowsFoundation.AnyIAsyncAction? {
@@ -1126,7 +1126,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SurfaceImageSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.surfaceimagesource)
-open class SurfaceImageSource : WinUI.ImageSource {
+open class SurfaceImageSource : WinUI.ImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1153,7 +1153,7 @@ open class SurfaceImageSource : WinUI.ImageSource {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISurfaceImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource")
+    private static nonisolated(unsafe) var _ISurfaceImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource")
 
     public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SurfaceImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
@@ -1211,7 +1211,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0xAC078D9C, Data2: 0xD0E0, Data3: 0x5FF9, Data4: ( 0xB7,0x3E,0x98,0xE8,0x2E,0x4C,0x8D,0x36 ) // AC078D9C-D0E0-5FF9-B73E-98E82E4C8D36
     ) 
 
-    public class ISurfaceImageSource: WindowsFoundation.IInspectable {
+    public class ISurfaceImageSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSource }
 
     }
@@ -1220,7 +1220,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x09A26ED2, Data2: 0x11B3, Data3: 0x5EF1, Data4: ( 0xAC,0x56,0x20,0xD0,0x64,0xCC,0xCA,0x34 ) // 09A26ED2-11B3-5EF1-AC56-20D064CCCA34
     ) 
 
-    public class ISurfaceImageSourceFactory: WindowsFoundation.IInspectable {
+    public class ISurfaceImageSourceFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSourceFactory }
 
         public func CreateInstanceWithDimensions(_ pixelWidth: Int32, _ pixelHeight: Int32, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.SurfaceImageSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISurfaceImageSource {
@@ -1255,7 +1255,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SvgImageSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource)
-open class SvgImageSource : WinUI.ImageSource {
+open class SvgImageSource : WinUI.ImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1282,7 +1282,7 @@ open class SvgImageSource : WinUI.ImageSource {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISvgImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource")
+    private static nonisolated(unsafe) var _ISvgImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
@@ -1405,7 +1405,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0xD5B61D3C, Data2: 0xB68D, Data3: 0x53A2, Data4: ( 0xB0,0x7B,0xBA,0x6A,0xDF,0xDD,0x58,0x87 ) // D5B61D3C-B68D-53A2-B07B-BA6ADFDD5887
     ) 
 
-    public class ISvgImageSource: WindowsFoundation.IInspectable {
+    public class ISvgImageSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource }
 
         public func get_UriSource() throws -> WindowsFoundation.Uri? {
@@ -1500,7 +1500,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x2F85673F, Data2: 0xAC64, Data3: 0x570D, Data4: ( 0x9B,0xDA,0x94,0xFA,0x08,0x2E,0xEA,0xD9 ) // 2F85673F-AC64-570D-9BDA-94FA082EEAD9
     ) 
 
-    public class ISvgImageSourceFactory: WindowsFoundation.IInspectable {
+    public class ISvgImageSourceFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISvgImageSource {
@@ -1535,7 +1535,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0xE3AD1068, Data2: 0xF4C6, Data3: 0x5513, Data4: ( 0xA7,0x77,0x29,0x80,0xF0,0xBA,0x41,0xBD ) // E3AD1068-F4C6-5513-A777-2980F0BA41BD
     ) 
 
-    public class ISvgImageSourceStatics: WindowsFoundation.IInspectable {
+    public class ISvgImageSourceStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceStatics }
 
         public func get_UriSourceProperty() throws -> WinUI.DependencyProperty? {
@@ -1571,7 +1571,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SvgImageSourceFailedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesourcefailedeventargs)
-public final class SvgImageSourceFailedEventArgs : WinRTClass {
+public final class SvgImageSourceFailedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceFailedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFailedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1625,7 +1625,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x76E66278, Data2: 0x7804, Data3: 0x5439, Data4: ( 0xA5,0x0D,0x14,0xC5,0xBA,0x89,0x67,0x14 ) // 76E66278-7804-5439-A50D-14C5BA896714
     ) 
 
-    public class ISvgImageSourceFailedEventArgs: WindowsFoundation.IInspectable {
+    public class ISvgImageSourceFailedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFailedEventArgs }
 
         public func get_Status() throws -> WinUI.SvgImageSourceLoadStatus {
@@ -1642,7 +1642,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SvgImageSourceOpenedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesourceopenedeventargs)
-public final class SvgImageSourceOpenedEventArgs : WinRTClass {
+public final class SvgImageSourceOpenedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceOpenedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceOpenedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1691,7 +1691,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x1C9860D5, Data2: 0x38D0, Data3: 0x5B21, Data4: ( 0x8D,0x48,0x07,0x2F,0x1E,0x25,0x4E,0x39 ) // 1C9860D5-38D0-5B21-8D48-072F1E254E39
     ) 
 
-    public class ISvgImageSourceOpenedEventArgs: WindowsFoundation.IInspectable {
+    public class ISvgImageSourceOpenedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceOpenedEventArgs }
 
     }
@@ -1700,7 +1700,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - VirtualSurfaceImageSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.virtualsurfaceimagesource)
-public final class VirtualSurfaceImageSource : WinUI.SurfaceImageSource {
+public final class VirtualSurfaceImageSource : WinUI.SurfaceImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IVirtualSurfaceImageSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1758,7 +1758,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0xE4FF96A6, Data2: 0xFEDE, Data3: 0x589C, Data4: ( 0xA0,0x07,0x41,0x78,0xB5,0x3B,0x67,0x39 ) // E4FF96A6-FEDE-589C-A007-4178B53B6739
     ) 
 
-    public class IVirtualSurfaceImageSource: WindowsFoundation.IInspectable {
+    public class IVirtualSurfaceImageSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSource }
 
     }
@@ -1767,7 +1767,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x08490F2C, Data2: 0x04A8, Data3: 0x5031, Data4: ( 0xB9,0xC7,0x70,0x70,0x60,0xD7,0xCD,0x48 ) // 08490F2C-04A8-5031-B9C7-707060D7CD48
     ) 
 
-    public class IVirtualSurfaceImageSourceFactory: WindowsFoundation.IInspectable {
+    public class IVirtualSurfaceImageSourceFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSourceFactory }
 
         public func CreateInstanceWithDimensions(_ pixelWidth: Int32, _ pixelHeight: Int32) throws -> IVirtualSurfaceImageSource {
@@ -1794,7 +1794,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - WriteableBitmap
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.writeablebitmap)
-public final class WriteableBitmap : WinUI.BitmapSource {
+public final class WriteableBitmap : WinUI.BitmapSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IWriteableBitmap
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1858,7 +1858,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x78C824A9, Data2: 0x0E43, Data3: 0x5F1E, Data4: ( 0x93,0xBC,0xD0,0x46,0xCC,0xA8,0x2B,0x7E ) // 78C824A9-0E43-5F1E-93BC-D046CCA82B7E
     ) 
 
-    public class IWriteableBitmap: WindowsFoundation.IInspectable {
+    public class IWriteableBitmap: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap }
 
         public func get_PixelBuffer() throws -> UWP.AnyIBuffer? {
@@ -1882,7 +1882,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x26E861D9, Data2: 0xB080, Data3: 0x512B, Data4: ( 0x96,0xC4,0x80,0x05,0x0E,0x7E,0x08,0xD1 ) // 26E861D9-B080-512B-96C4-80050E7E08D1
     ) 
 
-    public class IWriteableBitmapFactory: WindowsFoundation.IInspectable {
+    public class IWriteableBitmapFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmapFactory }
 
         public func CreateInstanceWithDimensions(_ pixelWidth: Int32, _ pixelHeight: Int32) throws -> IWriteableBitmap {
@@ -1900,7 +1900,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - XamlRenderingBackgroundTask
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.xamlrenderingbackgroundtask)
-open class XamlRenderingBackgroundTask : WinRTClass {
+open class XamlRenderingBackgroundTask : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTask
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTask
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1933,7 +1933,7 @@ open class XamlRenderingBackgroundTask : WinRTClass {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IXamlRenderingBackgroundTaskFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask")
+    private static nonisolated(unsafe) var _IXamlRenderingBackgroundTaskFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask")
 
     override public init() {
         super.init()
@@ -1990,7 +1990,7 @@ public class XamlRenderingBackgroundTaskMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
     internal typealias IXamlRenderingBackgroundTaskOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.XamlRenderingBackgroundTaskBridge.IXamlRenderingBackgroundTaskOverrides>
-    internal static var IXamlRenderingBackgroundTaskOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IXamlRenderingBackgroundTaskOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskOverridesVtbl = .init(
         QueryInterface: { IXamlRenderingBackgroundTaskOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IXamlRenderingBackgroundTaskOverridesWrapper.addRef($0) },
         Release: { IXamlRenderingBackgroundTaskOverridesWrapper.release($0) },
@@ -2031,7 +2031,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x7807000C, Data2: 0xA050, Data3: 0x5121, Data4: ( 0xAC,0x74,0x33,0x22,0xD5,0x35,0x8E,0x39 ) // 7807000C-A050-5121-AC74-3322D5358E39
     ) 
 
-    public class IXamlRenderingBackgroundTask: WindowsFoundation.IInspectable {
+    public class IXamlRenderingBackgroundTask: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTask }
 
     }
@@ -2040,7 +2040,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x18733237, Data2: 0x324B, Data3: 0x57C0, Data4: ( 0x89,0xB2,0x58,0x75,0x47,0x2A,0xCC,0x80 ) // 18733237-324B-57C0-89B2-5875472ACC80
     ) 
 
-    public class IXamlRenderingBackgroundTaskOverrides: WindowsFoundation.IInspectable {
+    public class IXamlRenderingBackgroundTaskOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskOverrides }
 
         public func OnRun(_ taskInstance: UWP.AnyIBackgroundTaskInstance?) throws {
@@ -2057,7 +2057,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Data1: 0x205247A3, Data2: 0x9FFE, Data3: 0x599A, Data4: ( 0xA2,0x1A,0x71,0x81,0x44,0x2A,0x9D,0x75 ) // 205247A3-9FFE-599A-A21A-7181442A9D75
     ) 
 
-    public class IXamlRenderingBackgroundTaskFactory: WindowsFoundation.IInspectable {
+    public class IXamlRenderingBackgroundTaskFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTaskFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Imaging.XamlRenderingBackgroundTaskBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IXamlRenderingBackgroundTask {

@@ -71,7 +71,7 @@ extension __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CTextRange {
 // MARK: - Block
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block)
-open class Block : WinUI.TextElement {
+open class Block : WinUI.TextElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBlock
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -98,7 +98,7 @@ open class Block : WinUI.TextElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IBlockFactory : __ABI_Microsoft_UI_Xaml_Documents.IBlockFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Block")
+    private static nonisolated(unsafe) var _IBlockFactory : __ABI_Microsoft_UI_Xaml_Documents.IBlockFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Block")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.BlockBridge.Composable.self) { baseInterface, innerInterface in 
@@ -206,7 +206,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x8149D507, Data2: 0x672F, Data3: 0x5FD5, Data4: ( 0xA1,0x0A,0x35,0x13,0x89,0xBA,0x96,0x59 ) // 8149D507-672F-5FD5-A10A-351389BA9659
     ) 
 
-    public class IBlock: WindowsFoundation.IInspectable {
+    public class IBlock: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock }
 
         public func get_TextAlignment() throws -> WinUI.TextAlignment {
@@ -285,7 +285,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x21BD671C, Data2: 0x33E2, Data3: 0x56EF, Data4: ( 0xBE,0x37,0xA1,0x28,0xE8,0x98,0x45,0x2C ) // 21BD671C-33E2-56EF-BE37-A128E898452C
     ) 
 
-    public class IBlockFactory: WindowsFoundation.IInspectable {
+    public class IBlockFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.BlockBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBlock {
@@ -307,7 +307,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x830FEEDF, Data2: 0x9AA6, Data3: 0x56CD, Data4: ( 0x98,0x3E,0x05,0x55,0x00,0x17,0x1B,0x45 ) // 830FEEDF-9AA6-56CD-983E-055500171B45
     ) 
 
-    public class IBlockStatics: WindowsFoundation.IInspectable {
+    public class IBlockStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics }
 
         public func get_TextAlignmentProperty() throws -> WinUI.DependencyProperty? {
@@ -361,7 +361,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - BlockCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection)
-public final class BlockCollection : WinRTClass, IVector, IIterable {
+public final class BlockCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = Block?
     private typealias SwiftABI = WinUI.IVectorBlock
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CBlock
@@ -512,7 +512,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Bold
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.bold)
-public final class Bold : WinUI.Span {
+public final class Bold : WinUI.Span, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBold
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -566,7 +566,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x241A5F5A, Data2: 0xC164, Data3: 0x597F, Data4: ( 0xB0,0xDB,0xFA,0xC7,0x43,0x12,0x97,0xF2 ) // 241A5F5A-C164-597F-B0DB-FAC7431297F2
     ) 
 
-    public class IBold: WindowsFoundation.IInspectable {
+    public class IBold: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold }
 
     }
@@ -575,7 +575,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Hyperlink
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink)
-public final class Hyperlink : WinUI.Span {
+public final class Hyperlink : WinUI.Span, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IHyperlink
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -827,7 +827,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xAC09BD16, Data2: 0xCDFA, Data3: 0x54C2, Data4: ( 0x8D,0x03,0xA4,0x74,0x18,0x15,0x45,0xB1 ) // AC09BD16-CDFA-54C2-8D03-A474181545B1
     ) 
 
-    public class IHyperlink: WindowsFoundation.IInspectable {
+    public class IHyperlink: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink }
 
         public func get_NavigateUri() throws -> WindowsFoundation.Uri? {
@@ -1087,7 +1087,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xE13598F4, Data2: 0x7BC7, Data3: 0x5AB9, Data4: ( 0x88,0x5B,0x70,0xF3,0x2F,0x8C,0x95,0x31 ) // E13598F4-7BC7-5AB9-885B-70F32F8C9531
     ) 
 
-    public class IHyperlinkStatics: WindowsFoundation.IInspectable {
+    public class IHyperlinkStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkStatics }
 
         public func get_NavigateUriProperty() throws -> WinUI.DependencyProperty? {
@@ -1222,7 +1222,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - HyperlinkClickEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlinkclickeventargs)
-public final class HyperlinkClickEventArgs : WinUI.RoutedEventArgs {
+public final class HyperlinkClickEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IHyperlinkClickEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1271,7 +1271,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xF8F89552, Data2: 0x873D, Data3: 0x5EF5, Data4: ( 0x82,0xBF,0xC7,0x9A,0x95,0x09,0xB0,0x7C ) // F8F89552-873D-5EF5-82BF-C79A9509B07C
     ) 
 
-    public class IHyperlinkClickEventArgs: WindowsFoundation.IInspectable {
+    public class IHyperlinkClickEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs }
 
     }
@@ -1280,7 +1280,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Inline
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inline)
-open class Inline : WinUI.TextElement {
+open class Inline : WinUI.TextElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IInline
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1307,7 +1307,7 @@ open class Inline : WinUI.TextElement {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IInlineFactory : __ABI_Microsoft_UI_Xaml_Documents.IInlineFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Inline")
+    private static nonisolated(unsafe) var _IInlineFactory : __ABI_Microsoft_UI_Xaml_Documents.IInlineFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Inline")
 
     public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.InlineBridge.Composable.self) { baseInterface, innerInterface in 
@@ -1359,7 +1359,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x813D427A, Data2: 0x8980, Data3: 0x5A79, Data4: ( 0xA8,0xFA,0xF2,0x79,0x19,0xCF,0xB2,0x4F ) // 813D427A-8980-5A79-A8FA-F27919CFB24F
     ) 
 
-    public class IInline: WindowsFoundation.IInspectable {
+    public class IInline: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline }
 
     }
@@ -1368,7 +1368,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xFD253A36, Data2: 0xFA2B, Data3: 0x5B30, Data4: ( 0x89,0xA8,0x9F,0x57,0x78,0x71,0xEC,0x07 ) // FD253A36-FA2B-5B30-89A8-9F577871EC07
     ) 
 
-    public class IInlineFactory: WindowsFoundation.IInspectable {
+    public class IInlineFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInlineFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.InlineBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IInline {
@@ -1390,7 +1390,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - InlineCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection)
-public final class InlineCollection : WinRTClass, IVector, IIterable {
+public final class InlineCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = Inline?
     private typealias SwiftABI = WinUI.IVectorInline
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline
@@ -1541,7 +1541,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Italic
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.italic)
-public final class Italic : WinUI.Span {
+public final class Italic : WinUI.Span, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IItalic
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1595,7 +1595,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xCA3CBEBD, Data2: 0x7A8D, Data3: 0x5D7A, Data4: ( 0x8F,0xDF,0x53,0x8E,0x8A,0x68,0x0F,0x6C ) // CA3CBEBD-7A8D-5D7A-8FDF-538E8A680F6C
     ) 
 
-    public class IItalic: WindowsFoundation.IInspectable {
+    public class IItalic: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic }
 
     }
@@ -1604,7 +1604,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - LineBreak
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.linebreak)
-public final class LineBreak : WinUI.Inline {
+public final class LineBreak : WinUI.Inline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ILineBreak
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1658,7 +1658,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x09307599, Data2: 0x7CC2, Data3: 0x5F54, Data4: ( 0xB1,0x06,0x72,0x86,0x20,0xC1,0x6F,0x76 ) // 09307599-7CC2-5F54-B106-728620C16F76
     ) 
 
-    public class ILineBreak: WindowsFoundation.IInspectable {
+    public class ILineBreak: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak }
 
     }
@@ -1667,7 +1667,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Paragraph
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.paragraph)
-public final class Paragraph : WinUI.Block {
+public final class Paragraph : WinUI.Block, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IParagraph
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1738,7 +1738,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x9ED64C77, Data2: 0x329D, Data3: 0x502F, Data4: ( 0xA2,0x57,0xF5,0x83,0x98,0xED,0xAB,0x51 ) // 9ED64C77-329D-502F-A257-F58398EDAB51
     ) 
 
-    public class IParagraph: WindowsFoundation.IInspectable {
+    public class IParagraph: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph }
 
         public func get_Inlines() throws -> WinUI.InlineCollection? {
@@ -1770,7 +1770,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x4EB89AB1, Data2: 0x66C8, Data3: 0x5FC0, Data4: ( 0xAA,0x5F,0x48,0xC8,0x09,0x2C,0xEB,0x5F ) // 4EB89AB1-66C8-5FC0-AA5F-48C8092CEB5F
     ) 
 
-    public class IParagraphStatics: WindowsFoundation.IInspectable {
+    public class IParagraphStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraphStatics }
 
         public func get_TextIndentProperty() throws -> WinUI.DependencyProperty? {
@@ -1788,7 +1788,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Run
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.run)
-public final class Run : WinUI.Inline {
+public final class Run : WinUI.Inline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IRun
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1860,15 +1860,17 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x1F905239, Data2: 0x37CB, Data3: 0x590B, Data4: ( 0x91,0x32,0x3F,0xFB,0x77,0x41,0x90,0x6E ) // 1F905239-37CB-590B-9132-3FFB7741906E
     ) 
 
-    public class IRun: WindowsFoundation.IInspectable {
+    public class IRun: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun }
 
         public func get_Text() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Text(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1899,7 +1901,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x051B3C5B, Data2: 0x7600, Data3: 0x51A5, Data4: ( 0x80,0xC5,0x93,0xEB,0x50,0xFD,0x68,0x4F ) // 051B3C5B-7600-51A5-80C5-93EB50FD684F
     ) 
 
-    public class IRunStatics: WindowsFoundation.IInspectable {
+    public class IRunStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRunStatics }
 
         public func get_FlowDirectionProperty() throws -> WinUI.DependencyProperty? {
@@ -1917,7 +1919,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Span
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.span)
-open class Span : WinUI.Inline {
+open class Span : WinUI.Inline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ISpan
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1944,7 +1946,7 @@ open class Span : WinUI.Inline {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ISpanFactory : __ABI_Microsoft_UI_Xaml_Documents.ISpanFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Span")
+    private static nonisolated(unsafe) var _ISpanFactory : __ABI_Microsoft_UI_Xaml_Documents.ISpanFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Span")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.SpanBridge.Composable.self) { baseInterface, innerInterface in 
@@ -2002,7 +2004,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x91B93D4D, Data2: 0x4E28, Data3: 0x57B9, Data4: ( 0xBF,0xFB,0x35,0x66,0xC2,0xA3,0xC2,0xA1 ) // 91B93D4D-4E28-57B9-BFFB-3566C2A3C2A1
     ) 
 
-    public class ISpan: WindowsFoundation.IInspectable {
+    public class ISpan: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan }
 
         public func get_Inlines() throws -> WinUI.InlineCollection? {
@@ -2026,7 +2028,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xA6E87C16, Data2: 0xC175, Data3: 0x55C8, Data4: ( 0xBB,0xD3,0xCE,0x40,0xF9,0xD0,0xA6,0x80 ) // A6E87C16-C175-55C8-BBD3-CE40F9D0A680
     ) 
 
-    public class ISpanFactory: WindowsFoundation.IInspectable {
+    public class ISpanFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpanFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.SpanBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ISpan {
@@ -2048,7 +2050,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - TextElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement)
-open class TextElement : WinUI.DependencyObject {
+open class TextElement : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElement
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2080,7 +2082,7 @@ open class TextElement : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _ITextElementFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextElement")
+    private static nonisolated(unsafe) var _ITextElementFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextElement")
 
     private static let _ITextElementStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeyproperty)
@@ -2404,7 +2406,7 @@ public class TextElementMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Documents {
     internal typealias ITextElementOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.TextElementBridge.ITextElementOverrides>
-    internal static var ITextElementOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var ITextElementOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverridesVtbl = .init(
         QueryInterface: { ITextElementOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { ITextElementOverridesWrapper.addRef($0) },
         Release: { ITextElementOverridesWrapper.release($0) },
@@ -2444,15 +2446,17 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xA122BA22, Data2: 0x833F, Data3: 0x5220, Data4: ( 0xA4,0x7E,0x6C,0xD5,0x07,0x53,0x1A,0xBE ) // A122BA22-833F-5220-A47E-6CD507531ABE
     ) 
 
-    public class ITextElement: WindowsFoundation.IInspectable {
+    public class ITextElement: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement }
 
         public func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2558,10 +2562,12 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 
         public func get_Language() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Language(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2652,10 +2658,12 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 
         public func get_AccessKey() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_AccessKey(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -2830,7 +2838,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x41B01380, Data2: 0xE49F, Data3: 0x5FDA, Data4: ( 0x8C,0x72,0xAC,0xC1,0xAC,0x1E,0x91,0xDF ) // 41B01380-E49F-5FDA-8C72-ACC1AC1E91DF
     ) 
 
-    public class ITextElementOverrides: WindowsFoundation.IInspectable {
+    public class ITextElementOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementOverrides }
 
         public func OnDisconnectVisualChildren() throws {
@@ -2845,7 +2853,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xDF51FB95, Data2: 0xA5E6, Data3: 0x5B16, Data4: ( 0x8E,0x88,0x9F,0x7C,0xBF,0xA2,0x34,0xB1 ) // DF51FB95-A5E6-5B16-8E88-9F7CBFA234B1
     ) 
 
-    public class ITextElementFactory: WindowsFoundation.IInspectable {
+    public class ITextElementFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementFactory }
 
     }
@@ -2854,7 +2862,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xC9B55919, Data2: 0xE1FE, Data3: 0x5ACD, Data4: ( 0xBA,0xC7,0xC9,0xD7,0xF4,0x13,0xB3,0x5C ) // C9B55919-E1FE-5ACD-BAC7-C9D7F413B35C
     ) 
 
-    public class ITextElementStatics: WindowsFoundation.IInspectable {
+    public class ITextElementStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElementStatics }
 
         public func get_FontSizeProperty() throws -> WinUI.DependencyProperty? {
@@ -3031,7 +3039,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_C
 // MARK: - TextHighlighter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter)
-open class TextHighlighter : WinRTClass {
+open class TextHighlighter : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighter
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3059,7 +3067,7 @@ open class TextHighlighter : WinRTClass {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITextHighlighterFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextHighlighter")
+    private static nonisolated(unsafe) var _ITextHighlighterFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextHighlighter")
 
     override public init() {
         super.init()
@@ -3140,7 +3148,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0xB756E861, Data2: 0x1D2B, Data3: 0x5F6F, Data4: ( 0x81,0xFD,0xC5,0x1A,0x5B,0xC0,0x68,0xFF ) // B756E861-1D2B-5F6F-81FD-C51A5BC068FF
     ) 
 
-    public class ITextHighlighter: WindowsFoundation.IInspectable {
+    public class ITextHighlighter: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter }
 
         public func get_Ranges() throws -> WindowsFoundation.AnyIVector<WinUI.TextRange>? {
@@ -3188,7 +3196,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x69C7311F, Data2: 0xC019, Data3: 0x5B93, Data4: ( 0xB5,0x11,0x81,0x41,0x85,0x43,0xBA,0xB7 ) // 69C7311F-C019-5B93-B511-81418543BAB7
     ) 
 
-    public class ITextHighlighterFactory: WindowsFoundation.IInspectable {
+    public class ITextHighlighterFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Documents.TextHighlighterBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITextHighlighter {
@@ -3210,7 +3218,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x4975047A, Data2: 0x87AD, Data3: 0x51A2, Data4: ( 0x97,0x7C,0xE7,0x71,0xDE,0x4F,0x40,0x35 ) // 4975047A-87AD-51A2-977C-E771DE4F4035
     ) 
 
-    public class ITextHighlighterStatics: WindowsFoundation.IInspectable {
+    public class ITextHighlighterStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighterStatics }
 
         public func get_ForegroundProperty() throws -> WinUI.DependencyProperty? {
@@ -3237,7 +3245,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - TextPointer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer)
-public final class TextPointer : WinRTClass {
+public final class TextPointer : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextPointer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3316,7 +3324,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x842EB385, Data2: 0xEE41, Data3: 0x5930, Data4: ( 0x97,0x9B,0x43,0x8F,0xA7,0x52,0x5A,0x51 ) // 842EB385-EE41-5930-979B-438FA7525A51
     ) 
 
-    public class ITextPointer: WindowsFoundation.IInspectable {
+    public class ITextPointer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer }
 
         public func get_Parent() throws -> WinUI.DependencyObject? {
@@ -3376,7 +3384,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Underline
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.underline)
-public final class Underline : WinUI.Span {
+public final class Underline : WinUI.Span, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IUnderline
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -3430,7 +3438,7 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         Data1: 0x68AAEC6E, Data2: 0xEA71, Data3: 0x5ED2, Data4: ( 0xB8,0x3E,0x91,0x68,0x4B,0x25,0xEF,0xB9 ) // 68AAEC6E-EA71-5ED2-B83E-91684B25EFB9
     ) 
 
-    public class IUnderline: WindowsFoundation.IInspectable {
+    public class IUnderline: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline }
 
     }

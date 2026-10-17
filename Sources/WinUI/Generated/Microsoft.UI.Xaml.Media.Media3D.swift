@@ -7,7 +7,7 @@ import CWinRT
 // MARK: - Transform3D
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.media3d.transform3d)
-open class Transform3D : WinUI.DependencyObject {
+open class Transform3D : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Media3D.ITransform3D
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3D
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -34,7 +34,7 @@ open class Transform3D : WinUI.DependencyObject {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _ITransform3DFactory : __ABI_Microsoft_UI_Xaml_Media_Media3D.ITransform3DFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Media3D.Transform3D")
+    private static nonisolated(unsafe) var _ITransform3DFactory : __ABI_Microsoft_UI_Xaml_Media_Media3D.ITransform3DFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Media3D.Transform3D")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Media3D.Transform3DBridge.Composable.self) { baseInterface, innerInterface in 
@@ -86,7 +86,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Media3D {
         Data1: 0xAFEA4941, Data2: 0x2E49, Data3: 0x533C, Data4: ( 0x9F,0x8F,0x2C,0x12,0x6E,0xF9,0x89,0x3A ) // AFEA4941-2E49-533C-9F8F-2C126EF9893A
     ) 
 
-    public class ITransform3D: WindowsFoundation.IInspectable {
+    public class ITransform3D: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3D }
 
     }
@@ -95,7 +95,7 @@ extension __ABI_Microsoft_UI_Xaml_Media_Media3D {
         Data1: 0x9BCCE0A1, Data2: 0x10AC, Data3: 0x5319, Data4: ( 0xBD,0xF1,0x54,0x8D,0x2E,0x5A,0xE5,0x04 ) // 9BCCE0A1-10AC-5319-BDF1-548D2E5AE504
     ) 
 
-    public class ITransform3DFactory: WindowsFoundation.IInspectable {
+    public class ITransform3DFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CMedia3D_CITransform3DFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Media_Media3D.Transform3DBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> ITransform3D {

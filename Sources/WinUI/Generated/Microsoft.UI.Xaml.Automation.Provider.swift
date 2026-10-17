@@ -7,7 +7,7 @@ import CWinRT
 // MARK: - IRawElementProviderSimple
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.provider.irawelementprovidersimple)
-public final class IRawElementProviderSimple : WinUI.DependencyObject {
+public final class IRawElementProviderSimple : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Provider.IIRawElementProviderSimple
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -56,7 +56,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Provider {
         Data1: 0xF90BC239, Data2: 0xADE2, Data3: 0x55C9, Data4: ( 0xA8,0x38,0xA3,0xB0,0x57,0x97,0x63,0xC5 ) // F90BC239-ADE2-55C9-A838-A3B0579763C5
     ) 
 
-    public class IIRawElementProviderSimple: WindowsFoundation.IInspectable {
+    public class IIRawElementProviderSimple: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CProvider_CIIRawElementProviderSimple }
 
     }

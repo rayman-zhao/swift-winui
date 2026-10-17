@@ -604,7 +604,7 @@ extension __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRun
 // MARK: - AutomationPeer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer)
-open class AutomationPeer : WinUI.DependencyObject {
+open class AutomationPeer : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -636,7 +636,7 @@ open class AutomationPeer : WinUI.DependencyObject {
             default: return super.queryInterface(iid)
         }
     }
-    private static var _IAutomationPeerFactory : __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer")
+    private static nonisolated(unsafe) var _IAutomationPeerFactory : __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer")
 
     override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.Composable.self) { baseInterface, innerInterface in 
@@ -1211,7 +1211,7 @@ public class AutomationPeerMaker: MakeFromAbi {
 @_spi(WinRTInternal)
 extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
     internal typealias IAutomationPeerOverridesWrapper = UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.IAutomationPeerOverrides>
-    internal static var IAutomationPeerOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverridesVtbl = .init(
+    internal static nonisolated(unsafe) var IAutomationPeerOverridesVTable: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverridesVtbl = .init(
         QueryInterface: { IAutomationPeerOverridesWrapper.queryInterface($0, $1, $2) },
         AddRef: { IAutomationPeerOverridesWrapper.addRef($0) },
         Release: { IAutomationPeerOverridesWrapper.release($0) },
@@ -1678,7 +1678,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         Data1: 0xE51D3E4E, Data2: 0x34F0, Data3: 0x568C, Data4: ( 0x99,0x9F,0x62,0x77,0xE2,0xAF,0xE6,0xD7 ) // E51D3E4E-34F0-568C-999F-6277E2AFE6D7
     ) 
 
-    public class IAutomationPeer: WindowsFoundation.IInspectable {
+    public class IAutomationPeer: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer }
 
         public func get_EventsSource() throws -> WinUI.AutomationPeer? {
@@ -1723,19 +1723,23 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetAcceleratorKey() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAcceleratorKey(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         public func GetAccessKey() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessKey(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -1749,10 +1753,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetAutomationId() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationId(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -1784,10 +1790,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetClassName() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetClassName(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -1801,28 +1809,34 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetHelpText() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHelpText(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         public func GetItemStatus() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemStatus(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         public func GetItemType() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemType(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -1837,19 +1851,23 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetLocalizedControlType() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedControlType(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         public func GetName() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetName(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2059,10 +2077,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetLocalizedLandmarkType() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedLandmarkType(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2084,10 +2104,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetFullDescription() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFullDescription(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2129,7 +2151,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         Data1: 0x9663B2C3, Data2: 0x8C1F, Data3: 0x56D4, Data4: ( 0xAB,0xD9,0x26,0x80,0x82,0xA9,0xE8,0xBC ) // 9663B2C3-8C1F-56D4-ABD9-268082A9E8BC
     ) 
 
-    public class IAutomationPeerProtected: WindowsFoundation.IInspectable {
+    public class IAutomationPeerProtected: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerProtected }
 
         public func PeerFromProvider(_ provider: WinUI.IRawElementProviderSimple?) throws -> WinUI.AutomationPeer? {
@@ -2156,7 +2178,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         Data1: 0x44F8F6DF, Data2: 0x1B60, Data3: 0x512D, Data4: ( 0xA2,0x95,0xDD,0x8C,0x27,0x6C,0x46,0x18 ) // 44F8F6DF-1B60-512D-A295-DD8C276C4618
     ) 
 
-    public class IAutomationPeerOverrides: WindowsFoundation.IInspectable {
+    public class IAutomationPeerOverrides: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides }
 
         public func GetPatternCore(_ patternInterface: WinUI.PatternInterface) throws -> Any? {
@@ -2170,19 +2192,23 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetAcceleratorKeyCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAcceleratorKeyCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         public func GetAccessKeyCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAccessKeyCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2196,10 +2222,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetAutomationIdCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetAutomationIdCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2231,10 +2259,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetClassNameCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetClassNameCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2248,28 +2278,34 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetHelpTextCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetHelpTextCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         public func GetItemStatusCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemStatusCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         public func GetItemTypeCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetItemTypeCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2284,19 +2320,23 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetLocalizedControlTypeCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedControlTypeCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
         public func GetNameCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetNameCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2471,10 +2511,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetLocalizedLandmarkTypeCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetLocalizedLandmarkTypeCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2496,10 +2538,12 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
 
         public func GetFullDescriptionCore() throws -> String {
             var result: HSTRING?
+            defer {
+                WindowsDeleteString(result)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerOverrides.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetFullDescriptionCore(pThis, &result))
             }
-            defer { WindowsDeleteString(result) }
             return .init(from: result)
         }
 
@@ -2560,7 +2604,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         Data1: 0xA1AF86A0, Data2: 0x6EC6, Data3: 0x5BE2, Data4: ( 0x85,0x8F,0x72,0x80,0x8B,0xE6,0xFD,0xDD ) // A1AF86A0-6EC6-5BE2-858F-72808BE6FDDD
     ) 
 
-    public class IAutomationPeerFactory: WindowsFoundation.IInspectable {
+    public class IAutomationPeerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IAutomationPeer {
@@ -2582,7 +2626,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         Data1: 0x90B157FF, Data2: 0x18D5, Data3: 0x5623, Data4: ( 0x85,0x0C,0x61,0x2C,0xEA,0xE5,0x76,0xBD ) // 90B157FF-18D5-5623-850C-612CEAE576BD
     ) 
 
-    public class IAutomationPeerStatics: WindowsFoundation.IInspectable {
+    public class IAutomationPeerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerStatics }
 
         public func ListenerExists(_ eventId: WinUI.AutomationEvents) throws -> Bool {
@@ -2613,7 +2657,7 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_
 // MARK: - AutomationPeerAnnotation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeerannotation)
-public final class AutomationPeerAnnotation : WinUI.DependencyObject {
+public final class AutomationPeerAnnotation : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -2699,7 +2743,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         Data1: 0x2738B92A, Data2: 0x2528, Data3: 0x5B63, Data4: ( 0x97,0x3D,0xD2,0x9E,0xB0,0x59,0x36,0x47 ) // 2738B92A-2528-5B63-973D-D29EB0593647
     ) 
 
-    public class IAutomationPeerAnnotation: WindowsFoundation.IInspectable {
+    public class IAutomationPeerAnnotation: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation }
 
         public func get_Type() throws -> WinUI.AnnotationType {
@@ -2737,7 +2781,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         Data1: 0x25A1A202, Data2: 0xBD68, Data3: 0x5D41, Data4: ( 0xA3,0x11,0xF8,0x4A,0xF9,0xC8,0xC4,0x40 ) // 25A1A202-BD68-5D41-A311-F84AF9C8C440
     ) 
 
-    public class IAutomationPeerAnnotationFactory: WindowsFoundation.IInspectable {
+    public class IAutomationPeerAnnotationFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationFactory }
 
         public func CreateInstance(_ type: WinUI.AnnotationType) throws -> IAutomationPeerAnnotation {
@@ -2764,7 +2808,7 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         Data1: 0xC46105D7, Data2: 0x8CA3, Data3: 0x50E3, Data4: ( 0xA1,0xBC,0xB6,0xBB,0x2F,0x9C,0xE1,0xCD ) // C46105D7-8CA3-50E3-A1BC-B6BB2F9CE1CD
     ) 
 
-    public class IAutomationPeerAnnotationStatics: WindowsFoundation.IInspectable {
+    public class IAutomationPeerAnnotationStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotationStatics }
 
         public func get_TypeProperty() throws -> WinUI.DependencyProperty? {

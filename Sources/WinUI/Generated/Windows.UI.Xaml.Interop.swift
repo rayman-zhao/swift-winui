@@ -45,6 +45,9 @@ extension TypeName: WinRTBridgeable {
     public static func from(abi: ABI) -> Self {
         .init(name: .init(from: abi.Name), kind: abi.Kind)
     }
+    public static func release(abi: ABI) {
+        WindowsDeleteString(abi.Name)
+    }
     public func toABI() -> ABI {
         __ABI_Windows_UI_Xaml_Interop._ABI_TypeName(from: self).detach()
     }
@@ -62,12 +65,12 @@ extension __ABI_Windows_UI_Xaml_Interop {
 
         public func detach() -> __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName {
             let result = val
-            val.Name = nil
+            val = .init()
             return result
         }
 
         deinit {
-            WindowsDeleteString(val.Name)
+            WinUI.TypeName.release(abi: val)
         }
     }
 }

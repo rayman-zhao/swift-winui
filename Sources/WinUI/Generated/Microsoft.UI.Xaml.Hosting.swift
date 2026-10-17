@@ -41,7 +41,7 @@ extension WinUI.XamlSourceFocusNavigationReason: @retroactive Hashable, @retroac
 // MARK: - DesktopWindowXamlSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource)
-open class DesktopWindowXamlSource : WinRTClass, WindowsFoundation.IClosable {
+open class DesktopWindowXamlSource : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -69,7 +69,7 @@ open class DesktopWindowXamlSource : WinRTClass, WindowsFoundation.IClosable {
     override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static var _IDesktopWindowXamlSourceFactory : __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.DesktopWindowXamlSource")
+    private static nonisolated(unsafe) var _IDesktopWindowXamlSourceFactory : __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.DesktopWindowXamlSource")
 
     override public init() {
         super.init()
@@ -195,7 +195,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0x553AF92C, Data2: 0x1381, Data3: 0x51D6, Data4: ( 0xBE,0xE0,0xF3,0x4B,0xEB,0x04,0x2E,0xA8 ) // 553AF92C-1381-51D6-BEE0-F34BEB042EA8
     ) 
 
-    public class IDesktopWindowXamlSource: WindowsFoundation.IInspectable {
+    public class IDesktopWindowXamlSource: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource }
 
         public func get_Content() throws -> WinUI.UIElement? {
@@ -298,7 +298,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0xFB02B9F1, Data2: 0x8588, Data3: 0x5BD3, Data4: ( 0x89,0x51,0x46,0x64,0xA6,0x75,0xD8,0x72 ) // FB02B9F1-8588-5BD3-8951-4664A675D872
     ) 
 
-    public class IDesktopWindowXamlSource2: WindowsFoundation.IInspectable {
+    public class IDesktopWindowXamlSource2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource2 }
 
         public func get_ShouldConstrainPopupsToWorkArea() throws -> Bool {
@@ -321,7 +321,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0x7D2DB617, Data2: 0x14E7, Data3: 0x5D49, Data4: ( 0xAE,0xEC,0xAE,0x10,0x88,0x7E,0x59,0x5D ) // 7D2DB617-14E7-5D49-AEEC-AE10887E595D
     ) 
 
-    public class IDesktopWindowXamlSourceFactory: WindowsFoundation.IInspectable {
+    public class IDesktopWindowXamlSourceFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceFactory }
 
         public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Hosting.DesktopWindowXamlSourceBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDesktopWindowXamlSource {
@@ -343,7 +343,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - DesktopWindowXamlSourceGotFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsourcegotfocuseventargs)
-public final class DesktopWindowXamlSourceGotFocusEventArgs : WinRTClass {
+public final class DesktopWindowXamlSourceGotFocusEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceGotFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceGotFocusEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -397,7 +397,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0xCC63D863, Data2: 0x2071, Data3: 0x5F6B, Data4: ( 0xAE,0xF9,0xC0,0xBA,0x35,0xF3,0xB8,0xDF ) // CC63D863-2071-5F6B-AEF9-C0BA35F3B8DF
     ) 
 
-    public class IDesktopWindowXamlSourceGotFocusEventArgs: WindowsFoundation.IInspectable {
+    public class IDesktopWindowXamlSourceGotFocusEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceGotFocusEventArgs }
 
         public func get_Request() throws -> WinUI.XamlSourceFocusNavigationRequest? {
@@ -415,7 +415,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - DesktopWindowXamlSourceTakeFocusRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsourcetakefocusrequestedeventargs)
-public final class DesktopWindowXamlSourceTakeFocusRequestedEventArgs : WinRTClass {
+public final class DesktopWindowXamlSourceTakeFocusRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceTakeFocusRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceTakeFocusRequestedEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -469,7 +469,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0x4F5A0E2C, Data2: 0x4DDC, Data3: 0x5C03, Data4: ( 0x93,0x9F,0x6F,0x3B,0xDA,0x56,0x03,0x63 ) // 4F5A0E2C-4DDC-5C03-939F-6F3BDA560363
     ) 
 
-    public class IDesktopWindowXamlSourceTakeFocusRequestedEventArgs: WindowsFoundation.IInspectable {
+    public class IDesktopWindowXamlSourceTakeFocusRequestedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceTakeFocusRequestedEventArgs }
 
         public func get_Request() throws -> WinUI.XamlSourceFocusNavigationRequest? {
@@ -487,7 +487,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - ElementCompositionPreview
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview)
-public final class ElementCompositionPreview : WinRTClass {
+public final class ElementCompositionPreview : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IElementCompositionPreview
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreview
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -577,7 +577,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0xC8AD1EF4, Data2: 0xA93F, Data3: 0x5A25, Data4: ( 0x85,0xBD,0x7C,0x49,0x8D,0x98,0x56,0xD3 ) // C8AD1EF4-A93F-5A25-85BD-7C498D9856D3
     ) 
 
-    public class IElementCompositionPreview: WindowsFoundation.IInspectable {
+    public class IElementCompositionPreview: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreview }
 
     }
@@ -586,7 +586,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0x84DA5A6C, Data2: 0x0CFA, Data3: 0x532B, Data4: ( 0x9B,0x15,0xCC,0xD9,0x86,0x37,0x43,0x42 ) // 84DA5A6C-0CFA-532B-9B15-CCD986374342
     ) 
 
-    public class IElementCompositionPreviewStatics: WindowsFoundation.IInspectable {
+    public class IElementCompositionPreviewStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreviewStatics }
 
         public func GetElementVisual(_ element: WinUI.UIElement?) throws -> WinAppSDK.Visual? {
@@ -659,7 +659,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - WindowsXamlManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager)
-public final class WindowsXamlManager : WinRTClass, WindowsFoundation.IClosable {
+public final class WindowsXamlManager : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManager
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManager
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -745,7 +745,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0x85A2E562, Data2: 0x7E8F, Data3: 0x5333, Data4: ( 0xA1,0x04,0xA3,0xE6,0x72,0xA2,0xFF,0xEE ) // 85A2E562-7E8F-5333-A104-A3E672A2FFEE
     ) 
 
-    public class IWindowsXamlManager: WindowsFoundation.IInspectable {
+    public class IWindowsXamlManager: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManager }
 
     }
@@ -754,7 +754,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0xBD67CFF5, Data2: 0xB887, Data3: 0x56DA, Data4: ( 0xB0,0xA2,0xDA,0xD1,0x0A,0x65,0x20,0xE9 ) // BD67CFF5-B887-56DA-B0A2-DAD10A6520E9
     ) 
 
-    public class IWindowsXamlManager2: WindowsFoundation.IInspectable {
+    public class IWindowsXamlManager2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManager2 }
 
         public func add_XamlShutdownCompletedOnThread(_ handler: TypedEventHandler<WinUI.WindowsXamlManager?, WinUI.XamlShutdownCompletedOnThreadEventArgs?>?) throws -> EventRegistrationToken {
@@ -779,7 +779,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0x56CB591D, Data2: 0xDE97, Data3: 0x539F, Data4: ( 0x88,0x1D,0x8C,0xCD,0xC4,0x4F,0xA6,0xC4 ) // 56CB591D-DE97-539F-881D-8CCDC44FA6C4
     ) 
 
-    public class IWindowsXamlManagerStatics: WindowsFoundation.IInspectable {
+    public class IWindowsXamlManagerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManagerStatics }
 
         public func InitializeForCurrentThread() throws -> WinUI.WindowsXamlManager? {
@@ -797,7 +797,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0x1062430E, Data2: 0x0898, Data3: 0x5240, Data4: ( 0xBA,0x52,0x89,0xD9,0x22,0x5E,0x7E,0x58 ) // 1062430E-0898-5240-BA52-89D9225E7E58
     ) 
 
-    public class IWindowsXamlManagerStatics2: WindowsFoundation.IInspectable {
+    public class IWindowsXamlManagerStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManagerStatics2 }
 
         public func GetForCurrentThread() throws -> WinUI.WindowsXamlManager? {
@@ -815,7 +815,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - XamlShutdownCompletedOnThreadEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlshutdowncompletedonthreadeventargs)
-public final class XamlShutdownCompletedOnThreadEventArgs : WinRTClass {
+public final class XamlShutdownCompletedOnThreadEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IXamlShutdownCompletedOnThreadEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlShutdownCompletedOnThreadEventArgs
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -869,7 +869,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0xACCD20E5, Data2: 0x3576, Data3: 0x5262, Data4: ( 0xA3,0xDD,0x99,0x06,0x57,0x68,0x1F,0x1F ) // ACCD20E5-3576-5262-A3DD-990657681F1F
     ) 
 
-    public class IXamlShutdownCompletedOnThreadEventArgs: WindowsFoundation.IInspectable {
+    public class IXamlShutdownCompletedOnThreadEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlShutdownCompletedOnThreadEventArgs }
 
         public func GetDispatcherQueueDeferral() throws -> WindowsFoundation.Deferral? {
@@ -887,7 +887,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - XamlSourceFocusNavigationRequest
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlsourcefocusnavigationrequest)
-public final class XamlSourceFocusNavigationRequest : WinRTClass {
+public final class XamlSourceFocusNavigationRequest : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationRequest
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequest
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -964,7 +964,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0xC883EA8B, Data2: 0x4CE2, Data3: 0x58BE, Data4: ( 0xB5,0x47,0x66,0xDE,0xDF,0x62,0x03,0x12 ) // C883EA8B-4CE2-58BE-B547-66DEDF620312
     ) 
 
-    public class IXamlSourceFocusNavigationRequest: WindowsFoundation.IInspectable {
+    public class IXamlSourceFocusNavigationRequest: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequest }
 
         public func get_Reason() throws -> WinUI.XamlSourceFocusNavigationReason {
@@ -997,7 +997,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0x7A5124DD, Data2: 0x2876, Data3: 0x5ED8, Data4: ( 0xB5,0x64,0x58,0x67,0x73,0x1D,0x7F,0x1E ) // 7A5124DD-2876-5ED8-B564-5867731D7F1E
     ) 
 
-    public class IXamlSourceFocusNavigationRequestFactory: WindowsFoundation.IInspectable {
+    public class IXamlSourceFocusNavigationRequestFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequestFactory }
 
         public func CreateInstance(_ reason: WinUI.XamlSourceFocusNavigationReason) throws -> IXamlSourceFocusNavigationRequest {
@@ -1033,7 +1033,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - XamlSourceFocusNavigationResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlsourcefocusnavigationresult)
-public final class XamlSourceFocusNavigationResult : WinRTClass {
+public final class XamlSourceFocusNavigationResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationResult
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResult
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1092,7 +1092,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0xD6BF378E, Data2: 0x2AAC, Data3: 0x5E5B, Data4: ( 0xAC,0x8A,0x6C,0x5D,0x9A,0x4C,0x1C,0xB8 ) // D6BF378E-2AAC-5E5B-AC8A-6C5D9A4C1CB8
     ) 
 
-    public class IXamlSourceFocusNavigationResult: WindowsFoundation.IInspectable {
+    public class IXamlSourceFocusNavigationResult: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResult }
 
         public func get_WasFocusMoved() throws -> Bool {
@@ -1109,7 +1109,7 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
         Data1: 0xF533F53B, Data2: 0x5C00, Data3: 0x5C88, Data4: ( 0x9A,0x41,0x38,0x88,0xCB,0x86,0xE4,0x95 ) // F533F53B-5C00-5C88-9A41-3888CB86E495
     ) 
 
-    public class IXamlSourceFocusNavigationResultFactory: WindowsFoundation.IInspectable {
+    public class IXamlSourceFocusNavigationResultFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResultFactory }
 
         public func CreateInstance(_ focusMoved: Bool) throws -> IXamlSourceFocusNavigationResult {

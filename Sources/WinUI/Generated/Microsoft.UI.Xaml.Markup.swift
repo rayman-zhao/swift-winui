@@ -27,6 +27,10 @@ extension XmlnsDefinition: WinRTBridgeable {
     public static func from(abi: ABI) -> Self {
         .init(xmlNamespace: .init(from: abi.XmlNamespace), namespace: .init(from: abi.Namespace))
     }
+    public static func release(abi: ABI) {
+        WindowsDeleteString(abi.XmlNamespace)
+        WindowsDeleteString(abi.Namespace)
+    }
     public func toABI() -> ABI {
         __ABI_Microsoft_UI_Xaml_Markup._ABI_XmlnsDefinition(from: self).detach()
     }
@@ -44,14 +48,12 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         public func detach() -> __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CXmlnsDefinition {
             let result = val
-            val.XmlNamespace = nil
-            val.Namespace = nil
+            val = .init()
             return result
         }
 
         deinit {
-            WindowsDeleteString(val.XmlNamespace)
-            WindowsDeleteString(val.Namespace)
+            WinUI.XmlnsDefinition.release(abi: val)
         }
     }
 }
@@ -96,7 +98,7 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
         }
     }
 
-    fileprivate class IComponentConnectorImpl: IComponentConnector, WinRTAbiImpl {
+    fileprivate class IComponentConnectorImpl: IComponentConnector, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IComponentConnectorBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -123,7 +125,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0xAD401812, Data2: 0xB091, Data3: 0x51D0, Data4: ( 0xB9,0x15,0x2D,0x68,0x2C,0xD2,0xAF,0x10 ) // AD401812-B091-51D0-B915-2D682CD2AF10
     ) 
 
-    public class IComponentConnector: WindowsFoundation.IInspectable {
+    public class IComponentConnector: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIComponentConnector }
 
         open func Connect(_ connectionId: Int32, _ target: Any?) throws {
@@ -147,7 +149,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
     }
 
-    internal static var IComponentConnectorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIComponentConnectorVtbl = .init(
+    internal static nonisolated(unsafe) var IComponentConnectorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIComponentConnectorVtbl = .init(
         QueryInterface: { IComponentConnectorWrapper.queryInterface($0, $1, $2) },
         AddRef: { IComponentConnectorWrapper.addRef($0) },
         Release: { IComponentConnectorWrapper.release($0) },
@@ -249,7 +251,7 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
         }
     }
 
-    fileprivate class IDataTemplateComponentImpl: IDataTemplateComponent, WinRTAbiImpl {
+    fileprivate class IDataTemplateComponentImpl: IDataTemplateComponent, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IDataTemplateComponentBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -276,7 +278,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0x1743DDF7, Data2: 0x38BA, Data3: 0x58C9, Data4: ( 0xA2,0xA6,0xB0,0xAE,0x28,0x71,0x3B,0xEE ) // 1743DDF7-38BA-58C9-A2A6-B0AE28713BEE
     ) 
 
-    public class IDataTemplateComponent: WindowsFoundation.IInspectable {
+    public class IDataTemplateComponent: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIDataTemplateComponent }
 
         open func Recycle() throws {
@@ -295,7 +297,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
     }
 
-    internal static var IDataTemplateComponentVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIDataTemplateComponentVtbl = .init(
+    internal static nonisolated(unsafe) var IDataTemplateComponentVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIDataTemplateComponentVtbl = .init(
         QueryInterface: { IDataTemplateComponentWrapper.queryInterface($0, $1, $2) },
         AddRef: { IDataTemplateComponentWrapper.addRef($0) },
         Release: { IDataTemplateComponentWrapper.release($0) },
@@ -408,7 +410,7 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
         }
     }
 
-    fileprivate class IXamlMemberImpl: IXamlMember, WinRTAbiImpl {
+    fileprivate class IXamlMemberImpl: IXamlMember, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IXamlMemberBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -465,7 +467,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0xBF3A2913, Data2: 0x5C63, Data3: 0x50EC, Data4: ( 0x86,0x60,0x61,0x80,0x9B,0xE7,0xB9,0xB9 ) // BF3A2913-5C63-50EC-8660-61809BE7B9B9
     ) 
 
-    public class IXamlMember: WindowsFoundation.IInspectable {
+    public class IXamlMember: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMember }
 
         open func get_IsAttachable() throws -> Bool {
@@ -494,10 +496,12 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         open func get_Name() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMember.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_Name(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -542,7 +546,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
     }
 
-    internal static var IXamlMemberVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMemberVtbl = .init(
+    internal static nonisolated(unsafe) var IXamlMemberVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMemberVtbl = .init(
         QueryInterface: { IXamlMemberWrapper.queryInterface($0, $1, $2) },
         AddRef: { IXamlMemberWrapper.addRef($0) },
         Release: { IXamlMemberWrapper.release($0) },
@@ -689,7 +693,7 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
         }
     }
 
-    fileprivate class IXamlMetadataProviderImpl: IXamlMetadataProvider, WinRTAbiImpl {
+    fileprivate class IXamlMetadataProviderImpl: IXamlMetadataProvider, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IXamlMetadataProviderBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -721,7 +725,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0xA96251F0, Data2: 0x2214, Data3: 0x5D53, Data4: ( 0x87,0x46,0xCE,0x99,0xA2,0x59,0x3C,0xD7 ) // A96251F0-2214-5D53-8746-CE99A2593CD7
     ) 
 
-    public class IXamlMetadataProvider: WindowsFoundation.IInspectable {
+    public class IXamlMetadataProvider: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider }
 
         open func GetXamlType(_ type: WinUI.TypeName) throws -> WinUI.AnyIXamlType? {
@@ -746,17 +750,24 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         open func GetXmlnsDefinitions() throws -> [WinUI.XmlnsDefinition] {
             var result: WinRTArrayAbi<__x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CXmlnsDefinition> = (0, nil)
+            defer {
+                if let start = result.start {
+                    for element in UnsafeBufferPointer(start: start, count: Int(result.count)) {
+                        WinUI.XmlnsDefinition.release(abi: element)
+                    }
+                }
+                CoTaskMemFree(result.start)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.GetXmlnsDefinitions(pThis, &result.count, &result.start))
             }
-            defer { CoTaskMemFree(result.start) }
             return .from(abi: result)
 
         }
 
     }
 
-    internal static var IXamlMetadataProviderVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProviderVtbl = .init(
+    internal static nonisolated(unsafe) var IXamlMetadataProviderVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProviderVtbl = .init(
         QueryInterface: { IXamlMetadataProviderWrapper.queryInterface($0, $1, $2) },
         AddRef: { IXamlMetadataProviderWrapper.addRef($0) },
         Release: { IXamlMetadataProviderWrapper.release($0) },
@@ -904,7 +915,7 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
         }
     }
 
-    fileprivate class IXamlTypeImpl: IXamlType, WinRTAbiImpl {
+    fileprivate class IXamlTypeImpl: IXamlType, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IXamlTypeBridge
         fileprivate let _default: Bridge.SwiftABI
         fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
@@ -1016,7 +1027,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0xD24219DF, Data2: 0x7EC9, Data3: 0x57F1, Data4: ( 0xA2,0x7B,0x6A,0xF2,0x51,0xD9,0xC5,0xBC ) // D24219DF-7EC9-57F1-A27B-6AF251D9C5BC
     ) 
 
-    public class IXamlType: WindowsFoundation.IInspectable {
+    public class IXamlType: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlType }
 
         open func get_BaseType() throws -> WinUI.AnyIXamlType? {
@@ -1039,10 +1050,12 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         open func get_FullName() throws -> String {
             var value: HSTRING?
+            defer {
+                WindowsDeleteString(value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlType.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_FullName(pThis, &value))
             }
-            defer { WindowsDeleteString(value) }
             return .init(from: value)
         }
 
@@ -1123,6 +1136,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         open func get_UnderlyingType() throws -> WinUI.TypeName {
             var value: __x_ABI_CWindows_CUI_CXaml_CInterop_CTypeName = .init()
+            defer {
+                WinUI.TypeName.release(abi: value)
+            }
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlType.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_UnderlyingType(pThis, &value))
             }
@@ -1188,7 +1204,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
     }
 
-    internal static var IXamlTypeVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlTypeVtbl = .init(
+    internal static nonisolated(unsafe) var IXamlTypeVTable: __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlTypeVtbl = .init(
         QueryInterface: { IXamlTypeWrapper.queryInterface($0, $1, $2) },
         AddRef: { IXamlTypeWrapper.addRef($0) },
         Release: { IXamlTypeWrapper.release($0) },
@@ -1388,7 +1404,7 @@ public class IXamlTypeMaker: MakeFromAbi {
 // MARK: - XamlBindingHelper
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlbindinghelper)
-public final class XamlBindingHelper : WinRTClass {
+public final class XamlBindingHelper : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Markup.IXamlBindingHelper
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlBindingHelper
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1553,7 +1569,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0x607A9BF2, Data2: 0x5A6D, Data3: 0x5C89, Data4: ( 0xA7,0x56,0xBB,0x44,0xF2,0x4F,0x28,0xF8 ) // 607A9BF2-5A6D-5C89-A756-BB44F24F28F8
     ) 
 
-    public class IXamlBindingHelper: WindowsFoundation.IInspectable {
+    public class IXamlBindingHelper: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlBindingHelper }
 
     }
@@ -1562,7 +1578,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0x93C7DAD3, Data2: 0xF9C2, Data3: 0x5372, Data4: ( 0x84,0xDC,0x9E,0x9C,0x46,0x61,0xD0,0x83 ) // 93C7DAD3-F9C2-5372-84DC-9E9C4661D083
     ) 
 
-    public class IXamlBindingHelperStatics: WindowsFoundation.IInspectable {
+    public class IXamlBindingHelperStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlBindingHelperStatics }
 
         public func get_DataTemplateComponentProperty() throws -> WinUI.DependencyProperty? {
@@ -1760,7 +1776,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 // MARK: - XamlReader
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlreader)
-public final class XamlReader : WinRTClass {
+public final class XamlReader : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Markup.IXamlReader
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReader
     private lazy var _default: SwiftABI! = getInterfaceForCaching()
@@ -1820,7 +1836,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0x54CE54C8, Data2: 0x38C6, Data3: 0x50D9, Data4: ( 0xAC,0x98,0x4B,0x03,0xED,0xDB,0xDE,0x9F ) // 54CE54C8-38C6-50D9-AC98-4B03EDDBDE9F
     ) 
 
-    public class IXamlReader: WindowsFoundation.IInspectable {
+    public class IXamlReader: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReader }
 
     }
@@ -1829,7 +1845,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Data1: 0x82A4CD9E, Data2: 0x435E, Data3: 0x5AEB, Data4: ( 0x8C,0x4F,0x30,0x0C,0xEC,0xE4,0x5C,0xAE ) // 82A4CD9E-435E-5AEB-8C4F-300CECE45CAE
     ) 
 
-    public class IXamlReaderStatics: WindowsFoundation.IInspectable {
+    public class IXamlReaderStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReaderStatics }
 
         public func Load(_ xaml: String) throws -> Any? {
