@@ -23,8 +23,10 @@ import WinSDK
 ///    window.activate()
 ///   }
 /// ```
-open class SwiftApplication: Application, IXamlMetadataProvider {
-    public typealias RunLoop = (DispatcherQueue) throws -> Int32
+open class SwiftApplication: Application, IXamlMetadataProvider, @unchecked Sendable {
+    // the loop closure is handed to MainActor.assumeIsolated from a nonisolated caller,
+    // so it must be safe to send across isolation domains
+    public typealias RunLoop = @Sendable (DispatcherQueue) throws -> Int32
 
     public required override init() {
         super.init()
@@ -106,13 +108,17 @@ open class SwiftApplication: Application, IXamlMetadataProvider {
             }
 
             try withExtendedLifetime(WindowsAppRuntimeInitializer(selfContained: instance.windowsAppSdkSelfContained)) {
-                var application: SwiftApplication!
-                let createAppCallback: (ApplicationInitializationCallbackParams?) -> Void = { _ in
-                    application = instance.init()
+                // ApplicationInitializationCallback is a @Sendable delegate fired on the main
+                // thread, so the application under construction is kept in an unchecked-Sendable box
+                final class ApplicationBox: @unchecked Sendable {
+                    var application: SwiftApplication!
                 }
-                let exitCode = try Application.startWithCustomRunLoop(instance.runLoop, createAppCallback)
-              
-                application.onShutdown(exitCode: exitCode)
+                let box = ApplicationBox()
+                let exitCode = try Application.startWithCustomRunLoop(instance.runLoop) { _ in
+                    box.application = instance.init()
+                }
+
+                box.application.onShutdown(exitCode: exitCode)
             }
         }
         catch {
