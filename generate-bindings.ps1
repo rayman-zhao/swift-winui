@@ -103,6 +103,12 @@ function Invoke-SwiftWinRT() {
         $RspParams += "-exclude $_`n"
     }
 
+    # local swift-winrt fork: project XAML types as @MainActor, and re-type the shared
+    # Windows.Foundation generic event delegates this module uses with @MainActor flavors
+    $RspParams += "-main_actor Microsoft.UI.Xaml`n"
+    $RspParams += "-main_actor_delegate Windows.Foundation.TypedEventHandler`n"
+    $RspParams += "-main_actor_delegate Windows.Foundation.EventHandler`n"
+
     if ($Projections.Package) {
         Get-WinMDInputs -Package $Package | ForEach-Object {
             $RspParams += "-input $($_.FullName)`n"

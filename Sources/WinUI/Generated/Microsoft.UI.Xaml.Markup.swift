@@ -60,7 +60,7 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 // MARK: - IComponentConnector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.icomponentconnector)
-public protocol IComponentConnector : WinRTInterface {
+@MainActor public protocol IComponentConnector : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.icomponentconnector.connect)
     func connect(_ connectionId: Int32, _ target: Any!) throws
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.icomponentconnector.getbindingconnector)
@@ -68,7 +68,7 @@ public protocol IComponentConnector : WinRTInterface {
 }
 
 extension IComponentConnector {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Markup.IComponentConnectorWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Markup.IComponentConnectorWrapper(self)
@@ -101,8 +101,8 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
     fileprivate class IComponentConnectorImpl: IComponentConnector, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IComponentConnectorBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -181,8 +181,10 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
             do {
                 guard let __unwrapped__instance = IComponentConnectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let connectionId: Int32 = $1
-                let target: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance.connect(connectionId, target)
+                nonisolated(unsafe) let target: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.connect(connectionId, target)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -191,8 +193,10 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
             do {
                 guard let __unwrapped__instance = IComponentConnectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let connectionId: Int32 = $1
-                let target: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                let result = try __unwrapped__instance.getBindingConnector(connectionId, target)
+                nonisolated(unsafe) let target: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getBindingConnector(connectionId, target)
+                }
                 let resultWrapper = __ABI_Microsoft_UI_Xaml_Markup.IComponentConnectorWrapper(result)
                 resultWrapper?.copyTo($3)
                 return S_OK
@@ -213,7 +217,7 @@ public class IComponentConnectorMaker: MakeFromAbi {
 // MARK: - IDataTemplateComponent
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.idatatemplatecomponent)
-public protocol IDataTemplateComponent : WinRTInterface {
+@MainActor public protocol IDataTemplateComponent : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.idatatemplatecomponent.recycle)
     func recycle() throws
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.idatatemplatecomponent.processbindings)
@@ -221,7 +225,7 @@ public protocol IDataTemplateComponent : WinRTInterface {
 }
 
 extension IDataTemplateComponent {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Markup.IDataTemplateComponentWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Markup.IDataTemplateComponentWrapper(self)
@@ -254,8 +258,8 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
     fileprivate class IDataTemplateComponentImpl: IDataTemplateComponent, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IDataTemplateComponentBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -328,7 +332,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         Recycle: {
             do {
                 guard let __unwrapped__instance = IDataTemplateComponentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.recycle()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.recycle()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -336,11 +342,13 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         ProcessBindings: {
             do {
                 guard let __unwrapped__instance = IDataTemplateComponentWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let itemIndex: Int32 = $2
                 let phase: Int32 = $3
                 var nextPhase: Int32 = 0
-                try __unwrapped__instance.processBindings(item, itemIndex, phase, &nextPhase)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.processBindings(item, itemIndex, phase, &nextPhase)
+                }
                 $4?.initialize(to: nextPhase)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -360,7 +368,7 @@ public class IDataTemplateComponentMaker: MakeFromAbi {
 // MARK: - IXamlMember
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember)
-public protocol IXamlMember : WinRTInterface {
+@MainActor public protocol IXamlMember : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.getvalue)
     func getValue(_ instance: Any!) throws -> Any!
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmember.setvalue)
@@ -380,7 +388,7 @@ public protocol IXamlMember : WinRTInterface {
 }
 
 extension IXamlMember {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Markup.IXamlMemberWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlMemberWrapper(self)
@@ -413,8 +421,8 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
     fileprivate class IXamlMemberImpl: IXamlMember, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IXamlMemberBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -576,35 +584,45 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         get_IsAttachable: {
             guard let __unwrapped__instance = IXamlMemberWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isAttachable
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isAttachable
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_IsDependencyProperty: {
             guard let __unwrapped__instance = IXamlMemberWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isDependencyProperty
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isDependencyProperty
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_IsReadOnly: {
             guard let __unwrapped__instance = IXamlMemberWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isReadOnly
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isReadOnly
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_Name: {
             guard let __unwrapped__instance = IXamlMemberWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.name
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.name
+            }
             $1?.initialize(to: try! HString(value).detach())
             return S_OK
         },
 
         get_TargetType: {
             guard let __unwrapped__instance = IXamlMemberWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.targetType
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.targetType
+            }
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -612,7 +630,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         get_Type: {
             guard let __unwrapped__instance = IXamlMemberWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.type
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.type
+            }
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -621,8 +641,12 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         GetValue: {
             do {
                 guard let __unwrapped__instance = IXamlMemberWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let instance: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let result = try __unwrapped__instance.getValue(instance)
+                nonisolated(unsafe) let instance: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.getValue(instance)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -632,9 +656,11 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         SetValue: {
             do {
                 guard let __unwrapped__instance = IXamlMemberWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let instance: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance.setValue(instance, value)
+                nonisolated(unsafe) let instance: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.setValue(instance, value)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -653,7 +679,7 @@ public class IXamlMemberMaker: MakeFromAbi {
 // MARK: - IXamlMetadataProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmetadataprovider)
-public protocol IXamlMetadataProvider : WinRTInterface {
+@MainActor public protocol IXamlMetadataProvider : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmetadataprovider.getxamltype)
     func getXamlType(_ type: WinUI.TypeName) throws -> WinUI.AnyIXamlType!
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamlmetadataprovider.getxamltype)
@@ -663,7 +689,7 @@ public protocol IXamlMetadataProvider : WinRTInterface {
 }
 
 extension IXamlMetadataProvider {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Markup.IXamlMetadataProviderWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlMetadataProviderWrapper(self)
@@ -696,8 +722,8 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
     fileprivate class IXamlMetadataProviderImpl: IXamlMetadataProvider, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IXamlMetadataProviderBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -799,7 +825,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
             do {
                 guard let __unwrapped__instance = IXamlMetadataProviderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let type: WinUI.TypeName = .from(abi: $1)
-                let result = try __unwrapped__instance.getXamlType(type)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getXamlType(type)
+                }
                 let resultWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -810,7 +838,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
             do {
                 guard let __unwrapped__instance = IXamlMetadataProviderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let fullName: String = .init(from: $1)
-                let result = try __unwrapped__instance.getXamlType(fullName)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getXamlType(fullName)
+                }
                 let resultWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -820,7 +850,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         GetXmlnsDefinitions: {
             do {
                 guard let __unwrapped__instance = IXamlMetadataProviderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getXmlnsDefinitions()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getXmlnsDefinitions()
+                }
                 $1?.initialize(to: UInt32(result.count))
                 do {
                     try result.fill(abi: $2)
@@ -843,7 +875,7 @@ public class IXamlMetadataProviderMaker: MakeFromAbi {
 // MARK: - IXamlType
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype)
-public protocol IXamlType : WinRTInterface {
+@MainActor public protocol IXamlType : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.activateinstance)
     func activateInstance() throws -> Any!
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.ixamltype.createfromstring)
@@ -885,7 +917,7 @@ public protocol IXamlType : WinRTInterface {
 }
 
 extension IXamlType {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(self)
@@ -918,8 +950,8 @@ extension __IMPL_Microsoft_UI_Xaml_Markup {
     fileprivate class IXamlTypeImpl: IXamlType, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IXamlTypeBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -1234,7 +1266,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         get_BaseType: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.baseType
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.baseType
+            }
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -1242,7 +1276,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         get_ContentProperty: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.contentProperty
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.contentProperty
+            }
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlMemberWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -1250,56 +1286,72 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         get_FullName: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.fullName
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.fullName
+            }
             $1?.initialize(to: try! HString(value).detach())
             return S_OK
         },
 
         get_IsArray: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isArray
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isArray
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_IsCollection: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isCollection
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isCollection
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_IsConstructible: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isConstructible
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isConstructible
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_IsDictionary: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isDictionary
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isDictionary
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_IsMarkupExtension: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isMarkupExtension
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isMarkupExtension
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_IsBindable: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isBindable
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isBindable
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_ItemType: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.itemType
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.itemType
+            }
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -1307,7 +1359,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         get_KeyType: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.keyType
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.keyType
+            }
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -1315,7 +1369,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         get_BoxedType: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.boxedType
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.boxedType
+            }
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlTypeWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -1323,7 +1379,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 
         get_UnderlyingType: {
             guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.underlyingType
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.underlyingType
+            }
             let _value = __ABI_Windows_UI_Xaml_Interop._ABI_TypeName(from: value)
             	$1?.initialize(to: _value.detach())
             return S_OK
@@ -1332,7 +1390,11 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         ActivateInstance: {
             do {
                 guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.activateInstance()
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.activateInstance()
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -1343,7 +1405,11 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
             do {
                 guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let value: String = .init(from: $1)
-                let result = try __unwrapped__instance.createFromString(value)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.createFromString(value)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -1354,7 +1420,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
             do {
                 guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let name: String = .init(from: $1)
-                let result = try __unwrapped__instance.getMember(name)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getMember(name)
+                }
                 let resultWrapper = __ABI_Microsoft_UI_Xaml_Markup.IXamlMemberWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -1364,9 +1432,11 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         AddToVector: {
             do {
                 guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let instance: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance.addToVector(instance, value)
+                nonisolated(unsafe) let instance: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.addToVector(instance, value)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1374,10 +1444,12 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         AddToMap: {
             do {
                 guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let instance: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let key: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($3))
-                try __unwrapped__instance.addToMap(instance, key, value)
+                nonisolated(unsafe) let instance: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let key: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($3))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.addToMap(instance, key, value)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1385,7 +1457,9 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
         RunInitializer: {
             do {
                 guard let __unwrapped__instance = IXamlTypeWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.runInitializer()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.runInitializer()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -1404,12 +1478,13 @@ public class IXamlTypeMaker: MakeFromAbi {
 // MARK: - XamlBindingHelper
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlbindinghelper)
+@MainActor
 public final class XamlBindingHelper : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Markup.IXamlBindingHelper
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlBindingHelper
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1417,11 +1492,11 @@ public final class XamlBindingHelper : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IXamlBindingHelperStatics: __ABI_Microsoft_UI_Xaml_Markup.IXamlBindingHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Markup.XamlBindingHelper")
+    private static nonisolated let _IXamlBindingHelperStatics: __ABI_Microsoft_UI_Xaml_Markup.IXamlBindingHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Markup.XamlBindingHelper")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlbindinghelper.getdatatemplatecomponent)
     public static func getDataTemplateComponent(_ element: WinUI.DependencyObject!) throws -> AnyIDataTemplateComponent! {
         return try _IXamlBindingHelperStatics.GetDataTemplateComponent(element)
@@ -1776,12 +1851,13 @@ extension __ABI_Microsoft_UI_Xaml_Markup {
 // MARK: - XamlReader
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlreader)
+@MainActor
 public final class XamlReader : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Markup.IXamlReader
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlReader
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1789,11 +1865,11 @@ public final class XamlReader : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IXamlReaderStatics: __ABI_Microsoft_UI_Xaml_Markup.IXamlReaderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Markup.XamlReader")
+    private static nonisolated let _IXamlReaderStatics: __ABI_Microsoft_UI_Xaml_Markup.IXamlReaderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Markup.XamlReader")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.markup.xamlreader.load)
     public static func load(_ xaml: String) throws -> Any! {
         return try _IXamlReaderStatics.Load(xaml)

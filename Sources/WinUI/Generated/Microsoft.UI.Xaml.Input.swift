@@ -374,7 +374,7 @@ extension WinUI.XYFocusNavigationStrategyOverride: @retroactive Hashable, @retro
 
 // MARK: - DoubleTappedEventHandler
 
-public typealias DoubleTappedEventHandler = @Sendable (Any?, DoubleTappedRoutedEventArgs?) throws -> ()
+public typealias DoubleTappedEventHandler = @MainActor (Any?, DoubleTappedRoutedEventArgs?) throws -> ()
 
 // MARK: - DoubleTappedEventHandler Internals
 
@@ -423,9 +423,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = DoubleTappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.DoubleTappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.DoubleTappedRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -440,7 +442,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - HoldingEventHandler
 
-public typealias HoldingEventHandler = @Sendable (Any?, HoldingRoutedEventArgs?) throws -> ()
+public typealias HoldingEventHandler = @MainActor (Any?, HoldingRoutedEventArgs?) throws -> ()
 
 // MARK: - HoldingEventHandler Internals
 
@@ -489,9 +491,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = HoldingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.HoldingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.HoldingRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -506,7 +510,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - KeyEventHandler
 
-public typealias KeyEventHandler = @Sendable (Any?, KeyRoutedEventArgs?) throws -> ()
+public typealias KeyEventHandler = @MainActor (Any?, KeyRoutedEventArgs?) throws -> ()
 
 // MARK: - KeyEventHandler Internals
 
@@ -555,9 +559,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = KeyEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.KeyRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.KeyRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -572,7 +578,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationCompletedEventHandler
 
-public typealias ManipulationCompletedEventHandler = @Sendable (Any?, ManipulationCompletedRoutedEventArgs?) throws -> ()
+public typealias ManipulationCompletedEventHandler = @MainActor (Any?, ManipulationCompletedRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationCompletedEventHandler Internals
 
@@ -621,9 +627,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = ManipulationCompletedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.ManipulationCompletedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationCompletedRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -638,7 +646,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationDeltaEventHandler
 
-public typealias ManipulationDeltaEventHandler = @Sendable (Any?, ManipulationDeltaRoutedEventArgs?) throws -> ()
+public typealias ManipulationDeltaEventHandler = @MainActor (Any?, ManipulationDeltaRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationDeltaEventHandler Internals
 
@@ -687,9 +695,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = ManipulationDeltaEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.ManipulationDeltaRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationDeltaRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -704,7 +714,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationInertiaStartingEventHandler
 
-public typealias ManipulationInertiaStartingEventHandler = @Sendable (Any?, ManipulationInertiaStartingRoutedEventArgs?) throws -> ()
+public typealias ManipulationInertiaStartingEventHandler = @MainActor (Any?, ManipulationInertiaStartingRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationInertiaStartingEventHandler Internals
 
@@ -753,9 +763,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = ManipulationInertiaStartingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.ManipulationInertiaStartingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationInertiaStartingRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -770,7 +782,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationStartedEventHandler
 
-public typealias ManipulationStartedEventHandler = @Sendable (Any?, ManipulationStartedRoutedEventArgs?) throws -> ()
+public typealias ManipulationStartedEventHandler = @MainActor (Any?, ManipulationStartedRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationStartedEventHandler Internals
 
@@ -819,9 +831,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = ManipulationStartedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.ManipulationStartedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -836,7 +850,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ManipulationStartingEventHandler
 
-public typealias ManipulationStartingEventHandler = @Sendable (Any?, ManipulationStartingRoutedEventArgs?) throws -> ()
+public typealias ManipulationStartingEventHandler = @MainActor (Any?, ManipulationStartingRoutedEventArgs?) throws -> ()
 
 // MARK: - ManipulationStartingEventHandler Internals
 
@@ -885,9 +899,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = ManipulationStartingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.ManipulationStartingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartingRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -902,7 +918,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - PointerEventHandler
 
-public typealias PointerEventHandler = @Sendable (Any?, PointerRoutedEventArgs?) throws -> ()
+public typealias PointerEventHandler = @MainActor (Any?, PointerRoutedEventArgs?) throws -> ()
 
 // MARK: - PointerEventHandler Internals
 
@@ -951,9 +967,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = PointerEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -968,7 +986,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - RightTappedEventHandler
 
-public typealias RightTappedEventHandler = @Sendable (Any?, RightTappedRoutedEventArgs?) throws -> ()
+public typealias RightTappedEventHandler = @MainActor (Any?, RightTappedRoutedEventArgs?) throws -> ()
 
 // MARK: - RightTappedEventHandler Internals
 
@@ -1017,9 +1035,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = RightTappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.RightTappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.RightTappedRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -1034,7 +1054,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - TappedEventHandler
 
-public typealias TappedEventHandler = @Sendable (Any?, TappedRoutedEventArgs?) throws -> ()
+public typealias TappedEventHandler = @MainActor (Any?, TappedRoutedEventArgs?) throws -> ()
 
 // MARK: - TappedEventHandler Internals
 
@@ -1083,9 +1103,11 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Invoke: {
             do {
                 guard let __unwrapped__instance = TappedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.TappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.TappedRoutedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -1101,7 +1123,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - ICommand
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand)
-public protocol ICommand : WinRTInterface {
+@MainActor public protocol ICommand : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand.canexecute)
     func canExecute(_ parameter: Any!) throws -> Bool
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand.execute)
@@ -1111,7 +1133,7 @@ public protocol ICommand : WinRTInterface {
 }
 
 extension ICommand {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Input.ICommandWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Input.ICommandWrapper(self)
@@ -1144,8 +1166,8 @@ extension __IMPL_Microsoft_UI_Xaml_Input {
     fileprivate class ICommandImpl: ICommand, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICommandBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -1162,13 +1184,17 @@ extension __IMPL_Microsoft_UI_Xaml_Input {
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand.canexecutechanged)
         fileprivate lazy var canExecuteChanged : Event<EventHandler<Any?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_CanExecuteChanged($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_CanExecuteChanged(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_CanExecuteChanged($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_CanExecuteChanged(token)
+              }
+            }
           )
         }()
 
@@ -1251,7 +1277,9 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         add_CanExecuteChanged: {
             guard let __unwrapped__instance = ICommandWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.canExecuteChanged.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.canExecuteChanged.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1259,15 +1287,19 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         remove_CanExecuteChanged: {
             guard let __unwrapped__instance = ICommandWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.canExecuteChanged.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.canExecuteChanged.removeHandler(token)
+            }
             return S_OK
         },
 
         CanExecute: {
             do {
                 guard let __unwrapped__instance = ICommandWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let result = try __unwrapped__instance.canExecute(parameter)
+                nonisolated(unsafe) let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.canExecute(parameter)
+                }
                 $2?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1276,8 +1308,10 @@ extension __ABI_Microsoft_UI_Xaml_Input {
         Execute: {
             do {
                 guard let __unwrapped__instance = ICommandWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.execute(parameter)
+                nonisolated(unsafe) let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.execute(parameter)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -1296,12 +1330,13 @@ public class ICommandMaker: MakeFromAbi {
 // MARK: - AccessKeyDisplayDismissedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.accesskeydisplaydismissedeventargs)
+@MainActor
 public final class AccessKeyDisplayDismissedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IAccessKeyDisplayDismissedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayDismissedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1309,12 +1344,12 @@ public final class AccessKeyDisplayDismissedEventArgs : WinRTClass, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1359,12 +1394,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - AccessKeyDisplayRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.accesskeydisplayrequestedeventargs)
+@MainActor
 public final class AccessKeyDisplayRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IAccessKeyDisplayRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyDisplayRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1372,12 +1408,12 @@ public final class AccessKeyDisplayRequestedEventArgs : WinRTClass, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1438,12 +1474,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - AccessKeyInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.accesskeyinvokedeventargs)
+@MainActor
 public final class AccessKeyInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IAccessKeyInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIAccessKeyInvokedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1451,12 +1488,12 @@ public final class AccessKeyInvokedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyInvokedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.AccessKeyInvokedEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1521,12 +1558,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - CharacterReceivedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.characterreceivedroutedeventargs)
+@MainActor
 public final class CharacterReceivedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.ICharacterReceivedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CICharacterReceivedRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1534,7 +1572,7 @@ public final class CharacterReceivedRoutedEventArgs : WinUI.RoutedEventArgs, @un
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -1625,12 +1663,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ContextRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.contextrequestedeventargs)
+@MainActor
 public final class ContextRequestedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IContextRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIContextRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1638,12 +1677,12 @@ public final class ContextRequestedEventArgs : WinUI.RoutedEventArgs, @unchecked
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ContextRequestedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ContextRequestedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1723,12 +1762,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - DoubleTappedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.doubletappedroutedeventargs)
+@MainActor
 public final class DoubleTappedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IDoubleTappedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIDoubleTappedRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1736,12 +1776,12 @@ public final class DoubleTappedRoutedEventArgs : WinUI.RoutedEventArgs, @uncheck
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.DoubleTappedRoutedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.DoubleTappedRoutedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1832,12 +1872,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FindNextElementOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions)
+@MainActor
 public final class FindNextElementOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFindNextElementOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFindNextElementOptions
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1845,12 +1886,12 @@ public final class FindNextElementOptions : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.FindNextElementOptions")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.FindNextElementOptions")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1976,12 +2017,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FocusManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager)
+@MainActor
 public final class FocusManager : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFocusManager
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManager
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1989,11 +2031,11 @@ public final class FocusManager : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IFocusManagerStatics: __ABI_Microsoft_UI_Xaml_Input.IFocusManagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.FocusManager")
+    private static nonisolated let _IFocusManagerStatics: __ABI_Microsoft_UI_Xaml_Input.IFocusManagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.FocusManager")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager.tryfocusasync)
     public static func tryFocusAsync(_ element: WinUI.DependencyObject!, _ value: WinUI.FocusState) throws -> WindowsFoundation.AnyIAsyncOperation<FocusMovementResult?>! {
         return try _IFocusManagerStatics.TryFocusAsync(element, value)
@@ -2320,12 +2362,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FocusManagerGotFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanagergotfocuseventargs)
+@MainActor
 public final class FocusManagerGotFocusEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFocusManagerGotFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerGotFocusEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2333,7 +2376,7 @@ public final class FocusManagerGotFocusEventArgs : WinRTClass, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -2405,12 +2448,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FocusManagerLostFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanagerlostfocuseventargs)
+@MainActor
 public final class FocusManagerLostFocusEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFocusManagerLostFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusManagerLostFocusEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2418,7 +2462,7 @@ public final class FocusManagerLostFocusEventArgs : WinRTClass, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -2490,12 +2534,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - FocusMovementResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmovementresult)
+@MainActor
 public final class FocusMovementResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IFocusMovementResult
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIFocusMovementResult
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2503,7 +2548,7 @@ public final class FocusMovementResult : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -2561,12 +2606,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - GettingFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.gettingfocuseventargs)
+@MainActor
 public final class GettingFocusEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IGettingFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIGettingFocusEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2574,7 +2620,7 @@ public final class GettingFocusEventArgs : WinUI.RoutedEventArgs, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -2772,12 +2818,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - HoldingRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.holdingroutedeventargs)
+@MainActor
 public final class HoldingRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IHoldingRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIHoldingRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2785,12 +2832,12 @@ public final class HoldingRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.HoldingRoutedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.HoldingRoutedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -2894,12 +2941,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InertiaExpansionBehavior
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiaexpansionbehavior)
+@MainActor
 public final class InertiaExpansionBehavior : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInertiaExpansionBehavior
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaExpansionBehavior
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2907,7 +2955,7 @@ public final class InertiaExpansionBehavior : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -2992,12 +3040,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InertiaRotationBehavior
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiarotationbehavior)
+@MainActor
 public final class InertiaRotationBehavior : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInertiaRotationBehavior
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaRotationBehavior
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3005,7 +3054,7 @@ public final class InertiaRotationBehavior : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -3090,12 +3139,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InertiaTranslationBehavior
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inertiatranslationbehavior)
+@MainActor
 public final class InertiaTranslationBehavior : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInertiaTranslationBehavior
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInertiaTranslationBehavior
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3103,7 +3153,7 @@ public final class InertiaTranslationBehavior : WinRTClass, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -3188,12 +3238,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InputScope
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inputscope)
+@MainActor
 public final class InputScope : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInputScope
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScope
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3201,12 +3252,12 @@ public final class InputScope : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScope")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScope")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -3265,12 +3316,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - InputScopeName
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inputscopename)
+@MainActor
 public final class InputScopeName : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IInputScopeName
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIInputScopeName
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3278,17 +3330,17 @@ public final class InputScopeName : WinUI.DependencyObject, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScopeName")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScopeName")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IInputScopeNameFactory: __ABI_Microsoft_UI_Xaml_Input.IInputScopeNameFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScopeName")
-    public init(_ nameValue: InputScopeNameValue) {
+    private static nonisolated let _IInputScopeNameFactory: __ABI_Microsoft_UI_Xaml_Input.IInputScopeNameFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.InputScopeName")
+    nonisolated public init(_ nameValue: InputScopeNameValue) {
         super.init(fromAbi: try! Self._IInputScopeNameFactory.CreateInstance(nameValue))
     }
 
@@ -3371,12 +3423,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - KeyRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs)
+@MainActor
 public final class KeyRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IKeyRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3384,7 +3437,7 @@ public final class KeyRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -3504,12 +3557,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - KeyboardAccelerator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator)
+@MainActor
 open class KeyboardAccelerator : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IKeyboardAccelerator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAccelerator
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3517,29 +3571,29 @@ open class KeyboardAccelerator : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IKeyboardAcceleratorFactory : __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.KeyboardAccelerator")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Input.KeyboardAcceleratorBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IKeyboardAcceleratorFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IKeyboardAcceleratorStatics: __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.KeyboardAccelerator")
+    private static nonisolated let _IKeyboardAcceleratorStatics: __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.KeyboardAccelerator")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.isenabledproperty)
     public class var isEnabledProperty : WinUI.DependencyProperty! {
         get { try! _IKeyboardAcceleratorStatics.get_IsEnabledProperty() }
@@ -3587,13 +3641,17 @@ open class KeyboardAccelerator : WinUI.DependencyObject, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.invoked)
     public lazy var invoked : Event<TypedEventHandler<KeyboardAccelerator?, KeyboardAcceleratorInvokedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Invoked($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Invoked(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Invoked($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Invoked(token)
+          }
+        }
       )
     }()
 
@@ -3790,12 +3848,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - KeyboardAcceleratorInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardacceleratorinvokedeventargs)
+@MainActor
 public final class KeyboardAcceleratorInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IKeyboardAcceleratorInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIKeyboardAcceleratorInvokedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3803,7 +3862,7 @@ public final class KeyboardAcceleratorInvokedEventArgs : WinRTClass, @unchecked 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -3896,12 +3955,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - LosingFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.losingfocuseventargs)
+@MainActor
 public final class LosingFocusEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.ILosingFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CILosingFocusEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3909,7 +3969,7 @@ public final class LosingFocusEventArgs : WinUI.RoutedEventArgs, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -4107,12 +4167,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationCompletedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationcompletedroutedeventargs)
+@MainActor
 public final class ManipulationCompletedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationCompletedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationCompletedRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4120,12 +4181,12 @@ public final class ManipulationCompletedRoutedEventArgs : WinUI.RoutedEventArgs,
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -4269,12 +4330,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationDeltaRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationdeltaroutedeventargs)
+@MainActor
 public final class ManipulationDeltaRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationDeltaRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationDeltaRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4282,12 +4344,12 @@ public final class ManipulationDeltaRoutedEventArgs : WinUI.RoutedEventArgs, @un
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -4455,12 +4517,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationInertiaStartingRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationinertiastartingroutedeventargs)
+@MainActor
 public final class ManipulationInertiaStartingRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationInertiaStartingRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationInertiaStartingRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4468,12 +4531,12 @@ public final class ManipulationInertiaStartingRoutedEventArgs : WinUI.RoutedEven
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -4667,12 +4730,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationPivot
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationpivot)
+@MainActor
 public final class ManipulationPivot : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationPivot
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationPivot
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4680,17 +4744,17 @@ public final class ManipulationPivot : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationPivot")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationPivot")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IManipulationPivotFactory: __ABI_Microsoft_UI_Xaml_Input.IManipulationPivotFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationPivot")
-    public init(_ center: WindowsFoundation.Point, _ radius: Double) {
+    private static nonisolated let _IManipulationPivotFactory: __ABI_Microsoft_UI_Xaml_Input.IManipulationPivotFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationPivot")
+    nonisolated public init(_ center: WindowsFoundation.Point, _ radius: Double) {
         super.init(try! Self._IManipulationPivotFactory.CreateInstanceWithCenterAndRadius(center, radius))
     }
 
@@ -4793,12 +4857,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationStartedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartedroutedeventargs)
+@MainActor
 open class ManipulationStartedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartedRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4806,23 +4871,23 @@ open class ManipulationStartedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecke
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IManipulationStartedRoutedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Input.IManipulationStartedRoutedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationStartedRoutedEventArgs")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedRoutedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IManipulationStartedRoutedEventArgsFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -4987,12 +5052,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ManipulationStartingRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.manipulationstartingroutedeventargs)
+@MainActor
 public final class ManipulationStartingRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IManipulationStartingRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIManipulationStartingRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5000,12 +5066,12 @@ public final class ManipulationStartingRoutedEventArgs : WinUI.RoutedEventArgs, 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationStartingRoutedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.ManipulationStartingRoutedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -5132,12 +5198,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - NoFocusCandidateFoundEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.nofocuscandidatefoundeventargs)
+@MainActor
 public final class NoFocusCandidateFoundEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.INoFocusCandidateFoundEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CINoFocusCandidateFoundEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5145,7 +5212,7 @@ public final class NoFocusCandidateFoundEventArgs : WinUI.RoutedEventArgs, @unch
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -5236,12 +5303,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - Pointer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointer)
+@MainActor
 public final class Pointer : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IPointer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointer
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5249,7 +5317,7 @@ public final class Pointer : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -5346,12 +5414,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - PointerRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs)
+@MainActor
 public final class PointerRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IPointerRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIPointerRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5359,7 +5428,7 @@ public final class PointerRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -5492,12 +5561,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - ProcessKeyboardAcceleratorEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.processkeyboardacceleratoreventargs)
+@MainActor
 public final class ProcessKeyboardAcceleratorEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IProcessKeyboardAcceleratorEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIProcessKeyboardAcceleratorEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5505,7 +5575,7 @@ public final class ProcessKeyboardAcceleratorEventArgs : WinRTClass, @unchecked 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -5596,12 +5666,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - RightTappedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.righttappedroutedeventargs)
+@MainActor
 public final class RightTappedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.IRightTappedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CIRightTappedRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5609,12 +5680,12 @@ public final class RightTappedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecke
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.RightTappedRoutedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.RightTappedRoutedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -5705,12 +5776,13 @@ extension __ABI_Microsoft_UI_Xaml_Input {
 // MARK: - TappedRoutedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.tappedroutedeventargs)
+@MainActor
 public final class TappedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Input.ITappedRoutedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInput_CITappedRoutedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5718,12 +5790,12 @@ public final class TappedRoutedEventArgs : WinUI.RoutedEventArgs, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.TappedRoutedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Input.TappedRoutedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 

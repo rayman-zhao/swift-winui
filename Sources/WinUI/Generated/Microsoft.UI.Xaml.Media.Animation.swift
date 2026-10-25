@@ -183,12 +183,13 @@ extension __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CRepeatBehavior {
 // MARK: - AddDeleteThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.adddeletethemetransition)
+@MainActor
 public final class AddDeleteThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IAddDeleteThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIAddDeleteThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -196,12 +197,12 @@ public final class AddDeleteThemeTransition : WinUI.Transition, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.AddDeleteThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.AddDeleteThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -246,12 +247,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - BackEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.backease)
+@MainActor
 public final class BackEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IBackEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBackEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -259,16 +261,16 @@ public final class BackEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BackEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BackEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBackEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBackEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BackEase")
+    private static nonisolated let _IBackEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBackEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BackEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.backease.amplitudeproperty)
     public static var amplitudeProperty : WinUI.DependencyProperty! {
         get { try! _IBackEaseStatics.get_AmplitudeProperty() }
@@ -353,12 +355,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - BasicConnectedAnimationConfiguration
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.basicconnectedanimationconfiguration)
+@MainActor
 open class BasicConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfiguration, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IBasicConnectedAnimationConfiguration
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBasicConnectedAnimationConfiguration
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -366,23 +369,23 @@ open class BasicConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfig
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBasicConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IBasicConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.BasicConnectedAnimationConfigurationBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBasicConnectedAnimationConfigurationFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -463,12 +466,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - BeginStoryboard
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.beginstoryboard)
+@MainActor
 public final class BeginStoryboard : WinUI.TriggerAction, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IBeginStoryboard
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBeginStoryboard
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -476,16 +480,16 @@ public final class BeginStoryboard : WinUI.TriggerAction, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BeginStoryboard")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BeginStoryboard")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBeginStoryboardStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBeginStoryboardStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BeginStoryboard")
+    private static nonisolated let _IBeginStoryboardStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBeginStoryboardStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BeginStoryboard")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.beginstoryboard.storyboardproperty)
     public static var storyboardProperty : WinUI.DependencyProperty! {
         get { try! _IBeginStoryboardStatics.get_StoryboardProperty() }
@@ -571,12 +575,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - BounceEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.bounceease)
+@MainActor
 public final class BounceEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IBounceEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIBounceEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -584,16 +589,16 @@ public final class BounceEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BounceEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BounceEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBounceEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBounceEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BounceEase")
+    private static nonisolated let _IBounceEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IBounceEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.BounceEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.bounceease.bouncesproperty)
     public static var bouncesProperty : WinUI.DependencyProperty! {
         get { try! _IBounceEaseStatics.get_BouncesProperty() }
@@ -712,12 +717,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - CircleEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.circleease)
+@MainActor
 public final class CircleEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ICircleEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICircleEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -725,12 +731,12 @@ public final class CircleEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CircleEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CircleEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -775,12 +781,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ColorAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation)
+@MainActor
 public final class ColorAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -788,16 +795,16 @@ public final class ColorAnimation : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IColorAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimation")
+    private static nonisolated let _IColorAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimation.byproperty)
     public static var byProperty : WinUI.DependencyProperty! {
         get { try! _IColorAnimationStatics.get_ByProperty() }
@@ -1028,12 +1035,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ColorAnimationUsingKeyFrames
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimationusingkeyframes)
+@MainActor
 public final class ColorAnimationUsingKeyFrames : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationUsingKeyFrames
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorAnimationUsingKeyFrames
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1041,16 +1049,16 @@ public final class ColorAnimationUsingKeyFrames : WinUI.Timeline, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IColorAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames")
+    private static nonisolated let _IColorAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.coloranimationusingkeyframes.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
         get { try! _IColorAnimationUsingKeyFramesStatics.get_EnableDependentAnimationProperty() }
@@ -1149,12 +1157,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ColorKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframe)
+@MainActor
 open class ColorKeyFrame : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIColorKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1162,29 +1171,29 @@ open class ColorKeyFrame : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IColorKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrame")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.ColorKeyFrameBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IColorKeyFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrame")
+    private static nonisolated let _IColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframe.keytimeproperty)
     public class var keyTimeProperty : WinUI.DependencyProperty! {
         get { try! _IColorKeyFrameStatics.get_KeyTimeProperty() }
@@ -1337,13 +1346,14 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ColorKeyFrameCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection)
+@MainActor
 public final class ColorKeyFrameCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = ColorKeyFrame?
     private typealias SwiftABI = WinUI.IVectorColorKeyFrame
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CColorKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1351,36 +1361,36 @@ public final class ColorKeyFrameCollection : WinRTClass, @unchecked Sendable, IV
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrameCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ColorKeyFrameCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -1389,74 +1399,74 @@ public final class ColorKeyFrameCollection : WinRTClass, @unchecked Sendable, IV
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.getat)
-    public func getAt(_ index: UInt32) -> ColorKeyFrame? {
+    public nonisolated func getAt(_ index: UInt32) -> ColorKeyFrame? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<ColorKeyFrame?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<ColorKeyFrame?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.indexof)
-    public func indexOf(_ value: ColorKeyFrame?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: ColorKeyFrame?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.setat)
-    public func setAt(_ index: UInt32, _ value: ColorKeyFrame?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: ColorKeyFrame?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: ColorKeyFrame?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: ColorKeyFrame?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.append)
-    public func append(_ value: ColorKeyFrame?) {
+    public nonisolated func append(_ value: ColorKeyFrame?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [ColorKeyFrame?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [ColorKeyFrame?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.replaceall)
-    public func replaceAll(_ items: [ColorKeyFrame?]) {
+    public nonisolated func replaceAll(_ items: [ColorKeyFrame?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableColorKeyFrame! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableColorKeyFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.colorkeyframecollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<ColorKeyFrame?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<ColorKeyFrame?>? {
         try! _IIterable.First()
     }
 
@@ -1493,12 +1503,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - CommonNavigationTransitionInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.commonnavigationtransitioninfo)
+@MainActor
 public final class CommonNavigationTransitionInfo : WinUI.NavigationTransitionInfo, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ICommonNavigationTransitionInfo
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICommonNavigationTransitionInfo
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1506,16 +1517,16 @@ public final class CommonNavigationTransitionInfo : WinUI.NavigationTransitionIn
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ICommonNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ICommonNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo")
+    private static nonisolated let _ICommonNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ICommonNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.commonnavigationtransitioninfo.getisstaggerelement)
     public static func getIsStaggerElement(_ element: WinUI.UIElement!) throws -> Bool {
         return try _ICommonNavigationTransitionInfoStatics.GetIsStaggerElement(element)
@@ -1638,12 +1649,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ConnectedAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation)
+@MainActor
 public final class ConnectedAnimation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1651,7 +1663,7 @@ public final class ConnectedAnimation : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -1690,13 +1702,17 @@ public final class ConnectedAnimation : WinRTClass, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimation.completed)
     public lazy var completed : Event<TypedEventHandler<ConnectedAnimation?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Completed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Completed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Completed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Completed(token)
+          }
+        }
       )
     }()
 
@@ -1818,12 +1834,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ConnectedAnimationConfiguration
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimationconfiguration)
+@MainActor
 open class ConnectedAnimationConfiguration : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationConfiguration
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationConfiguration
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1831,19 +1848,19 @@ open class ConnectedAnimationConfiguration : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration")
@@ -1910,12 +1927,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ConnectedAnimationService
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimationservice)
+@MainActor
 public final class ConnectedAnimationService : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationService
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIConnectedAnimationService
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1923,11 +1941,11 @@ public final class ConnectedAnimationService : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IConnectedAnimationServiceStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationServiceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ConnectedAnimationService")
+    private static nonisolated let _IConnectedAnimationServiceStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IConnectedAnimationServiceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ConnectedAnimationService")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.connectedanimationservice.getforcurrentview)
     public static func getForCurrentView() throws -> ConnectedAnimationService! {
         return try _IConnectedAnimationServiceStatics.GetForCurrentView()
@@ -2063,12 +2081,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ContentThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.contentthemetransition)
+@MainActor
 public final class ContentThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IContentThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContentThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2076,16 +2095,16 @@ public final class ContentThemeTransition : WinUI.Transition, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IContentThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IContentThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition")
+    private static nonisolated let _IContentThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IContentThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContentThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.contentthemetransition.horizontaloffsetproperty)
     public static var horizontalOffsetProperty : WinUI.DependencyProperty! {
         get { try! _IContentThemeTransitionStatics.get_HorizontalOffsetProperty() }
@@ -2204,12 +2223,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ContinuumNavigationTransitionInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo)
+@MainActor
 public final class ContinuumNavigationTransitionInfo : WinUI.NavigationTransitionInfo, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IContinuumNavigationTransitionInfo
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIContinuumNavigationTransitionInfo
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2217,16 +2237,16 @@ public final class ContinuumNavigationTransitionInfo : WinUI.NavigationTransitio
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IContinuumNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IContinuumNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo")
+    private static nonisolated let _IContinuumNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IContinuumNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.continuumnavigationtransitioninfo.getisentranceelement)
     public static func getIsEntranceElement(_ element: WinUI.UIElement!) throws -> Bool {
         return try _IContinuumNavigationTransitionInfoStatics.GetIsEntranceElement(element)
@@ -2426,12 +2446,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - CubicEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.cubicease)
+@MainActor
 public final class CubicEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ICubicEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CICubicEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2439,12 +2460,12 @@ public final class CubicEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CubicEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.CubicEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -2489,12 +2510,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DirectConnectedAnimationConfiguration
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.directconnectedanimationconfiguration)
+@MainActor
 open class DirectConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfiguration, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDirectConnectedAnimationConfiguration
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDirectConnectedAnimationConfiguration
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2502,23 +2524,23 @@ open class DirectConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfi
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IDirectConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IDirectConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.DirectConnectedAnimationConfigurationBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IDirectConnectedAnimationConfigurationFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -2599,12 +2621,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DiscreteColorKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.discretecolorkeyframe)
+@MainActor
 public final class DiscreteColorKeyFrame : WinUI.ColorKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDiscreteColorKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDiscreteColorKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2612,12 +2635,12 @@ public final class DiscreteColorKeyFrame : WinUI.ColorKeyFrame, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteColorKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteColorKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -2662,12 +2685,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DiscreteDoubleKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.discretedoublekeyframe)
+@MainActor
 public final class DiscreteDoubleKeyFrame : WinUI.DoubleKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDiscreteDoubleKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDiscreteDoubleKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2675,12 +2699,12 @@ public final class DiscreteDoubleKeyFrame : WinUI.DoubleKeyFrame, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -2725,12 +2749,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DiscreteObjectKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.discreteobjectkeyframe)
+@MainActor
 public final class DiscreteObjectKeyFrame : WinUI.ObjectKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDiscreteObjectKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDiscreteObjectKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2738,12 +2763,12 @@ public final class DiscreteObjectKeyFrame : WinUI.ObjectKeyFrame, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -2788,12 +2813,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DiscretePointKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.discretepointkeyframe)
+@MainActor
 public final class DiscretePointKeyFrame : WinUI.PointKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDiscretePointKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDiscretePointKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2801,12 +2827,12 @@ public final class DiscretePointKeyFrame : WinUI.PointKeyFrame, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscretePointKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DiscretePointKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -2851,12 +2877,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DoubleAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation)
+@MainActor
 public final class DoubleAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2864,16 +2891,16 @@ public final class DoubleAnimation : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDoubleAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimation")
+    private static nonisolated let _IDoubleAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimation.byproperty)
     public static var byProperty : WinUI.DependencyProperty! {
         get { try! _IDoubleAnimationStatics.get_ByProperty() }
@@ -3104,12 +3131,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DoubleAnimationUsingKeyFrames
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimationusingkeyframes)
+@MainActor
 public final class DoubleAnimationUsingKeyFrames : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationUsingKeyFrames
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleAnimationUsingKeyFrames
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3117,16 +3145,16 @@ public final class DoubleAnimationUsingKeyFrames : WinUI.Timeline, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDoubleAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames")
+    private static nonisolated let _IDoubleAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doubleanimationusingkeyframes.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
         get { try! _IDoubleAnimationUsingKeyFramesStatics.get_EnableDependentAnimationProperty() }
@@ -3225,12 +3253,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DoubleKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframe)
+@MainActor
 open class DoubleKeyFrame : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDoubleKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3238,29 +3267,29 @@ open class DoubleKeyFrame : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IDoubleKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrame")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.DoubleKeyFrameBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IDoubleKeyFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrame")
+    private static nonisolated let _IDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframe.keytimeproperty)
     public class var keyTimeProperty : WinUI.DependencyProperty! {
         get { try! _IDoubleKeyFrameStatics.get_KeyTimeProperty() }
@@ -3413,13 +3442,14 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DoubleKeyFrameCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection)
+@MainActor
 public final class DoubleKeyFrameCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = DoubleKeyFrame?
     private typealias SwiftABI = WinUI.IVectorDoubleKeyFrame
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CDoubleKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3427,36 +3457,36 @@ public final class DoubleKeyFrameCollection : WinRTClass, @unchecked Sendable, I
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrameCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DoubleKeyFrameCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -3465,74 +3495,74 @@ public final class DoubleKeyFrameCollection : WinRTClass, @unchecked Sendable, I
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.getat)
-    public func getAt(_ index: UInt32) -> DoubleKeyFrame? {
+    public nonisolated func getAt(_ index: UInt32) -> DoubleKeyFrame? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<DoubleKeyFrame?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<DoubleKeyFrame?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.indexof)
-    public func indexOf(_ value: DoubleKeyFrame?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: DoubleKeyFrame?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.setat)
-    public func setAt(_ index: UInt32, _ value: DoubleKeyFrame?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: DoubleKeyFrame?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: DoubleKeyFrame?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: DoubleKeyFrame?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.append)
-    public func append(_ value: DoubleKeyFrame?) {
+    public nonisolated func append(_ value: DoubleKeyFrame?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [DoubleKeyFrame?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [DoubleKeyFrame?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.replaceall)
-    public func replaceAll(_ items: [DoubleKeyFrame?]) {
+    public nonisolated func replaceAll(_ items: [DoubleKeyFrame?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableDoubleKeyFrame! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableDoubleKeyFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.doublekeyframecollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<DoubleKeyFrame?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<DoubleKeyFrame?>? {
         try! _IIterable.First()
     }
 
@@ -3569,12 +3599,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DragItemThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragitemthemeanimation)
+@MainActor
 public final class DragItemThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDragItemThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragItemThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3582,16 +3613,16 @@ public final class DragItemThemeAnimation : WinUI.Timeline, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragItemThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragItemThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDragItemThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDragItemThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragItemThemeAnimation")
+    private static nonisolated let _IDragItemThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDragItemThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragItemThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragitemthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
         get { try! _IDragItemThemeAnimationStatics.get_TargetNameProperty() }
@@ -3680,12 +3711,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DragOverThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragoverthemeanimation)
+@MainActor
 public final class DragOverThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDragOverThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDragOverThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3693,16 +3725,16 @@ public final class DragOverThemeAnimation : WinUI.Timeline, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragOverThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragOverThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDragOverThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDragOverThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragOverThemeAnimation")
+    private static nonisolated let _IDragOverThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDragOverThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DragOverThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.dragoverthemeanimation.directionproperty)
     public static var directionProperty : WinUI.DependencyProperty! {
         get { try! _IDragOverThemeAnimationStatics.get_DirectionProperty() }
@@ -3859,12 +3891,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DrillInNavigationTransitionInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinnavigationtransitioninfo)
+@MainActor
 public final class DrillInNavigationTransitionInfo : WinUI.NavigationTransitionInfo, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillInNavigationTransitionInfo
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInNavigationTransitionInfo
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3872,12 +3905,12 @@ public final class DrillInNavigationTransitionInfo : WinUI.NavigationTransitionI
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -3922,12 +3955,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DrillInThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation)
+@MainActor
 public final class DrillInThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillInThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillInThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3935,16 +3969,16 @@ public final class DrillInThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDrillInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInThemeAnimation")
+    private static nonisolated let _IDrillInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillInThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drillinthemeanimation.entrancetargetnameproperty)
     public static var entranceTargetNameProperty : WinUI.DependencyProperty! {
         get { try! _IDrillInThemeAnimationStatics.get_EntranceTargetNameProperty() }
@@ -4141,12 +4175,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DrillOutThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation)
+@MainActor
 public final class DrillOutThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillOutThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDrillOutThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4154,16 +4189,16 @@ public final class DrillOutThemeAnimation : WinUI.Timeline, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillOutThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillOutThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDrillOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillOutThemeAnimation")
+    private static nonisolated let _IDrillOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDrillOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DrillOutThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.drilloutthemeanimation.entrancetargetnameproperty)
     public static var entranceTargetNameProperty : WinUI.DependencyProperty! {
         get { try! _IDrillOutThemeAnimationStatics.get_EntranceTargetNameProperty() }
@@ -4360,12 +4395,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - DropTargetItemThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.droptargetitemthemeanimation)
+@MainActor
 public final class DropTargetItemThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IDropTargetItemThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIDropTargetItemThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4373,16 +4409,16 @@ public final class DropTargetItemThemeAnimation : WinUI.Timeline, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IDropTargetItemThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDropTargetItemThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation")
+    private static nonisolated let _IDropTargetItemThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IDropTargetItemThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.droptargetitemthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
         get { try! _IDropTargetItemThemeAnimationStatics.get_TargetNameProperty() }
@@ -4471,12 +4507,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - EasingColorKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingcolorkeyframe)
+@MainActor
 public final class EasingColorKeyFrame : WinUI.ColorKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingColorKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingColorKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4484,16 +4521,16 @@ public final class EasingColorKeyFrame : WinUI.ColorKeyFrame, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingColorKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingColorKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEasingColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingColorKeyFrame")
+    private static nonisolated let _IEasingColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingColorKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingcolorkeyframe.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
         get { try! _IEasingColorKeyFrameStatics.get_EasingFunctionProperty() }
@@ -4579,12 +4616,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - EasingDoubleKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingdoublekeyframe)
+@MainActor
 public final class EasingDoubleKeyFrame : WinUI.DoubleKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingDoubleKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingDoubleKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4592,16 +4630,16 @@ public final class EasingDoubleKeyFrame : WinUI.DoubleKeyFrame, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingDoubleKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingDoubleKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEasingDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingDoubleKeyFrame")
+    private static nonisolated let _IEasingDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingDoubleKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingdoublekeyframe.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
         get { try! _IEasingDoubleKeyFrameStatics.get_EasingFunctionProperty() }
@@ -4687,12 +4725,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - EasingFunctionBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingfunctionbase)
+@MainActor
 open class EasingFunctionBase : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingFunctionBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4700,23 +4739,23 @@ open class EasingFunctionBase : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IEasingFunctionBaseFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingFunctionBase")
 
-    private static let _IEasingFunctionBaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingFunctionBase")
+    private static nonisolated let _IEasingFunctionBaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingFunctionBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingFunctionBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingfunctionbase.easingmodeproperty)
     public class var easingModeProperty : WinUI.DependencyProperty! {
         get { try! _IEasingFunctionBaseStatics.get_EasingModeProperty() }
@@ -4835,12 +4874,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - EasingPointKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingpointkeyframe)
+@MainActor
 public final class EasingPointKeyFrame : WinUI.PointKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingPointKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEasingPointKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4848,16 +4888,16 @@ public final class EasingPointKeyFrame : WinUI.PointKeyFrame, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingPointKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingPointKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEasingPointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingPointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingPointKeyFrame")
+    private static nonisolated let _IEasingPointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEasingPointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EasingPointKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.easingpointkeyframe.easingfunctionproperty)
     public static var easingFunctionProperty : WinUI.DependencyProperty! {
         get { try! _IEasingPointKeyFrameStatics.get_EasingFunctionProperty() }
@@ -4943,12 +4983,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - EdgeUIThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.edgeuithemetransition)
+@MainActor
 public final class EdgeUIThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEdgeUIThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEdgeUIThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4956,16 +4997,16 @@ public final class EdgeUIThemeTransition : WinUI.Transition, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EdgeUIThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EdgeUIThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEdgeUIThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEdgeUIThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EdgeUIThemeTransition")
+    private static nonisolated let _IEdgeUIThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEdgeUIThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EdgeUIThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.edgeuithemetransition.edgeproperty)
     public static var edgeProperty : WinUI.DependencyProperty! {
         get { try! _IEdgeUIThemeTransitionStatics.get_EdgeProperty() }
@@ -5050,12 +5091,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ElasticEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.elasticease)
+@MainActor
 public final class ElasticEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IElasticEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIElasticEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5063,16 +5105,16 @@ public final class ElasticEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ElasticEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ElasticEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IElasticEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IElasticEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ElasticEase")
+    private static nonisolated let _IElasticEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IElasticEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ElasticEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.elasticease.oscillationsproperty)
     public static var oscillationsProperty : WinUI.DependencyProperty! {
         get { try! _IElasticEaseStatics.get_OscillationsProperty() }
@@ -5191,12 +5233,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - EntranceNavigationTransitionInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancenavigationtransitioninfo)
+@MainActor
 public final class EntranceNavigationTransitionInfo : WinUI.NavigationTransitionInfo, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceNavigationTransitionInfo
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceNavigationTransitionInfo
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5204,16 +5247,16 @@ public final class EntranceNavigationTransitionInfo : WinUI.NavigationTransition
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEntranceNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo")
+    private static nonisolated let _IEntranceNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancenavigationtransitioninfo.getistargetelement)
     public static func getIsTargetElement(_ element: WinUI.UIElement!) throws -> Bool {
         return try _IEntranceNavigationTransitionInfoStatics.GetIsTargetElement(element)
@@ -5302,12 +5345,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - EntranceThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancethemetransition)
+@MainActor
 public final class EntranceThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIEntranceThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5315,16 +5359,16 @@ public final class EntranceThemeTransition : WinUI.Transition, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IEntranceThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition")
+    private static nonisolated let _IEntranceThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IEntranceThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.entrancethemetransition.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
         get { try! _IEntranceThemeTransitionStatics.get_FromHorizontalOffsetProperty() }
@@ -5477,12 +5521,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ExponentialEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.exponentialease)
+@MainActor
 public final class ExponentialEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IExponentialEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIExponentialEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5490,16 +5535,16 @@ public final class ExponentialEase : WinUI.EasingFunctionBase, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ExponentialEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ExponentialEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IExponentialEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IExponentialEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ExponentialEase")
+    private static nonisolated let _IExponentialEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IExponentialEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ExponentialEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.exponentialease.exponentproperty)
     public static var exponentProperty : WinUI.DependencyProperty! {
         get { try! _IExponentialEaseStatics.get_ExponentProperty() }
@@ -5584,12 +5629,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - FadeInThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.fadeinthemeanimation)
+@MainActor
 public final class FadeInThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeInThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeInThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5597,16 +5643,16 @@ public final class FadeInThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeInThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeInThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IFadeInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeInThemeAnimation")
+    private static nonisolated let _IFadeInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeInThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.fadeinthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
         get { try! _IFadeInThemeAnimationStatics.get_TargetNameProperty() }
@@ -5695,12 +5741,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - FadeOutThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.fadeoutthemeanimation)
+@MainActor
 public final class FadeOutThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeOutThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIFadeOutThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5708,16 +5755,16 @@ public final class FadeOutThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeOutThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeOutThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IFadeOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeOutThemeAnimation")
+    private static nonisolated let _IFadeOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IFadeOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.FadeOutThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.fadeoutthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
         get { try! _IFadeOutThemeAnimationStatics.get_TargetNameProperty() }
@@ -5806,12 +5853,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - GravityConnectedAnimationConfiguration
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.gravityconnectedanimationconfiguration)
+@MainActor
 open class GravityConnectedAnimationConfiguration : WinUI.ConnectedAnimationConfiguration, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IGravityConnectedAnimationConfiguration
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIGravityConnectedAnimationConfiguration
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5819,23 +5867,23 @@ open class GravityConnectedAnimationConfiguration : WinUI.ConnectedAnimationConf
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IGravityConnectedAnimationConfigurationFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IGravityConnectedAnimationConfigurationFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.GravityConnectedAnimationConfigurationBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IGravityConnectedAnimationConfigurationFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -5936,12 +5984,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - KeySpline
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.keyspline)
+@MainActor
 public final class KeySpline : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IKeySpline
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeySpline
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5949,12 +5998,12 @@ public final class KeySpline : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.KeySpline")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.KeySpline")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -6039,12 +6088,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - KeyTimeHelper
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.keytimehelper)
+@MainActor
 public final class KeyTimeHelper : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IKeyTimeHelper
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIKeyTimeHelper
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6052,11 +6102,11 @@ public final class KeyTimeHelper : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IKeyTimeHelperStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IKeyTimeHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.KeyTimeHelper")
+    private static nonisolated let _IKeyTimeHelperStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IKeyTimeHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.KeyTimeHelper")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.keytimehelper.fromtimespan)
     public static func fromTimeSpan(_ timeSpan: WindowsFoundation.TimeSpan) throws -> KeyTime {
         return try _IKeyTimeHelperStatics.FromTimeSpan(timeSpan)
@@ -6120,12 +6170,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - LinearColorKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.linearcolorkeyframe)
+@MainActor
 public final class LinearColorKeyFrame : WinUI.ColorKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ILinearColorKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CILinearColorKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6133,12 +6184,12 @@ public final class LinearColorKeyFrame : WinUI.ColorKeyFrame, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearColorKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearColorKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -6183,12 +6234,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - LinearDoubleKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.lineardoublekeyframe)
+@MainActor
 public final class LinearDoubleKeyFrame : WinUI.DoubleKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ILinearDoubleKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CILinearDoubleKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6196,12 +6248,12 @@ public final class LinearDoubleKeyFrame : WinUI.DoubleKeyFrame, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearDoubleKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearDoubleKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -6246,12 +6298,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - LinearPointKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.linearpointkeyframe)
+@MainActor
 public final class LinearPointKeyFrame : WinUI.PointKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ILinearPointKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CILinearPointKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6259,12 +6312,12 @@ public final class LinearPointKeyFrame : WinUI.PointKeyFrame, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearPointKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.LinearPointKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -6309,12 +6362,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - NavigationThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationthemetransition)
+@MainActor
 public final class NavigationThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6322,16 +6376,16 @@ public final class NavigationThemeTransition : WinUI.Transition, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.NavigationThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.NavigationThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _INavigationThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.NavigationThemeTransition")
+    private static nonisolated let _INavigationThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.NavigationThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationthemetransition.defaultnavigationtransitioninfoproperty)
     public static var defaultNavigationTransitionInfoProperty : WinUI.DependencyProperty! {
         get { try! _INavigationThemeTransitionStatics.get_DefaultNavigationTransitionInfoProperty() }
@@ -6417,12 +6471,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - NavigationTransitionInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationtransitioninfo)
+@MainActor
 open class NavigationTransitionInfo : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfo
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CINavigationTransitionInfo
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6430,18 +6485,18 @@ open class NavigationTransitionInfo : WinUI.DependencyObject, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverridesWrapper(self)
@@ -6451,13 +6506,13 @@ open class NavigationTransitionInfo : WinUI.DependencyObject, @unchecked Sendabl
     }
     private static nonisolated(unsafe) var _INavigationTransitionInfoFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.NavigationTransitionInfo")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.NavigationTransitionInfoBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._INavigationTransitionInfoFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private lazy var _INavigationTransitionInfoOverrides: __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigationTransitionInfoOverrides: __ABI_Microsoft_UI_Xaml_Media_Animation.INavigationTransitionInfoOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationtransitioninfo.getnavigationstatecore)
     open func getNavigationStateCore() throws -> String {
         try _INavigationTransitionInfoOverrides.GetNavigationStateCore()
@@ -6541,7 +6596,9 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
         GetNavigationStateCore: {
             do {
                 guard let __unwrapped__instance = INavigationTransitionInfoOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getNavigationStateCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getNavigationStateCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -6551,7 +6608,9 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
             do {
                 guard let __unwrapped__instance = INavigationTransitionInfoOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let navigationState: String = .init(from: $1)
-                try __unwrapped__instance.setNavigationStateCore(navigationState)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.setNavigationStateCore(navigationState)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -6624,12 +6683,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnim
 // MARK: - ObjectAnimationUsingKeyFrames
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectanimationusingkeyframes)
+@MainActor
 public final class ObjectAnimationUsingKeyFrames : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectAnimationUsingKeyFrames
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectAnimationUsingKeyFrames
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6637,16 +6697,16 @@ public final class ObjectAnimationUsingKeyFrames : WinUI.Timeline, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IObjectAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames")
+    private static nonisolated let _IObjectAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectanimationusingkeyframes.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
         get { try! _IObjectAnimationUsingKeyFramesStatics.get_EnableDependentAnimationProperty() }
@@ -6745,12 +6805,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ObjectKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframe)
+@MainActor
 open class ObjectKeyFrame : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIObjectKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6758,29 +6819,29 @@ open class ObjectKeyFrame : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IObjectKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrame")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.ObjectKeyFrameBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IObjectKeyFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IObjectKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrame")
+    private static nonisolated let _IObjectKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IObjectKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframe.keytimeproperty)
     public class var keyTimeProperty : WinUI.DependencyProperty! {
         get { try! _IObjectKeyFrameStatics.get_KeyTimeProperty() }
@@ -6936,13 +6997,14 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ObjectKeyFrameCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection)
+@MainActor
 public final class ObjectKeyFrameCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = ObjectKeyFrame?
     private typealias SwiftABI = WinUI.IVectorObjectKeyFrame
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CObjectKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6950,36 +7012,36 @@ public final class ObjectKeyFrameCollection : WinRTClass, @unchecked Sendable, I
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrameCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ObjectKeyFrameCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -6988,74 +7050,74 @@ public final class ObjectKeyFrameCollection : WinRTClass, @unchecked Sendable, I
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.getat)
-    public func getAt(_ index: UInt32) -> ObjectKeyFrame? {
+    public nonisolated func getAt(_ index: UInt32) -> ObjectKeyFrame? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<ObjectKeyFrame?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<ObjectKeyFrame?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.indexof)
-    public func indexOf(_ value: ObjectKeyFrame?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: ObjectKeyFrame?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.setat)
-    public func setAt(_ index: UInt32, _ value: ObjectKeyFrame?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: ObjectKeyFrame?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: ObjectKeyFrame?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: ObjectKeyFrame?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.append)
-    public func append(_ value: ObjectKeyFrame?) {
+    public nonisolated func append(_ value: ObjectKeyFrame?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [ObjectKeyFrame?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [ObjectKeyFrame?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.replaceall)
-    public func replaceAll(_ items: [ObjectKeyFrame?]) {
+    public nonisolated func replaceAll(_ items: [ObjectKeyFrame?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableObjectKeyFrame! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableObjectKeyFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.objectkeyframecollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<ObjectKeyFrame?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<ObjectKeyFrame?>? {
         try! _IIterable.First()
     }
 
@@ -7092,12 +7154,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PaneThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.panethemetransition)
+@MainActor
 public final class PaneThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPaneThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPaneThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7105,16 +7168,16 @@ public final class PaneThemeTransition : WinUI.Transition, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PaneThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PaneThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPaneThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPaneThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PaneThemeTransition")
+    private static nonisolated let _IPaneThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPaneThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PaneThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.panethemetransition.edgeproperty)
     public static var edgeProperty : WinUI.DependencyProperty! {
         get { try! _IPaneThemeTransitionStatics.get_EdgeProperty() }
@@ -7199,12 +7262,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PointAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation)
+@MainActor
 public final class PointAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7212,16 +7276,16 @@ public final class PointAnimation : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPointAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimation")
+    private static nonisolated let _IPointAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimation.byproperty)
     public static var byProperty : WinUI.DependencyProperty! {
         get { try! _IPointAnimationStatics.get_ByProperty() }
@@ -7452,12 +7516,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PointAnimationUsingKeyFrames
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimationusingkeyframes)
+@MainActor
 public final class PointAnimationUsingKeyFrames : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationUsingKeyFrames
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointAnimationUsingKeyFrames
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7465,16 +7530,16 @@ public final class PointAnimationUsingKeyFrames : WinUI.Timeline, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPointAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames")
+    private static nonisolated let _IPointAnimationUsingKeyFramesStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointAnimationUsingKeyFramesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointanimationusingkeyframes.enabledependentanimationproperty)
     public static var enableDependentAnimationProperty : WinUI.DependencyProperty! {
         get { try! _IPointAnimationUsingKeyFramesStatics.get_EnableDependentAnimationProperty() }
@@ -7573,12 +7638,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PointKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframe)
+@MainActor
 open class PointKeyFrame : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7586,29 +7652,29 @@ open class PointKeyFrame : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPointKeyFrameFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointKeyFrame")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.PointKeyFrameBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IPointKeyFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointKeyFrame")
+    private static nonisolated let _IPointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframe.keytimeproperty)
     public class var keyTimeProperty : WinUI.DependencyProperty! {
         get { try! _IPointKeyFrameStatics.get_KeyTimeProperty() }
@@ -7761,13 +7827,14 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PointKeyFrameCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection)
+@MainActor
 public final class PointKeyFrameCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = PointKeyFrame?
     private typealias SwiftABI = WinUI.IVectorPointKeyFrame
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CPointKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7775,36 +7842,36 @@ public final class PointKeyFrameCollection : WinRTClass, @unchecked Sendable, IV
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointKeyFrameCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointKeyFrameCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -7813,74 +7880,74 @@ public final class PointKeyFrameCollection : WinRTClass, @unchecked Sendable, IV
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.getat)
-    public func getAt(_ index: UInt32) -> PointKeyFrame? {
+    public nonisolated func getAt(_ index: UInt32) -> PointKeyFrame? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<PointKeyFrame?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<PointKeyFrame?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.indexof)
-    public func indexOf(_ value: PointKeyFrame?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: PointKeyFrame?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.setat)
-    public func setAt(_ index: UInt32, _ value: PointKeyFrame?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: PointKeyFrame?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: PointKeyFrame?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: PointKeyFrame?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.append)
-    public func append(_ value: PointKeyFrame?) {
+    public nonisolated func append(_ value: PointKeyFrame?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [PointKeyFrame?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [PointKeyFrame?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.replaceall)
-    public func replaceAll(_ items: [PointKeyFrame?]) {
+    public nonisolated func replaceAll(_ items: [PointKeyFrame?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterablePointKeyFrame! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterablePointKeyFrame! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointkeyframecollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<PointKeyFrame?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<PointKeyFrame?>? {
         try! _IIterable.First()
     }
 
@@ -7917,12 +7984,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PointerDownThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointerdownthemeanimation)
+@MainActor
 public final class PointerDownThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerDownThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerDownThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7930,16 +7998,16 @@ public final class PointerDownThemeAnimation : WinUI.Timeline, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerDownThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerDownThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPointerDownThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerDownThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerDownThemeAnimation")
+    private static nonisolated let _IPointerDownThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerDownThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerDownThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointerdownthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
         get { try! _IPointerDownThemeAnimationStatics.get_TargetNameProperty() }
@@ -8028,12 +8096,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PointerUpThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointerupthemeanimation)
+@MainActor
 public final class PointerUpThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerUpThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPointerUpThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8041,16 +8110,16 @@ public final class PointerUpThemeAnimation : WinUI.Timeline, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerUpThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerUpThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPointerUpThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerUpThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerUpThemeAnimation")
+    private static nonisolated let _IPointerUpThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPointerUpThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PointerUpThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.pointerupthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
         get { try! _IPointerUpThemeAnimationStatics.get_TargetNameProperty() }
@@ -8139,12 +8208,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PopInThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popinthemeanimation)
+@MainActor
 public final class PopInThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPopInThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopInThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8152,16 +8222,16 @@ public final class PopInThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopInThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopInThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPopInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopInThemeAnimation")
+    private static nonisolated let _IPopInThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopInThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopInThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popinthemeanimation.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
         get { try! _IPopInThemeAnimationStatics.get_FromHorizontalOffsetProperty() }
@@ -8318,12 +8388,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PopOutThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popoutthemeanimation)
+@MainActor
 public final class PopOutThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPopOutThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopOutThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8331,16 +8402,16 @@ public final class PopOutThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopOutThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopOutThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPopOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopOutThemeAnimation")
+    private static nonisolated let _IPopOutThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopOutThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopOutThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popoutthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
         get { try! _IPopOutThemeAnimationStatics.get_TargetNameProperty() }
@@ -8429,12 +8500,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PopupThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popupthemetransition)
+@MainActor
 public final class PopupThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPopupThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPopupThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8442,16 +8514,16 @@ public final class PopupThemeTransition : WinUI.Transition, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopupThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopupThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPopupThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopupThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopupThemeTransition")
+    private static nonisolated let _IPopupThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPopupThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PopupThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.popupthemetransition.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
         get { try! _IPopupThemeTransitionStatics.get_FromHorizontalOffsetProperty() }
@@ -8570,12 +8642,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - PowerEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.powerease)
+@MainActor
 public final class PowerEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IPowerEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIPowerEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8583,16 +8656,16 @@ public final class PowerEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PowerEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PowerEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPowerEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPowerEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PowerEase")
+    private static nonisolated let _IPowerEaseStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IPowerEaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.PowerEase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.powerease.powerproperty)
     public static var powerProperty : WinUI.DependencyProperty! {
         get { try! _IPowerEaseStatics.get_PowerProperty() }
@@ -8677,12 +8750,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - QuadraticEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.quadraticease)
+@MainActor
 public final class QuadraticEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IQuadraticEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIQuadraticEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8690,12 +8764,12 @@ public final class QuadraticEase : WinUI.EasingFunctionBase, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuadraticEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuadraticEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -8740,12 +8814,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - QuarticEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.quarticease)
+@MainActor
 public final class QuarticEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IQuarticEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIQuarticEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8753,12 +8828,12 @@ public final class QuarticEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuarticEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuarticEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -8803,12 +8878,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - QuinticEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.quinticease)
+@MainActor
 public final class QuinticEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IQuinticEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIQuinticEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8816,12 +8892,12 @@ public final class QuinticEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuinticEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.QuinticEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -8866,12 +8942,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - ReorderThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.reorderthemetransition)
+@MainActor
 public final class ReorderThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IReorderThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIReorderThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8879,12 +8956,12 @@ public final class ReorderThemeTransition : WinUI.Transition, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ReorderThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.ReorderThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -8929,12 +9006,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - RepeatBehaviorHelper
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehaviorhelper)
+@MainActor
 public final class RepeatBehaviorHelper : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IRepeatBehaviorHelper
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepeatBehaviorHelper
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8942,11 +9020,11 @@ public final class RepeatBehaviorHelper : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IRepeatBehaviorHelperStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepeatBehaviorHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepeatBehaviorHelper")
+    private static nonisolated let _IRepeatBehaviorHelperStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepeatBehaviorHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepeatBehaviorHelper")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repeatbehaviorhelper.fromcount)
     public static func fromCount(_ count: Double) throws -> RepeatBehavior {
         return try _IRepeatBehaviorHelperStatics.FromCount(count)
@@ -9075,12 +9153,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - RepositionThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemeanimation)
+@MainActor
 public final class RepositionThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9088,16 +9167,16 @@ public final class RepositionThemeAnimation : WinUI.Timeline, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRepositionThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeAnimation")
+    private static nonisolated let _IRepositionThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemeanimation.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
         get { try! _IRepositionThemeAnimationStatics.get_FromHorizontalOffsetProperty() }
@@ -9254,12 +9333,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - RepositionThemeTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemetransition)
+@MainActor
 public final class RepositionThemeTransition : WinUI.Transition, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIRepositionThemeTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9267,16 +9347,16 @@ public final class RepositionThemeTransition : WinUI.Transition, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRepositionThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition")
+    private static nonisolated let _IRepositionThemeTransitionStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IRepositionThemeTransitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.RepositionThemeTransition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.repositionthemetransition.isstaggeringenabledproperty)
     public static var isStaggeringEnabledProperty : WinUI.DependencyProperty! {
         get { try! _IRepositionThemeTransitionStatics.get_IsStaggeringEnabledProperty() }
@@ -9361,12 +9441,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SineEase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.sineease)
+@MainActor
 public final class SineEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISineEase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISineEase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9374,12 +9455,12 @@ public final class SineEase : WinUI.EasingFunctionBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SineEase")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SineEase")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -9424,12 +9505,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SlideNavigationTransitionInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.slidenavigationtransitioninfo)
+@MainActor
 public final class SlideNavigationTransitionInfo : WinUI.NavigationTransitionInfo, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISlideNavigationTransitionInfo
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISlideNavigationTransitionInfo
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9437,16 +9519,16 @@ public final class SlideNavigationTransitionInfo : WinUI.NavigationTransitionInf
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISlideNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISlideNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo")
+    private static nonisolated let _ISlideNavigationTransitionInfoStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISlideNavigationTransitionInfoStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.slidenavigationtransitioninfo.effectproperty)
     public static var effectProperty : WinUI.DependencyProperty! {
         get { try! _ISlideNavigationTransitionInfoStatics.get_EffectProperty() }
@@ -9531,12 +9613,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SplineColorKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinecolorkeyframe)
+@MainActor
 public final class SplineColorKeyFrame : WinUI.ColorKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineColorKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineColorKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9544,16 +9627,16 @@ public final class SplineColorKeyFrame : WinUI.ColorKeyFrame, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineColorKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineColorKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplineColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineColorKeyFrame")
+    private static nonisolated let _ISplineColorKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineColorKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineColorKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinecolorkeyframe.keysplineproperty)
     public static var keySplineProperty : WinUI.DependencyProperty! {
         get { try! _ISplineColorKeyFrameStatics.get_KeySplineProperty() }
@@ -9639,12 +9722,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SplineDoubleKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinedoublekeyframe)
+@MainActor
 public final class SplineDoubleKeyFrame : WinUI.DoubleKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineDoubleKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplineDoubleKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9652,16 +9736,16 @@ public final class SplineDoubleKeyFrame : WinUI.DoubleKeyFrame, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineDoubleKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineDoubleKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplineDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineDoubleKeyFrame")
+    private static nonisolated let _ISplineDoubleKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplineDoubleKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplineDoubleKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinedoublekeyframe.keysplineproperty)
     public static var keySplineProperty : WinUI.DependencyProperty! {
         get { try! _ISplineDoubleKeyFrameStatics.get_KeySplineProperty() }
@@ -9747,12 +9831,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SplinePointKeyFrame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinepointkeyframe)
+@MainActor
 public final class SplinePointKeyFrame : WinUI.PointKeyFrame, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISplinePointKeyFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplinePointKeyFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9760,16 +9845,16 @@ public final class SplinePointKeyFrame : WinUI.PointKeyFrame, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplinePointKeyFrame")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplinePointKeyFrame")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplinePointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplinePointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplinePointKeyFrame")
+    private static nonisolated let _ISplinePointKeyFrameStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplinePointKeyFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplinePointKeyFrame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splinepointkeyframe.keysplineproperty)
     public static var keySplineProperty : WinUI.DependencyProperty! {
         get { try! _ISplinePointKeyFrameStatics.get_KeySplineProperty() }
@@ -9855,12 +9940,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SplitCloseThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation)
+@MainActor
 public final class SplitCloseThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitCloseThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitCloseThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9868,16 +9954,16 @@ public final class SplitCloseThemeAnimation : WinUI.Timeline, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitCloseThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitCloseThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplitCloseThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitCloseThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitCloseThemeAnimation")
+    private static nonisolated let _ISplitCloseThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitCloseThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitCloseThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitclosethemeanimation.closedlengthproperty)
     public static var closedLengthProperty : WinUI.DependencyProperty! {
         get { try! _ISplitCloseThemeAnimationStatics.get_ClosedLengthProperty() }
@@ -10317,12 +10403,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SplitOpenThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation)
+@MainActor
 public final class SplitOpenThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitOpenThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISplitOpenThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -10330,16 +10417,16 @@ public final class SplitOpenThemeAnimation : WinUI.Timeline, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitOpenThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitOpenThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISplitOpenThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitOpenThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitOpenThemeAnimation")
+    private static nonisolated let _ISplitOpenThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISplitOpenThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SplitOpenThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.splitopenthemeanimation.closedlengthproperty)
     public static var closedLengthProperty : WinUI.DependencyProperty! {
         get { try! _ISplitOpenThemeAnimationStatics.get_ClosedLengthProperty() }
@@ -10779,12 +10866,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - Storyboard
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard)
+@MainActor
 public final class Storyboard : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.IStoryboard
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CIStoryboard
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -10792,16 +10880,16 @@ public final class Storyboard : WinUI.Timeline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Storyboard")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Storyboard")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IStoryboardStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IStoryboardStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Storyboard")
+    private static nonisolated let _IStoryboardStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.IStoryboardStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Storyboard")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard.gettargetproperty)
     public static func getTargetProperty(_ element: Timeline!) throws -> String {
         return try _IStoryboardStatics.GetTargetProperty(element)
@@ -11064,12 +11152,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SuppressNavigationTransitionInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.suppressnavigationtransitioninfo)
+@MainActor
 public final class SuppressNavigationTransitionInfo : WinUI.NavigationTransitionInfo, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISuppressNavigationTransitionInfo
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISuppressNavigationTransitionInfo
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -11077,12 +11166,12 @@ public final class SuppressNavigationTransitionInfo : WinUI.NavigationTransition
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -11127,12 +11216,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SwipeBackThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipebackthemeanimation)
+@MainActor
 public final class SwipeBackThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeBackThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeBackThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -11140,16 +11230,16 @@ public final class SwipeBackThemeAnimation : WinUI.Timeline, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeBackThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeBackThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISwipeBackThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeBackThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeBackThemeAnimation")
+    private static nonisolated let _ISwipeBackThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeBackThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeBackThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipebackthemeanimation.fromhorizontaloffsetproperty)
     public static var fromHorizontalOffsetProperty : WinUI.DependencyProperty! {
         get { try! _ISwipeBackThemeAnimationStatics.get_FromHorizontalOffsetProperty() }
@@ -11306,12 +11396,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - SwipeHintThemeAnimation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipehintthemeanimation)
+@MainActor
 public final class SwipeHintThemeAnimation : WinUI.Timeline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeHintThemeAnimation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CISwipeHintThemeAnimation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -11319,16 +11410,16 @@ public final class SwipeHintThemeAnimation : WinUI.Timeline, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeHintThemeAnimation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeHintThemeAnimation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISwipeHintThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeHintThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeHintThemeAnimation")
+    private static nonisolated let _ISwipeHintThemeAnimationStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ISwipeHintThemeAnimationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.SwipeHintThemeAnimation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.swipehintthemeanimation.targetnameproperty)
     public static var targetNameProperty : WinUI.DependencyProperty! {
         get { try! _ISwipeHintThemeAnimationStatics.get_TargetNameProperty() }
@@ -11485,12 +11576,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - Timeline
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline)
+@MainActor
 open class Timeline : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ITimeline
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITimeline
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -11498,29 +11590,29 @@ open class Timeline : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITimelineFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.ITimelineFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Timeline")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Animation.TimelineBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITimelineFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITimelineStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ITimelineStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Timeline")
+    private static nonisolated let _ITimelineStatics: __ABI_Microsoft_UI_Xaml_Media_Animation.ITimelineStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Timeline")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.allowdependentanimations)
     public class var allowDependentAnimations : Bool {
         get { try! _ITimelineStatics.get_AllowDependentAnimations() }
@@ -11596,13 +11688,17 @@ open class Timeline : WinUI.DependencyObject, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timeline.completed)
     public lazy var completed : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Completed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Completed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Completed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Completed(token)
+          }
+        }
       )
     }()
 
@@ -11861,13 +11957,14 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - TimelineCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection)
+@MainActor
 public final class TimelineCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = Timeline?
     private typealias SwiftABI = WinUI.IVectorTimeline
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CTimeline
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -11875,36 +11972,36 @@ public final class TimelineCollection : WinRTClass, @unchecked Sendable, IVector
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.TimelineCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.TimelineCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -11913,74 +12010,74 @@ public final class TimelineCollection : WinRTClass, @unchecked Sendable, IVector
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.getat)
-    public func getAt(_ index: UInt32) -> Timeline? {
+    public nonisolated func getAt(_ index: UInt32) -> Timeline? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<Timeline?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<Timeline?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.indexof)
-    public func indexOf(_ value: Timeline?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: Timeline?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.setat)
-    public func setAt(_ index: UInt32, _ value: Timeline?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: Timeline?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: Timeline?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: Timeline?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.append)
-    public func append(_ value: Timeline?) {
+    public nonisolated func append(_ value: Timeline?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [Timeline?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [Timeline?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.replaceall)
-    public func replaceAll(_ items: [Timeline?]) {
+    public nonisolated func replaceAll(_ items: [Timeline?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableTimeline! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableTimeline! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.timelinecollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<Timeline?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<Timeline?>? {
         try! _IIterable.First()
     }
 
@@ -12017,12 +12114,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - Transition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transition)
+@MainActor
 open class Transition : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Animation.ITransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CAnimation_CITransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12030,18 +12128,18 @@ open class Transition : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITransitionFactory : __ABI_Microsoft_UI_Xaml_Media_Animation.ITransitionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.Transition")
@@ -12108,13 +12206,14 @@ extension __ABI_Microsoft_UI_Xaml_Media_Animation {
 // MARK: - TransitionCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection)
+@MainActor
 public final class TransitionCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = Transition?
     private typealias SwiftABI = WinUI.IVectorTransition
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12122,36 +12221,36 @@ public final class TransitionCollection : WinRTClass, @unchecked Sendable, IVect
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.TransitionCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Animation.TransitionCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -12160,74 +12259,74 @@ public final class TransitionCollection : WinRTClass, @unchecked Sendable, IVect
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.getat)
-    public func getAt(_ index: UInt32) -> Transition? {
+    public nonisolated func getAt(_ index: UInt32) -> Transition? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<Transition?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<Transition?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.indexof)
-    public func indexOf(_ value: Transition?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: Transition?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.setat)
-    public func setAt(_ index: UInt32, _ value: Transition?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: Transition?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: Transition?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: Transition?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.append)
-    public func append(_ value: Transition?) {
+    public nonisolated func append(_ value: Transition?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [Transition?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [Transition?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.replaceall)
-    public func replaceAll(_ items: [Transition?]) {
+    public nonisolated func replaceAll(_ items: [Transition?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableTransition! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableTransition! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.transitioncollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<Transition?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<Transition?>? {
         try! _IIterable.First()
     }
 

@@ -346,7 +346,7 @@ extension __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGeneratorPosition 
 }
 // MARK: - DragCompletedEventHandler
 
-public typealias DragCompletedEventHandler = @Sendable (Any?, DragCompletedEventArgs?) throws -> ()
+public typealias DragCompletedEventHandler = @MainActor (Any?, DragCompletedEventArgs?) throws -> ()
 
 // MARK: - DragCompletedEventHandler Internals
 
@@ -395,9 +395,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         Invoke: {
             do {
                 guard let __unwrapped__instance = DragCompletedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.DragCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -412,7 +414,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - DragDeltaEventHandler
 
-public typealias DragDeltaEventHandler = @Sendable (Any?, DragDeltaEventArgs?) throws -> ()
+public typealias DragDeltaEventHandler = @MainActor (Any?, DragDeltaEventArgs?) throws -> ()
 
 // MARK: - DragDeltaEventHandler Internals
 
@@ -461,9 +463,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         Invoke: {
             do {
                 guard let __unwrapped__instance = DragDeltaEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.DragDeltaEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -478,7 +482,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - DragStartedEventHandler
 
-public typealias DragStartedEventHandler = @Sendable (Any?, DragStartedEventArgs?) throws -> ()
+public typealias DragStartedEventHandler = @MainActor (Any?, DragStartedEventArgs?) throws -> ()
 
 // MARK: - DragStartedEventHandler Internals
 
@@ -527,9 +531,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         Invoke: {
             do {
                 guard let __unwrapped__instance = DragStartedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.DragStartedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -544,7 +550,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ItemsChangedEventHandler
 
-public typealias ItemsChangedEventHandler = @Sendable (Any?, ItemsChangedEventArgs?) throws -> ()
+public typealias ItemsChangedEventHandler = @MainActor (Any?, ItemsChangedEventArgs?) throws -> ()
 
 // MARK: - ItemsChangedEventHandler Internals
 
@@ -593,9 +599,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         Invoke: {
             do {
                 guard let __unwrapped__instance = ItemsChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.ItemsChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ItemsChangedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -610,7 +618,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - RangeBaseValueChangedEventHandler
 
-public typealias RangeBaseValueChangedEventHandler = @Sendable (Any?, RangeBaseValueChangedEventArgs?) throws -> ()
+public typealias RangeBaseValueChangedEventHandler = @MainActor (Any?, RangeBaseValueChangedEventArgs?) throws -> ()
 
 // MARK: - RangeBaseValueChangedEventHandler Internals
 
@@ -659,9 +667,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         Invoke: {
             do {
                 guard let __unwrapped__instance = RangeBaseValueChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.RangeBaseValueChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.RangeBaseValueChangedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -677,7 +687,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - IScrollController
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontroller)
-public protocol IScrollController : WinRTInterface {
+@MainActor public protocol IScrollController : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontroller.setisscrollable)
     func setIsScrollable(_ isScrollable: Bool) throws
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontroller.setvalues)
@@ -705,7 +715,7 @@ public protocol IScrollController : WinRTInterface {
 }
 
 extension IScrollController {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper(self)
@@ -738,8 +748,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
     fileprivate class IScrollControllerImpl: IScrollController, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IScrollControllerBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -781,65 +791,85 @@ extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontroller.addscrollvelocityrequested)
         fileprivate lazy var addScrollVelocityRequested : Event<TypedEventHandler<IScrollController?, ScrollControllerAddScrollVelocityRequestedEventArgs?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_AddScrollVelocityRequested($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_AddScrollVelocityRequested(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_AddScrollVelocityRequested($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_AddScrollVelocityRequested(token)
+              }
+            }
           )
         }()
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontroller.canscrollchanged)
         fileprivate lazy var canScrollChanged : Event<TypedEventHandler<IScrollController?, Any?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_CanScrollChanged($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_CanScrollChanged(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_CanScrollChanged($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_CanScrollChanged(token)
+              }
+            }
           )
         }()
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontroller.isscrollingwithmousechanged)
         fileprivate lazy var isScrollingWithMouseChanged : Event<TypedEventHandler<IScrollController?, Any?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_IsScrollingWithMouseChanged($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_IsScrollingWithMouseChanged(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_IsScrollingWithMouseChanged($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_IsScrollingWithMouseChanged(token)
+              }
+            }
           )
         }()
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontroller.scrollbyrequested)
         fileprivate lazy var scrollByRequested : Event<TypedEventHandler<IScrollController?, ScrollControllerScrollByRequestedEventArgs?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_ScrollByRequested($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_ScrollByRequested(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_ScrollByRequested($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_ScrollByRequested(token)
+              }
+            }
           )
         }()
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontroller.scrolltorequested)
         fileprivate lazy var scrollToRequested : Event<TypedEventHandler<IScrollController?, ScrollControllerScrollToRequestedEventArgs?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_ScrollToRequested($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_ScrollToRequested(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_ScrollToRequested($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_ScrollToRequested(token)
+              }
+            }
           )
         }()
 
@@ -1019,7 +1049,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 
         get_PanningInfo: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.panningInfo
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.panningInfo
+            }
             let valueWrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanningInfoWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -1027,14 +1059,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 
         get_CanScroll: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.canScroll
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.canScroll
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_IsScrollingWithMouse: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isScrollingWithMouse
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isScrollingWithMouse
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
@@ -1043,7 +1079,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
             do {
                 guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let isScrollable: Bool = .init(from: $1)
-                try __unwrapped__instance.setIsScrollable(isScrollable)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.setIsScrollable(isScrollable)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1055,7 +1093,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 let maxOffset: Double = $2
                 let offset: Double = $3
                 let viewportLength: Double = $4
-                try __unwrapped__instance.setValues(minOffset, maxOffset, offset, viewportLength)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.setValues(minOffset, maxOffset, offset, viewportLength)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1067,7 +1107,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 let startPosition: WindowsFoundation.Vector2 = .from(abi: $2)
                 let endPosition: WindowsFoundation.Vector2 = .from(abi: $3)
                 let defaultAnimation: WinAppSDK.CompositionAnimation? = __IMPL_Microsoft_UI_Composition.CompositionAnimationBridge.from(abi: ComPtr($4))
-                let result = try __unwrapped__instance.getScrollAnimation(correlationId, startPosition, endPosition, defaultAnimation)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getScrollAnimation(correlationId, startPosition, endPosition, defaultAnimation)
+                }
                 result?.copyTo($5)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1077,7 +1119,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
             do {
                 guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let correlationId: Int32 = $1
-                try __unwrapped__instance.notifyRequestedScrollCompleted(correlationId)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.notifyRequestedScrollCompleted(correlationId)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1085,7 +1129,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         add_CanScrollChanged: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController_IInspectableWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.canScrollChanged.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.canScrollChanged.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1093,14 +1139,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_CanScrollChanged: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.canScrollChanged.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.canScrollChanged.removeHandler(token)
+            }
             return S_OK
         },
 
         add_IsScrollingWithMouseChanged: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController_IInspectableWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.isScrollingWithMouseChanged.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.isScrollingWithMouseChanged.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1108,14 +1158,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_IsScrollingWithMouseChanged: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.isScrollingWithMouseChanged.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.isScrollingWithMouseChanged.removeHandler(token)
+            }
             return S_OK
         },
 
         add_ScrollToRequested: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerScrollToRequestedEventArgsWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.scrollToRequested.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.scrollToRequested.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1123,14 +1177,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_ScrollToRequested: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.scrollToRequested.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.scrollToRequested.removeHandler(token)
+            }
             return S_OK
         },
 
         add_ScrollByRequested: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerScrollByRequestedEventArgsWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.scrollByRequested.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.scrollByRequested.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1138,14 +1196,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_ScrollByRequested: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.scrollByRequested.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.scrollByRequested.removeHandler(token)
+            }
             return S_OK
         },
 
         add_AddScrollVelocityRequested: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerAddScrollVelocityRequestedEventArgsWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.addScrollVelocityRequested.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.addScrollVelocityRequested.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1153,7 +1215,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_AddScrollVelocityRequested: {
             guard let __unwrapped__instance = IScrollControllerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.addScrollVelocityRequested.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.addScrollVelocityRequested.removeHandler(token)
+            }
             return S_OK
         }
     )
@@ -1171,7 +1235,7 @@ public class IScrollControllerMaker: MakeFromAbi {
 // MARK: - IScrollControllerPanningInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontrollerpanninginfo)
-public protocol IScrollControllerPanningInfo : WinRTInterface {
+@MainActor public protocol IScrollControllerPanningInfo : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontrollerpanninginfo.setpanningelementexpressionanimationsources)
     func setPanningElementExpressionAnimationSources(_ propertySet: WinAppSDK.CompositionPropertySet!, _ minOffsetPropertyName: String, _ maxOffsetPropertyName: String, _ offsetPropertyName: String, _ multiplierPropertyName: String) throws
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontrollerpanninginfo.israilenabled)
@@ -1187,7 +1251,7 @@ public protocol IScrollControllerPanningInfo : WinRTInterface {
 }
 
 extension IScrollControllerPanningInfo {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanningInfoWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanningInfoWrapper(self)
@@ -1220,8 +1284,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
     fileprivate class IScrollControllerPanningInfoImpl: IScrollControllerPanningInfo, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IScrollControllerPanningInfoBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -1248,26 +1312,34 @@ extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontrollerpanninginfo.changed)
         fileprivate lazy var changed : Event<TypedEventHandler<IScrollControllerPanningInfo?, Any?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_Changed($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_Changed(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_Changed($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_Changed(token)
+              }
+            }
           )
         }()
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollcontrollerpanninginfo.panrequested)
         fileprivate lazy var panRequested : Event<TypedEventHandler<IScrollControllerPanningInfo?, ScrollControllerPanRequestedEventArgs?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_PanRequested($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_PanRequested(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_PanRequested($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_PanRequested(token)
+              }
+            }
           )
         }()
 
@@ -1382,21 +1454,27 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 
         get_IsRailEnabled: {
             guard let __unwrapped__instance = IScrollControllerPanningInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isRailEnabled
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isRailEnabled
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_PanOrientation: {
             guard let __unwrapped__instance = IScrollControllerPanningInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.panOrientation
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.panOrientation
+            }
             $1?.initialize(to: value)
             return S_OK
         },
 
         get_PanningElementAncestor: {
             guard let __unwrapped__instance = IScrollControllerPanningInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.panningElementAncestor
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.panningElementAncestor
+            }
             value?.copyTo($1)
             return S_OK
         },
@@ -1409,7 +1487,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 let maxOffsetPropertyName: String = .init(from: $3)
                 let offsetPropertyName: String = .init(from: $4)
                 let multiplierPropertyName: String = .init(from: $5)
-                try __unwrapped__instance.setPanningElementExpressionAnimationSources(propertySet, minOffsetPropertyName, maxOffsetPropertyName, offsetPropertyName, multiplierPropertyName)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.setPanningElementExpressionAnimationSources(propertySet, minOffsetPropertyName, maxOffsetPropertyName, offsetPropertyName, multiplierPropertyName)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1417,7 +1497,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         add_Changed: {
             guard let __unwrapped__instance = IScrollControllerPanningInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollControllerPanningInfo_IInspectableWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.changed.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.changed.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1425,14 +1507,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_Changed: {
             guard let __unwrapped__instance = IScrollControllerPanningInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.changed.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.changed.removeHandler(token)
+            }
             return S_OK
         },
 
         add_PanRequested: {
             guard let __unwrapped__instance = IScrollControllerPanningInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollControllerPanningInfo___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerPanRequestedEventArgsWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.panRequested.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.panRequested.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1440,7 +1526,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_PanRequested: {
             guard let __unwrapped__instance = IScrollControllerPanningInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.panRequested.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.panRequested.removeHandler(token)
+            }
             return S_OK
         }
     )
@@ -1458,7 +1546,7 @@ public class IScrollControllerPanningInfoMaker: MakeFromAbi {
 // MARK: - IScrollSnapPointsInfo
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollsnappointsinfo)
-public protocol IScrollSnapPointsInfo : WinRTInterface {
+@MainActor public protocol IScrollSnapPointsInfo : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollsnappointsinfo.getirregularsnappoints)
     func getIrregularSnapPoints(_ orientation: WinUI.Orientation, _ alignment: WinUI.SnapPointsAlignment) throws -> WindowsFoundation.AnyIVectorView<Float>!
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollsnappointsinfo.getregularsnappoints)
@@ -1474,7 +1562,7 @@ public protocol IScrollSnapPointsInfo : WinRTInterface {
 }
 
 extension IScrollSnapPointsInfo {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointsInfoWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointsInfoWrapper(self)
@@ -1507,8 +1595,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
     fileprivate class IScrollSnapPointsInfoImpl: IScrollSnapPointsInfo, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IScrollSnapPointsInfoBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -1535,26 +1623,34 @@ extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollsnappointsinfo.horizontalsnappointschanged)
         fileprivate lazy var horizontalSnapPointsChanged : Event<EventHandler<Any?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_HorizontalSnapPointsChanged($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_HorizontalSnapPointsChanged(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_HorizontalSnapPointsChanged($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_HorizontalSnapPointsChanged(token)
+              }
+            }
           )
         }()
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.iscrollsnappointsinfo.verticalsnappointschanged)
         fileprivate lazy var verticalSnapPointsChanged : Event<EventHandler<Any?>> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_VerticalSnapPointsChanged($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_VerticalSnapPointsChanged(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_VerticalSnapPointsChanged($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_VerticalSnapPointsChanged(token)
+              }
+            }
           )
         }()
 
@@ -1667,14 +1763,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 
         get_AreHorizontalSnapPointsRegular: {
             guard let __unwrapped__instance = IScrollSnapPointsInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.areHorizontalSnapPointsRegular
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.areHorizontalSnapPointsRegular
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_AreVerticalSnapPointsRegular: {
             guard let __unwrapped__instance = IScrollSnapPointsInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.areVerticalSnapPointsRegular
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.areVerticalSnapPointsRegular
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
@@ -1682,7 +1782,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         add_HorizontalSnapPointsChanged: {
             guard let __unwrapped__instance = IScrollSnapPointsInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.horizontalSnapPointsChanged.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.horizontalSnapPointsChanged.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1690,14 +1792,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_HorizontalSnapPointsChanged: {
             guard let __unwrapped__instance = IScrollSnapPointsInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.horizontalSnapPointsChanged.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.horizontalSnapPointsChanged.removeHandler(token)
+            }
             return S_OK
         },
 
         add_VerticalSnapPointsChanged: {
             guard let __unwrapped__instance = IScrollSnapPointsInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = WinUI.__x_ABI_C__FIEventHandler_1_IInspectableWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.verticalSnapPointsChanged.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.verticalSnapPointsChanged.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1705,7 +1811,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         remove_VerticalSnapPointsChanged: {
             guard let __unwrapped__instance = IScrollSnapPointsInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.verticalSnapPointsChanged.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.verticalSnapPointsChanged.removeHandler(token)
+            }
             return S_OK
         },
 
@@ -1714,7 +1822,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 guard let __unwrapped__instance = IScrollSnapPointsInfoWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let orientation: WinUI.Orientation = $1
                 let alignment: WinUI.SnapPointsAlignment = $2
-                let result = try __unwrapped__instance.getIrregularSnapPoints(orientation, alignment)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getIrregularSnapPoints(orientation, alignment)
+                }
                 let resultWrapper = WinUI.__x_ABI_C__FIVectorView_1_floatWrapper(result)
                 resultWrapper?.copyTo($3)
                 return S_OK
@@ -1727,7 +1837,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 let orientation: WinUI.Orientation = $1
                 let alignment: WinUI.SnapPointsAlignment = $2
                 var offset: Float = 0.0
-                let returnValue = try __unwrapped__instance.getRegularSnapPoints(orientation, alignment, &offset)
+                let returnValue = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getRegularSnapPoints(orientation, alignment, &offset)
+                }
                 $3?.initialize(to: offset)
                 $4?.initialize(to: returnValue)
                 return S_OK
@@ -1748,12 +1860,13 @@ public class IScrollSnapPointsInfoMaker: MakeFromAbi {
 // MARK: - AppBarButtonTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbarbuttontemplatesettings)
+@MainActor
 public final class AppBarButtonTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IAppBarButtonTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarButtonTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1761,7 +1874,7 @@ public final class AppBarButtonTemplateSettings : WinUI.DependencyObject, @unche
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -1819,12 +1932,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - AppBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartemplatesettings)
+@MainActor
 public final class AppBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IAppBarTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1832,7 +1946,7 @@ public final class AppBarTemplateSettings : WinUI.DependencyObject, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -2007,12 +2121,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - AppBarToggleButtonTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.appbartogglebuttontemplatesettings)
+@MainActor
 public final class AppBarToggleButtonTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IAppBarToggleButtonTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIAppBarToggleButtonTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2020,7 +2135,7 @@ public final class AppBarToggleButtonTemplateSettings : WinUI.DependencyObject, 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -2078,12 +2193,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ButtonBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase)
+@MainActor
 open class ButtonBase : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIButtonBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2091,29 +2207,29 @@ open class ButtonBase : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IButtonBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ButtonBaseBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IButtonBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IButtonBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase")
+    private static nonisolated let _IButtonBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IButtonBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.clickmodeproperty)
     public class var clickModeProperty : WinUI.DependencyProperty! {
         get { try! _IButtonBaseStatics.get_ClickModeProperty() }
@@ -2170,13 +2286,17 @@ open class ButtonBase : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.click)
     public lazy var click : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Click($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Click(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Click($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Click(token)
+          }
+        }
       )
     }()
 
@@ -2389,12 +2509,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - CalendarViewTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.calendarviewtemplatesettings)
+@MainActor
 public final class CalendarViewTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ICalendarViewTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICalendarViewTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2402,7 +2523,7 @@ public final class CalendarViewTemplateSettings : WinUI.DependencyObject, @unche
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -2666,12 +2787,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ComboBoxTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.comboboxtemplatesettings)
+@MainActor
 public final class ComboBoxTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IComboBoxTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIComboBoxTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2679,7 +2801,7 @@ public final class ComboBoxTemplateSettings : WinUI.DependencyObject, @unchecked
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -2789,12 +2911,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - CommandBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.commandbartemplatesettings)
+@MainActor
 public final class CommandBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ICommandBarTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CICommandBarTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2802,7 +2925,7 @@ public final class CommandBarTemplateSettings : WinUI.DependencyObject, @uncheck
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -3003,12 +3126,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - DragCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragcompletedeventargs)
+@MainActor
 open class DragCompletedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragCompletedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3016,23 +3140,23 @@ open class DragCompletedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IDragCompletedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragCompletedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.DragCompletedEventArgs")
 
-    public init(_ horizontalChange: Double, _ verticalChange: Double, _ canceled: Bool) {
+    nonisolated public init(_ horizontalChange: Double, _ verticalChange: Double, _ canceled: Bool) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragCompletedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IDragCompletedEventArgsFactory.CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(horizontalChange, verticalChange, canceled, baseInterface, &innerInterface)
         }
@@ -3152,12 +3276,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - DragDeltaEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragdeltaeventargs)
+@MainActor
 open class DragDeltaEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragDeltaEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragDeltaEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3165,23 +3290,23 @@ open class DragDeltaEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IDragDeltaEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragDeltaEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.DragDeltaEventArgs")
 
-    public init(_ horizontalChange: Double, _ verticalChange: Double) {
+    nonisolated public init(_ horizontalChange: Double, _ verticalChange: Double) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragDeltaEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IDragDeltaEventArgsFactory.CreateInstanceWithHorizontalChangeAndVerticalChange(horizontalChange, verticalChange, baseInterface, &innerInterface)
         }
@@ -3288,12 +3413,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - DragStartedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.dragstartedeventargs)
+@MainActor
 open class DragStartedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragStartedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIDragStartedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3301,23 +3427,23 @@ open class DragStartedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IDragStartedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IDragStartedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.DragStartedEventArgs")
 
-    public init(_ horizontalOffset: Double, _ verticalOffset: Double) {
+    nonisolated public init(_ horizontalOffset: Double, _ verticalOffset: Double) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.DragStartedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IDragStartedEventArgsFactory.CreateInstanceWithHorizontalOffsetAndVerticalOffset(horizontalOffset, verticalOffset, baseInterface, &innerInterface)
         }
@@ -3424,12 +3550,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - FlyoutBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase)
+@MainActor
 open class FlyoutBase : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3437,18 +3564,18 @@ open class FlyoutBase : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseOverridesWrapper(self)
@@ -3458,13 +3585,13 @@ open class FlyoutBase : WinUI.DependencyObject, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IFlyoutBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IFlyoutBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFlyoutBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase")
+    private static nonisolated let _IFlyoutBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.getattachedflyout)
     public class func getAttachedFlyout(_ element: WinUI.FrameworkElement!) throws -> FlyoutBase! {
         return try _IFlyoutBaseStatics.GetAttachedFlyout(element)
@@ -3545,7 +3672,7 @@ open class FlyoutBase : WinUI.DependencyObject, @unchecked Sendable {
         get { try! _IFlyoutBaseStatics.get_TargetProperty() }
     }
 
-    private static let _IFlyoutBaseStatics2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase")
+    private static nonisolated let _IFlyoutBaseStatics2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.systembackdropproperty)
     public class var systemBackdropProperty : WinUI.DependencyProperty! {
         get { try! _IFlyoutBaseStatics2.get_SystemBackdropProperty() }
@@ -3654,63 +3781,79 @@ open class FlyoutBase : WinUI.DependencyObject, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.closed)
     public lazy var closed : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.closing)
     public lazy var closing : Event<TypedEventHandler<FlyoutBase?, FlyoutBaseClosingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closing($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closing(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closing($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closing(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.opened)
     public lazy var opened : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opened(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.opening)
     public lazy var opening : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opening(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IFlyoutBase2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBase2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IFlyoutBase2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBase2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.systembackdrop)
     public var systemBackdrop : WinUI.SystemBackdrop! {
         get { try! _IFlyoutBase2.get_SystemBackdrop() }
         set { try! _IFlyoutBase2.put_SystemBackdrop(newValue) }
     }
 
-    private lazy var _IFlyoutBaseOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IFlyoutBaseOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbase.createpresenter)
     open func createPresenter() throws -> WinUI.Control! {
         try _IFlyoutBaseOverrides.CreatePresenter()
@@ -3795,7 +3938,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         CreatePresenter: {
             do {
                 guard let __unwrapped__instance = IFlyoutBaseOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.createPresenter()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.createPresenter()
+                }
                 result?.copyTo($1)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -3805,7 +3950,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
             do {
                 guard let __unwrapped__instance = IFlyoutBaseOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let args: WinUI.ProcessKeyboardAcceleratorEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ProcessKeyboardAcceleratorEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onProcessKeyboardAccelerators(args)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onProcessKeyboardAccelerators(args)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -4327,12 +4474,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CP
 // MARK: - FlyoutBaseClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutbaseclosingeventargs)
+@MainActor
 public final class FlyoutBaseClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutBaseClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutBaseClosingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4340,7 +4488,7 @@ public final class FlyoutBaseClosingEventArgs : WinRTClass, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -4405,12 +4553,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - FlyoutShowOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutshowoptions)
+@MainActor
 open class FlyoutShowOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutShowOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutShowOptions
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4418,24 +4567,24 @@ open class FlyoutShowOptions : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFlyoutShowOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IFlyoutShowOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.FlyoutShowOptions")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutShowOptionsBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IFlyoutShowOptionsFactory.CreateInstance(baseInterface, &innerInterface)
@@ -4603,12 +4752,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - GridViewItemTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.gridviewitemtemplatesettings)
+@MainActor
 public final class GridViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IGridViewItemTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIGridViewItemTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4616,7 +4766,7 @@ public final class GridViewItemTemplateSettings : WinUI.DependencyObject, @unche
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -4674,12 +4824,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ItemsChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.itemschangedeventargs)
+@MainActor
 public final class ItemsChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IItemsChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIItemsChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4687,7 +4838,7 @@ public final class ItemsChangedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -4797,12 +4948,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ListViewItemTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.listviewitemtemplatesettings)
+@MainActor
 public final class ListViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IListViewItemTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIListViewItemTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4810,7 +4962,7 @@ public final class ListViewItemTemplateSettings : WinUI.DependencyObject, @unche
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -4868,12 +5020,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - MenuFlyoutItemTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.menuflyoutitemtemplatesettings)
+@MainActor
 public final class MenuFlyoutItemTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IMenuFlyoutItemTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIMenuFlyoutItemTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4881,7 +5034,7 @@ public final class MenuFlyoutItemTemplateSettings : WinUI.DependencyObject, @unc
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -4939,12 +5092,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - Popup
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup)
+@MainActor
 public final class Popup : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIPopup
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4952,16 +5106,16 @@ public final class Popup : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPopupStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
+    private static nonisolated let _IPopupStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.childproperty)
     public static var childProperty : WinUI.DependencyProperty! {
         get { try! _IPopupStatics.get_ChildProperty() }
@@ -5002,7 +5156,7 @@ public final class Popup : WinUI.FrameworkElement, @unchecked Sendable {
         get { try! _IPopupStatics.get_VerticalOffsetProperty() }
     }
 
-    private static let _IPopupStatics2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
+    private static nonisolated let _IPopupStatics2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.desiredplacementproperty)
     public static var desiredPlacementProperty : WinUI.DependencyProperty! {
         get { try! _IPopupStatics2.get_DesiredPlacementProperty() }
@@ -5013,7 +5167,7 @@ public final class Popup : WinUI.FrameworkElement, @unchecked Sendable {
         get { try! _IPopupStatics2.get_PlacementTargetProperty() }
     }
 
-    private static let _IPopupStatics3: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics3 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
+    private static nonisolated let _IPopupStatics3: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopupStatics3 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Popup")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.systembackdropproperty)
     public static var systemBackdropProperty : WinUI.DependencyProperty! {
         get { try! _IPopupStatics3.get_SystemBackdropProperty() }
@@ -5075,30 +5229,38 @@ public final class Popup : WinUI.FrameworkElement, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.closed)
     public lazy var closed : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.opened)
     public lazy var opened : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opened(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IPopup2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IPopup2: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.actualplacement)
     public var actualPlacement : PopupPlacementMode {
         get { try! _IPopup2.get_ActualPlacement() }
@@ -5119,17 +5281,21 @@ public final class Popup : WinUI.FrameworkElement, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.actualplacementchanged)
     public lazy var actualPlacementChanged : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._IPopup2 else { return .init() }
-          return try! this.add_ActualPlacementChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._IPopup2 else { return .init() }
+            return try this.add_ActualPlacementChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._IPopup2.remove_ActualPlacementChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._IPopup2.remove_ActualPlacementChanged(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IPopup3: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup3! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IPopup3: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IPopup3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popup.systembackdrop)
     public var systemBackdrop : WinUI.SystemBackdrop! {
         get { try! _IPopup3.get_SystemBackdrop() }
@@ -5545,12 +5711,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - RangeBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase)
+@MainActor
 open class RangeBase : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5558,18 +5725,18 @@ open class RangeBase : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseOverridesWrapper(self)
@@ -5579,13 +5746,13 @@ open class RangeBase : WinUI.Control, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IRangeBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.RangeBase")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.RangeBaseBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRangeBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRangeBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.RangeBase")
+    private static nonisolated let _IRangeBaseStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.RangeBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.largechangeproperty)
     public class var largeChangeProperty : WinUI.DependencyProperty! {
         get { try! _IRangeBaseStatics.get_LargeChangeProperty() }
@@ -5644,17 +5811,21 @@ open class RangeBase : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.valuechanged)
     public lazy var valueChanged : Event<RangeBaseValueChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ValueChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ValueChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ValueChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ValueChanged(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IRangeBaseOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IRangeBaseOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebase.onminimumchanged)
     open func onMinimumChanged(_ oldMinimum: Double, _ newMinimum: Double) throws {
         try _IRangeBaseOverrides.OnMinimumChanged(oldMinimum, newMinimum)
@@ -5748,7 +5919,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 guard let __unwrapped__instance = IRangeBaseOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldMinimum: Double = $1
                 let newMinimum: Double = $2
-                try __unwrapped__instance.onMinimumChanged(oldMinimum, newMinimum)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onMinimumChanged(oldMinimum, newMinimum)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -5758,7 +5931,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 guard let __unwrapped__instance = IRangeBaseOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldMaximum: Double = $1
                 let newMaximum: Double = $2
-                try __unwrapped__instance.onMaximumChanged(oldMaximum, newMaximum)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onMaximumChanged(oldMaximum, newMaximum)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -5768,7 +5943,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 guard let __unwrapped__instance = IRangeBaseOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldValue: Double = $1
                 let newValue: Double = $2
-                try __unwrapped__instance.onValueChanged(oldValue, newValue)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onValueChanged(oldValue, newValue)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -5981,12 +6158,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CP
 // MARK: - RangeBaseValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.rangebasevaluechangedeventargs)
+@MainActor
 public final class RangeBaseValueChangedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRangeBaseValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRangeBaseValueChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5994,7 +6172,7 @@ public final class RangeBaseValueChangedEventArgs : WinUI.RoutedEventArgs, @unch
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -6065,12 +6243,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ScrollControllerAddScrollVelocityRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrolleraddscrollvelocityrequestedeventargs)
+@MainActor
 public final class ScrollControllerAddScrollVelocityRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerAddScrollVelocityRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollControllerAddScrollVelocityRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6078,12 +6257,12 @@ public final class ScrollControllerAddScrollVelocityRequestedEventArgs : WinRTCl
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IScrollControllerAddScrollVelocityRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerAddScrollVelocityRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerAddScrollVelocityRequestedEventArgs")
-    public init(_ offsetVelocity: Float, _ inertiaDecayRate: Float?) {
+    private static nonisolated let _IScrollControllerAddScrollVelocityRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerAddScrollVelocityRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerAddScrollVelocityRequestedEventArgs")
+    nonisolated public init(_ offsetVelocity: Float, _ inertiaDecayRate: Float?) {
         super.init(try! Self._IScrollControllerAddScrollVelocityRequestedEventArgsFactory.CreateInstance(offsetVelocity, inertiaDecayRate))
     }
 
@@ -6195,12 +6374,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ScrollControllerPanRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerpanrequestedeventargs)
+@MainActor
 public final class ScrollControllerPanRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollControllerPanRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6208,12 +6388,12 @@ public final class ScrollControllerPanRequestedEventArgs : WinRTClass, @unchecke
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IScrollControllerPanRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerPanRequestedEventArgs")
-    public init(_ pointerPoint: WinAppSDK.PointerPoint!) {
+    private static nonisolated let _IScrollControllerPanRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerPanRequestedEventArgs")
+    nonisolated public init(_ pointerPoint: WinAppSDK.PointerPoint!) {
         super.init(try! Self._IScrollControllerPanRequestedEventArgsFactory.CreateInstance(pointerPoint))
     }
 
@@ -6310,12 +6490,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ScrollControllerScrollByRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerscrollbyrequestedeventargs)
+@MainActor
 public final class ScrollControllerScrollByRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollByRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollControllerScrollByRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6323,12 +6504,12 @@ public final class ScrollControllerScrollByRequestedEventArgs : WinRTClass, @unc
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IScrollControllerScrollByRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollByRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerScrollByRequestedEventArgs")
-    public init(_ offsetDelta: Double, _ options: WinUI.ScrollingScrollOptions!) {
+    private static nonisolated let _IScrollControllerScrollByRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollByRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerScrollByRequestedEventArgs")
+    nonisolated public init(_ offsetDelta: Double, _ options: WinUI.ScrollingScrollOptions!) {
         super.init(try! Self._IScrollControllerScrollByRequestedEventArgsFactory.CreateInstance(offsetDelta, options))
     }
 
@@ -6438,12 +6619,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ScrollControllerScrollToRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrollerscrolltorequestedeventargs)
+@MainActor
 public final class ScrollControllerScrollToRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollToRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollControllerScrollToRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6451,12 +6633,12 @@ public final class ScrollControllerScrollToRequestedEventArgs : WinRTClass, @unc
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IScrollControllerScrollToRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollToRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerScrollToRequestedEventArgs")
-    public init(_ offset: Double, _ options: WinUI.ScrollingScrollOptions!) {
+    private static nonisolated let _IScrollControllerScrollToRequestedEventArgsFactory: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerScrollToRequestedEventArgsFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollControllerScrollToRequestedEventArgs")
+    nonisolated public init(_ offset: Double, _ options: WinUI.ScrollingScrollOptions!) {
         super.init(try! Self._IScrollControllerScrollToRequestedEventArgsFactory.CreateInstance(offset, options))
     }
 
@@ -6566,12 +6748,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ScrollPresenter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter)
+@MainActor
 open class ScrollPresenter : WinUI.FrameworkElement, @unchecked Sendable, WinUI.IScrollAnchorProvider {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenter
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollPresenter
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6579,29 +6762,29 @@ open class ScrollPresenter : WinUI.FrameworkElement, @unchecked Sendable, WinUI.
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IScrollPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollPresenter")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IScrollPresenterFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IScrollPresenterStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollPresenter")
+    private static nonisolated let _IScrollPresenterStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollPresenter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.backgroundproperty)
     public class var backgroundProperty : WinUI.DependencyProperty! {
         get { try! _IScrollPresenterStatics.get_BackgroundProperty() }
@@ -6933,121 +7116,157 @@ open class ScrollPresenter : WinUI.FrameworkElement, @unchecked Sendable, WinUI.
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.anchorrequested)
     public lazy var anchorRequested : Event<TypedEventHandler<ScrollPresenter?, ScrollingAnchorRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_AnchorRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_AnchorRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_AnchorRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_AnchorRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.bringingintoview)
     public lazy var bringingIntoView : Event<TypedEventHandler<ScrollPresenter?, ScrollingBringingIntoViewEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_BringingIntoView($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_BringingIntoView(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_BringingIntoView($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_BringingIntoView(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.extentchanged)
     public lazy var extentChanged : Event<TypedEventHandler<ScrollPresenter?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ExtentChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ExtentChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ExtentChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ExtentChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.scrollanimationstarting)
     public lazy var scrollAnimationStarting : Event<TypedEventHandler<ScrollPresenter?, ScrollingScrollAnimationStartingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ScrollAnimationStarting($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ScrollAnimationStarting(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ScrollAnimationStarting($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ScrollAnimationStarting(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.scrollcompleted)
     public lazy var scrollCompleted : Event<TypedEventHandler<ScrollPresenter?, ScrollingScrollCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ScrollCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ScrollCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ScrollCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ScrollCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.statechanged)
     public lazy var stateChanged : Event<TypedEventHandler<ScrollPresenter?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_StateChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_StateChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_StateChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_StateChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.viewchanged)
     public lazy var viewChanged : Event<TypedEventHandler<ScrollPresenter?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ViewChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ViewChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ViewChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ViewChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomanimationstarting)
     public lazy var zoomAnimationStarting : Event<TypedEventHandler<ScrollPresenter?, ScrollingZoomAnimationStartingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ZoomAnimationStarting($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ZoomAnimationStarting(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ZoomAnimationStarting($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ZoomAnimationStarting(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.zoomcompleted)
     public lazy var zoomCompleted : Event<TypedEventHandler<ScrollPresenter?, ScrollingZoomCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ZoomCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ZoomCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ZoomCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ZoomCompleted(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IScrollAnchorProvider: __ABI_Microsoft_UI_Xaml_Controls.IScrollAnchorProvider! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IScrollAnchorProvider: __ABI_Microsoft_UI_Xaml_Controls.IScrollAnchorProvider! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollpresenter.registeranchorcandidate)
     public func registerAnchorCandidate(_ element: WinUI.UIElement!) throws {
         try _IScrollAnchorProvider.RegisterAnchorCandidate(element)
@@ -7940,12 +8159,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ScrollSnapPointBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollsnappointbase)
+@MainActor
 open class ScrollSnapPointBase : WinUI.SnapPointBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPointBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7953,18 +8173,18 @@ open class ScrollSnapPointBase : WinUI.SnapPointBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IScrollSnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollSnapPointBase")
@@ -8044,12 +8264,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - Selector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector)
+@MainActor
 open class Selector : WinUI.ItemsControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelector
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISelector
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8057,23 +8278,23 @@ open class Selector : WinUI.ItemsControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISelectorFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Selector")
 
-    private static let _ISelectorStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Selector")
+    private static nonisolated let _ISelectorStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Selector")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.getisselectionactive)
     public class func getIsSelectionActive(_ element: WinUI.DependencyObject!) throws -> Bool {
         return try _ISelectorStatics.GetIsSelectionActive(element)
@@ -8137,13 +8358,17 @@ open class Selector : WinUI.ItemsControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selector.selectionchanged)
     public lazy var selectionChanged : Event<WinUI.SelectionChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -8370,12 +8595,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - SelectorItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selectoritem)
+@MainActor
 open class SelectorItem : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISelectorItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8383,29 +8609,29 @@ open class SelectorItem : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISelectorItemFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.SelectorItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.SelectorItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISelectorItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISelectorItemStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.SelectorItem")
+    private static nonisolated let _ISelectorItemStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISelectorItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.SelectorItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.selectoritem.isselectedproperty)
     public class var isSelectedProperty : WinUI.DependencyProperty! {
         get { try! _ISelectorItemStatics.get_IsSelectedProperty() }
@@ -8524,12 +8750,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - SnapPointBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.snappointbase)
+@MainActor
 open class SnapPointBase : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISnapPointBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISnapPointBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8537,19 +8764,19 @@ open class SnapPointBase : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISnapPointBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.SnapPointBase")
@@ -8616,12 +8843,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - SplitViewTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.splitviewtemplatesettings)
+@MainActor
 public final class SplitViewTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.ISplitViewTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CISplitViewTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8629,7 +8857,7 @@ public final class SplitViewTemplateSettings : WinUI.DependencyObject, @unchecke
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -8752,12 +8980,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - Thumb
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb)
+@MainActor
 public final class Thumb : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IThumb
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIThumb
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8765,16 +8994,16 @@ public final class Thumb : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Thumb")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Thumb")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IThumbStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IThumbStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Thumb")
+    private static nonisolated let _IThumbStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IThumbStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.Thumb")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.isdraggingproperty)
     public static var isDraggingProperty : WinUI.DependencyProperty! {
         get { try! _IThumbStatics.get_IsDraggingProperty() }
@@ -8793,39 +9022,51 @@ public final class Thumb : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.dragcompleted)
     public lazy var dragCompleted : Event<DragCompletedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DragCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DragCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DragCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DragCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.dragdelta)
     public lazy var dragDelta : Event<DragDeltaEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DragDelta($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DragDelta(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DragDelta($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DragDelta(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.thumb.dragstarted)
     public lazy var dragStarted : Event<DragStartedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DragStarted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DragStarted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DragStarted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DragStarted(token)
+          }
+        }
       )
     }()
 
@@ -8950,12 +9191,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ToggleButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton)
+@MainActor
 open class ToggleButton : WinUI.ButtonBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8963,18 +9205,18 @@ open class ToggleButton : WinUI.ButtonBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonOverridesWrapper(self)
@@ -8984,13 +9226,13 @@ open class ToggleButton : WinUI.ButtonBase, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IToggleButtonFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ToggleButton")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ToggleButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IToggleButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IToggleButtonStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ToggleButton")
+    private static nonisolated let _IToggleButtonStatics: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ToggleButton")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.ischeckedproperty)
     public class var isCheckedProperty : WinUI.DependencyProperty! {
         get { try! _IToggleButtonStatics.get_IsCheckedProperty() }
@@ -9016,43 +9258,55 @@ open class ToggleButton : WinUI.ButtonBase, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.checked)
     public lazy var checked : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Checked($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Checked(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Checked($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Checked(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.indeterminate)
     public lazy var indeterminate : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Indeterminate($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Indeterminate(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Indeterminate($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Indeterminate(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.unchecked)
     public lazy var unchecked : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Unchecked($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Unchecked(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Unchecked($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Unchecked(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IToggleButtonOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IToggleButtonOverrides: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleButtonOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.togglebutton.ontoggle)
     open func onToggle() throws {
         try _IToggleButtonOverrides.OnToggle()
@@ -9135,7 +9389,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
         OnToggle: {
             do {
                 guard let __unwrapped__instance = IToggleButtonOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.onToggle()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onToggle()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -9302,12 +9558,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CP
 // MARK: - ToggleSwitchTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.toggleswitchtemplatesettings)
+@MainActor
 public final class ToggleSwitchTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToggleSwitchTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleSwitchTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9315,7 +9572,7 @@ public final class ToggleSwitchTemplateSettings : WinUI.DependencyObject, @unche
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -9464,12 +9721,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ToolTipTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.tooltiptemplatesettings)
+@MainActor
 public final class ToolTipTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToolTipTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToolTipTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9477,7 +9735,7 @@ public final class ToolTipTemplateSettings : WinUI.DependencyObject, @unchecked 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -9548,12 +9806,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
 // MARK: - ZoomSnapPointBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.zoomsnappointbase)
+@MainActor
 open class ZoomSnapPointBase : WinUI.SnapPointBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IZoomSnapPointBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIZoomSnapPointBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9561,18 +9820,18 @@ open class ZoomSnapPointBase : WinUI.SnapPointBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IZoomSnapPointBaseFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IZoomSnapPointBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ZoomSnapPointBase")

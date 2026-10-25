@@ -604,12 +604,13 @@ extension __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CRawElementProviderRun
 // MARK: - AutomationPeer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer)
+@MainActor
 open class AutomationPeer : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeer
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -617,18 +618,18 @@ open class AutomationPeer : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverridesWrapper(self)
@@ -638,13 +639,13 @@ open class AutomationPeer : WinUI.DependencyObject, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IAutomationPeerFactory : __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Automation_Peers.AutomationPeerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IAutomationPeerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAutomationPeerStatics: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer")
+    private static nonisolated let _IAutomationPeerStatics: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeer")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.listenerexists)
     public class func listenerExists(_ eventId: AutomationEvents) throws -> Bool {
         return try _IAutomationPeerStatics.ListenerExists(eventId)
@@ -921,7 +922,7 @@ open class AutomationPeer : WinUI.DependencyObject, @unchecked Sendable {
         set { try! _default.put_EventsSource(newValue) }
     }
 
-    private lazy var _IAutomationPeerProtected: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerProtected! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IAutomationPeerProtected: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerProtected! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.peerfromprovider)
     public func peerFromProvider(_ provider: WinUI.IRawElementProviderSimple!) throws -> AutomationPeer! {
         try _IAutomationPeerProtected.PeerFromProvider(provider)
@@ -932,7 +933,7 @@ open class AutomationPeer : WinUI.DependencyObject, @unchecked Sendable {
         try _IAutomationPeerProtected.ProviderFromPeer(peer)
     }
 
-    private lazy var _IAutomationPeerOverrides: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IAutomationPeerOverrides: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer.getpatterncore)
     open func getPatternCore(_ patternInterface: PatternInterface) throws -> Any! {
         try _IAutomationPeerOverrides.GetPatternCore(patternInterface)
@@ -1243,7 +1244,11 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let patternInterface: WinUI.PatternInterface = $1
-                let result = try __unwrapped__instance.getPatternCore(patternInterface)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.getPatternCore(patternInterface)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -1253,7 +1258,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetAcceleratorKeyCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getAcceleratorKeyCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getAcceleratorKeyCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1262,7 +1269,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetAccessKeyCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getAccessKeyCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getAccessKeyCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1271,7 +1280,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetAutomationControlTypeCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getAutomationControlTypeCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getAutomationControlTypeCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1280,7 +1291,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetAutomationIdCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getAutomationIdCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getAutomationIdCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1289,7 +1302,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetBoundingRectangleCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getBoundingRectangleCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getBoundingRectangleCore()
+                }
                 $1?.initialize(to: .from(swift: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1298,7 +1313,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetChildrenCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getChildrenCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getChildrenCore()
+                }
                 let resultWrapper = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -1309,7 +1326,11 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let direction: WinUI.AutomationNavigationDirection = $1
-                let result = try __unwrapped__instance.navigateCore(direction)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.navigateCore(direction)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -1319,7 +1340,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetClassNameCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getClassNameCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getClassNameCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1328,7 +1351,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetClickablePointCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getClickablePointCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getClickablePointCore()
+                }
                 $1?.initialize(to: .from(swift: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1337,7 +1362,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetHelpTextCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getHelpTextCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getHelpTextCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1346,7 +1373,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetItemStatusCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getItemStatusCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getItemStatusCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1355,7 +1384,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetItemTypeCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getItemTypeCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getItemTypeCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1364,7 +1395,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetLabeledByCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getLabeledByCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getLabeledByCore()
+                }
                 result?.copyTo($1)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1373,7 +1406,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetLocalizedControlTypeCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getLocalizedControlTypeCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getLocalizedControlTypeCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1382,7 +1417,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetNameCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getNameCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getNameCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1391,7 +1428,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetOrientationCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getOrientationCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getOrientationCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1400,7 +1439,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         HasKeyboardFocusCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.hasKeyboardFocusCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.hasKeyboardFocusCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1409,7 +1450,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsContentElementCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isContentElementCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isContentElementCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1418,7 +1461,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsControlElementCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isControlElementCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isControlElementCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1427,7 +1472,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsEnabledCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isEnabledCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isEnabledCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1436,7 +1483,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsKeyboardFocusableCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isKeyboardFocusableCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isKeyboardFocusableCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1445,7 +1494,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsOffscreenCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isOffscreenCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isOffscreenCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1454,7 +1505,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsPasswordCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isPasswordCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isPasswordCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1463,7 +1516,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsRequiredForFormCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isRequiredForFormCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isRequiredForFormCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1472,7 +1527,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         SetFocusCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.setFocusCore()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.setFocusCore()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1481,7 +1538,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let point: WindowsFoundation.Point = .from(abi: $1)
-                let result = try __unwrapped__instance.getPeerFromPointCore(point)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getPeerFromPointCore(point)
+                }
                 result?.copyTo($2)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1491,7 +1550,11 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let pointInWindowCoordinates: WindowsFoundation.Point = .from(abi: $1)
-                let result = try __unwrapped__instance.getElementFromPointCore(pointInWindowCoordinates)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.getElementFromPointCore(pointInWindowCoordinates)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -1501,7 +1564,11 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetFocusedElementCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getFocusedElementCore()
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.getFocusedElementCore()
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -1511,7 +1578,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetLiveSettingCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getLiveSettingCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getLiveSettingCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1520,7 +1589,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         ShowContextMenuCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.showContextMenuCore()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.showContextMenuCore()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1528,7 +1599,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetControlledPeersCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getControlledPeersCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getControlledPeersCore()
+                }
                 let resultWrapper = WinUI.__x_ABI_C__FIVectorView_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -1538,7 +1611,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetAnnotationsCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getAnnotationsCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getAnnotationsCore()
+                }
                 let resultWrapper = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerAnnotationWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -1548,7 +1623,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetPositionInSetCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getPositionInSetCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getPositionInSetCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1557,7 +1634,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetSizeOfSetCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getSizeOfSetCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getSizeOfSetCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1566,7 +1645,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetLevelCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getLevelCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getLevelCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1575,7 +1656,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetLandmarkTypeCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getLandmarkTypeCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getLandmarkTypeCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1584,7 +1667,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetLocalizedLandmarkTypeCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getLocalizedLandmarkTypeCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getLocalizedLandmarkTypeCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1593,7 +1678,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsPeripheralCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isPeripheralCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isPeripheralCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1602,7 +1689,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsDataValidForFormCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isDataValidForFormCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isDataValidForFormCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1611,7 +1700,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetFullDescriptionCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getFullDescriptionCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getFullDescriptionCore()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1620,7 +1711,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetDescribedByCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getDescribedByCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getDescribedByCore()
+                }
                 let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -1630,7 +1723,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetFlowsToCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getFlowsToCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getFlowsToCore()
+                }
                 let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -1640,7 +1735,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetFlowsFromCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getFlowsFromCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getFlowsFromCore()
+                }
                 let resultWrapper = WinUI.__x_ABI_C__FIIterable_1___x_ABI_CMicrosoft__CUI__CXaml__CAutomation__CPeers__CAutomationPeerWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -1650,7 +1747,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetCultureCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getCultureCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getCultureCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1659,7 +1758,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         GetHeadingLevelCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getHeadingLevelCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getHeadingLevelCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -1668,7 +1769,9 @@ extension __ABI_Microsoft_UI_Xaml_Automation_Peers {
         IsDialogCore: {
             do {
                 guard let __unwrapped__instance = IAutomationPeerOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.isDialogCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isDialogCore()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -2657,12 +2760,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_
 // MARK: - AutomationPeerAnnotation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeerannotation)
+@MainActor
 public final class AutomationPeerAnnotation : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CPeers_CIAutomationPeerAnnotation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2670,25 +2774,25 @@ public final class AutomationPeerAnnotation : WinUI.DependencyObject, @unchecked
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IAutomationPeerAnnotationFactory: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
-    public init(_ type: WinUI.AnnotationType) {
+    private static nonisolated let _IAutomationPeerAnnotationFactory: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
+    nonisolated public init(_ type: WinUI.AnnotationType) {
         super.init(fromAbi: try! Self._IAutomationPeerAnnotationFactory.CreateInstance(type))
     }
 
-    public init(_ type: WinUI.AnnotationType, _ peer: AutomationPeer!) {
+    nonisolated public init(_ type: WinUI.AnnotationType, _ peer: AutomationPeer!) {
         super.init(fromAbi: try! Self._IAutomationPeerAnnotationFactory.CreateWithPeerParameter(type, peer))
     }
 
-    private static let _IAutomationPeerAnnotationStatics: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
+    private static nonisolated let _IAutomationPeerAnnotationStatics: __ABI_Microsoft_UI_Xaml_Automation_Peers.IAutomationPeerAnnotationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.Peers.AutomationPeerAnnotation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeerannotation.peerproperty)
     public static var peerProperty : WinUI.DependencyProperty! {
         get { try! _IAutomationPeerAnnotationStatics.get_PeerProperty() }

@@ -8,12 +8,13 @@ import CWinRT
 // MARK: - Ellipse
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.ellipse)
+@MainActor
 public final class Ellipse : WinUI.Shape, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IEllipse
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIEllipse
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21,12 +22,12 @@ public final class Ellipse : WinUI.Shape, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Ellipse")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Ellipse")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -71,12 +72,13 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
 // MARK: - Path
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.path)
+@MainActor
 open class Path : WinUI.Shape, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IPath
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIPath
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -84,29 +86,29 @@ open class Path : WinUI.Shape, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPathFactory : __ABI_Microsoft_UI_Xaml_Shapes.IPathFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Path")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Shapes.PathBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IPathFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPathStatics: __ABI_Microsoft_UI_Xaml_Shapes.IPathStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Path")
+    private static nonisolated let _IPathStatics: __ABI_Microsoft_UI_Xaml_Shapes.IPathStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Path")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.path.dataproperty)
     public class var dataProperty : WinUI.DependencyProperty! {
         get { try! _IPathStatics.get_DataProperty() }
@@ -226,12 +228,13 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
 // MARK: - Rectangle
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle)
+@MainActor
 public final class Rectangle : WinUI.Shape, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IRectangle
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIRectangle
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -239,16 +242,16 @@ public final class Rectangle : WinUI.Shape, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Rectangle")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Rectangle")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRectangleStatics: __ABI_Microsoft_UI_Xaml_Shapes.IRectangleStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Rectangle")
+    private static nonisolated let _IRectangleStatics: __ABI_Microsoft_UI_Xaml_Shapes.IRectangleStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Rectangle")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle.radiusxproperty)
     public static var radiusXProperty : WinUI.DependencyProperty! {
         get { try! _IRectangleStatics.get_RadiusXProperty() }
@@ -367,12 +370,13 @@ extension __ABI_Microsoft_UI_Xaml_Shapes {
 // MARK: - Shape
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape)
+@MainActor
 open class Shape : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Shapes.IShape
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CShapes_CIShape
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -380,29 +384,29 @@ open class Shape : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IShapeFactory : __ABI_Microsoft_UI_Xaml_Shapes.IShapeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Shape")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Shapes.ShapeBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IShapeFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IShapeStatics: __ABI_Microsoft_UI_Xaml_Shapes.IShapeStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Shape")
+    private static nonisolated let _IShapeStatics: __ABI_Microsoft_UI_Xaml_Shapes.IShapeStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Shapes.Shape")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.shape.fillproperty)
     public class var fillProperty : WinUI.DependencyProperty! {
         get { try! _IShapeStatics.get_FillProperty() }

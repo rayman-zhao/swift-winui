@@ -45,7 +45,7 @@ extension WinUI.NavigationMode: @retroactive Hashable, @retroactive Codable, @re
 
 // MARK: - NavigatedEventHandler
 
-public typealias NavigatedEventHandler = @Sendable (Any?, NavigationEventArgs?) throws -> ()
+public typealias NavigatedEventHandler = @MainActor (Any?, NavigationEventArgs?) throws -> ()
 
 // MARK: - NavigatedEventHandler Internals
 
@@ -94,9 +94,11 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Invoke: {
             do {
                 guard let __unwrapped__instance = NavigatedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.NavigationEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigationEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -111,7 +113,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - NavigatingCancelEventHandler
 
-public typealias NavigatingCancelEventHandler = @Sendable (Any?, NavigatingCancelEventArgs?) throws -> ()
+public typealias NavigatingCancelEventHandler = @MainActor (Any?, NavigatingCancelEventArgs?) throws -> ()
 
 // MARK: - NavigatingCancelEventHandler Internals
 
@@ -160,9 +162,11 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Invoke: {
             do {
                 guard let __unwrapped__instance = NavigatingCancelEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.NavigatingCancelEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigatingCancelEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -177,7 +181,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - NavigationFailedEventHandler
 
-public typealias NavigationFailedEventHandler = @Sendable (Any?, NavigationFailedEventArgs?) throws -> ()
+public typealias NavigationFailedEventHandler = @MainActor (Any?, NavigationFailedEventArgs?) throws -> ()
 
 // MARK: - NavigationFailedEventHandler Internals
 
@@ -226,9 +230,11 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Invoke: {
             do {
                 guard let __unwrapped__instance = NavigationFailedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.NavigationFailedEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigationFailedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -243,7 +249,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - NavigationStoppedEventHandler
 
-public typealias NavigationStoppedEventHandler = @Sendable (Any?, NavigationEventArgs?) throws -> ()
+public typealias NavigationStoppedEventHandler = @MainActor (Any?, NavigationEventArgs?) throws -> ()
 
 // MARK: - NavigationStoppedEventHandler Internals
 
@@ -292,9 +298,11 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
         Invoke: {
             do {
                 guard let __unwrapped__instance = NavigationStoppedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.NavigationEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigationEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -310,12 +318,13 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - FrameNavigationOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.framenavigationoptions)
+@MainActor
 open class FrameNavigationOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIFrameNavigationOptions
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -323,24 +332,24 @@ open class FrameNavigationOptions : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFrameNavigationOptionsFactory : __ABI_Microsoft_UI_Xaml_Navigation.IFrameNavigationOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.FrameNavigationOptions")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Navigation.FrameNavigationOptionsBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IFrameNavigationOptionsFactory.CreateInstance(baseInterface, &innerInterface)
@@ -463,12 +472,13 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 // MARK: - NavigatingCancelEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigatingcanceleventargs)
+@MainActor
 public final class NavigatingCancelEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.INavigatingCancelEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigatingCancelEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -476,7 +486,7 @@ public final class NavigatingCancelEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -598,12 +608,13 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 // MARK: - NavigationEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationeventargs)
+@MainActor
 public final class NavigationEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.INavigationEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -611,7 +622,7 @@ public final class NavigationEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -748,12 +759,13 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 // MARK: - NavigationFailedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.navigationfailedeventargs)
+@MainActor
 public final class NavigationFailedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.INavigationFailedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CINavigationFailedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -761,7 +773,7 @@ public final class NavigationFailedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -855,12 +867,13 @@ extension __ABI_Microsoft_UI_Xaml_Navigation {
 // MARK: - PageStackEntry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.pagestackentry)
+@MainActor
 public final class PageStackEntry : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntry
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CNavigation_CIPageStackEntry
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -868,16 +881,16 @@ public final class PageStackEntry : WinUI.DependencyObject, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IPageStackEntryFactory: __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntryFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.PageStackEntry")
-    public init(_ sourcePageType: WinUI.TypeName, _ parameter: Any!, _ navigationTransitionInfo: WinUI.NavigationTransitionInfo!) {
+    private static nonisolated let _IPageStackEntryFactory: __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntryFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.PageStackEntry")
+    nonisolated public init(_ sourcePageType: WinUI.TypeName, _ parameter: Any!, _ navigationTransitionInfo: WinUI.NavigationTransitionInfo!) {
         super.init(fromAbi: try! Self._IPageStackEntryFactory.CreateInstance(sourcePageType, parameter, navigationTransitionInfo))
     }
 
-    private static let _IPageStackEntryStatics: __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.PageStackEntry")
+    private static nonisolated let _IPageStackEntryStatics: __ABI_Microsoft_UI_Xaml_Navigation.IPageStackEntryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Navigation.PageStackEntry")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.navigation.pagestackentry.sourcepagetypeproperty)
     public static var sourcePageTypeProperty : WinUI.DependencyProperty! {
         get { try! _IPageStackEntryStatics.get_SourcePageTypeProperty() }

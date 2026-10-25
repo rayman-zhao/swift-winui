@@ -7,6 +7,10 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+public typealias EventHandler<T> = @MainActor (Any?, T) throws -> ()
+
+public typealias TypedEventHandler<TSender, TResult> = @MainActor (TSender, TResult) throws -> ()
+
 private var IID___x_ABI_C__FIAsyncOperationCompletedHandler_1_IInspectable: WindowsFoundation.IID {
     .init(Data1: 0x3f08262e, Data2: 0xa2e1, Data3: 0x5134, Data4: ( 0x92,0x97,0xe9,0x21,0x1f,0x48,0x1a,0x2d ))// 3f08262e-a2e1-5134-9297-e9211f481a2d
 }
@@ -42251,9 +42255,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1_IInspectableVTable:
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42275,7 +42281,7 @@ public class EventHandlerAny: WindowsFoundation.IUnknown, @unchecked Sendable {
 }
 
 internal class __x_ABI_C__FIEventHandler_1_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<Any?>
+    internal typealias Handler = EventHandler<Any?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1_IInspectable
     internal typealias SwiftABI = WinUI.EventHandlerAny
 
@@ -42306,9 +42312,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePickerValueChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.DatePickerValueChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.DatePickerValueChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42328,7 +42336,7 @@ public class EventHandlerDatePickerValueChangedEventArgs: WindowsFoundation.IUnk
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePickerValueChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.DatePickerValueChangedEventArgs?>
+    internal typealias Handler = EventHandler<DatePickerValueChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePickerValueChangedEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerDatePickerValueChangedEventArgs
 
@@ -42359,9 +42367,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewerViewChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.ScrollViewerViewChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewerViewChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42381,7 +42391,7 @@ public class EventHandlerScrollViewerViewChangedEventArgs: WindowsFoundation.IUn
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewerViewChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.ScrollViewerViewChangedEventArgs?>
+    internal typealias Handler = EventHandler<ScrollViewerViewChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewerViewChangedEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerScrollViewerViewChangedEventArgs
 
@@ -42412,9 +42422,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewerViewChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.ScrollViewerViewChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewerViewChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42434,7 +42446,7 @@ public class EventHandlerScrollViewerViewChangingEventArgs: WindowsFoundation.IU
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewerViewChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.ScrollViewerViewChangingEventArgs?>
+    internal typealias Handler = EventHandler<ScrollViewerViewChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewerViewChangingEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerScrollViewerViewChangingEventArgs
 
@@ -42465,9 +42477,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerValueChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.TimePickerValueChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TimePickerValueChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42487,7 +42501,7 @@ public class EventHandlerTimePickerValueChangedEventArgs: WindowsFoundation.IUnk
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerValueChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.TimePickerValueChangedEventArgs?>
+    internal typealias Handler = EventHandler<TimePickerValueChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerValueChangedEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerTimePickerValueChangedEventArgs
 
@@ -42518,9 +42532,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusManagerGotFocusEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.FocusManagerGotFocusEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.FocusManagerGotFocusEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42540,7 +42556,7 @@ public class EventHandlerFocusManagerGotFocusEventArgs: WindowsFoundation.IUnkno
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusManagerGotFocusEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.FocusManagerGotFocusEventArgs?>
+    internal typealias Handler = EventHandler<FocusManagerGotFocusEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusManagerGotFocusEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerFocusManagerGotFocusEventArgs
 
@@ -42571,9 +42587,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusManagerLostFocusEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.FocusManagerLostFocusEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.FocusManagerLostFocusEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42593,7 +42611,7 @@ public class EventHandlerFocusManagerLostFocusEventArgs: WindowsFoundation.IUnkn
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusManagerLostFocusEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.FocusManagerLostFocusEventArgs?>
+    internal typealias Handler = EventHandler<FocusManagerLostFocusEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CFocusManagerLostFocusEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerFocusManagerLostFocusEventArgs
 
@@ -42624,9 +42642,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CGettingFocusEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.GettingFocusEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.GettingFocusEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42646,7 +42666,7 @@ public class EventHandlerGettingFocusEventArgs: WindowsFoundation.IUnknown, @unc
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CGettingFocusEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.GettingFocusEventArgs?>
+    internal typealias Handler = EventHandler<GettingFocusEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CGettingFocusEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerGettingFocusEventArgs
 
@@ -42677,9 +42697,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CLosingFocusEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.LosingFocusEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.LosingFocusEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42699,7 +42721,7 @@ public class EventHandlerLosingFocusEventArgs: WindowsFoundation.IUnknown, @unch
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CLosingFocusEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.LosingFocusEventArgs?>
+    internal typealias Handler = EventHandler<LosingFocusEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CInput__CLosingFocusEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerLosingFocusEventArgs
 
@@ -42730,9 +42752,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft_
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CRenderedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.RenderedEventArgs? = __IMPL_Microsoft_UI_Xaml_Media.RenderedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -42752,7 +42776,7 @@ public class EventHandlerRenderedEventArgs: WindowsFoundation.IUnknown, @uncheck
 }
 
 internal class __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CRenderedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.EventHandler<WinUI.RenderedEventArgs?>
+    internal typealias Handler = EventHandler<RenderedEventArgs?>
     internal typealias CABI = __x_ABI_C__FIEventHandler_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CRenderedEventArgs
     internal typealias SwiftABI = WinUI.EventHandlerRenderedEventArgs
 
@@ -44893,9 +44917,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2_IInspectable__
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CResourceManagerRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.ResourceManagerRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml.ResourceManagerRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -44915,7 +44941,7 @@ public class TypedEventHandlerAny_ResourceManagerRequestedEventArgs: WindowsFoun
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CResourceManagerRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<Any?, WinUI.ResourceManagerRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<Any?, ResourceManagerRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CResourceManagerRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAny_ResourceManagerRequestedEventArgs
 
@@ -44946,9 +44972,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2_IInspectable__
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowActivatedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.WindowActivatedEventArgs? = __IMPL_Microsoft_UI_Xaml.WindowActivatedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -44968,7 +44996,7 @@ public class TypedEventHandlerAny_WindowActivatedEventArgs: WindowsFoundation.IU
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowActivatedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<Any?, WinUI.WindowActivatedEventArgs?>
+    internal typealias Handler = TypedEventHandler<Any?, WindowActivatedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowActivatedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAny_WindowActivatedEventArgs
 
@@ -44999,9 +45027,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2_IInspectable__
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.WindowEventArgs? = __IMPL_Microsoft_UI_Xaml.WindowEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45021,7 +45051,7 @@ public class TypedEventHandlerAny_WindowEventArgs: WindowsFoundation.IUnknown, @
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<Any?, WinUI.WindowEventArgs?>
+    internal typealias Handler = TypedEventHandler<Any?, WindowEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAny_WindowEventArgs
 
@@ -45052,9 +45082,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2_IInspectable__
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowSizeChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.WindowSizeChangedEventArgs? = __IMPL_Microsoft_UI_Xaml.WindowSizeChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45074,7 +45106,7 @@ public class TypedEventHandlerAny_WindowSizeChangedEventArgs: WindowsFoundation.
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowSizeChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<Any?, WinUI.WindowSizeChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<Any?, WindowSizeChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowSizeChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAny_WindowSizeChangedEventArgs
 
@@ -45105,9 +45137,11 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2_IInspectable__
     Invoke: {
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowVisibilityChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.WindowVisibilityChangedEventArgs? = __IMPL_Microsoft_UI_Xaml.WindowVisibilityChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45127,7 +45161,7 @@ public class TypedEventHandlerAny_WindowVisibilityChangedEventArgs: WindowsFound
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowVisibilityChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<Any?, WinUI.WindowVisibilityChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<Any?, WindowVisibilityChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2_IInspectable___x_ABI_CMicrosoft__CUI__CXaml__CWindowVisibilityChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAny_WindowVisibilityChangedEventArgs
 
@@ -45160,7 +45194,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarDetailLabelRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AnnotatedScrollBar? = __IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarBridge.from(abi: ComPtr($1))
             let args: WinUI.AnnotatedScrollBarDetailLabelRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarDetailLabelRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45178,7 +45214,7 @@ public class TypedEventHandlerAnnotatedScrollBar_AnnotatedScrollBarDetailLabelRe
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarDetailLabelRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AnnotatedScrollBar?, WinUI.AnnotatedScrollBarDetailLabelRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<AnnotatedScrollBar?, AnnotatedScrollBarDetailLabelRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarDetailLabelRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAnnotatedScrollBar_AnnotatedScrollBarDetailLabelRequestedEventArgs
 
@@ -45211,7 +45247,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarScrollingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AnnotatedScrollBar? = __IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarBridge.from(abi: ComPtr($1))
             let args: WinUI.AnnotatedScrollBarScrollingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarScrollingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45229,7 +45267,7 @@ public class TypedEventHandlerAnnotatedScrollBar_AnnotatedScrollBarScrollingEven
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarScrollingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AnnotatedScrollBar?, WinUI.AnnotatedScrollBarScrollingEventArgs?>
+    internal typealias Handler = TypedEventHandler<AnnotatedScrollBar?, AnnotatedScrollBarScrollingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnnotatedScrollBarScrollingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAnnotatedScrollBar_AnnotatedScrollBarScrollingEventArgs
 
@@ -45262,7 +45300,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxQuerySubmittedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AutoSuggestBox? = __IMPL_Microsoft_UI_Xaml_Controls.AutoSuggestBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.AutoSuggestBoxQuerySubmittedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.AutoSuggestBoxQuerySubmittedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45280,7 +45320,7 @@ public class TypedEventHandlerAutoSuggestBox_AutoSuggestBoxQuerySubmittedEventAr
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxQuerySubmittedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AutoSuggestBox?, WinUI.AutoSuggestBoxQuerySubmittedEventArgs?>
+    internal typealias Handler = TypedEventHandler<AutoSuggestBox?, AutoSuggestBoxQuerySubmittedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxQuerySubmittedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAutoSuggestBox_AutoSuggestBoxQuerySubmittedEventArgs
 
@@ -45313,7 +45353,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxSuggestionChosenEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AutoSuggestBox? = __IMPL_Microsoft_UI_Xaml_Controls.AutoSuggestBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.AutoSuggestBoxSuggestionChosenEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.AutoSuggestBoxSuggestionChosenEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45331,7 +45373,7 @@ public class TypedEventHandlerAutoSuggestBox_AutoSuggestBoxSuggestionChosenEvent
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxSuggestionChosenEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AutoSuggestBox?, WinUI.AutoSuggestBoxSuggestionChosenEventArgs?>
+    internal typealias Handler = TypedEventHandler<AutoSuggestBox?, AutoSuggestBoxSuggestionChosenEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxSuggestionChosenEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAutoSuggestBox_AutoSuggestBoxSuggestionChosenEventArgs
 
@@ -45364,7 +45406,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxTextChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AutoSuggestBox? = __IMPL_Microsoft_UI_Xaml_Controls.AutoSuggestBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.AutoSuggestBoxTextChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.AutoSuggestBoxTextChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45382,7 +45426,7 @@ public class TypedEventHandlerAutoSuggestBox_AutoSuggestBoxTextChangedEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxTextChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AutoSuggestBox?, WinUI.AutoSuggestBoxTextChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<AutoSuggestBox?, AutoSuggestBoxTextChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAutoSuggestBoxTextChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerAutoSuggestBox_AutoSuggestBoxTextChangedEventArgs
 
@@ -45415,7 +45459,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CBreadcrumbBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CBreadcrumbBarItemClickedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.BreadcrumbBar? = __IMPL_Microsoft_UI_Xaml_Controls.BreadcrumbBarBridge.from(abi: ComPtr($1))
             let args: WinUI.BreadcrumbBarItemClickedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.BreadcrumbBarItemClickedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45433,7 +45479,7 @@ public class TypedEventHandlerBreadcrumbBar_BreadcrumbBarItemClickedEventArgs: W
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CBreadcrumbBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CBreadcrumbBarItemClickedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.BreadcrumbBar?, WinUI.BreadcrumbBarItemClickedEventArgs?>
+    internal typealias Handler = TypedEventHandler<BreadcrumbBar?, BreadcrumbBarItemClickedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CBreadcrumbBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CBreadcrumbBarItemClickedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerBreadcrumbBar_BreadcrumbBarItemClickedEventArgs
 
@@ -45466,7 +45512,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarDatePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarDatePickerDateChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.CalendarDatePicker? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarDatePickerBridge.from(abi: ComPtr($1))
             let args: WinUI.CalendarDatePickerDateChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarDatePickerDateChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45484,7 +45532,7 @@ public class TypedEventHandlerCalendarDatePicker_CalendarDatePickerDateChangedEv
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarDatePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarDatePickerDateChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.CalendarDatePicker?, WinUI.CalendarDatePickerDateChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<CalendarDatePicker?, CalendarDatePickerDateChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarDatePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarDatePickerDateChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerCalendarDatePicker_CalendarDatePickerDateChangedEventArgs
 
@@ -45517,7 +45565,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewDayItemChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.CalendarView? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.from(abi: ComPtr($1))
             let args: WinUI.CalendarViewDayItemChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45535,7 +45585,7 @@ public class TypedEventHandlerCalendarView_CalendarViewDayItemChangingEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewDayItemChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.CalendarView?, WinUI.CalendarViewDayItemChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<CalendarView?, CalendarViewDayItemChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewDayItemChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerCalendarView_CalendarViewDayItemChangingEventArgs
 
@@ -45568,7 +45618,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewSelectedDatesChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.CalendarView? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.from(abi: ComPtr($1))
             let args: WinUI.CalendarViewSelectedDatesChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewSelectedDatesChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45586,7 +45638,7 @@ public class TypedEventHandlerCalendarView_CalendarViewSelectedDatesChangedEvent
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewSelectedDatesChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.CalendarView?, WinUI.CalendarViewSelectedDatesChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<CalendarView?, CalendarViewSelectedDatesChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCalendarViewSelectedDatesChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerCalendarView_CalendarViewSelectedDatesChangedEventArgs
 
@@ -45619,7 +45671,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CComboBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CComboBoxTextSubmittedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ComboBox? = __IMPL_Microsoft_UI_Xaml_Controls.ComboBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.ComboBoxTextSubmittedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ComboBoxTextSubmittedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45637,7 +45691,7 @@ public class TypedEventHandlerComboBox_ComboBoxTextSubmittedEventArgs: WindowsFo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CComboBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CComboBoxTextSubmittedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ComboBox?, WinUI.ComboBoxTextSubmittedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ComboBox?, ComboBoxTextSubmittedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CComboBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CComboBoxTextSubmittedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerComboBox_ComboBoxTextSubmittedEventArgs
 
@@ -45670,7 +45724,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCommandBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDynamicOverflowItemsChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.CommandBar? = __IMPL_Microsoft_UI_Xaml_Controls.CommandBarBridge.from(abi: ComPtr($1))
             let args: WinUI.DynamicOverflowItemsChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.DynamicOverflowItemsChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45688,7 +45744,7 @@ public class TypedEventHandlerCommandBar_DynamicOverflowItemsChangingEventArgs: 
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCommandBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDynamicOverflowItemsChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.CommandBar?, WinUI.DynamicOverflowItemsChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<CommandBar?, DynamicOverflowItemsChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCommandBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDynamicOverflowItemsChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerCommandBar_DynamicOverflowItemsChangingEventArgs
 
@@ -45721,7 +45777,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogButtonClickEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ContentDialog? = __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogBridge.from(abi: ComPtr($1))
             let args: WinUI.ContentDialogButtonClickEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogButtonClickEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45739,7 +45797,7 @@ public class TypedEventHandlerContentDialog_ContentDialogButtonClickEventArgs: W
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogButtonClickEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ContentDialog?, WinUI.ContentDialogButtonClickEventArgs?>
+    internal typealias Handler = TypedEventHandler<ContentDialog?, ContentDialogButtonClickEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogButtonClickEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerContentDialog_ContentDialogButtonClickEventArgs
 
@@ -45772,7 +45830,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogClosedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ContentDialog? = __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogBridge.from(abi: ComPtr($1))
             let args: WinUI.ContentDialogClosedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogClosedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45790,7 +45850,7 @@ public class TypedEventHandlerContentDialog_ContentDialogClosedEventArgs: Window
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogClosedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ContentDialog?, WinUI.ContentDialogClosedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ContentDialog?, ContentDialogClosedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogClosedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerContentDialog_ContentDialogClosedEventArgs
 
@@ -45823,7 +45883,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogClosingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ContentDialog? = __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogBridge.from(abi: ComPtr($1))
             let args: WinUI.ContentDialogClosingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogClosingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45841,7 +45903,7 @@ public class TypedEventHandlerContentDialog_ContentDialogClosingEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogClosingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ContentDialog?, WinUI.ContentDialogClosingEventArgs?>
+    internal typealias Handler = TypedEventHandler<ContentDialog?, ContentDialogClosingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogClosingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerContentDialog_ContentDialogClosingEventArgs
 
@@ -45874,7 +45936,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogOpenedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ContentDialog? = __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogBridge.from(abi: ComPtr($1))
             let args: WinUI.ContentDialogOpenedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogOpenedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45892,7 +45956,7 @@ public class TypedEventHandlerContentDialog_ContentDialogOpenedEventArgs: Window
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogOpenedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ContentDialog?, WinUI.ContentDialogOpenedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ContentDialog?, ContentDialogOpenedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialog___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContentDialogOpenedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerContentDialog_ContentDialogOpenedEventArgs
 
@@ -45925,7 +45989,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CControl___x_ABI_CMicrosoft__CUI__CXaml__CControls__CFocusDisengagedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.Control? = __IMPL_Microsoft_UI_Xaml_Controls.ControlBridge.from(abi: ComPtr($1))
             let args: WinUI.FocusDisengagedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.FocusDisengagedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45943,7 +46009,7 @@ public class TypedEventHandlerControl_FocusDisengagedEventArgs: WindowsFoundatio
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CControl___x_ABI_CMicrosoft__CUI__CXaml__CControls__CFocusDisengagedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.Control?, WinUI.FocusDisengagedEventArgs?>
+    internal typealias Handler = TypedEventHandler<Control?, FocusDisengagedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CControl___x_ABI_CMicrosoft__CUI__CXaml__CControls__CFocusDisengagedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerControl_FocusDisengagedEventArgs
 
@@ -45976,7 +46042,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CControl___x_ABI_CMicrosoft__CUI__CXaml__CControls__CFocusEngagedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.Control? = __IMPL_Microsoft_UI_Xaml_Controls.ControlBridge.from(abi: ComPtr($1))
             let args: WinUI.FocusEngagedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.FocusEngagedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -45994,7 +46062,7 @@ public class TypedEventHandlerControl_FocusEngagedEventArgs: WindowsFoundation.I
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CControl___x_ABI_CMicrosoft__CUI__CXaml__CControls__CFocusEngagedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.Control?, WinUI.FocusEngagedEventArgs?>
+    internal typealias Handler = TypedEventHandler<Control?, FocusEngagedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CControl___x_ABI_CMicrosoft__CUI__CXaml__CControls__CFocusEngagedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerControl_FocusEngagedEventArgs
 
@@ -46027,7 +46095,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePickerSelectedValueChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.DatePicker? = __IMPL_Microsoft_UI_Xaml_Controls.DatePickerBridge.from(abi: ComPtr($1))
             let args: WinUI.DatePickerSelectedValueChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.DatePickerSelectedValueChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46045,7 +46115,7 @@ public class TypedEventHandlerDatePicker_DatePickerSelectedValueChangedEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePickerSelectedValueChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.DatePicker?, WinUI.DatePickerSelectedValueChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<DatePicker?, DatePickerSelectedValueChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDatePickerSelectedValueChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerDatePicker_DatePickerSelectedValueChangedEventArgs
 
@@ -46078,7 +46148,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpander___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpanderCollapsedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.Expander? = __IMPL_Microsoft_UI_Xaml_Controls.ExpanderBridge.from(abi: ComPtr($1))
             let args: WinUI.ExpanderCollapsedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ExpanderCollapsedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46096,7 +46168,7 @@ public class TypedEventHandlerExpander_ExpanderCollapsedEventArgs: WindowsFounda
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpander___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpanderCollapsedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.Expander?, WinUI.ExpanderCollapsedEventArgs?>
+    internal typealias Handler = TypedEventHandler<Expander?, ExpanderCollapsedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpander___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpanderCollapsedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerExpander_ExpanderCollapsedEventArgs
 
@@ -46129,7 +46201,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpander___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpanderExpandingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.Expander? = __IMPL_Microsoft_UI_Xaml_Controls.ExpanderBridge.from(abi: ComPtr($1))
             let args: WinUI.ExpanderExpandingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ExpanderExpandingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46147,7 +46221,7 @@ public class TypedEventHandlerExpander_ExpanderExpandingEventArgs: WindowsFounda
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpander___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpanderExpandingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.Expander?, WinUI.ExpanderExpandingEventArgs?>
+    internal typealias Handler = TypedEventHandler<Expander?, ExpanderExpandingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpander___x_ABI_CMicrosoft__CUI__CXaml__CControls__CExpanderExpandingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerExpander_ExpanderExpandingEventArgs
 
@@ -46179,8 +46253,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.InfoBar? = __IMPL_Microsoft_UI_Xaml_Controls.InfoBarBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46200,7 +46276,7 @@ public class TypedEventHandlerInfoBar_Any: WindowsFoundation.IUnknown, @unchecke
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.InfoBar?, Any?>
+    internal typealias Handler = TypedEventHandler<InfoBar?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerInfoBar_Any
 
@@ -46233,7 +46309,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBarClosedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.InfoBar? = __IMPL_Microsoft_UI_Xaml_Controls.InfoBarBridge.from(abi: ComPtr($1))
             let args: WinUI.InfoBarClosedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.InfoBarClosedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46251,7 +46329,7 @@ public class TypedEventHandlerInfoBar_InfoBarClosedEventArgs: WindowsFoundation.
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBarClosedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.InfoBar?, WinUI.InfoBarClosedEventArgs?>
+    internal typealias Handler = TypedEventHandler<InfoBar?, InfoBarClosedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBarClosedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerInfoBar_InfoBarClosedEventArgs
 
@@ -46284,7 +46362,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBarClosingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.InfoBar? = __IMPL_Microsoft_UI_Xaml_Controls.InfoBarBridge.from(abi: ComPtr($1))
             let args: WinUI.InfoBarClosingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.InfoBarClosingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46302,7 +46382,7 @@ public class TypedEventHandlerInfoBar_InfoBarClosingEventArgs: WindowsFoundation
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBarClosingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.InfoBar?, WinUI.InfoBarClosingEventArgs?>
+    internal typealias Handler = TypedEventHandler<InfoBar?, InfoBarClosingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CInfoBarClosingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerInfoBar_InfoBarClosingEventArgs
 
@@ -46335,7 +46415,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemCollectionTransitionProvider___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemCollectionTransitionCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ItemCollectionTransitionProvider? = __IMPL_Microsoft_UI_Xaml_Controls.ItemCollectionTransitionProviderBridge.from(abi: ComPtr($1))
             let args: WinUI.ItemCollectionTransitionCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemCollectionTransitionCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46353,7 +46435,7 @@ public class TypedEventHandlerItemCollectionTransitionProvider_ItemCollectionTra
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemCollectionTransitionProvider___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemCollectionTransitionCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ItemCollectionTransitionProvider?, WinUI.ItemCollectionTransitionCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ItemCollectionTransitionProvider?, ItemCollectionTransitionCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemCollectionTransitionProvider___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemCollectionTransitionCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerItemCollectionTransitionProvider_ItemCollectionTransitionCompletedEventArgs
 
@@ -46386,7 +46468,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementClearingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ItemsRepeater? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterBridge.from(abi: ComPtr($1))
             let args: WinUI.ItemsRepeaterElementClearingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterElementClearingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46404,7 +46488,7 @@ public class TypedEventHandlerItemsRepeater_ItemsRepeaterElementClearingEventArg
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementClearingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ItemsRepeater?, WinUI.ItemsRepeaterElementClearingEventArgs?>
+    internal typealias Handler = TypedEventHandler<ItemsRepeater?, ItemsRepeaterElementClearingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementClearingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerItemsRepeater_ItemsRepeaterElementClearingEventArgs
 
@@ -46437,7 +46521,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementIndexChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ItemsRepeater? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterBridge.from(abi: ComPtr($1))
             let args: WinUI.ItemsRepeaterElementIndexChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterElementIndexChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46455,7 +46541,7 @@ public class TypedEventHandlerItemsRepeater_ItemsRepeaterElementIndexChangedEven
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementIndexChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ItemsRepeater?, WinUI.ItemsRepeaterElementIndexChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ItemsRepeater?, ItemsRepeaterElementIndexChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementIndexChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerItemsRepeater_ItemsRepeaterElementIndexChangedEventArgs
 
@@ -46488,7 +46574,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementPreparedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ItemsRepeater? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterBridge.from(abi: ComPtr($1))
             let args: WinUI.ItemsRepeaterElementPreparedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterElementPreparedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46506,7 +46594,7 @@ public class TypedEventHandlerItemsRepeater_ItemsRepeaterElementPreparedEventArg
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementPreparedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ItemsRepeater?, WinUI.ItemsRepeaterElementPreparedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ItemsRepeater?, ItemsRepeaterElementPreparedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeater___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsRepeaterElementPreparedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerItemsRepeater_ItemsRepeaterElementPreparedEventArgs
 
@@ -46539,7 +46627,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ItemsView? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.from(abi: ComPtr($1))
             let args: WinUI.ItemsViewItemInvokedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewItemInvokedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46557,7 +46647,7 @@ public class TypedEventHandlerItemsView_ItemsViewItemInvokedEventArgs: WindowsFo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ItemsView?, WinUI.ItemsViewItemInvokedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ItemsView?, ItemsViewItemInvokedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewItemInvokedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerItemsView_ItemsViewItemInvokedEventArgs
 
@@ -46590,7 +46680,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ItemsView? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.from(abi: ComPtr($1))
             let args: WinUI.ItemsViewSelectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewSelectionChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46608,7 +46700,7 @@ public class TypedEventHandlerItemsView_ItemsViewSelectionChangedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ItemsView?, WinUI.ItemsViewSelectionChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ItemsView?, ItemsViewSelectionChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemsViewSelectionChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerItemsView_ItemsViewSelectionChangedEventArgs
 
@@ -46640,8 +46732,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CLayout_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.Layout? = __IMPL_Microsoft_UI_Xaml_Controls.LayoutBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46661,7 +46755,7 @@ public class TypedEventHandlerLayout_Any: WindowsFoundation.IUnknown, @unchecked
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CLayout_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.Layout?, Any?>
+    internal typealias Handler = TypedEventHandler<Layout?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CLayout_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerLayout_Any
 
@@ -46694,7 +46788,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CChoosingGroupHeaderContainerEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ListViewBase? = __IMPL_Microsoft_UI_Xaml_Controls.ListViewBaseBridge.from(abi: ComPtr($1))
             let args: WinUI.ChoosingGroupHeaderContainerEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ChoosingGroupHeaderContainerEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46712,7 +46808,7 @@ public class TypedEventHandlerListViewBase_ChoosingGroupHeaderContainerEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CChoosingGroupHeaderContainerEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ListViewBase?, WinUI.ChoosingGroupHeaderContainerEventArgs?>
+    internal typealias Handler = TypedEventHandler<ListViewBase?, ChoosingGroupHeaderContainerEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CChoosingGroupHeaderContainerEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerListViewBase_ChoosingGroupHeaderContainerEventArgs
 
@@ -46745,7 +46841,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CChoosingItemContainerEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ListViewBase? = __IMPL_Microsoft_UI_Xaml_Controls.ListViewBaseBridge.from(abi: ComPtr($1))
             let args: WinUI.ChoosingItemContainerEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ChoosingItemContainerEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46763,7 +46861,7 @@ public class TypedEventHandlerListViewBase_ChoosingItemContainerEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CChoosingItemContainerEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ListViewBase?, WinUI.ChoosingItemContainerEventArgs?>
+    internal typealias Handler = TypedEventHandler<ListViewBase?, ChoosingItemContainerEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CChoosingItemContainerEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerListViewBase_ChoosingItemContainerEventArgs
 
@@ -46796,7 +46894,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContainerContentChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ListViewBase? = __IMPL_Microsoft_UI_Xaml_Controls.ListViewBaseBridge.from(abi: ComPtr($1))
             let args: WinUI.ContainerContentChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ContainerContentChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46814,7 +46914,7 @@ public class TypedEventHandlerListViewBase_ContainerContentChangingEventArgs: Wi
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContainerContentChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ListViewBase?, WinUI.ContainerContentChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<ListViewBase?, ContainerContentChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CContainerContentChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerListViewBase_ContainerContentChangingEventArgs
 
@@ -46847,7 +46947,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDragItemsCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ListViewBase? = __IMPL_Microsoft_UI_Xaml_Controls.ListViewBaseBridge.from(abi: ComPtr($1))
             let args: WinUI.DragItemsCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.DragItemsCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46865,7 +46967,7 @@ public class TypedEventHandlerListViewBase_DragItemsCompletedEventArgs: WindowsF
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDragItemsCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ListViewBase?, WinUI.DragItemsCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ListViewBase?, DragItemsCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CListViewBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CDragItemsCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerListViewBase_DragItemsCompletedEventArgs
 
@@ -46898,7 +47000,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CMediaTransportControls___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CMediaTransportControlsThumbnailRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.MediaTransportControls? = __IMPL_Microsoft_UI_Xaml_Controls.MediaTransportControlsBridge.from(abi: ComPtr($1))
             let args: WinUI.MediaTransportControlsThumbnailRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Media.MediaTransportControlsThumbnailRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46916,7 +47020,7 @@ public class TypedEventHandlerMediaTransportControls_MediaTransportControlsThumb
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CMediaTransportControls___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CMediaTransportControlsThumbnailRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.MediaTransportControls?, WinUI.MediaTransportControlsThumbnailRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<MediaTransportControls?, MediaTransportControlsThumbnailRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CMediaTransportControls___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CMediaTransportControlsThumbnailRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerMediaTransportControls_MediaTransportControlsThumbnailRequestedEventArgs
 
@@ -46948,8 +47052,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NavigationView? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -46969,7 +47075,7 @@ public class TypedEventHandlerNavigationView_Any: WindowsFoundation.IUnknown, @u
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NavigationView?, Any?>
+    internal typealias Handler = TypedEventHandler<NavigationView?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerNavigationView_Any
 
@@ -47002,7 +47108,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewBackRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NavigationView? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.from(abi: ComPtr($1))
             let args: WinUI.NavigationViewBackRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBackRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47020,7 +47128,7 @@ public class TypedEventHandlerNavigationView_NavigationViewBackRequestedEventArg
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewBackRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NavigationView?, WinUI.NavigationViewBackRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<NavigationView?, NavigationViewBackRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewBackRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerNavigationView_NavigationViewBackRequestedEventArgs
 
@@ -47053,7 +47161,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewDisplayModeChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NavigationView? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.from(abi: ComPtr($1))
             let args: WinUI.NavigationViewDisplayModeChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewDisplayModeChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47071,7 +47181,7 @@ public class TypedEventHandlerNavigationView_NavigationViewDisplayModeChangedEve
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewDisplayModeChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NavigationView?, WinUI.NavigationViewDisplayModeChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<NavigationView?, NavigationViewDisplayModeChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewDisplayModeChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerNavigationView_NavigationViewDisplayModeChangedEventArgs
 
@@ -47104,7 +47214,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemCollapsedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NavigationView? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.from(abi: ComPtr($1))
             let args: WinUI.NavigationViewItemCollapsedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemCollapsedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47122,7 +47234,7 @@ public class TypedEventHandlerNavigationView_NavigationViewItemCollapsedEventArg
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemCollapsedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NavigationView?, WinUI.NavigationViewItemCollapsedEventArgs?>
+    internal typealias Handler = TypedEventHandler<NavigationView?, NavigationViewItemCollapsedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemCollapsedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerNavigationView_NavigationViewItemCollapsedEventArgs
 
@@ -47155,7 +47267,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemExpandingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NavigationView? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.from(abi: ComPtr($1))
             let args: WinUI.NavigationViewItemExpandingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemExpandingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47173,7 +47287,7 @@ public class TypedEventHandlerNavigationView_NavigationViewItemExpandingEventArg
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemExpandingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NavigationView?, WinUI.NavigationViewItemExpandingEventArgs?>
+    internal typealias Handler = TypedEventHandler<NavigationView?, NavigationViewItemExpandingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemExpandingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerNavigationView_NavigationViewItemExpandingEventArgs
 
@@ -47206,7 +47320,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemInvokedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NavigationView? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.from(abi: ComPtr($1))
             let args: WinUI.NavigationViewItemInvokedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemInvokedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47224,7 +47340,7 @@ public class TypedEventHandlerNavigationView_NavigationViewItemInvokedEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemInvokedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NavigationView?, WinUI.NavigationViewItemInvokedEventArgs?>
+    internal typealias Handler = TypedEventHandler<NavigationView?, NavigationViewItemInvokedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewItemInvokedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerNavigationView_NavigationViewItemInvokedEventArgs
 
@@ -47257,7 +47373,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewPaneClosingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NavigationView? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.from(abi: ComPtr($1))
             let args: WinUI.NavigationViewPaneClosingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewPaneClosingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47275,7 +47393,7 @@ public class TypedEventHandlerNavigationView_NavigationViewPaneClosingEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewPaneClosingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NavigationView?, WinUI.NavigationViewPaneClosingEventArgs?>
+    internal typealias Handler = TypedEventHandler<NavigationView?, NavigationViewPaneClosingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewPaneClosingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerNavigationView_NavigationViewPaneClosingEventArgs
 
@@ -47308,7 +47426,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewSelectionChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NavigationView? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.from(abi: ComPtr($1))
             let args: WinUI.NavigationViewSelectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewSelectionChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47326,7 +47446,7 @@ public class TypedEventHandlerNavigationView_NavigationViewSelectionChangedEvent
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewSelectionChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NavigationView?, WinUI.NavigationViewSelectionChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<NavigationView?, NavigationViewSelectionChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNavigationViewSelectionChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerNavigationView_NavigationViewSelectionChangedEventArgs
 
@@ -47359,7 +47479,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.NumberBox? = __IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.NumberBoxValueChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.NumberBoxValueChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47377,7 +47499,7 @@ public class TypedEventHandlerNumberBox_NumberBoxValueChangedEventArgs: WindowsF
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.NumberBox?, WinUI.NumberBoxValueChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<NumberBox?, NumberBoxValueChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CNumberBoxValueChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerNumberBox_NumberBoxValueChangedEventArgs
 
@@ -47410,7 +47532,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPasswordBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPasswordBoxPasswordChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.PasswordBox? = __IMPL_Microsoft_UI_Xaml_Controls.PasswordBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.PasswordBoxPasswordChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.PasswordBoxPasswordChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47428,7 +47552,7 @@ public class TypedEventHandlerPasswordBox_PasswordBoxPasswordChangingEventArgs: 
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPasswordBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPasswordBoxPasswordChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.PasswordBox?, WinUI.PasswordBoxPasswordChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<PasswordBox?, PasswordBoxPasswordChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPasswordBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPasswordBoxPasswordChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerPasswordBox_PasswordBoxPasswordChangingEventArgs
 
@@ -47461,7 +47585,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPipsPager___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPipsPagerSelectedIndexChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.PipsPager? = __IMPL_Microsoft_UI_Xaml_Controls.PipsPagerBridge.from(abi: ComPtr($1))
             let args: WinUI.PipsPagerSelectedIndexChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.PipsPagerSelectedIndexChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47479,7 +47605,7 @@ public class TypedEventHandlerPipsPager_PipsPagerSelectedIndexChangedEventArgs: 
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPipsPager___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPipsPagerSelectedIndexChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.PipsPager?, WinUI.PipsPagerSelectedIndexChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<PipsPager?, PipsPagerSelectedIndexChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPipsPager___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPipsPagerSelectedIndexChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerPipsPager_PipsPagerSelectedIndexChangedEventArgs
 
@@ -47512,7 +47638,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPivot___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPivotItemEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.Pivot? = __IMPL_Microsoft_UI_Xaml_Controls.PivotBridge.from(abi: ComPtr($1))
             let args: WinUI.PivotItemEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.PivotItemEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47530,7 +47658,7 @@ public class TypedEventHandlerPivot_PivotItemEventArgs: WindowsFoundation.IUnkno
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPivot___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPivotItemEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.Pivot?, WinUI.PivotItemEventArgs?>
+    internal typealias Handler = TypedEventHandler<Pivot?, PivotItemEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPivot___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPivotItemEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerPivot_PivotItemEventArgs
 
@@ -47563,7 +47691,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CFlyoutBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CFlyoutBaseClosingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.FlyoutBase? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseBridge.from(abi: ComPtr($1))
             let args: WinUI.FlyoutBaseClosingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.FlyoutBaseClosingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47581,7 +47711,7 @@ public class TypedEventHandlerFlyoutBase_FlyoutBaseClosingEventArgs: WindowsFoun
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CFlyoutBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CFlyoutBaseClosingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.FlyoutBase?, WinUI.FlyoutBaseClosingEventArgs?>
+    internal typealias Handler = TypedEventHandler<FlyoutBase?, FlyoutBaseClosingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CFlyoutBase___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CFlyoutBaseClosingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerFlyoutBase_FlyoutBaseClosingEventArgs
 
@@ -47613,8 +47743,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AnyIScrollController? = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper.unwrapFrom(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47636,7 +47768,7 @@ public class TypedEventHandlerIScrollController_Any: WindowsFoundation.IUnknown,
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AnyIScrollController?, Any?>
+    internal typealias Handler = TypedEventHandler<IScrollController?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerIScrollController_Any
 
@@ -47669,7 +47801,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerAddScrollVelocityRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AnyIScrollController? = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.ScrollControllerAddScrollVelocityRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollControllerAddScrollVelocityRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47689,7 +47823,7 @@ public class TypedEventHandlerIScrollController_ScrollControllerAddScrollVelocit
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerAddScrollVelocityRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AnyIScrollController?, WinUI.ScrollControllerAddScrollVelocityRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<IScrollController?, ScrollControllerAddScrollVelocityRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerAddScrollVelocityRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerIScrollController_ScrollControllerAddScrollVelocityRequestedEventArgs
 
@@ -47722,7 +47856,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerScrollByRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AnyIScrollController? = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.ScrollControllerScrollByRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollControllerScrollByRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47742,7 +47878,7 @@ public class TypedEventHandlerIScrollController_ScrollControllerScrollByRequeste
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerScrollByRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AnyIScrollController?, WinUI.ScrollControllerScrollByRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<IScrollController?, ScrollControllerScrollByRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerScrollByRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerIScrollController_ScrollControllerScrollByRequestedEventArgs
 
@@ -47775,7 +47911,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerScrollToRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AnyIScrollController? = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.ScrollControllerScrollToRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollControllerScrollToRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47795,7 +47933,7 @@ public class TypedEventHandlerIScrollController_ScrollControllerScrollToRequeste
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerScrollToRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AnyIScrollController?, WinUI.ScrollControllerScrollToRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<IScrollController?, ScrollControllerScrollToRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollController___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerScrollToRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerIScrollController_ScrollControllerScrollToRequestedEventArgs
 
@@ -47827,8 +47965,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollControllerPanningInfo_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AnyIScrollControllerPanningInfo? = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanningInfoWrapper.unwrapFrom(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47850,7 +47990,7 @@ public class TypedEventHandlerIScrollControllerPanningInfo_Any: WindowsFoundatio
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollControllerPanningInfo_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AnyIScrollControllerPanningInfo?, Any?>
+    internal typealias Handler = TypedEventHandler<IScrollControllerPanningInfo?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollControllerPanningInfo_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerIScrollControllerPanningInfo_Any
 
@@ -47883,7 +48023,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollControllerPanningInfo___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerPanRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.AnyIScrollControllerPanningInfo? = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollControllerPanningInfoWrapper.unwrapFrom(abi: ComPtr($1))
             let args: WinUI.ScrollControllerPanRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollControllerPanRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47903,7 +48045,7 @@ public class TypedEventHandlerIScrollControllerPanningInfo_ScrollControllerPanRe
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollControllerPanningInfo___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerPanRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.AnyIScrollControllerPanningInfo?, WinUI.ScrollControllerPanRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<IScrollControllerPanningInfo?, ScrollControllerPanRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CIScrollControllerPanningInfo___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollControllerPanRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerIScrollControllerPanningInfo_ScrollControllerPanRequestedEventArgs
 
@@ -47935,8 +48077,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollPresenter? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -47956,7 +48100,7 @@ public class TypedEventHandlerScrollPresenter_Any: WindowsFoundation.IUnknown, @
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollPresenter?, Any?>
+    internal typealias Handler = TypedEventHandler<ScrollPresenter?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollPresenter_Any
 
@@ -47989,7 +48133,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingAnchorRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollPresenter? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingAnchorRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingAnchorRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48007,7 +48153,7 @@ public class TypedEventHandlerScrollPresenter_ScrollingAnchorRequestedEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingAnchorRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollPresenter?, WinUI.ScrollingAnchorRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollPresenter?, ScrollingAnchorRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingAnchorRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollPresenter_ScrollingAnchorRequestedEventArgs
 
@@ -48040,7 +48186,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingBringingIntoViewEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollPresenter? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingBringingIntoViewEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingBringingIntoViewEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48058,7 +48206,7 @@ public class TypedEventHandlerScrollPresenter_ScrollingBringingIntoViewEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingBringingIntoViewEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollPresenter?, WinUI.ScrollingBringingIntoViewEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollPresenter?, ScrollingBringingIntoViewEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingBringingIntoViewEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollPresenter_ScrollingBringingIntoViewEventArgs
 
@@ -48091,7 +48239,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollAnimationStartingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollPresenter? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingScrollAnimationStartingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingScrollAnimationStartingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48109,7 +48259,7 @@ public class TypedEventHandlerScrollPresenter_ScrollingScrollAnimationStartingEv
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollAnimationStartingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollPresenter?, WinUI.ScrollingScrollAnimationStartingEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollPresenter?, ScrollingScrollAnimationStartingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollAnimationStartingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollPresenter_ScrollingScrollAnimationStartingEventArgs
 
@@ -48142,7 +48292,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollPresenter? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingScrollCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingScrollCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48160,7 +48312,7 @@ public class TypedEventHandlerScrollPresenter_ScrollingScrollCompletedEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollPresenter?, WinUI.ScrollingScrollCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollPresenter?, ScrollingScrollCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollPresenter_ScrollingScrollCompletedEventArgs
 
@@ -48193,7 +48345,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomAnimationStartingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollPresenter? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingZoomAnimationStartingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingZoomAnimationStartingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48211,7 +48365,7 @@ public class TypedEventHandlerScrollPresenter_ScrollingZoomAnimationStartingEven
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomAnimationStartingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollPresenter?, WinUI.ScrollingZoomAnimationStartingEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollPresenter?, ScrollingZoomAnimationStartingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomAnimationStartingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollPresenter_ScrollingZoomAnimationStartingEventArgs
 
@@ -48244,7 +48398,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollPresenter? = __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollPresenterBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingZoomCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingZoomCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48262,7 +48418,7 @@ public class TypedEventHandlerScrollPresenter_ScrollingZoomCompletedEventArgs: W
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollPresenter?, WinUI.ScrollingZoomCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollPresenter?, ScrollingZoomCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CPrimitives__CScrollPresenter___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollPresenter_ScrollingZoomCompletedEventArgs
 
@@ -48295,7 +48451,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshContainer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RefreshContainer? = __IMPL_Microsoft_UI_Xaml_Controls.RefreshContainerBridge.from(abi: ComPtr($1))
             let args: WinUI.RefreshRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.RefreshRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48313,7 +48471,7 @@ public class TypedEventHandlerRefreshContainer_RefreshRequestedEventArgs: Window
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshContainer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RefreshContainer?, WinUI.RefreshRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RefreshContainer?, RefreshRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshContainer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRefreshContainer_RefreshRequestedEventArgs
 
@@ -48346,7 +48504,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshVisualizer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RefreshVisualizer? = __IMPL_Microsoft_UI_Xaml_Controls.RefreshVisualizerBridge.from(abi: ComPtr($1))
             let args: WinUI.RefreshRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.RefreshRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48364,7 +48524,7 @@ public class TypedEventHandlerRefreshVisualizer_RefreshRequestedEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshVisualizer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RefreshVisualizer?, WinUI.RefreshRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RefreshVisualizer?, RefreshRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshVisualizer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRefreshVisualizer_RefreshRequestedEventArgs
 
@@ -48397,7 +48557,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshVisualizer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshStateChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RefreshVisualizer? = __IMPL_Microsoft_UI_Xaml_Controls.RefreshVisualizerBridge.from(abi: ComPtr($1))
             let args: WinUI.RefreshStateChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.RefreshStateChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48415,7 +48577,7 @@ public class TypedEventHandlerRefreshVisualizer_RefreshStateChangedEventArgs: Wi
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshVisualizer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshStateChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RefreshVisualizer?, WinUI.RefreshStateChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RefreshVisualizer?, RefreshStateChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshVisualizer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRefreshStateChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRefreshVisualizer_RefreshStateChangedEventArgs
 
@@ -48448,7 +48610,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCandidateWindowBoundsChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichEditBox? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.CandidateWindowBoundsChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.CandidateWindowBoundsChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48466,7 +48630,7 @@ public class TypedEventHandlerRichEditBox_CandidateWindowBoundsChangedEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCandidateWindowBoundsChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichEditBox?, WinUI.CandidateWindowBoundsChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichEditBox?, CandidateWindowBoundsChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCandidateWindowBoundsChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichEditBox_CandidateWindowBoundsChangedEventArgs
 
@@ -48499,7 +48663,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBoxSelectionChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichEditBox? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.RichEditBoxSelectionChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxSelectionChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48517,7 +48683,7 @@ public class TypedEventHandlerRichEditBox_RichEditBoxSelectionChangingEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBoxSelectionChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichEditBox?, WinUI.RichEditBoxSelectionChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichEditBox?, RichEditBoxSelectionChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBoxSelectionChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichEditBox_RichEditBoxSelectionChangingEventArgs
 
@@ -48550,7 +48716,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBoxTextChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichEditBox? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.RichEditBoxTextChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxTextChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48568,7 +48736,7 @@ public class TypedEventHandlerRichEditBox_RichEditBoxTextChangingEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBoxTextChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichEditBox?, WinUI.RichEditBoxTextChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichEditBox?, RichEditBoxTextChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBoxTextChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichEditBox_RichEditBoxTextChangingEventArgs
 
@@ -48601,7 +48769,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichEditBox? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextCompositionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextCompositionChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48619,7 +48789,7 @@ public class TypedEventHandlerRichEditBox_TextCompositionChangedEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichEditBox?, WinUI.TextCompositionChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichEditBox?, TextCompositionChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichEditBox_TextCompositionChangedEventArgs
 
@@ -48652,7 +48822,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionEndedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichEditBox? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextCompositionEndedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextCompositionEndedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48670,7 +48842,7 @@ public class TypedEventHandlerRichEditBox_TextCompositionEndedEventArgs: Windows
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionEndedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichEditBox?, WinUI.TextCompositionEndedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichEditBox?, TextCompositionEndedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionEndedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichEditBox_TextCompositionEndedEventArgs
 
@@ -48703,7 +48875,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionStartedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichEditBox? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextCompositionStartedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextCompositionStartedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48721,7 +48895,7 @@ public class TypedEventHandlerRichEditBox_TextCompositionStartedEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionStartedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichEditBox?, WinUI.TextCompositionStartedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichEditBox?, TextCompositionStartedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionStartedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichEditBox_TextCompositionStartedEventArgs
 
@@ -48754,7 +48928,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCopyingToClipboardEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichEditBox? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextControlCopyingToClipboardEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextControlCopyingToClipboardEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48772,7 +48948,7 @@ public class TypedEventHandlerRichEditBox_TextControlCopyingToClipboardEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCopyingToClipboardEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichEditBox?, WinUI.TextControlCopyingToClipboardEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichEditBox?, TextControlCopyingToClipboardEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCopyingToClipboardEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichEditBox_TextControlCopyingToClipboardEventArgs
 
@@ -48805,7 +48981,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCuttingToClipboardEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichEditBox? = __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextControlCuttingToClipboardEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextControlCuttingToClipboardEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48823,7 +49001,7 @@ public class TypedEventHandlerRichEditBox_TextControlCuttingToClipboardEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCuttingToClipboardEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichEditBox?, WinUI.TextControlCuttingToClipboardEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichEditBox?, TextControlCuttingToClipboardEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichEditBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCuttingToClipboardEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichEditBox_TextControlCuttingToClipboardEventArgs
 
@@ -48856,7 +49034,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichTextBlock___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichTextBlock? = __IMPL_Microsoft_UI_Xaml_Controls.RichTextBlockBridge.from(abi: ComPtr($1))
             let args: WinUI.IsTextTrimmedChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.IsTextTrimmedChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48874,7 +49054,7 @@ public class TypedEventHandlerRichTextBlock_IsTextTrimmedChangedEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichTextBlock___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichTextBlock?, WinUI.IsTextTrimmedChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichTextBlock?, IsTextTrimmedChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichTextBlock___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichTextBlock_IsTextTrimmedChangedEventArgs
 
@@ -48907,7 +49087,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichTextBlockOverflow___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.RichTextBlockOverflow? = __IMPL_Microsoft_UI_Xaml_Controls.RichTextBlockOverflowBridge.from(abi: ComPtr($1))
             let args: WinUI.IsTextTrimmedChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.IsTextTrimmedChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48925,7 +49107,7 @@ public class TypedEventHandlerRichTextBlockOverflow_IsTextTrimmedChangedEventArg
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichTextBlockOverflow___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.RichTextBlockOverflow?, WinUI.IsTextTrimmedChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<RichTextBlockOverflow?, IsTextTrimmedChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRichTextBlockOverflow___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerRichTextBlockOverflow_IsTextTrimmedChangedEventArgs
 
@@ -48957,8 +49139,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollView? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -48978,7 +49162,7 @@ public class TypedEventHandlerScrollView_Any: WindowsFoundation.IUnknown, @unche
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollView?, Any?>
+    internal typealias Handler = TypedEventHandler<ScrollView?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollView_Any
 
@@ -49011,7 +49195,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingAnchorRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollView? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingAnchorRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingAnchorRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49029,7 +49215,7 @@ public class TypedEventHandlerScrollView_ScrollingAnchorRequestedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingAnchorRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollView?, WinUI.ScrollingAnchorRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollView?, ScrollingAnchorRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingAnchorRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollView_ScrollingAnchorRequestedEventArgs
 
@@ -49062,7 +49248,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingBringingIntoViewEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollView? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingBringingIntoViewEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingBringingIntoViewEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49080,7 +49268,7 @@ public class TypedEventHandlerScrollView_ScrollingBringingIntoViewEventArgs: Win
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingBringingIntoViewEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollView?, WinUI.ScrollingBringingIntoViewEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollView?, ScrollingBringingIntoViewEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingBringingIntoViewEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollView_ScrollingBringingIntoViewEventArgs
 
@@ -49113,7 +49301,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollAnimationStartingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollView? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingScrollAnimationStartingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingScrollAnimationStartingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49131,7 +49321,7 @@ public class TypedEventHandlerScrollView_ScrollingScrollAnimationStartingEventAr
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollAnimationStartingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollView?, WinUI.ScrollingScrollAnimationStartingEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollView?, ScrollingScrollAnimationStartingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollAnimationStartingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollView_ScrollingScrollAnimationStartingEventArgs
 
@@ -49164,7 +49354,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollView? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingScrollCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingScrollCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49182,7 +49374,7 @@ public class TypedEventHandlerScrollView_ScrollingScrollCompletedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollView?, WinUI.ScrollingScrollCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollView?, ScrollingScrollCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingScrollCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollView_ScrollingScrollCompletedEventArgs
 
@@ -49215,7 +49407,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomAnimationStartingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollView? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingZoomAnimationStartingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingZoomAnimationStartingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49233,7 +49427,7 @@ public class TypedEventHandlerScrollView_ScrollingZoomAnimationStartingEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomAnimationStartingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollView?, WinUI.ScrollingZoomAnimationStartingEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollView?, ScrollingZoomAnimationStartingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomAnimationStartingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollView_ScrollingZoomAnimationStartingEventArgs
 
@@ -49266,7 +49460,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollView? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.from(abi: ComPtr($1))
             let args: WinUI.ScrollingZoomCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollingZoomCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49284,7 +49480,7 @@ public class TypedEventHandlerScrollView_ScrollingZoomCompletedEventArgs: Window
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollView?, WinUI.ScrollingZoomCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollView?, ScrollingZoomCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollingZoomCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollView_ScrollingZoomCompletedEventArgs
 
@@ -49317,7 +49513,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnchorRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ScrollViewer? = __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewerBridge.from(abi: ComPtr($1))
             let args: WinUI.AnchorRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.AnchorRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49335,7 +49533,7 @@ public class TypedEventHandlerScrollViewer_AnchorRequestedEventArgs: WindowsFoun
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnchorRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ScrollViewer?, WinUI.AnchorRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ScrollViewer?, AnchorRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CScrollViewer___x_ABI_CMicrosoft__CUI__CXaml__CControls__CAnchorRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerScrollViewer_AnchorRequestedEventArgs
 
@@ -49368,7 +49566,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBarSelectionChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.SelectorBar? = __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarBridge.from(abi: ComPtr($1))
             let args: WinUI.SelectorBarSelectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarSelectionChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49386,7 +49586,7 @@ public class TypedEventHandlerSelectorBar_SelectorBarSelectionChangedEventArgs: 
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBarSelectionChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.SelectorBar?, WinUI.SelectorBarSelectionChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<SelectorBar?, SelectorBarSelectionChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBar___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSelectorBarSelectionChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerSelectorBar_SelectorBarSelectionChangedEventArgs
 
@@ -49419,7 +49619,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.SplitButton? = __IMPL_Microsoft_UI_Xaml_Controls.SplitButtonBridge.from(abi: ComPtr($1))
             let args: WinUI.SplitButtonClickEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.SplitButtonClickEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49437,7 +49639,7 @@ public class TypedEventHandlerSplitButton_SplitButtonClickEventArgs: WindowsFoun
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.SplitButton?, WinUI.SplitButtonClickEventArgs?>
+    internal typealias Handler = TypedEventHandler<SplitButton?, SplitButtonClickEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitButtonClickEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerSplitButton_SplitButtonClickEventArgs
 
@@ -49469,8 +49671,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitView_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.SplitView? = __IMPL_Microsoft_UI_Xaml_Controls.SplitViewBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49490,7 +49694,7 @@ public class TypedEventHandlerSplitView_Any: WindowsFoundation.IUnknown, @unchec
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitView_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.SplitView?, Any?>
+    internal typealias Handler = TypedEventHandler<SplitView?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitView_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerSplitView_Any
 
@@ -49523,7 +49727,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitViewPaneClosingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.SplitView? = __IMPL_Microsoft_UI_Xaml_Controls.SplitViewBridge.from(abi: ComPtr($1))
             let args: WinUI.SplitViewPaneClosingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.SplitViewPaneClosingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49541,7 +49747,7 @@ public class TypedEventHandlerSplitView_SplitViewPaneClosingEventArgs: WindowsFo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitViewPaneClosingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.SplitView?, WinUI.SplitViewPaneClosingEventArgs?>
+    internal typealias Handler = TypedEventHandler<SplitView?, SplitViewPaneClosingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSplitViewPaneClosingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerSplitView_SplitViewPaneClosingEventArgs
 
@@ -49573,8 +49779,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSwapChainPanel_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.SwapChainPanel? = __IMPL_Microsoft_UI_Xaml_Controls.SwapChainPanelBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49594,7 +49802,7 @@ public class TypedEventHandlerSwapChainPanel_Any: WindowsFoundation.IUnknown, @u
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSwapChainPanel_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.SwapChainPanel?, Any?>
+    internal typealias Handler = TypedEventHandler<SwapChainPanel?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CSwapChainPanel_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerSwapChainPanel_Any
 
@@ -49626,8 +49834,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49647,7 +49857,7 @@ public class TypedEventHandlerTabView_Any: WindowsFoundation.IUnknown, @unchecke
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, Any?>
+    internal typealias Handler = TypedEventHandler<TabView?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_Any
 
@@ -49680,7 +49890,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewExternalTornOutTabsDroppedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewExternalTornOutTabsDroppedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewExternalTornOutTabsDroppedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49698,7 +49910,7 @@ public class TypedEventHandlerTabView_TabViewExternalTornOutTabsDroppedEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewExternalTornOutTabsDroppedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WinUI.TabViewExternalTornOutTabsDroppedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, TabViewExternalTornOutTabsDroppedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewExternalTornOutTabsDroppedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_TabViewExternalTornOutTabsDroppedEventArgs
 
@@ -49731,7 +49943,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewExternalTornOutTabsDroppingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewExternalTornOutTabsDroppingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewExternalTornOutTabsDroppingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49749,7 +49963,7 @@ public class TypedEventHandlerTabView_TabViewExternalTornOutTabsDroppingEventArg
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewExternalTornOutTabsDroppingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WinUI.TabViewExternalTornOutTabsDroppingEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, TabViewExternalTornOutTabsDroppingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewExternalTornOutTabsDroppingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_TabViewExternalTornOutTabsDroppingEventArgs
 
@@ -49782,7 +49996,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabCloseRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewTabCloseRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewTabCloseRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49800,7 +50016,7 @@ public class TypedEventHandlerTabView_TabViewTabCloseRequestedEventArgs: Windows
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabCloseRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WinUI.TabViewTabCloseRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, TabViewTabCloseRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabCloseRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_TabViewTabCloseRequestedEventArgs
 
@@ -49833,7 +50049,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDragCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewTabDragCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewTabDragCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49851,7 +50069,7 @@ public class TypedEventHandlerTabView_TabViewTabDragCompletedEventArgs: WindowsF
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDragCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WinUI.TabViewTabDragCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, TabViewTabDragCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDragCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_TabViewTabDragCompletedEventArgs
 
@@ -49884,7 +50102,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDragStartingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewTabDragStartingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewTabDragStartingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49902,7 +50122,7 @@ public class TypedEventHandlerTabView_TabViewTabDragStartingEventArgs: WindowsFo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDragStartingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WinUI.TabViewTabDragStartingEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, TabViewTabDragStartingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDragStartingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_TabViewTabDragStartingEventArgs
 
@@ -49935,7 +50155,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDroppedOutsideEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewTabDroppedOutsideEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewTabDroppedOutsideEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -49953,7 +50175,7 @@ public class TypedEventHandlerTabView_TabViewTabDroppedOutsideEventArgs: Windows
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDroppedOutsideEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WinUI.TabViewTabDroppedOutsideEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, TabViewTabDroppedOutsideEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabDroppedOutsideEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_TabViewTabDroppedOutsideEventArgs
 
@@ -49986,7 +50208,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabTearOutRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewTabTearOutRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewTabTearOutRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50004,7 +50228,7 @@ public class TypedEventHandlerTabView_TabViewTabTearOutRequestedEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabTearOutRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WinUI.TabViewTabTearOutRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, TabViewTabTearOutRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabTearOutRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_TabViewTabTearOutRequestedEventArgs
 
@@ -50037,7 +50261,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabTearOutWindowRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewTabTearOutWindowRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewTabTearOutWindowRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50055,7 +50281,7 @@ public class TypedEventHandlerTabView_TabViewTabTearOutWindowRequestedEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabTearOutWindowRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WinUI.TabViewTabTearOutWindowRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, TabViewTabTearOutWindowRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabTearOutWindowRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_TabViewTabTearOutWindowRequestedEventArgs
 
@@ -50088,7 +50314,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_C__F__CIVectorChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabView? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.from(abi: ComPtr($1))
             let args: WindowsFoundation.AnyIVectorChangedEventArgs? = __ABI_Windows_Foundation_Collections.IVectorChangedEventArgsWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50108,7 +50336,7 @@ public class TypedEventHandlerTabView_IVectorChangedEventArgs: WindowsFoundation
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_C__F__CIVectorChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabView?, WindowsFoundation.AnyIVectorChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabView?, IVectorChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabView___x_ABI_C__F__CIVectorChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabView_IVectorChangedEventArgs
 
@@ -50141,7 +50369,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewItem___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabCloseRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TabViewItem? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewItemBridge.from(abi: ComPtr($1))
             let args: WinUI.TabViewTabCloseRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TabViewTabCloseRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50159,7 +50389,7 @@ public class TypedEventHandlerTabViewItem_TabViewTabCloseRequestedEventArgs: Win
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewItem___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabCloseRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TabViewItem?, WinUI.TabViewTabCloseRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TabViewItem?, TabViewTabCloseRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewItem___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTabViewTabCloseRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTabViewItem_TabViewTabCloseRequestedEventArgs
 
@@ -50191,8 +50421,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TeachingTip? = __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50212,7 +50444,7 @@ public class TypedEventHandlerTeachingTip_Any: WindowsFoundation.IUnknown, @unch
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TeachingTip?, Any?>
+    internal typealias Handler = TypedEventHandler<TeachingTip?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerTeachingTip_Any
 
@@ -50245,7 +50477,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTipClosedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TeachingTip? = __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipBridge.from(abi: ComPtr($1))
             let args: WinUI.TeachingTipClosedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipClosedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50263,7 +50497,7 @@ public class TypedEventHandlerTeachingTip_TeachingTipClosedEventArgs: WindowsFou
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTipClosedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TeachingTip?, WinUI.TeachingTipClosedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TeachingTip?, TeachingTipClosedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTipClosedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTeachingTip_TeachingTipClosedEventArgs
 
@@ -50296,7 +50530,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTipClosingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TeachingTip? = __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipBridge.from(abi: ComPtr($1))
             let args: WinUI.TeachingTipClosingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipClosingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50314,7 +50550,7 @@ public class TypedEventHandlerTeachingTip_TeachingTipClosingEventArgs: WindowsFo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTipClosingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TeachingTip?, WinUI.TeachingTipClosingEventArgs?>
+    internal typealias Handler = TypedEventHandler<TeachingTip?, TeachingTipClosingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTip___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTeachingTipClosingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTeachingTip_TeachingTipClosingEventArgs
 
@@ -50347,7 +50583,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBlock___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBlock? = __IMPL_Microsoft_UI_Xaml_Controls.TextBlockBridge.from(abi: ComPtr($1))
             let args: WinUI.IsTextTrimmedChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.IsTextTrimmedChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50365,7 +50603,7 @@ public class TypedEventHandlerTextBlock_IsTextTrimmedChangedEventArgs: WindowsFo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBlock___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBlock?, WinUI.IsTextTrimmedChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBlock?, IsTextTrimmedChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBlock___x_ABI_CMicrosoft__CUI__CXaml__CControls__CIsTextTrimmedChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBlock_IsTextTrimmedChangedEventArgs
 
@@ -50398,7 +50636,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCandidateWindowBoundsChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.CandidateWindowBoundsChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.CandidateWindowBoundsChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50416,7 +50656,7 @@ public class TypedEventHandlerTextBox_CandidateWindowBoundsChangedEventArgs: Win
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCandidateWindowBoundsChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.CandidateWindowBoundsChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, CandidateWindowBoundsChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCandidateWindowBoundsChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_CandidateWindowBoundsChangedEventArgs
 
@@ -50449,7 +50689,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxBeforeTextChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextBoxBeforeTextChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBeforeTextChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50467,7 +50709,7 @@ public class TypedEventHandlerTextBox_TextBoxBeforeTextChangingEventArgs: Window
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxBeforeTextChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.TextBoxBeforeTextChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, TextBoxBeforeTextChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxBeforeTextChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_TextBoxBeforeTextChangingEventArgs
 
@@ -50500,7 +50742,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxSelectionChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextBoxSelectionChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxSelectionChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50518,7 +50762,7 @@ public class TypedEventHandlerTextBox_TextBoxSelectionChangingEventArgs: Windows
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxSelectionChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.TextBoxSelectionChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, TextBoxSelectionChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxSelectionChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_TextBoxSelectionChangingEventArgs
 
@@ -50551,7 +50795,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxTextChangingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextBoxTextChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxTextChangingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50569,7 +50815,7 @@ public class TypedEventHandlerTextBox_TextBoxTextChangingEventArgs: WindowsFound
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxTextChangingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.TextBoxTextChangingEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, TextBoxTextChangingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBoxTextChangingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_TextBoxTextChangingEventArgs
 
@@ -50602,7 +50848,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextCompositionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextCompositionChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50620,7 +50868,7 @@ public class TypedEventHandlerTextBox_TextCompositionChangedEventArgs: WindowsFo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.TextCompositionChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, TextCompositionChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_TextCompositionChangedEventArgs
 
@@ -50653,7 +50901,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionEndedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextCompositionEndedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextCompositionEndedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50671,7 +50921,7 @@ public class TypedEventHandlerTextBox_TextCompositionEndedEventArgs: WindowsFoun
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionEndedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.TextCompositionEndedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, TextCompositionEndedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionEndedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_TextCompositionEndedEventArgs
 
@@ -50704,7 +50954,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionStartedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextCompositionStartedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextCompositionStartedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50722,7 +50974,7 @@ public class TypedEventHandlerTextBox_TextCompositionStartedEventArgs: WindowsFo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionStartedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.TextCompositionStartedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, TextCompositionStartedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextCompositionStartedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_TextCompositionStartedEventArgs
 
@@ -50755,7 +51007,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCopyingToClipboardEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextControlCopyingToClipboardEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextControlCopyingToClipboardEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50773,7 +51027,7 @@ public class TypedEventHandlerTextBox_TextControlCopyingToClipboardEventArgs: Wi
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCopyingToClipboardEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.TextControlCopyingToClipboardEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, TextControlCopyingToClipboardEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCopyingToClipboardEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_TextControlCopyingToClipboardEventArgs
 
@@ -50806,7 +51060,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCuttingToClipboardEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextBox? = __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.from(abi: ComPtr($1))
             let args: WinUI.TextControlCuttingToClipboardEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextControlCuttingToClipboardEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50824,7 +51080,7 @@ public class TypedEventHandlerTextBox_TextControlCuttingToClipboardEventArgs: Wi
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCuttingToClipboardEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextBox?, WinUI.TextControlCuttingToClipboardEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextBox?, TextControlCuttingToClipboardEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTextControlCuttingToClipboardEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextBox_TextControlCuttingToClipboardEventArgs
 
@@ -50857,7 +51113,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerSelectedValueChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TimePicker? = __IMPL_Microsoft_UI_Xaml_Controls.TimePickerBridge.from(abi: ComPtr($1))
             let args: WinUI.TimePickerSelectedValueChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TimePickerSelectedValueChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50875,7 +51133,7 @@ public class TypedEventHandlerTimePicker_TimePickerSelectedValueChangedEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerSelectedValueChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TimePicker?, WinUI.TimePickerSelectedValueChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TimePicker?, TimePickerSelectedValueChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTimePickerSelectedValueChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTimePicker_TimePickerSelectedValueChangedEventArgs
 
@@ -50907,8 +51165,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TitleBar? = __IMPL_Microsoft_UI_Xaml_Controls.TitleBarBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50928,7 +51188,7 @@ public class TypedEventHandlerTitleBar_Any: WindowsFoundation.IUnknown, @uncheck
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TitleBar?, Any?>
+    internal typealias Handler = TypedEventHandler<TitleBar?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTitleBar_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerTitleBar_Any
 
@@ -50961,7 +51221,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ToggleSplitButton? = __IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonBridge.from(abi: ComPtr($1))
             let args: WinUI.ToggleSplitButtonIsCheckedChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonIsCheckedChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -50979,7 +51241,7 @@ public class TypedEventHandlerToggleSplitButton_ToggleSplitButtonIsCheckedChange
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ToggleSplitButton?, WinUI.ToggleSplitButtonIsCheckedChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<ToggleSplitButton?, ToggleSplitButtonIsCheckedChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButton___x_ABI_CMicrosoft__CUI__CXaml__CControls__CToggleSplitButtonIsCheckedChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerToggleSplitButton_ToggleSplitButtonIsCheckedChangedEventArgs
 
@@ -51012,7 +51274,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewCollapsedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TreeView? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TreeViewCollapsedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewCollapsedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51030,7 +51294,7 @@ public class TypedEventHandlerTreeView_TreeViewCollapsedEventArgs: WindowsFounda
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewCollapsedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TreeView?, WinUI.TreeViewCollapsedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TreeView?, TreeViewCollapsedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewCollapsedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTreeView_TreeViewCollapsedEventArgs
 
@@ -51063,7 +51327,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewDragItemsCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TreeView? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TreeViewDragItemsCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewDragItemsCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51081,7 +51347,7 @@ public class TypedEventHandlerTreeView_TreeViewDragItemsCompletedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewDragItemsCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TreeView?, WinUI.TreeViewDragItemsCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TreeView?, TreeViewDragItemsCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewDragItemsCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTreeView_TreeViewDragItemsCompletedEventArgs
 
@@ -51114,7 +51380,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewDragItemsStartingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TreeView? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TreeViewDragItemsStartingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewDragItemsStartingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51132,7 +51400,7 @@ public class TypedEventHandlerTreeView_TreeViewDragItemsStartingEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewDragItemsStartingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TreeView?, WinUI.TreeViewDragItemsStartingEventArgs?>
+    internal typealias Handler = TypedEventHandler<TreeView?, TreeViewDragItemsStartingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewDragItemsStartingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTreeView_TreeViewDragItemsStartingEventArgs
 
@@ -51165,7 +51433,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewExpandingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TreeView? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TreeViewExpandingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewExpandingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51183,7 +51453,7 @@ public class TypedEventHandlerTreeView_TreeViewExpandingEventArgs: WindowsFounda
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewExpandingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TreeView?, WinUI.TreeViewExpandingEventArgs?>
+    internal typealias Handler = TypedEventHandler<TreeView?, TreeViewExpandingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewExpandingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTreeView_TreeViewExpandingEventArgs
 
@@ -51216,7 +51486,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewItemInvokedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TreeView? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TreeViewItemInvokedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewItemInvokedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51234,7 +51506,7 @@ public class TypedEventHandlerTreeView_TreeViewItemInvokedEventArgs: WindowsFoun
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewItemInvokedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TreeView?, WinUI.TreeViewItemInvokedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TreeView?, TreeViewItemInvokedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewItemInvokedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTreeView_TreeViewItemInvokedEventArgs
 
@@ -51267,7 +51539,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewSelectionChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TreeView? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.from(abi: ComPtr($1))
             let args: WinUI.TreeViewSelectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TreeViewSelectionChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51285,7 +51559,7 @@ public class TypedEventHandlerTreeView_TreeViewSelectionChangedEventArgs: Window
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewSelectionChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TreeView?, WinUI.TreeViewSelectionChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TreeView?, TreeViewSelectionChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeView___x_ABI_CMicrosoft__CUI__CXaml__CControls__CTreeViewSelectionChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTreeView_TreeViewSelectionChangedEventArgs
 
@@ -51318,7 +51592,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCoreWebView2InitializedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.WebView2? = __IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.from(abi: ComPtr($1))
             let args: WinUI.CoreWebView2InitializedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.CoreWebView2InitializedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51336,7 +51612,7 @@ public class TypedEventHandlerWebView2_CoreWebView2InitializedEventArgs: Windows
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCoreWebView2InitializedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.WebView2?, WinUI.CoreWebView2InitializedEventArgs?>
+    internal typealias Handler = TypedEventHandler<WebView2?, CoreWebView2InitializedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CCoreWebView2InitializedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerWebView2_CoreWebView2InitializedEventArgs
 
@@ -51369,7 +51645,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2NavigationCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.WebView2? = __IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.from(abi: ComPtr($1))
             let args: WebView2Core.CoreWebView2NavigationCompletedEventArgs? = __IMPL_Microsoft_Web_WebView2_Core.CoreWebView2NavigationCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51387,7 +51665,7 @@ public class TypedEventHandlerWebView2_CoreWebView2NavigationCompletedEventArgs:
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2NavigationCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.WebView2?, WebView2Core.CoreWebView2NavigationCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<WebView2?, CoreWebView2NavigationCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2NavigationCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerWebView2_CoreWebView2NavigationCompletedEventArgs
 
@@ -51420,7 +51698,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2NavigationStartingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.WebView2? = __IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.from(abi: ComPtr($1))
             let args: WebView2Core.CoreWebView2NavigationStartingEventArgs? = __IMPL_Microsoft_Web_WebView2_Core.CoreWebView2NavigationStartingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51438,7 +51718,7 @@ public class TypedEventHandlerWebView2_CoreWebView2NavigationStartingEventArgs: 
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2NavigationStartingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.WebView2?, WebView2Core.CoreWebView2NavigationStartingEventArgs?>
+    internal typealias Handler = TypedEventHandler<WebView2?, CoreWebView2NavigationStartingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2NavigationStartingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerWebView2_CoreWebView2NavigationStartingEventArgs
 
@@ -51471,7 +51751,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2ProcessFailedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.WebView2? = __IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.from(abi: ComPtr($1))
             let args: WebView2Core.CoreWebView2ProcessFailedEventArgs? = __IMPL_Microsoft_Web_WebView2_Core.CoreWebView2ProcessFailedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51489,7 +51771,7 @@ public class TypedEventHandlerWebView2_CoreWebView2ProcessFailedEventArgs: Windo
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2ProcessFailedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.WebView2?, WebView2Core.CoreWebView2ProcessFailedEventArgs?>
+    internal typealias Handler = TypedEventHandler<WebView2?, CoreWebView2ProcessFailedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2ProcessFailedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerWebView2_CoreWebView2ProcessFailedEventArgs
 
@@ -51522,7 +51804,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2WebMessageReceivedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.WebView2? = __IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.from(abi: ComPtr($1))
             let args: WebView2Core.CoreWebView2WebMessageReceivedEventArgs? = __IMPL_Microsoft_Web_WebView2_Core.CoreWebView2WebMessageReceivedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51540,7 +51824,7 @@ public class TypedEventHandlerWebView2_CoreWebView2WebMessageReceivedEventArgs: 
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2WebMessageReceivedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.WebView2?, WebView2Core.CoreWebView2WebMessageReceivedEventArgs?>
+    internal typealias Handler = TypedEventHandler<WebView2?, CoreWebView2WebMessageReceivedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CWebView2___x_ABI_CMicrosoft__CWeb__CWebView2__CCore__CCoreWebView2WebMessageReceivedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerWebView2_CoreWebView2WebMessageReceivedEventArgs
 
@@ -51573,7 +51857,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDebugSettings___x_ABI_CMicrosoft__CUI__CXaml__CXamlResourceReferenceFailedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.DebugSettings? = __IMPL_Microsoft_UI_Xaml.DebugSettingsBridge.from(abi: ComPtr($1))
             let args: WinUI.XamlResourceReferenceFailedEventArgs? = __IMPL_Microsoft_UI_Xaml.XamlResourceReferenceFailedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51591,7 +51877,7 @@ public class TypedEventHandlerDebugSettings_XamlResourceReferenceFailedEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDebugSettings___x_ABI_CMicrosoft__CUI__CXaml__CXamlResourceReferenceFailedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.DebugSettings?, WinUI.XamlResourceReferenceFailedEventArgs?>
+    internal typealias Handler = TypedEventHandler<DebugSettings?, XamlResourceReferenceFailedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDebugSettings___x_ABI_CMicrosoft__CUI__CXaml__CXamlResourceReferenceFailedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerDebugSettings_XamlResourceReferenceFailedEventArgs
 
@@ -51624,7 +51910,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CHyperlink___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CHyperlinkClickEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.Hyperlink? = __IMPL_Microsoft_UI_Xaml_Documents.HyperlinkBridge.from(abi: ComPtr($1))
             let args: WinUI.HyperlinkClickEventArgs? = __IMPL_Microsoft_UI_Xaml_Documents.HyperlinkClickEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51642,7 +51930,7 @@ public class TypedEventHandlerHyperlink_HyperlinkClickEventArgs: WindowsFoundati
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CHyperlink___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CHyperlinkClickEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.Hyperlink?, WinUI.HyperlinkClickEventArgs?>
+    internal typealias Handler = TypedEventHandler<Hyperlink?, HyperlinkClickEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CHyperlink___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CHyperlinkClickEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerHyperlink_HyperlinkClickEventArgs
 
@@ -51675,7 +51963,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayDismissedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextElement? = __IMPL_Microsoft_UI_Xaml_Documents.TextElementBridge.from(abi: ComPtr($1))
             let args: WinUI.AccessKeyDisplayDismissedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.AccessKeyDisplayDismissedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51693,7 +51983,7 @@ public class TypedEventHandlerTextElement_AccessKeyDisplayDismissedEventArgs: Wi
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayDismissedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextElement?, WinUI.AccessKeyDisplayDismissedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextElement?, AccessKeyDisplayDismissedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayDismissedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextElement_AccessKeyDisplayDismissedEventArgs
 
@@ -51726,7 +52016,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextElement? = __IMPL_Microsoft_UI_Xaml_Documents.TextElementBridge.from(abi: ComPtr($1))
             let args: WinUI.AccessKeyDisplayRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.AccessKeyDisplayRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51744,7 +52036,7 @@ public class TypedEventHandlerTextElement_AccessKeyDisplayRequestedEventArgs: Wi
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextElement?, WinUI.AccessKeyDisplayRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextElement?, AccessKeyDisplayRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextElement_AccessKeyDisplayRequestedEventArgs
 
@@ -51777,7 +52069,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyInvokedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.TextElement? = __IMPL_Microsoft_UI_Xaml_Documents.TextElementBridge.from(abi: ComPtr($1))
             let args: WinUI.AccessKeyInvokedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.AccessKeyInvokedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51795,7 +52089,7 @@ public class TypedEventHandlerTextElement_AccessKeyInvokedEventArgs: WindowsFoun
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyInvokedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.TextElement?, WinUI.AccessKeyInvokedEventArgs?>
+    internal typealias Handler = TypedEventHandler<TextElement?, AccessKeyInvokedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CTextElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyInvokedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerTextElement_AccessKeyInvokedEventArgs
 
@@ -51827,8 +52121,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.FrameworkElement? = __IMPL_Microsoft_UI_Xaml.FrameworkElementBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51848,7 +52144,7 @@ public class TypedEventHandlerFrameworkElement_Any: WindowsFoundation.IUnknown, 
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.FrameworkElement?, Any?>
+    internal typealias Handler = TypedEventHandler<FrameworkElement?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerFrameworkElement_Any
 
@@ -51881,7 +52177,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement___x_ABI_CMicrosoft__CUI__CXaml__CDataContextChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.FrameworkElement? = __IMPL_Microsoft_UI_Xaml.FrameworkElementBridge.from(abi: ComPtr($1))
             let args: WinUI.DataContextChangedEventArgs? = __IMPL_Microsoft_UI_Xaml.DataContextChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51899,7 +52197,7 @@ public class TypedEventHandlerFrameworkElement_DataContextChangedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement___x_ABI_CMicrosoft__CUI__CXaml__CDataContextChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.FrameworkElement?, WinUI.DataContextChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<FrameworkElement?, DataContextChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement___x_ABI_CMicrosoft__CUI__CXaml__CDataContextChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerFrameworkElement_DataContextChangedEventArgs
 
@@ -51932,7 +52230,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement___x_ABI_CMicrosoft__CUI__CXaml__CEffectiveViewportChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.FrameworkElement? = __IMPL_Microsoft_UI_Xaml.FrameworkElementBridge.from(abi: ComPtr($1))
             let args: WinUI.EffectiveViewportChangedEventArgs? = __IMPL_Microsoft_UI_Xaml.EffectiveViewportChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -51950,7 +52250,7 @@ public class TypedEventHandlerFrameworkElement_EffectiveViewportChangedEventArgs
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement___x_ABI_CMicrosoft__CUI__CXaml__CEffectiveViewportChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.FrameworkElement?, WinUI.EffectiveViewportChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<FrameworkElement?, EffectiveViewportChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CFrameworkElement___x_ABI_CMicrosoft__CUI__CXaml__CEffectiveViewportChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerFrameworkElement_EffectiveViewportChangedEventArgs
 
@@ -51983,7 +52283,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSource___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSourceGotFocusEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.DesktopWindowXamlSource? = __IMPL_Microsoft_UI_Xaml_Hosting.DesktopWindowXamlSourceBridge.from(abi: ComPtr($1))
             let args: WinUI.DesktopWindowXamlSourceGotFocusEventArgs? = __IMPL_Microsoft_UI_Xaml_Hosting.DesktopWindowXamlSourceGotFocusEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52001,7 +52303,7 @@ public class TypedEventHandlerDesktopWindowXamlSource_DesktopWindowXamlSourceGot
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSource___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSourceGotFocusEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.DesktopWindowXamlSource?, WinUI.DesktopWindowXamlSourceGotFocusEventArgs?>
+    internal typealias Handler = TypedEventHandler<DesktopWindowXamlSource?, DesktopWindowXamlSourceGotFocusEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSource___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSourceGotFocusEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerDesktopWindowXamlSource_DesktopWindowXamlSourceGotFocusEventArgs
 
@@ -52034,7 +52336,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSource___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSourceTakeFocusRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.DesktopWindowXamlSource? = __IMPL_Microsoft_UI_Xaml_Hosting.DesktopWindowXamlSourceBridge.from(abi: ComPtr($1))
             let args: WinUI.DesktopWindowXamlSourceTakeFocusRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Hosting.DesktopWindowXamlSourceTakeFocusRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52052,7 +52356,7 @@ public class TypedEventHandlerDesktopWindowXamlSource_DesktopWindowXamlSourceTak
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSource___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSourceTakeFocusRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.DesktopWindowXamlSource?, WinUI.DesktopWindowXamlSourceTakeFocusRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<DesktopWindowXamlSource?, DesktopWindowXamlSourceTakeFocusRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSource___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CDesktopWindowXamlSourceTakeFocusRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerDesktopWindowXamlSource_DesktopWindowXamlSourceTakeFocusRequestedEventArgs
 
@@ -52085,7 +52389,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CWindowsXamlManager___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CXamlShutdownCompletedOnThreadEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.WindowsXamlManager? = __IMPL_Microsoft_UI_Xaml_Hosting.WindowsXamlManagerBridge.from(abi: ComPtr($1))
             let args: WinUI.XamlShutdownCompletedOnThreadEventArgs? = __IMPL_Microsoft_UI_Xaml_Hosting.XamlShutdownCompletedOnThreadEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52103,7 +52409,7 @@ public class TypedEventHandlerWindowsXamlManager_XamlShutdownCompletedOnThreadEv
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CWindowsXamlManager___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CXamlShutdownCompletedOnThreadEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.WindowsXamlManager?, WinUI.XamlShutdownCompletedOnThreadEventArgs?>
+    internal typealias Handler = TypedEventHandler<WindowsXamlManager?, XamlShutdownCompletedOnThreadEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CWindowsXamlManager___x_ABI_CMicrosoft__CUI__CXaml__CHosting__CXamlShutdownCompletedOnThreadEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerWindowsXamlManager_XamlShutdownCompletedOnThreadEventArgs
 
@@ -52136,7 +52442,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CInput__CKeyboardAccelerator___x_ABI_CMicrosoft__CUI__CXaml__CInput__CKeyboardAcceleratorInvokedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.KeyboardAccelerator? = __IMPL_Microsoft_UI_Xaml_Input.KeyboardAcceleratorBridge.from(abi: ComPtr($1))
             let args: WinUI.KeyboardAcceleratorInvokedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.KeyboardAcceleratorInvokedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52154,7 +52462,7 @@ public class TypedEventHandlerKeyboardAccelerator_KeyboardAcceleratorInvokedEven
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CInput__CKeyboardAccelerator___x_ABI_CMicrosoft__CUI__CXaml__CInput__CKeyboardAcceleratorInvokedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.KeyboardAccelerator?, WinUI.KeyboardAcceleratorInvokedEventArgs?>
+    internal typealias Handler = TypedEventHandler<KeyboardAccelerator?, KeyboardAcceleratorInvokedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CInput__CKeyboardAccelerator___x_ABI_CMicrosoft__CUI__CXaml__CInput__CKeyboardAcceleratorInvokedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerKeyboardAccelerator_KeyboardAcceleratorInvokedEventArgs
 
@@ -52186,8 +52494,10 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
         do {
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CConnectedAnimation_IInspectableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.ConnectedAnimation? = __IMPL_Microsoft_UI_Xaml_Media_Animation.ConnectedAnimationBridge.from(abi: ComPtr($1))
-            let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            nonisolated(unsafe) let args: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52207,7 +52517,7 @@ public class TypedEventHandlerConnectedAnimation_Any: WindowsFoundation.IUnknown
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CConnectedAnimation_IInspectableBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.ConnectedAnimation?, Any?>
+    internal typealias Handler = TypedEventHandler<ConnectedAnimation?, Any?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CAnimation__CConnectedAnimation_IInspectable
     internal typealias SwiftABI = WinUI.TypedEventHandlerConnectedAnimation_Any
 
@@ -52240,7 +52550,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSource___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSourceFailedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.SvgImageSource? = __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.from(abi: ComPtr($1))
             let args: WinUI.SvgImageSourceFailedEventArgs? = __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceFailedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52258,7 +52570,7 @@ public class TypedEventHandlerSvgImageSource_SvgImageSourceFailedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSource___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSourceFailedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.SvgImageSource?, WinUI.SvgImageSourceFailedEventArgs?>
+    internal typealias Handler = TypedEventHandler<SvgImageSource?, SvgImageSourceFailedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSource___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSourceFailedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerSvgImageSource_SvgImageSourceFailedEventArgs
 
@@ -52291,7 +52603,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSource___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSourceOpenedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.SvgImageSource? = __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.from(abi: ComPtr($1))
             let args: WinUI.SvgImageSourceOpenedEventArgs? = __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceOpenedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52309,7 +52623,7 @@ public class TypedEventHandlerSvgImageSource_SvgImageSourceOpenedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSource___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSourceOpenedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.SvgImageSource?, WinUI.SvgImageSourceOpenedEventArgs?>
+    internal typealias Handler = TypedEventHandler<SvgImageSource?, SvgImageSourceOpenedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSource___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CImaging__CSvgImageSourceOpenedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerSvgImageSource_SvgImageSourceOpenedEventArgs
 
@@ -52342,7 +52656,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CBringIntoViewRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.BringIntoViewRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml.BringIntoViewRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52360,7 +52676,7 @@ public class TypedEventHandlerUIElement_BringIntoViewRequestedEventArgs: Windows
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CBringIntoViewRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.BringIntoViewRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, BringIntoViewRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CBringIntoViewRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_BringIntoViewRequestedEventArgs
 
@@ -52393,7 +52709,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CDragStartingEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.DragStartingEventArgs? = __IMPL_Microsoft_UI_Xaml.DragStartingEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52411,7 +52729,7 @@ public class TypedEventHandlerUIElement_DragStartingEventArgs: WindowsFoundation
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CDragStartingEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.DragStartingEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, DragStartingEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CDragStartingEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_DragStartingEventArgs
 
@@ -52444,7 +52762,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CDropCompletedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.DropCompletedEventArgs? = __IMPL_Microsoft_UI_Xaml.DropCompletedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52462,7 +52782,7 @@ public class TypedEventHandlerUIElement_DropCompletedEventArgs: WindowsFoundatio
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CDropCompletedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.DropCompletedEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, DropCompletedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CDropCompletedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_DropCompletedEventArgs
 
@@ -52495,7 +52815,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayDismissedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.AccessKeyDisplayDismissedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.AccessKeyDisplayDismissedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52513,7 +52835,7 @@ public class TypedEventHandlerUIElement_AccessKeyDisplayDismissedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayDismissedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.AccessKeyDisplayDismissedEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, AccessKeyDisplayDismissedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayDismissedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_AccessKeyDisplayDismissedEventArgs
 
@@ -52546,7 +52868,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.AccessKeyDisplayRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.AccessKeyDisplayRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52564,7 +52888,7 @@ public class TypedEventHandlerUIElement_AccessKeyDisplayRequestedEventArgs: Wind
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.AccessKeyDisplayRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, AccessKeyDisplayRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyDisplayRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_AccessKeyDisplayRequestedEventArgs
 
@@ -52597,7 +52921,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyInvokedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.AccessKeyInvokedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.AccessKeyInvokedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52615,7 +52941,7 @@ public class TypedEventHandlerUIElement_AccessKeyInvokedEventArgs: WindowsFounda
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyInvokedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.AccessKeyInvokedEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, AccessKeyInvokedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CAccessKeyInvokedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_AccessKeyInvokedEventArgs
 
@@ -52648,7 +52974,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CCharacterReceivedRoutedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.CharacterReceivedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.CharacterReceivedRoutedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52666,7 +52994,7 @@ public class TypedEventHandlerUIElement_CharacterReceivedRoutedEventArgs: Window
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CCharacterReceivedRoutedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.CharacterReceivedRoutedEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, CharacterReceivedRoutedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CCharacterReceivedRoutedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_CharacterReceivedRoutedEventArgs
 
@@ -52699,7 +53027,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CContextRequestedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.ContextRequestedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ContextRequestedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52717,7 +53047,7 @@ public class TypedEventHandlerUIElement_ContextRequestedEventArgs: WindowsFounda
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CContextRequestedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.ContextRequestedEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, ContextRequestedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CContextRequestedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_ContextRequestedEventArgs
 
@@ -52750,7 +53080,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CGettingFocusEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.GettingFocusEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.GettingFocusEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52768,7 +53100,7 @@ public class TypedEventHandlerUIElement_GettingFocusEventArgs: WindowsFoundation
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CGettingFocusEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.GettingFocusEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, GettingFocusEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CGettingFocusEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_GettingFocusEventArgs
 
@@ -52801,7 +53133,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CLosingFocusEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.LosingFocusEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.LosingFocusEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52819,7 +53153,7 @@ public class TypedEventHandlerUIElement_LosingFocusEventArgs: WindowsFoundation.
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CLosingFocusEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.LosingFocusEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, LosingFocusEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CLosingFocusEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_LosingFocusEventArgs
 
@@ -52852,7 +53186,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CNoFocusCandidateFoundEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.NoFocusCandidateFoundEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.NoFocusCandidateFoundEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52870,7 +53206,7 @@ public class TypedEventHandlerUIElement_NoFocusCandidateFoundEventArgs: WindowsF
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CNoFocusCandidateFoundEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.NoFocusCandidateFoundEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, NoFocusCandidateFoundEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CNoFocusCandidateFoundEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_NoFocusCandidateFoundEventArgs
 
@@ -52903,7 +53239,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CProcessKeyboardAcceleratorEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.ProcessKeyboardAcceleratorEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ProcessKeyboardAcceleratorEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52921,7 +53259,7 @@ public class TypedEventHandlerUIElement_ProcessKeyboardAcceleratorEventArgs: Win
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CProcessKeyboardAcceleratorEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.ProcessKeyboardAcceleratorEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, ProcessKeyboardAcceleratorEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CInput__CProcessKeyboardAcceleratorEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_ProcessKeyboardAcceleratorEventArgs
 
@@ -52954,7 +53292,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CRoutedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
             let args: WinUI.RoutedEventArgs? = __IMPL_Microsoft_UI_Xaml.RoutedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -52972,7 +53312,7 @@ public class TypedEventHandlerUIElement_RoutedEventArgs: WindowsFoundation.IUnkn
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CRoutedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.UIElement?, WinUI.RoutedEventArgs?>
+    internal typealias Handler = TypedEventHandler<UIElement?, RoutedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CUIElement___x_ABI_CMicrosoft__CUI__CXaml__CRoutedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerUIElement_RoutedEventArgs
 
@@ -53005,7 +53345,9 @@ internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicro
             guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CXamlRoot___x_ABI_CMicrosoft__CUI__CXaml__CXamlRootChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let sender: WinUI.XamlRoot? = __IMPL_Microsoft_UI_Xaml.XamlRootBridge.from(abi: ComPtr($1))
             let args: WinUI.XamlRootChangedEventArgs? = __IMPL_Microsoft_UI_Xaml.XamlRootChangedEventArgsBridge.from(abi: ComPtr($2))
-            try __unwrapped__instance(sender, args)
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
             return S_OK
         } catch { return failWith(error: error) }
     }
@@ -53023,7 +53365,7 @@ public class TypedEventHandlerXamlRoot_XamlRootChangedEventArgs: WindowsFoundati
 }
 
 internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CXamlRoot___x_ABI_CMicrosoft__CUI__CXaml__CXamlRootChangedEventArgsBridge : WinRTDelegateBridge {
-    internal typealias Handler = WindowsFoundation.TypedEventHandler<WinUI.XamlRoot?, WinUI.XamlRootChangedEventArgs?>
+    internal typealias Handler = TypedEventHandler<XamlRoot?, XamlRootChangedEventArgs?>
     internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CXamlRoot___x_ABI_CMicrosoft__CUI__CXaml__CXamlRootChangedEventArgs
     internal typealias SwiftABI = WinUI.TypedEventHandlerXamlRoot_XamlRootChangedEventArgs
 
@@ -53037,44 +53379,44 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__
     }
 }
 public extension EventSource where Handler == EventHandler<Any?> {
-    func invoke(_ sender: Any!, _ args: Any!) throws {
-        try invokeAll { handler in try handler(sender, args) }
+    @MainActor func invoke(_ sender: Any!, _ args: Any!) throws {
+        for handler in currentHandlers { try handler(sender, args) }
     }
 }
 
 public extension EventSource where Handler == TypedEventHandler<IScrollController?, Any?> {
-    func invoke(_ sender: WinUI.AnyIScrollController!, _ args: Any!) throws {
-        try invokeAll { handler in try handler(sender, args) }
+    @MainActor func invoke(_ sender: WinUI.AnyIScrollController!, _ args: Any!) throws {
+        for handler in currentHandlers { try handler(sender, args) }
     }
 }
 
 public extension EventSource where Handler == TypedEventHandler<IScrollController?, ScrollControllerAddScrollVelocityRequestedEventArgs?> {
-    func invoke(_ sender: WinUI.AnyIScrollController!, _ args: WinUI.ScrollControllerAddScrollVelocityRequestedEventArgs!) throws {
-        try invokeAll { handler in try handler(sender, args) }
+    @MainActor func invoke(_ sender: WinUI.AnyIScrollController!, _ args: WinUI.ScrollControllerAddScrollVelocityRequestedEventArgs!) throws {
+        for handler in currentHandlers { try handler(sender, args) }
     }
 }
 
 public extension EventSource where Handler == TypedEventHandler<IScrollController?, ScrollControllerScrollByRequestedEventArgs?> {
-    func invoke(_ sender: WinUI.AnyIScrollController!, _ args: WinUI.ScrollControllerScrollByRequestedEventArgs!) throws {
-        try invokeAll { handler in try handler(sender, args) }
+    @MainActor func invoke(_ sender: WinUI.AnyIScrollController!, _ args: WinUI.ScrollControllerScrollByRequestedEventArgs!) throws {
+        for handler in currentHandlers { try handler(sender, args) }
     }
 }
 
 public extension EventSource where Handler == TypedEventHandler<IScrollController?, ScrollControllerScrollToRequestedEventArgs?> {
-    func invoke(_ sender: WinUI.AnyIScrollController!, _ args: WinUI.ScrollControllerScrollToRequestedEventArgs!) throws {
-        try invokeAll { handler in try handler(sender, args) }
+    @MainActor func invoke(_ sender: WinUI.AnyIScrollController!, _ args: WinUI.ScrollControllerScrollToRequestedEventArgs!) throws {
+        for handler in currentHandlers { try handler(sender, args) }
     }
 }
 
 public extension EventSource where Handler == TypedEventHandler<IScrollControllerPanningInfo?, Any?> {
-    func invoke(_ sender: WinUI.AnyIScrollControllerPanningInfo!, _ args: Any!) throws {
-        try invokeAll { handler in try handler(sender, args) }
+    @MainActor func invoke(_ sender: WinUI.AnyIScrollControllerPanningInfo!, _ args: Any!) throws {
+        for handler in currentHandlers { try handler(sender, args) }
     }
 }
 
 public extension EventSource where Handler == TypedEventHandler<IScrollControllerPanningInfo?, ScrollControllerPanRequestedEventArgs?> {
-    func invoke(_ sender: WinUI.AnyIScrollControllerPanningInfo!, _ args: WinUI.ScrollControllerPanRequestedEventArgs!) throws {
-        try invokeAll { handler in try handler(sender, args) }
+    @MainActor func invoke(_ sender: WinUI.AnyIScrollControllerPanningInfo!, _ args: WinUI.ScrollControllerPanRequestedEventArgs!) throws {
+        for handler in currentHandlers { try handler(sender, args) }
     }
 }
 

@@ -204,12 +204,13 @@ extension WinUI.Stretch: @retroactive Hashable, @retroactive Codable, @retroacti
 // MARK: - AcrylicBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.acrylicbrush)
+@MainActor
 open class AcrylicBrush : WinUI.XamlCompositionBrushBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IAcrylicBrush
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIAcrylicBrush
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -217,29 +218,29 @@ open class AcrylicBrush : WinUI.XamlCompositionBrushBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IAcrylicBrushFactory : __ABI_Microsoft_UI_Xaml_Media.IAcrylicBrushFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.AcrylicBrush")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.AcrylicBrushBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IAcrylicBrushFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAcrylicBrushStatics: __ABI_Microsoft_UI_Xaml_Media.IAcrylicBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.AcrylicBrush")
+    private static nonisolated let _IAcrylicBrushStatics: __ABI_Microsoft_UI_Xaml_Media.IAcrylicBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.AcrylicBrush")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.acrylicbrush.alwaysusefallbackproperty)
     public class var alwaysUseFallbackProperty : WinUI.DependencyProperty! {
         get { try! _IAcrylicBrushStatics.get_AlwaysUseFallbackProperty() }
@@ -260,7 +261,7 @@ open class AcrylicBrush : WinUI.XamlCompositionBrushBase, @unchecked Sendable {
         get { try! _IAcrylicBrushStatics.get_TintTransitionDurationProperty() }
     }
 
-    private static let _IAcrylicBrushStatics2: __ABI_Microsoft_UI_Xaml_Media.IAcrylicBrushStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.AcrylicBrush")
+    private static nonisolated let _IAcrylicBrushStatics2: __ABI_Microsoft_UI_Xaml_Media.IAcrylicBrushStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.AcrylicBrush")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.acrylicbrush.tintluminosityopacityproperty)
     public class var tintLuminosityOpacityProperty : WinUI.DependencyProperty! {
         get { try! _IAcrylicBrushStatics2.get_TintLuminosityOpacityProperty() }
@@ -290,7 +291,7 @@ open class AcrylicBrush : WinUI.XamlCompositionBrushBase, @unchecked Sendable {
         set { try! _default.put_TintTransitionDuration(newValue) }
     }
 
-    private lazy var _IAcrylicBrush2: __ABI_Microsoft_UI_Xaml_Media.IAcrylicBrush2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IAcrylicBrush2: __ABI_Microsoft_UI_Xaml_Media.IAcrylicBrush2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.acrylicbrush.tintluminosityopacity)
     public var tintLuminosityOpacity : Double? {
         get { try! _IAcrylicBrush2.get_TintLuminosityOpacity() }
@@ -518,12 +519,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - Brush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.brush)
+@MainActor
 open class Brush : WinUI.DependencyObject, @unchecked Sendable, WinAppSDK.IAnimationObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IBrush
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIBrush
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -531,18 +533,18 @@ open class Brush : WinUI.DependencyObject, @unchecked Sendable, WinAppSDK.IAnima
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Media.IBrushOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Media.IBrushOverridesWrapper(self)
@@ -552,13 +554,13 @@ open class Brush : WinUI.DependencyObject, @unchecked Sendable, WinAppSDK.IAnima
     }
     private static nonisolated(unsafe) var _IBrushFactory : __ABI_Microsoft_UI_Xaml_Media.IBrushFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Brush")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.BrushBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBrushFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IBrushStatics: __ABI_Microsoft_UI_Xaml_Media.IBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Brush")
+    private static nonisolated let _IBrushStatics: __ABI_Microsoft_UI_Xaml_Media.IBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Brush")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.brush.opacityproperty)
     public class var opacityProperty : WinUI.DependencyProperty! {
         get { try! _IBrushStatics.get_OpacityProperty() }
@@ -592,15 +594,15 @@ open class Brush : WinUI.DependencyObject, @unchecked Sendable, WinAppSDK.IAnima
         set { try! _default.put_Transform(newValue) }
     }
 
-    private lazy var _IBrushOverrides: __ABI_Microsoft_UI_Xaml_Media.IBrushOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IBrushOverrides: __ABI_Microsoft_UI_Xaml_Media.IBrushOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.brush.populatepropertyinfooverride)
     open func populatePropertyInfoOverride(_ propertyName: String, _ animationPropertyInfo: WinAppSDK.AnimationPropertyInfo!) throws {
         try _IBrushOverrides.PopulatePropertyInfoOverride(propertyName, animationPropertyInfo)
     }
 
-    private lazy var _IAnimationObject: __ABI_Microsoft_UI_Composition.IAnimationObject! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IAnimationObject: __ABI_Microsoft_UI_Composition.IAnimationObject! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.brush.populatepropertyinfo)
-    public func populatePropertyInfo(_ propertyName: String, _ propertyInfo: WinAppSDK.AnimationPropertyInfo!) throws {
+    public nonisolated func populatePropertyInfo(_ propertyName: String, _ propertyInfo: WinAppSDK.AnimationPropertyInfo!) throws {
         try _IAnimationObject.PopulatePropertyInfo(propertyName, propertyInfo)
     }
 
@@ -680,7 +682,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
                 guard let __unwrapped__instance = IBrushOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let propertyName: String = .init(from: $1)
                 let animationPropertyInfo: WinAppSDK.AnimationPropertyInfo? = __IMPL_Microsoft_UI_Composition.AnimationPropertyInfoBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.populatePropertyInfoOverride(propertyName, animationPropertyInfo)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.populatePropertyInfoOverride(propertyName, animationPropertyInfo)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -822,12 +826,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIBru
 // MARK: - CacheMode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.cachemode)
+@MainActor
 open class CacheMode : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ICacheMode
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CICacheMode
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -835,23 +840,23 @@ open class CacheMode : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ICacheModeFactory : __ABI_Microsoft_UI_Xaml_Media.ICacheModeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.CacheMode")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.CacheModeBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ICacheModeFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -932,12 +937,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - CompositeTransform
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.compositetransform)
+@MainActor
 public final class CompositeTransform : WinUI.Transform, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ICompositeTransform
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CICompositeTransform
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -945,16 +951,16 @@ public final class CompositeTransform : WinUI.Transform, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.CompositeTransform")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.CompositeTransform")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ICompositeTransformStatics: __ABI_Microsoft_UI_Xaml_Media.ICompositeTransformStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.CompositeTransform")
+    private static nonisolated let _ICompositeTransformStatics: __ABI_Microsoft_UI_Xaml_Media.ICompositeTransformStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.CompositeTransform")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.compositetransform.centerxproperty)
     public static var centerXProperty : WinUI.DependencyProperty! {
         get { try! _ICompositeTransformStatics.get_CenterXProperty() }
@@ -1311,12 +1317,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - CompositionTarget
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.compositiontarget)
+@MainActor
 public final class CompositionTarget : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ICompositionTarget
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CICompositionTarget
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1324,11 +1331,11 @@ public final class CompositionTarget : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _ICompositionTargetStatics: __ABI_Microsoft_UI_Xaml_Media.ICompositionTargetStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.CompositionTarget")
+    private static nonisolated let _ICompositionTargetStatics: __ABI_Microsoft_UI_Xaml_Media.ICompositionTargetStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.CompositionTarget")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.compositiontarget.getcompositorforcurrentthread)
     public static func getCompositorForCurrentThread() throws -> WinAppSDK.Compositor! {
         return try _ICompositionTargetStatics.GetCompositorForCurrentThread()
@@ -1465,13 +1472,14 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - DoubleCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection)
+@MainActor
 public final class DoubleCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = Double
     private typealias SwiftABI = WinUI.IVectorDouble
     private typealias CABI = __x_ABI_C__FIVector_1_double
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1479,36 +1487,36 @@ public final class DoubleCollection : WinRTClass, @unchecked Sendable, IVector, 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.DoubleCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.DoubleCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -1517,74 +1525,74 @@ public final class DoubleCollection : WinRTClass, @unchecked Sendable, IVector, 
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.getat)
-    public func getAt(_ index: UInt32) -> Double {
+    public nonisolated func getAt(_ index: UInt32) -> Double {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<Double>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<Double>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.indexof)
-    public func indexOf(_ value: Double, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: Double, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.setat)
-    public func setAt(_ index: UInt32, _ value: Double) {
+    public nonisolated func setAt(_ index: UInt32, _ value: Double) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: Double) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: Double) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.append)
-    public func append(_ value: Double) {
+    public nonisolated func append(_ value: Double) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [Double]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [Double]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.replaceall)
-    public func replaceAll(_ items: [Double]) {
+    public nonisolated func replaceAll(_ items: [Double]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableDouble! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableDouble! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<Double>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<Double>? {
         try! _IIterable.First()
     }
 
@@ -1621,12 +1629,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - FontFamily
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.fontfamily)
+@MainActor
 open class FontFamily : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IFontFamily
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIFontFamily
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1634,31 +1643,31 @@ open class FontFamily : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFontFamilyFactory : __ABI_Microsoft_UI_Xaml_Media.IFontFamilyFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.FontFamily")
 
-    public init(_ familyName: String) {
+    nonisolated public init(_ familyName: String) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Media.FontFamilyBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IFontFamilyFactory.CreateInstanceWithName(familyName, baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFontFamilyStatics: __ABI_Microsoft_UI_Xaml_Media.IFontFamilyStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.FontFamily")
+    private static nonisolated let _IFontFamilyStatics: __ABI_Microsoft_UI_Xaml_Media.IFontFamilyStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.FontFamily")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.fontfamily.xamlautofontfamily)
     public class var xamlAutoFontFamily : FontFamily! {
         get { try! _IFontFamilyStatics.get_XamlAutoFontFamily() }
@@ -1774,12 +1783,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - GeneralTransform
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.generaltransform)
+@MainActor
 open class GeneralTransform : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IGeneralTransform
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIGeneralTransform
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1787,18 +1797,18 @@ open class GeneralTransform : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Media.IGeneralTransformOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Media.IGeneralTransformOverridesWrapper(self)
@@ -1808,7 +1818,7 @@ open class GeneralTransform : WinUI.DependencyObject, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IGeneralTransformFactory : __ABI_Microsoft_UI_Xaml_Media.IGeneralTransformFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GeneralTransform")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.GeneralTransformBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IGeneralTransformFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -1834,7 +1844,7 @@ open class GeneralTransform : WinUI.DependencyObject, @unchecked Sendable {
         get { try! _default.get_Inverse() }
     }
 
-    private lazy var _IGeneralTransformOverrides: __ABI_Microsoft_UI_Xaml_Media.IGeneralTransformOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IGeneralTransformOverrides: __ABI_Microsoft_UI_Xaml_Media.IGeneralTransformOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.generaltransform.trytransformcore)
     open func tryTransformCore(_ inPoint: WindowsFoundation.Point, _ outPoint: inout WindowsFoundation.Point) throws -> Bool {
         try _IGeneralTransformOverrides.TryTransformCore(inPoint, &outPoint)
@@ -1922,7 +1932,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 
         get_InverseCore: {
             guard let __unwrapped__instance = IGeneralTransformOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.inverseCore
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.inverseCore
+            }
             value?.copyTo($1)
             return S_OK
         },
@@ -1932,7 +1944,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
                 guard let __unwrapped__instance = IGeneralTransformOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let inPoint: WindowsFoundation.Point = .from(abi: $1)
                 var outPoint: WindowsFoundation.Point = .init()
-                let returnValue = try __unwrapped__instance.tryTransformCore(inPoint, &outPoint)
+                let returnValue = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.tryTransformCore(inPoint, &outPoint)
+                }
                 $2?.initialize(to: .from(swift: outPoint))
                 $3?.initialize(to: .init(from: returnValue))
                 return S_OK
@@ -1943,7 +1957,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
             do {
                 guard let __unwrapped__instance = IGeneralTransformOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let rect: WindowsFoundation.Rect = .from(abi: $1)
-                let result = try __unwrapped__instance.transformBoundsCore(rect)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.transformBoundsCore(rect)
+                }
                 $2?.initialize(to: .from(swift: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -2061,12 +2077,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIGen
 // MARK: - Geometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.geometry)
+@MainActor
 open class Geometry : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IGeometry
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIGeometry
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2074,23 +2091,23 @@ open class Geometry : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IGeometryFactory : __ABI_Microsoft_UI_Xaml_Media.IGeometryFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Geometry")
 
-    private static let _IGeometryStatics: __ABI_Microsoft_UI_Xaml_Media.IGeometryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Geometry")
+    private static nonisolated let _IGeometryStatics: __ABI_Microsoft_UI_Xaml_Media.IGeometryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Geometry")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.geometry.empty)
     public class var empty : Geometry! {
         get { try! _IGeometryStatics.get_Empty() }
@@ -2237,12 +2254,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - GradientBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientbrush)
+@MainActor
 open class GradientBrush : WinUI.Brush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IGradientBrush
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIGradientBrush
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2250,29 +2268,29 @@ open class GradientBrush : WinUI.Brush, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IGradientBrushFactory : __ABI_Microsoft_UI_Xaml_Media.IGradientBrushFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientBrush")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.GradientBrushBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IGradientBrushFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IGradientBrushStatics: __ABI_Microsoft_UI_Xaml_Media.IGradientBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientBrush")
+    private static nonisolated let _IGradientBrushStatics: __ABI_Microsoft_UI_Xaml_Media.IGradientBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientBrush")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientbrush.colorinterpolationmodeproperty)
     public class var colorInterpolationModeProperty : WinUI.DependencyProperty! {
         get { try! _IGradientBrushStatics.get_ColorInterpolationModeProperty() }
@@ -2494,12 +2512,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - GradientStop
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstop)
+@MainActor
 public final class GradientStop : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IGradientStop
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIGradientStop
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2507,16 +2526,16 @@ public final class GradientStop : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientStop")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientStop")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IGradientStopStatics: __ABI_Microsoft_UI_Xaml_Media.IGradientStopStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientStop")
+    private static nonisolated let _IGradientStopStatics: __ABI_Microsoft_UI_Xaml_Media.IGradientStopStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientStop")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstop.colorproperty)
     public static var colorProperty : WinUI.DependencyProperty! {
         get { try! _IGradientStopStatics.get_ColorProperty() }
@@ -2635,13 +2654,14 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - GradientStopCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection)
+@MainActor
 public final class GradientStopCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = GradientStop?
     private typealias SwiftABI = WinUI.IVectorGradientStop
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CGradientStop
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2649,36 +2669,36 @@ public final class GradientStopCollection : WinRTClass, @unchecked Sendable, IVe
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientStopCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.GradientStopCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -2687,74 +2707,74 @@ public final class GradientStopCollection : WinRTClass, @unchecked Sendable, IVe
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.getat)
-    public func getAt(_ index: UInt32) -> GradientStop? {
+    public nonisolated func getAt(_ index: UInt32) -> GradientStop? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<GradientStop?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<GradientStop?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.indexof)
-    public func indexOf(_ value: GradientStop?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: GradientStop?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.setat)
-    public func setAt(_ index: UInt32, _ value: GradientStop?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: GradientStop?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: GradientStop?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: GradientStop?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.append)
-    public func append(_ value: GradientStop?) {
+    public nonisolated func append(_ value: GradientStop?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [GradientStop?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [GradientStop?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.replaceall)
-    public func replaceAll(_ items: [GradientStop?]) {
+    public nonisolated func replaceAll(_ items: [GradientStop?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableGradientStop! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableGradientStop! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.gradientstopcollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<GradientStop?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<GradientStop?>? {
         try! _IIterable.First()
     }
 
@@ -2791,12 +2811,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - ImageBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imagebrush)
+@MainActor
 public final class ImageBrush : WinUI.TileBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IImageBrush
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIImageBrush
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2804,16 +2825,16 @@ public final class ImageBrush : WinUI.TileBrush, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.ImageBrush")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.ImageBrush")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IImageBrushStatics: __ABI_Microsoft_UI_Xaml_Media.IImageBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.ImageBrush")
+    private static nonisolated let _IImageBrushStatics: __ABI_Microsoft_UI_Xaml_Media.IImageBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.ImageBrush")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imagebrush.imagesourceproperty)
     public static var imageSourceProperty : WinUI.DependencyProperty! {
         get { try! _IImageBrushStatics.get_ImageSourceProperty() }
@@ -2828,26 +2849,34 @@ public final class ImageBrush : WinUI.TileBrush, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imagebrush.imagefailed)
     public lazy var imageFailed : Event<WinUI.ExceptionRoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ImageFailed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ImageFailed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ImageFailed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ImageFailed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imagebrush.imageopened)
     public lazy var imageOpened : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ImageOpened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ImageOpened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ImageOpened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ImageOpened(token)
+          }
+        }
       )
     }()
 
@@ -2957,12 +2986,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - ImageSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imagesource)
+@MainActor
 open class ImageSource : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IImageSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIImageSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2970,18 +3000,18 @@ open class ImageSource : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media.IImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.ImageSource")
@@ -3048,12 +3078,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - LineSegment
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.linesegment)
+@MainActor
 public final class LineSegment : WinUI.PathSegment, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ILineSegment
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CILineSegment
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3061,16 +3092,16 @@ public final class LineSegment : WinUI.PathSegment, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LineSegment")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LineSegment")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ILineSegmentStatics: __ABI_Microsoft_UI_Xaml_Media.ILineSegmentStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LineSegment")
+    private static nonisolated let _ILineSegmentStatics: __ABI_Microsoft_UI_Xaml_Media.ILineSegmentStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LineSegment")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.linesegment.pointproperty)
     public static var pointProperty : WinUI.DependencyProperty! {
         get { try! _ILineSegmentStatics.get_PointProperty() }
@@ -3155,12 +3186,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - LinearGradientBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.lineargradientbrush)
+@MainActor
 public final class LinearGradientBrush : WinUI.GradientBrush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ILinearGradientBrush
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CILinearGradientBrush
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3168,21 +3200,21 @@ public final class LinearGradientBrush : WinUI.GradientBrush, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LinearGradientBrush")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LinearGradientBrush")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ILinearGradientBrushFactory: __ABI_Microsoft_UI_Xaml_Media.ILinearGradientBrushFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LinearGradientBrush")
-    public init(_ gradientStopCollection: GradientStopCollection!, _ angle: Double) {
+    private static nonisolated let _ILinearGradientBrushFactory: __ABI_Microsoft_UI_Xaml_Media.ILinearGradientBrushFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LinearGradientBrush")
+    nonisolated public init(_ gradientStopCollection: GradientStopCollection!, _ angle: Double) {
         super.init(fromAbi: try! Self._ILinearGradientBrushFactory.CreateInstanceWithGradientStopCollectionAndAngle(gradientStopCollection, angle))
     }
 
-    private static let _ILinearGradientBrushStatics: __ABI_Microsoft_UI_Xaml_Media.ILinearGradientBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LinearGradientBrush")
+    private static nonisolated let _ILinearGradientBrushStatics: __ABI_Microsoft_UI_Xaml_Media.ILinearGradientBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.LinearGradientBrush")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.lineargradientbrush.endpointproperty)
     public static var endPointProperty : WinUI.DependencyProperty! {
         get { try! _ILinearGradientBrushStatics.get_EndPointProperty() }
@@ -3319,12 +3351,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - MediaTransportControlsThumbnailRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.mediatransportcontrolsthumbnailrequestedeventargs)
+@MainActor
 public final class MediaTransportControlsThumbnailRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IMediaTransportControlsThumbnailRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIMediaTransportControlsThumbnailRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3332,7 +3365,7 @@ public final class MediaTransportControlsThumbnailRequestedEventArgs : WinRTClas
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -3404,12 +3437,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - MicaBackdrop
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.micabackdrop)
+@MainActor
 open class MicaBackdrop : WinUI.SystemBackdrop, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IMicaBackdrop
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIMicaBackdrop
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3417,29 +3451,29 @@ open class MicaBackdrop : WinUI.SystemBackdrop, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMicaBackdropFactory : __ABI_Microsoft_UI_Xaml_Media.IMicaBackdropFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.MicaBackdrop")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.MicaBackdropBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IMicaBackdropFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IMicaBackdropStatics: __ABI_Microsoft_UI_Xaml_Media.IMicaBackdropStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.MicaBackdrop")
+    private static nonisolated let _IMicaBackdropStatics: __ABI_Microsoft_UI_Xaml_Media.IMicaBackdropStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.MicaBackdrop")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.micabackdrop.kindproperty)
     public class var kindProperty : WinUI.DependencyProperty! {
         get { try! _IMicaBackdropStatics.get_KindProperty() }
@@ -3558,12 +3592,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - PathFigure
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigure)
+@MainActor
 public final class PathFigure : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IPathFigure
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIPathFigure
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3571,16 +3606,16 @@ public final class PathFigure : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathFigure")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathFigure")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPathFigureStatics: __ABI_Microsoft_UI_Xaml_Media.IPathFigureStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathFigure")
+    private static nonisolated let _IPathFigureStatics: __ABI_Microsoft_UI_Xaml_Media.IPathFigureStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathFigure")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigure.isclosedproperty)
     public static var isClosedProperty : WinUI.DependencyProperty! {
         get { try! _IPathFigureStatics.get_IsClosedProperty() }
@@ -3768,13 +3803,14 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - PathFigureCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection)
+@MainActor
 public final class PathFigureCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = PathFigure?
     private typealias SwiftABI = WinUI.IVectorPathFigure
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CPathFigure
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3782,36 +3818,36 @@ public final class PathFigureCollection : WinRTClass, @unchecked Sendable, IVect
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathFigureCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathFigureCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -3820,74 +3856,74 @@ public final class PathFigureCollection : WinRTClass, @unchecked Sendable, IVect
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.getat)
-    public func getAt(_ index: UInt32) -> PathFigure? {
+    public nonisolated func getAt(_ index: UInt32) -> PathFigure? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<PathFigure?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<PathFigure?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.indexof)
-    public func indexOf(_ value: PathFigure?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: PathFigure?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.setat)
-    public func setAt(_ index: UInt32, _ value: PathFigure?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: PathFigure?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: PathFigure?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: PathFigure?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.append)
-    public func append(_ value: PathFigure?) {
+    public nonisolated func append(_ value: PathFigure?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [PathFigure?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [PathFigure?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.replaceall)
-    public func replaceAll(_ items: [PathFigure?]) {
+    public nonisolated func replaceAll(_ items: [PathFigure?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterablePathFigure! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterablePathFigure! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathfigurecollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<PathFigure?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<PathFigure?>? {
         try! _IIterable.First()
     }
 
@@ -3924,12 +3960,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - PathGeometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathgeometry)
+@MainActor
 public final class PathGeometry : WinUI.Geometry, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IPathGeometry
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIPathGeometry
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3937,16 +3974,16 @@ public final class PathGeometry : WinUI.Geometry, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathGeometry")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathGeometry")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPathGeometryStatics: __ABI_Microsoft_UI_Xaml_Media.IPathGeometryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathGeometry")
+    private static nonisolated let _IPathGeometryStatics: __ABI_Microsoft_UI_Xaml_Media.IPathGeometryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathGeometry")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathgeometry.figuresproperty)
     public static var figuresProperty : WinUI.DependencyProperty! {
         get { try! _IPathGeometryStatics.get_FiguresProperty() }
@@ -4066,12 +4103,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - PathSegment
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegment)
+@MainActor
 open class PathSegment : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IPathSegment
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIPathSegment
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4079,18 +4117,18 @@ open class PathSegment : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPathSegmentFactory : __ABI_Microsoft_UI_Xaml_Media.IPathSegmentFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathSegment")
@@ -4157,13 +4195,14 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - PathSegmentCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection)
+@MainActor
 public final class PathSegmentCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = PathSegment?
     private typealias SwiftABI = WinUI.IVectorPathSegment
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CMedia__CPathSegment
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4171,36 +4210,36 @@ public final class PathSegmentCollection : WinRTClass, @unchecked Sendable, IVec
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathSegmentCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PathSegmentCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -4209,74 +4248,74 @@ public final class PathSegmentCollection : WinRTClass, @unchecked Sendable, IVec
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.getat)
-    public func getAt(_ index: UInt32) -> PathSegment? {
+    public nonisolated func getAt(_ index: UInt32) -> PathSegment? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<PathSegment?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<PathSegment?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.indexof)
-    public func indexOf(_ value: PathSegment?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: PathSegment?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.setat)
-    public func setAt(_ index: UInt32, _ value: PathSegment?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: PathSegment?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: PathSegment?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: PathSegment?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.append)
-    public func append(_ value: PathSegment?) {
+    public nonisolated func append(_ value: PathSegment?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [PathSegment?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [PathSegment?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.replaceall)
-    public func replaceAll(_ items: [PathSegment?]) {
+    public nonisolated func replaceAll(_ items: [PathSegment?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterablePathSegment! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterablePathSegment! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pathsegmentcollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<PathSegment?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<PathSegment?>? {
         try! _IIterable.First()
     }
 
@@ -4313,13 +4352,14 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - PointCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection)
+@MainActor
 public final class PointCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = WindowsFoundation.Point
     private typealias SwiftABI = WinUI.IVectorPoint
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CWindows__CFoundation__CPoint
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4327,36 +4367,36 @@ public final class PointCollection : WinRTClass, @unchecked Sendable, IVector, I
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PointCollection")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PointCollection")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -4365,74 +4405,74 @@ public final class PointCollection : WinRTClass, @unchecked Sendable, IVector, I
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.getat)
-    public func getAt(_ index: UInt32) -> WindowsFoundation.Point {
+    public nonisolated func getAt(_ index: UInt32) -> WindowsFoundation.Point {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<WindowsFoundation.Point>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<WindowsFoundation.Point>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.indexof)
-    public func indexOf(_ value: WindowsFoundation.Point, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: WindowsFoundation.Point, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.setat)
-    public func setAt(_ index: UInt32, _ value: WindowsFoundation.Point) {
+    public nonisolated func setAt(_ index: UInt32, _ value: WindowsFoundation.Point) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: WindowsFoundation.Point) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: WindowsFoundation.Point) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.append)
-    public func append(_ value: WindowsFoundation.Point) {
+    public nonisolated func append(_ value: WindowsFoundation.Point) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [WindowsFoundation.Point]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [WindowsFoundation.Point]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.replaceall)
-    public func replaceAll(_ items: [WindowsFoundation.Point]) {
+    public nonisolated func replaceAll(_ items: [WindowsFoundation.Point]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterablePoint! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterablePoint! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.pointcollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.Point>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<WindowsFoundation.Point>? {
         try! _IIterable.First()
     }
 
@@ -4469,12 +4509,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - PolyBezierSegment
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.polybeziersegment)
+@MainActor
 public final class PolyBezierSegment : WinUI.PathSegment, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IPolyBezierSegment
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIPolyBezierSegment
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4482,16 +4523,16 @@ public final class PolyBezierSegment : WinUI.PathSegment, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PolyBezierSegment")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PolyBezierSegment")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPolyBezierSegmentStatics: __ABI_Microsoft_UI_Xaml_Media.IPolyBezierSegmentStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PolyBezierSegment")
+    private static nonisolated let _IPolyBezierSegmentStatics: __ABI_Microsoft_UI_Xaml_Media.IPolyBezierSegmentStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.PolyBezierSegment")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.polybeziersegment.pointsproperty)
     public static var pointsProperty : WinUI.DependencyProperty! {
         get { try! _IPolyBezierSegmentStatics.get_PointsProperty() }
@@ -4577,12 +4618,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - Projection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.projection)
+@MainActor
 open class Projection : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IProjection
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIProjection
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4590,23 +4632,23 @@ open class Projection : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IProjectionFactory : __ABI_Microsoft_UI_Xaml_Media.IProjectionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Projection")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.ProjectionBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IProjectionFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -4687,12 +4729,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - RectangleGeometry
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.rectanglegeometry)
+@MainActor
 public final class RectangleGeometry : WinUI.Geometry, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IRectangleGeometry
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIRectangleGeometry
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4700,16 +4743,16 @@ public final class RectangleGeometry : WinUI.Geometry, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.RectangleGeometry")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.RectangleGeometry")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRectangleGeometryStatics: __ABI_Microsoft_UI_Xaml_Media.IRectangleGeometryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.RectangleGeometry")
+    private static nonisolated let _IRectangleGeometryStatics: __ABI_Microsoft_UI_Xaml_Media.IRectangleGeometryStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.RectangleGeometry")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.rectanglegeometry.rectproperty)
     public static var rectProperty : WinUI.DependencyProperty! {
         get { try! _IRectangleGeometryStatics.get_RectProperty() }
@@ -4794,12 +4837,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - RenderedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.renderedeventargs)
+@MainActor
 public final class RenderedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IRenderedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIRenderedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4807,7 +4851,7 @@ public final class RenderedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -4865,12 +4909,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - Shadow
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.shadow)
+@MainActor
 open class Shadow : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IShadow
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIShadow
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4878,18 +4923,18 @@ open class Shadow : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IShadowFactory : __ABI_Microsoft_UI_Xaml_Media.IShadowFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Shadow")
@@ -4956,12 +5001,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - SolidColorBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.solidcolorbrush)
+@MainActor
 public final class SolidColorBrush : WinUI.Brush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ISolidColorBrush
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CISolidColorBrush
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4969,21 +5015,21 @@ public final class SolidColorBrush : WinUI.Brush, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.SolidColorBrush")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.SolidColorBrush")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISolidColorBrushFactory: __ABI_Microsoft_UI_Xaml_Media.ISolidColorBrushFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.SolidColorBrush")
-    public init(_ color: UWP.Color) {
+    private static nonisolated let _ISolidColorBrushFactory: __ABI_Microsoft_UI_Xaml_Media.ISolidColorBrushFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.SolidColorBrush")
+    nonisolated public init(_ color: UWP.Color) {
         super.init(fromAbi: try! Self._ISolidColorBrushFactory.CreateInstanceWithColor(color))
     }
 
-    private static let _ISolidColorBrushStatics: __ABI_Microsoft_UI_Xaml_Media.ISolidColorBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.SolidColorBrush")
+    private static nonisolated let _ISolidColorBrushStatics: __ABI_Microsoft_UI_Xaml_Media.ISolidColorBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.SolidColorBrush")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.solidcolorbrush.colorproperty)
     public static var colorProperty : WinUI.DependencyProperty! {
         get { try! _ISolidColorBrushStatics.get_ColorProperty() }
@@ -5086,12 +5132,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - SystemBackdrop
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.systembackdrop)
+@MainActor
 open class SystemBackdrop : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ISystemBackdrop
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CISystemBackdrop
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5099,18 +5146,18 @@ open class SystemBackdrop : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Media.ISystemBackdropOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Media.ISystemBackdropOverridesWrapper(self)
@@ -5120,7 +5167,7 @@ open class SystemBackdrop : WinUI.DependencyObject, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _ISystemBackdropFactory : __ABI_Microsoft_UI_Xaml_Media.ISystemBackdropFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.SystemBackdrop")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.SystemBackdropBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISystemBackdropFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -5131,7 +5178,7 @@ open class SystemBackdrop : WinUI.DependencyObject, @unchecked Sendable {
         try _default.GetDefaultSystemBackdropConfiguration(target, xamlRoot)
     }
 
-    private lazy var _ISystemBackdropOverrides: __ABI_Microsoft_UI_Xaml_Media.ISystemBackdropOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ISystemBackdropOverrides: __ABI_Microsoft_UI_Xaml_Media.ISystemBackdropOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.systembackdrop.ontargetconnected)
     open func onTargetConnected(_ connectedTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop!, _ xamlRoot: WinUI.XamlRoot!) throws {
         try _ISystemBackdropOverrides.OnTargetConnected(connectedTarget, xamlRoot)
@@ -5222,7 +5269,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
                 guard let __unwrapped__instance = ISystemBackdropOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let connectedTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop? = __ABI_Microsoft_UI_Composition.ICompositionSupportsSystemBackdropWrapper.unwrapFrom(abi: ComPtr($1))
                 let xamlRoot: WinUI.XamlRoot? = __IMPL_Microsoft_UI_Xaml.XamlRootBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onTargetConnected(connectedTarget, xamlRoot)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onTargetConnected(connectedTarget, xamlRoot)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -5231,7 +5280,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
             do {
                 guard let __unwrapped__instance = ISystemBackdropOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let disconnectedTarget: WinAppSDK.AnyICompositionSupportsSystemBackdrop? = __ABI_Microsoft_UI_Composition.ICompositionSupportsSystemBackdropWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onTargetDisconnected(disconnectedTarget)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onTargetDisconnected(disconnectedTarget)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -5241,7 +5292,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
                 guard let __unwrapped__instance = ISystemBackdropOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let target: WinAppSDK.AnyICompositionSupportsSystemBackdrop? = __ABI_Microsoft_UI_Composition.ICompositionSupportsSystemBackdropWrapper.unwrapFrom(abi: ComPtr($1))
                 let xamlRoot: WinUI.XamlRoot? = __IMPL_Microsoft_UI_Xaml.XamlRootBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onDefaultSystemBackdropConfigurationChanged(target, xamlRoot)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDefaultSystemBackdropConfigurationChanged(target, xamlRoot)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -5331,12 +5384,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CISys
 // MARK: - ThemeShadow
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.themeshadow)
+@MainActor
 open class ThemeShadow : WinUI.Shadow, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IThemeShadow
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIThemeShadow
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5344,23 +5398,23 @@ open class ThemeShadow : WinUI.Shadow, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IThemeShadowFactory : __ABI_Microsoft_UI_Xaml_Media.IThemeShadowFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.ThemeShadow")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.ThemeShadowBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IThemeShadowFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -5455,12 +5509,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - TileBrush
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.tilebrush)
+@MainActor
 open class TileBrush : WinUI.Brush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ITileBrush
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CITileBrush
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5468,29 +5523,29 @@ open class TileBrush : WinUI.Brush, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITileBrushFactory : __ABI_Microsoft_UI_Xaml_Media.ITileBrushFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.TileBrush")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.TileBrushBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITileBrushFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITileBrushStatics: __ABI_Microsoft_UI_Xaml_Media.ITileBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.TileBrush")
+    private static nonisolated let _ITileBrushStatics: __ABI_Microsoft_UI_Xaml_Media.ITileBrushStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.TileBrush")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.tilebrush.alignmentxproperty)
     public class var alignmentXProperty : WinUI.DependencyProperty! {
         get { try! _ITileBrushStatics.get_AlignmentXProperty() }
@@ -5677,12 +5732,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - Transform
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.transform)
+@MainActor
 open class Transform : WinUI.GeneralTransform, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ITransform
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CITransform
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5690,18 +5746,18 @@ open class Transform : WinUI.GeneralTransform, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITransformFactory : __ABI_Microsoft_UI_Xaml_Media.ITransformFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Transform")
@@ -5768,12 +5824,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - TranslateTransform
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.translatetransform)
+@MainActor
 public final class TranslateTransform : WinUI.Transform, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ITranslateTransform
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CITranslateTransform
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5781,16 +5838,16 @@ public final class TranslateTransform : WinUI.Transform, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.TranslateTransform")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.TranslateTransform")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ITranslateTransformStatics: __ABI_Microsoft_UI_Xaml_Media.ITranslateTransformStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.TranslateTransform")
+    private static nonisolated let _ITranslateTransformStatics: __ABI_Microsoft_UI_Xaml_Media.ITranslateTransformStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.TranslateTransform")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.translatetransform.xproperty)
     public static var xproperty : WinUI.DependencyProperty! {
         get { try! _ITranslateTransformStatics.get_XProperty() }
@@ -5909,12 +5966,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - VisualTreeHelper
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.visualtreehelper)
+@MainActor
 public final class VisualTreeHelper : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IVisualTreeHelper
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIVisualTreeHelper
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5922,11 +5980,11 @@ public final class VisualTreeHelper : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IVisualTreeHelperStatics: __ABI_Microsoft_UI_Xaml_Media.IVisualTreeHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.VisualTreeHelper")
+    private static nonisolated let _IVisualTreeHelperStatics: __ABI_Microsoft_UI_Xaml_Media.IVisualTreeHelperStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.VisualTreeHelper")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.visualtreehelper.findelementsinhostcoordinates)
     public static func findElementsInHostCoordinates(_ intersectingPoint: WindowsFoundation.Point, _ subtree: WinUI.UIElement!) throws -> WindowsFoundation.AnyIIterable<WinUI.UIElement?>! {
         return try _IVisualTreeHelperStatics.FindElementsInHostCoordinatesPoint(intersectingPoint, subtree)
@@ -6113,12 +6171,13 @@ extension __ABI_Microsoft_UI_Xaml_Media {
 // MARK: - XamlCompositionBrushBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamlcompositionbrushbase)
+@MainActor
 open class XamlCompositionBrushBase : WinUI.Brush, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIXamlCompositionBrushBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6126,18 +6185,18 @@ open class XamlCompositionBrushBase : WinUI.Brush, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseOverridesWrapper(self)
@@ -6147,13 +6206,13 @@ open class XamlCompositionBrushBase : WinUI.Brush, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IXamlCompositionBrushBaseFactory : __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.XamlCompositionBrushBase")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.XamlCompositionBrushBaseBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IXamlCompositionBrushBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IXamlCompositionBrushBaseStatics: __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.XamlCompositionBrushBase")
+    private static nonisolated let _IXamlCompositionBrushBaseStatics: __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.XamlCompositionBrushBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamlcompositionbrushbase.fallbackcolorproperty)
     public class var fallbackColorProperty : WinUI.DependencyProperty! {
         get { try! _IXamlCompositionBrushBaseStatics.get_FallbackColorProperty() }
@@ -6165,14 +6224,14 @@ open class XamlCompositionBrushBase : WinUI.Brush, @unchecked Sendable {
         set { try! _default.put_FallbackColor(newValue) }
     }
 
-    private lazy var _IXamlCompositionBrushBaseProtected: __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseProtected! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IXamlCompositionBrushBaseProtected: __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseProtected! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamlcompositionbrushbase.compositionbrush)
     public var compositionBrush : WinAppSDK.CompositionBrush! {
         get { try! _IXamlCompositionBrushBaseProtected.get_CompositionBrush() }
         set { try! _IXamlCompositionBrushBaseProtected.put_CompositionBrush(newValue) }
     }
 
-    private lazy var _IXamlCompositionBrushBaseOverrides: __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IXamlCompositionBrushBaseOverrides: __ABI_Microsoft_UI_Xaml_Media.IXamlCompositionBrushBaseOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamlcompositionbrushbase.onconnected)
     open func onConnected() throws {
         try _IXamlCompositionBrushBaseOverrides.OnConnected()
@@ -6258,7 +6317,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
         OnConnected: {
             do {
                 guard let __unwrapped__instance = IXamlCompositionBrushBaseOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.onConnected()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onConnected()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -6266,7 +6327,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
         OnDisconnected: {
             do {
                 guard let __unwrapped__instance = IXamlCompositionBrushBaseOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.onDisconnected()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDisconnected()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -6389,12 +6452,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIXam
 // MARK: - XamlLight
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamllight)
+@MainActor
 open class XamlLight : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IXamlLight
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIXamlLight
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6402,18 +6466,18 @@ open class XamlLight : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Media.IXamlLightOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Media.IXamlLightOverridesWrapper(self)
@@ -6423,13 +6487,13 @@ open class XamlLight : WinUI.DependencyObject, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IXamlLightFactory : __ABI_Microsoft_UI_Xaml_Media.IXamlLightFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.XamlLight")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media.XamlLightBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IXamlLightFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IXamlLightStatics: __ABI_Microsoft_UI_Xaml_Media.IXamlLightStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.XamlLight")
+    private static nonisolated let _IXamlLightStatics: __ABI_Microsoft_UI_Xaml_Media.IXamlLightStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.XamlLight")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamllight.addtargetelement)
     public class func addTargetElement(_ lightId: String, _ element: WinUI.UIElement!) throws {
         try _IXamlLightStatics.AddTargetElement(lightId, element)
@@ -6450,14 +6514,14 @@ open class XamlLight : WinUI.DependencyObject, @unchecked Sendable {
         try _IXamlLightStatics.RemoveTargetBrush(lightId, brush)
     }
 
-    private lazy var _IXamlLightProtected: __ABI_Microsoft_UI_Xaml_Media.IXamlLightProtected! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IXamlLightProtected: __ABI_Microsoft_UI_Xaml_Media.IXamlLightProtected! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamllight.compositionlight)
     public var compositionLight : WinAppSDK.CompositionLight! {
         get { try! _IXamlLightProtected.get_CompositionLight() }
         set { try! _IXamlLightProtected.put_CompositionLight(newValue) }
     }
 
-    private lazy var _IXamlLightOverrides: __ABI_Microsoft_UI_Xaml_Media.IXamlLightOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IXamlLightOverrides: __ABI_Microsoft_UI_Xaml_Media.IXamlLightOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamllight.getid)
     open func getId() throws -> String {
         try _IXamlLightOverrides.GetId()
@@ -6547,7 +6611,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
         GetId: {
             do {
                 guard let __unwrapped__instance = IXamlLightOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getId()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getId()
+                }
                 $1?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -6557,7 +6623,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
             do {
                 guard let __unwrapped__instance = IXamlLightOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let newElement: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onConnected(newElement)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onConnected(newElement)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -6566,7 +6634,9 @@ extension __ABI_Microsoft_UI_Xaml_Media {
             do {
                 guard let __unwrapped__instance = IXamlLightOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldElement: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onDisconnected(oldElement)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDisconnected(oldElement)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }

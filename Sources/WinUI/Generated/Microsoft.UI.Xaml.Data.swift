@@ -93,7 +93,7 @@ extension __x_ABI_CMicrosoft_CUI_CXaml_CData_CLoadMoreItemsResult {
 }
 // MARK: - PropertyChangedEventHandler
 
-public typealias PropertyChangedEventHandler = @Sendable (Any?, PropertyChangedEventArgs?) throws -> ()
+public typealias PropertyChangedEventHandler = @MainActor (Any?, PropertyChangedEventArgs?) throws -> ()
 
 // MARK: - PropertyChangedEventHandler Internals
 
@@ -142,9 +142,11 @@ extension __ABI_Microsoft_UI_Xaml_Data {
         Invoke: {
             do {
                 guard let __unwrapped__instance = PropertyChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.PropertyChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Data.PropertyChangedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -160,19 +162,19 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - INotifyPropertyChanged
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.inotifypropertychanged)
-public protocol INotifyPropertyChanged : WinRTInterface {
+@MainActor public protocol INotifyPropertyChanged : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.inotifypropertychanged.propertychanged)
     var propertyChanged: Event<PropertyChangedEventHandler> { get }
 }
 
 public extension EventSource where Handler == PropertyChangedEventHandler {
-    func invoke(_ sender: Any!, _ e: PropertyChangedEventArgs!) throws {
-        try invokeAll { handler in try handler(sender, e) }
+    @MainActor func invoke(_ sender: Any!, _ e: PropertyChangedEventArgs!) throws {
+        for handler in currentHandlers { try handler(sender, e) }
     }
 }
 
 extension INotifyPropertyChanged {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Data.INotifyPropertyChangedWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Data.INotifyPropertyChangedWrapper(self)
@@ -205,21 +207,25 @@ extension __IMPL_Microsoft_UI_Xaml_Data {
     fileprivate class INotifyPropertyChangedImpl: INotifyPropertyChanged, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INotifyPropertyChangedBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.inotifypropertychanged.propertychanged)
         fileprivate lazy var propertyChanged : Event<PropertyChangedEventHandler> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_PropertyChanged($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_PropertyChanged(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_PropertyChanged($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_PropertyChanged(token)
+              }
+            }
           )
         }()
 
@@ -284,7 +290,9 @@ extension __ABI_Microsoft_UI_Xaml_Data {
         add_PropertyChanged: {
             guard let __unwrapped__instance = INotifyPropertyChangedWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = __ABI_Microsoft_UI_Xaml_Data.PropertyChangedEventHandlerWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.propertyChanged.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.propertyChanged.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -292,7 +300,9 @@ extension __ABI_Microsoft_UI_Xaml_Data {
         remove_PropertyChanged: {
             guard let __unwrapped__instance = INotifyPropertyChangedWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.propertyChanged.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.propertyChanged.removeHandler(token)
+            }
             return S_OK
         }
     )
@@ -310,7 +320,7 @@ public class INotifyPropertyChangedMaker: MakeFromAbi {
 // MARK: - IValueConverter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.ivalueconverter)
-public protocol IValueConverter : WinRTInterface {
+@MainActor public protocol IValueConverter : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.ivalueconverter.convert)
     func convert(_ value: Any!, _ targetType: WinUI.TypeName, _ parameter: Any!, _ language: String) throws -> Any!
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.ivalueconverter.convertback)
@@ -318,7 +328,7 @@ public protocol IValueConverter : WinRTInterface {
 }
 
 extension IValueConverter {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Data.IValueConverterWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Data.IValueConverterWrapper(self)
@@ -351,8 +361,8 @@ extension __IMPL_Microsoft_UI_Xaml_Data {
     fileprivate class IValueConverterImpl: IValueConverter, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IValueConverterBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -441,11 +451,15 @@ extension __ABI_Microsoft_UI_Xaml_Data {
         Convert: {
             do {
                 guard let __unwrapped__instance = IValueConverterWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let targetType: WinUI.TypeName = .from(abi: $2)
-                let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($3))
+                nonisolated(unsafe) let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($3))
                 let language: String = .init(from: $4)
-                let result = try __unwrapped__instance.convert(value, targetType, parameter, language)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.convert(value, targetType, parameter, language)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($5)
                 return S_OK
@@ -455,11 +469,15 @@ extension __ABI_Microsoft_UI_Xaml_Data {
         ConvertBack: {
             do {
                 guard let __unwrapped__instance = IValueConverterWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let targetType: WinUI.TypeName = .from(abi: $2)
-                let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($3))
+                nonisolated(unsafe) let parameter: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($3))
                 let language: String = .init(from: $4)
-                let result = try __unwrapped__instance.convertBack(value, targetType, parameter, language)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.convertBack(value, targetType, parameter, language)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($5)
                 return S_OK
@@ -480,12 +498,13 @@ public class IValueConverterMaker: MakeFromAbi {
 // MARK: - Binding
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.binding)
+@MainActor
 open class Binding : WinUI.BindingBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Data.IBinding
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBinding
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -493,23 +512,23 @@ open class Binding : WinUI.BindingBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBindingFactory : __ABI_Microsoft_UI_Xaml_Data.IBindingFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Data.Binding")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Data.BindingBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBindingFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -835,12 +854,13 @@ extension __ABI_Microsoft_UI_Xaml_Data {
 // MARK: - BindingBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.bindingbase)
+@MainActor
 open class BindingBase : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Data.IBindingBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -848,23 +868,23 @@ open class BindingBase : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBindingBaseFactory : __ABI_Microsoft_UI_Xaml_Data.IBindingBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Data.BindingBase")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Data.BindingBaseBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBindingBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -945,12 +965,13 @@ extension __ABI_Microsoft_UI_Xaml_Data {
 // MARK: - BindingExpression
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.bindingexpression)
+@MainActor
 open class BindingExpression : WinUI.BindingExpressionBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Data.IBindingExpression
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingExpression
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -958,18 +979,18 @@ open class BindingExpression : WinUI.BindingExpressionBase, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBindingExpressionFactory : __ABI_Microsoft_UI_Xaml_Data.IBindingExpressionFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Data.BindingExpression")
@@ -1075,12 +1096,13 @@ extension __ABI_Microsoft_UI_Xaml_Data {
 // MARK: - BindingExpressionBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.bindingexpressionbase)
+@MainActor
 open class BindingExpressionBase : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Data.IBindingExpressionBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CData_CIBindingExpressionBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1088,19 +1110,19 @@ open class BindingExpressionBase : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBindingExpressionBaseFactory : __ABI_Microsoft_UI_Xaml_Data.IBindingExpressionBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Data.BindingExpressionBase")
@@ -1167,12 +1189,13 @@ extension __ABI_Microsoft_UI_Xaml_Data {
 // MARK: - ItemIndexRange
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.itemindexrange)
+@MainActor
 open class ItemIndexRange : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Data.IItemIndexRange
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CData_CIItemIndexRange
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1180,24 +1203,24 @@ open class ItemIndexRange : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IItemIndexRangeFactory : __ABI_Microsoft_UI_Xaml_Data.IItemIndexRangeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Data.ItemIndexRange")
 
-    public init(_ firstIndex: Int32, _ length: UInt32) {
+    nonisolated public init(_ firstIndex: Int32, _ length: UInt32) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Data.ItemIndexRangeBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IItemIndexRangeFactory.CreateInstance(firstIndex, length, baseInterface, &innerInterface)
@@ -1318,12 +1341,13 @@ extension __ABI_Microsoft_UI_Xaml_Data {
 // MARK: - PropertyChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.propertychangedeventargs)
+@MainActor
 open class PropertyChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Data.IPropertyChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CData_CIPropertyChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1331,24 +1355,24 @@ open class PropertyChangedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPropertyChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Data.IPropertyChangedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Data.PropertyChangedEventArgs")
 
-    public init(_ name: String) {
+    nonisolated public init(_ name: String) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Data.PropertyChangedEventArgsBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IPropertyChangedEventArgsFactory.CreateInstance(name, baseInterface, &innerInterface)
@@ -1447,12 +1471,13 @@ extension __ABI_Microsoft_UI_Xaml_Data {
 // MARK: - RelativeSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.data.relativesource)
+@MainActor
 open class RelativeSource : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Data.IRelativeSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CData_CIRelativeSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1460,23 +1485,23 @@ open class RelativeSource : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IRelativeSourceFactory : __ABI_Microsoft_UI_Xaml_Data.IRelativeSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Data.RelativeSource")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Data.RelativeSourceBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRelativeSourceFactory.CreateInstance(baseInterface, &innerInterface)
         }

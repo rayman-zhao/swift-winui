@@ -58,7 +58,7 @@ extension WinUI.SvgImageSourceLoadStatus: @retroactive Hashable, @retroactive Co
 
 // MARK: - DownloadProgressEventHandler
 
-public typealias DownloadProgressEventHandler = @Sendable (Any?, DownloadProgressEventArgs?) throws -> ()
+public typealias DownloadProgressEventHandler = @MainActor (Any?, DownloadProgressEventArgs?) throws -> ()
 
 // MARK: - DownloadProgressEventHandler Internals
 
@@ -107,9 +107,11 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
         Invoke: {
             do {
                 guard let __unwrapped__instance = DownloadProgressEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.DownloadProgressEventArgs? = __IMPL_Microsoft_UI_Xaml_Media_Imaging.DownloadProgressEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -125,12 +127,13 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - BitmapImage
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage)
+@MainActor
 public final class BitmapImage : WinUI.BitmapSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImage
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapImage
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -138,21 +141,21 @@ public final class BitmapImage : WinUI.BitmapSource, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBitmapImageFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImageFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
-    public init(_ uriSource: WindowsFoundation.Uri!) {
+    private static nonisolated let _IBitmapImageFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImageFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
+    nonisolated public init(_ uriSource: WindowsFoundation.Uri!) {
         super.init(fromAbi: try! Self._IBitmapImageFactory.CreateInstanceWithUriSource(uriSource))
     }
 
-    private static let _IBitmapImageStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImageStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
+    private static nonisolated let _IBitmapImageStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapImageStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapImage")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.autoplayproperty)
     public static var autoPlayProperty : WinUI.DependencyProperty! {
         get { try! _IBitmapImageStatics.get_AutoPlayProperty() }
@@ -252,39 +255,51 @@ public final class BitmapImage : WinUI.BitmapSource, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.downloadprogress)
     public lazy var downloadProgress : Event<DownloadProgressEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DownloadProgress($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DownloadProgress(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DownloadProgress($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DownloadProgress(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.imagefailed)
     public lazy var imageFailed : Event<WinUI.ExceptionRoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ImageFailed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ImageFailed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ImageFailed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ImageFailed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapimage.imageopened)
     public lazy var imageOpened : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ImageOpened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ImageOpened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ImageOpened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ImageOpened(token)
+          }
+        }
       )
     }()
 
@@ -589,12 +604,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - BitmapSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource)
+@MainActor
 open class BitmapSource : WinUI.ImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIBitmapSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -602,29 +618,29 @@ open class BitmapSource : WinUI.ImageSource, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBitmapSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapSource")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.BitmapSourceBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBitmapSourceFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IBitmapSourceStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapSource")
+    private static nonisolated let _IBitmapSourceStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IBitmapSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.BitmapSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.bitmapsource.pixelheightproperty)
     public class var pixelHeightProperty : WinUI.DependencyProperty! {
         get { try! _IBitmapSourceStatics.get_PixelHeightProperty() }
@@ -792,12 +808,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - DownloadProgressEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.downloadprogresseventargs)
+@MainActor
 public final class DownloadProgressEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IDownloadProgressEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIDownloadProgressEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -805,7 +822,7 @@ public final class DownloadProgressEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -870,12 +887,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - RenderTargetBitmap
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap)
+@MainActor
 public final class RenderTargetBitmap : WinUI.ImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IRenderTargetBitmap
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIRenderTargetBitmap
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -883,16 +901,16 @@ public final class RenderTargetBitmap : WinUI.ImageSource, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRenderTargetBitmapStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IRenderTargetBitmapStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap")
+    private static nonisolated let _IRenderTargetBitmapStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.IRenderTargetBitmapStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.RenderTargetBitmap")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.rendertargetbitmap.pixelheightproperty)
     public static var pixelHeightProperty : WinUI.DependencyProperty! {
         get { try! _IRenderTargetBitmapStatics.get_PixelHeightProperty() }
@@ -1039,12 +1057,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SoftwareBitmapSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.softwarebitmapsource)
+@MainActor
 public final class SoftwareBitmapSource : WinUI.ImageSource, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISoftwareBitmapSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISoftwareBitmapSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1052,15 +1071,15 @@ public final class SoftwareBitmapSource : WinUI.ImageSource, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1069,9 +1088,9 @@ public final class SoftwareBitmapSource : WinUI.ImageSource, @unchecked Sendable
         try _default.SetBitmapAsync(softwareBitmap)
     }
 
-    private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.softwarebitmapsource.close)
-    public func close() throws {
+    public nonisolated func close() throws {
         try _IClosable.Close()
     }
 
@@ -1126,12 +1145,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SurfaceImageSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.surfaceimagesource)
+@MainActor
 open class SurfaceImageSource : WinUI.ImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISurfaceImageSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1139,29 +1159,29 @@ open class SurfaceImageSource : WinUI.ImageSource, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISurfaceImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISurfaceImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource")
 
-    public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
+    nonisolated public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SurfaceImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISurfaceImageSourceFactory.CreateInstanceWithDimensions(pixelWidth, pixelHeight, baseInterface, &innerInterface)
         }
     }
 
-    public init(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool) {
+    nonisolated public init(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SurfaceImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISurfaceImageSourceFactory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, baseInterface, &innerInterface)
         }
@@ -1255,12 +1275,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SvgImageSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource)
+@MainActor
 open class SvgImageSource : WinUI.ImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1268,35 +1289,35 @@ open class SvgImageSource : WinUI.ImageSource, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISvgImageSourceFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISvgImageSourceFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    public init(_ uriSource: WindowsFoundation.Uri!) {
+    nonisolated public init(_ uriSource: WindowsFoundation.Uri!) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.SvgImageSourceBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISvgImageSourceFactory.CreateInstanceWithUriSource(uriSource, baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISvgImageSourceStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource")
+    private static nonisolated let _ISvgImageSourceStatics: __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.SvgImageSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.rasterizepixelheightproperty)
     public class var rasterizePixelHeightProperty : WinUI.DependencyProperty! {
         get { try! _ISvgImageSourceStatics.get_RasterizePixelHeightProperty() }
@@ -1338,26 +1359,34 @@ open class SvgImageSource : WinUI.ImageSource, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.openfailed)
     public lazy var openFailed : Event<TypedEventHandler<SvgImageSource?, SvgImageSourceFailedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_OpenFailed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_OpenFailed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_OpenFailed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_OpenFailed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesource.opened)
     public lazy var opened : Event<TypedEventHandler<SvgImageSource?, SvgImageSourceOpenedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opened(token)
+          }
+        }
       )
     }()
 
@@ -1571,12 +1600,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SvgImageSourceFailedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesourcefailedeventargs)
+@MainActor
 public final class SvgImageSourceFailedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceFailedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceFailedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1584,7 +1614,7 @@ public final class SvgImageSourceFailedEventArgs : WinRTClass, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -1642,12 +1672,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - SvgImageSourceOpenedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.svgimagesourceopenedeventargs)
+@MainActor
 public final class SvgImageSourceOpenedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.ISvgImageSourceOpenedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CISvgImageSourceOpenedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1655,7 +1686,7 @@ public final class SvgImageSourceOpenedEventArgs : WinRTClass, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -1700,12 +1731,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - VirtualSurfaceImageSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.virtualsurfaceimagesource)
+@MainActor
 public final class VirtualSurfaceImageSource : WinUI.SurfaceImageSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IVirtualSurfaceImageSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIVirtualSurfaceImageSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1713,16 +1745,16 @@ public final class VirtualSurfaceImageSource : WinUI.SurfaceImageSource, @unchec
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IVirtualSurfaceImageSourceFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IVirtualSurfaceImageSourceFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource")
-    override public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
+    private static nonisolated let _IVirtualSurfaceImageSourceFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IVirtualSurfaceImageSourceFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource")
+    nonisolated override public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
         super.init(fromAbi: try! Self._IVirtualSurfaceImageSourceFactory.CreateInstanceWithDimensions(pixelWidth, pixelHeight))
     }
 
-    override public init(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool) {
+    nonisolated override public init(_ pixelWidth: Int32, _ pixelHeight: Int32, _ isOpaque: Bool) {
         super.init(fromAbi: try! Self._IVirtualSurfaceImageSourceFactory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque))
     }
 
@@ -1794,12 +1826,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - WriteableBitmap
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.writeablebitmap)
+@MainActor
 public final class WriteableBitmap : WinUI.BitmapSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IWriteableBitmap
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIWriteableBitmap
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1807,12 +1840,12 @@ public final class WriteableBitmap : WinUI.BitmapSource, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _IWriteableBitmapFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IWriteableBitmapFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.WriteableBitmap")
-    public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
+    private static nonisolated let _IWriteableBitmapFactory: __ABI_Microsoft_UI_Xaml_Media_Imaging.IWriteableBitmapFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.WriteableBitmap")
+    nonisolated public init(_ pixelWidth: Int32, _ pixelHeight: Int32) {
         super.init(fromAbi: try! Self._IWriteableBitmapFactory.CreateInstanceWithDimensions(pixelWidth, pixelHeight))
     }
 
@@ -1900,12 +1933,13 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
 // MARK: - XamlRenderingBackgroundTask
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.xamlrenderingbackgroundtask)
+@MainActor
 open class XamlRenderingBackgroundTask : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTask
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CImaging_CIXamlRenderingBackgroundTask
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1913,19 +1947,19 @@ open class XamlRenderingBackgroundTask : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskOverridesWrapper(self)
@@ -1935,14 +1969,14 @@ open class XamlRenderingBackgroundTask : WinRTClass, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IXamlRenderingBackgroundTaskFactory : __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Media_Imaging.XamlRenderingBackgroundTaskBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IXamlRenderingBackgroundTaskFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private lazy var _IXamlRenderingBackgroundTaskOverrides: __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IXamlRenderingBackgroundTaskOverrides: __ABI_Microsoft_UI_Xaml_Media_Imaging.IXamlRenderingBackgroundTaskOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.imaging.xamlrenderingbackgroundtask.onrun)
     open func onRun(_ taskInstance: UWP.AnyIBackgroundTaskInstance!) throws {
         try _IXamlRenderingBackgroundTaskOverrides.OnRun(taskInstance)
@@ -2022,7 +2056,9 @@ extension __ABI_Microsoft_UI_Xaml_Media_Imaging {
             do {
                 guard let __unwrapped__instance = IXamlRenderingBackgroundTaskOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let taskInstance: UWP.AnyIBackgroundTaskInstance? = __ABI_Windows_ApplicationModel_Background.IBackgroundTaskInstanceWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onRun(taskInstance)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onRun(taskInstance)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }

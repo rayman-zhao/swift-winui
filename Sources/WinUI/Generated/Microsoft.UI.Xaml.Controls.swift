@@ -2079,7 +2079,7 @@ extension WinUI.ZoomMode: @retroactive Hashable, @retroactive Codable, @retroact
 
 // MARK: - CalendarViewDayItemChangingEventHandler
 
-public typealias CalendarViewDayItemChangingEventHandler = @Sendable (CalendarView?, CalendarViewDayItemChangingEventArgs?) throws -> ()
+public typealias CalendarViewDayItemChangingEventHandler = @MainActor (CalendarView?, CalendarViewDayItemChangingEventArgs?) throws -> ()
 
 // MARK: - CalendarViewDayItemChangingEventHandler Internals
 
@@ -2128,7 +2128,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = CalendarViewDayItemChangingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let sender: WinUI.CalendarView? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.from(abi: ComPtr($1))
                 let e: WinUI.CalendarViewDayItemChangingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemChangingEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -2143,7 +2145,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ContextMenuOpeningEventHandler
 
-public typealias ContextMenuOpeningEventHandler = @Sendable (Any?, ContextMenuEventArgs?) throws -> ()
+public typealias ContextMenuOpeningEventHandler = @MainActor (Any?, ContextMenuEventArgs?) throws -> ()
 
 // MARK: - ContextMenuOpeningEventHandler Internals
 
@@ -2192,9 +2194,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Invoke: {
             do {
                 guard let __unwrapped__instance = ContextMenuOpeningEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.ContextMenuEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ContextMenuEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -2209,7 +2213,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - DragItemsStartingEventHandler
 
-public typealias DragItemsStartingEventHandler = @Sendable (Any?, DragItemsStartingEventArgs?) throws -> ()
+public typealias DragItemsStartingEventHandler = @MainActor (Any?, DragItemsStartingEventArgs?) throws -> ()
 
 // MARK: - DragItemsStartingEventHandler Internals
 
@@ -2258,9 +2262,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Invoke: {
             do {
                 guard let __unwrapped__instance = DragItemsStartingEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.DragItemsStartingEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.DragItemsStartingEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -2275,7 +2281,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - ItemClickEventHandler
 
-public typealias ItemClickEventHandler = @Sendable (Any?, ItemClickEventArgs?) throws -> ()
+public typealias ItemClickEventHandler = @MainActor (Any?, ItemClickEventArgs?) throws -> ()
 
 // MARK: - ItemClickEventHandler Internals
 
@@ -2324,9 +2330,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Invoke: {
             do {
                 guard let __unwrapped__instance = ItemClickEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.ItemClickEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ItemClickEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -2341,7 +2349,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - SelectionChangedEventHandler
 
-public typealias SelectionChangedEventHandler = @Sendable (Any?, SelectionChangedEventArgs?) throws -> ()
+public typealias SelectionChangedEventHandler = @MainActor (Any?, SelectionChangedEventArgs?) throws -> ()
 
 // MARK: - SelectionChangedEventHandler Internals
 
@@ -2390,9 +2398,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Invoke: {
             do {
                 guard let __unwrapped__instance = SelectionChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.SelectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.SelectionChangedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -2407,7 +2417,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - SemanticZoomViewChangedEventHandler
 
-public typealias SemanticZoomViewChangedEventHandler = @Sendable (Any?, SemanticZoomViewChangedEventArgs?) throws -> ()
+public typealias SemanticZoomViewChangedEventHandler = @MainActor (Any?, SemanticZoomViewChangedEventArgs?) throws -> ()
 
 // MARK: - SemanticZoomViewChangedEventHandler Internals
 
@@ -2456,9 +2466,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Invoke: {
             do {
                 guard let __unwrapped__instance = SemanticZoomViewChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.SemanticZoomViewChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomViewChangedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -2473,7 +2485,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - TextChangedEventHandler
 
-public typealias TextChangedEventHandler = @Sendable (Any?, TextChangedEventArgs?) throws -> ()
+public typealias TextChangedEventHandler = @MainActor (Any?, TextChangedEventArgs?) throws -> ()
 
 // MARK: - TextChangedEventHandler Internals
 
@@ -2522,9 +2534,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Invoke: {
             do {
                 guard let __unwrapped__instance = TextChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.TextChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextChangedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -2539,7 +2553,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - TextControlPasteEventHandler
 
-public typealias TextControlPasteEventHandler = @Sendable (Any?, TextControlPasteEventArgs?) throws -> ()
+public typealias TextControlPasteEventHandler = @MainActor (Any?, TextControlPasteEventArgs?) throws -> ()
 
 // MARK: - TextControlPasteEventHandler Internals
 
@@ -2588,9 +2602,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         Invoke: {
             do {
                 guard let __unwrapped__instance = TextControlPasteEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.TextControlPasteEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.TextControlPasteEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -2606,7 +2622,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - ICommandBarElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement)
-public protocol ICommandBarElement : WinRTInterface {
+@MainActor public protocol ICommandBarElement : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement.dynamicoverfloworder)
     var dynamicOverflowOrder: Int32 { get set }
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.icommandbarelement.iscompact)
@@ -2616,7 +2632,7 @@ public protocol ICommandBarElement : WinRTInterface {
 }
 
 extension ICommandBarElement {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElementWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElementWrapper(self)
@@ -2649,8 +2665,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
     fileprivate class ICommandBarElementImpl: ICommandBarElement, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ICommandBarElementBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -2751,7 +2767,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         get_IsCompact: {
             guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isCompact
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isCompact
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
@@ -2759,20 +2777,26 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         put_IsCompact: {
             guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let value: Bool = .init(from: $1)
-            __unwrapped__instance.isCompact = value
+            MainActor.assumeIsolated {
+                __unwrapped__instance.isCompact = value
+            }
             return S_OK
         },
 
         get_IsInOverflow: {
             guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isInOverflow
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isInOverflow
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
 
         get_DynamicOverflowOrder: {
             guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.dynamicOverflowOrder
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.dynamicOverflowOrder
+            }
             $1?.initialize(to: value)
             return S_OK
         },
@@ -2780,7 +2804,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         put_DynamicOverflowOrder: {
             guard let __unwrapped__instance = ICommandBarElementWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let value: Int32 = $1
-            __unwrapped__instance.dynamicOverflowOrder = value
+            MainActor.assumeIsolated {
+                __unwrapped__instance.dynamicOverflowOrder = value
+            }
             return S_OK
         }
     )
@@ -2798,13 +2824,13 @@ public class ICommandBarElementMaker: MakeFromAbi {
 // MARK: - IInsertionPanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iinsertionpanel)
-public protocol IInsertionPanel : WinRTInterface {
+@MainActor public protocol IInsertionPanel : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iinsertionpanel.getinsertionindexes)
     func getInsertionIndexes(_ position: WindowsFoundation.Point, _ first: inout Int32, _ second: inout Int32) throws
 }
 
 extension IInsertionPanel {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IInsertionPanelWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IInsertionPanelWrapper(self)
@@ -2837,8 +2863,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
     fileprivate class IInsertionPanelImpl: IInsertionPanel, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IInsertionPanelBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -2901,7 +2927,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 let position: WindowsFoundation.Point = .from(abi: $1)
                 var first: Int32 = 0
                 var second: Int32 = 0
-                try __unwrapped__instance.getInsertionIndexes(position, &first, &second)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getInsertionIndexes(position, &first, &second)
+                }
                 $2?.initialize(to: first)
                 $3?.initialize(to: second)
                 return S_OK
@@ -2922,7 +2950,7 @@ public class IInsertionPanelMaker: MakeFromAbi {
 // MARK: - IItemContainerMapping
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iitemcontainermapping)
-public protocol IItemContainerMapping : WinRTInterface {
+@MainActor public protocol IItemContainerMapping : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iitemcontainermapping.itemfromcontainer)
     func itemFromContainer(_ container: WinUI.DependencyObject!) throws -> Any!
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iitemcontainermapping.containerfromitem)
@@ -2934,7 +2962,7 @@ public protocol IItemContainerMapping : WinRTInterface {
 }
 
 extension IItemContainerMapping {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IItemContainerMappingWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IItemContainerMappingWrapper(self)
@@ -2967,8 +2995,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
     fileprivate class IItemContainerMappingImpl: IItemContainerMapping, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IItemContainerMappingBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -3075,7 +3103,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IItemContainerMappingWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let container: WinUI.DependencyObject? = __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: ComPtr($1))
-                let result = try __unwrapped__instance.itemFromContainer(container)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.itemFromContainer(container)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -3085,8 +3117,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         ContainerFromItem: {
             do {
                 guard let __unwrapped__instance = IItemContainerMappingWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let result = try __unwrapped__instance.containerFromItem(item)
+                nonisolated(unsafe) let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.containerFromItem(item)
+                }
                 result?.copyTo($2)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -3096,7 +3130,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IItemContainerMappingWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let container: WinUI.DependencyObject? = __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: ComPtr($1))
-                let result = try __unwrapped__instance.indexFromContainer(container)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.indexFromContainer(container)
+                }
                 $2?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -3106,7 +3142,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IItemContainerMappingWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: Int32 = $1
-                let result = try __unwrapped__instance.containerFromIndex(index)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.containerFromIndex(index)
+                }
                 result?.copyTo($2)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -3126,7 +3164,7 @@ public class IItemContainerMappingMaker: MakeFromAbi {
 // MARK: - IKeyIndexMapping
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.ikeyindexmapping)
-public protocol IKeyIndexMapping : WinRTInterface {
+@MainActor public protocol IKeyIndexMapping : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.ikeyindexmapping.keyfromindex)
     func keyFromIndex(_ index: Int32) throws -> String
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.ikeyindexmapping.indexfromkey)
@@ -3134,7 +3172,7 @@ public protocol IKeyIndexMapping : WinRTInterface {
 }
 
 extension IKeyIndexMapping {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IKeyIndexMappingWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IKeyIndexMappingWrapper(self)
@@ -3167,8 +3205,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
     fileprivate class IKeyIndexMappingImpl: IKeyIndexMapping, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IKeyIndexMappingBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -3248,7 +3286,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IKeyIndexMappingWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: Int32 = $1
-                let result = try __unwrapped__instance.keyFromIndex(index)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.keyFromIndex(index)
+                }
                 $2?.initialize(to: try! HString(result).detach())
                 return S_OK
             } catch { return failWith(error: error) }
@@ -3258,7 +3298,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IKeyIndexMappingWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let key: String = .init(from: $1)
-                let result = try __unwrapped__instance.indexFromKey(key)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.indexFromKey(key)
+                }
                 $2?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -3278,13 +3320,13 @@ public class IKeyIndexMappingMaker: MakeFromAbi {
 // MARK: - INavigate
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.inavigate)
-public protocol INavigate : WinRTInterface {
+@MainActor public protocol INavigate : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.inavigate.navigate)
     func navigate(_ sourcePageType: WinUI.TypeName) throws -> Bool
 }
 
 extension INavigate {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.INavigateWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.INavigateWrapper(self)
@@ -3317,8 +3359,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
     fileprivate class INavigateImpl: INavigate, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INavigateBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -3382,7 +3424,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = INavigateWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let sourcePageType: WinUI.TypeName = .from(abi: $1)
-                let result = try __unwrapped__instance.navigate(sourcePageType)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.navigate(sourcePageType)
+                }
                 $2?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -3402,7 +3446,7 @@ public class INavigateMaker: MakeFromAbi {
 // MARK: - IScrollAnchorProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider)
-public protocol IScrollAnchorProvider : WinRTInterface {
+@MainActor public protocol IScrollAnchorProvider : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider.registeranchorcandidate)
     func registerAnchorCandidate(_ element: WinUI.UIElement!) throws
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider.unregisteranchorcandidate)
@@ -3412,7 +3456,7 @@ public protocol IScrollAnchorProvider : WinRTInterface {
 }
 
 extension IScrollAnchorProvider {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IScrollAnchorProviderWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IScrollAnchorProviderWrapper(self)
@@ -3445,8 +3489,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
     fileprivate class IScrollAnchorProviderImpl: IScrollAnchorProvider, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IScrollAnchorProviderBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -3530,7 +3574,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         get_CurrentAnchor: {
             guard let __unwrapped__instance = IScrollAnchorProviderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.currentAnchor
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.currentAnchor
+            }
             value?.copyTo($1)
             return S_OK
         },
@@ -3539,7 +3585,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IScrollAnchorProviderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let element: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.registerAnchorCandidate(element)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.registerAnchorCandidate(element)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -3548,7 +3596,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IScrollAnchorProviderWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let element: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.unregisterAnchorCandidate(element)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.unregisterAnchorCandidate(element)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -3567,7 +3617,7 @@ public class IScrollAnchorProviderMaker: MakeFromAbi {
 // MARK: - ISemanticZoomInformation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.isemanticzoominformation)
-public protocol ISemanticZoomInformation : WinRTInterface {
+@MainActor public protocol ISemanticZoomInformation : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.isemanticzoominformation.initializeviewchange)
     func initializeViewChange() throws
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.isemanticzoominformation.completeviewchange)
@@ -3591,7 +3641,7 @@ public protocol ISemanticZoomInformation : WinRTInterface {
 }
 
 extension ISemanticZoomInformation {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomInformationWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomInformationWrapper(self)
@@ -3624,8 +3674,8 @@ extension __IMPL_Microsoft_UI_Xaml_Controls {
     fileprivate class ISemanticZoomInformationImpl: ISemanticZoomInformation, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = ISemanticZoomInformationBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -3811,7 +3861,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         get_SemanticZoomOwner: {
             guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.semanticZoomOwner
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.semanticZoomOwner
+            }
             value?.copyTo($1)
             return S_OK
         },
@@ -3819,13 +3871,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         put_SemanticZoomOwner: {
             guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let value: WinUI.SemanticZoom? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomBridge.from(abi: ComPtr($1))
-            __unwrapped__instance.semanticZoomOwner = value
+            MainActor.assumeIsolated {
+                __unwrapped__instance.semanticZoomOwner = value
+            }
             return S_OK
         },
 
         get_IsActiveView: {
             guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isActiveView
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isActiveView
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
@@ -3833,13 +3889,17 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         put_IsActiveView: {
             guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let value: Bool = .init(from: $1)
-            __unwrapped__instance.isActiveView = value
+            MainActor.assumeIsolated {
+                __unwrapped__instance.isActiveView = value
+            }
             return S_OK
         },
 
         get_IsZoomedInView: {
             guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.isZoomedInView
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.isZoomedInView
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
@@ -3847,14 +3907,18 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         put_IsZoomedInView: {
             guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let value: Bool = .init(from: $1)
-            __unwrapped__instance.isZoomedInView = value
+            MainActor.assumeIsolated {
+                __unwrapped__instance.isZoomedInView = value
+            }
             return S_OK
         },
 
         InitializeViewChange: {
             do {
                 guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.initializeViewChange()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.initializeViewChange()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -3862,7 +3926,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         CompleteViewChange: {
             do {
                 guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.completeViewChange()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.completeViewChange()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -3871,7 +3937,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let item: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.makeVisible(item)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.makeVisible(item)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -3881,7 +3949,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let source: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($1))
                 let destination: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.startViewChangeFrom(source, destination)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.startViewChangeFrom(source, destination)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -3891,7 +3961,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let source: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($1))
                 let destination: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.startViewChangeTo(source, destination)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.startViewChangeTo(source, destination)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -3901,7 +3973,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let source: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($1))
                 let destination: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.completeViewChangeFrom(source, destination)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.completeViewChangeFrom(source, destination)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -3911,7 +3985,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = ISemanticZoomInformationWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let source: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($1))
                 let destination: WinUI.SemanticZoomLocation? = __IMPL_Microsoft_UI_Xaml_Controls.SemanticZoomLocationBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.completeViewChangeTo(source, destination)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.completeViewChangeTo(source, destination)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -3930,12 +4006,13 @@ public class ISemanticZoomInformationMaker: MakeFromAbi {
 // MARK: - AnchorRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.anchorrequestedeventargs)
+@MainActor
 public final class AnchorRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnchorRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnchorRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3943,7 +4020,7 @@ public final class AnchorRequestedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -4023,12 +4100,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AnnotatedScrollBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar)
+@MainActor
 open class AnnotatedScrollBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4036,29 +4114,29 @@ open class AnnotatedScrollBar : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IAnnotatedScrollBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AnnotatedScrollBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IAnnotatedScrollBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAnnotatedScrollBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBar")
+    private static nonisolated let _IAnnotatedScrollBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.detaillabeltemplateproperty)
     public class var detailLabelTemplateProperty : WinUI.DependencyProperty! {
         get { try! _IAnnotatedScrollBarStatics.get_DetailLabelTemplateProperty() }
@@ -4111,26 +4189,34 @@ open class AnnotatedScrollBar : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.detaillabelrequested)
     public lazy var detailLabelRequested : Event<TypedEventHandler<AnnotatedScrollBar?, AnnotatedScrollBarDetailLabelRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DetailLabelRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DetailLabelRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DetailLabelRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DetailLabelRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbar.scrolling)
     public lazy var scrolling : Event<TypedEventHandler<AnnotatedScrollBar?, AnnotatedScrollBarScrollingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Scrolling($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Scrolling(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Scrolling($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Scrolling(token)
+          }
+        }
       )
     }()
 
@@ -4360,12 +4446,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AnnotatedScrollBarDetailLabelRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbardetaillabelrequestedeventargs)
+@MainActor
 public final class AnnotatedScrollBarDetailLabelRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarDetailLabelRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarDetailLabelRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4373,7 +4460,7 @@ public final class AnnotatedScrollBarDetailLabelRequestedEventArgs : WinRTClass,
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -4454,12 +4541,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AnnotatedScrollBarLabel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarlabel)
+@MainActor
 public final class AnnotatedScrollBarLabel : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarLabel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarLabel
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4467,12 +4555,12 @@ public final class AnnotatedScrollBarLabel : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAnnotatedScrollBarLabelFactory: __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarLabelFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBarLabel")
-    public init(_ content: Any!, _ scrollOffset: Double) {
+    private static nonisolated let _IAnnotatedScrollBarLabelFactory: __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarLabelFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AnnotatedScrollBarLabel")
+    nonisolated public init(_ content: Any!, _ scrollOffset: Double) {
         super.init(try! Self._IAnnotatedScrollBarLabelFactory.CreateInstance(content, scrollOffset))
     }
 
@@ -4564,12 +4652,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AnnotatedScrollBarScrollingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.annotatedscrollbarscrollingeventargs)
+@MainActor
 public final class AnnotatedScrollBarScrollingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAnnotatedScrollBarScrollingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAnnotatedScrollBarScrollingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4577,7 +4666,7 @@ public final class AnnotatedScrollBarScrollingEventArgs : WinRTClass, @unchecked
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -4668,12 +4757,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AppBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbar)
+@MainActor
 open class AppBar : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -4681,18 +4771,18 @@ open class AppBar : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IAppBarOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IAppBarOverridesWrapper(self)
@@ -4702,13 +4792,13 @@ open class AppBar : WinUI.ContentControl, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IAppBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IAppBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAppBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBar")
+    private static nonisolated let _IAppBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbar.closeddisplaymodeproperty)
     public class var closedDisplayModeProperty : WinUI.DependencyProperty! {
         get { try! _IAppBarStatics.get_ClosedDisplayModeProperty() }
@@ -4761,56 +4851,72 @@ open class AppBar : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbar.closed)
     public lazy var closed : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbar.closing)
     public lazy var closing : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closing($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closing(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closing($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closing(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbar.opened)
     public lazy var opened : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opened(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbar.opening)
     public lazy var opening : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opening(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IAppBarOverrides: __ABI_Microsoft_UI_Xaml_Controls.IAppBarOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IAppBarOverrides: __ABI_Microsoft_UI_Xaml_Controls.IAppBarOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbar.onclosed)
     open func onClosed(_ e: Any!) throws {
         try _IAppBarOverrides.OnClosed(e)
@@ -4908,8 +5014,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         OnClosed: {
             do {
                 guard let __unwrapped__instance = IAppBarOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onClosed(e)
+                nonisolated(unsafe) let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onClosed(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -4917,8 +5025,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         OnOpened: {
             do {
                 guard let __unwrapped__instance = IAppBarOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onOpened(e)
+                nonisolated(unsafe) let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onOpened(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -4926,8 +5036,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         OnClosing: {
             do {
                 guard let __unwrapped__instance = IAppBarOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onClosing(e)
+                nonisolated(unsafe) let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onClosing(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -4935,8 +5047,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         OnOpening: {
             do {
                 guard let __unwrapped__instance = IAppBarOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onOpening(e)
+                nonisolated(unsafe) let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onOpening(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -5197,12 +5311,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - AppBarButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton)
+@MainActor
 open class AppBarButton : WinUI.Button, @unchecked Sendable, ICommandBarElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5210,29 +5325,29 @@ open class AppBarButton : WinUI.Button, @unchecked Sendable, ICommandBarElement 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IAppBarButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarButton")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IAppBarButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAppBarButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarButton")
+    private static nonisolated let _IAppBarButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarButton")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton.dynamicoverfloworderproperty)
     public class var dynamicOverflowOrderProperty : WinUI.DependencyProperty! {
         get { try! _IAppBarButtonStatics.get_DynamicOverflowOrderProperty() }
@@ -5297,7 +5412,7 @@ open class AppBarButton : WinUI.Button, @unchecked Sendable, ICommandBarElement 
         get { try! _default.get_TemplateSettings() }
     }
 
-    private lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton.dynamicoverfloworder)
     public var dynamicOverflowOrder : Int32 {
         get { try! _ICommandBarElement.get_DynamicOverflowOrder() }
@@ -5537,12 +5652,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AppBarElementContainer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarelementcontainer)
+@MainActor
 open class AppBarElementContainer : WinUI.ContentControl, @unchecked Sendable, ICommandBarElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarElementContainer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarElementContainer
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5550,29 +5666,29 @@ open class AppBarElementContainer : WinUI.ContentControl, @unchecked Sendable, I
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IAppBarElementContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarElementContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarElementContainer")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarElementContainerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IAppBarElementContainerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAppBarElementContainerStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarElementContainerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarElementContainer")
+    private static nonisolated let _IAppBarElementContainerStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarElementContainerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarElementContainer")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarelementcontainer.dynamicoverfloworderproperty)
     public class var dynamicOverflowOrderProperty : WinUI.DependencyProperty! {
         get { try! _IAppBarElementContainerStatics.get_DynamicOverflowOrderProperty() }
@@ -5588,7 +5704,7 @@ open class AppBarElementContainer : WinUI.ContentControl, @unchecked Sendable, I
         get { try! _IAppBarElementContainerStatics.get_IsInOverflowProperty() }
     }
 
-    private lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarelementcontainer.dynamicoverfloworder)
     public var dynamicOverflowOrder : Int32 {
         get { try! _ICommandBarElement.get_DynamicOverflowOrder() }
@@ -5718,12 +5834,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AppBarSeparator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarseparator)
+@MainActor
 open class AppBarSeparator : WinUI.Control, @unchecked Sendable, ICommandBarElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarSeparator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarSeparator
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5731,29 +5848,29 @@ open class AppBarSeparator : WinUI.Control, @unchecked Sendable, ICommandBarElem
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IAppBarSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarSeparator")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarSeparatorBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IAppBarSeparatorFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAppBarSeparatorStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarSeparatorStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarSeparator")
+    private static nonisolated let _IAppBarSeparatorStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarSeparatorStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarSeparator")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarseparator.dynamicoverfloworderproperty)
     public class var dynamicOverflowOrderProperty : WinUI.DependencyProperty! {
         get { try! _IAppBarSeparatorStatics.get_DynamicOverflowOrderProperty() }
@@ -5769,7 +5886,7 @@ open class AppBarSeparator : WinUI.Control, @unchecked Sendable, ICommandBarElem
         get { try! _IAppBarSeparatorStatics.get_IsInOverflowProperty() }
     }
 
-    private lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarseparator.dynamicoverfloworder)
     public var dynamicOverflowOrder : Int32 {
         get { try! _ICommandBarElement.get_DynamicOverflowOrder() }
@@ -5899,12 +6016,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AppBarToggleButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton)
+@MainActor
 open class AppBarToggleButton : WinUI.ToggleButton, @unchecked Sendable, ICommandBarElement {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAppBarToggleButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -5912,29 +6030,29 @@ open class AppBarToggleButton : WinUI.ToggleButton, @unchecked Sendable, IComman
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IAppBarToggleButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarToggleButton")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.AppBarToggleButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IAppBarToggleButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IAppBarToggleButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarToggleButton")
+    private static nonisolated let _IAppBarToggleButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IAppBarToggleButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AppBarToggleButton")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.dynamicoverfloworderproperty)
     public class var dynamicOverflowOrderProperty : WinUI.DependencyProperty! {
         get { try! _IAppBarToggleButtonStatics.get_DynamicOverflowOrderProperty() }
@@ -5999,7 +6117,7 @@ open class AppBarToggleButton : WinUI.ToggleButton, @unchecked Sendable, IComman
         get { try! _default.get_TemplateSettings() }
     }
 
-    private lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ICommandBarElement: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton.dynamicoverfloworder)
     public var dynamicOverflowOrder : Int32 {
         get { try! _ICommandBarElement.get_DynamicOverflowOrder() }
@@ -6239,12 +6357,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AutoSuggestBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestbox)
+@MainActor
 public final class AutoSuggestBox : WinUI.ItemsControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6252,16 +6371,16 @@ public final class AutoSuggestBox : WinUI.ItemsControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBox")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBox")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IAutoSuggestBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBox")
+    private static nonisolated let _IAutoSuggestBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBox")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestbox.automaximizesuggestionareaproperty)
     public static var autoMaximizeSuggestionAreaProperty : WinUI.DependencyProperty! {
         get { try! _IAutoSuggestBoxStatics.get_AutoMaximizeSuggestionAreaProperty() }
@@ -6397,39 +6516,51 @@ public final class AutoSuggestBox : WinUI.ItemsControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestbox.querysubmitted)
     public lazy var querySubmitted : Event<TypedEventHandler<AutoSuggestBox?, AutoSuggestBoxQuerySubmittedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_QuerySubmitted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_QuerySubmitted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_QuerySubmitted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_QuerySubmitted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestbox.suggestionchosen)
     public lazy var suggestionChosen : Event<TypedEventHandler<AutoSuggestBox?, AutoSuggestBoxSuggestionChosenEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SuggestionChosen($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SuggestionChosen(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SuggestionChosen($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SuggestionChosen(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestbox.textchanged)
     public lazy var textChanged : Event<TypedEventHandler<AutoSuggestBox?, AutoSuggestBoxTextChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextChanged(token)
+          }
+        }
       )
     }()
 
@@ -6827,12 +6958,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AutoSuggestBoxQuerySubmittedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestboxquerysubmittedeventargs)
+@MainActor
 public final class AutoSuggestBoxQuerySubmittedEventArgs : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxQuerySubmittedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxQuerySubmittedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6840,12 +6972,12 @@ public final class AutoSuggestBoxQuerySubmittedEventArgs : WinUI.DependencyObjec
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -6920,12 +7052,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AutoSuggestBoxSuggestionChosenEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestboxsuggestionchoseneventargs)
+@MainActor
 public final class AutoSuggestBoxSuggestionChosenEventArgs : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxSuggestionChosenEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxSuggestionChosenEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -6933,12 +7066,12 @@ public final class AutoSuggestBoxSuggestionChosenEventArgs : WinUI.DependencyObj
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -6997,12 +7130,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - AutoSuggestBoxTextChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestboxtextchangedeventargs)
+@MainActor
 public final class AutoSuggestBoxTextChangedEventArgs : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxTextChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIAutoSuggestBoxTextChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7010,16 +7144,16 @@ public final class AutoSuggestBoxTextChangedEventArgs : WinUI.DependencyObject, 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IAutoSuggestBoxTextChangedEventArgsStatics: __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxTextChangedEventArgsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs")
+    private static nonisolated let _IAutoSuggestBoxTextChangedEventArgsStatics: __ABI_Microsoft_UI_Xaml_Controls.IAutoSuggestBoxTextChangedEventArgsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.autosuggestboxtextchangedeventargs.reasonproperty)
     public static var reasonProperty : WinUI.DependencyProperty! {
         get { try! _IAutoSuggestBoxTextChangedEventArgsStatics.get_ReasonProperty() }
@@ -7117,12 +7251,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - BitmapIcon
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.bitmapicon)
+@MainActor
 open class BitmapIcon : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBitmapIcon
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBitmapIcon
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7130,29 +7265,29 @@ open class BitmapIcon : WinUI.IconElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBitmapIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IBitmapIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BitmapIcon")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.BitmapIconBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBitmapIconFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IBitmapIconStatics: __ABI_Microsoft_UI_Xaml_Controls.IBitmapIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BitmapIcon")
+    private static nonisolated let _IBitmapIconStatics: __ABI_Microsoft_UI_Xaml_Controls.IBitmapIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BitmapIcon")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.bitmapicon.showasmonochromeproperty)
     public class var showAsMonochromeProperty : WinUI.DependencyProperty! {
         get { try! _IBitmapIconStatics.get_ShowAsMonochromeProperty() }
@@ -7306,12 +7441,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Border
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.border)
+@MainActor
 public final class Border : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBorder
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBorder
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7319,16 +7455,16 @@ public final class Border : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Border")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Border")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IBorderStatics: __ABI_Microsoft_UI_Xaml_Controls.IBorderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Border")
+    private static nonisolated let _IBorderStatics: __ABI_Microsoft_UI_Xaml_Controls.IBorderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Border")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.border.backgroundproperty)
     public static var backgroundProperty : WinUI.DependencyProperty! {
         get { try! _IBorderStatics.get_BackgroundProperty() }
@@ -7662,12 +7798,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - BreadcrumbBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.breadcrumbbar)
+@MainActor
 open class BreadcrumbBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7675,29 +7812,29 @@ open class BreadcrumbBar : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBreadcrumbBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BreadcrumbBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.BreadcrumbBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBreadcrumbBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IBreadcrumbBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BreadcrumbBar")
+    private static nonisolated let _IBreadcrumbBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BreadcrumbBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.breadcrumbbar.itemtemplateproperty)
     public class var itemTemplateProperty : WinUI.DependencyProperty! {
         get { try! _IBreadcrumbBarStatics.get_ItemTemplateProperty() }
@@ -7723,13 +7860,17 @@ open class BreadcrumbBar : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.breadcrumbbar.itemclicked)
     public lazy var itemClicked : Event<TypedEventHandler<BreadcrumbBar?, BreadcrumbBarItemClickedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ItemClicked($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ItemClicked(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ItemClicked($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ItemClicked(token)
+          }
+        }
       )
     }()
 
@@ -7885,12 +8026,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - BreadcrumbBarItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.breadcrumbbaritem)
+@MainActor
 open class BreadcrumbBarItem : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -7898,23 +8040,23 @@ open class BreadcrumbBarItem : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBreadcrumbBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.BreadcrumbBarItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.BreadcrumbBarItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBreadcrumbBarItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -7995,12 +8137,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - BreadcrumbBarItemClickedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.breadcrumbbaritemclickedeventargs)
+@MainActor
 public final class BreadcrumbBarItemClickedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IBreadcrumbBarItemClickedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIBreadcrumbBarItemClickedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8008,7 +8151,7 @@ public final class BreadcrumbBarItemClickedEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -8080,12 +8223,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Button
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.button)
+@MainActor
 open class Button : WinUI.ButtonBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8093,29 +8237,29 @@ open class Button : WinUI.ButtonBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Button")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Button")
+    private static nonisolated let _IButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Button")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.button.flyoutproperty)
     public class var flyoutProperty : WinUI.DependencyProperty! {
         get { try! _IButtonStatics.get_FlyoutProperty() }
@@ -8235,12 +8379,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarDatePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker)
+@MainActor
 open class CalendarDatePicker : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePicker
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePicker
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -8248,29 +8393,29 @@ open class CalendarDatePicker : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ICalendarDatePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarDatePicker")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarDatePickerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ICalendarDatePickerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ICalendarDatePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarDatePicker")
+    private static nonisolated let _ICalendarDatePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarDatePicker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.calendaridentifierproperty)
     public class var calendarIdentifierProperty : WinUI.DependencyProperty! {
         get { try! _ICalendarDatePickerStatics.get_CalendarIdentifierProperty() }
@@ -8482,52 +8627,68 @@ open class CalendarDatePicker : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.calendarviewdayitemchanging)
     public lazy var calendarViewDayItemChanging : Event<CalendarViewDayItemChangingEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CalendarViewDayItemChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CalendarViewDayItemChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CalendarViewDayItemChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CalendarViewDayItemChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.closed)
     public lazy var closed : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.datechanged)
     public lazy var dateChanged : Event<TypedEventHandler<CalendarDatePicker?, CalendarDatePickerDateChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DateChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DateChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DateChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DateChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepicker.opened)
     public lazy var opened : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opened(token)
+          }
+        }
       )
     }()
 
@@ -9132,12 +9293,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarDatePickerDateChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendardatepickerdatechangedeventargs)
+@MainActor
 public final class CalendarDatePickerDateChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarDatePickerDateChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarDatePickerDateChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9145,7 +9307,7 @@ public final class CalendarDatePickerDateChangedEventArgs : WinRTClass, @uncheck
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -9218,12 +9380,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview)
+@MainActor
 open class CalendarView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -9231,29 +9394,29 @@ open class CalendarView : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ICalendarViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ICalendarViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ICalendarViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarView")
+    private static nonisolated let _ICalendarViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.blackoutbackgroundproperty)
     public class var blackoutBackgroundProperty : WinUI.DependencyProperty! {
         get { try! _ICalendarViewStatics.get_BlackoutBackgroundProperty() }
@@ -10090,26 +10253,34 @@ open class CalendarView : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.calendarviewdayitemchanging)
     public lazy var calendarViewDayItemChanging : Event<TypedEventHandler<CalendarView?, CalendarViewDayItemChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CalendarViewDayItemChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CalendarViewDayItemChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CalendarViewDayItemChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CalendarViewDayItemChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarview.selecteddateschanged)
     public lazy var selectedDatesChanged : Event<TypedEventHandler<CalendarView?, CalendarViewSelectedDatesChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectedDatesChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectedDatesChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectedDatesChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectedDatesChanged(token)
+          }
+        }
       )
     }()
 
@@ -12003,12 +12174,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarViewDayItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem)
+@MainActor
 open class CalendarViewDayItem : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12016,29 +12188,29 @@ open class CalendarViewDayItem : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ICalendarViewDayItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarViewDayItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CalendarViewDayItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ICalendarViewDayItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ICalendarViewDayItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarViewDayItem")
+    private static nonisolated let _ICalendarViewDayItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CalendarViewDayItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitem.dateproperty)
     public class var dateProperty : WinUI.DependencyProperty! {
         get { try! _ICalendarViewDayItemStatics.get_DateProperty() }
@@ -12197,12 +12369,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarViewDayItemChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewdayitemchangingeventargs)
+@MainActor
 public final class CalendarViewDayItemChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewDayItemChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewDayItemChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12210,7 +12383,7 @@ public final class CalendarViewDayItemChangingEventArgs : WinRTClass, @unchecked
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -12321,12 +12494,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CalendarViewSelectedDatesChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.calendarviewselecteddateschangedeventargs)
+@MainActor
 public final class CalendarViewSelectedDatesChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICalendarViewSelectedDatesChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICalendarViewSelectedDatesChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12334,7 +12508,7 @@ public final class CalendarViewSelectedDatesChangedEventArgs : WinRTClass, @unch
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -12407,12 +12581,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CandidateWindowBoundsChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.candidatewindowboundschangedeventargs)
+@MainActor
 public final class CandidateWindowBoundsChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICandidateWindowBoundsChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICandidateWindowBoundsChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12420,7 +12595,7 @@ public final class CandidateWindowBoundsChangedEventArgs : WinRTClass, @unchecke
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -12478,12 +12653,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Canvas
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.canvas)
+@MainActor
 open class Canvas : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICanvas
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICanvas
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12491,29 +12667,29 @@ open class Canvas : WinUI.Panel, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ICanvasFactory : __ABI_Microsoft_UI_Xaml_Controls.ICanvasFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Canvas")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CanvasBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ICanvasFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ICanvasStatics: __ABI_Microsoft_UI_Xaml_Controls.ICanvasStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Canvas")
+    private static nonisolated let _ICanvasStatics: __ABI_Microsoft_UI_Xaml_Controls.ICanvasStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Canvas")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.canvas.getleft)
     public class func getLeft(_ element: WinUI.UIElement!) throws -> Double {
         return try _ICanvasStatics.GetLeft(element)
@@ -12712,12 +12888,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CheckBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.checkbox)
+@MainActor
 open class CheckBox : WinUI.ToggleButton, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICheckBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICheckBox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12725,23 +12902,23 @@ open class CheckBox : WinUI.ToggleButton, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ICheckBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.ICheckBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CheckBox")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CheckBoxBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ICheckBoxFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -12822,12 +12999,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ChoosingGroupHeaderContainerEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.choosinggroupheadercontainereventargs)
+@MainActor
 public final class ChoosingGroupHeaderContainerEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IChoosingGroupHeaderContainerEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIChoosingGroupHeaderContainerEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12835,12 +13013,12 @@ public final class ChoosingGroupHeaderContainerEventArgs : WinRTClass, @unchecke
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ChoosingGroupHeaderContainerEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ChoosingGroupHeaderContainerEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -12933,12 +13111,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ChoosingItemContainerEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.choosingitemcontainereventargs)
+@MainActor
 public final class ChoosingItemContainerEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IChoosingItemContainerEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIChoosingItemContainerEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -12946,12 +13125,12 @@ public final class ChoosingItemContainerEventArgs : WinRTClass, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ChoosingItemContainerEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ChoosingItemContainerEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -13064,12 +13243,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ColumnDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinition)
+@MainActor
 public final class ColumnDefinition : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IColumnDefinition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColumnDefinition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -13077,16 +13257,16 @@ public final class ColumnDefinition : WinUI.DependencyObject, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ColumnDefinition")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ColumnDefinition")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IColumnDefinitionStatics: __ABI_Microsoft_UI_Xaml_Controls.IColumnDefinitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ColumnDefinition")
+    private static nonisolated let _IColumnDefinitionStatics: __ABI_Microsoft_UI_Xaml_Controls.IColumnDefinitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ColumnDefinition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinition.maxwidthproperty)
     public static var maxWidthProperty : WinUI.DependencyProperty! {
         get { try! _IColumnDefinitionStatics.get_MaxWidthProperty() }
@@ -13252,13 +13432,14 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ColumnDefinitionCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection)
+@MainActor
 public final class ColumnDefinitionCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = ColumnDefinition?
     private typealias SwiftABI = WinUI.IVectorColumnDefinition
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColumnDefinition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -13266,31 +13447,31 @@ public final class ColumnDefinitionCollection : WinRTClass, @unchecked Sendable,
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -13299,74 +13480,74 @@ public final class ColumnDefinitionCollection : WinRTClass, @unchecked Sendable,
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.getat)
-    public func getAt(_ index: UInt32) -> ColumnDefinition? {
+    public nonisolated func getAt(_ index: UInt32) -> ColumnDefinition? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<ColumnDefinition?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<ColumnDefinition?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.indexof)
-    public func indexOf(_ value: ColumnDefinition?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: ColumnDefinition?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.setat)
-    public func setAt(_ index: UInt32, _ value: ColumnDefinition?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: ColumnDefinition?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: ColumnDefinition?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: ColumnDefinition?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.append)
-    public func append(_ value: ColumnDefinition?) {
+    public nonisolated func append(_ value: ColumnDefinition?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [ColumnDefinition?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [ColumnDefinition?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.replaceall)
-    public func replaceAll(_ items: [ColumnDefinition?]) {
+    public nonisolated func replaceAll(_ items: [ColumnDefinition?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableColumnDefinition! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableColumnDefinition! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.columndefinitioncollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<ColumnDefinition?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<ColumnDefinition?>? {
         try! _IIterable.First()
     }
 
@@ -13403,12 +13584,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ComboBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.combobox)
+@MainActor
 open class ComboBox : WinUI.Selector, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IComboBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -13416,18 +13598,18 @@ open class ComboBox : WinUI.Selector, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IComboBoxOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IComboBoxOverridesWrapper(self)
@@ -13437,13 +13619,13 @@ open class ComboBox : WinUI.Selector, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IComboBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IComboBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ComboBox")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ComboBoxBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IComboBoxFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IComboBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IComboBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ComboBox")
+    private static nonisolated let _IComboBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IComboBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ComboBox")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.combobox.descriptionproperty)
     public class var descriptionProperty : WinUI.DependencyProperty! {
         get { try! _IComboBoxStatics.get_DescriptionProperty() }
@@ -13610,43 +13792,55 @@ open class ComboBox : WinUI.Selector, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.combobox.dropdownclosed)
     public lazy var dropDownClosed : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DropDownClosed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DropDownClosed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DropDownClosed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DropDownClosed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.combobox.dropdownopened)
     public lazy var dropDownOpened : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DropDownOpened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DropDownOpened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DropDownOpened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DropDownOpened(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.combobox.textsubmitted)
     public lazy var textSubmitted : Event<TypedEventHandler<ComboBox?, ComboBoxTextSubmittedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextSubmitted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextSubmitted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextSubmitted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextSubmitted(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IComboBoxOverrides: __ABI_Microsoft_UI_Xaml_Controls.IComboBoxOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IComboBoxOverrides: __ABI_Microsoft_UI_Xaml_Controls.IComboBoxOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.combobox.ondropdownclosed)
     open func onDropDownClosed(_ e: Any!) throws {
         try _IComboBoxOverrides.OnDropDownClosed(e)
@@ -13734,8 +13928,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         OnDropDownClosed: {
             do {
                 guard let __unwrapped__instance = IComboBoxOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onDropDownClosed(e)
+                nonisolated(unsafe) let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDropDownClosed(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -13743,8 +13939,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         OnDropDownOpened: {
             do {
                 guard let __unwrapped__instance = IComboBoxOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onDropDownOpened(e)
+                nonisolated(unsafe) let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDropDownOpened(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -14223,12 +14421,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ComboBoxItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.comboboxitem)
+@MainActor
 open class ComboBoxItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IComboBoxItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -14236,23 +14435,23 @@ open class ComboBoxItem : WinUI.SelectorItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IComboBoxItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IComboBoxItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ComboBoxItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ComboBoxItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IComboBoxItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -14333,12 +14532,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ComboBoxTextSubmittedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.comboboxtextsubmittedeventargs)
+@MainActor
 public final class ComboBoxTextSubmittedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IComboBoxTextSubmittedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIComboBoxTextSubmittedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -14346,7 +14546,7 @@ public final class ComboBoxTextSubmittedEventArgs : WinRTClass, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -14427,12 +14627,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CommandBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar)
+@MainActor
 open class CommandBar : WinUI.AppBar, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICommandBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICommandBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -14440,29 +14641,29 @@ open class CommandBar : WinUI.AppBar, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ICommandBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ICommandBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CommandBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.CommandBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ICommandBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ICommandBarStatics: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CommandBar")
+    private static nonisolated let _ICommandBarStatics: __ABI_Microsoft_UI_Xaml_Controls.ICommandBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.CommandBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.commandbaroverflowpresenterstyleproperty)
     public class var commandBarOverflowPresenterStyleProperty : WinUI.DependencyProperty! {
         get { try! _ICommandBarStatics.get_CommandBarOverflowPresenterStyleProperty() }
@@ -14535,13 +14736,17 @@ open class CommandBar : WinUI.AppBar, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar.dynamicoverflowitemschanging)
     public lazy var dynamicOverflowItemsChanging : Event<TypedEventHandler<CommandBar?, DynamicOverflowItemsChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DynamicOverflowItemsChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DynamicOverflowItemsChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DynamicOverflowItemsChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DynamicOverflowItemsChanging(token)
+          }
+        }
       )
     }()
 
@@ -14783,12 +14988,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContainerContentChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.containercontentchangingeventargs)
+@MainActor
 public final class ContainerContentChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContainerContentChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContainerContentChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -14796,12 +15002,12 @@ public final class ContainerContentChangingEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContainerContentChangingEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContainerContentChangingEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -14959,12 +15165,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentcontrol)
+@MainActor
 open class ContentControl : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentControl
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentControl
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -14972,18 +15179,18 @@ open class ContentControl : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverridesWrapper(self)
@@ -14993,13 +15200,13 @@ open class ContentControl : WinUI.Control, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IContentControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentControl")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ContentControlBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IContentControlFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IContentControlStatics: __ABI_Microsoft_UI_Xaml_Controls.IContentControlStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentControl")
+    private static nonisolated let _IContentControlStatics: __ABI_Microsoft_UI_Xaml_Controls.IContentControlStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentControl")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentcontrol.contentproperty)
     public class var contentProperty : WinUI.DependencyProperty! {
         get { try! _IContentControlStatics.get_ContentProperty() }
@@ -15049,7 +15256,7 @@ open class ContentControl : WinUI.Control, @unchecked Sendable {
         set { try! _default.put_ContentTransitions(newValue) }
     }
 
-    private lazy var _IContentControlOverrides: __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IContentControlOverrides: __ABI_Microsoft_UI_Xaml_Controls.IContentControlOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentcontrol.oncontentchanged)
     open func onContentChanged(_ oldContent: Any!, _ newContent: Any!) throws {
         try _IContentControlOverrides.OnContentChanged(oldContent, newContent)
@@ -15141,9 +15348,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         OnContentChanged: {
             do {
                 guard let __unwrapped__instance = IContentControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let oldContent: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let newContent: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance.onContentChanged(oldContent, newContent)
+                nonisolated(unsafe) let oldContent: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let newContent: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onContentChanged(oldContent, newContent)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -15153,7 +15362,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IContentControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldContentTemplate: WinUI.DataTemplate? = __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: ComPtr($1))
                 let newContentTemplate: WinUI.DataTemplate? = __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onContentTemplateChanged(oldContentTemplate, newContentTemplate)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onContentTemplateChanged(oldContentTemplate, newContentTemplate)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -15163,7 +15374,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IContentControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldContentTemplateSelector: WinUI.DataTemplateSelector? = __IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.from(abi: ComPtr($1))
                 let newContentTemplateSelector: WinUI.DataTemplateSelector? = __IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onContentTemplateSelectorChanged(oldContentTemplateSelector, newContentTemplateSelector)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onContentTemplateSelectorChanged(oldContentTemplateSelector, newContentTemplateSelector)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -15356,12 +15569,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ContentDialog
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog)
+@MainActor
 open class ContentDialog : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialog
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialog
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -15369,29 +15583,29 @@ open class ContentDialog : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IContentDialogFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentDialogFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentDialog")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ContentDialogBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IContentDialogFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IContentDialogStatics: __ABI_Microsoft_UI_Xaml_Controls.IContentDialogStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentDialog")
+    private static nonisolated let _IContentDialogStatics: __ABI_Microsoft_UI_Xaml_Controls.IContentDialogStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentDialog")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog.closebuttoncommandparameterproperty)
     public class var closeButtonCommandParameterProperty : WinUI.DependencyProperty! {
         get { try! _IContentDialogStatics.get_CloseButtonCommandParameterProperty() }
@@ -15608,78 +15822,102 @@ open class ContentDialog : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog.closebuttonclick)
     public lazy var closeButtonClick : Event<TypedEventHandler<ContentDialog?, ContentDialogButtonClickEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CloseButtonClick($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CloseButtonClick(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CloseButtonClick($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CloseButtonClick(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog.closed)
     public lazy var closed : Event<TypedEventHandler<ContentDialog?, ContentDialogClosedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog.closing)
     public lazy var closing : Event<TypedEventHandler<ContentDialog?, ContentDialogClosingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closing($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closing(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closing($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closing(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog.opened)
     public lazy var opened : Event<TypedEventHandler<ContentDialog?, ContentDialogOpenedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opened(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog.primarybuttonclick)
     public lazy var primaryButtonClick : Event<TypedEventHandler<ContentDialog?, ContentDialogButtonClickEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PrimaryButtonClick($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PrimaryButtonClick(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PrimaryButtonClick($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PrimaryButtonClick(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog.secondarybuttonclick)
     public lazy var secondaryButtonClick : Event<TypedEventHandler<ContentDialog?, ContentDialogButtonClickEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SecondaryButtonClick($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SecondaryButtonClick(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SecondaryButtonClick($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SecondaryButtonClick(token)
+          }
+        }
       )
     }()
 
@@ -16338,12 +16576,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogButtonClickDeferral
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogbuttonclickdeferral)
+@MainActor
 public final class ContentDialogButtonClickDeferral : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogButtonClickDeferral
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogButtonClickDeferral
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -16351,7 +16590,7 @@ public final class ContentDialogButtonClickDeferral : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -16407,12 +16646,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogButtonClickEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogbuttonclickeventargs)
+@MainActor
 public final class ContentDialogButtonClickEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogButtonClickEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogButtonClickEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -16420,7 +16660,7 @@ public final class ContentDialogButtonClickEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -16499,12 +16739,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogClosedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogclosedeventargs)
+@MainActor
 public final class ContentDialogClosedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogClosedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -16512,7 +16753,7 @@ public final class ContentDialogClosedEventArgs : WinRTClass, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -16570,12 +16811,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogClosingDeferral
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogclosingdeferral)
+@MainActor
 public final class ContentDialogClosingDeferral : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogClosingDeferral
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosingDeferral
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -16583,7 +16825,7 @@ public final class ContentDialogClosingDeferral : WinRTClass, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -16639,12 +16881,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogclosingeventargs)
+@MainActor
 public final class ContentDialogClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogClosingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -16652,7 +16895,7 @@ public final class ContentDialogClosingEventArgs : WinRTClass, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -16744,12 +16987,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentDialogOpenedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialogopenedeventargs)
+@MainActor
 public final class ContentDialogOpenedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentDialogOpenedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentDialogOpenedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -16757,7 +17001,7 @@ public final class ContentDialogOpenedEventArgs : WinRTClass, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -16802,12 +17046,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ContentPresenter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentpresenter)
+@MainActor
 open class ContentPresenter : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContentPresenter
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContentPresenter
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -16815,18 +17060,18 @@ open class ContentPresenter : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterOverridesWrapper(self)
@@ -16836,13 +17081,13 @@ open class ContentPresenter : WinUI.FrameworkElement, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IContentPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentPresenter")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ContentPresenterBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IContentPresenterFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IContentPresenterStatics: __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentPresenter")
+    private static nonisolated let _IContentPresenterStatics: __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ContentPresenter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentpresenter.backgroundproperty)
     public class var backgroundProperty : WinUI.DependencyProperty! {
         get { try! _IContentPresenterStatics.get_BackgroundProperty() }
@@ -17135,7 +17380,7 @@ open class ContentPresenter : WinUI.FrameworkElement, @unchecked Sendable {
         set { try! _default.put_VerticalContentAlignment(newValue) }
     }
 
-    private lazy var _IContentPresenterOverrides: __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IContentPresenterOverrides: __ABI_Microsoft_UI_Xaml_Controls.IContentPresenterOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentpresenter.oncontenttemplatechanged)
     open func onContentTemplateChanged(_ oldContentTemplate: WinUI.DataTemplate!, _ newContentTemplate: WinUI.DataTemplate!) throws {
         try _IContentPresenterOverrides.OnContentTemplateChanged(oldContentTemplate, newContentTemplate)
@@ -17223,7 +17468,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IContentPresenterOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldContentTemplate: WinUI.DataTemplate? = __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: ComPtr($1))
                 let newContentTemplate: WinUI.DataTemplate? = __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onContentTemplateChanged(oldContentTemplate, newContentTemplate)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onContentTemplateChanged(oldContentTemplate, newContentTemplate)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -17233,7 +17480,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IContentPresenterOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldContentTemplateSelector: WinUI.DataTemplateSelector? = __IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.from(abi: ComPtr($1))
                 let newContentTemplateSelector: WinUI.DataTemplateSelector? = __IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onContentTemplateSelectorChanged(oldContentTemplateSelector, newContentTemplateSelector)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onContentTemplateSelectorChanged(oldContentTemplateSelector, newContentTemplateSelector)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -17932,12 +18181,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ContextMenuEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contextmenueventargs)
+@MainActor
 public final class ContextMenuEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IContextMenuEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIContextMenuEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -17945,7 +18195,7 @@ public final class ContextMenuEventArgs : WinUI.RoutedEventArgs, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -18036,12 +18286,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Control
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control)
+@MainActor
 open class Control : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControl
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControl
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -18049,18 +18300,18 @@ open class Control : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IControlOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IControlOverridesWrapper(self)
@@ -18070,13 +18321,13 @@ open class Control : WinUI.FrameworkElement, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Control")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ControlBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IControlFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IControlStatics: __ABI_Microsoft_UI_Xaml_Controls.IControlStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Control")
+    private static nonisolated let _IControlStatics: __ABI_Microsoft_UI_Xaml_Controls.IControlStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Control")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.getistemplatefocustarget)
     public class func getIsTemplateFocusTarget(_ element: WinUI.FrameworkElement!) throws -> Bool {
         return try _IControlStatics.GetIsTemplateFocusTarget(element)
@@ -18389,43 +18640,55 @@ open class Control : WinUI.FrameworkElement, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.focusdisengaged)
     public lazy var focusDisengaged : Event<TypedEventHandler<Control?, FocusDisengagedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_FocusDisengaged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_FocusDisengaged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_FocusDisengaged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_FocusDisengaged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.focusengaged)
     public lazy var focusEngaged : Event<TypedEventHandler<Control?, FocusEngagedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_FocusEngaged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_FocusEngaged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_FocusEngaged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_FocusEngaged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.isenabledchanged)
     public lazy var isEnabledChanged : Event<WinUI.DependencyPropertyChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_IsEnabledChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_IsEnabledChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_IsEnabledChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_IsEnabledChanged(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IControlProtected: __ABI_Microsoft_UI_Xaml_Controls.IControlProtected! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IControlProtected: __ABI_Microsoft_UI_Xaml_Controls.IControlProtected! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.gettemplatechild)
     public func getTemplateChild(_ childName: String) throws -> WinUI.DependencyObject! {
         try _IControlProtected.GetTemplateChild(childName)
@@ -18437,7 +18700,7 @@ open class Control : WinUI.FrameworkElement, @unchecked Sendable {
         set { try! _IControlProtected.put_DefaultStyleKey(newValue) }
     }
 
-    private lazy var _IControlOverrides: __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IControlOverrides: __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.onpointerentered)
     open func onPointerEntered(_ e: WinUI.PointerRoutedEventArgs!) throws {
         try _IControlOverrides.OnPointerEntered(e)
@@ -18655,7 +18918,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPointerEntered(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPointerEntered(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18664,7 +18929,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPointerPressed(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPointerPressed(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18673,7 +18940,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPointerMoved(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPointerMoved(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18682,7 +18951,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPointerReleased(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPointerReleased(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18691,7 +18962,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPointerExited(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPointerExited(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18700,7 +18973,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPointerCaptureLost(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPointerCaptureLost(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18709,7 +18984,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPointerCanceled(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPointerCanceled(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18718,7 +18995,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.PointerRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.PointerRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPointerWheelChanged(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPointerWheelChanged(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18727,7 +19006,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.TappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.TappedRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onTapped(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onTapped(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18736,7 +19017,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.DoubleTappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.DoubleTappedRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onDoubleTapped(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDoubleTapped(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18745,7 +19028,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.HoldingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.HoldingRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onHolding(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onHolding(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18754,7 +19039,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.RightTappedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.RightTappedRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onRightTapped(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onRightTapped(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18763,7 +19050,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.ManipulationStartingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartingRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onManipulationStarting(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onManipulationStarting(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18772,7 +19061,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.ManipulationInertiaStartingRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationInertiaStartingRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onManipulationInertiaStarting(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onManipulationInertiaStarting(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18781,7 +19072,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.ManipulationStartedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationStartedRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onManipulationStarted(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onManipulationStarted(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18790,7 +19083,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.ManipulationDeltaRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationDeltaRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onManipulationDelta(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onManipulationDelta(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18799,7 +19094,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.ManipulationCompletedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.ManipulationCompletedRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onManipulationCompleted(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onManipulationCompleted(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18808,7 +19105,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.KeyRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.KeyRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onKeyUp(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onKeyUp(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18817,7 +19116,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.KeyRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.KeyRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onKeyDown(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onKeyDown(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18826,7 +19127,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.KeyRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.KeyRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPreviewKeyDown(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPreviewKeyDown(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18835,7 +19138,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.KeyRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.KeyRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onPreviewKeyUp(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onPreviewKeyUp(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18844,7 +19149,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.RoutedEventArgs? = __IMPL_Microsoft_UI_Xaml.RoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onGotFocus(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onGotFocus(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18853,7 +19160,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.RoutedEventArgs? = __IMPL_Microsoft_UI_Xaml.RoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onLostFocus(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onLostFocus(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18862,7 +19171,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.CharacterReceivedRoutedEventArgs? = __IMPL_Microsoft_UI_Xaml_Input.CharacterReceivedRoutedEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onCharacterReceived(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onCharacterReceived(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18871,7 +19182,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.DragEventArgs? = __IMPL_Microsoft_UI_Xaml.DragEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onDragEnter(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDragEnter(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18880,7 +19193,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.DragEventArgs? = __IMPL_Microsoft_UI_Xaml.DragEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onDragLeave(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDragLeave(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18889,7 +19204,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.DragEventArgs? = __IMPL_Microsoft_UI_Xaml.DragEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onDragOver(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDragOver(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -18898,7 +19215,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.DragEventArgs? = __IMPL_Microsoft_UI_Xaml.DragEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onDrop(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDrop(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -19841,12 +20160,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ControlTemplate
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.controltemplate)
+@MainActor
 public final class ControlTemplate : WinUI.FrameworkTemplate, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlTemplate
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlTemplate
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -19854,12 +20174,12 @@ public final class ControlTemplate : WinUI.FrameworkTemplate, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ControlTemplate")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ControlTemplate")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -19928,12 +20248,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - CoreWebView2InitializedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.corewebview2initializedeventargs)
+@MainActor
 public final class CoreWebView2InitializedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ICoreWebView2InitializedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CICoreWebView2InitializedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -19941,7 +20262,7 @@ public final class CoreWebView2InitializedEventArgs : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -19999,12 +20320,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DataTemplateSelector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datatemplateselector)
+@MainActor
 open class DataTemplateSelector : WinRTClass, @unchecked Sendable, WinUI.IElementFactory {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelector
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDataTemplateSelector
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -20012,19 +20334,19 @@ open class DataTemplateSelector : WinRTClass, @unchecked Sendable, WinUI.IElemen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelectorOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelectorOverridesWrapper(self)
@@ -20034,7 +20356,7 @@ open class DataTemplateSelector : WinRTClass, @unchecked Sendable, WinUI.IElemen
     }
     private static nonisolated(unsafe) var _IDataTemplateSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DataTemplateSelector")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IDataTemplateSelectorFactory.CreateInstance(baseInterface, &innerInterface)
@@ -20051,7 +20373,7 @@ open class DataTemplateSelector : WinRTClass, @unchecked Sendable, WinUI.IElemen
         try _default.SelectTemplateForItem(item)
     }
 
-    private lazy var _IDataTemplateSelectorOverrides: __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelectorOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IDataTemplateSelectorOverrides: __ABI_Microsoft_UI_Xaml_Controls.IDataTemplateSelectorOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datatemplateselector.selecttemplatecore)
     open func selectTemplateCore(_ item: Any!, _ container: WinUI.DependencyObject!) throws -> WinUI.DataTemplate! {
         try _IDataTemplateSelectorOverrides.SelectTemplateCore(item, container)
@@ -20062,7 +20384,7 @@ open class DataTemplateSelector : WinRTClass, @unchecked Sendable, WinUI.IElemen
         try _IDataTemplateSelectorOverrides.SelectTemplateForItemCore(item)
     }
 
-    private lazy var _IElementFactory: __ABI_Microsoft_UI_Xaml.IElementFactory! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IElementFactory: __ABI_Microsoft_UI_Xaml.IElementFactory! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datatemplateselector.getelement)
     public func getElement(_ args: WinUI.ElementFactoryGetArgs!) throws -> WinUI.UIElement! {
         try _IElementFactory.GetElement(args)
@@ -20147,9 +20469,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         SelectTemplateCore: {
             do {
                 guard let __unwrapped__instance = IDataTemplateSelectorOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let container: WinUI.DependencyObject? = __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: ComPtr($2))
-                let result = try __unwrapped__instance.selectTemplateCore(item, container)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.selectTemplateCore(item, container)
+                }
                 result?.copyTo($3)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -20158,8 +20482,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         SelectTemplateForItemCore: {
             do {
                 guard let __unwrapped__instance = IDataTemplateSelectorOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let result = try __unwrapped__instance.selectTemplateCore(item)
+                nonisolated(unsafe) let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.selectTemplateCore(item)
+                }
                 result?.copyTo($2)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -20259,12 +20585,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - DatePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker)
+@MainActor
 open class DatePicker : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePicker
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePicker
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -20272,29 +20599,29 @@ open class DatePicker : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IDatePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.IDatePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DatePicker")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.DatePickerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IDatePickerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IDatePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.IDatePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DatePicker")
+    private static nonisolated let _IDatePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.IDatePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DatePicker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.calendaridentifierproperty)
     public class var calendarIdentifierProperty : WinUI.DependencyProperty! {
         get { try! _IDatePickerStatics.get_CalendarIdentifierProperty() }
@@ -20463,26 +20790,34 @@ open class DatePicker : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.datechanged)
     public lazy var dateChanged : Event<EventHandler<DatePickerValueChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DateChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DateChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DateChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DateChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepicker.selecteddatechanged)
     public lazy var selectedDateChanged : Event<TypedEventHandler<DatePicker?, DatePickerSelectedValueChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectedDateChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectedDateChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectedDateChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectedDateChanged(token)
+          }
+        }
       )
     }()
 
@@ -20970,12 +21305,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DatePickerSelectedValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickerselectedvaluechangedeventargs)
+@MainActor
 public final class DatePickerSelectedValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePickerSelectedValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerSelectedValueChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -20983,7 +21319,7 @@ public final class DatePickerSelectedValueChangedEventArgs : WinRTClass, @unchec
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -21056,12 +21392,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DatePickerValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.datepickervaluechangedeventargs)
+@MainActor
 public final class DatePickerValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDatePickerValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDatePickerValueChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21069,7 +21406,7 @@ public final class DatePickerValueChangedEventArgs : WinRTClass, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -21140,12 +21477,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DragItemsCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dragitemscompletedeventargs)
+@MainActor
 public final class DragItemsCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDragItemsCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsCompletedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21153,7 +21491,7 @@ public final class DragItemsCompletedEventArgs : WinRTClass, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -21225,12 +21563,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DragItemsStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dragitemsstartingeventargs)
+@MainActor
 public final class DragItemsStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDragItemsStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDragItemsStartingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21238,12 +21577,12 @@ public final class DragItemsStartingEventArgs : WinRTClass, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DragItemsStartingEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DragItemsStartingEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -21336,12 +21675,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DropDownButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dropdownbutton)
+@MainActor
 open class DropDownButton : WinUI.Button, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDropDownButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDropDownButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21349,23 +21689,23 @@ open class DropDownButton : WinUI.Button, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IDropDownButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IDropDownButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DropDownButton")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.DropDownButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IDropDownButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -21446,12 +21786,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - DynamicOverflowItemsChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.dynamicoverflowitemschangingeventargs)
+@MainActor
 public final class DynamicOverflowItemsChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IDynamicOverflowItemsChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIDynamicOverflowItemsChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21459,12 +21800,12 @@ public final class DynamicOverflowItemsChangingEventArgs : WinRTClass, @unchecke
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DynamicOverflowItemsChangingEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.DynamicOverflowItemsChangingEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -21522,12 +21863,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Expander
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expander)
+@MainActor
 open class Expander : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IExpander
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpander
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21535,29 +21877,29 @@ open class Expander : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IExpanderFactory : __ABI_Microsoft_UI_Xaml_Controls.IExpanderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Expander")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ExpanderBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IExpanderFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IExpanderStatics: __ABI_Microsoft_UI_Xaml_Controls.IExpanderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Expander")
+    private static nonisolated let _IExpanderStatics: __ABI_Microsoft_UI_Xaml_Controls.IExpanderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Expander")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expander.expanddirectionproperty)
     public class var expandDirectionProperty : WinUI.DependencyProperty! {
         get { try! _IExpanderStatics.get_ExpandDirectionProperty() }
@@ -21621,26 +21963,34 @@ open class Expander : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expander.collapsed)
     public lazy var collapsed : Event<TypedEventHandler<Expander?, ExpanderCollapsedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Collapsed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Collapsed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Collapsed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Collapsed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expander.expanding)
     public lazy var expanding : Event<TypedEventHandler<Expander?, ExpanderExpandingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Expanding($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Expanding(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Expanding($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Expanding(token)
+          }
+        }
       )
     }()
 
@@ -21889,12 +22239,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ExpanderCollapsedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expandercollapsedeventargs)
+@MainActor
 public final class ExpanderCollapsedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IExpanderCollapsedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderCollapsedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21902,7 +22253,7 @@ public final class ExpanderCollapsedEventArgs : WinRTClass, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -21947,12 +22298,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ExpanderExpandingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expanderexpandingeventargs)
+@MainActor
 public final class ExpanderExpandingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IExpanderExpandingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderExpandingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -21960,7 +22312,7 @@ public final class ExpanderExpandingEventArgs : WinRTClass, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -22005,12 +22357,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ExpanderTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.expandertemplatesettings)
+@MainActor
 public final class ExpanderTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IExpanderTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIExpanderTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -22018,7 +22371,7 @@ public final class ExpanderTemplateSettings : WinUI.DependencyObject, @unchecked
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -22089,12 +22442,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FlipView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flipview)
+@MainActor
 open class FlipView : WinUI.Selector, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFlipView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -22102,29 +22456,29 @@ open class FlipView : WinUI.Selector, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFlipViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlipViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlipView")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FlipViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IFlipViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFlipViewStatics: __ABI_Microsoft_UI_Xaml_Controls.IFlipViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlipView")
+    private static nonisolated let _IFlipViewStatics: __ABI_Microsoft_UI_Xaml_Controls.IFlipViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlipView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flipview.usetouchanimationsforallnavigationproperty)
     public class var useTouchAnimationsForAllNavigationProperty : WinUI.DependencyProperty! {
         get { try! _IFlipViewStatics.get_UseTouchAnimationsForAllNavigationProperty() }
@@ -22243,12 +22597,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FlipViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flipviewitem)
+@MainActor
 open class FlipViewItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFlipViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlipViewItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -22256,23 +22611,23 @@ open class FlipViewItem : WinUI.SelectorItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFlipViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlipViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlipViewItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FlipViewItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IFlipViewItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -22353,12 +22708,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Flyout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flyout)
+@MainActor
 open class Flyout : WinUI.FlyoutBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFlyout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyout
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -22366,29 +22722,29 @@ open class Flyout : WinUI.FlyoutBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFlyoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlyoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Flyout")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FlyoutBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IFlyoutFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFlyoutStatics: __ABI_Microsoft_UI_Xaml_Controls.IFlyoutStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Flyout")
+    private static nonisolated let _IFlyoutStatics: __ABI_Microsoft_UI_Xaml_Controls.IFlyoutStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Flyout")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flyout.contentproperty)
     public class var contentProperty : WinUI.DependencyProperty! {
         get { try! _IFlyoutStatics.get_ContentProperty() }
@@ -22543,12 +22899,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FlyoutPresenter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flyoutpresenter)
+@MainActor
 open class FlyoutPresenter : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFlyoutPresenter
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFlyoutPresenter
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -22556,29 +22913,29 @@ open class FlyoutPresenter : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFlyoutPresenterFactory : __ABI_Microsoft_UI_Xaml_Controls.IFlyoutPresenterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlyoutPresenter")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FlyoutPresenterBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IFlyoutPresenterFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFlyoutPresenterStatics: __ABI_Microsoft_UI_Xaml_Controls.IFlyoutPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlyoutPresenter")
+    private static nonisolated let _IFlyoutPresenterStatics: __ABI_Microsoft_UI_Xaml_Controls.IFlyoutPresenterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FlyoutPresenter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.flyoutpresenter.isdefaultshadowenabledproperty)
     public class var isDefaultShadowEnabledProperty : WinUI.DependencyProperty! {
         get { try! _IFlyoutPresenterStatics.get_IsDefaultShadowEnabledProperty() }
@@ -22697,12 +23054,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FocusDisengagedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.focusdisengagedeventargs)
+@MainActor
 public final class FocusDisengagedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFocusDisengagedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFocusDisengagedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -22710,7 +23068,7 @@ public final class FocusDisengagedEventArgs : WinUI.RoutedEventArgs, @unchecked 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -22755,12 +23113,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FocusEngagedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.focusengagedeventargs)
+@MainActor
 public final class FocusEngagedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFocusEngagedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFocusEngagedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -22768,7 +23127,7 @@ public final class FocusEngagedEventArgs : WinUI.RoutedEventArgs, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -22833,12 +23192,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FontIcon
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.fonticon)
+@MainActor
 open class FontIcon : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFontIcon
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIcon
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -22846,29 +23206,29 @@ open class FontIcon : WinUI.IconElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFontIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IFontIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIcon")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FontIconBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IFontIconFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFontIconStatics: __ABI_Microsoft_UI_Xaml_Controls.IFontIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIcon")
+    private static nonisolated let _IFontIconStatics: __ABI_Microsoft_UI_Xaml_Controls.IFontIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIcon")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.fonticon.fontfamilyproperty)
     public class var fontFamilyProperty : WinUI.DependencyProperty! {
         get { try! _IFontIconStatics.get_FontFamilyProperty() }
@@ -23196,12 +23556,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - FontIconSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.fonticonsource)
+@MainActor
 open class FontIconSource : WinUI.IconSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFontIconSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFontIconSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -23209,29 +23570,29 @@ open class FontIconSource : WinUI.IconSource, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFontIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IFontIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIconSource")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FontIconSourceBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IFontIconSourceFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFontIconSourceStatics: __ABI_Microsoft_UI_Xaml_Controls.IFontIconSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIconSource")
+    private static nonisolated let _IFontIconSourceStatics: __ABI_Microsoft_UI_Xaml_Controls.IFontIconSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.FontIconSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.fonticonsource.fontfamilyproperty)
     public class var fontFamilyProperty : WinUI.DependencyProperty! {
         get { try! _IFontIconSourceStatics.get_FontFamilyProperty() }
@@ -23559,12 +23920,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Frame
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.frame)
+@MainActor
 open class Frame : WinUI.ContentControl, @unchecked Sendable, INavigate {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IFrame
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIFrame
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -23572,29 +23934,29 @@ open class Frame : WinUI.ContentControl, @unchecked Sendable, INavigate {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IFrameFactory : __ABI_Microsoft_UI_Xaml_Controls.IFrameFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Frame")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.FrameBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IFrameFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IFrameStatics: __ABI_Microsoft_UI_Xaml_Controls.IFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Frame")
+    private static nonisolated let _IFrameStatics: __ABI_Microsoft_UI_Xaml_Controls.IFrameStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Frame")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.frame.backstackdepthproperty)
     public class var backStackDepthProperty : WinUI.DependencyProperty! {
         get { try! _IFrameStatics.get_BackStackDepthProperty() }
@@ -23736,56 +24098,72 @@ open class Frame : WinUI.ContentControl, @unchecked Sendable, INavigate {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.frame.navigated)
     public lazy var navigated : Event<WinUI.NavigatedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Navigated($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Navigated(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Navigated($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Navigated(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.frame.navigating)
     public lazy var navigating : Event<WinUI.NavigatingCancelEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Navigating($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Navigating(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Navigating($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Navigating(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.frame.navigationfailed)
     public lazy var navigationFailed : Event<WinUI.NavigationFailedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_NavigationFailed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_NavigationFailed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_NavigationFailed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_NavigationFailed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.frame.navigationstopped)
     public lazy var navigationStopped : Event<WinUI.NavigationStoppedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_NavigationStopped($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_NavigationStopped(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_NavigationStopped($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_NavigationStopped(token)
+          }
+        }
       )
     }()
 
-    private lazy var _INavigate: __ABI_Microsoft_UI_Xaml_Controls.INavigate! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigate: __ABI_Microsoft_UI_Xaml_Controls.INavigate! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.frame.navigate)
     public func navigate(_ sourcePageType: WinUI.TypeName) throws -> Bool {
         try _INavigate.Navigate(sourcePageType)
@@ -24196,12 +24574,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Grid
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid)
+@MainActor
 open class Grid : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGrid
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGrid
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -24209,29 +24588,29 @@ open class Grid : WinUI.Panel, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IGridFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Grid")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.GridBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IGridFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IGridStatics: __ABI_Microsoft_UI_Xaml_Controls.IGridStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Grid")
+    private static nonisolated let _IGridStatics: __ABI_Microsoft_UI_Xaml_Controls.IGridStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Grid")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.grid.getrow)
     public class func getRow(_ element: WinUI.FrameworkElement!) throws -> Int32 {
         return try _IGridStatics.GetRow(element)
@@ -24735,12 +25114,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - GridView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.gridview)
+@MainActor
 open class GridView : WinUI.ListViewBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGridView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -24748,23 +25128,23 @@ open class GridView : WinUI.ListViewBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IGridViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GridView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.GridViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IGridViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -24845,12 +25225,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - GridViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.gridviewitem)
+@MainActor
 open class GridViewItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGridViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGridViewItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -24858,23 +25239,23 @@ open class GridViewItem : WinUI.SelectorItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IGridViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IGridViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GridViewItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.GridViewItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IGridViewItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -24969,12 +25350,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - GroupStyle
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.groupstyle)
+@MainActor
 open class GroupStyle : WinRTClass, @unchecked Sendable, WinUI.INotifyPropertyChanged {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGroupStyle
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyle
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -24982,24 +25364,24 @@ open class GroupStyle : WinRTClass, @unchecked Sendable, WinUI.INotifyPropertyCh
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IGroupStyleFactory : __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GroupStyle")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.GroupStyleBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IGroupStyleFactory.CreateInstance(baseInterface, &innerInterface)
@@ -25048,17 +25430,21 @@ open class GroupStyle : WinRTClass, @unchecked Sendable, WinUI.INotifyPropertyCh
         set { try! _default.put_Panel(newValue) }
     }
 
-    private lazy var _INotifyPropertyChanged: __ABI_Microsoft_UI_Xaml_Data.INotifyPropertyChanged! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INotifyPropertyChanged: __ABI_Microsoft_UI_Xaml_Data.INotifyPropertyChanged! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.groupstyle.propertychanged)
     public lazy var propertyChanged : Event<WinUI.PropertyChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INotifyPropertyChanged else { return .init() }
-          return try! this.add_PropertyChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INotifyPropertyChanged else { return .init() }
+            return try this.add_PropertyChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INotifyPropertyChanged.remove_PropertyChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INotifyPropertyChanged.remove_PropertyChanged(token)
+          }
+        }
       )
     }()
 
@@ -25242,12 +25628,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - GroupStyleSelector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.groupstyleselector)
+@MainActor
 open class GroupStyleSelector : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelector
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIGroupStyleSelector
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -25255,19 +25642,19 @@ open class GroupStyleSelector : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelectorOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelectorOverridesWrapper(self)
@@ -25277,7 +25664,7 @@ open class GroupStyleSelector : WinRTClass, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IGroupStyleSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.GroupStyleSelector")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.GroupStyleSelectorBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IGroupStyleSelectorFactory.CreateInstance(baseInterface, &innerInterface)
@@ -25289,7 +25676,7 @@ open class GroupStyleSelector : WinRTClass, @unchecked Sendable {
         try _default.SelectGroupStyle(group, level)
     }
 
-    private lazy var _IGroupStyleSelectorOverrides: __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelectorOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IGroupStyleSelectorOverrides: __ABI_Microsoft_UI_Xaml_Controls.IGroupStyleSelectorOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.groupstyleselector.selectgroupstylecore)
     open func selectGroupStyleCore(_ group: Any!, _ level: UInt32) throws -> GroupStyle! {
         try _IGroupStyleSelectorOverrides.SelectGroupStyleCore(group, level)
@@ -25368,9 +25755,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         SelectGroupStyleCore: {
             do {
                 guard let __unwrapped__instance = IGroupStyleSelectorOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let group: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let group: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let level: UInt32 = $2
-                let result = try __unwrapped__instance.selectGroupStyleCore(group, level)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.selectGroupStyleCore(group, level)
+                }
                 result?.copyTo($3)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -25448,12 +25837,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - HyperlinkButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.hyperlinkbutton)
+@MainActor
 open class HyperlinkButton : WinUI.ButtonBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IHyperlinkButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIHyperlinkButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -25461,29 +25851,29 @@ open class HyperlinkButton : WinUI.ButtonBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IHyperlinkButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IHyperlinkButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.HyperlinkButton")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.HyperlinkButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IHyperlinkButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IHyperlinkButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IHyperlinkButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.HyperlinkButton")
+    private static nonisolated let _IHyperlinkButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IHyperlinkButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.HyperlinkButton")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.hyperlinkbutton.navigateuriproperty)
     public class var navigateUriProperty : WinUI.DependencyProperty! {
         get { try! _IHyperlinkButtonStatics.get_NavigateUriProperty() }
@@ -25603,12 +25993,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - IconElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconelement)
+@MainActor
 open class IconElement : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IIconElement
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconElement
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -25616,23 +26007,23 @@ open class IconElement : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IIconElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconElement")
 
-    private static let _IIconElementStatics: __ABI_Microsoft_UI_Xaml_Controls.IIconElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconElement")
+    private static nonisolated let _IIconElementStatics: __ABI_Microsoft_UI_Xaml_Controls.IIconElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconelement.foregroundproperty)
     public class var foregroundProperty : WinUI.DependencyProperty! {
         get { try! _IIconElementStatics.get_ForegroundProperty() }
@@ -25739,12 +26130,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - IconSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconsource)
+@MainActor
 open class IconSource : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IIconSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -25752,18 +26144,18 @@ open class IconSource : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IIconSourceOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IIconSourceOverridesWrapper(self)
@@ -25773,7 +26165,7 @@ open class IconSource : WinUI.DependencyObject, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSource")
 
-    private static let _IIconSourceStatics: __ABI_Microsoft_UI_Xaml_Controls.IIconSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSource")
+    private static nonisolated let _IIconSourceStatics: __ABI_Microsoft_UI_Xaml_Controls.IIconSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconsource.foregroundproperty)
     public class var foregroundProperty : WinUI.DependencyProperty! {
         get { try! _IIconSourceStatics.get_ForegroundProperty() }
@@ -25790,7 +26182,7 @@ open class IconSource : WinUI.DependencyObject, @unchecked Sendable {
         set { try! _default.put_Foreground(newValue) }
     }
 
-    private lazy var _IIconSourceOverrides: __ABI_Microsoft_UI_Xaml_Controls.IIconSourceOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIconSourceOverrides: __ABI_Microsoft_UI_Xaml_Controls.IIconSourceOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconsource.createiconelementcore)
     open func createIconElementCore() throws -> IconElement! {
         try _IIconSourceOverrides.CreateIconElementCore()
@@ -25874,7 +26266,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         CreateIconElementCore: {
             do {
                 guard let __unwrapped__instance = IIconSourceOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.createIconElementCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.createIconElementCore()
+                }
                 result?.copyTo($1)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -25884,7 +26278,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IIconSourceOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let iconSourceProperty: WinUI.DependencyProperty? = __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: ComPtr($1))
-                let result = try __unwrapped__instance.getIconElementPropertyCore(iconSourceProperty)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getIconElementPropertyCore(iconSourceProperty)
+                }
                 result?.copyTo($2)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -25987,12 +26383,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - IconSourceElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconsourceelement)
+@MainActor
 open class IconSourceElement : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IIconSourceElement
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIconSourceElement
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -26000,29 +26397,29 @@ open class IconSourceElement : WinUI.IconElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IIconSourceElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IIconSourceElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSourceElement")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.IconSourceElementBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IIconSourceElementFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IIconSourceElementStatics: __ABI_Microsoft_UI_Xaml_Controls.IIconSourceElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSourceElement")
+    private static nonisolated let _IIconSourceElementStatics: __ABI_Microsoft_UI_Xaml_Controls.IIconSourceElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.IconSourceElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iconsourceelement.iconsourceproperty)
     public class var iconSourceProperty : WinUI.DependencyProperty! {
         get { try! _IIconSourceElementStatics.get_IconSourceProperty() }
@@ -26142,12 +26539,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Image
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.image)
+@MainActor
 public final class Image : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IImage
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImage
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -26155,16 +26553,16 @@ public final class Image : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Image")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Image")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IImageStatics: __ABI_Microsoft_UI_Xaml_Controls.IImageStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Image")
+    private static nonisolated let _IImageStatics: __ABI_Microsoft_UI_Xaml_Controls.IImageStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Image")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.image.ninegridproperty)
     public static var nineGridProperty : WinUI.DependencyProperty! {
         get { try! _IImageStatics.get_NineGridProperty() }
@@ -26211,26 +26609,34 @@ public final class Image : WinUI.FrameworkElement, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.image.imagefailed)
     public lazy var imageFailed : Event<WinUI.ExceptionRoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ImageFailed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ImageFailed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ImageFailed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ImageFailed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.image.imageopened)
     public lazy var imageOpened : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ImageOpened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ImageOpened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ImageOpened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ImageOpened(token)
+          }
+        }
       )
     }()
 
@@ -26404,12 +26810,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ImageIcon
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.imageicon)
+@MainActor
 open class ImageIcon : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IImageIcon
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIcon
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -26417,29 +26824,29 @@ open class ImageIcon : WinUI.IconElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IImageIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IImageIconFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIcon")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ImageIconBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IImageIconFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IImageIconStatics: __ABI_Microsoft_UI_Xaml_Controls.IImageIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIcon")
+    private static nonisolated let _IImageIconStatics: __ABI_Microsoft_UI_Xaml_Controls.IImageIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIcon")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.imageicon.sourceproperty)
     public class var sourceProperty : WinUI.DependencyProperty! {
         get { try! _IImageIconStatics.get_SourceProperty() }
@@ -26559,12 +26966,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ImageIconSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.imageiconsource)
+@MainActor
 open class ImageIconSource : WinUI.IconSource, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IImageIconSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIImageIconSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -26572,29 +26980,29 @@ open class ImageIconSource : WinUI.IconSource, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IImageIconSourceFactory : __ABI_Microsoft_UI_Xaml_Controls.IImageIconSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIconSource")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ImageIconSourceBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IImageIconSourceFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IImageIconSourceStatics: __ABI_Microsoft_UI_Xaml_Controls.IImageIconSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIconSource")
+    private static nonisolated let _IImageIconSourceStatics: __ABI_Microsoft_UI_Xaml_Controls.IImageIconSourceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ImageIconSource")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.imageiconsource.imagesourceproperty)
     public class var imageSourceProperty : WinUI.DependencyProperty! {
         get { try! _IImageIconSourceStatics.get_ImageSourceProperty() }
@@ -26714,12 +27122,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBadge
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobadge)
+@MainActor
 open class InfoBadge : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBadge
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadge
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -26727,29 +27136,29 @@ open class InfoBadge : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IInfoBadgeFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadge")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.InfoBadgeBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IInfoBadgeFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IInfoBadgeStatics: __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadge")
+    private static nonisolated let _IInfoBadgeStatics: __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadge")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobadge.iconsourceproperty)
     public class var iconSourceProperty : WinUI.DependencyProperty! {
         get { try! _IInfoBadgeStatics.get_IconSourceProperty() }
@@ -26931,12 +27340,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBadgeTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobadgetemplatesettings)
+@MainActor
 open class InfoBadgeTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBadgeTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -26944,29 +27354,29 @@ open class InfoBadgeTemplateSettings : WinUI.DependencyObject, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IInfoBadgeTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadgeTemplateSettings")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.InfoBadgeTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IInfoBadgeTemplateSettingsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IInfoBadgeTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadgeTemplateSettings")
+    private static nonisolated let _IInfoBadgeTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.IInfoBadgeTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBadgeTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobadgetemplatesettings.iconelementproperty)
     public class var iconElementProperty : WinUI.DependencyProperty! {
         get { try! _IInfoBadgeTemplateSettingsStatics.get_IconElementProperty() }
@@ -27120,12 +27530,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobar)
+@MainActor
 open class InfoBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -27133,29 +27544,29 @@ open class InfoBar : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IInfoBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.InfoBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IInfoBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IInfoBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IInfoBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBar")
+    private static nonisolated let _IInfoBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IInfoBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobar.actionbuttonproperty)
     public class var actionButtonProperty : WinUI.DependencyProperty! {
         get { try! _IInfoBarStatics.get_ActionButtonProperty() }
@@ -27312,39 +27723,51 @@ open class InfoBar : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobar.closebuttonclick)
     public lazy var closeButtonClick : Event<TypedEventHandler<InfoBar?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CloseButtonClick($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CloseButtonClick(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CloseButtonClick($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CloseButtonClick(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobar.closed)
     public lazy var closed : Event<TypedEventHandler<InfoBar?, InfoBarClosedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobar.closing)
     public lazy var closing : Event<TypedEventHandler<InfoBar?, InfoBarClosingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closing($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closing(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closing($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closing(token)
+          }
+        }
       )
     }()
 
@@ -27818,12 +28241,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBarClosedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobarclosedeventargs)
+@MainActor
 open class InfoBarClosedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarClosedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -27831,19 +28255,19 @@ open class InfoBarClosedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IInfoBarClosedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarClosedEventArgs")
@@ -27923,12 +28347,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBarClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobarclosingeventargs)
+@MainActor
 open class InfoBarClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarClosingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -27936,19 +28361,19 @@ open class InfoBarClosingEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IInfoBarClosingEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarClosingEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarClosingEventArgs")
@@ -28048,12 +28473,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - InfoBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobartemplatesettings)
+@MainActor
 open class InfoBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IInfoBarTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIInfoBarTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -28061,29 +28487,29 @@ open class InfoBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IInfoBarTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.IInfoBarTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.InfoBarTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IInfoBarTemplateSettingsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IInfoBarTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.IInfoBarTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings")
+    private static nonisolated let _IInfoBarTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.IInfoBarTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.infobartemplatesettings.iconelementproperty)
     public class var iconElementProperty : WinUI.DependencyProperty! {
         get { try! _IInfoBarTemplateSettingsStatics.get_IconElementProperty() }
@@ -28203,12 +28629,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - IsTextTrimmedChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.istexttrimmedchangedeventargs)
+@MainActor
 public final class IsTextTrimmedChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IIsTextTrimmedChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIIsTextTrimmedChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -28216,7 +28643,7 @@ public final class IsTextTrimmedChangedEventArgs : WinRTClass, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -28261,12 +28688,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemClickEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemclickeventargs)
+@MainActor
 public final class ItemClickEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemClickEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemClickEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -28274,12 +28702,12 @@ public final class ItemClickEventArgs : WinUI.RoutedEventArgs, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemClickEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemClickEventArgs")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -28338,13 +28766,14 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection)
+@MainActor
 public final class ItemCollection : WinRTClass, @unchecked Sendable, IObservableVector, IVector, IIterable {
     public typealias T = Any?
     private typealias SwiftABI = WinUI.IObservableVectorAny
     private typealias CABI = __x_ABI_C__FIObservableVector_1_IInspectable
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -28352,31 +28781,31 @@ public final class ItemCollection : WinRTClass, @unchecked Sendable, IObservable
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -28385,13 +28814,13 @@ public final class ItemCollection : WinRTClass, @unchecked Sendable, IObservable
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.vectorchanged)
-    public lazy var vectorChanged : Event<VectorChangedEventHandler<Any?>> = {
+    public nonisolated(unsafe) lazy var vectorChanged : Event<VectorChangedEventHandler<Any?>> = {
       .init(
         add: { [weak self] in
           guard let this = self?._default else { return .init() }
@@ -28403,70 +28832,70 @@ public final class ItemCollection : WinRTClass, @unchecked Sendable, IObservable
       )
     }()
 
-    private lazy var _IVector: IVectorAny! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IVector: IVectorAny! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.getat)
-    public func getAt(_ index: UInt32) -> Any? {
+    public nonisolated func getAt(_ index: UInt32) -> Any? {
         try! _IVector.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<Any?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<Any?>? {
         try! _IVector.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.indexof)
-    public func indexOf(_ value: Any?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: Any?, _ index: inout UInt32) -> Bool {
         try! _IVector.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.setat)
-    public func setAt(_ index: UInt32, _ value: Any?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: Any?) {
         try! _IVector.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: Any?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: Any?) {
         try! _IVector.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _IVector.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.append)
-    public func append(_ value: Any?) {
+    public nonisolated func append(_ value: Any?) {
         try! _IVector.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _IVector.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _IVector.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [Any?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [Any?]) -> UInt32 {
         try! _IVector.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.replaceall)
-    public func replaceAll(_ items: [Any?]) {
+    public nonisolated func replaceAll(_ items: [Any?]) {
         try! _IVector.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _IVector.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableAny! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableAny! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<Any?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<Any?>? {
         try! _IIterable.First()
     }
 
@@ -28504,12 +28933,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollectionTransition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransition)
+@MainActor
 public final class ItemCollectionTransition : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -28517,7 +28947,7 @@ public final class ItemCollectionTransition : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -28641,12 +29071,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollectionTransitionCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitioncompletedeventargs)
+@MainActor
 public final class ItemCollectionTransitionCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionCompletedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -28654,7 +29085,7 @@ public final class ItemCollectionTransitionCompletedEventArgs : WinRTClass, @unc
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -28727,12 +29158,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollectionTransitionProgress
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitionprogress)
+@MainActor
 public final class ItemCollectionTransitionProgress : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProgress
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProgress
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -28740,7 +29172,7 @@ public final class ItemCollectionTransitionProgress : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -28824,12 +29256,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemCollectionTransitionProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitionprovider)
+@MainActor
 open class ItemCollectionTransitionProvider : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProvider
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemCollectionTransitionProvider
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -28837,19 +29270,19 @@ open class ItemCollectionTransitionProvider : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProviderOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProviderOverridesWrapper(self)
@@ -28859,7 +29292,7 @@ open class ItemCollectionTransitionProvider : WinRTClass, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IItemCollectionTransitionProviderFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProviderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemCollectionTransitionProvider")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemCollectionTransitionProviderBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IItemCollectionTransitionProviderFactory.CreateInstance(baseInterface, &innerInterface)
@@ -28879,17 +29312,21 @@ open class ItemCollectionTransitionProvider : WinRTClass, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitionprovider.transitioncompleted)
     public lazy var transitionCompleted : Event<TypedEventHandler<ItemCollectionTransitionProvider?, ItemCollectionTransitionCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TransitionCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TransitionCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TransitionCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TransitionCompleted(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IItemCollectionTransitionProviderOverrides: __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProviderOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IItemCollectionTransitionProviderOverrides: __ABI_Microsoft_UI_Xaml_Controls.IItemCollectionTransitionProviderOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcollectiontransitionprovider.shouldanimatecore)
     open func shouldAnimateCore(_ transition: ItemCollectionTransition!) throws -> Bool {
         try _IItemCollectionTransitionProviderOverrides.ShouldAnimateCore(transition)
@@ -28974,7 +29411,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IItemCollectionTransitionProviderOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let transition: WinUI.ItemCollectionTransition? = __IMPL_Microsoft_UI_Xaml_Controls.ItemCollectionTransitionBridge.from(abi: ComPtr($1))
-                let result = try __unwrapped__instance.shouldAnimateCore(transition)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.shouldAnimateCore(transition)
+                }
                 $2?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -28984,7 +29423,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IItemCollectionTransitionProviderOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let transitions: WindowsFoundation.AnyIVector<WinUI.ItemCollectionTransition?>? = WinUI.__x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CItemCollectionTransitionWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.startTransitions(transitions)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.startTransitions(transitions)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -29085,12 +29526,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ItemContainer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainer)
+@MainActor
 open class ItemContainer : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemContainer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainer
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -29098,29 +29540,29 @@ open class ItemContainer : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IItemContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemContainer")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemContainerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IItemContainerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IItemContainerStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemContainerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemContainer")
+    private static nonisolated let _IItemContainerStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemContainerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemContainer")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainer.childproperty)
     public class var childProperty : WinUI.DependencyProperty! {
         get { try! _IItemContainerStatics.get_ChildProperty() }
@@ -29274,12 +29716,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemContainerGenerator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainergenerator)
+@MainActor
 public final class ItemContainerGenerator : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemContainerGenerator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemContainerGenerator
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -29287,7 +29730,7 @@ public final class ItemContainerGenerator : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -29364,13 +29807,17 @@ public final class ItemContainerGenerator : WinRTClass, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemcontainergenerator.itemschanged)
     public lazy var itemsChanged : Event<WinUI.ItemsChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ItemsChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ItemsChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ItemsChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ItemsChanged(token)
+          }
+        }
       )
     }()
 
@@ -29540,12 +29987,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol)
+@MainActor
 open class ItemsControl : WinUI.Control, @unchecked Sendable, IItemContainerMapping {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsControl
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsControl
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -29553,18 +30001,18 @@ open class ItemsControl : WinUI.Control, @unchecked Sendable, IItemContainerMapp
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IItemsControlOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IItemsControlOverridesWrapper(self)
@@ -29574,13 +30022,13 @@ open class ItemsControl : WinUI.Control, @unchecked Sendable, IItemContainerMapp
     }
     private static nonisolated(unsafe) var _IItemsControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsControl")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsControlBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IItemsControlFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IItemsControlStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsControlStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsControl")
+    private static nonisolated let _IItemsControlStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsControlStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsControl")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol.getitemsowner)
     public class func getItemsOwner(_ element: WinUI.DependencyObject!) throws -> ItemsControl! {
         return try _IItemsControlStatics.GetItemsOwner(element)
@@ -29725,7 +30173,7 @@ open class ItemsControl : WinUI.Control, @unchecked Sendable, IItemContainerMapp
         set { try! _default.put_ItemsSource(newValue) }
     }
 
-    private lazy var _IItemsControlOverrides: __ABI_Microsoft_UI_Xaml_Controls.IItemsControlOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IItemsControlOverrides: __ABI_Microsoft_UI_Xaml_Controls.IItemsControlOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol.isitemitsowncontaineroverride)
     open func isItemItsOwnContainerOverride(_ item: Any!) throws -> Bool {
         try _IItemsControlOverrides.IsItemItsOwnContainerOverride(item)
@@ -29776,7 +30224,7 @@ open class ItemsControl : WinUI.Control, @unchecked Sendable, IItemContainerMapp
         try _IItemsControlOverrides.OnGroupStyleSelectorChanged(oldGroupStyleSelector, newGroupStyleSelector)
     }
 
-    private lazy var _IItemContainerMapping: __ABI_Microsoft_UI_Xaml_Controls.IItemContainerMapping! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IItemContainerMapping: __ABI_Microsoft_UI_Xaml_Controls.IItemContainerMapping! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol.itemfromcontainer)
     public func itemFromContainer(_ container: WinUI.DependencyObject!) throws -> Any! {
         try _IItemContainerMapping.ItemFromContainer(container)
@@ -29874,8 +30322,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         IsItemItsOwnContainerOverride: {
             do {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                let result = try __unwrapped__instance.isItemItsOwnContainerOverride(item)
+                nonisolated(unsafe) let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.isItemItsOwnContainerOverride(item)
+                }
                 $2?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -29884,7 +30334,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         GetContainerForItemOverride: {
             do {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getContainerForItemOverride()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getContainerForItemOverride()
+                }
                 result?.copyTo($1)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -29894,8 +30346,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let element: WinUI.DependencyObject? = __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: ComPtr($1))
-                let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance.clearContainerForItemOverride(element, item)
+                nonisolated(unsafe) let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.clearContainerForItemOverride(element, item)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -29904,8 +30358,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let element: WinUI.DependencyObject? = __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: ComPtr($1))
-                let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance.prepareContainerForItemOverride(element, item)
+                nonisolated(unsafe) let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.prepareContainerForItemOverride(element, item)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -29913,8 +30369,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         OnItemsChanged: {
             do {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.onItemsChanged(e)
+                nonisolated(unsafe) let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onItemsChanged(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -29924,7 +30382,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldItemContainerStyle: WinUI.Style? = __IMPL_Microsoft_UI_Xaml.StyleBridge.from(abi: ComPtr($1))
                 let newItemContainerStyle: WinUI.Style? = __IMPL_Microsoft_UI_Xaml.StyleBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onItemContainerStyleChanged(oldItemContainerStyle, newItemContainerStyle)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onItemContainerStyleChanged(oldItemContainerStyle, newItemContainerStyle)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -29934,7 +30394,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldItemContainerStyleSelector: WinUI.StyleSelector? = __IMPL_Microsoft_UI_Xaml_Controls.StyleSelectorBridge.from(abi: ComPtr($1))
                 let newItemContainerStyleSelector: WinUI.StyleSelector? = __IMPL_Microsoft_UI_Xaml_Controls.StyleSelectorBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onItemContainerStyleSelectorChanged(oldItemContainerStyleSelector, newItemContainerStyleSelector)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onItemContainerStyleSelectorChanged(oldItemContainerStyleSelector, newItemContainerStyleSelector)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -29944,7 +30406,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldItemTemplate: WinUI.DataTemplate? = __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: ComPtr($1))
                 let newItemTemplate: WinUI.DataTemplate? = __IMPL_Microsoft_UI_Xaml.DataTemplateBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onItemTemplateChanged(oldItemTemplate, newItemTemplate)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onItemTemplateChanged(oldItemTemplate, newItemTemplate)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -29954,7 +30418,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldItemTemplateSelector: WinUI.DataTemplateSelector? = __IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.from(abi: ComPtr($1))
                 let newItemTemplateSelector: WinUI.DataTemplateSelector? = __IMPL_Microsoft_UI_Xaml_Controls.DataTemplateSelectorBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onItemTemplateSelectorChanged(oldItemTemplateSelector, newItemTemplateSelector)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onItemTemplateSelectorChanged(oldItemTemplateSelector, newItemTemplateSelector)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -29964,7 +30430,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IItemsControlOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let oldGroupStyleSelector: WinUI.GroupStyleSelector? = __IMPL_Microsoft_UI_Xaml_Controls.GroupStyleSelectorBridge.from(abi: ComPtr($1))
                 let newGroupStyleSelector: WinUI.GroupStyleSelector? = __IMPL_Microsoft_UI_Xaml_Controls.GroupStyleSelectorBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance.onGroupStyleSelectorChanged(oldGroupStyleSelector, newGroupStyleSelector)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onGroupStyleSelectorChanged(oldGroupStyleSelector, newGroupStyleSelector)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -30402,12 +30870,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - ItemsPanelTemplate
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemspaneltemplate)
+@MainActor
 public final class ItemsPanelTemplate : WinUI.FrameworkTemplate, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsPanelTemplate
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsPanelTemplate
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -30415,12 +30884,12 @@ public final class ItemsPanelTemplate : WinUI.FrameworkTemplate, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsPanelTemplate")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsPanelTemplate")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -30465,12 +30934,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsRepeater
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater)
+@MainActor
 open class ItemsRepeater : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeater
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeater
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -30478,29 +30948,29 @@ open class ItemsRepeater : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IItemsRepeaterFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsRepeater")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsRepeaterBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IItemsRepeaterFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IItemsRepeaterStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsRepeater")
+    private static nonisolated let _IItemsRepeaterStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsRepeater")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.backgroundproperty)
     public class var backgroundProperty : WinUI.DependencyProperty! {
         get { try! _IItemsRepeaterStatics.get_BackgroundProperty() }
@@ -30531,7 +31001,7 @@ open class ItemsRepeater : WinUI.FrameworkElement, @unchecked Sendable {
         get { try! _IItemsRepeaterStatics.get_VerticalCacheLengthProperty() }
     }
 
-    private static let _IItemsRepeaterStatics2: __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsRepeater")
+    private static nonisolated let _IItemsRepeaterStatics2: __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsRepeater")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.itemtransitionproviderproperty)
     public class var itemTransitionProviderProperty : WinUI.DependencyProperty! {
         get { try! _IItemsRepeaterStatics2.get_ItemTransitionProviderProperty() }
@@ -30596,43 +31066,55 @@ open class ItemsRepeater : WinUI.FrameworkElement, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.elementclearing)
     public lazy var elementClearing : Event<TypedEventHandler<ItemsRepeater?, ItemsRepeaterElementClearingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ElementClearing($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ElementClearing(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ElementClearing($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ElementClearing(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.elementindexchanged)
     public lazy var elementIndexChanged : Event<TypedEventHandler<ItemsRepeater?, ItemsRepeaterElementIndexChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ElementIndexChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ElementIndexChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ElementIndexChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ElementIndexChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.elementprepared)
     public lazy var elementPrepared : Event<TypedEventHandler<ItemsRepeater?, ItemsRepeaterElementPreparedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ElementPrepared($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ElementPrepared(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ElementPrepared($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ElementPrepared(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IItemsRepeater2: __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeater2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IItemsRepeater2: __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeater2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.itemtransitionprovider)
     public var itemTransitionProvider : ItemCollectionTransitionProvider! {
         get { try! _IItemsRepeater2.get_ItemTransitionProvider() }
@@ -30995,12 +31477,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsRepeaterElementClearingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeaterelementclearingeventargs)
+@MainActor
 public final class ItemsRepeaterElementClearingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterElementClearingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementClearingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -31008,7 +31491,7 @@ public final class ItemsRepeaterElementClearingEventArgs : WinRTClass, @unchecke
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -31067,12 +31550,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsRepeaterElementIndexChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeaterelementindexchangedeventargs)
+@MainActor
 public final class ItemsRepeaterElementIndexChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterElementIndexChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementIndexChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -31080,7 +31564,7 @@ public final class ItemsRepeaterElementIndexChangedEventArgs : WinRTClass, @unch
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -31165,12 +31649,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsRepeaterElementPreparedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeaterelementpreparedeventargs)
+@MainActor
 public final class ItemsRepeaterElementPreparedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsRepeaterElementPreparedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsRepeaterElementPreparedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -31178,7 +31663,7 @@ public final class ItemsRepeaterElementPreparedEventArgs : WinRTClass, @unchecke
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -31250,12 +31735,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsSourceView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemssourceview)
+@MainActor
 open class ItemsSourceView : WinRTClass, @unchecked Sendable, WinUI.INotifyCollectionChanged {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsSourceView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsSourceView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -31263,24 +31749,24 @@ open class ItemsSourceView : WinRTClass, @unchecked Sendable, WinUI.INotifyColle
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IItemsSourceViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsSourceViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsSourceView")
 
-    public init(_ source: Any!) {
+    nonisolated public init(_ source: Any!) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsSourceViewBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IItemsSourceViewFactory.CreateInstance(source, baseInterface, &innerInterface)
@@ -31317,17 +31803,21 @@ open class ItemsSourceView : WinRTClass, @unchecked Sendable, WinUI.INotifyColle
         get { try! _default.get_HasKeyIndexMapping() }
     }
 
-    private lazy var _INotifyCollectionChanged: __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChanged! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INotifyCollectionChanged: __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChanged! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemssourceview.collectionchanged)
     public lazy var collectionChanged : Event<WinUI.NotifyCollectionChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INotifyCollectionChanged else { return .init() }
-          return try! this.add_CollectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INotifyCollectionChanged else { return .init() }
+            return try this.add_CollectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INotifyCollectionChanged.remove_CollectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INotifyCollectionChanged.remove_CollectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -31464,12 +31954,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsStackPanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel)
+@MainActor
 public final class ItemsStackPanel : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsStackPanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsStackPanel
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -31477,16 +31968,16 @@ public final class ItemsStackPanel : WinUI.Panel, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsStackPanel")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsStackPanel")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IItemsStackPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsStackPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsStackPanel")
+    private static nonisolated let _IItemsStackPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsStackPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsStackPanel")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsstackpanel.arestickygroupheadersenabledproperty)
     public static var areStickyGroupHeadersEnabledProperty : WinUI.DependencyProperty! {
         get { try! _IItemsStackPanelStatics.get_AreStickyGroupHeadersEnabledProperty() }
@@ -31792,12 +32283,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview)
+@MainActor
 open class ItemsView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -31805,29 +32297,29 @@ open class ItemsView : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IItemsViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IItemsViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IItemsViewStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
+    private static nonisolated let _IItemsViewStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.currentitemindexproperty)
     public class var currentItemIndexProperty : WinUI.DependencyProperty! {
         get { try! _IItemsViewStatics.get_CurrentItemIndexProperty() }
@@ -31983,26 +32475,34 @@ open class ItemsView : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.iteminvoked)
     public lazy var itemInvoked : Event<TypedEventHandler<ItemsView?, ItemsViewItemInvokedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ItemInvoked($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ItemInvoked(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ItemInvoked($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ItemInvoked(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.selectionchanged)
     public lazy var selectionChanged : Event<TypedEventHandler<ItemsView?, ItemsViewSelectionChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -32408,12 +32908,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsViewItemInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewiteminvokedeventargs)
+@MainActor
 public final class ItemsViewItemInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsViewItemInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewItemInvokedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -32421,7 +32922,7 @@ public final class ItemsViewItemInvokedEventArgs : WinRTClass, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -32480,12 +32981,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsViewSelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsviewselectionchangedeventargs)
+@MainActor
 public final class ItemsViewSelectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsViewSelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsViewSelectionChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -32493,7 +32995,7 @@ public final class ItemsViewSelectionChangedEventArgs : WinRTClass, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -32538,12 +33040,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ItemsWrapGrid
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemswrapgrid)
+@MainActor
 open class ItemsWrapGrid : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IItemsWrapGrid
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIItemsWrapGrid
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -32551,29 +33054,29 @@ open class ItemsWrapGrid : WinUI.Panel, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IItemsWrapGridFactory : __ABI_Microsoft_UI_Xaml_Controls.IItemsWrapGridFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsWrapGrid")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ItemsWrapGridBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IItemsWrapGridFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IItemsWrapGridStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsWrapGridStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsWrapGrid")
+    private static nonisolated let _IItemsWrapGridStatics: __ABI_Microsoft_UI_Xaml_Controls.IItemsWrapGridStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ItemsWrapGrid")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemswrapgrid.arestickygroupheadersenabledproperty)
     public class var areStickyGroupHeadersEnabledProperty : WinUI.DependencyProperty! {
         get { try! _IItemsWrapGridStatics.get_AreStickyGroupHeadersEnabledProperty() }
@@ -32995,12 +33498,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Layout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout)
+@MainActor
 open class Layout : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ILayout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayout
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -33008,18 +33512,18 @@ open class Layout : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.ILayoutOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.ILayoutOverridesWrapper(self)
@@ -33052,36 +33556,44 @@ open class Layout : WinUI.DependencyObject, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout.arrangeinvalidated)
     public lazy var arrangeInvalidated : Event<TypedEventHandler<Layout?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ArrangeInvalidated($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ArrangeInvalidated(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ArrangeInvalidated($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ArrangeInvalidated(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout.measureinvalidated)
     public lazy var measureInvalidated : Event<TypedEventHandler<Layout?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_MeasureInvalidated($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_MeasureInvalidated(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_MeasureInvalidated($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_MeasureInvalidated(token)
+          }
+        }
       )
     }()
 
-    private lazy var _ILayout2: __ABI_Microsoft_UI_Xaml_Controls.ILayout2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ILayout2: __ABI_Microsoft_UI_Xaml_Controls.ILayout2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout.indexbasedlayoutorientation)
     public var indexBasedLayoutOrientation : IndexBasedLayoutOrientation {
         get { try! _ILayout2.get_IndexBasedLayoutOrientation() }
     }
 
-    private lazy var _ILayoutProtected: __ABI_Microsoft_UI_Xaml_Controls.ILayoutProtected! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ILayoutProtected: __ABI_Microsoft_UI_Xaml_Controls.ILayoutProtected! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout.invalidatemeasure)
     public func invalidateMeasure() throws {
         try _ILayoutProtected.InvalidateMeasure()
@@ -33092,13 +33604,13 @@ open class Layout : WinUI.DependencyObject, @unchecked Sendable {
         try _ILayoutProtected.InvalidateArrange()
     }
 
-    private lazy var _ILayoutProtected2: __ABI_Microsoft_UI_Xaml_Controls.ILayoutProtected2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ILayoutProtected2: __ABI_Microsoft_UI_Xaml_Controls.ILayoutProtected2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout.setindexbasedlayoutorientation)
     public func setIndexBasedLayoutOrientation(_ orientation: IndexBasedLayoutOrientation) throws {
         try _ILayoutProtected2.SetIndexBasedLayoutOrientation(orientation)
     }
 
-    private lazy var _ILayoutOverrides: __ABI_Microsoft_UI_Xaml_Controls.ILayoutOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ILayoutOverrides: __ABI_Microsoft_UI_Xaml_Controls.ILayoutOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout.createdefaultitemtransitionprovider)
     open func createDefaultItemTransitionProvider() throws -> ItemCollectionTransitionProvider! {
         try _ILayoutOverrides.CreateDefaultItemTransitionProvider()
@@ -33180,7 +33692,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         CreateDefaultItemTransitionProvider: {
             do {
                 guard let __unwrapped__instance = ILayoutOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.createDefaultItemTransitionProvider()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.createDefaultItemTransitionProvider()
+                }
                 result?.copyTo($1)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -33345,12 +33859,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - LayoutContext
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layoutcontext)
+@MainActor
 open class LayoutContext : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ILayoutContext
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILayoutContext
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -33358,18 +33873,18 @@ open class LayoutContext : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.ILayoutContextOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.ILayoutContextOverridesWrapper(self)
@@ -33385,7 +33900,7 @@ open class LayoutContext : WinUI.DependencyObject, @unchecked Sendable {
         set { try! _default.put_LayoutState(newValue) }
     }
 
-    private lazy var _ILayoutContextOverrides: __ABI_Microsoft_UI_Xaml_Controls.ILayoutContextOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ILayoutContextOverrides: __ABI_Microsoft_UI_Xaml_Controls.ILayoutContextOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layoutcontext.layoutstatecore)
     open var layoutStateCore : Any! {
         get { try! _ILayoutContextOverrides.get_LayoutStateCore() }
@@ -33464,7 +33979,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         get_LayoutStateCore: {
             guard let __unwrapped__instance = ILayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.layoutStateCore
+            let __resultBox = AnyResultBox()
+            MainActor.assumeIsolated {
+                __resultBox.value = __unwrapped__instance.layoutStateCore
+            }
+            let value: Any! = __resultBox.value
             let valueWrapper = __ABI_.AnyWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -33472,8 +33991,10 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 
         put_LayoutStateCore: {
             guard let __unwrapped__instance = ILayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-            __unwrapped__instance.layoutStateCore = value
+            nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+            MainActor.assumeIsolated {
+                __unwrapped__instance.layoutStateCore = value
+            }
             return S_OK
         }
     )
@@ -33548,12 +34069,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - LinedFlowLayoutItemCollectionTransitionProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.linedflowlayoutitemcollectiontransitionprovider)
+@MainActor
 open class LinedFlowLayoutItemCollectionTransitionProvider : WinUI.ItemCollectionTransitionProvider, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ILinedFlowLayoutItemCollectionTransitionProvider
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CILinedFlowLayoutItemCollectionTransitionProvider
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -33561,23 +34083,23 @@ open class LinedFlowLayoutItemCollectionTransitionProvider : WinUI.ItemCollectio
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ILinedFlowLayoutItemCollectionTransitionProviderFactory : __ABI_Microsoft_UI_Xaml_Controls.ILinedFlowLayoutItemCollectionTransitionProviderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.LinedFlowLayoutItemCollectionTransitionProvider")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.LinedFlowLayoutItemCollectionTransitionProviderBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ILinedFlowLayoutItemCollectionTransitionProviderFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -33658,12 +34180,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listbox)
+@MainActor
 open class ListBox : WinUI.Selector, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -33671,29 +34194,29 @@ open class ListBox : WinUI.Selector, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IListBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IListBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListBox")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListBoxBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IListBoxFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IListBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IListBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListBox")
+    private static nonisolated let _IListBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IListBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListBox")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listbox.selectionmodeproperty)
     public class var selectionModeProperty : WinUI.DependencyProperty! {
         get { try! _IListBoxStatics.get_SelectionModeProperty() }
@@ -33884,12 +34407,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListBoxItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listboxitem)
+@MainActor
 open class ListBoxItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListBoxItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListBoxItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -33897,23 +34421,23 @@ open class ListBoxItem : WinUI.SelectorItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IListBoxItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListBoxItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListBoxItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListBoxItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IListBoxItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -33994,12 +34518,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview)
+@MainActor
 open class ListView : WinUI.ListViewBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -34007,23 +34532,23 @@ open class ListView : WinUI.ListViewBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IListViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IListViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -34104,12 +34629,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListViewBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase)
+@MainActor
 open class ListViewBase : WinUI.Selector, @unchecked Sendable, ISemanticZoomInformation {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListViewBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -34117,29 +34643,29 @@ open class ListViewBase : WinUI.Selector, @unchecked Sendable, ISemanticZoomInfo
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IListViewBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewBase")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListViewBaseBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IListViewBaseFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IListViewBaseStatics: __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewBase")
+    private static nonisolated let _IListViewBaseStatics: __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase.candragitemsproperty)
     public class var canDragItemsProperty : WinUI.DependencyProperty! {
         get { try! _IListViewBaseStatics.get_CanDragItemsProperty() }
@@ -34416,82 +34942,106 @@ open class ListViewBase : WinUI.Selector, @unchecked Sendable, ISemanticZoomInfo
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase.choosinggroupheadercontainer)
     public lazy var choosingGroupHeaderContainer : Event<TypedEventHandler<ListViewBase?, ChoosingGroupHeaderContainerEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ChoosingGroupHeaderContainer($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ChoosingGroupHeaderContainer(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ChoosingGroupHeaderContainer($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ChoosingGroupHeaderContainer(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase.choosingitemcontainer)
     public lazy var choosingItemContainer : Event<TypedEventHandler<ListViewBase?, ChoosingItemContainerEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ChoosingItemContainer($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ChoosingItemContainer(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ChoosingItemContainer($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ChoosingItemContainer(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase.containercontentchanging)
     public lazy var containerContentChanging : Event<TypedEventHandler<ListViewBase?, ContainerContentChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ContainerContentChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ContainerContentChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ContainerContentChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ContainerContentChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase.dragitemscompleted)
     public lazy var dragItemsCompleted : Event<TypedEventHandler<ListViewBase?, DragItemsCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DragItemsCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DragItemsCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DragItemsCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DragItemsCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase.dragitemsstarting)
     public lazy var dragItemsStarting : Event<DragItemsStartingEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DragItemsStarting($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DragItemsStarting(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DragItemsStarting($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DragItemsStarting(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase.itemclick)
     public lazy var itemClick : Event<ItemClickEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ItemClick($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ItemClick(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ItemClick($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ItemClick(token)
+          }
+        }
       )
     }()
 
-    private lazy var _ISemanticZoomInformation: __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomInformation! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ISemanticZoomInformation: __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomInformation! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbase.initializeviewchange)
     public func initializeViewChange() throws {
         try _ISemanticZoomInformation.InitializeViewChange()
@@ -35277,12 +35827,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListViewBaseHeaderItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewbaseheaderitem)
+@MainActor
 open class ListViewBaseHeaderItem : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseHeaderItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewBaseHeaderItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -35290,18 +35841,18 @@ open class ListViewBaseHeaderItem : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IListViewBaseHeaderItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewBaseHeaderItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewBaseHeaderItem")
@@ -35368,12 +35919,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ListViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listviewitem)
+@MainActor
 open class ListViewItem : WinUI.SelectorItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IListViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIListViewItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -35381,23 +35933,23 @@ open class ListViewItem : WinUI.SelectorItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IListViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IListViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ListViewItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ListViewItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IListViewItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -35492,12 +36044,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MediaPlayerElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediaplayerelement)
+@MainActor
 open class MediaPlayerElement : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMediaPlayerElement
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaPlayerElement
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -35505,29 +36058,29 @@ open class MediaPlayerElement : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMediaPlayerElementFactory : __ABI_Microsoft_UI_Xaml_Controls.IMediaPlayerElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaPlayerElement")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MediaPlayerElementBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IMediaPlayerElementFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IMediaPlayerElementStatics: __ABI_Microsoft_UI_Xaml_Controls.IMediaPlayerElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaPlayerElement")
+    private static nonisolated let _IMediaPlayerElementStatics: __ABI_Microsoft_UI_Xaml_Controls.IMediaPlayerElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaPlayerElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediaplayerelement.aretransportcontrolsenabledproperty)
     public class var areTransportControlsEnabledProperty : WinUI.DependencyProperty! {
         get { try! _IMediaPlayerElementStatics.get_AreTransportControlsEnabledProperty() }
@@ -35880,12 +36433,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MediaTransportControls
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediatransportcontrols)
+@MainActor
 open class MediaTransportControls : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMediaTransportControls
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMediaTransportControls
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -35893,29 +36447,29 @@ open class MediaTransportControls : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMediaTransportControlsFactory : __ABI_Microsoft_UI_Xaml_Controls.IMediaTransportControlsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaTransportControls")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MediaTransportControlsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IMediaTransportControlsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IMediaTransportControlsStatics: __ABI_Microsoft_UI_Xaml_Controls.IMediaTransportControlsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaTransportControls")
+    private static nonisolated let _IMediaTransportControlsStatics: __ABI_Microsoft_UI_Xaml_Controls.IMediaTransportControlsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MediaTransportControls")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediatransportcontrols.fastplayfallbackbehaviourproperty)
     public class var fastPlayFallbackBehaviourProperty : WinUI.DependencyProperty! {
         get { try! _IMediaTransportControlsStatics.get_FastPlayFallbackBehaviourProperty() }
@@ -36204,13 +36758,17 @@ open class MediaTransportControls : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediatransportcontrols.thumbnailrequested)
     public lazy var thumbnailRequested : Event<TypedEventHandler<MediaTransportControls?, MediaTransportControlsThumbnailRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ThumbnailRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ThumbnailRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ThumbnailRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ThumbnailRequested(token)
+          }
+        }
       )
     }()
 
@@ -36901,12 +37459,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubar)
+@MainActor
 open class MenuBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -36914,29 +37473,29 @@ open class MenuBar : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMenuBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IMenuBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IMenuBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBar")
+    private static nonisolated let _IMenuBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubar.itemsproperty)
     public class var itemsProperty : WinUI.DependencyProperty! {
         get { try! _IMenuBarStatics.get_ItemsProperty() }
@@ -37049,12 +37608,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuBarItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubaritem)
+@MainActor
 open class MenuBarItem : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuBarItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuBarItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -37062,29 +37622,29 @@ open class MenuBarItem : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMenuBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBarItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuBarItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IMenuBarItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IMenuBarItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuBarItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBarItem")
+    private static nonisolated let _IMenuBarItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuBarItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuBarItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubaritem.itemsproperty)
     public class var itemsProperty : WinUI.DependencyProperty! {
         get { try! _IMenuBarItemStatics.get_ItemsProperty() }
@@ -37235,12 +37795,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyout)
+@MainActor
 open class MenuFlyout : WinUI.FlyoutBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyout
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -37248,29 +37809,29 @@ open class MenuFlyout : WinUI.FlyoutBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMenuFlyoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyout")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IMenuFlyoutFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IMenuFlyoutStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyout")
+    private static nonisolated let _IMenuFlyoutStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyout")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyout.menuflyoutpresenterstyleproperty)
     public class var menuFlyoutPresenterStyleProperty : WinUI.DependencyProperty! {
         get { try! _IMenuFlyoutStatics.get_MenuFlyoutPresenterStyleProperty() }
@@ -37415,12 +37976,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyoutItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutitem)
+@MainActor
 open class MenuFlyoutItem : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -37428,29 +37990,29 @@ open class MenuFlyoutItem : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutItem")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IMenuFlyoutItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IMenuFlyoutItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutItem")
+    private static nonisolated let _IMenuFlyoutItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutitem.commandparameterproperty)
     public class var commandParameterProperty : WinUI.DependencyProperty! {
         get { try! _IMenuFlyoutItemStatics.get_CommandParameterProperty() }
@@ -37514,13 +38076,17 @@ open class MenuFlyoutItem : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutitem.click)
     public lazy var click : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Click($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Click(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Click($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Click(token)
+          }
+        }
       )
     }()
 
@@ -37763,12 +38329,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyoutItemBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutitembase)
+@MainActor
 open class MenuFlyoutItemBase : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutItemBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -37776,18 +38343,18 @@ open class MenuFlyoutItemBase : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMenuFlyoutItemBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutItemBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase")
@@ -37854,12 +38421,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyoutSeparator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutseparator)
+@MainActor
 open class MenuFlyoutSeparator : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSeparator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSeparator
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -37867,23 +38435,23 @@ open class MenuFlyoutSeparator : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IMenuFlyoutSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutSeparator")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.MenuFlyoutSeparatorBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IMenuFlyoutSeparatorFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -37964,12 +38532,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - MenuFlyoutSubItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutsubitem)
+@MainActor
 public final class MenuFlyoutSubItem : WinUI.MenuFlyoutItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSubItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIMenuFlyoutSubItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -37977,16 +38546,16 @@ public final class MenuFlyoutSubItem : WinUI.MenuFlyoutItemBase, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IMenuFlyoutSubItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSubItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem")
+    private static nonisolated let _IMenuFlyoutSubItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IMenuFlyoutSubItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.MenuFlyoutSubItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutsubitem.iconproperty)
     public static var iconProperty : WinUI.DependencyProperty! {
         get { try! _IMenuFlyoutSubItemStatics.get_IconProperty() }
@@ -38124,12 +38693,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview)
+@MainActor
 open class NavigationView : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -38137,29 +38707,29 @@ open class NavigationView : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _INavigationViewFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._INavigationViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _INavigationViewStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationView")
+    private static nonisolated let _INavigationViewStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.alwaysshowheaderproperty)
     public class var alwaysShowHeaderProperty : WinUI.DependencyProperty! {
         get { try! _INavigationViewStatics.get_AlwaysShowHeaderProperty() }
@@ -38285,7 +38855,7 @@ open class NavigationView : WinUI.ContentControl, @unchecked Sendable {
         get { try! _INavigationViewStatics.get_SettingsItemProperty() }
     }
 
-    private static let _INavigationViewStatics2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationView")
+    private static nonisolated let _INavigationViewStatics2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.contentoverlayproperty)
     public class var contentOverlayProperty : WinUI.DependencyProperty! {
         get { try! _INavigationViewStatics2.get_ContentOverlayProperty() }
@@ -38505,43 +39075,55 @@ open class NavigationView : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.displaymodechanged)
     public lazy var displayModeChanged : Event<TypedEventHandler<NavigationView?, NavigationViewDisplayModeChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DisplayModeChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DisplayModeChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DisplayModeChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DisplayModeChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.iteminvoked)
     public lazy var itemInvoked : Event<TypedEventHandler<NavigationView?, NavigationViewItemInvokedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ItemInvoked($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ItemInvoked(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ItemInvoked($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ItemInvoked(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.selectionchanged)
     public lazy var selectionChanged : Event<TypedEventHandler<NavigationView?, NavigationViewSelectionChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
-    private lazy var _INavigationView2: __ABI_Microsoft_UI_Xaml_Controls.INavigationView2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigationView2: __ABI_Microsoft_UI_Xaml_Controls.INavigationView2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.expand)
     public func expand(_ item: NavigationViewItem!) throws {
         try _INavigationView2.Expand(item)
@@ -38626,91 +39208,119 @@ open class NavigationView : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.backrequested)
     public lazy var backRequested : Event<TypedEventHandler<NavigationView?, NavigationViewBackRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INavigationView2 else { return .init() }
-          return try! this.add_BackRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INavigationView2 else { return .init() }
+            return try this.add_BackRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INavigationView2.remove_BackRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INavigationView2.remove_BackRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.collapsed)
     public lazy var collapsed : Event<TypedEventHandler<NavigationView?, NavigationViewItemCollapsedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INavigationView2 else { return .init() }
-          return try! this.add_Collapsed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INavigationView2 else { return .init() }
+            return try this.add_Collapsed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INavigationView2.remove_Collapsed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INavigationView2.remove_Collapsed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.expanding)
     public lazy var expanding : Event<TypedEventHandler<NavigationView?, NavigationViewItemExpandingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INavigationView2 else { return .init() }
-          return try! this.add_Expanding($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INavigationView2 else { return .init() }
+            return try this.add_Expanding(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INavigationView2.remove_Expanding($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INavigationView2.remove_Expanding(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.paneclosed)
     public lazy var paneClosed : Event<TypedEventHandler<NavigationView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INavigationView2 else { return .init() }
-          return try! this.add_PaneClosed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INavigationView2 else { return .init() }
+            return try this.add_PaneClosed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INavigationView2.remove_PaneClosed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INavigationView2.remove_PaneClosed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.paneclosing)
     public lazy var paneClosing : Event<TypedEventHandler<NavigationView?, NavigationViewPaneClosingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INavigationView2 else { return .init() }
-          return try! this.add_PaneClosing($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INavigationView2 else { return .init() }
+            return try this.add_PaneClosing(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INavigationView2.remove_PaneClosing($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INavigationView2.remove_PaneClosing(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.paneopened)
     public lazy var paneOpened : Event<TypedEventHandler<NavigationView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INavigationView2 else { return .init() }
-          return try! this.add_PaneOpened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INavigationView2 else { return .init() }
+            return try this.add_PaneOpened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INavigationView2.remove_PaneOpened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INavigationView2.remove_PaneOpened(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationview.paneopening)
     public lazy var paneOpening : Event<TypedEventHandler<NavigationView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._INavigationView2 else { return .init() }
-          return try! this.add_PaneOpening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._INavigationView2 else { return .init() }
+            return try this.add_PaneOpening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._INavigationView2.remove_PaneOpening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._INavigationView2.remove_PaneOpening(token)
+          }
+        }
       )
     }()
 
@@ -39861,12 +40471,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewBackRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewbackrequestedeventargs)
+@MainActor
 public final class NavigationViewBackRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewBackRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewBackRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -39874,7 +40485,7 @@ public final class NavigationViewBackRequestedEventArgs : WinRTClass, @unchecked
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -39919,12 +40530,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewDisplayModeChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewdisplaymodechangedeventargs)
+@MainActor
 public final class NavigationViewDisplayModeChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewDisplayModeChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewDisplayModeChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -39932,7 +40544,7 @@ public final class NavigationViewDisplayModeChangedEventArgs : WinRTClass, @unch
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -39990,12 +40602,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitem)
+@MainActor
 open class NavigationViewItem : WinUI.NavigationViewItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -40003,29 +40616,29 @@ open class NavigationViewItem : WinUI.NavigationViewItemBase, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _INavigationViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._INavigationViewItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _INavigationViewItemStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
+    private static nonisolated let _INavigationViewItemStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitem.compactpanelengthproperty)
     public class var compactPaneLengthProperty : WinUI.DependencyProperty! {
         get { try! _INavigationViewItemStatics.get_CompactPaneLengthProperty() }
@@ -40036,7 +40649,7 @@ open class NavigationViewItem : WinUI.NavigationViewItemBase, @unchecked Sendabl
         get { try! _INavigationViewItemStatics.get_IconProperty() }
     }
 
-    private static let _INavigationViewItemStatics2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
+    private static nonisolated let _INavigationViewItemStatics2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitem.hasunrealizedchildrenproperty)
     public class var hasUnrealizedChildrenProperty : WinUI.DependencyProperty! {
         get { try! _INavigationViewItemStatics2.get_HasUnrealizedChildrenProperty() }
@@ -40067,7 +40680,7 @@ open class NavigationViewItem : WinUI.NavigationViewItemBase, @unchecked Sendabl
         get { try! _INavigationViewItemStatics2.get_SelectsOnInvokedProperty() }
     }
 
-    private static let _INavigationViewItemStatics3: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemStatics3 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
+    private static nonisolated let _INavigationViewItemStatics3: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemStatics3 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitem.infobadgeproperty)
     public class var infoBadgeProperty : WinUI.DependencyProperty! {
         get { try! _INavigationViewItemStatics3.get_InfoBadgeProperty() }
@@ -40084,7 +40697,7 @@ open class NavigationViewItem : WinUI.NavigationViewItemBase, @unchecked Sendabl
         set { try! _default.put_Icon(newValue) }
     }
 
-    private lazy var _INavigationViewItem2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItem2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigationViewItem2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItem2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitem.hasunrealizedchildren)
     public var hasUnrealizedChildren : Bool {
         get { try! _INavigationViewItem2.get_HasUnrealizedChildren() }
@@ -40120,7 +40733,7 @@ open class NavigationViewItem : WinUI.NavigationViewItemBase, @unchecked Sendabl
         set { try! _INavigationViewItem2.put_SelectsOnInvoked(newValue) }
     }
 
-    private lazy var _INavigationViewItem3: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItem3! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigationViewItem3: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItem3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitem.infobadge)
     public var infoBadge : InfoBadge! {
         get { try! _INavigationViewItem3.get_InfoBadge() }
@@ -40450,12 +41063,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemBase
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitembase)
+@MainActor
 open class NavigationViewItemBase : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBase
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemBase
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -40463,29 +41077,29 @@ open class NavigationViewItemBase : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _INavigationViewItemBaseFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBaseFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemBase")
 
-    private static let _INavigationViewItemBaseStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemBase")
+    private static nonisolated let _INavigationViewItemBaseStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBaseStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemBase")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitembase.isselectedproperty)
     public class var isSelectedProperty : WinUI.DependencyProperty! {
         get { try! _INavigationViewItemBaseStatics.get_IsSelectedProperty() }
     }
 
-    private lazy var _INavigationViewItemBase2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBase2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigationViewItemBase2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemBase2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitembase.isselected)
     public var isSelected : Bool {
         get { try! _INavigationViewItemBase2.get_IsSelected() }
@@ -40596,12 +41210,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemCollapsedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemcollapsedeventargs)
+@MainActor
 public final class NavigationViewItemCollapsedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemCollapsedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemCollapsedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -40609,7 +41224,7 @@ public final class NavigationViewItemCollapsedEventArgs : WinRTClass, @unchecked
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -40682,12 +41297,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemExpandingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemexpandingeventargs)
+@MainActor
 public final class NavigationViewItemExpandingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemExpandingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemExpandingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -40695,7 +41311,7 @@ public final class NavigationViewItemExpandingEventArgs : WinRTClass, @unchecked
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -40768,12 +41384,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemHeader
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemheader)
+@MainActor
 open class NavigationViewItemHeader : WinUI.NavigationViewItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemHeader
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemHeader
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -40781,23 +41398,23 @@ open class NavigationViewItemHeader : WinUI.NavigationViewItemBase, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _INavigationViewItemHeaderFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemHeaderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemHeader")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemHeaderBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._INavigationViewItemHeaderFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -40878,12 +41495,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewiteminvokedeventargs)
+@MainActor
 public final class NavigationViewItemInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemInvokedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -40891,12 +41509,12 @@ public final class NavigationViewItemInvokedEventArgs : WinRTClass, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -40910,7 +41528,7 @@ public final class NavigationViewItemInvokedEventArgs : WinRTClass, @unchecked S
         get { try! _default.get_IsSettingsInvoked() }
     }
 
-    private lazy var _INavigationViewItemInvokedEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemInvokedEventArgs2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigationViewItemInvokedEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemInvokedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewiteminvokedeventargs.invokeditemcontainer)
     public var invokedItemContainer : NavigationViewItemBase! {
         get { try! _INavigationViewItemInvokedEventArgs2.get_InvokedItemContainer() }
@@ -41007,12 +41625,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewItemSeparator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewitemseparator)
+@MainActor
 open class NavigationViewItemSeparator : WinUI.NavigationViewItemBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemSeparator
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewItemSeparator
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -41020,23 +41639,23 @@ open class NavigationViewItemSeparator : WinUI.NavigationViewItemBase, @unchecke
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _INavigationViewItemSeparatorFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewItemSeparatorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewItemSeparator")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewItemSeparatorBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._INavigationViewItemSeparatorFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -41117,12 +41736,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewPaneClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewpaneclosingeventargs)
+@MainActor
 public final class NavigationViewPaneClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewPaneClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewPaneClosingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -41130,7 +41750,7 @@ public final class NavigationViewPaneClosingEventArgs : WinRTClass, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -41195,12 +41815,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewSelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewselectionchangedeventargs)
+@MainActor
 public final class NavigationViewSelectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewSelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewSelectionChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -41208,7 +41829,7 @@ public final class NavigationViewSelectionChangedEventArgs : WinRTClass, @unchec
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -41222,7 +41843,7 @@ public final class NavigationViewSelectionChangedEventArgs : WinRTClass, @unchec
         get { try! _default.get_SelectedItem() }
     }
 
-    private lazy var _INavigationViewSelectionChangedEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewSelectionChangedEventArgs2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigationViewSelectionChangedEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewSelectionChangedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewselectionchangedeventargs.recommendednavigationtransitioninfo)
     public var recommendedNavigationTransitionInfo : WinUI.NavigationTransitionInfo! {
         get { try! _INavigationViewSelectionChangedEventArgs2.get_RecommendedNavigationTransitionInfo() }
@@ -41319,12 +41940,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NavigationViewTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewtemplatesettings)
+@MainActor
 open class NavigationViewTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINavigationViewTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -41332,29 +41954,29 @@ open class NavigationViewTemplateSettings : WinUI.DependencyObject, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _INavigationViewTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NavigationViewTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._INavigationViewTemplateSettingsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _INavigationViewTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings")
+    private static nonisolated let _INavigationViewTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewtemplatesettings.backbuttonvisibilityproperty)
     public class var backButtonVisibilityProperty : WinUI.DependencyProperty! {
         get { try! _INavigationViewTemplateSettingsStatics.get_BackButtonVisibilityProperty() }
@@ -41400,7 +42022,7 @@ open class NavigationViewTemplateSettings : WinUI.DependencyObject, @unchecked S
         get { try! _INavigationViewTemplateSettingsStatics.get_TopPaneVisibilityProperty() }
     }
 
-    private static let _INavigationViewTemplateSettingsStatics2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettingsStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings")
+    private static nonisolated let _INavigationViewTemplateSettingsStatics2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettingsStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewtemplatesettings.openpanelengthproperty)
     public class var openPaneLengthProperty : WinUI.DependencyProperty! {
         get { try! _INavigationViewTemplateSettingsStatics2.get_OpenPaneLengthProperty() }
@@ -41451,7 +42073,7 @@ open class NavigationViewTemplateSettings : WinUI.DependencyObject, @unchecked S
         get { try! _default.get_TopPaneVisibility() }
     }
 
-    private lazy var _INavigationViewTemplateSettings2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettings2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _INavigationViewTemplateSettings2: __ABI_Microsoft_UI_Xaml_Controls.INavigationViewTemplateSettings2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.navigationviewtemplatesettings.openpanelength)
     public var openPaneLength : Double {
         get { try! _INavigationViewTemplateSettings2.get_OpenPaneLength() }
@@ -41730,12 +42352,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NumberBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox)
+@MainActor
 open class NumberBox : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -41743,29 +42366,29 @@ open class NumberBox : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _INumberBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.INumberBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.NumberBoxBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._INumberBoxFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _INumberBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.INumberBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
+    private static nonisolated let _INumberBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.INumberBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.NumberBox")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.acceptsexpressionproperty)
     public class var acceptsExpressionProperty : WinUI.DependencyProperty! {
         get { try! _INumberBoxStatics.get_AcceptsExpressionProperty() }
@@ -41978,13 +42601,17 @@ open class NumberBox : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberbox.valuechanged)
     public lazy var valueChanged : Event<TypedEventHandler<NumberBox?, NumberBoxValueChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ValueChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ValueChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ValueChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ValueChanged(token)
+          }
+        }
       )
     }()
 
@@ -42545,12 +43172,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - NumberBoxValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.numberboxvaluechangedeventargs)
+@MainActor
 public final class NumberBoxValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.INumberBoxValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CINumberBoxValueChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -42558,7 +43186,7 @@ public final class NumberBoxValueChangedEventArgs : WinRTClass, @unchecked Senda
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -42629,12 +43257,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Page
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.page)
+@MainActor
 open class Page : WinUI.UserControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPage
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPage
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -42642,18 +43271,18 @@ open class Page : WinUI.UserControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IPageOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IPageOverridesWrapper(self)
@@ -42663,13 +43292,13 @@ open class Page : WinUI.UserControl, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IPageFactory : __ABI_Microsoft_UI_Xaml_Controls.IPageFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Page")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PageBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IPageFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPageStatics: __ABI_Microsoft_UI_Xaml_Controls.IPageStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Page")
+    private static nonisolated let _IPageStatics: __ABI_Microsoft_UI_Xaml_Controls.IPageStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Page")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.page.bottomappbarproperty)
     public class var bottomAppBarProperty : WinUI.DependencyProperty! {
         get { try! _IPageStatics.get_BottomAppBarProperty() }
@@ -42708,7 +43337,7 @@ open class Page : WinUI.UserControl, @unchecked Sendable {
         set { try! _default.put_TopAppBar(newValue) }
     }
 
-    private lazy var _IPageOverrides: __ABI_Microsoft_UI_Xaml_Controls.IPageOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IPageOverrides: __ABI_Microsoft_UI_Xaml_Controls.IPageOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.page.onnavigatedfrom)
     open func onNavigatedFrom(_ e: WinUI.NavigationEventArgs!) throws {
         try _IPageOverrides.OnNavigatedFrom(e)
@@ -42801,7 +43430,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IPageOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.NavigationEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigationEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onNavigatedFrom(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onNavigatedFrom(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -42810,7 +43441,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IPageOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.NavigationEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigationEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onNavigatedTo(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onNavigatedTo(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -42819,7 +43452,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IPageOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let e: WinUI.NavigatingCancelEventArgs? = __IMPL_Microsoft_UI_Xaml_Navigation.NavigatingCancelEventArgsBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.onNavigatingFrom(e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onNavigatingFrom(e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -42981,12 +43616,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - Panel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.panel)
+@MainActor
 open class Panel : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPanel
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -42994,29 +43630,29 @@ open class Panel : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Panel")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PanelBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IPanelFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Panel")
+    private static nonisolated let _IPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Panel")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.panel.backgroundproperty)
     public class var backgroundProperty : WinUI.DependencyProperty! {
         get { try! _IPanelStatics.get_BackgroundProperty() }
@@ -43233,12 +43869,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PasswordBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordbox)
+@MainActor
 public final class PasswordBox : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPasswordBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -43246,16 +43883,16 @@ public final class PasswordBox : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PasswordBox")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PasswordBox")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IPasswordBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IPasswordBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PasswordBox")
+    private static nonisolated let _IPasswordBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IPasswordBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PasswordBox")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordbox.canpasteclipboardcontentproperty)
     public static var canPasteClipboardContentProperty : WinUI.DependencyProperty! {
         get { try! _IPasswordBoxStatics.get_CanPasteClipboardContentProperty() }
@@ -43433,52 +44070,68 @@ public final class PasswordBox : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordbox.contextmenuopening)
     public lazy var contextMenuOpening : Event<ContextMenuOpeningEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ContextMenuOpening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ContextMenuOpening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ContextMenuOpening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ContextMenuOpening(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordbox.passwordchanged)
     public lazy var passwordChanged : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PasswordChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PasswordChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PasswordChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PasswordChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordbox.passwordchanging)
     public lazy var passwordChanging : Event<TypedEventHandler<PasswordBox?, PasswordBoxPasswordChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PasswordChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PasswordChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PasswordChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PasswordChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordbox.paste)
     public lazy var paste : Event<TextControlPasteEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Paste($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Paste(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Paste($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Paste(token)
+          }
+        }
       )
     }()
 
@@ -43969,12 +44622,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PasswordBoxPasswordChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.passwordboxpasswordchangingeventargs)
+@MainActor
 public final class PasswordBoxPasswordChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPasswordBoxPasswordChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBoxPasswordChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -43982,7 +44636,7 @@ public final class PasswordBoxPasswordChangingEventArgs : WinRTClass, @unchecked
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -44040,12 +44694,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PersonPicture
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.personpicture)
+@MainActor
 open class PersonPicture : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPersonPicture
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPicture
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -44053,29 +44708,29 @@ open class PersonPicture : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPersonPictureFactory : __ABI_Microsoft_UI_Xaml_Controls.IPersonPictureFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PersonPicture")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PersonPictureBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IPersonPictureFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPersonPictureStatics: __ABI_Microsoft_UI_Xaml_Controls.IPersonPictureStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PersonPicture")
+    private static nonisolated let _IPersonPictureStatics: __ABI_Microsoft_UI_Xaml_Controls.IPersonPictureStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PersonPicture")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.personpicture.badgeglyphproperty)
     public class var badgeGlyphProperty : WinUI.DependencyProperty! {
         get { try! _IPersonPictureStatics.get_BadgeGlyphProperty() }
@@ -44533,12 +45188,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PersonPictureTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.personpicturetemplatesettings)
+@MainActor
 public final class PersonPictureTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPersonPictureTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPersonPictureTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -44546,7 +45202,7 @@ public final class PersonPictureTemplateSettings : WinUI.DependencyObject, @unch
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -44621,12 +45277,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PipsPager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspager)
+@MainActor
 open class PipsPager : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPipsPager
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPager
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -44634,29 +45291,29 @@ open class PipsPager : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPipsPagerFactory : __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PipsPager")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PipsPagerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IPipsPagerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPipsPagerStatics: __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PipsPager")
+    private static nonisolated let _IPipsPagerStatics: __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PipsPager")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspager.maxvisiblepipsproperty)
     public class var maxVisiblePipsProperty : WinUI.DependencyProperty! {
         get { try! _IPipsPagerStatics.get_MaxVisiblePipsProperty() }
@@ -44707,7 +45364,7 @@ open class PipsPager : WinUI.Control, @unchecked Sendable {
         get { try! _IPipsPagerStatics.get_SelectedPipStyleProperty() }
     }
 
-    private static let _IPipsPagerStatics2: __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PipsPager")
+    private static nonisolated let _IPipsPagerStatics2: __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PipsPager")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspager.wrapmodeproperty)
     public class var wrapModeProperty : WinUI.DependencyProperty! {
         get { try! _IPipsPagerStatics2.get_WrapModeProperty() }
@@ -44781,17 +45438,21 @@ open class PipsPager : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspager.selectedindexchanged)
     public lazy var selectedIndexChanged : Event<TypedEventHandler<PipsPager?, PipsPagerSelectedIndexChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectedIndexChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectedIndexChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectedIndexChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectedIndexChanged(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IPipsPager2: __ABI_Microsoft_UI_Xaml_Controls.IPipsPager2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IPipsPager2: __ABI_Microsoft_UI_Xaml_Controls.IPipsPager2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspager.wrapmode)
     public var wrapMode : PipsPagerWrapMode {
         get { try! _IPipsPager2.get_WrapMode() }
@@ -45183,12 +45844,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PipsPagerSelectedIndexChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspagerselectedindexchangedeventargs)
+@MainActor
 public final class PipsPagerSelectedIndexChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerSelectedIndexChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerSelectedIndexChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -45196,7 +45858,7 @@ public final class PipsPagerSelectedIndexChangedEventArgs : WinRTClass, @uncheck
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -45241,12 +45903,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PipsPagerTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspagertemplatesettings)
+@MainActor
 public final class PipsPagerTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPipsPagerTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPagerTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -45254,7 +45917,7 @@ public final class PipsPagerTemplateSettings : WinUI.DependencyObject, @unchecke
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -45313,12 +45976,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Pivot
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivot)
+@MainActor
 open class Pivot : WinUI.ItemsControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPivot
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivot
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -45326,29 +45990,29 @@ open class Pivot : WinUI.ItemsControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPivotFactory : __ABI_Microsoft_UI_Xaml_Controls.IPivotFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Pivot")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PivotBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IPivotFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPivotStatics: __ABI_Microsoft_UI_Xaml_Controls.IPivotStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Pivot")
+    private static nonisolated let _IPivotStatics: __ABI_Microsoft_UI_Xaml_Controls.IPivotStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Pivot")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivot.getslideinanimationgroup)
     public class func getSlideInAnimationGroup(_ element: WinUI.FrameworkElement!) throws -> PivotSlideInAnimationGroup {
         return try _IPivotStatics.GetSlideInAnimationGroup(element)
@@ -45499,65 +46163,85 @@ open class Pivot : WinUI.ItemsControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivot.pivotitemloaded)
     public lazy var pivotItemLoaded : Event<TypedEventHandler<Pivot?, PivotItemEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PivotItemLoaded($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PivotItemLoaded(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PivotItemLoaded($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PivotItemLoaded(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivot.pivotitemloading)
     public lazy var pivotItemLoading : Event<TypedEventHandler<Pivot?, PivotItemEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PivotItemLoading($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PivotItemLoading(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PivotItemLoading($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PivotItemLoading(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivot.pivotitemunloaded)
     public lazy var pivotItemUnloaded : Event<TypedEventHandler<Pivot?, PivotItemEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PivotItemUnloaded($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PivotItemUnloaded(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PivotItemUnloaded($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PivotItemUnloaded(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivot.pivotitemunloading)
     public lazy var pivotItemUnloading : Event<TypedEventHandler<Pivot?, PivotItemEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PivotItemUnloading($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PivotItemUnloading(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PivotItemUnloading($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PivotItemUnloading(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivot.selectionchanged)
     public lazy var selectionChanged : Event<SelectionChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -46040,12 +46724,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PivotItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivotitem)
+@MainActor
 open class PivotItem : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPivotItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -46053,29 +46738,29 @@ open class PivotItem : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IPivotItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IPivotItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PivotItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.PivotItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IPivotItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IPivotItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IPivotItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PivotItem")
+    private static nonisolated let _IPivotItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IPivotItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PivotItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivotitem.headerproperty)
     public class var headerProperty : WinUI.DependencyProperty! {
         get { try! _IPivotItemStatics.get_HeaderProperty() }
@@ -46197,12 +46882,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - PivotItemEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pivotitemeventargs)
+@MainActor
 public final class PivotItemEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPivotItemEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPivotItemEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -46210,12 +46896,12 @@ public final class PivotItemEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PivotItemEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.PivotItemEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -46281,12 +46967,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ProgressBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressbar)
+@MainActor
 open class ProgressBar : WinUI.RangeBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IProgressBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -46294,29 +46981,29 @@ open class ProgressBar : WinUI.RangeBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IProgressBarFactory : __ABI_Microsoft_UI_Xaml_Controls.IProgressBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ProgressBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IProgressBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IProgressBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IProgressBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressBar")
+    private static nonisolated let _IProgressBarStatics: __ABI_Microsoft_UI_Xaml_Controls.IProgressBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressbar.isindeterminateproperty)
     public class var isIndeterminateProperty : WinUI.DependencyProperty! {
         get { try! _IProgressBarStatics.get_IsIndeterminateProperty() }
@@ -46517,12 +47204,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ProgressBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressbartemplatesettings)
+@MainActor
 public final class ProgressBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IProgressBarTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressBarTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -46530,7 +47218,7 @@ public final class ProgressBarTemplateSettings : WinUI.DependencyObject, @unchec
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -46719,12 +47407,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ProgressRing
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressring)
+@MainActor
 open class ProgressRing : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IProgressRing
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressRing
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -46732,29 +47421,29 @@ open class ProgressRing : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IProgressRingFactory : __ABI_Microsoft_UI_Xaml_Controls.IProgressRingFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressRing")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ProgressRingBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IProgressRingFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IProgressRingStatics: __ABI_Microsoft_UI_Xaml_Controls.IProgressRingStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressRing")
+    private static nonisolated let _IProgressRingStatics: __ABI_Microsoft_UI_Xaml_Controls.IProgressRingStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ProgressRing")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressring.isactiveproperty)
     public class var isActiveProperty : WinUI.DependencyProperty! {
         get { try! _IProgressRingStatics.get_IsActiveProperty() }
@@ -47023,12 +47712,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ProgressRingTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.progressringtemplatesettings)
+@MainActor
 public final class ProgressRingTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IProgressRingTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIProgressRingTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -47036,7 +47726,7 @@ public final class ProgressRingTemplateSettings : WinUI.DependencyObject, @unche
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -47120,12 +47810,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RadioButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiobutton)
+@MainActor
 open class RadioButton : WinUI.ToggleButton, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRadioButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -47133,29 +47824,29 @@ open class RadioButton : WinUI.ToggleButton, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IRadioButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButton")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RadioButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRadioButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRadioButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButton")
+    private static nonisolated let _IRadioButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButton")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiobutton.groupnameproperty)
     public class var groupNameProperty : WinUI.DependencyProperty! {
         get { try! _IRadioButtonStatics.get_GroupNameProperty() }
@@ -47278,12 +47969,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RadioButtons
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiobuttons)
+@MainActor
 open class RadioButtons : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRadioButtons
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioButtons
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -47291,29 +47983,29 @@ open class RadioButtons : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IRadioButtonsFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButtons")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RadioButtonsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRadioButtonsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRadioButtonsStatics: __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButtons")
+    private static nonisolated let _IRadioButtonsStatics: __ABI_Microsoft_UI_Xaml_Controls.IRadioButtonsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioButtons")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiobuttons.headerproperty)
     public class var headerProperty : WinUI.DependencyProperty! {
         get { try! _IRadioButtonsStatics.get_HeaderProperty() }
@@ -47409,13 +48101,17 @@ open class RadioButtons : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiobuttons.selectionchanged)
     public lazy var selectionChanged : Event<SelectionChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -47720,12 +48416,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RadioMenuFlyoutItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem)
+@MainActor
 open class RadioMenuFlyoutItem : WinUI.MenuFlyoutItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRadioMenuFlyoutItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -47733,29 +48430,29 @@ open class RadioMenuFlyoutItem : WinUI.MenuFlyoutItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IRadioMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RadioMenuFlyoutItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRadioMenuFlyoutItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRadioMenuFlyoutItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
+    private static nonisolated let _IRadioMenuFlyoutItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.groupnameproperty)
     public class var groupNameProperty : WinUI.DependencyProperty! {
         get { try! _IRadioMenuFlyoutItemStatics.get_GroupNameProperty() }
@@ -47766,7 +48463,7 @@ open class RadioMenuFlyoutItem : WinUI.MenuFlyoutItem, @unchecked Sendable {
         get { try! _IRadioMenuFlyoutItemStatics.get_IsCheckedProperty() }
     }
 
-    private static let _IRadioMenuFlyoutItemStatics2: __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
+    private static nonisolated let _IRadioMenuFlyoutItemStatics2: __ABI_Microsoft_UI_Xaml_Controls.IRadioMenuFlyoutItemStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RadioMenuFlyoutItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.radiomenuflyoutitem.setarecheckstatesenabled)
     public class func setAreCheckStatesEnabled(_ object: MenuFlyoutSubItem!, _ value: Bool) throws {
         try _IRadioMenuFlyoutItemStatics2.SetAreCheckStatesEnabled(object, value)
@@ -47960,12 +48657,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RefreshContainer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshcontainer)
+@MainActor
 open class RefreshContainer : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRefreshContainer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshContainer
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -47973,29 +48671,29 @@ open class RefreshContainer : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IRefreshContainerFactory : __ABI_Microsoft_UI_Xaml_Controls.IRefreshContainerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshContainer")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RefreshContainerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRefreshContainerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRefreshContainerStatics: __ABI_Microsoft_UI_Xaml_Controls.IRefreshContainerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshContainer")
+    private static nonisolated let _IRefreshContainerStatics: __ABI_Microsoft_UI_Xaml_Controls.IRefreshContainerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshContainer")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshcontainer.pulldirectionproperty)
     public class var pullDirectionProperty : WinUI.DependencyProperty! {
         get { try! _IRefreshContainerStatics.get_PullDirectionProperty() }
@@ -48026,13 +48724,17 @@ open class RefreshContainer : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshcontainer.refreshrequested)
     public lazy var refreshRequested : Event<TypedEventHandler<RefreshContainer?, RefreshRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_RefreshRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_RefreshRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_RefreshRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_RefreshRequested(token)
+          }
+        }
       )
     }()
 
@@ -48189,12 +48891,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RefreshRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshrequestedeventargs)
+@MainActor
 public final class RefreshRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRefreshRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -48202,7 +48905,7 @@ public final class RefreshRequestedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -48261,12 +48964,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RefreshStateChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshstatechangedeventargs)
+@MainActor
 public final class RefreshStateChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRefreshStateChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshStateChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -48274,7 +48978,7 @@ public final class RefreshStateChangedEventArgs : WinRTClass, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -48345,12 +49049,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RefreshVisualizer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshvisualizer)
+@MainActor
 open class RefreshVisualizer : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRefreshVisualizer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRefreshVisualizer
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -48358,29 +49063,29 @@ open class RefreshVisualizer : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IRefreshVisualizerFactory : __ABI_Microsoft_UI_Xaml_Controls.IRefreshVisualizerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshVisualizer")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RefreshVisualizerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRefreshVisualizerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRefreshVisualizerStatics: __ABI_Microsoft_UI_Xaml_Controls.IRefreshVisualizerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshVisualizer")
+    private static nonisolated let _IRefreshVisualizerStatics: __ABI_Microsoft_UI_Xaml_Controls.IRefreshVisualizerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RefreshVisualizer")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshvisualizer.contentproperty)
     public class var contentProperty : WinUI.DependencyProperty! {
         get { try! _IRefreshVisualizerStatics.get_ContentProperty() }
@@ -48426,26 +49131,34 @@ open class RefreshVisualizer : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshvisualizer.refreshrequested)
     public lazy var refreshRequested : Event<TypedEventHandler<RefreshVisualizer?, RefreshRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_RefreshRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_RefreshRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_RefreshRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_RefreshRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.refreshvisualizer.refreshstatechanged)
     public lazy var refreshStateChanged : Event<TypedEventHandler<RefreshVisualizer?, RefreshStateChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_RefreshStateChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_RefreshStateChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_RefreshStateChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_RefreshStateChanged(token)
+          }
+        }
       )
     }()
 
@@ -48644,12 +49357,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RelativePanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.relativepanel)
+@MainActor
 open class RelativePanel : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRelativePanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRelativePanel
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -48657,29 +49371,29 @@ open class RelativePanel : WinUI.Panel, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IRelativePanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IRelativePanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RelativePanel")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RelativePanelBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRelativePanelFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRelativePanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IRelativePanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RelativePanel")
+    private static nonisolated let _IRelativePanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IRelativePanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RelativePanel")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.relativepanel.getleftof)
     public class func getLeftOf(_ element: WinUI.UIElement!) throws -> Any! {
         return try _IRelativePanelStatics.GetLeftOf(element)
@@ -49573,12 +50287,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichEditBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox)
+@MainActor
 open class RichEditBox : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -49586,29 +50301,29 @@ open class RichEditBox : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IRichEditBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichEditBox")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.RichEditBoxBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IRichEditBoxFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IRichEditBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichEditBox")
+    private static nonisolated let _IRichEditBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichEditBox")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.acceptsreturnproperty)
     public class var acceptsReturnProperty : WinUI.DependencyProperty! {
         get { try! _IRichEditBoxStatics.get_AcceptsReturnProperty() }
@@ -49890,156 +50605,204 @@ open class RichEditBox : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.candidatewindowboundschanged)
     public lazy var candidateWindowBoundsChanged : Event<TypedEventHandler<RichEditBox?, CandidateWindowBoundsChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CandidateWindowBoundsChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CandidateWindowBoundsChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CandidateWindowBoundsChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CandidateWindowBoundsChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.contextmenuopening)
     public lazy var contextMenuOpening : Event<ContextMenuOpeningEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ContextMenuOpening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ContextMenuOpening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ContextMenuOpening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ContextMenuOpening(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.copyingtoclipboard)
     public lazy var copyingToClipboard : Event<TypedEventHandler<RichEditBox?, TextControlCopyingToClipboardEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CopyingToClipboard($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CopyingToClipboard(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CopyingToClipboard($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CopyingToClipboard(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.cuttingtoclipboard)
     public lazy var cuttingToClipboard : Event<TypedEventHandler<RichEditBox?, TextControlCuttingToClipboardEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CuttingToClipboard($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CuttingToClipboard(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CuttingToClipboard($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CuttingToClipboard(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.paste)
     public lazy var paste : Event<TextControlPasteEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Paste($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Paste(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Paste($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Paste(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionchanged)
     public lazy var selectionChanged : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.selectionchanging)
     public lazy var selectionChanging : Event<TypedEventHandler<RichEditBox?, RichEditBoxSelectionChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textchanged)
     public lazy var textChanged : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textchanging)
     public lazy var textChanging : Event<TypedEventHandler<RichEditBox?, RichEditBoxTextChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textcompositionchanged)
     public lazy var textCompositionChanged : Event<TypedEventHandler<RichEditBox?, TextCompositionChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextCompositionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextCompositionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextCompositionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextCompositionChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textcompositionended)
     public lazy var textCompositionEnded : Event<TypedEventHandler<RichEditBox?, TextCompositionEndedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextCompositionEnded($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextCompositionEnded(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextCompositionEnded($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextCompositionEnded(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditbox.textcompositionstarted)
     public lazy var textCompositionStarted : Event<TypedEventHandler<RichEditBox?, TextCompositionStartedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextCompositionStarted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextCompositionStarted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextCompositionStarted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextCompositionStarted(token)
+          }
+        }
       )
     }()
 
@@ -50908,12 +51671,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichEditBoxSelectionChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxselectionchangingeventargs)
+@MainActor
 public final class RichEditBoxSelectionChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxSelectionChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxSelectionChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -50921,7 +51685,7 @@ public final class RichEditBoxSelectionChangingEventArgs : WinRTClass, @unchecke
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -51012,12 +51776,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichEditBoxTextChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richeditboxtextchangingeventargs)
+@MainActor
 public final class RichEditBoxTextChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichEditBoxTextChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichEditBoxTextChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -51025,7 +51790,7 @@ public final class RichEditBoxTextChangingEventArgs : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -51083,12 +51848,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichTextBlock
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock)
+@MainActor
 public final class RichTextBlock : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlock
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlock
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -51096,16 +51862,16 @@ public final class RichTextBlock : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlock")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlock")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRichTextBlockStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlock")
+    private static nonisolated let _IRichTextBlockStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlock")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.characterspacingproperty)
     public static var characterSpacingProperty : WinUI.DependencyProperty! {
         get { try! _IRichTextBlockStatics.get_CharacterSpacingProperty() }
@@ -51480,39 +52246,51 @@ public final class RichTextBlock : WinUI.FrameworkElement, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.contextmenuopening)
     public lazy var contextMenuOpening : Event<ContextMenuOpeningEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ContextMenuOpening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ContextMenuOpening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ContextMenuOpening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ContextMenuOpening(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.istexttrimmedchanged)
     public lazy var isTextTrimmedChanged : Event<TypedEventHandler<RichTextBlock?, IsTextTrimmedChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_IsTextTrimmedChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_IsTextTrimmedChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_IsTextTrimmedChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_IsTextTrimmedChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock.selectionchanged)
     public lazy var selectionChanged : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -52360,12 +53138,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RichTextBlockOverflow
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow)
+@MainActor
 public final class RichTextBlockOverflow : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockOverflow
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRichTextBlockOverflow
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -52373,16 +53152,16 @@ public final class RichTextBlockOverflow : WinUI.FrameworkElement, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlockOverflow")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlockOverflow")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRichTextBlockOverflowStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockOverflowStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlockOverflow")
+    private static nonisolated let _IRichTextBlockOverflowStatics: __ABI_Microsoft_UI_Xaml_Controls.IRichTextBlockOverflowStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RichTextBlockOverflow")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.hasoverflowcontentproperty)
     public static var hasOverflowContentProperty : WinUI.DependencyProperty! {
         get { try! _IRichTextBlockOverflowStatics.get_HasOverflowContentProperty() }
@@ -52464,13 +53243,17 @@ public final class RichTextBlockOverflow : WinUI.FrameworkElement, @unchecked Se
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblockoverflow.istexttrimmedchanged)
     public lazy var isTextTrimmedChanged : Event<TypedEventHandler<RichTextBlockOverflow?, IsTextTrimmedChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_IsTextTrimmedChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_IsTextTrimmedChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_IsTextTrimmedChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_IsTextTrimmedChanged(token)
+          }
+        }
       )
     }()
 
@@ -52688,12 +53471,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RowDefinition
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinition)
+@MainActor
 public final class RowDefinition : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IRowDefinition
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIRowDefinition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -52701,16 +53485,16 @@ public final class RowDefinition : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RowDefinition")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RowDefinition")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRowDefinitionStatics: __ABI_Microsoft_UI_Xaml_Controls.IRowDefinitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RowDefinition")
+    private static nonisolated let _IRowDefinitionStatics: __ABI_Microsoft_UI_Xaml_Controls.IRowDefinitionStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.RowDefinition")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinition.heightproperty)
     public static var heightProperty : WinUI.DependencyProperty! {
         get { try! _IRowDefinitionStatics.get_HeightProperty() }
@@ -52876,13 +53660,14 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - RowDefinitionCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection)
+@MainActor
 public final class RowDefinitionCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = RowDefinition?
     private typealias SwiftABI = WinUI.IVectorRowDefinition
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CControls__CRowDefinition
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -52890,31 +53675,31 @@ public final class RowDefinitionCollection : WinRTClass, @unchecked Sendable, IV
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -52923,74 +53708,74 @@ public final class RowDefinitionCollection : WinRTClass, @unchecked Sendable, IV
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.getat)
-    public func getAt(_ index: UInt32) -> RowDefinition? {
+    public nonisolated func getAt(_ index: UInt32) -> RowDefinition? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<RowDefinition?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<RowDefinition?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.indexof)
-    public func indexOf(_ value: RowDefinition?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: RowDefinition?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.setat)
-    public func setAt(_ index: UInt32, _ value: RowDefinition?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: RowDefinition?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: RowDefinition?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: RowDefinition?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.append)
-    public func append(_ value: RowDefinition?) {
+    public nonisolated func append(_ value: RowDefinition?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [RowDefinition?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [RowDefinition?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.replaceall)
-    public func replaceAll(_ items: [RowDefinition?]) {
+    public nonisolated func replaceAll(_ items: [RowDefinition?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableRowDefinition! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableRowDefinition! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.rowdefinitioncollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<RowDefinition?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<RowDefinition?>? {
         try! _IIterable.First()
     }
 
@@ -53027,12 +53812,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview)
+@MainActor
 open class ScrollView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -53040,29 +53826,29 @@ open class ScrollView : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IScrollViewFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ScrollViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IScrollViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IScrollViewStatics: __ABI_Microsoft_UI_Xaml_Controls.IScrollViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollView")
+    private static nonisolated let _IScrollViewStatics: __ABI_Microsoft_UI_Xaml_Controls.IScrollViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.computedhorizontalscrollbarvisibilityproperty)
     public class var computedHorizontalScrollBarVisibilityProperty : WinUI.DependencyProperty! {
         get { try! _IScrollViewStatics.get_ComputedHorizontalScrollBarVisibilityProperty() }
@@ -53423,117 +54209,153 @@ open class ScrollView : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.anchorrequested)
     public lazy var anchorRequested : Event<TypedEventHandler<ScrollView?, ScrollingAnchorRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_AnchorRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_AnchorRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_AnchorRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_AnchorRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.bringingintoview)
     public lazy var bringingIntoView : Event<TypedEventHandler<ScrollView?, ScrollingBringingIntoViewEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_BringingIntoView($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_BringingIntoView(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_BringingIntoView($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_BringingIntoView(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.extentchanged)
     public lazy var extentChanged : Event<TypedEventHandler<ScrollView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ExtentChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ExtentChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ExtentChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ExtentChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.scrollanimationstarting)
     public lazy var scrollAnimationStarting : Event<TypedEventHandler<ScrollView?, ScrollingScrollAnimationStartingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ScrollAnimationStarting($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ScrollAnimationStarting(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ScrollAnimationStarting($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ScrollAnimationStarting(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.scrollcompleted)
     public lazy var scrollCompleted : Event<TypedEventHandler<ScrollView?, ScrollingScrollCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ScrollCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ScrollCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ScrollCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ScrollCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.statechanged)
     public lazy var stateChanged : Event<TypedEventHandler<ScrollView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_StateChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_StateChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_StateChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_StateChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.viewchanged)
     public lazy var viewChanged : Event<TypedEventHandler<ScrollView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ViewChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ViewChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ViewChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ViewChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.zoomanimationstarting)
     public lazy var zoomAnimationStarting : Event<TypedEventHandler<ScrollView?, ScrollingZoomAnimationStartingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ZoomAnimationStarting($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ZoomAnimationStarting(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ZoomAnimationStarting($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ZoomAnimationStarting(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollview.zoomcompleted)
     public lazy var zoomCompleted : Event<TypedEventHandler<ScrollView?, ScrollingZoomCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ZoomCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ZoomCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ZoomCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ZoomCompleted(token)
+          }
+        }
       )
     }()
 
@@ -54447,12 +55269,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollViewer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer)
+@MainActor
 public final class ScrollViewer : WinUI.ContentControl, @unchecked Sendable, IScrollAnchorProvider {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollViewer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewer
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -54460,19 +55283,19 @@ public final class ScrollViewer : WinUI.ContentControl, @unchecked Sendable, ISc
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollViewer")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollViewer")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IScrollViewerStatics: __ABI_Microsoft_UI_Xaml_Controls.IScrollViewerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollViewer")
+    private static nonisolated let _IScrollViewerStatics: __ABI_Microsoft_UI_Xaml_Controls.IScrollViewerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollViewer")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer.gethorizontalscrollbarvisibility)
     public static func getHorizontalScrollBarVisibility(_ element: WinUI.DependencyObject!) throws -> ScrollBarVisibility {
         return try _IScrollViewerStatics.GetHorizontalScrollBarVisibility(element)
@@ -55084,69 +55907,89 @@ public final class ScrollViewer : WinUI.ContentControl, @unchecked Sendable, ISc
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer.anchorrequested)
     public lazy var anchorRequested : Event<TypedEventHandler<ScrollViewer?, AnchorRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_AnchorRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_AnchorRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_AnchorRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_AnchorRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer.directmanipulationcompleted)
     public lazy var directManipulationCompleted : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DirectManipulationCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DirectManipulationCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DirectManipulationCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DirectManipulationCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer.directmanipulationstarted)
     public lazy var directManipulationStarted : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_DirectManipulationStarted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_DirectManipulationStarted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_DirectManipulationStarted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_DirectManipulationStarted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer.viewchanged)
     public lazy var viewChanged : Event<EventHandler<ScrollViewerViewChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ViewChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ViewChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ViewChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ViewChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer.viewchanging)
     public lazy var viewChanging : Event<EventHandler<ScrollViewerViewChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ViewChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ViewChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ViewChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ViewChanging(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IScrollAnchorProvider: __ABI_Microsoft_UI_Xaml_Controls.IScrollAnchorProvider! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IScrollAnchorProvider: __ABI_Microsoft_UI_Xaml_Controls.IScrollAnchorProvider! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer.registeranchorcandidate)
     public func registerAnchorCandidate(_ element: WinUI.UIElement!) throws {
         try _IScrollAnchorProvider.RegisterAnchorCandidate(element)
@@ -56407,12 +57250,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollViewerView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewerview)
+@MainActor
 public final class ScrollViewerView : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollViewerView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -56420,7 +57264,7 @@ public final class ScrollViewerView : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -56504,12 +57348,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollViewerViewChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewerviewchangedeventargs)
+@MainActor
 public final class ScrollViewerViewChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollViewerViewChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerViewChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -56517,12 +57362,12 @@ public final class ScrollViewerViewChangedEventArgs : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -56580,12 +57425,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollViewerViewChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewerviewchangingeventargs)
+@MainActor
 public final class ScrollViewerViewChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollViewerViewChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollViewerViewChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -56593,7 +57439,7 @@ public final class ScrollViewerViewChangingEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -56679,12 +57525,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingAnchorRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollinganchorrequestedeventargs)
+@MainActor
 public final class ScrollingAnchorRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingAnchorRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingAnchorRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -56692,7 +57539,7 @@ public final class ScrollingAnchorRequestedEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -56772,12 +57619,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingBringingIntoViewEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingbringingintovieweventargs)
+@MainActor
 public final class ScrollingBringingIntoViewEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingBringingIntoViewEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingBringingIntoViewEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -56785,7 +57633,7 @@ public final class ScrollingBringingIntoViewEventArgs : WinRTClass, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -56923,12 +57771,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingScrollAnimationStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingscrollanimationstartingeventargs)
+@MainActor
 public final class ScrollingScrollAnimationStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollAnimationStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollAnimationStartingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -56936,7 +57785,7 @@ public final class ScrollingScrollAnimationStartingEventArgs : WinRTClass, @unch
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -57041,12 +57890,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingScrollCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingscrollcompletedeventargs)
+@MainActor
 public final class ScrollingScrollCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollCompletedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -57054,7 +57904,7 @@ public final class ScrollingScrollCompletedEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -57112,12 +57962,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingScrollOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingscrolloptions)
+@MainActor
 open class ScrollingScrollOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingScrollOptions
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -57125,31 +57976,31 @@ open class ScrollingScrollOptions : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IScrollingScrollOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollingScrollOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollingScrollOptions")
 
-    public init(_ animationMode: ScrollingAnimationMode) {
+    nonisolated public init(_ animationMode: ScrollingAnimationMode) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.ScrollingScrollOptionsBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IScrollingScrollOptionsFactory.CreateInstance(animationMode, baseInterface, &innerInterface)
         }
     }
 
-    public init(_ animationMode: ScrollingAnimationMode, _ snapPointsMode: ScrollingSnapPointsMode) {
+    nonisolated public init(_ animationMode: ScrollingAnimationMode, _ snapPointsMode: ScrollingSnapPointsMode) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.ScrollingScrollOptionsBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IScrollingScrollOptionsFactory.CreateInstance2(animationMode, snapPointsMode, baseInterface, &innerInterface)
@@ -57284,12 +58135,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingZoomAnimationStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingzoomanimationstartingeventargs)
+@MainActor
 public final class ScrollingZoomAnimationStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomAnimationStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomAnimationStartingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -57297,7 +58149,7 @@ public final class ScrollingZoomAnimationStartingEventArgs : WinRTClass, @unchec
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -57415,12 +58267,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingZoomCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingzoomcompletedeventargs)
+@MainActor
 public final class ScrollingZoomCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomCompletedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -57428,7 +58281,7 @@ public final class ScrollingZoomCompletedEventArgs : WinRTClass, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -57486,12 +58339,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ScrollingZoomOptions
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollingzoomoptions)
+@MainActor
 open class ScrollingZoomOptions : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomOptions
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIScrollingZoomOptions
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -57499,31 +58353,31 @@ open class ScrollingZoomOptions : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IScrollingZoomOptionsFactory : __ABI_Microsoft_UI_Xaml_Controls.IScrollingZoomOptionsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ScrollingZoomOptions")
 
-    public init(_ animationMode: ScrollingAnimationMode) {
+    nonisolated public init(_ animationMode: ScrollingAnimationMode) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.ScrollingZoomOptionsBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IScrollingZoomOptionsFactory.CreateInstance(animationMode, baseInterface, &innerInterface)
         }
     }
 
-    public init(_ animationMode: ScrollingAnimationMode, _ snapPointsMode: ScrollingSnapPointsMode) {
+    nonisolated public init(_ animationMode: ScrollingAnimationMode, _ snapPointsMode: ScrollingSnapPointsMode) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.ScrollingZoomOptionsBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IScrollingZoomOptionsFactory.CreateInstance2(animationMode, snapPointsMode, baseInterface, &innerInterface)
@@ -57658,12 +58512,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectionchangedeventargs)
+@MainActor
 open class SelectionChangedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectionChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -57671,23 +58526,23 @@ open class SelectionChangedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISelectionChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectionChangedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectionChangedEventArgs")
 
-    public init(_ removedItems: WindowsFoundation.AnyIVector<Any?>!, _ addedItems: WindowsFoundation.AnyIVector<Any?>!) {
+    nonisolated public init(_ removedItems: WindowsFoundation.AnyIVector<Any?>!, _ addedItems: WindowsFoundation.AnyIVector<Any?>!) {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SelectionChangedEventArgsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISelectionChangedEventArgsFactory.CreateInstanceWithRemovedItemsAndAddedItems(removedItems, addedItems, baseInterface, &innerInterface)
         }
@@ -57800,12 +58655,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SelectorBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar)
+@MainActor
 open class SelectorBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -57813,29 +58669,29 @@ open class SelectorBar : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISelectorBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISelectorBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISelectorBarStatics: __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBar")
+    private static nonisolated let _ISelectorBarStatics: __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar.itemsproperty)
     public class var itemsProperty : WinUI.DependencyProperty! {
         get { try! _ISelectorBarStatics.get_ItemsProperty() }
@@ -57860,13 +58716,17 @@ open class SelectorBar : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbar.selectionchanged)
     public lazy var selectionChanged : Event<TypedEventHandler<SelectorBar?, SelectorBarSelectionChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -58012,12 +58872,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SelectorBarItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbaritem)
+@MainActor
 open class SelectorBarItem : WinUI.ItemContainer, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -58025,29 +58886,29 @@ open class SelectorBarItem : WinUI.ItemContainer, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISelectorBarItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBarItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SelectorBarItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISelectorBarItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISelectorBarItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBarItem")
+    private static nonisolated let _ISelectorBarItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SelectorBarItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbaritem.iconproperty)
     public class var iconProperty : WinUI.DependencyProperty! {
         get { try! _ISelectorBarItemStatics.get_IconProperty() }
@@ -58205,12 +59066,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SelectorBarSelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.selectorbarselectionchangedeventargs)
+@MainActor
 public final class SelectorBarSelectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISelectorBarSelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISelectorBarSelectionChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -58218,7 +59080,7 @@ public final class SelectorBarSelectionChangedEventArgs : WinRTClass, @unchecked
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -58263,12 +59125,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SemanticZoom
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoom)
+@MainActor
 public final class SemanticZoom : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoom
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoom
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -58276,16 +59139,16 @@ public final class SemanticZoom : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SemanticZoom")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SemanticZoom")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISemanticZoomStatics: __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SemanticZoom")
+    private static nonisolated let _ISemanticZoomStatics: __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SemanticZoom")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoom.canchangeviewsproperty)
     public static var canChangeViewsProperty : WinUI.DependencyProperty! {
         get { try! _ISemanticZoomStatics.get_CanChangeViewsProperty() }
@@ -58349,26 +59212,34 @@ public final class SemanticZoom : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoom.viewchangecompleted)
     public lazy var viewChangeCompleted : Event<SemanticZoomViewChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ViewChangeCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ViewChangeCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ViewChangeCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ViewChangeCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoom.viewchangestarted)
     public lazy var viewChangeStarted : Event<SemanticZoomViewChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ViewChangeStarted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ViewChangeStarted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ViewChangeStarted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ViewChangeStarted(token)
+          }
+        }
       )
     }()
 
@@ -58581,12 +59452,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SemanticZoomLocation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoomlocation)
+@MainActor
 public final class SemanticZoomLocation : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomLocation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomLocation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -58594,12 +59466,12 @@ public final class SemanticZoomLocation : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SemanticZoomLocation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SemanticZoomLocation")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -58687,12 +59559,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SemanticZoomViewChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.semanticzoomviewchangedeventargs)
+@MainActor
 public final class SemanticZoomViewChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISemanticZoomViewChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISemanticZoomViewChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -58700,12 +59573,12 @@ public final class SemanticZoomViewChangedEventArgs : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SemanticZoomViewChangedEventArgs")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SemanticZoomViewChangedEventArgs")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -58812,12 +59685,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Slider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.slider)
+@MainActor
 open class Slider : WinUI.RangeBase, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISlider
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISlider
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -58825,29 +59699,29 @@ open class Slider : WinUI.RangeBase, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISliderFactory : __ABI_Microsoft_UI_Xaml_Controls.ISliderFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Slider")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SliderBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISliderFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISliderStatics: __ABI_Microsoft_UI_Xaml_Controls.ISliderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Slider")
+    private static nonisolated let _ISliderStatics: __ABI_Microsoft_UI_Xaml_Controls.ISliderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Slider")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.slider.headerproperty)
     public class var headerProperty : WinUI.DependencyProperty! {
         get { try! _ISliderStatics.get_HeaderProperty() }
@@ -59313,12 +60187,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SplitButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton)
+@MainActor
 open class SplitButton : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -59326,29 +60201,29 @@ open class SplitButton : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISplitButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitButton")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SplitButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISplitButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISplitButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitButton")
+    private static nonisolated let _ISplitButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitButton")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.commandparameterproperty)
     public class var commandParameterProperty : WinUI.DependencyProperty! {
         get { try! _ISplitButtonStatics.get_CommandParameterProperty() }
@@ -59385,13 +60260,17 @@ open class SplitButton : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbutton.click)
     public lazy var click : Event<TypedEventHandler<SplitButton?, SplitButtonClickEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Click($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Click(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Click($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Click(token)
+          }
+        }
       )
     }()
 
@@ -59571,12 +60450,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SplitButtonClickEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitbuttonclickeventargs)
+@MainActor
 public final class SplitButtonClickEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitButtonClickEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitButtonClickEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -59584,7 +60464,7 @@ public final class SplitButtonClickEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -59629,12 +60509,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SplitView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview)
+@MainActor
 open class SplitView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -59642,29 +60523,29 @@ open class SplitView : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISplitViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ISplitViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SplitViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISplitViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISplitViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ISplitViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitView")
+    private static nonisolated let _ISplitViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ISplitViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SplitView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview.compactpanelengthproperty)
     public class var compactPaneLengthProperty : WinUI.DependencyProperty! {
         get { try! _ISplitViewStatics.get_CompactPaneLengthProperty() }
@@ -59777,52 +60658,68 @@ open class SplitView : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview.paneclosed)
     public lazy var paneClosed : Event<TypedEventHandler<SplitView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PaneClosed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PaneClosed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PaneClosed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PaneClosed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview.paneclosing)
     public lazy var paneClosing : Event<TypedEventHandler<SplitView?, SplitViewPaneClosingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PaneClosing($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PaneClosing(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PaneClosing($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PaneClosing(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview.paneopened)
     public lazy var paneOpened : Event<TypedEventHandler<SplitView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PaneOpened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PaneOpened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PaneOpened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PaneOpened(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview.paneopening)
     public lazy var paneOpening : Event<TypedEventHandler<SplitView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PaneOpening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PaneOpening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PaneOpening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PaneOpening(token)
+          }
+        }
       )
     }()
 
@@ -60202,12 +61099,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SplitViewPaneClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitviewpaneclosingeventargs)
+@MainActor
 public final class SplitViewPaneClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISplitViewPaneClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISplitViewPaneClosingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -60215,7 +61113,7 @@ public final class SplitViewPaneClosingEventArgs : WinRTClass, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -60280,12 +61178,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - StackLayout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stacklayout)
+@MainActor
 open class StackLayout : WinUI.VirtualizingLayout, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IStackLayout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackLayout
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -60293,29 +61192,29 @@ open class StackLayout : WinUI.VirtualizingLayout, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IStackLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IStackLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackLayout")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.StackLayoutBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IStackLayoutFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IStackLayoutStatics: __ABI_Microsoft_UI_Xaml_Controls.IStackLayoutStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackLayout")
+    private static nonisolated let _IStackLayoutStatics: __ABI_Microsoft_UI_Xaml_Controls.IStackLayoutStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackLayout")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stacklayout.orientationproperty)
     public class var orientationProperty : WinUI.DependencyProperty! {
         get { try! _IStackLayoutStatics.get_OrientationProperty() }
@@ -60468,12 +61367,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - StackPanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stackpanel)
+@MainActor
 open class StackPanel : WinUI.Panel, @unchecked Sendable, WinUI.IScrollSnapPointsInfo, IInsertionPanel {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IStackPanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStackPanel
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -60481,29 +61381,29 @@ open class StackPanel : WinUI.Panel, @unchecked Sendable, WinUI.IScrollSnapPoint
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IStackPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.IStackPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackPanel")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.StackPanelBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IStackPanelFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IStackPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IStackPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackPanel")
+    private static nonisolated let _IStackPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.IStackPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StackPanel")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stackpanel.arescrollsnappointsregularproperty)
     public class var areScrollSnapPointsRegularProperty : WinUI.DependencyProperty! {
         get { try! _IStackPanelStatics.get_AreScrollSnapPointsRegularProperty() }
@@ -60592,7 +61492,7 @@ open class StackPanel : WinUI.Panel, @unchecked Sendable, WinUI.IScrollSnapPoint
         set { try! _default.put_Spacing(newValue) }
     }
 
-    private lazy var _IScrollSnapPointsInfo: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointsInfo! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IScrollSnapPointsInfo: __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointsInfo! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stackpanel.getirregularsnappoints)
     public func getIrregularSnapPoints(_ orientation: Orientation, _ alignment: WinUI.SnapPointsAlignment) throws -> WindowsFoundation.AnyIVectorView<Float>! {
         try _IScrollSnapPointsInfo.GetIrregularSnapPoints(orientation, alignment)
@@ -60616,30 +61516,38 @@ open class StackPanel : WinUI.Panel, @unchecked Sendable, WinUI.IScrollSnapPoint
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stackpanel.horizontalsnappointschanged)
     public lazy var horizontalSnapPointsChanged : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._IScrollSnapPointsInfo else { return .init() }
-          return try! this.add_HorizontalSnapPointsChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._IScrollSnapPointsInfo else { return .init() }
+            return try this.add_HorizontalSnapPointsChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._IScrollSnapPointsInfo.remove_HorizontalSnapPointsChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._IScrollSnapPointsInfo.remove_HorizontalSnapPointsChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stackpanel.verticalsnappointschanged)
     public lazy var verticalSnapPointsChanged : Event<EventHandler<Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._IScrollSnapPointsInfo else { return .init() }
-          return try! this.add_VerticalSnapPointsChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._IScrollSnapPointsInfo else { return .init() }
+            return try this.add_VerticalSnapPointsChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._IScrollSnapPointsInfo.remove_VerticalSnapPointsChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._IScrollSnapPointsInfo.remove_VerticalSnapPointsChanged(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IInsertionPanel: __ABI_Microsoft_UI_Xaml_Controls.IInsertionPanel! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IInsertionPanel: __ABI_Microsoft_UI_Xaml_Controls.IInsertionPanel! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.stackpanel.getinsertionindexes)
     public func getInsertionIndexes(_ position: WindowsFoundation.Point, _ first: inout Int32, _ second: inout Int32) throws {
         try _IInsertionPanel.GetInsertionIndexes(position, &first, &second)
@@ -60916,12 +61824,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - StyleSelector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.styleselector)
+@MainActor
 open class StyleSelector : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IStyleSelector
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIStyleSelector
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -60929,19 +61838,19 @@ open class StyleSelector : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IStyleSelectorOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IStyleSelectorOverridesWrapper(self)
@@ -60951,7 +61860,7 @@ open class StyleSelector : WinRTClass, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IStyleSelectorFactory : __ABI_Microsoft_UI_Xaml_Controls.IStyleSelectorFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.StyleSelector")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Controls.StyleSelectorBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IStyleSelectorFactory.CreateInstance(baseInterface, &innerInterface)
@@ -60963,7 +61872,7 @@ open class StyleSelector : WinRTClass, @unchecked Sendable {
         try _default.SelectStyle(item, container)
     }
 
-    private lazy var _IStyleSelectorOverrides: __ABI_Microsoft_UI_Xaml_Controls.IStyleSelectorOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IStyleSelectorOverrides: __ABI_Microsoft_UI_Xaml_Controls.IStyleSelectorOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.styleselector.selectstylecore)
     open func selectStyleCore(_ item: Any!, _ container: WinUI.DependencyObject!) throws -> WinUI.Style! {
         try _IStyleSelectorOverrides.SelectStyleCore(item, container)
@@ -61042,9 +61951,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         SelectStyleCore: {
             do {
                 guard let __unwrapped__instance = IStyleSelectorOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let item: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let container: WinUI.DependencyObject? = __IMPL_Microsoft_UI_Xaml.DependencyObjectBridge.from(abi: ComPtr($2))
-                let result = try __unwrapped__instance.selectStyleCore(item, container)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.selectStyleCore(item, container)
+                }
                 result?.copyTo($3)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -61122,12 +62033,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - SwapChainPanel
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.swapchainpanel)
+@MainActor
 open class SwapChainPanel : WinUI.Grid, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISwapChainPanel
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISwapChainPanel
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -61135,29 +62047,29 @@ open class SwapChainPanel : WinUI.Grid, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISwapChainPanelFactory : __ABI_Microsoft_UI_Xaml_Controls.ISwapChainPanelFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SwapChainPanel")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.SwapChainPanelBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISwapChainPanelFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ISwapChainPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.ISwapChainPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SwapChainPanel")
+    private static nonisolated let _ISwapChainPanelStatics: __ABI_Microsoft_UI_Xaml_Controls.ISwapChainPanelStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SwapChainPanel")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.swapchainpanel.compositionscalexproperty)
     public class var compositionScaleXProperty : WinUI.DependencyProperty! {
         get { try! _ISwapChainPanelStatics.get_CompositionScaleXProperty() }
@@ -61186,13 +62098,17 @@ open class SwapChainPanel : WinUI.Grid, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.swapchainpanel.compositionscalechanged)
     public lazy var compositionScaleChanged : Event<TypedEventHandler<SwapChainPanel?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CompositionScaleChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CompositionScaleChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CompositionScaleChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CompositionScaleChanged(token)
+          }
+        }
       )
     }()
 
@@ -61339,12 +62255,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - SymbolIcon
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon)
+@MainActor
 public final class SymbolIcon : WinUI.IconElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ISymbolIcon
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CISymbolIcon
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -61352,21 +62269,21 @@ public final class SymbolIcon : WinUI.IconElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
-    public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
+    nonisolated public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ISymbolIconFactory: __ABI_Microsoft_UI_Xaml_Controls.ISymbolIconFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
-    public init(_ symbol: Symbol) {
+    private static nonisolated let _ISymbolIconFactory: __ABI_Microsoft_UI_Xaml_Controls.ISymbolIconFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
+    nonisolated public init(_ symbol: Symbol) {
         super.init(fromAbi: try! Self._ISymbolIconFactory.CreateInstanceWithSymbol(symbol))
     }
 
-    private static let _ISymbolIconStatics: __ABI_Microsoft_UI_Xaml_Controls.ISymbolIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
+    private static nonisolated let _ISymbolIconStatics: __ABI_Microsoft_UI_Xaml_Controls.ISymbolIconStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.SymbolIcon")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.symbolicon.symbolproperty)
     public static var symbolProperty : WinUI.DependencyProperty! {
         get { try! _ISymbolIconStatics.get_SymbolProperty() }
@@ -61469,12 +62386,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview)
+@MainActor
 open class TabView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -61482,29 +62400,29 @@ open class TabView : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITabViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TabViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITabViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITabViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ITabViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabView")
+    private static nonisolated let _ITabViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ITabViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.addtabbuttoncommandparameterproperty)
     public class var addTabButtonCommandParameterProperty : WinUI.DependencyProperty! {
         get { try! _ITabViewStatics.get_AddTabButtonCommandParameterProperty() }
@@ -61595,7 +62513,7 @@ open class TabView : WinUI.Control, @unchecked Sendable {
         get { try! _ITabViewStatics.get_TabWidthModeProperty() }
     }
 
-    private static let _ITabViewStatics2: __ABI_Microsoft_UI_Xaml_Controls.ITabViewStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabView")
+    private static nonisolated let _ITabViewStatics2: __ABI_Microsoft_UI_Xaml_Controls.ITabViewStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.cantearouttabsproperty)
     public class var canTearOutTabsProperty : WinUI.DependencyProperty! {
         get { try! _ITabViewStatics2.get_CanTearOutTabsProperty() }
@@ -61721,121 +62639,157 @@ open class TabView : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.addtabbuttonclick)
     public lazy var addTabButtonClick : Event<TypedEventHandler<TabView?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_AddTabButtonClick($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_AddTabButtonClick(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_AddTabButtonClick($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_AddTabButtonClick(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.selectionchanged)
     public lazy var selectionChanged : Event<SelectionChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabcloserequested)
     public lazy var tabCloseRequested : Event<TypedEventHandler<TabView?, TabViewTabCloseRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TabCloseRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TabCloseRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TabCloseRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TabCloseRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabdragcompleted)
     public lazy var tabDragCompleted : Event<TypedEventHandler<TabView?, TabViewTabDragCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TabDragCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TabDragCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TabDragCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TabDragCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabdragstarting)
     public lazy var tabDragStarting : Event<TypedEventHandler<TabView?, TabViewTabDragStartingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TabDragStarting($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TabDragStarting(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TabDragStarting($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TabDragStarting(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabdroppedoutside)
     public lazy var tabDroppedOutside : Event<TypedEventHandler<TabView?, TabViewTabDroppedOutsideEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TabDroppedOutside($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TabDroppedOutside(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TabDroppedOutside($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TabDroppedOutside(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabitemschanged)
     public lazy var tabItemsChanged : Event<TypedEventHandler<TabView?, IVectorChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TabItemsChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TabItemsChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TabItemsChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TabItemsChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabstripdragover)
     public lazy var tabStripDragOver : Event<WinUI.DragEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TabStripDragOver($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TabStripDragOver(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TabStripDragOver($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TabStripDragOver(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabstripdrop)
     public lazy var tabStripDrop : Event<WinUI.DragEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TabStripDrop($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TabStripDrop(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TabStripDrop($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TabStripDrop(token)
+          }
+        }
       )
     }()
 
-    private lazy var _ITabView2: __ABI_Microsoft_UI_Xaml_Controls.ITabView2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITabView2: __ABI_Microsoft_UI_Xaml_Controls.ITabView2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.cantearouttabs)
     public var canTearOutTabs : Bool {
         get { try! _ITabView2.get_CanTearOutTabs() }
@@ -61845,52 +62799,68 @@ open class TabView : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.externaltornouttabsdropped)
     public lazy var externalTornOutTabsDropped : Event<TypedEventHandler<TabView?, TabViewExternalTornOutTabsDroppedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._ITabView2 else { return .init() }
-          return try! this.add_ExternalTornOutTabsDropped($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._ITabView2 else { return .init() }
+            return try this.add_ExternalTornOutTabsDropped(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._ITabView2.remove_ExternalTornOutTabsDropped($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._ITabView2.remove_ExternalTornOutTabsDropped(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.externaltornouttabsdropping)
     public lazy var externalTornOutTabsDropping : Event<TypedEventHandler<TabView?, TabViewExternalTornOutTabsDroppingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._ITabView2 else { return .init() }
-          return try! this.add_ExternalTornOutTabsDropping($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._ITabView2 else { return .init() }
+            return try this.add_ExternalTornOutTabsDropping(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._ITabView2.remove_ExternalTornOutTabsDropping($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._ITabView2.remove_ExternalTornOutTabsDropping(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabtearoutrequested)
     public lazy var tabTearOutRequested : Event<TypedEventHandler<TabView?, TabViewTabTearOutRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._ITabView2 else { return .init() }
-          return try! this.add_TabTearOutRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._ITabView2 else { return .init() }
+            return try this.add_TabTearOutRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._ITabView2.remove_TabTearOutRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._ITabView2.remove_TabTearOutRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabview.tabtearoutwindowrequested)
     public lazy var tabTearOutWindowRequested : Event<TypedEventHandler<TabView?, TabViewTabTearOutWindowRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._ITabView2 else { return .init() }
-          return try! this.add_TabTearOutWindowRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._ITabView2 else { return .init() }
+            return try this.add_TabTearOutWindowRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._ITabView2.remove_TabTearOutWindowRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._ITabView2.remove_TabTearOutWindowRequested(token)
+          }
+        }
       )
     }()
 
@@ -62679,12 +63649,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewExternalTornOutTabsDroppedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewexternaltornouttabsdroppedeventargs)
+@MainActor
 public final class TabViewExternalTornOutTabsDroppedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewExternalTornOutTabsDroppedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -62692,7 +63663,7 @@ public final class TabViewExternalTornOutTabsDroppedEventArgs : WinRTClass, @unc
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -62794,12 +63765,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewExternalTornOutTabsDroppingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewexternaltornouttabsdroppingeventargs)
+@MainActor
 public final class TabViewExternalTornOutTabsDroppingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewExternalTornOutTabsDroppingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewExternalTornOutTabsDroppingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -62807,7 +63779,7 @@ public final class TabViewExternalTornOutTabsDroppingEventArgs : WinRTClass, @un
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -62929,12 +63901,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitem)
+@MainActor
 open class TabViewItem : WinUI.ListViewItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -62942,29 +63915,29 @@ open class TabViewItem : WinUI.ListViewItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITabViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TabViewItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITabViewItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITabViewItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItem")
+    private static nonisolated let _ITabViewItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitem.headerproperty)
     public class var headerProperty : WinUI.DependencyProperty! {
         get { try! _ITabViewItemStatics.get_HeaderProperty() }
@@ -63022,13 +63995,17 @@ open class TabViewItem : WinUI.ListViewItem, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitem.closerequested)
     public lazy var closeRequested : Event<TypedEventHandler<TabViewItem?, TabViewTabCloseRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CloseRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CloseRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CloseRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CloseRequested(token)
+          }
+        }
       )
     }()
 
@@ -63247,12 +64224,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewItemTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitemtemplatesettings)
+@MainActor
 open class TabViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewItemTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -63260,35 +64238,35 @@ open class TabViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITabViewItemTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TabViewItemTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITabViewItemTemplateSettingsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITabViewItemTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings")
+    private static nonisolated let _ITabViewItemTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitemtemplatesettings.iconelementproperty)
     public class var iconElementProperty : WinUI.DependencyProperty! {
         get { try! _ITabViewItemTemplateSettingsStatics.get_IconElementProperty() }
     }
 
-    private static let _ITabViewItemTemplateSettingsStatics2: __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettingsStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings")
+    private static nonisolated let _ITabViewItemTemplateSettingsStatics2: __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettingsStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitemtemplatesettings.tabgeometryproperty)
     public class var tabGeometryProperty : WinUI.DependencyProperty! {
         get { try! _ITabViewItemTemplateSettingsStatics2.get_TabGeometryProperty() }
@@ -63300,7 +64278,7 @@ open class TabViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Send
         set { try! _default.put_IconElement(newValue) }
     }
 
-    private lazy var _ITabViewItemTemplateSettings2: __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettings2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITabViewItemTemplateSettings2: __ABI_Microsoft_UI_Xaml_Controls.ITabViewItemTemplateSettings2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewitemtemplatesettings.tabgeometry)
     public var tabGeometry : WinUI.Geometry! {
         get { try! _ITabViewItemTemplateSettings2.get_TabGeometry() }
@@ -63458,12 +64436,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabCloseRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabcloserequestedeventargs)
+@MainActor
 public final class TabViewTabCloseRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabCloseRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabCloseRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -63471,7 +64450,7 @@ public final class TabViewTabCloseRequestedEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -63544,12 +64523,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabDragCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabdragcompletedeventargs)
+@MainActor
 public final class TabViewTabDragCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabDragCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDragCompletedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -63557,7 +64537,7 @@ public final class TabViewTabDragCompletedEventArgs : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -63643,12 +64623,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabDragStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabdragstartingeventargs)
+@MainActor
 public final class TabViewTabDragStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabDragStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDragStartingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -63656,7 +64637,7 @@ public final class TabViewTabDragStartingEventArgs : WinRTClass, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -63763,12 +64744,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabDroppedOutsideEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabdroppedoutsideeventargs)
+@MainActor
 public final class TabViewTabDroppedOutsideEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabDroppedOutsideEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabDroppedOutsideEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -63776,7 +64758,7 @@ public final class TabViewTabDroppedOutsideEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -63849,12 +64831,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabTearOutRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabtearoutrequestedeventargs)
+@MainActor
 public final class TabViewTabTearOutRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabTearOutRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -63862,7 +64845,7 @@ public final class TabViewTabTearOutRequestedEventArgs : WinRTClass, @unchecked 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -63964,12 +64947,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TabViewTabTearOutWindowRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tabviewtabtearoutwindowrequestedeventargs)
+@MainActor
 public final class TabViewTabTearOutWindowRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITabViewTabTearOutWindowRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITabViewTabTearOutWindowRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -63977,7 +64961,7 @@ public final class TabViewTabTearOutWindowRequestedEventArgs : WinRTClass, @unch
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -64086,12 +65070,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TeachingTip
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtip)
+@MainActor
 open class TeachingTip : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTip
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTip
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -64099,29 +65084,29 @@ open class TeachingTip : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITeachingTipFactory : __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTip")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITeachingTipFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITeachingTipStatics: __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTip")
+    private static nonisolated let _ITeachingTipStatics: __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTip")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtip.actionbuttoncommandparameterproperty)
     public class var actionButtonCommandParameterProperty : WinUI.DependencyProperty! {
         get { try! _ITeachingTipStatics.get_ActionButtonCommandParameterProperty() }
@@ -64355,52 +65340,68 @@ open class TeachingTip : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtip.actionbuttonclick)
     public lazy var actionButtonClick : Event<TypedEventHandler<TeachingTip?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ActionButtonClick($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ActionButtonClick(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ActionButtonClick($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ActionButtonClick(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtip.closebuttonclick)
     public lazy var closeButtonClick : Event<TypedEventHandler<TeachingTip?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CloseButtonClick($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CloseButtonClick(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CloseButtonClick($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CloseButtonClick(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtip.closed)
     public lazy var closed : Event<TypedEventHandler<TeachingTip?, TeachingTipClosedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtip.closing)
     public lazy var closing : Event<TypedEventHandler<TeachingTip?, TeachingTipClosingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closing($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closing(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closing($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closing(token)
+          }
+        }
       )
     }()
 
@@ -65061,12 +66062,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TeachingTipClosedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtipclosedeventargs)
+@MainActor
 public final class TeachingTipClosedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipClosedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipClosedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -65074,7 +66076,7 @@ public final class TeachingTipClosedEventArgs : WinRTClass, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -65132,12 +66134,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TeachingTipClosingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtipclosingeventargs)
+@MainActor
 public final class TeachingTipClosingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipClosingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipClosingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -65145,7 +66148,7 @@ public final class TeachingTipClosingEventArgs : WinRTClass, @unchecked Sendable
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -65237,12 +66240,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TeachingTipTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtiptemplatesettings)
+@MainActor
 open class TeachingTipTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITeachingTipTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -65250,29 +66254,29 @@ open class TeachingTipTemplateSettings : WinUI.DependencyObject, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITeachingTipTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TeachingTipTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITeachingTipTemplateSettingsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITeachingTipTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings")
+    private static nonisolated let _ITeachingTipTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.ITeachingTipTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TeachingTipTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teachingtiptemplatesettings.iconelementproperty)
     public class var iconElementProperty : WinUI.DependencyProperty! {
         get { try! _ITeachingTipTemplateSettingsStatics.get_IconElementProperty() }
@@ -65460,12 +66464,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBlock
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock)
+@MainActor
 public final class TextBlock : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBlock
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBlock
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -65473,16 +66478,16 @@ public final class TextBlock : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBlock")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBlock")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _ITextBlockStatics: __ABI_Microsoft_UI_Xaml_Controls.ITextBlockStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBlock")
+    private static nonisolated let _ITextBlockStatics: __ABI_Microsoft_UI_Xaml_Controls.ITextBlockStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBlock")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock.characterspacingproperty)
     public static var characterSpacingProperty : WinUI.DependencyProperty! {
         get { try! _ITextBlockStatics.get_CharacterSpacingProperty() }
@@ -65836,39 +66841,51 @@ public final class TextBlock : WinUI.FrameworkElement, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock.contextmenuopening)
     public lazy var contextMenuOpening : Event<ContextMenuOpeningEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ContextMenuOpening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ContextMenuOpening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ContextMenuOpening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ContextMenuOpening(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock.istexttrimmedchanged)
     public lazy var isTextTrimmedChanged : Event<TypedEventHandler<TextBlock?, IsTextTrimmedChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_IsTextTrimmedChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_IsTextTrimmedChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_IsTextTrimmedChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_IsTextTrimmedChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock.selectionchanged)
     public lazy var selectionChanged : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -66679,12 +67696,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox)
+@MainActor
 open class TextBox : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -66692,29 +67710,29 @@ open class TextBox : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITextBoxFactory : __ABI_Microsoft_UI_Xaml_Controls.ITextBoxFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBox")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TextBoxBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITextBoxFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITextBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.ITextBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBox")
+    private static nonisolated let _ITextBoxStatics: __ABI_Microsoft_UI_Xaml_Controls.ITextBoxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TextBox")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.acceptsreturnproperty)
     public class var acceptsReturnProperty : WinUI.DependencyProperty! {
         get { try! _ITextBoxStatics.get_AcceptsReturnProperty() }
@@ -67079,169 +68097,221 @@ open class TextBox : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.beforetextchanging)
     public lazy var beforeTextChanging : Event<TypedEventHandler<TextBox?, TextBoxBeforeTextChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_BeforeTextChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_BeforeTextChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_BeforeTextChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_BeforeTextChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.candidatewindowboundschanged)
     public lazy var candidateWindowBoundsChanged : Event<TypedEventHandler<TextBox?, CandidateWindowBoundsChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CandidateWindowBoundsChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CandidateWindowBoundsChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CandidateWindowBoundsChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CandidateWindowBoundsChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.contextmenuopening)
     public lazy var contextMenuOpening : Event<ContextMenuOpeningEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ContextMenuOpening($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ContextMenuOpening(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ContextMenuOpening($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ContextMenuOpening(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.copyingtoclipboard)
     public lazy var copyingToClipboard : Event<TypedEventHandler<TextBox?, TextControlCopyingToClipboardEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CopyingToClipboard($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CopyingToClipboard(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CopyingToClipboard($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CopyingToClipboard(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.cuttingtoclipboard)
     public lazy var cuttingToClipboard : Event<TypedEventHandler<TextBox?, TextControlCuttingToClipboardEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CuttingToClipboard($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CuttingToClipboard(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CuttingToClipboard($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CuttingToClipboard(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.paste)
     public lazy var paste : Event<TextControlPasteEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Paste($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Paste(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Paste($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Paste(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.selectionchanged)
     public lazy var selectionChanged : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.selectionchanging)
     public lazy var selectionChanging : Event<TypedEventHandler<TextBox?, TextBoxSelectionChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectionChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectionChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectionChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectionChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.textchanged)
     public lazy var textChanged : Event<TextChangedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.textchanging)
     public lazy var textChanging : Event<TypedEventHandler<TextBox?, TextBoxTextChangingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextChanging($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextChanging(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextChanging($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextChanging(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.textcompositionchanged)
     public lazy var textCompositionChanged : Event<TypedEventHandler<TextBox?, TextCompositionChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextCompositionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextCompositionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextCompositionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextCompositionChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.textcompositionended)
     public lazy var textCompositionEnded : Event<TypedEventHandler<TextBox?, TextCompositionEndedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextCompositionEnded($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextCompositionEnded(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextCompositionEnded($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextCompositionEnded(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.textcompositionstarted)
     public lazy var textCompositionStarted : Event<TypedEventHandler<TextBox?, TextCompositionStartedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TextCompositionStarted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TextCompositionStarted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TextCompositionStarted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TextCompositionStarted(token)
+          }
+        }
       )
     }()
 
@@ -68266,12 +69336,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBoxBeforeTextChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textboxbeforetextchangingeventargs)
+@MainActor
 public final class TextBoxBeforeTextChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBoxBeforeTextChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxBeforeTextChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68279,7 +69350,7 @@ public final class TextBoxBeforeTextChangingEventArgs : WinRTClass, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -68360,12 +69431,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBoxSelectionChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textboxselectionchangingeventargs)
+@MainActor
 public final class TextBoxSelectionChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBoxSelectionChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxSelectionChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68373,7 +69445,7 @@ public final class TextBoxSelectionChangingEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -68464,12 +69536,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextBoxTextChangingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textboxtextchangingeventargs)
+@MainActor
 public final class TextBoxTextChangingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextBoxTextChangingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextBoxTextChangingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68477,7 +69550,7 @@ public final class TextBoxTextChangingEventArgs : WinRTClass, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -68535,12 +69608,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textchangedeventargs)
+@MainActor
 public final class TextChangedEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68548,7 +69622,7 @@ public final class TextChangedEventArgs : WinUI.RoutedEventArgs, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -68593,12 +69667,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextCompositionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcompositionchangedeventargs)
+@MainActor
 public final class TextCompositionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextCompositionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68606,7 +69681,7 @@ public final class TextCompositionChangedEventArgs : WinRTClass, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -68677,12 +69752,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextCompositionEndedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcompositionendedeventargs)
+@MainActor
 public final class TextCompositionEndedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextCompositionEndedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionEndedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68690,7 +69766,7 @@ public final class TextCompositionEndedEventArgs : WinRTClass, @unchecked Sendab
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -68761,12 +69837,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextCompositionStartedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcompositionstartedeventargs)
+@MainActor
 public final class TextCompositionStartedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextCompositionStartedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextCompositionStartedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68774,7 +69851,7 @@ public final class TextCompositionStartedEventArgs : WinRTClass, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -68845,12 +69922,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextControlCopyingToClipboardEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcontrolcopyingtoclipboardeventargs)
+@MainActor
 public final class TextControlCopyingToClipboardEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextControlCopyingToClipboardEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlCopyingToClipboardEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68858,7 +69936,7 @@ public final class TextControlCopyingToClipboardEventArgs : WinRTClass, @uncheck
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -68923,12 +70001,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextControlCuttingToClipboardEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcontrolcuttingtoclipboardeventargs)
+@MainActor
 public final class TextControlCuttingToClipboardEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextControlCuttingToClipboardEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlCuttingToClipboardEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -68936,7 +70015,7 @@ public final class TextControlCuttingToClipboardEventArgs : WinRTClass, @uncheck
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -69001,12 +70080,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TextControlPasteEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textcontrolpasteeventargs)
+@MainActor
 public final class TextControlPasteEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITextControlPasteEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITextControlPasteEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -69014,7 +70094,7 @@ public final class TextControlPasteEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -69079,12 +70159,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TimePicker
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker)
+@MainActor
 open class TimePicker : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePicker
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePicker
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -69092,29 +70173,29 @@ open class TimePicker : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITimePickerFactory : __ABI_Microsoft_UI_Xaml_Controls.ITimePickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TimePicker")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TimePickerBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITimePickerFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITimePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.ITimePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TimePicker")
+    private static nonisolated let _ITimePickerStatics: __ABI_Microsoft_UI_Xaml_Controls.ITimePickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TimePicker")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.clockidentifierproperty)
     public class var clockIdentifierProperty : WinUI.DependencyProperty! {
         get { try! _ITimePickerStatics.get_ClockIdentifierProperty() }
@@ -69195,26 +70276,34 @@ open class TimePicker : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.selectedtimechanged)
     public lazy var selectedTimeChanged : Event<TypedEventHandler<TimePicker?, TimePickerSelectedValueChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_SelectedTimeChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_SelectedTimeChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_SelectedTimeChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_SelectedTimeChanged(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepicker.timechanged)
     public lazy var timeChanged : Event<EventHandler<TimePickerValueChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TimeChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TimeChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TimeChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TimeChanged(token)
+          }
+        }
       )
     }()
 
@@ -69506,12 +70595,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TimePickerSelectedValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickerselectedvaluechangedeventargs)
+@MainActor
 public final class TimePickerSelectedValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePickerSelectedValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerSelectedValueChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -69519,7 +70609,7 @@ public final class TimePickerSelectedValueChangedEventArgs : WinRTClass, @unchec
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -69592,12 +70682,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TimePickerValueChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.timepickervaluechangedeventargs)
+@MainActor
 public final class TimePickerValueChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITimePickerValueChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITimePickerValueChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -69605,7 +70696,7 @@ public final class TimePickerValueChangedEventArgs : WinRTClass, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -69676,12 +70767,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TitleBar
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebar)
+@MainActor
 open class TitleBar : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITitleBar
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBar
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -69689,29 +70781,29 @@ open class TitleBar : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITitleBarFactory : __ABI_Microsoft_UI_Xaml_Controls.ITitleBarFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBar")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TitleBarBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITitleBarFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITitleBarStatics: __ABI_Microsoft_UI_Xaml_Controls.ITitleBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBar")
+    private static nonisolated let _ITitleBarStatics: __ABI_Microsoft_UI_Xaml_Controls.ITitleBarStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBar")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebar.contentproperty)
     public class var contentProperty : WinUI.DependencyProperty! {
         get { try! _ITitleBarStatics.get_ContentProperty() }
@@ -69824,26 +70916,34 @@ open class TitleBar : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebar.backrequested)
     public lazy var backRequested : Event<TypedEventHandler<TitleBar?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_BackRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_BackRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_BackRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_BackRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebar.panetogglerequested)
     public lazy var paneToggleRequested : Event<TypedEventHandler<TitleBar?, Any?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_PaneToggleRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_PaneToggleRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_PaneToggleRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_PaneToggleRequested(token)
+          }
+        }
       )
     }()
 
@@ -70200,12 +71300,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TitleBarTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebartemplatesettings)
+@MainActor
 open class TitleBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITitleBarTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITitleBarTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -70213,29 +71314,29 @@ open class TitleBarTemplateSettings : WinUI.DependencyObject, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITitleBarTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITitleBarTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBarTemplateSettings")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TitleBarTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITitleBarTemplateSettingsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITitleBarTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.ITitleBarTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBarTemplateSettings")
+    private static nonisolated let _ITitleBarTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.ITitleBarTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TitleBarTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.titlebartemplatesettings.iconelementproperty)
     public class var iconElementProperty : WinUI.DependencyProperty! {
         get { try! _ITitleBarTemplateSettingsStatics.get_IconElementProperty() }
@@ -70355,12 +71456,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToggleMenuFlyoutItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglemenuflyoutitem)
+@MainActor
 open class ToggleMenuFlyoutItem : WinUI.MenuFlyoutItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleMenuFlyoutItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleMenuFlyoutItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -70368,29 +71470,29 @@ open class ToggleMenuFlyoutItem : WinUI.MenuFlyoutItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IToggleMenuFlyoutItemFactory : __ABI_Microsoft_UI_Xaml_Controls.IToggleMenuFlyoutItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ToggleMenuFlyoutItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IToggleMenuFlyoutItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IToggleMenuFlyoutItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IToggleMenuFlyoutItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem")
+    private static nonisolated let _IToggleMenuFlyoutItemStatics: __ABI_Microsoft_UI_Xaml_Controls.IToggleMenuFlyoutItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleMenuFlyoutItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglemenuflyoutitem.ischeckedproperty)
     public class var isCheckedProperty : WinUI.DependencyProperty! {
         get { try! _IToggleMenuFlyoutItemStatics.get_IsCheckedProperty() }
@@ -70509,12 +71611,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToggleSplitButton
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbutton)
+@MainActor
 open class ToggleSplitButton : WinUI.SplitButton, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButton
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButton
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -70522,29 +71625,29 @@ open class ToggleSplitButton : WinUI.SplitButton, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IToggleSplitButtonFactory : __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSplitButton")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ToggleSplitButtonBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IToggleSplitButtonFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IToggleSplitButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSplitButton")
+    private static nonisolated let _IToggleSplitButtonStatics: __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSplitButton")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbutton.ischeckedproperty)
     public class var isCheckedProperty : WinUI.DependencyProperty! {
         get { try! _IToggleSplitButtonStatics.get_IsCheckedProperty() }
@@ -70559,13 +71662,17 @@ open class ToggleSplitButton : WinUI.SplitButton, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbutton.ischeckedchanged)
     public lazy var isCheckedChanged : Event<TypedEventHandler<ToggleSplitButton?, ToggleSplitButtonIsCheckedChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_IsCheckedChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_IsCheckedChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_IsCheckedChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_IsCheckedChanged(token)
+          }
+        }
       )
     }()
 
@@ -70692,12 +71799,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToggleSplitButtonIsCheckedChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglesplitbuttonischeckedchangedeventargs)
+@MainActor
 public final class ToggleSplitButtonIsCheckedChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSplitButtonIsCheckedChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSplitButtonIsCheckedChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -70705,7 +71813,7 @@ public final class ToggleSplitButtonIsCheckedChangedEventArgs : WinRTClass, @unc
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -70750,12 +71858,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToggleSwitch
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.toggleswitch)
+@MainActor
 public final class ToggleSwitch : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToggleSwitch
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToggleSwitch
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -70763,16 +71872,16 @@ public final class ToggleSwitch : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSwitch")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSwitch")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IToggleSwitchStatics: __ABI_Microsoft_UI_Xaml_Controls.IToggleSwitchStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSwitch")
+    private static nonisolated let _IToggleSwitchStatics: __ABI_Microsoft_UI_Xaml_Controls.IToggleSwitchStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToggleSwitch")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.toggleswitch.headerproperty)
     public static var headerProperty : WinUI.DependencyProperty! {
         get { try! _IToggleSwitchStatics.get_HeaderProperty() }
@@ -70858,13 +71967,17 @@ public final class ToggleSwitch : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.toggleswitch.toggled)
     public lazy var toggled : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Toggled($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Toggled(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Toggled($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Toggled(token)
+          }
+        }
       )
     }()
 
@@ -71161,12 +72274,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToolTip
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tooltip)
+@MainActor
 open class ToolTip : WinUI.ContentControl, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToolTip
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTip
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -71174,29 +72288,29 @@ open class ToolTip : WinUI.ContentControl, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IToolTipFactory : __ABI_Microsoft_UI_Xaml_Controls.IToolTipFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToolTip")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ToolTipBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IToolTipFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IToolTipStatics: __ABI_Microsoft_UI_Xaml_Controls.IToolTipStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToolTip")
+    private static nonisolated let _IToolTipStatics: __ABI_Microsoft_UI_Xaml_Controls.IToolTipStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToolTip")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tooltip.horizontaloffsetproperty)
     public class var horizontalOffsetProperty : WinUI.DependencyProperty! {
         get { try! _IToolTipStatics.get_HorizontalOffsetProperty() }
@@ -71271,26 +72385,34 @@ open class ToolTip : WinUI.ContentControl, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tooltip.closed)
     public lazy var closed : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Closed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Closed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Closed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Closed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tooltip.opened)
     public lazy var opened : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Opened($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Opened(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Opened($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Opened(token)
+          }
+        }
       )
     }()
 
@@ -71561,12 +72683,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - ToolTipService
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tooltipservice)
+@MainActor
 public final class ToolTipService : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IToolTipService
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIToolTipService
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -71574,11 +72697,11 @@ public final class ToolTipService : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IToolTipServiceStatics: __ABI_Microsoft_UI_Xaml_Controls.IToolTipServiceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToolTipService")
+    private static nonisolated let _IToolTipServiceStatics: __ABI_Microsoft_UI_Xaml_Controls.IToolTipServiceStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ToolTipService")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.tooltipservice.getplacement)
     public static func getPlacement(_ element: WinUI.DependencyObject!) throws -> WinUI.PlacementMode {
         return try _IToolTipServiceStatics.GetPlacement(element)
@@ -71747,12 +72870,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview)
+@MainActor
 open class TreeView : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeView
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeView
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -71760,29 +72884,29 @@ open class TreeView : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITreeViewFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeView")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITreeViewFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITreeViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeView")
+    private static nonisolated let _ITreeViewStatics: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.selecteditemproperty)
     public class var selectedItemProperty : WinUI.DependencyProperty! {
         get { try! _ITreeViewStatics.get_SelectedItemProperty() }
@@ -71793,7 +72917,7 @@ open class TreeView : WinUI.Control, @unchecked Sendable {
         get { try! _ITreeViewStatics.get_SelectionModeProperty() }
     }
 
-    private static let _ITreeViewStatics2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeView")
+    private static nonisolated let _ITreeViewStatics2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeView")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.candragitemsproperty)
     public class var canDragItemsProperty : WinUI.DependencyProperty! {
         get { try! _ITreeViewStatics2.get_CanDragItemsProperty() }
@@ -71868,43 +72992,55 @@ open class TreeView : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.collapsed)
     public lazy var collapsed : Event<TypedEventHandler<TreeView?, TreeViewCollapsedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Collapsed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Collapsed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Collapsed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Collapsed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.expanding)
     public lazy var expanding : Event<TypedEventHandler<TreeView?, TreeViewExpandingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Expanding($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Expanding(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Expanding($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Expanding(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.iteminvoked)
     public lazy var itemInvoked : Event<TypedEventHandler<TreeView?, TreeViewItemInvokedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_ItemInvoked($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ItemInvoked(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_ItemInvoked($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ItemInvoked(token)
+          }
+        }
       )
     }()
 
-    private lazy var _ITreeView2: __ABI_Microsoft_UI_Xaml_Controls.ITreeView2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITreeView2: __ABI_Microsoft_UI_Xaml_Controls.ITreeView2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.nodefromcontainer)
     public func nodeFromContainer(_ container: WinUI.DependencyObject!) throws -> TreeViewNode! {
         try _ITreeView2.NodeFromContainer(container)
@@ -71993,40 +73129,52 @@ open class TreeView : WinUI.Control, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.dragitemscompleted)
     public lazy var dragItemsCompleted : Event<TypedEventHandler<TreeView?, TreeViewDragItemsCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._ITreeView2 else { return .init() }
-          return try! this.add_DragItemsCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._ITreeView2 else { return .init() }
+            return try this.add_DragItemsCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._ITreeView2.remove_DragItemsCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._ITreeView2.remove_DragItemsCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.dragitemsstarting)
     public lazy var dragItemsStarting : Event<TypedEventHandler<TreeView?, TreeViewDragItemsStartingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._ITreeView2 else { return .init() }
-          return try! this.add_DragItemsStarting($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._ITreeView2 else { return .init() }
+            return try this.add_DragItemsStarting(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._ITreeView2.remove_DragItemsStarting($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._ITreeView2.remove_DragItemsStarting(token)
+          }
+        }
       )
     }()
 
-    private lazy var _ITreeView3: __ABI_Microsoft_UI_Xaml_Controls.ITreeView3! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITreeView3: __ABI_Microsoft_UI_Xaml_Controls.ITreeView3! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeview.selectionchanged)
     public lazy var selectionChanged : Event<TypedEventHandler<TreeView?, TreeViewSelectionChangedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._ITreeView3 else { return .init() }
-          return try! this.add_SelectionChanged($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._ITreeView3 else { return .init() }
+            return try this.add_SelectionChanged(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._ITreeView3.remove_SelectionChanged($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._ITreeView3.remove_SelectionChanged(token)
+          }
+        }
       )
     }()
 
@@ -72578,12 +73726,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewCollapsedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewcollapsedeventargs)
+@MainActor
 public final class TreeViewCollapsedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewCollapsedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewCollapsedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -72591,7 +73740,7 @@ public final class TreeViewCollapsedEventArgs : WinRTClass, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -72600,7 +73749,7 @@ public final class TreeViewCollapsedEventArgs : WinRTClass, @unchecked Sendable 
         get { try! _default.get_Node() }
     }
 
-    private lazy var _ITreeViewCollapsedEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewCollapsedEventArgs2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITreeViewCollapsedEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewCollapsedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewcollapsedeventargs.item)
     public var item : Any! {
         get { try! _ITreeViewCollapsedEventArgs2.get_Item() }
@@ -72675,12 +73824,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewDragItemsCompletedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewdragitemscompletedeventargs)
+@MainActor
 public final class TreeViewDragItemsCompletedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewDragItemsCompletedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewDragItemsCompletedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -72688,7 +73838,7 @@ public final class TreeViewDragItemsCompletedEventArgs : WinRTClass, @unchecked 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -72702,7 +73852,7 @@ public final class TreeViewDragItemsCompletedEventArgs : WinRTClass, @unchecked 
         get { try! _default.get_Items() }
     }
 
-    private lazy var _ITreeViewDragItemsCompletedEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewDragItemsCompletedEventArgs2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITreeViewDragItemsCompletedEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewDragItemsCompletedEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewdragitemscompletedeventargs.newparentitem)
     public var newParentItem : Any! {
         get { try! _ITreeViewDragItemsCompletedEventArgs2.get_NewParentItem() }
@@ -72785,12 +73935,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewDragItemsStartingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewdragitemsstartingeventargs)
+@MainActor
 public final class TreeViewDragItemsStartingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewDragItemsStartingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewDragItemsStartingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -72798,7 +73949,7 @@ public final class TreeViewDragItemsStartingEventArgs : WinRTClass, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -72891,12 +74042,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewExpandingEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewexpandingeventargs)
+@MainActor
 public final class TreeViewExpandingEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewExpandingEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewExpandingEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -72904,7 +74056,7 @@ public final class TreeViewExpandingEventArgs : WinRTClass, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -72913,7 +74065,7 @@ public final class TreeViewExpandingEventArgs : WinRTClass, @unchecked Sendable 
         get { try! _default.get_Node() }
     }
 
-    private lazy var _ITreeViewExpandingEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewExpandingEventArgs2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITreeViewExpandingEventArgs2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewExpandingEventArgs2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewexpandingeventargs.item)
     public var item : Any! {
         get { try! _ITreeViewExpandingEventArgs2.get_Item() }
@@ -72988,12 +74140,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewItem
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewitem)
+@MainActor
 open class TreeViewItem : WinUI.ListViewItem, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItem
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItem
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -73001,29 +74154,29 @@ open class TreeViewItem : WinUI.ListViewItem, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITreeViewItemFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItem")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewItemBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITreeViewItemFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITreeViewItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItem")
+    private static nonisolated let _ITreeViewItemStatics: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewitem.collapsedglyphproperty)
     public class var collapsedGlyphProperty : WinUI.DependencyProperty! {
         get { try! _ITreeViewItemStatics.get_CollapsedGlyphProperty() }
@@ -73059,7 +74212,7 @@ open class TreeViewItem : WinUI.ListViewItem, @unchecked Sendable {
         get { try! _ITreeViewItemStatics.get_TreeViewItemTemplateSettingsProperty() }
     }
 
-    private static let _ITreeViewItemStatics2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItem")
+    private static nonisolated let _ITreeViewItemStatics2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItem")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewitem.hasunrealizedchildrenproperty)
     public class var hasUnrealizedChildrenProperty : WinUI.DependencyProperty! {
         get { try! _ITreeViewItemStatics2.get_HasUnrealizedChildrenProperty() }
@@ -73111,7 +74264,7 @@ open class TreeViewItem : WinUI.ListViewItem, @unchecked Sendable {
         get { try! _default.get_TreeViewItemTemplateSettings() }
     }
 
-    private lazy var _ITreeViewItem2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItem2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITreeViewItem2: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItem2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewitem.hasunrealizedchildren)
     public var hasUnrealizedChildren : Bool {
         get { try! _ITreeViewItem2.get_HasUnrealizedChildren() }
@@ -73441,12 +74594,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewItemInvokedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewiteminvokedeventargs)
+@MainActor
 public final class TreeViewItemInvokedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemInvokedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemInvokedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -73454,7 +74608,7 @@ public final class TreeViewItemInvokedEventArgs : WinRTClass, @unchecked Sendabl
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -73533,12 +74687,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewItemTemplateSettings
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewitemtemplatesettings)
+@MainActor
 open class TreeViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemTemplateSettings
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewItemTemplateSettings
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -73546,29 +74701,29 @@ open class TreeViewItemTemplateSettings : WinUI.DependencyObject, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITreeViewItemTemplateSettingsFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemTemplateSettingsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItemTemplateSettings")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewItemTemplateSettingsBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITreeViewItemTemplateSettingsFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITreeViewItemTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItemTemplateSettings")
+    private static nonisolated let _ITreeViewItemTemplateSettingsStatics: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewItemTemplateSettingsStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewItemTemplateSettings")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewitemtemplatesettings.collapsedglyphvisibilityproperty)
     public class var collapsedGlyphVisibilityProperty : WinUI.DependencyProperty! {
         get { try! _ITreeViewItemTemplateSettingsStatics.get_CollapsedGlyphVisibilityProperty() }
@@ -73761,12 +74916,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewList
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewlist)
+@MainActor
 open class TreeViewList : WinUI.ListView, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewList
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewList
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -73774,23 +74930,23 @@ open class TreeViewList : WinUI.ListView, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITreeViewListFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewListFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewList")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewListBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITreeViewListFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -73871,12 +75027,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewNode
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewnode)
+@MainActor
 open class TreeViewNode : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewNode
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewNode
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -73884,29 +75041,29 @@ open class TreeViewNode : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITreeViewNodeFactory : __ABI_Microsoft_UI_Xaml_Controls.ITreeViewNodeFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewNode")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.TreeViewNodeBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ITreeViewNodeFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITreeViewNodeStatics: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewNodeStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewNode")
+    private static nonisolated let _ITreeViewNodeStatics: __ABI_Microsoft_UI_Xaml_Controls.ITreeViewNodeStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.TreeViewNode")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewnode.contentproperty)
     public class var contentProperty : WinUI.DependencyProperty! {
         get { try! _ITreeViewNodeStatics.get_ContentProperty() }
@@ -74164,12 +75321,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - TreeViewSelectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.treeviewselectionchangedeventargs)
+@MainActor
 public final class TreeViewSelectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.ITreeViewSelectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CITreeViewSelectionChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -74177,7 +75335,7 @@ public final class TreeViewSelectionChangedEventArgs : WinRTClass, @unchecked Se
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -74250,13 +75408,14 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - UIElementCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection)
+@MainActor
 public final class UIElementCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = WinUI.UIElement?
     private typealias SwiftABI = WinUI.IVectorUIElement
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CUIElement
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -74264,14 +75423,14 @@ public final class UIElementCollection : WinRTClass, @unchecked Sendable, IVecto
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private lazy var _IUIElementCollection: __ABI_Microsoft_UI_Xaml_Controls.IUIElementCollection! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IUIElementCollection: __ABI_Microsoft_UI_Xaml_Controls.IUIElementCollection! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.move)
     public func move(_ oldIndex: UInt32, _ newIndex: UInt32) throws {
         try _IUIElementCollection.Move(oldIndex, newIndex)
@@ -74279,22 +75438,22 @@ public final class UIElementCollection : WinRTClass, @unchecked Sendable, IVecto
 
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -74303,74 +75462,74 @@ public final class UIElementCollection : WinRTClass, @unchecked Sendable, IVecto
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.getat)
-    public func getAt(_ index: UInt32) -> WinUI.UIElement? {
+    public nonisolated func getAt(_ index: UInt32) -> WinUI.UIElement? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<WinUI.UIElement?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<WinUI.UIElement?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.indexof)
-    public func indexOf(_ value: WinUI.UIElement?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: WinUI.UIElement?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.setat)
-    public func setAt(_ index: UInt32, _ value: WinUI.UIElement?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: WinUI.UIElement?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: WinUI.UIElement?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: WinUI.UIElement?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.append)
-    public func append(_ value: WinUI.UIElement?) {
+    public nonisolated func append(_ value: WinUI.UIElement?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [WinUI.UIElement?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [WinUI.UIElement?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.replaceall)
-    public func replaceAll(_ items: [WinUI.UIElement?]) {
+    public nonisolated func replaceAll(_ items: [WinUI.UIElement?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableUIElement! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableUIElement! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uielementcollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<WinUI.UIElement?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<WinUI.UIElement?>? {
         try! _IIterable.First()
     }
 
@@ -74423,12 +75582,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - UniformGridLayout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uniformgridlayout)
+@MainActor
 open class UniformGridLayout : WinUI.VirtualizingLayout, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IUniformGridLayout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUniformGridLayout
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -74436,29 +75596,29 @@ open class UniformGridLayout : WinUI.VirtualizingLayout, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IUniformGridLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IUniformGridLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UniformGridLayout")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.UniformGridLayoutBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IUniformGridLayoutFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IUniformGridLayoutStatics: __ABI_Microsoft_UI_Xaml_Controls.IUniformGridLayoutStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UniformGridLayout")
+    private static nonisolated let _IUniformGridLayoutStatics: __ABI_Microsoft_UI_Xaml_Controls.IUniformGridLayoutStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UniformGridLayout")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.uniformgridlayout.itemsjustificationproperty)
     public class var itemsJustificationProperty : WinUI.DependencyProperty! {
         get { try! _IUniformGridLayoutStatics.get_ItemsJustificationProperty() }
@@ -74815,12 +75975,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - UserControl
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.usercontrol)
+@MainActor
 open class UserControl : WinUI.Control, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IUserControl
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIUserControl
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -74828,29 +75989,29 @@ open class UserControl : WinUI.Control, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IUserControlFactory : __ABI_Microsoft_UI_Xaml_Controls.IUserControlFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UserControl")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.UserControlBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IUserControlFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IUserControlStatics: __ABI_Microsoft_UI_Xaml_Controls.IUserControlStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UserControl")
+    private static nonisolated let _IUserControlStatics: __ABI_Microsoft_UI_Xaml_Controls.IUserControlStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.UserControl")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.usercontrol.contentproperty)
     public class var contentProperty : WinUI.DependencyProperty! {
         get { try! _IUserControlStatics.get_ContentProperty() }
@@ -74970,12 +76131,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - VariableSizedWrapGrid
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.variablesizedwrapgrid)
+@MainActor
 public final class VariableSizedWrapGrid : WinUI.Panel, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IVariableSizedWrapGrid
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVariableSizedWrapGrid
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -74983,16 +76145,16 @@ public final class VariableSizedWrapGrid : WinUI.Panel, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IVariableSizedWrapGridStatics: __ABI_Microsoft_UI_Xaml_Controls.IVariableSizedWrapGridStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid")
+    private static nonisolated let _IVariableSizedWrapGridStatics: __ABI_Microsoft_UI_Xaml_Controls.IVariableSizedWrapGridStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.variablesizedwrapgrid.getrowspan)
     public static func getRowSpan(_ element: WinUI.UIElement!) throws -> Int32 {
         return try _IVariableSizedWrapGridStatics.GetRowSpan(element)
@@ -75323,12 +76485,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - Viewbox
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox)
+@MainActor
 public final class Viewbox : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IViewbox
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIViewbox
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -75336,16 +76499,16 @@ public final class Viewbox : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Viewbox")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Viewbox")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IViewboxStatics: __ABI_Microsoft_UI_Xaml_Controls.IViewboxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Viewbox")
+    private static nonisolated let _IViewboxStatics: __ABI_Microsoft_UI_Xaml_Controls.IViewboxStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Viewbox")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.viewbox.stretchdirectionproperty)
     public static var stretchDirectionProperty : WinUI.DependencyProperty! {
         get { try! _IViewboxStatics.get_StretchDirectionProperty() }
@@ -75485,12 +76648,13 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - VirtualizingLayout
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayout)
+@MainActor
 open class VirtualizingLayout : WinUI.Layout, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayout
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayout
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -75498,18 +76662,18 @@ open class VirtualizingLayout : WinUI.Layout, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutOverridesWrapper(self)
@@ -75519,13 +76683,13 @@ open class VirtualizingLayout : WinUI.Layout, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _IVirtualizingLayoutFactory : __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VirtualizingLayout")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IVirtualizingLayoutFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private lazy var _IVirtualizingLayoutOverrides: __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IVirtualizingLayoutOverrides: __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore)
     open func initializeForContextCore(_ context: VirtualizingLayoutContext!) throws {
         try _IVirtualizingLayoutOverrides.InitializeForContextCore(context)
@@ -75626,7 +76790,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IVirtualizingLayoutOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let context: WinUI.VirtualizingLayoutContext? = __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.initializeForContextCore(context)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.initializeForContextCore(context)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -75635,7 +76801,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IVirtualizingLayoutOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let context: WinUI.VirtualizingLayoutContext? = __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.uninitializeForContextCore(context)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.uninitializeForContextCore(context)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -75645,7 +76813,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IVirtualizingLayoutOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let context: WinUI.VirtualizingLayoutContext? = __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.from(abi: ComPtr($1))
                 let availableSize: WindowsFoundation.Size = .from(abi: $2)
-                let result = try __unwrapped__instance.measureOverride(context, availableSize)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.measureOverride(context, availableSize)
+                }
                 $3?.initialize(to: .from(swift: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -75656,7 +76826,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IVirtualizingLayoutOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let context: WinUI.VirtualizingLayoutContext? = __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.from(abi: ComPtr($1))
                 let finalSize: WindowsFoundation.Size = .from(abi: $2)
-                let result = try __unwrapped__instance.arrangeOverride(context, finalSize)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.arrangeOverride(context, finalSize)
+                }
                 $3?.initialize(to: .from(swift: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -75666,9 +76838,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IVirtualizingLayoutOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let context: WinUI.VirtualizingLayoutContext? = __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.from(abi: ComPtr($1))
-                let source: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                nonisolated(unsafe) let source: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
                 let args: WinUI.NotifyCollectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventArgsBridge.from(abi: ComPtr($3))
-                try __unwrapped__instance.onItemsChangedCore(context, source, args)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onItemsChangedCore(context, source, args)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -75759,12 +76933,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - VirtualizingLayoutContext
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext)
+@MainActor
 open class VirtualizingLayoutContext : WinUI.LayoutContext, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContext
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIVirtualizingLayoutContext
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -75772,18 +76947,18 @@ open class VirtualizingLayoutContext : WinUI.LayoutContext, @unchecked Sendable 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextOverridesWrapper(self)
@@ -75796,7 +76971,7 @@ open class VirtualizingLayoutContext : WinUI.LayoutContext, @unchecked Sendable 
     }
     private static nonisolated(unsafe) var _IVirtualizingLayoutContextFactory : __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.VirtualizingLayoutContext")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.VirtualizingLayoutContextBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IVirtualizingLayoutContextFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -75843,13 +77018,13 @@ open class VirtualizingLayoutContext : WinUI.LayoutContext, @unchecked Sendable 
         get { try! _default.get_RecommendedAnchorIndex() }
     }
 
-    private lazy var _IVirtualizingLayoutContext2: __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContext2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IVirtualizingLayoutContext2: __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContext2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.visiblerect)
     public var visibleRect : WindowsFoundation.Rect {
         get { try! _IVirtualizingLayoutContext2.get_VisibleRect() }
     }
 
-    private lazy var _IVirtualizingLayoutContextOverrides: __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IVirtualizingLayoutContextOverrides: __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.itemcountcore)
     open func itemCountCore() throws -> Int32 {
         try _IVirtualizingLayoutContextOverrides.ItemCountCore()
@@ -75886,7 +77061,7 @@ open class VirtualizingLayoutContext : WinUI.LayoutContext, @unchecked Sendable 
         get { try! _IVirtualizingLayoutContextOverrides.get_RecommendedAnchorIndexCore() }
     }
 
-    private lazy var _IVirtualizingLayoutContextOverrides2: __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextOverrides2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IVirtualizingLayoutContextOverrides2: __ABI_Microsoft_UI_Xaml_Controls.IVirtualizingLayoutContextOverrides2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.visiblerectcore)
     open func visibleRectCore() throws -> WindowsFoundation.Rect {
         try _IVirtualizingLayoutContextOverrides2.VisibleRectCore()
@@ -75978,7 +77153,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         VisibleRectCore: {
             do {
                 guard let __unwrapped__instance = IVirtualizingLayoutContextOverrides2Wrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.visibleRectCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.visibleRectCore()
+                }
                 $1?.initialize(to: .from(swift: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -76018,7 +77195,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         ItemCountCore: {
             do {
                 guard let __unwrapped__instance = IVirtualizingLayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.itemCountCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.itemCountCore()
+                }
                 $1?.initialize(to: result)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -76028,7 +77207,11 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IVirtualizingLayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: Int32 = $1
-                let result = try __unwrapped__instance.getItemAtCore(index)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.getItemAtCore(index)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -76038,7 +77221,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         RealizationRectCore: {
             do {
                 guard let __unwrapped__instance = IVirtualizingLayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.realizationRectCore()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.realizationRectCore()
+                }
                 $1?.initialize(to: .from(swift: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -76049,7 +77234,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
                 guard let __unwrapped__instance = IVirtualizingLayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: Int32 = $1
                 let options: WinUI.ElementRealizationOptions = $2
-                let result = try __unwrapped__instance.getOrCreateElementAtCore(index, options)
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getOrCreateElementAtCore(index, options)
+                }
                 result?.copyTo($3)
                 return S_OK
             } catch { return failWith(error: error) }
@@ -76059,21 +77246,27 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             do {
                 guard let __unwrapped__instance = IVirtualizingLayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let element: WinUI.UIElement? = __IMPL_Microsoft_UI_Xaml.UIElementBridge.from(abi: ComPtr($1))
-                try __unwrapped__instance.recycleElementCore(element)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.recycleElementCore(element)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
 
         get_RecommendedAnchorIndexCore: {
             guard let __unwrapped__instance = IVirtualizingLayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.recommendedAnchorIndexCore
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.recommendedAnchorIndexCore
+            }
             $1?.initialize(to: value)
             return S_OK
         },
 
         get_LayoutOriginCore: {
             guard let __unwrapped__instance = IVirtualizingLayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.layoutOriginCore
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.layoutOriginCore
+            }
             $1?.initialize(to: .from(swift: value))
             return S_OK
         },
@@ -76081,7 +77274,9 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
         put_LayoutOriginCore: {
             guard let __unwrapped__instance = IVirtualizingLayoutContextOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let value: WindowsFoundation.Point = .from(abi: $1)
-            __unwrapped__instance.layoutOriginCore = value
+            MainActor.assumeIsolated {
+                __unwrapped__instance.layoutOriginCore = value
+            }
             return S_OK
         }
     )
@@ -76308,12 +77503,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CControls_CI
 // MARK: - WebView2
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2)
+@MainActor
 open class WebView2 : WinUI.FrameworkElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IWebView2
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIWebView2
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -76321,29 +77517,29 @@ open class WebView2 : WinUI.FrameworkElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IWebView2Factory : __ABI_Microsoft_UI_Xaml_Controls.IWebView2Factory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.WebView2")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.WebView2Bridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IWebView2Factory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IWebView2Statics: __ABI_Microsoft_UI_Xaml_Controls.IWebView2Statics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.WebView2")
+    private static nonisolated let _IWebView2Statics: __ABI_Microsoft_UI_Xaml_Controls.IWebView2Statics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.WebView2")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.cangobackproperty)
     public class var canGoBackProperty : WinUI.DependencyProperty! {
         get { try! _IWebView2Statics.get_CanGoBackProperty() }
@@ -76431,69 +77627,89 @@ open class WebView2 : WinUI.FrameworkElement, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.coreprocessfailed)
     public lazy var coreProcessFailed : Event<TypedEventHandler<WebView2?, CoreWebView2ProcessFailedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CoreProcessFailed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CoreProcessFailed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CoreProcessFailed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CoreProcessFailed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.corewebview2initialized)
     public lazy var coreWebView2Initialized : Event<TypedEventHandler<WebView2?, CoreWebView2InitializedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_CoreWebView2Initialized($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_CoreWebView2Initialized(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_CoreWebView2Initialized($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_CoreWebView2Initialized(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.navigationcompleted)
     public lazy var navigationCompleted : Event<TypedEventHandler<WebView2?, CoreWebView2NavigationCompletedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_NavigationCompleted($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_NavigationCompleted(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_NavigationCompleted($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_NavigationCompleted(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.navigationstarting)
     public lazy var navigationStarting : Event<TypedEventHandler<WebView2?, CoreWebView2NavigationStartingEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_NavigationStarting($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_NavigationStarting(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_NavigationStarting($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_NavigationStarting(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.webmessagereceived)
     public lazy var webMessageReceived : Event<TypedEventHandler<WebView2?, CoreWebView2WebMessageReceivedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_WebMessageReceived($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_WebMessageReceived(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_WebMessageReceived($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_WebMessageReceived(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IWebView22: __ABI_Microsoft_UI_Xaml_Controls.IWebView22! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IWebView22: __ABI_Microsoft_UI_Xaml_Controls.IWebView22! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview2.ensurecorewebview2async)
     public func ensureCoreWebView2Async(_ environment: WebView2Core.CoreWebView2Environment!) throws -> WindowsFoundation.AnyIAsyncAction! {
         try _IWebView22.EnsureCoreWebView2WithEnvironmentAsync(environment)
@@ -76848,15 +78064,16 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
 // MARK: - XamlControlsResources
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.xamlcontrolsresources)
+@MainActor
 public final class XamlControlsResources : WinUI.ResourceDictionary, @unchecked Sendable {
     public typealias K = Any?
     public typealias V = Any?
     public typealias T = WindowsFoundation.AnyIKeyValuePair<Any?, Any?>?
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IXamlControlsResources
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIXamlControlsResources
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -76864,16 +78081,16 @@ public final class XamlControlsResources : WinUI.ResourceDictionary, @unchecked 
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.XamlControlsResources")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.XamlControlsResources")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IXamlControlsResourcesStatics: __ABI_Microsoft_UI_Xaml_Controls.IXamlControlsResourcesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.XamlControlsResources")
+    private static nonisolated let _IXamlControlsResourcesStatics: __ABI_Microsoft_UI_Xaml_Controls.IXamlControlsResourcesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.XamlControlsResources")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.xamlcontrolsresources.ensurereveallights)
     public static func ensureRevealLights(_ element: WinUI.UIElement!) throws {
         try _IXamlControlsResourcesStatics.EnsureRevealLights(element)

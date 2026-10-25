@@ -23,6 +23,7 @@ import WinSDK
 ///    window.activate()
 ///   }
 /// ```
+@MainActor
 open class SwiftApplication: Application, IXamlMetadataProvider, @unchecked Sendable {
     // the loop closure is handed to MainActor.assumeIsolated from a nonisolated caller,
     // so it must be safe to send across isolation domains
@@ -50,13 +51,14 @@ open class SwiftApplication: Application, IXamlMetadataProvider, @unchecked Send
     }
 
     private typealias pfnContentPreTranslateMessage = @convention(c) (UnsafePointer<MSG>?) -> Bool
-    private static let contentPreTranslateMessage: pfnContentPreTranslateMessage = {
+    // read from the @Sendable run loop closure, which runs off the main actor's isolation
+    private nonisolated static let contentPreTranslateMessage: pfnContentPreTranslateMessage = {
         let windowingDLL = LoadLibraryA("Microsoft.UI.Windowing.Core.dll")
         let contentPreTranslateMessage = GetProcAddress(windowingDLL, "ContentPreTranslateMessage")
         return unsafeBitCast(contentPreTranslateMessage!, to: pfnContentPreTranslateMessage.self)
     }()
 
-    private static func defaultRunLoop(_ queue: DispatcherQueue) -> Int32 {
+    private nonisolated static func defaultRunLoop(_ queue: DispatcherQueue) -> Int32 {
         // The below run loop is taken mostly from https://github.com/compnerd/swift-win32/blob/d34ff1b8b3f15cfdf2cb71109a3c313001122a54/Sources/SwiftWin32/App%20and%20Environment/ApplicationMain.swift#L183
         // with some tweaks for WinUI
         var msg: MSG = MSG()
@@ -99,7 +101,8 @@ open class SwiftApplication: Application, IXamlMetadataProvider, @unchecked Send
 
     /// Override this method to provide any necessary shutdown code.
     open func onShutdown(exitCode: Int32) { }
-    
+
+    @MainActor
     public static func main() {
         do {
             let appClass = String(describing: String(reflecting: Self.self))
@@ -108,17 +111,12 @@ open class SwiftApplication: Application, IXamlMetadataProvider, @unchecked Send
             }
 
             try withExtendedLifetime(WindowsAppRuntimeInitializer(selfContained: instance.windowsAppSdkSelfContained)) {
-                // ApplicationInitializationCallback is a @Sendable delegate fired on the main
-                // thread, so the application under construction is kept in an unchecked-Sendable box
-                final class ApplicationBox: @unchecked Sendable {
-                    var application: SwiftApplication!
-                }
-                let box = ApplicationBox()
+                var application: SwiftApplication!
                 let exitCode = try Application.startWithCustomRunLoop(instance.runLoop) { _ in
-                    box.application = instance.init()
+                    application = instance.init()
                 }
 
-                box.application.onShutdown(exitCode: exitCode)
+                application.onShutdown(exitCode: exitCode)
             }
         }
         catch {
@@ -126,7 +124,7 @@ open class SwiftApplication: Application, IXamlMetadataProvider, @unchecked Send
         }
     }
 
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    open nonisolated override func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
         case __ABI_Microsoft_UI_Xaml_Markup.IXamlMetadataProviderWrapper.IID:
             let ixmp = __ABI_Microsoft_UI_Xaml_Markup.IXamlMetadataProviderWrapper(self)

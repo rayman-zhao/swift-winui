@@ -7,12 +7,13 @@ import CWinRT
 // MARK: - XamlControlsXamlMetaDataProvider
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamltypeinfo.xamlcontrolsxamlmetadataprovider)
+@MainActor
 public final class XamlControlsXamlMetaDataProvider : WinRTClass, @unchecked Sendable, WinUI.IXamlMetadataProvider {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Markup.IXamlMetadataProvider
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMarkup_CIXamlMetadataProvider
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -20,25 +21,25 @@ public final class XamlControlsXamlMetaDataProvider : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider")
+    nonisolated override public init() {
         super.init(try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IXamlControlsXamlMetaDataProviderStatics: __ABI_Microsoft_UI_Xaml_XamlTypeInfo.IXamlControlsXamlMetaDataProviderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider")
+    private static nonisolated let _IXamlControlsXamlMetaDataProviderStatics: __ABI_Microsoft_UI_Xaml_XamlTypeInfo.IXamlControlsXamlMetaDataProviderStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamltypeinfo.xamlcontrolsxamlmetadataprovider.initialize)
     public static func initialize() throws {
         try _IXamlControlsXamlMetaDataProviderStatics.Initialize()
     }
 
-    private lazy var _IXamlControlsXamlMetaDataProvider: __ABI_Microsoft_UI_Xaml_XamlTypeInfo.IXamlControlsXamlMetaDataProvider! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IXamlControlsXamlMetaDataProvider: __ABI_Microsoft_UI_Xaml_XamlTypeInfo.IXamlControlsXamlMetaDataProvider! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.xamltypeinfo.xamlcontrolsxamlmetadataprovider.getxamltype)
     public func getXamlType(_ type: WinUI.TypeName) throws -> WinUI.AnyIXamlType! {
         try _default.GetXamlType(type)

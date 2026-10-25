@@ -41,12 +41,13 @@ extension WinUI.XamlSourceFocusNavigationReason: @retroactive Hashable, @retroac
 // MARK: - DesktopWindowXamlSource
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource)
+@MainActor
 open class DesktopWindowXamlSource : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSource
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSource
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -54,24 +55,24 @@ open class DesktopWindowXamlSource : WinRTClass, @unchecked Sendable, WindowsFou
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IDesktopWindowXamlSourceFactory : __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.DesktopWindowXamlSource")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Hosting.DesktopWindowXamlSourceBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._IDesktopWindowXamlSourceFactory.CreateInstance(baseInterface, &innerInterface)
@@ -113,39 +114,47 @@ open class DesktopWindowXamlSource : WinRTClass, @unchecked Sendable, WindowsFou
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.gotfocus)
     public lazy var gotFocus : Event<TypedEventHandler<DesktopWindowXamlSource?, DesktopWindowXamlSourceGotFocusEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_GotFocus($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_GotFocus(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_GotFocus($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_GotFocus(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.takefocusrequested)
     public lazy var takeFocusRequested : Event<TypedEventHandler<DesktopWindowXamlSource?, DesktopWindowXamlSourceTakeFocusRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_TakeFocusRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_TakeFocusRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_TakeFocusRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_TakeFocusRequested(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IDesktopWindowXamlSource2: __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSource2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IDesktopWindowXamlSource2: __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSource2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.shouldconstrainpopupstoworkarea)
     public var shouldConstrainPopupsToWorkArea : Bool {
         get { try! _IDesktopWindowXamlSource2.get_ShouldConstrainPopupsToWorkArea() }
         set { try! _IDesktopWindowXamlSource2.put_ShouldConstrainPopupsToWorkArea(newValue) }
     }
 
-    private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsource.close)
-    public func close() throws {
+    public nonisolated func close() throws {
         try _IClosable.Close()
     }
 
@@ -343,12 +352,13 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - DesktopWindowXamlSourceGotFocusEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsourcegotfocuseventargs)
+@MainActor
 public final class DesktopWindowXamlSourceGotFocusEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceGotFocusEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceGotFocusEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -356,7 +366,7 @@ public final class DesktopWindowXamlSourceGotFocusEventArgs : WinRTClass, @unche
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -415,12 +425,13 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - DesktopWindowXamlSourceTakeFocusRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.desktopwindowxamlsourcetakefocusrequestedeventargs)
+@MainActor
 public final class DesktopWindowXamlSourceTakeFocusRequestedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IDesktopWindowXamlSourceTakeFocusRequestedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIDesktopWindowXamlSourceTakeFocusRequestedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -428,7 +439,7 @@ public final class DesktopWindowXamlSourceTakeFocusRequestedEventArgs : WinRTCla
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -487,12 +498,13 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - ElementCompositionPreview
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview)
+@MainActor
 public final class ElementCompositionPreview : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IElementCompositionPreview
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIElementCompositionPreview
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -500,11 +512,11 @@ public final class ElementCompositionPreview : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IElementCompositionPreviewStatics: __ABI_Microsoft_UI_Xaml_Hosting.IElementCompositionPreviewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.ElementCompositionPreview")
+    private static nonisolated let _IElementCompositionPreviewStatics: __ABI_Microsoft_UI_Xaml_Hosting.IElementCompositionPreviewStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.ElementCompositionPreview")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.elementcompositionpreview.getelementvisual)
     public static func getElementVisual(_ element: WinUI.UIElement!) throws -> WinAppSDK.Visual! {
         return try _IElementCompositionPreviewStatics.GetElementVisual(element)
@@ -659,12 +671,13 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - WindowsXamlManager
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager)
+@MainActor
 public final class WindowsXamlManager : WinRTClass, @unchecked Sendable, WindowsFoundation.IClosable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManager
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIWindowsXamlManager
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -672,42 +685,46 @@ public final class WindowsXamlManager : WinRTClass, @unchecked Sendable, Windows
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
-    private static let _IWindowsXamlManagerStatics: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.WindowsXamlManager")
+    private static nonisolated let _IWindowsXamlManagerStatics: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManagerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.WindowsXamlManager")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread)
     public static func initializeForCurrentThread() throws -> WindowsXamlManager! {
         return try _IWindowsXamlManagerStatics.InitializeForCurrentThread()
     }
 
-    private static let _IWindowsXamlManagerStatics2: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManagerStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.WindowsXamlManager")
+    private static nonisolated let _IWindowsXamlManagerStatics2: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManagerStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.WindowsXamlManager")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager.getforcurrentthread)
     public static func getForCurrentThread() throws -> WindowsXamlManager! {
         return try _IWindowsXamlManagerStatics2.GetForCurrentThread()
     }
 
-    private lazy var _IWindowsXamlManager2: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManager2! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IWindowsXamlManager2: __ABI_Microsoft_UI_Xaml_Hosting.IWindowsXamlManager2! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager.xamlshutdowncompletedonthread)
     public lazy var xamlShutdownCompletedOnThread : Event<TypedEventHandler<WindowsXamlManager?, XamlShutdownCompletedOnThreadEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._IWindowsXamlManager2 else { return .init() }
-          return try! this.add_XamlShutdownCompletedOnThread($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._IWindowsXamlManager2 else { return .init() }
+            return try this.add_XamlShutdownCompletedOnThread(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._IWindowsXamlManager2.remove_XamlShutdownCompletedOnThread($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._IWindowsXamlManager2.remove_XamlShutdownCompletedOnThread(token)
+          }
+        }
       )
     }()
 
-    private lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IClosable: __ABI_Windows_Foundation.IClosable! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.windowsxamlmanager.close)
-    public func close() throws {
+    public nonisolated func close() throws {
         try _IClosable.Close()
     }
 
@@ -815,12 +832,13 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - XamlShutdownCompletedOnThreadEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlshutdowncompletedonthreadeventargs)
+@MainActor
 public final class XamlShutdownCompletedOnThreadEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IXamlShutdownCompletedOnThreadEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlShutdownCompletedOnThreadEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -828,7 +846,7 @@ public final class XamlShutdownCompletedOnThreadEventArgs : WinRTClass, @uncheck
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -887,12 +905,13 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - XamlSourceFocusNavigationRequest
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlsourcefocusnavigationrequest)
+@MainActor
 public final class XamlSourceFocusNavigationRequest : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationRequest
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationRequest
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -900,20 +919,20 @@ public final class XamlSourceFocusNavigationRequest : WinRTClass, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IXamlSourceFocusNavigationRequestFactory: __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationRequestFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest")
-    public init(_ reason: XamlSourceFocusNavigationReason) {
+    private static nonisolated let _IXamlSourceFocusNavigationRequestFactory: __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationRequestFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest")
+    nonisolated public init(_ reason: XamlSourceFocusNavigationReason) {
         super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstance(reason))
     }
 
-    public init(_ reason: XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect) {
+    nonisolated public init(_ reason: XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect) {
         super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstanceWithHintRect(reason, hintRect))
     }
 
-    public init(_ reason: XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) {
+    nonisolated public init(_ reason: XamlSourceFocusNavigationReason, _ hintRect: WindowsFoundation.Rect, _ correlationId: Foundation.UUID) {
         super.init(try! Self._IXamlSourceFocusNavigationRequestFactory.CreateInstanceWithHintRectAndCorrelationId(reason, hintRect, correlationId))
     }
 
@@ -1033,12 +1052,13 @@ extension __ABI_Microsoft_UI_Xaml_Hosting {
 // MARK: - XamlSourceFocusNavigationResult
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.hosting.xamlsourcefocusnavigationresult)
+@MainActor
 public final class XamlSourceFocusNavigationResult : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationResult
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CHosting_CIXamlSourceFocusNavigationResult
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1046,12 +1066,12 @@ public final class XamlSourceFocusNavigationResult : WinRTClass, @unchecked Send
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IXamlSourceFocusNavigationResultFactory: __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationResultFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.XamlSourceFocusNavigationResult")
-    public init(_ focusMoved: Bool) {
+    private static nonisolated let _IXamlSourceFocusNavigationResultFactory: __ABI_Microsoft_UI_Xaml_Hosting.IXamlSourceFocusNavigationResultFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Hosting.XamlSourceFocusNavigationResult")
+    nonisolated public init(_ focusMoved: Bool) {
         super.init(try! Self._IXamlSourceFocusNavigationResultFactory.CreateInstance(focusMoved))
     }
 

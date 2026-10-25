@@ -106,12 +106,13 @@ extension WinUI.AutomationTextEditChangeType: @retroactive Hashable, @retroactiv
 // MARK: - AutomationAnnotation
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationannotation)
+@MainActor
 public final class AutomationAnnotation : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation.IAutomationAnnotation
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationAnnotation
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -119,25 +120,25 @@ public final class AutomationAnnotation : WinUI.DependencyObject, @unchecked Sen
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationAnnotation")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationAnnotation")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IAutomationAnnotationFactory: __ABI_Microsoft_UI_Xaml_Automation.IAutomationAnnotationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationAnnotation")
-    public init(_ type: AnnotationType) {
+    private static nonisolated let _IAutomationAnnotationFactory: __ABI_Microsoft_UI_Xaml_Automation.IAutomationAnnotationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationAnnotation")
+    nonisolated public init(_ type: AnnotationType) {
         super.init(fromAbi: try! Self._IAutomationAnnotationFactory.CreateInstance(type))
     }
 
-    public init(_ type: AnnotationType, _ element: WinUI.UIElement!) {
+    nonisolated public init(_ type: AnnotationType, _ element: WinUI.UIElement!) {
         super.init(fromAbi: try! Self._IAutomationAnnotationFactory.CreateWithElementParameter(type, element))
     }
 
-    private static let _IAutomationAnnotationStatics: __ABI_Microsoft_UI_Xaml_Automation.IAutomationAnnotationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationAnnotation")
+    private static nonisolated let _IAutomationAnnotationStatics: __ABI_Microsoft_UI_Xaml_Automation.IAutomationAnnotationStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationAnnotation")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationannotation.elementproperty)
     public static var elementProperty : WinUI.DependencyProperty! {
         get { try! _IAutomationAnnotationStatics.get_ElementProperty() }
@@ -284,12 +285,13 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 // MARK: - AutomationProperties
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationproperties)
+@MainActor
 public final class AutomationProperties : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation.IAutomationProperties
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperties
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -297,11 +299,11 @@ public final class AutomationProperties : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    private static let _IAutomationPropertiesStatics: __ABI_Microsoft_UI_Xaml_Automation.IAutomationPropertiesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationProperties")
+    private static nonisolated let _IAutomationPropertiesStatics: __ABI_Microsoft_UI_Xaml_Automation.IAutomationPropertiesStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationProperties")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationproperties.getacceleratorkey)
     public static func getAcceleratorKey(_ element: WinUI.DependencyObject!) throws -> String {
         return try _IAutomationPropertiesStatics.GetAcceleratorKey(element)
@@ -697,7 +699,7 @@ public final class AutomationProperties : WinRTClass, @unchecked Sendable {
         get { try! _IAutomationPropertiesStatics.get_SizeOfSetProperty() }
     }
 
-    private static let _IAutomationPropertiesStatics2: __ABI_Microsoft_UI_Xaml_Automation.IAutomationPropertiesStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationProperties")
+    private static nonisolated let _IAutomationPropertiesStatics2: __ABI_Microsoft_UI_Xaml_Automation.IAutomationPropertiesStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Automation.AutomationProperties")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationproperties.getautomationcontroltype)
     public static func getAutomationControlType(_ element: WinUI.UIElement!) throws -> WinUI.AutomationControlType {
         return try _IAutomationPropertiesStatics2.GetAutomationControlType(element)
@@ -1455,12 +1457,13 @@ extension __ABI_Microsoft_UI_Xaml_Automation {
 // MARK: - AutomationProperty
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.automationproperty)
+@MainActor
 public final class AutomationProperty : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Automation.IAutomationProperty
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CAutomation_CIAutomationProperty
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1468,7 +1471,7 @@ public final class AutomationProperty : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 

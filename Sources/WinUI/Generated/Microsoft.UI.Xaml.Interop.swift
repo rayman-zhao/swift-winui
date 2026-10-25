@@ -30,7 +30,7 @@ extension WinUI.NotifyCollectionChangedAction: @retroactive Hashable, @retroacti
 
 // MARK: - BindableVectorChangedEventHandler
 
-public typealias BindableVectorChangedEventHandler = @Sendable (AnyIBindableObservableVector?, Any?) throws -> ()
+public typealias BindableVectorChangedEventHandler = @MainActor (AnyIBindableObservableVector?, Any?) throws -> ()
 
 // MARK: - BindableVectorChangedEventHandler Internals
 
@@ -82,8 +82,10 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
             do {
                 guard let __unwrapped__instance = BindableVectorChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let vector: WinUI.AnyIBindableObservableVector? = __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorWrapper.unwrapFrom(abi: ComPtr($1))
-                let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance(vector, e)
+                nonisolated(unsafe) let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(vector, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -98,7 +100,7 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 
 // MARK: - NotifyCollectionChangedEventHandler
 
-public typealias NotifyCollectionChangedEventHandler = @Sendable (Any?, NotifyCollectionChangedEventArgs?) throws -> ()
+public typealias NotifyCollectionChangedEventHandler = @MainActor (Any?, NotifyCollectionChangedEventArgs?) throws -> ()
 
 // MARK: - NotifyCollectionChangedEventHandler Internals
 
@@ -147,9 +149,11 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Invoke: {
             do {
                 guard let __unwrapped__instance = NotifyCollectionChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let sender: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 let e: WinUI.NotifyCollectionChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventArgsBridge.from(abi: ComPtr($2))
-                try __unwrapped__instance(sender, e)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance(sender, e)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -165,13 +169,13 @@ public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_
 // MARK: - IBindableIterable
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterable)
-public protocol IBindableIterable : WinRTInterface {
+@MainActor public protocol IBindableIterable : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterable.first)
     func first() throws -> WinUI.AnyIBindableIterator!
 }
 
 extension IBindableIterable {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Interop.IBindableIterableWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableIterableWrapper(self)
@@ -204,8 +208,8 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
     fileprivate class IBindableIterableImpl: IBindableIterable, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableIterableBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -268,7 +272,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         First: {
             do {
                 guard let __unwrapped__instance = IBindableIterableWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.first()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.first()
+                }
                 let resultWrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableIteratorWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -289,7 +295,7 @@ public class IBindableIterableMaker: MakeFromAbi {
 // MARK: - IBindableIterator
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterator)
-public protocol IBindableIterator : WinRTInterface {
+@MainActor public protocol IBindableIterator : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterator.movenext)
     func moveNext() throws -> Bool
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterator.current)
@@ -299,7 +305,7 @@ public protocol IBindableIterator : WinRTInterface {
 }
 
 extension IBindableIterator {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Interop.IBindableIteratorWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableIteratorWrapper(self)
@@ -332,8 +338,8 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
     fileprivate class IBindableIteratorImpl: IBindableIterator, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableIteratorBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -421,7 +427,11 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
         get_Current: {
             guard let __unwrapped__instance = IBindableIteratorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.current
+            let __resultBox = AnyResultBox()
+            MainActor.assumeIsolated {
+                __resultBox.value = __unwrapped__instance.current
+            }
+            let value: Any! = __resultBox.value
             let valueWrapper = __ABI_.AnyWrapper(value)
             valueWrapper?.copyTo($1)
             return S_OK
@@ -429,7 +439,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
         get_HasCurrent: {
             guard let __unwrapped__instance = IBindableIteratorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.hasCurrent
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.hasCurrent
+            }
             $1?.initialize(to: .init(from: value))
             return S_OK
         },
@@ -437,7 +449,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         MoveNext: {
             do {
                 guard let __unwrapped__instance = IBindableIteratorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.moveNext()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.moveNext()
+                }
                 $1?.initialize(to: .init(from: result))
                 return S_OK
             } catch { return failWith(error: error) }
@@ -457,19 +471,19 @@ public class IBindableIteratorMaker: MakeFromAbi {
 // MARK: - IBindableObservableVector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector)
-public protocol IBindableObservableVector : IBindableIterable, IBindableVector {
+@MainActor public protocol IBindableObservableVector : IBindableIterable, IBindableVector {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.vectorchanged)
     var vectorChanged: Event<BindableVectorChangedEventHandler> { get }
 }
 
 public extension EventSource where Handler == BindableVectorChangedEventHandler {
-    func invoke(_ vector: AnyIBindableObservableVector!, _ e: Any!) throws {
-        try invokeAll { handler in try handler(vector, e) }
+    @MainActor func invoke(_ vector: AnyIBindableObservableVector!, _ e: Any!) throws {
+        for handler in currentHandlers { try handler(vector, e) }
     }
 }
 
 extension IBindableObservableVector {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorWrapper(self)
@@ -508,31 +522,35 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
     fileprivate class IBindableObservableVectorImpl: IBindableObservableVector, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableObservableVectorBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.vectorchanged)
         fileprivate lazy var vectorChanged : Event<BindableVectorChangedEventHandler> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_VectorChanged($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_VectorChanged(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_VectorChanged($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_VectorChanged(token)
+              }
+            }
           )
         }()
 
-        private lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
+        private nonisolated(unsafe) lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.first)
         fileprivate func first() throws -> AnyIBindableIterator! {
             try _IBindableIterable.First()
         }
 
-        private lazy var _IBindableVector: __ABI_Microsoft_UI_Xaml_Interop.IBindableVector! = getInterfaceForCaching()
+        private nonisolated(unsafe) lazy var _IBindableVector: __ABI_Microsoft_UI_Xaml_Interop.IBindableVector! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.getat)
         fileprivate func getAt(_ index: UInt32) throws -> Any! {
             try _IBindableVector.GetAt(index)
@@ -646,7 +664,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         add_VectorChanged: {
             guard let __unwrapped__instance = IBindableObservableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = __ABI_Microsoft_UI_Xaml_Interop.BindableVectorChangedEventHandlerWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.vectorChanged.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.vectorChanged.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -654,7 +674,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         remove_VectorChanged: {
             guard let __unwrapped__instance = IBindableObservableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.vectorChanged.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.vectorChanged.removeHandler(token)
+            }
             return S_OK
         }
     )
@@ -672,7 +694,7 @@ public class IBindableObservableVectorMaker: MakeFromAbi {
 // MARK: - IBindableVector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector)
-public protocol IBindableVector : IBindableIterable {
+@MainActor public protocol IBindableVector : IBindableIterable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.getat)
     func getAt(_ index: UInt32) throws -> Any!
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.getview)
@@ -696,7 +718,7 @@ public protocol IBindableVector : IBindableIterable {
 }
 
 extension IBindableVector {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorWrapper(self)
@@ -732,8 +754,8 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
     fileprivate class IBindableVectorImpl: IBindableVector, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableVectorBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -787,7 +809,7 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
             get { try! _default.get_Size() }
         }
 
-        private lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
+        private nonisolated(unsafe) lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector.first)
         fileprivate func first() throws -> AnyIBindableIterator! {
             try _IBindableIterable.First()
@@ -918,7 +940,11 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: UInt32 = $1
-                let result = try __unwrapped__instance.getAt(index)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.getAt(index)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -927,7 +953,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
         get_Size: {
             guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.size
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.size
+            }
             $1?.initialize(to: value)
             return S_OK
         },
@@ -935,7 +963,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         GetView: {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let result = try __unwrapped__instance.getView()
+                let result = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.getView()
+                }
                 let resultWrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorViewWrapper(result)
                 resultWrapper?.copyTo($1)
                 return S_OK
@@ -945,9 +975,11 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         IndexOf: {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 var index: UInt32 = 0
-                let returnValue = try __unwrapped__instance.indexOf(value, &index)
+                let returnValue = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.indexOf(value, &index)
+                }
                 $2?.initialize(to: index)
                 $3?.initialize(to: .init(from: returnValue))
                 return S_OK
@@ -958,8 +990,10 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: UInt32 = $1
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance.setAt(index, value)
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.setAt(index, value)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -968,8 +1002,10 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: UInt32 = $1
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
-                try __unwrapped__instance.insertAt(index, value)
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.insertAt(index, value)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -978,7 +1014,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: UInt32 = $1
-                try __unwrapped__instance.removeAt(index)
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.removeAt(index)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -986,8 +1024,10 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Append: {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
-                try __unwrapped__instance.append(value)
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.append(value)
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -995,7 +1035,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         RemoveAtEnd: {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.removeAtEnd()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.removeAtEnd()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         },
@@ -1003,7 +1045,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         Clear: {
             do {
                 guard let __unwrapped__instance = IBindableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.clear()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.clear()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -1022,7 +1066,7 @@ public class IBindableVectorMaker: MakeFromAbi {
 // MARK: - IBindableVectorView
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevectorview)
-public protocol IBindableVectorView : IBindableIterable {
+@MainActor public protocol IBindableVectorView : IBindableIterable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevectorview.getat)
     func getAt(_ index: UInt32) throws -> Any!
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevectorview.indexof)
@@ -1032,7 +1076,7 @@ public protocol IBindableVectorView : IBindableIterable {
 }
 
 extension IBindableVectorView {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorViewWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorViewWrapper(self)
@@ -1068,8 +1112,8 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
     fileprivate class IBindableVectorViewImpl: IBindableVectorView, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = IBindableVectorViewBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
@@ -1088,7 +1132,7 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
             get { try! _default.get_Size() }
         }
 
-        private lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
+        private nonisolated(unsafe) lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevectorview.first)
         fileprivate func first() throws -> AnyIBindableIterator! {
             try _IBindableIterable.First()
@@ -1168,7 +1212,11 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
             do {
                 guard let __unwrapped__instance = IBindableVectorViewWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
                 let index: UInt32 = $1
-                let result = try __unwrapped__instance.getAt(index)
+                let __resultBox = AnyResultBox()
+                try MainActor.assumeIsolated {
+                    __resultBox.value = try __unwrapped__instance.getAt(index)
+                }
+                let result: Any! = __resultBox.value
                 let resultWrapper = __ABI_.AnyWrapper(result)
                 resultWrapper?.copyTo($2)
                 return S_OK
@@ -1177,7 +1225,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
 
         get_Size: {
             guard let __unwrapped__instance = IBindableVectorViewWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-            let value = __unwrapped__instance.size
+            let value = MainActor.assumeIsolated {
+                __unwrapped__instance.size
+            }
             $1?.initialize(to: value)
             return S_OK
         },
@@ -1185,9 +1235,11 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         IndexOf: {
             do {
                 guard let __unwrapped__instance = IBindableVectorViewWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
+                nonisolated(unsafe) let value: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($1))
                 var index: UInt32 = 0
-                let returnValue = try __unwrapped__instance.indexOf(value, &index)
+                let returnValue = try MainActor.assumeIsolated {
+                    try __unwrapped__instance.indexOf(value, &index)
+                }
                 $2?.initialize(to: index)
                 $3?.initialize(to: .init(from: returnValue))
                 return S_OK
@@ -1208,19 +1260,19 @@ public class IBindableVectorViewMaker: MakeFromAbi {
 // MARK: - INotifyCollectionChanged
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.inotifycollectionchanged)
-public protocol INotifyCollectionChanged : WinRTInterface {
+@MainActor public protocol INotifyCollectionChanged : WinRTInterface {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.inotifycollectionchanged.collectionchanged)
     var collectionChanged: Event<NotifyCollectionChangedEventHandler> { get }
 }
 
 public extension EventSource where Handler == NotifyCollectionChangedEventHandler {
-    func invoke(_ sender: Any!, _ e: NotifyCollectionChangedEventArgs!) throws {
-        try invokeAll { handler in try handler(sender, e) }
+    @MainActor func invoke(_ sender: Any!, _ e: NotifyCollectionChangedEventArgs!) throws {
+        for handler in currentHandlers { try handler(sender, e) }
     }
 }
 
 extension INotifyCollectionChanged {
-    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    public nonisolated func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedWrapper(self)
@@ -1253,21 +1305,25 @@ extension __IMPL_Microsoft_UI_Xaml_Interop {
     fileprivate class INotifyCollectionChangedImpl: INotifyCollectionChanged, WinRTAbiImpl, @unchecked Sendable {
         fileprivate typealias Bridge = INotifyCollectionChangedBridge
         fileprivate let _default: Bridge.SwiftABI
-        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
-        fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
+        fileprivate nonisolated var thisPtr: WindowsFoundation.IInspectable { _default }
+        nonisolated fileprivate init(_ fromAbi: consuming ComPtr<Bridge.CABI>) {
             _default = Bridge.SwiftABI(fromAbi)
         }
 
         /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.inotifycollectionchanged.collectionchanged)
         fileprivate lazy var collectionChanged : Event<NotifyCollectionChangedEventHandler> = {
           .init(
-            add: { [weak self] in
-              guard let this = self?._default else { return .init() }
-              return try! this.add_CollectionChanged($0)
+            add: { [weak self] handler in
+              try! MainActor.assumeIsolated {
+                guard let this = self?._default else { return .init() }
+                return try this.add_CollectionChanged(handler)
+              }
             },
-            remove: { [weak self] in
-             try? self?._default.remove_CollectionChanged($0)
-           }
+            remove: { [weak self] token in
+              try? MainActor.assumeIsolated {
+                try self?._default.remove_CollectionChanged(token)
+              }
+            }
           )
         }()
 
@@ -1332,7 +1388,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         add_CollectionChanged: {
             guard let __unwrapped__instance = INotifyCollectionChangedWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             guard let handler = __ABI_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventHandlerWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
-            let token = __unwrapped__instance.collectionChanged.addHandler(handler)
+            let token = MainActor.assumeIsolated {
+                __unwrapped__instance.collectionChanged.addHandler(handler)
+            }
             $2?.initialize(to: .from(swift: token))
             return S_OK
         },
@@ -1340,7 +1398,9 @@ extension __ABI_Microsoft_UI_Xaml_Interop {
         remove_CollectionChanged: {
             guard let __unwrapped__instance = INotifyCollectionChangedWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
             let token: EventRegistrationToken = $1
-            __unwrapped__instance.collectionChanged.removeHandler(token)
+            MainActor.assumeIsolated {
+                __unwrapped__instance.collectionChanged.removeHandler(token)
+            }
             return S_OK
         }
     )
@@ -1358,12 +1418,13 @@ public class INotifyCollectionChangedMaker: MakeFromAbi {
 // MARK: - NotifyCollectionChangedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.notifycollectionchangedeventargs)
+@MainActor
 open class NotifyCollectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1371,24 +1432,24 @@ open class NotifyCollectionChangedEventArgs : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _INotifyCollectionChangedEventArgsFactory : __ABI_Microsoft_UI_Xaml_Interop.INotifyCollectionChangedEventArgsFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Interop.NotifyCollectionChangedEventArgs")
 
-    public init(_ action: NotifyCollectionChangedAction, _ newItems: AnyIBindableVector!, _ oldItems: AnyIBindableVector!, _ newIndex: Int32, _ oldIndex: Int32) {
+    nonisolated public init(_ action: NotifyCollectionChangedAction, _ newItems: AnyIBindableVector!, _ oldItems: AnyIBindableVector!, _ newIndex: Int32, _ oldIndex: Int32) {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Interop.NotifyCollectionChangedEventArgsBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._INotifyCollectionChangedEventArgsFactory.CreateInstanceWithAllParameters(action, newItems, oldItems, newIndex, oldIndex, baseInterface, &innerInterface)

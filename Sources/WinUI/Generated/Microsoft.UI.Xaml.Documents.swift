@@ -71,12 +71,13 @@ extension __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CTextRange {
 // MARK: - Block
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block)
+@MainActor
 open class Block : WinUI.TextElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBlock
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -84,29 +85,29 @@ open class Block : WinUI.TextElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IBlockFactory : __ABI_Microsoft_UI_Xaml_Documents.IBlockFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Block")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.BlockBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IBlockFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _IBlockStatics: __ABI_Microsoft_UI_Xaml_Documents.IBlockStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Block")
+    private static nonisolated let _IBlockStatics: __ABI_Microsoft_UI_Xaml_Documents.IBlockStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Block")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.block.horizontaltextalignmentproperty)
     public class var horizontalTextAlignmentProperty : WinUI.DependencyProperty! {
         get { try! _IBlockStatics.get_HorizontalTextAlignmentProperty() }
@@ -361,13 +362,14 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - BlockCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection)
+@MainActor
 public final class BlockCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = Block?
     private typealias SwiftABI = WinUI.IVectorBlock
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CBlock
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -375,31 +377,31 @@ public final class BlockCollection : WinRTClass, @unchecked Sendable, IVector, I
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -408,74 +410,74 @@ public final class BlockCollection : WinRTClass, @unchecked Sendable, IVector, I
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.getat)
-    public func getAt(_ index: UInt32) -> Block? {
+    public nonisolated func getAt(_ index: UInt32) -> Block? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<Block?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<Block?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.indexof)
-    public func indexOf(_ value: Block?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: Block?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.setat)
-    public func setAt(_ index: UInt32, _ value: Block?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: Block?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: Block?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: Block?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.append)
-    public func append(_ value: Block?) {
+    public nonisolated func append(_ value: Block?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [Block?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [Block?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.replaceall)
-    public func replaceAll(_ items: [Block?]) {
+    public nonisolated func replaceAll(_ items: [Block?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableBlock! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableBlock! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.blockcollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<Block?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<Block?>? {
         try! _IIterable.First()
     }
 
@@ -512,12 +514,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Bold
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.bold)
+@MainActor
 public final class Bold : WinUI.Span, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IBold
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBold
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -525,12 +528,12 @@ public final class Bold : WinUI.Span, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Bold")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Bold")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -575,12 +578,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Hyperlink
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink)
+@MainActor
 public final class Hyperlink : WinUI.Span, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IHyperlink
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -588,16 +592,16 @@ public final class Hyperlink : WinUI.Span, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Hyperlink")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Hyperlink")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IHyperlinkStatics: __ABI_Microsoft_UI_Xaml_Documents.IHyperlinkStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Hyperlink")
+    private static nonisolated let _IHyperlinkStatics: __ABI_Microsoft_UI_Xaml_Documents.IHyperlinkStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Hyperlink")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.elementsoundmodeproperty)
     public static var elementSoundModeProperty : WinUI.DependencyProperty! {
         get { try! _IHyperlinkStatics.get_ElementSoundModeProperty() }
@@ -759,39 +763,51 @@ public final class Hyperlink : WinUI.Span, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.click)
     public lazy var click : Event<TypedEventHandler<Hyperlink?, HyperlinkClickEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_Click($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_Click(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_Click($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_Click(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.gotfocus)
     public lazy var gotFocus : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_GotFocus($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_GotFocus(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_GotFocus($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_GotFocus(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlink.lostfocus)
     public lazy var lostFocus : Event<WinUI.RoutedEventHandler> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_LostFocus($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_LostFocus(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_LostFocus($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_LostFocus(token)
+          }
+        }
       )
     }()
 
@@ -1222,12 +1238,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - HyperlinkClickEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.hyperlinkclickeventargs)
+@MainActor
 public final class HyperlinkClickEventArgs : WinUI.RoutedEventArgs, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IHyperlinkClickEventArgs
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlinkClickEventArgs
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1235,7 +1252,7 @@ public final class HyperlinkClickEventArgs : WinUI.RoutedEventArgs, @unchecked S
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
@@ -1280,12 +1297,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Inline
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inline)
+@MainActor
 open class Inline : WinUI.TextElement, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IInline
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1293,23 +1311,23 @@ open class Inline : WinUI.TextElement, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _IInlineFactory : __ABI_Microsoft_UI_Xaml_Documents.IInlineFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Inline")
 
-    public init() {
+    nonisolated public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.InlineBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._IInlineFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -1390,13 +1408,14 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - InlineCollection
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection)
+@MainActor
 public final class InlineCollection : WinRTClass, @unchecked Sendable, IVector, IIterable {
     public typealias T = Inline?
     private typealias SwiftABI = WinUI.IVectorInline
     private typealias CABI = __x_ABI_C__FIVector_1___x_ABI_CMicrosoft__CUI__CXaml__CDocuments__CInline
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1404,31 +1423,31 @@ public final class InlineCollection : WinRTClass, @unchecked Sendable, IVector, 
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
-    override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     // MARK: Collection
     public typealias Element = T
-    public var startIndex: Int { 0 }
-    public var endIndex: Int { Int(size) }
-    public func index(after i: Int) -> Int {
+    public nonisolated var startIndex: Int { 0 }
+    public nonisolated var endIndex: Int { Int(size) }
+    public nonisolated func index(after i: Int) -> Int {
         i+1
     }
 
-    public func index(of: Element) -> Int? {
+    public nonisolated func index(of: Element) -> Int? {
         var index: UInt32 = 0
         let result = indexOf(of, &index)
         guard result else { return nil }
         return Int(index)
     }
-    public var count: Int { Int(size) }
+    public nonisolated var count: Int { Int(size) }
 
 
-    public subscript(position: Int) -> Element {
+    public nonisolated subscript(position: Int) -> Element {
         get {
             getAt(UInt32(position))
         }
@@ -1437,74 +1456,74 @@ public final class InlineCollection : WinRTClass, @unchecked Sendable, IVector, 
         }
     }
 
-    public func removeLast() {
+    public nonisolated func removeLast() {
         removeAtEnd()
     }
 
     // MARK: WinRT
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.getat)
-    public func getAt(_ index: UInt32) -> Inline? {
+    public nonisolated func getAt(_ index: UInt32) -> Inline? {
         try! _default.GetAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.getview)
-    public func getView() -> WindowsFoundation.AnyIVectorView<Inline?>? {
+    public nonisolated func getView() -> WindowsFoundation.AnyIVectorView<Inline?>? {
         try! _default.GetView()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.indexof)
-    public func indexOf(_ value: Inline?, _ index: inout UInt32) -> Bool {
+    public nonisolated func indexOf(_ value: Inline?, _ index: inout UInt32) -> Bool {
         try! _default.IndexOf(value, &index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.setat)
-    public func setAt(_ index: UInt32, _ value: Inline?) {
+    public nonisolated func setAt(_ index: UInt32, _ value: Inline?) {
         try! _default.SetAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.insertat)
-    public func insertAt(_ index: UInt32, _ value: Inline?) {
+    public nonisolated func insertAt(_ index: UInt32, _ value: Inline?) {
         try! _default.InsertAt(index, value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.removeat)
-    public func removeAt(_ index: UInt32) {
+    public nonisolated func removeAt(_ index: UInt32) {
         try! _default.RemoveAt(index)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.append)
-    public func append(_ value: Inline?) {
+    public nonisolated func append(_ value: Inline?) {
         try! _default.Append(value)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.removeatend)
-    public func removeAtEnd() {
+    public nonisolated func removeAtEnd() {
         try! _default.RemoveAtEnd()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.clear)
-    public func clear() {
+    public nonisolated func clear() {
         try! _default.Clear()
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.getmany)
-    public func getMany(_ startIndex: UInt32, _ items: inout [Inline?]) -> UInt32 {
+    public nonisolated func getMany(_ startIndex: UInt32, _ items: inout [Inline?]) -> UInt32 {
         try! _default.GetMany(startIndex, &items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.replaceall)
-    public func replaceAll(_ items: [Inline?]) {
+    public nonisolated func replaceAll(_ items: [Inline?]) {
         try! _default.ReplaceAll(items)
     }
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.size)
-    public var size : UInt32 {
+    public nonisolated var size : UInt32 {
         get { try! _default.get_Size() }
     }
 
-    private lazy var _IIterable: IIterableInline! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _IIterable: IIterableInline! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.inlinecollection.first)
-    public func first() -> WindowsFoundation.AnyIIterator<Inline?>? {
+    public nonisolated func first() -> WindowsFoundation.AnyIIterator<Inline?>? {
         try! _IIterable.First()
     }
 
@@ -1541,12 +1560,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Italic
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.italic)
+@MainActor
 public final class Italic : WinUI.Span, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IItalic
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1554,12 +1574,12 @@ public final class Italic : WinUI.Span, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Italic")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Italic")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1604,12 +1624,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - LineBreak
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.linebreak)
+@MainActor
 public final class LineBreak : WinUI.Inline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ILineBreak
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1617,12 +1638,12 @@ public final class LineBreak : WinUI.Inline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.LineBreak")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.LineBreak")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
@@ -1667,12 +1688,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Paragraph
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.paragraph)
+@MainActor
 public final class Paragraph : WinUI.Block, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IParagraph
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1680,16 +1702,16 @@ public final class Paragraph : WinUI.Block, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Paragraph")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Paragraph")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IParagraphStatics: __ABI_Microsoft_UI_Xaml_Documents.IParagraphStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Paragraph")
+    private static nonisolated let _IParagraphStatics: __ABI_Microsoft_UI_Xaml_Documents.IParagraphStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Paragraph")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.paragraph.textindentproperty)
     public static var textIndentProperty : WinUI.DependencyProperty! {
         get { try! _IParagraphStatics.get_TextIndentProperty() }
@@ -1788,12 +1810,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Run
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.run)
+@MainActor
 public final class Run : WinUI.Inline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IRun
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1801,16 +1824,16 @@ public final class Run : WinUI.Inline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Run")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Run")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
-    private static let _IRunStatics: __ABI_Microsoft_UI_Xaml_Documents.IRunStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Run")
+    private static nonisolated let _IRunStatics: __ABI_Microsoft_UI_Xaml_Documents.IRunStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Run")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.run.flowdirectionproperty)
     public static var flowDirectionProperty : WinUI.DependencyProperty! {
         get { try! _IRunStatics.get_FlowDirectionProperty() }
@@ -1919,12 +1942,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Span
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.span)
+@MainActor
 open class Span : WinUI.Inline, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ISpan
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CISpan
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -1932,23 +1956,23 @@ open class Span : WinUI.Inline, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ISpanFactory : __ABI_Microsoft_UI_Xaml_Documents.ISpanFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Span")
 
-    override public init() {
+    nonisolated override public init() {
         super.init(composing: __IMPL_Microsoft_UI_Xaml_Documents.SpanBridge.Composable.self) { baseInterface, innerInterface in 
             try! Self._ISpanFactory.CreateInstance(baseInterface, &innerInterface)
         }
@@ -2050,12 +2074,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - TextElement
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement)
+@MainActor
 open class TextElement : WinUI.DependencyObject, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextElement
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextElement
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -2063,18 +2088,18 @@ open class TextElement : WinUI.DependencyObject, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
     @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
+    nonisolated override public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init(composing: composing, createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         switch iid {
             case __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverridesWrapper.IID:
                 let wrapper = __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverridesWrapper(self)
@@ -2084,7 +2109,7 @@ open class TextElement : WinUI.DependencyObject, @unchecked Sendable {
     }
     private static nonisolated(unsafe) var _ITextElementFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextElementFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextElement")
 
-    private static let _ITextElementStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextElement")
+    private static nonisolated let _ITextElementStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextElementStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextElement")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeyproperty)
     public class var accessKeyProperty : WinUI.DependencyProperty! {
         get { try! _ITextElementStatics.get_AccessKeyProperty() }
@@ -2322,43 +2347,55 @@ open class TextElement : WinUI.DependencyObject, @unchecked Sendable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeydisplaydismissed)
     public lazy var accessKeyDisplayDismissed : Event<TypedEventHandler<TextElement?, AccessKeyDisplayDismissedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyDisplayDismissed($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_AccessKeyDisplayDismissed(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_AccessKeyDisplayDismissed($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_AccessKeyDisplayDismissed(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeydisplayrequested)
     public lazy var accessKeyDisplayRequested : Event<TypedEventHandler<TextElement?, AccessKeyDisplayRequestedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyDisplayRequested($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_AccessKeyDisplayRequested(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_AccessKeyDisplayRequested($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_AccessKeyDisplayRequested(token)
+          }
+        }
       )
     }()
 
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.accesskeyinvoked)
     public lazy var accessKeyInvoked : Event<TypedEventHandler<TextElement?, AccessKeyInvokedEventArgs?>> = {
       .init(
-        add: { [weak self] in
-          guard let this = self?._default else { return .init() }
-          return try! this.add_AccessKeyInvoked($0)
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_AccessKeyInvoked(handler)
+          }
         },
-        remove: { [weak self] in
-         try? self?._default.remove_AccessKeyInvoked($0)
-       }
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_AccessKeyInvoked(token)
+          }
+        }
       )
     }()
 
-    private lazy var _ITextElementOverrides: __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _ITextElementOverrides: __ABI_Microsoft_UI_Xaml_Documents.ITextElementOverrides! = getInterfaceForCaching()
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement.ondisconnectvisualchildren)
     open func onDisconnectVisualChildren() throws {
         try _ITextElementOverrides.OnDisconnectVisualChildren()
@@ -2437,7 +2474,9 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
         OnDisconnectVisualChildren: {
             do {
                 guard let __unwrapped__instance = ITextElementOverridesWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
-                try __unwrapped__instance.onDisconnectVisualChildren()
+                try MainActor.assumeIsolated {
+                    try __unwrapped__instance.onDisconnectVisualChildren()
+                }
                 return S_OK
             } catch { return failWith(error: error) }
         }
@@ -3039,12 +3078,13 @@ extension ComposableImpl where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_C
 // MARK: - TextHighlighter
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter)
+@MainActor
 open class TextHighlighter : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighter
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextHighlighter
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3052,31 +3092,31 @@ open class TextHighlighter : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
     @_spi(WinRTInternal)
-    public init<Composable: ComposableImpl>(
+    nonisolated public init<Composable: ComposableImpl>(
         composing: Composable.Type,
         _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
     {
         super.init()
         MakeComposed(composing: composing, (self as! Composable.Class), createCallback)
     }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
         return super.queryInterface(iid)
     }
     private static nonisolated(unsafe) var _ITextHighlighterFactory : __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextHighlighter")
 
-    override public init() {
+    nonisolated override public init() {
         super.init()
         MakeComposed(composing: __IMPL_Microsoft_UI_Xaml_Documents.TextHighlighterBridge.Composable.self, self) { baseInterface, innerInterface in 
             try! Self._ITextHighlighterFactory.CreateInstance(baseInterface, &innerInterface)
         }
     }
 
-    private static let _ITextHighlighterStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextHighlighter")
+    private static nonisolated let _ITextHighlighterStatics: __ABI_Microsoft_UI_Xaml_Documents.ITextHighlighterStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.TextHighlighter")
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.texthighlighter.backgroundproperty)
     public class var backgroundProperty : WinUI.DependencyProperty! {
         get { try! _ITextHighlighterStatics.get_BackgroundProperty() }
@@ -3245,12 +3285,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - TextPointer
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textpointer)
+@MainActor
 public final class TextPointer : WinRTClass, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.ITextPointer
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3258,7 +3299,7 @@ public final class TextPointer : WinRTClass, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi)
     }
 
@@ -3384,12 +3425,13 @@ extension __ABI_Microsoft_UI_Xaml_Documents {
 // MARK: - Underline
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.underline)
+@MainActor
 public final class Underline : WinUI.Span, @unchecked Sendable {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Documents.IUnderline
     private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
     @_spi(WinRTInternal)
-    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
         if T.self == CABI.self {
             return RawPointer(_default)
         }
@@ -3397,12 +3439,12 @@ public final class Underline : WinUI.Span, @unchecked Sendable {
     }
 
     @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
         super.init(fromAbi: fromAbi)
     }
 
-    private static let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Underline")
-    override public init() {
+    private static nonisolated let _defaultFactory: WindowsFoundation.IActivationFactory = try! RoGetActivationFactory("Microsoft.UI.Xaml.Documents.Underline")
+    nonisolated override public init() {
         super.init(fromAbi: try! Self._defaultFactory.ActivateInstance())
     }
 
