@@ -45651,6 +45651,59 @@ internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__
         return handler
     }
 }
+private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgs: WindowsFoundation.IID {
+    .init(Data1: 0xaa939f73, Data2: 0xb4c3, Data3: 0x5d22, Data4: ( 0x87,0x69,0xe6,0x73,0x5a,0xa5,0x93,0xfc ))// aa939f73-b4c3-5d22-8769-e6735aa593fc
+}
+
+internal extension WinRTDelegateBridge where CABI == __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgs {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
+internal nonisolated(unsafe) var __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsVTable: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsVtbl = .init(
+    QueryInterface: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsWrapper.queryInterface($0, $1, $2) },
+    AddRef: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsWrapper.addRef($0) },
+    Release: { __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsWrapper.release($0) },
+    Invoke: {
+        do {
+            guard let __unwrapped__instance = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let sender: WinUI.ColorPicker? = __IMPL_Microsoft_UI_Xaml_Controls.ColorPickerBridge.from(abi: ComPtr($1))
+            let args: WinUI.ColorChangedEventArgs? = __IMPL_Microsoft_UI_Xaml_Controls.ColorChangedEventArgsBridge.from(abi: ComPtr($2))
+            try MainActor.assumeIsolated {
+                try __unwrapped__instance(sender, args)
+            }
+            return S_OK
+        } catch { return failWith(error: error) }
+    }
+)
+typealias __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsWrapper = InterfaceWrapperBase<WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsBridge>
+public class TypedEventHandlerColorPicker_ColorChangedEventArgs: WindowsFoundation.IUnknown, @unchecked Sendable {
+    override public class var IID: WindowsFoundation.IID { IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgs }
+
+    open func Invoke(_ sender: WinUI.ColorPicker?, _ args: WinUI.ColorChangedEventArgs?) throws {
+        _ = try perform(as: __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgs.self) { pThis in
+            try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, RawPointer(sender), RawPointer(args)))
+        }
+    }
+
+}
+
+internal class __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsBridge : WinRTDelegateBridge {
+    internal typealias Handler = TypedEventHandler<ColorPicker?, ColorChangedEventArgs?>
+    internal typealias CABI = __x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgs
+    internal typealias SwiftABI = WinUI.TypedEventHandlerColorPicker_ColorChangedEventArgs
+
+    internal static func from(abi: consuming ComPtr<CABI>?) -> Handler? {
+        guard let abi = abi else { return nil }
+        let _default = SwiftABI(abi)
+        let handler: Handler = { (sender, args) in
+            try _default.Invoke(sender, args)
+        }
+        return handler
+    }
+}
 private var IID___x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CComboBox___x_ABI_CMicrosoft__CUI__CXaml__CControls__CComboBoxTextSubmittedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xc3f72fd0, Data2: 0xae09, Data3: 0x5809, Data4: ( 0xb5,0xb1,0x57,0x19,0xc2,0x8c,0x0d,0xd3 ))// c3f72fd0-ae09-5809-b5b1-5719c28c0dd3
 }

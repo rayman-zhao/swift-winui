@@ -166,6 +166,48 @@ extension WinUI.ClickMode {
 }
 extension WinUI.ClickMode: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
 
+// MARK: - ColorSpectrumComponents
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorspectrumcomponents)
+public typealias ColorSpectrumComponents = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumComponents
+
+extension WinUI.ColorSpectrumComponents {
+    public static var hueValue : WinUI.ColorSpectrumComponents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumComponents_HueValue
+    }
+    public static var valueHue : WinUI.ColorSpectrumComponents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumComponents_ValueHue
+    }
+    public static var hueSaturation : WinUI.ColorSpectrumComponents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumComponents_HueSaturation
+    }
+    public static var saturationHue : WinUI.ColorSpectrumComponents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumComponents_SaturationHue
+    }
+    public static var saturationValue : WinUI.ColorSpectrumComponents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumComponents_SaturationValue
+    }
+    public static var valueSaturation : WinUI.ColorSpectrumComponents {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumComponents_ValueSaturation
+    }
+}
+extension WinUI.ColorSpectrumComponents: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
+// MARK: - ColorSpectrumShape
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorspectrumshape)
+public typealias ColorSpectrumShape = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumShape
+
+extension WinUI.ColorSpectrumShape {
+    public static var box : WinUI.ColorSpectrumShape {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumShape_Box
+    }
+    public static var ring : WinUI.ColorSpectrumShape {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumShape_Ring
+    }
+}
+extension WinUI.ColorSpectrumShape: @retroactive Hashable, @retroactive Codable, @retroactive @unchecked Sendable {}
+
 // MARK: - ComboBoxSelectionChangedTrigger
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.comboboxselectionchangedtrigger)
@@ -13235,6 +13277,949 @@ extension __ABI_Microsoft_UI_Xaml_Controls {
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIChoosingItemContainerEventArgs.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsContainerPrepared(pThis, .init(from: value)))
             }
+        }
+
+    }
+
+}
+// MARK: - ColorChangedEventArgs
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorchangedeventargs)
+@MainActor
+public final class ColorChangedEventArgs : WinRTClass, @unchecked Sendable {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IColorChangedEventArgs
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorChangedEventArgs
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    nonisolated override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    nonisolated public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorchangedeventargs.newcolor)
+    public var newColor : UWP.Color {
+        get { try! _default.get_NewColor() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorchangedeventargs.oldcolor)
+    public var oldColor : UWP.Color {
+        get { try! _default.get_OldColor() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - ColorChangedEventArgs Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum ColorChangedEventArgsBridge: AbiBridge {
+        public typealias SwiftProjection = ColorChangedEventArgs
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorChangedEventArgs
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorChangedEventArgs>?) -> ColorChangedEventArgs? {
+            guard let abi = abi else { return nil }
+            return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+        }
+    }
+
+}
+@_spi(WinRTInternal)
+public class ColorChangedEventArgsMaker: MakeFromAbi {
+    public typealias SwiftType = ColorChangedEventArgs
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ColorChangedEventArgs(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorChangedEventArgs: WindowsFoundation.IID = .init(
+        Data1: 0x148D57A2, Data2: 0xB1CB, Data3: 0x5F5D, Data4: ( 0xB6,0xB5,0x51,0x28,0x05,0xD7,0x17,0x61 ) // 148D57A2-B1CB-5F5D-B6B5-512805D71761
+    ) 
+
+    public class IColorChangedEventArgs: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorChangedEventArgs }
+
+        public func get_OldColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_OldColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func get_NewColor() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorChangedEventArgs.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_NewColor(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ColorPicker
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker)
+@MainActor
+open class ColorPicker : WinUI.Control, @unchecked Sendable {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IColorPicker
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    nonisolated override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static nonisolated(unsafe) var _IColorPickerFactory : __ABI_Microsoft_UI_Xaml_Controls.IColorPickerFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ColorPicker")
+
+    nonisolated override public init() {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls.ColorPickerBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IColorPickerFactory.CreateInstance(baseInterface, &innerInterface)
+        }
+    }
+
+    private static nonisolated let _IColorPickerStatics: __ABI_Microsoft_UI_Xaml_Controls.IColorPickerStatics = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ColorPicker")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.colorproperty)
+    public class var colorProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_ColorProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.colorspectrumcomponentsproperty)
+    public class var colorSpectrumComponentsProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_ColorSpectrumComponentsProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.colorspectrumshapeproperty)
+    public class var colorSpectrumShapeProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_ColorSpectrumShapeProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.isalphaenabledproperty)
+    public class var isAlphaEnabledProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsAlphaEnabledProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.isalphaslidervisibleproperty)
+    public class var isAlphaSliderVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsAlphaSliderVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.isalphatextinputvisibleproperty)
+    public class var isAlphaTextInputVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsAlphaTextInputVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.iscolorchanneltextinputvisibleproperty)
+    public class var isColorChannelTextInputVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsColorChannelTextInputVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.iscolorpreviewvisibleproperty)
+    public class var isColorPreviewVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsColorPreviewVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.iscolorslidervisibleproperty)
+    public class var isColorSliderVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsColorSliderVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.iscolorspectrumvisibleproperty)
+    public class var isColorSpectrumVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsColorSpectrumVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.ishexinputvisibleproperty)
+    public class var isHexInputVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsHexInputVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.ismorebuttonvisibleproperty)
+    public class var isMoreButtonVisibleProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_IsMoreButtonVisibleProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.maxhueproperty)
+    public class var maxHueProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_MaxHueProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.maxsaturationproperty)
+    public class var maxSaturationProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_MaxSaturationProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.maxvalueproperty)
+    public class var maxValueProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_MaxValueProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.minhueproperty)
+    public class var minHueProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_MinHueProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.minsaturationproperty)
+    public class var minSaturationProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_MinSaturationProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.minvalueproperty)
+    public class var minValueProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_MinValueProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.previouscolorproperty)
+    public class var previousColorProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics.get_PreviousColorProperty() }
+    }
+
+    private static nonisolated let _IColorPickerStatics2: __ABI_Microsoft_UI_Xaml_Controls.IColorPickerStatics2 = try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.ColorPicker")
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.orientationproperty)
+    public class var orientationProperty : WinUI.DependencyProperty! {
+        get { try! _IColorPickerStatics2.get_OrientationProperty() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.color)
+    public var color : UWP.Color {
+        get { try! _default.get_Color() }
+        set { try! _default.put_Color(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.colorspectrumcomponents)
+    public var colorSpectrumComponents : ColorSpectrumComponents {
+        get { try! _default.get_ColorSpectrumComponents() }
+        set { try! _default.put_ColorSpectrumComponents(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.colorspectrumshape)
+    public var colorSpectrumShape : ColorSpectrumShape {
+        get { try! _default.get_ColorSpectrumShape() }
+        set { try! _default.put_ColorSpectrumShape(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.isalphaenabled)
+    public var isAlphaEnabled : Bool {
+        get { try! _default.get_IsAlphaEnabled() }
+        set { try! _default.put_IsAlphaEnabled(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.isalphaslidervisible)
+    public var isAlphaSliderVisible : Bool {
+        get { try! _default.get_IsAlphaSliderVisible() }
+        set { try! _default.put_IsAlphaSliderVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.isalphatextinputvisible)
+    public var isAlphaTextInputVisible : Bool {
+        get { try! _default.get_IsAlphaTextInputVisible() }
+        set { try! _default.put_IsAlphaTextInputVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.iscolorchanneltextinputvisible)
+    public var isColorChannelTextInputVisible : Bool {
+        get { try! _default.get_IsColorChannelTextInputVisible() }
+        set { try! _default.put_IsColorChannelTextInputVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.iscolorpreviewvisible)
+    public var isColorPreviewVisible : Bool {
+        get { try! _default.get_IsColorPreviewVisible() }
+        set { try! _default.put_IsColorPreviewVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.iscolorslidervisible)
+    public var isColorSliderVisible : Bool {
+        get { try! _default.get_IsColorSliderVisible() }
+        set { try! _default.put_IsColorSliderVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.iscolorspectrumvisible)
+    public var isColorSpectrumVisible : Bool {
+        get { try! _default.get_IsColorSpectrumVisible() }
+        set { try! _default.put_IsColorSpectrumVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.ishexinputvisible)
+    public var isHexInputVisible : Bool {
+        get { try! _default.get_IsHexInputVisible() }
+        set { try! _default.put_IsHexInputVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.ismorebuttonvisible)
+    public var isMoreButtonVisible : Bool {
+        get { try! _default.get_IsMoreButtonVisible() }
+        set { try! _default.put_IsMoreButtonVisible(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.maxhue)
+    public var maxHue : Int32 {
+        get { try! _default.get_MaxHue() }
+        set { try! _default.put_MaxHue(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.maxsaturation)
+    public var maxSaturation : Int32 {
+        get { try! _default.get_MaxSaturation() }
+        set { try! _default.put_MaxSaturation(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.maxvalue)
+    public var maxValue : Int32 {
+        get { try! _default.get_MaxValue() }
+        set { try! _default.put_MaxValue(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.minhue)
+    public var minHue : Int32 {
+        get { try! _default.get_MinHue() }
+        set { try! _default.put_MinHue(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.minsaturation)
+    public var minSaturation : Int32 {
+        get { try! _default.get_MinSaturation() }
+        set { try! _default.put_MinSaturation(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.minvalue)
+    public var minValue : Int32 {
+        get { try! _default.get_MinValue() }
+        set { try! _default.put_MinValue(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.previouscolor)
+    public var previousColor : UWP.Color? {
+        get { try! _default.get_PreviousColor() }
+        set { try! _default.put_PreviousColor(newValue) }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.colorchanged)
+    public lazy var colorChanged : Event<TypedEventHandler<ColorPicker?, ColorChangedEventArgs?>> = {
+      .init(
+        add: { [weak self] handler in
+          try! MainActor.assumeIsolated {
+            guard let this = self?._default else { return .init() }
+            return try this.add_ColorChanged(handler)
+          }
+        },
+        remove: { [weak self] token in
+          try? MainActor.assumeIsolated {
+            try self?._default.remove_ColorChanged(token)
+          }
+        }
+      )
+    }()
+
+    private nonisolated(unsafe) lazy var _IColorPicker2: __ABI_Microsoft_UI_Xaml_Controls.IColorPicker2! = getInterfaceForCaching()
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.colorpicker.orientation)
+    public var orientation : Orientation {
+        get { try! _IColorPicker2.get_Orientation() }
+        set { try! _IColorPicker2.put_Orientation(newValue) }
+    }
+
+    deinit {
+        _default = nil
+        _IColorPicker2 = nil
+    }
+}
+
+// MARK: - ColorPicker Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls {
+    public enum ColorPickerBridge: ComposableBridge {
+        public typealias SwiftProjection = ColorPicker
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker>?) -> ColorPicker? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IControlOverrides : ComposableImpl {
+            public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIControlOverrides
+            public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IControlOverrides
+            public typealias Class = ColorPicker
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IColorPicker
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IControlOverrides
+    }
+
+}
+@_spi(WinRTInternal)
+public class ColorPickerMaker: MakeFromAbi {
+    public typealias SwiftType = ColorPicker
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ColorPicker(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker: WindowsFoundation.IID = .init(
+        Data1: 0xAE72B24B, Data2: 0xF93F, Data3: 0x5A19, Data4: ( 0x8C,0xE4,0xA1,0x8B,0x73,0xC3,0x35,0x6D ) // AE72B24B-F93F-5A19-8CE4-A18B73C3356D
+    ) 
+
+    public class IColorPicker: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker }
+
+        public func get_Color() throws -> UWP.Color {
+            var value: __x_ABI_CWindows_CUI_CColor = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Color(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        public func put_Color(_ value: UWP.Color) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Color(pThis, .from(swift: value)))
+            }
+        }
+
+        public func get_PreviousColor() throws -> UWP.Color? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreviousColor(pThis, &valueAbi))
+                }
+            }
+            return WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper.unwrapFrom(abi: value)
+        }
+
+        public func put_PreviousColor(_ value: UWP.Color?) throws {
+            let valueWrapper = WinUI.__x_ABI_C__FIReference_1___x_ABI_CWindows__CUI__CColorWrapper(value)
+            let _value = try! valueWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_PreviousColor(pThis, _value))
+            }
+        }
+
+        public func get_IsAlphaEnabled() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAlphaEnabled(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsAlphaEnabled(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsAlphaEnabled(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsColorSpectrumVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorSpectrumVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsColorSpectrumVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsColorSpectrumVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsColorPreviewVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorPreviewVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsColorPreviewVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsColorPreviewVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsColorSliderVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorSliderVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsColorSliderVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsColorSliderVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsAlphaSliderVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAlphaSliderVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsAlphaSliderVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsAlphaSliderVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsMoreButtonVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsMoreButtonVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsMoreButtonVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsMoreButtonVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsColorChannelTextInputVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorChannelTextInputVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsColorChannelTextInputVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsColorChannelTextInputVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsAlphaTextInputVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAlphaTextInputVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsAlphaTextInputVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsAlphaTextInputVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_IsHexInputVisible() throws -> Bool {
+            var value: boolean = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsHexInputVisible(pThis, &value))
+            }
+            return .init(from: value)
+        }
+
+        public func put_IsHexInputVisible(_ value: Bool) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_IsHexInputVisible(pThis, .init(from: value)))
+            }
+        }
+
+        public func get_MinHue() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinHue(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MinHue(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinHue(pThis, value))
+            }
+        }
+
+        public func get_MaxHue() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxHue(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MaxHue(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxHue(pThis, value))
+            }
+        }
+
+        public func get_MinSaturation() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinSaturation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MinSaturation(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinSaturation(pThis, value))
+            }
+        }
+
+        public func get_MaxSaturation() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxSaturation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MaxSaturation(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxSaturation(pThis, value))
+            }
+        }
+
+        public func get_MinValue() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinValue(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MinValue(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MinValue(pThis, value))
+            }
+        }
+
+        public func get_MaxValue() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxValue(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_MaxValue(_ value: Int32) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_MaxValue(pThis, value))
+            }
+        }
+
+        public func get_ColorSpectrumShape() throws -> WinUI.ColorSpectrumShape {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumShape = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ColorSpectrumShape(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ColorSpectrumShape(_ value: WinUI.ColorSpectrumShape) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ColorSpectrumShape(pThis, value))
+            }
+        }
+
+        public func get_ColorSpectrumComponents() throws -> WinUI.ColorSpectrumComponents {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CColorSpectrumComponents = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_ColorSpectrumComponents(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_ColorSpectrumComponents(_ value: WinUI.ColorSpectrumComponents) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_ColorSpectrumComponents(pThis, value))
+            }
+        }
+
+        public func add_ColorChanged(_ handler: TypedEventHandler<WinUI.ColorPicker?, WinUI.ColorChangedEventArgs?>?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = WinUI.__x_ABI_C__FITypedEventHandler_2___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorPicker___x_ABI_CMicrosoft__CUI__CXaml__CControls__CColorChangedEventArgsWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_ColorChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        public func remove_ColorChanged(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_ColorChanged(pThis, token))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker2: WindowsFoundation.IID = .init(
+        Data1: 0x802E64C9, Data2: 0x4608, Data3: 0x5C4C, Data4: ( 0x93,0xCF,0x6C,0x46,0x2E,0x3C,0x10,0x68 ) // 802E64C9-4608-5C4C-93CF-6C462E3C1068
+    ) 
+
+    public class IColorPicker2: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker2 }
+
+        public func get_Orientation() throws -> WinUI.Orientation {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CControls_COrientation = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Orientation(pThis, &value))
+            }
+            return value
+        }
+
+        public func put_Orientation(_ value: WinUI.Orientation) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPicker2.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Orientation(pThis, value))
+            }
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerFactory: WindowsFoundation.IID = .init(
+        Data1: 0x72C350E2, Data2: 0x0A20, Data3: 0x5B9B, Data4: ( 0xAC,0x54,0x63,0x3B,0x97,0xD7,0xFF,0xDE ) // 72C350E2-0A20-5B9B-AC54-633B97D7FFDE
+    ) 
+
+    public class IColorPickerFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerFactory }
+
+        public func CreateInstance(_ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls.ColorPickerBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IColorPicker {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IColorPicker(value!)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics: WindowsFoundation.IID = .init(
+        Data1: 0x920D2D62, Data2: 0x172E, Data3: 0x5771, Data4: ( 0xB6,0x77,0x40,0x69,0xB5,0x13,0x45,0x74 ) // 920D2D62-172E-5771-B677-4069B5134574
+    ) 
+
+    public class IColorPickerStatics: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics }
+
+        public func get_ColorProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ColorProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_PreviousColorProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_PreviousColorProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsAlphaEnabledProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAlphaEnabledProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsColorSpectrumVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorSpectrumVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsColorPreviewVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorPreviewVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsColorSliderVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorSliderVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsAlphaSliderVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAlphaSliderVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsMoreButtonVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsMoreButtonVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsColorChannelTextInputVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsColorChannelTextInputVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsAlphaTextInputVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsAlphaTextInputVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_IsHexInputVisibleProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_IsHexInputVisibleProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MinHueProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinHueProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxHueProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxHueProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MinSaturationProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinSaturationProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxSaturationProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxSaturationProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MinValueProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MinValueProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_MaxValueProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MaxValueProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ColorSpectrumShapeProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ColorSpectrumShapeProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+        public func get_ColorSpectrumComponentsProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_ColorSpectrumComponentsProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics2: WindowsFoundation.IID = .init(
+        Data1: 0x2F4AF95B, Data2: 0x81CF, Data3: 0x5304, Data4: ( 0x99,0x50,0x49,0xEC,0x93,0x4C,0x1B,0x35 ) // 2F4AF95B-81CF-5304-9950-49EC934C1B35
+    ) 
+
+    public class IColorPickerStatics2: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics2 }
+
+        public func get_OrientationProperty() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIColorPickerStatics2.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_OrientationProperty(pThis, &valueAbi))
+                }
+            }
+            return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
         }
 
     }
