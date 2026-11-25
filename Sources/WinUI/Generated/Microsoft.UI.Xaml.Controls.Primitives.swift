@@ -6240,6 +6240,169 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
     }
 
 }
+// MARK: - RepeatedScrollSnapPoint
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.repeatedscrollsnappoint)
+@MainActor
+open class RepeatedScrollSnapPoint : WinUI.ScrollSnapPointBase, @unchecked Sendable {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRepeatedScrollSnapPoint
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    nonisolated override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static nonisolated(unsafe) var _IRepeatedScrollSnapPointFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRepeatedScrollSnapPointFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.RepeatedScrollSnapPoint")
+
+    nonisolated public init(_ offset: Double, _ interval: Double, _ start: Double, _ end: Double, _ alignment: ScrollSnapPointsAlignment) {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.RepeatedScrollSnapPointBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IRepeatedScrollSnapPointFactory.CreateInstance(offset, interval, start, end, alignment, baseInterface, &innerInterface)
+        }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.repeatedscrollsnappoint.end)
+    public var end : Double {
+        get { try! _default.get_End() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.repeatedscrollsnappoint.interval)
+    public var interval : Double {
+        get { try! _default.get_Interval() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.repeatedscrollsnappoint.offset)
+    public var offset : Double {
+        get { try! _default.get_Offset() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.repeatedscrollsnappoint.start)
+    public var start : Double {
+        get { try! _default.get_Start() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - RepeatedScrollSnapPoint Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum RepeatedScrollSnapPointBridge: ComposableBridge {
+        public typealias SwiftProjection = RepeatedScrollSnapPoint
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint>?) -> RepeatedScrollSnapPoint? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IRepeatedScrollSnapPoint : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = RepeatedScrollSnapPoint
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IRepeatedScrollSnapPoint
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IRepeatedScrollSnapPoint
+    }
+
+}
+@_spi(WinRTInternal)
+public class RepeatedScrollSnapPointMaker: MakeFromAbi {
+    public typealias SwiftType = RepeatedScrollSnapPoint
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return RepeatedScrollSnapPoint(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint: WindowsFoundation.IID = .init(
+        Data1: 0x5828FB51, Data2: 0x8EBB, Data3: 0x596D, Data4: ( 0xA8,0x71,0x50,0x06,0x34,0x79,0x36,0x2D ) // 5828FB51-8EBB-596D-A871-50063479362D
+    ) 
+
+    public class IRepeatedScrollSnapPoint: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint }
+
+        public func get_Offset() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Offset(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Interval() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Interval(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_Start() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Start(pThis, &value))
+            }
+            return value
+        }
+
+        public func get_End() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPoint.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_End(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPointFactory: WindowsFoundation.IID = .init(
+        Data1: 0xF2FD8403, Data2: 0x679E, Data3: 0x5C31, Data4: ( 0xB4,0x31,0x72,0xA0,0xE0,0x01,0x4E,0x6A ) // F2FD8403-679E-5C31-B431-72A0E0014E6A
+    ) 
+
+    public class IRepeatedScrollSnapPointFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPointFactory }
+
+        public func CreateInstance(_ offset: Double, _ interval: Double, _ start: Double, _ end: Double, _ alignment: WinUI.ScrollSnapPointsAlignment, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls_Primitives.RepeatedScrollSnapPointBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IRepeatedScrollSnapPoint {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIRepeatedScrollSnapPointFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, offset, interval, start, end, alignment, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IRepeatedScrollSnapPoint(value!)
+        }
+
+    }
+
+}
 // MARK: - ScrollControllerAddScrollVelocityRequestedEventArgs
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollcontrolleraddscrollvelocityrequestedeventargs)
@@ -8151,6 +8314,130 @@ extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 }
             }
             return __IMPL_Microsoft_UI_Xaml.DependencyPropertyBridge.from(abi: value)
+        }
+
+    }
+
+}
+// MARK: - ScrollSnapPoint
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollsnappoint)
+@MainActor
+open class ScrollSnapPoint : WinUI.ScrollSnapPointBase, @unchecked Sendable {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPoint
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPoint
+    private nonisolated(unsafe) lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    nonisolated override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    nonisolated override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    nonisolated override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    nonisolated override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static nonisolated(unsafe) var _IScrollSnapPointFactory : __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPointFactory =  try! RoGetActivationFactory("Microsoft.UI.Xaml.Controls.Primitives.ScrollSnapPoint")
+
+    nonisolated public init(_ snapPointValue: Double, _ alignment: ScrollSnapPointsAlignment) {
+        super.init(composing: __IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollSnapPointBridge.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IScrollSnapPointFactory.CreateInstance(snapPointValue, alignment, baseInterface, &innerInterface)
+        }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollsnappoint.value)
+    public var value : Double {
+        get { try! _default.get_Value() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
+// MARK: - ScrollSnapPoint Internals
+
+@_spi(WinRTInternal)
+extension __IMPL_Microsoft_UI_Xaml_Controls_Primitives {
+    public enum ScrollSnapPointBridge: ComposableBridge {
+        public typealias SwiftProjection = ScrollSnapPoint
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPoint
+        public static func from(abi: consuming ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPoint>?) -> ScrollSnapPoint? {
+            guard let abi = abi else { return nil }
+            return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+        }
+        public enum IScrollSnapPoint : ComposableImpl {
+            public typealias CABI = C_IInspectable
+            public typealias SwiftABI = WindowsFoundation.IInspectable
+            public typealias Class = ScrollSnapPoint
+            public typealias SwiftProjection = WinRTClassWeakReference<Class>
+            public enum Default : AbiInterface {
+                public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPoint
+                public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IScrollSnapPoint
+            }
+        }
+        @_spi(WinRTInternal)
+        public typealias Composable = IScrollSnapPoint
+    }
+
+}
+@_spi(WinRTInternal)
+public class ScrollSnapPointMaker: MakeFromAbi {
+    public typealias SwiftType = ScrollSnapPoint
+    public static func from(abi: WindowsFoundation.IInspectable) -> SwiftType {
+        return ScrollSnapPoint(fromAbi: abi)
+    }
+}
+@_spi(WinRTInternal)
+extension __ABI_Microsoft_UI_Xaml_Controls_Primitives {
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPoint: WindowsFoundation.IID = .init(
+        Data1: 0x73D918FF, Data2: 0xD16C, Data3: 0x52CD, Data4: ( 0x96,0x57,0xE3,0x92,0xEE,0x08,0x86,0x8A ) // 73D918FF-D16C-52CD-9657-E392EE08868A
+    ) 
+
+    public class IScrollSnapPoint: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPoint }
+
+        public func get_Value() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPoint.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Value(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    private static let IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPointFactory: WindowsFoundation.IID = .init(
+        Data1: 0x39304BC7, Data2: 0x0E54, Data3: 0x5C06, Data4: ( 0x89,0x20,0xAD,0xCF,0x67,0xE7,0xC4,0x66 ) // 39304BC7-0E54-5C06-8920-ADCF67E7C466
+    ) 
+
+    public class IScrollSnapPointFactory: WindowsFoundation.IInspectable, @unchecked Sendable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPointFactory }
+
+        public func CreateInstance(_ snapPointValue: Double, _ alignment: WinUI.ScrollSnapPointsAlignment, _ baseInterface: UnsealedWinRTClassWrapper<__IMPL_Microsoft_UI_Xaml_Controls_Primitives.ScrollSnapPointBridge.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IScrollSnapPoint {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIScrollSnapPointFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, snapPointValue, alignment, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IScrollSnapPoint(value!)
         }
 
     }
