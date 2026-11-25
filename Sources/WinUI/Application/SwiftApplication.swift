@@ -58,6 +58,10 @@ open class SwiftApplication: Application, IXamlMetadataProvider, @unchecked Send
         return unsafeBitCast(contentPreTranslateMessage!, to: pfnContentPreTranslateMessage.self)
     }()
 
+    // libdispatch's private contract with CFRunLoop: the event signaled when the main queue has work
+    @_silgen_name("_dispatch_get_main_queue_port_4CF")
+    private nonisolated static func dispatchMainQueuePort() -> HANDLE?
+
     private nonisolated static func defaultRunLoop(_ queue: DispatcherQueue) -> Int32 {
         // The below run loop is taken mostly from https://github.com/compnerd/swift-win32/blob/d34ff1b8b3f15cfdf2cb71109a3c313001122a54/Sources/SwiftWin32/App%20and%20Environment/ApplicationMain.swift#L183
         // with some tweaks for WinUI
@@ -90,11 +94,18 @@ open class SwiftApplication: Application, IXamlMetadataProvider, @unchecked Send
             } while (time?.timeIntervalSinceNow ?? -1) <= 0
 
             // Yield control to the system until the earlier of a requisite timer
-            // expiration or a message is posted to the runloop.
-            _ = MsgWaitForMultipleObjects(0, nil, false,
-                                        DWORD(exactly: time?.timeIntervalSinceNow ?? -1)
-                                            ?? 0,
-                                        QS_ALLINPUT)
+            // expiration, main-queue work or a message is posted to the runloop.
+            // limitDate answers .distantFuture without timers and fractional seconds have no exact
+            // DWORD: both must wait rather than fall back to 0, which spins this loop at a full core.
+            let milliseconds = DWORD(exactly: ((time?.timeIntervalSinceNow ?? -1) * 1000).rounded(.up))
+            let timeout = min(milliseconds ?? INFINITE, 1_000)
+
+            // The event is auto-reset: once consumed here it must be re-armed, or the next limitDate
+            // finds nothing to drain. The 1 s bound above covers wake-ups that bypass the event.
+            var mainQueuePort = dispatchMainQueuePort()
+            if MsgWaitForMultipleObjects(1, &mainQueuePort, false, timeout, QS_ALLINPUT) == WAIT_OBJECT_0 {
+                SetEvent(mainQueuePort)
+            }
         }
         return 0
     }
